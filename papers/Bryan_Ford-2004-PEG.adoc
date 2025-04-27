@@ -1,0 +1,1889 @@
+//; pandoc -tasciidoc -rhtml https://bford.info/pub/lang/peg/ >> $0; exit
+:stem: latexmath
+:icons: font
+:toc:
+:table-caption!: 
+:source-highlighter: highlight.js
+
+== Parsing Expression Grammars: A Recognition-Based Syntactic Foundation
+
+*Bryan Ford* +
+Massachusetts Institute of Technology
+
+http://www.cs.princeton.edu/~dpw/popl/04/[Symposium on Principles of Programming Languages, January 14-16, 2004, Venice, Italy]
+
+=== Abstract
+
+For decades we have been using Chomsky's generative system of grammars,
+particularly context-free grammars (CFGs) and regular expressions (REs),
+to express the syntax of programming languages and protocols. The power
+of generative grammars to express ambiguity is crucial to their original
+purpose of modelling natural languages, but this very power makes it
+unnecessarily difficult both to express and to parse machine-oriented
+languages using CFGs. Parsing Expression Grammars (PEGs) provide an
+alternative, recognition-based formal foundation for describing
+machine-oriented syntax, which solves the ambiguity problem by not
+introducing ambiguity in the first place. Where CFGs express
+nondeterministic choice between alternatives, PEGs instead use
+_prioritized choice_. PEGs address frequently felt expressiveness
+limitations of CFGs and REs, simplifying syntax definitions and making
+it unnecessary to separate their lexical and hierarchical components. A
+linear-time parser can be built for any PEG, avoiding both the
+complexity and fickleness of LR parsers and the inefficiency of
+generalized CFG parsing. While PEGs provide a rich set of operators for
+constructing grammars, they are reducible to two minimal recognition
+schemas developed around 1970, TS/TDPL and gTS/GTDPL, which are here
+proven equivalent in effective recognition power.
+
+Full Paper: 
+    link:https://bford.info/pub/lang/peg.pdf[PDF] 
+    link:https://bford.info/pub/lang/peg.ps.gz[PostScript]
+
+Slides: 
+    link:https://bford.info/pub/lang/peg-slides.pdf[PDF] 
+    link:https://bford.info/pub/lang/peg-slides[HTML]
+
+TIP: PostScript® LANGUAGE REFERENCE third edition
+https://www.adobe.com/jp/print/postscript/pdfs/PLRM.pdf
+
+Topics: 
+link:http://www.cs.princeton.edu/topics/Programming-Languages/[Programming Languages] 
+link:http://www.cs.princeton.edu/topics/Parsing/[Parsing] 
+link:http://www.cs.princeton.edu/topics/Syntax/[Syntax]
+
+https://bford.info/[Bryan Ford]
+
+
+== PEG Slides
+
+Parsing Expression Grammars:
+A Recognition-Based Syntactic Foundation
+
+[.text-center]
+**Bryan Ford** +
+**Massachusetts Institute of Technology** +
+January 14, 2004
+
+=== Designing a Language Syntax
+
+Textbook Method
+
+1. Formalize syntax via context-free grammar
+2. Write a YACC parser specification
+3. Hack on grammar until “near-LALR(1)”
+4. Use generated parser
+
+Pragmatic Method
+
+1. Specify syntax informally
+2. Write a recursive descent parser
+
+==== What exactly does a CFG describe?
+
+Short answer: a rule system to **generate** language strings
+
+Example CFG:
+
+    S -> aaS
+    S -> ε
+
+[graphviz]
+----------
+digraph {
+    rankdir = LR
+    node [shape=plain]
+    Sn   [label="Start symbol"]
+    S    [shape=doublecircle]
+    edge [arrowhead=vee]
+    aa   [fontcolor=green]
+    aaaa [fontcolor=green]
+    aaS  [label=<<FONT color="green">aa</FONT>S>]
+    aaaaS[label=<<FONT color="green">aaaa</FONT>S>]
+    cdot [label="..."]
+
+    Sn    -> S
+    S     -> { ε  aaS }
+    aaS   -> { aa aaaaS }
+    aaaaS -> { aaaa cdot}
+}
+----------
+
+[graphviz]
+----------
+digraph {
+    rankdir = LR
+    splines = spline
+    Sn   [shape=plain,label="Start symbol",style=filled,fillcolor="yellowgreen"]
+    S    [shape=doublecircle]
+    Os   [shape=plain,label="Output strings",style=filled,fillcolor="yellowgreen"]
+    edge [arrowhead=vee]
+    aa   [fontcolor=green]
+    aaaa [fontcolor=green]
+    aaS  [shape=plain,label=<<FONT color="green">aa</FONT>S>]
+    aaaaS[shape=plain,label=<<FONT color="green">aaaa</FONT>S>]
+    cdot [shape=plain,label="..."]
+    {rank=same; S Os}
+
+    Sn    -> S
+    S     -> { ε  aaS }
+    aaS   -> { aa aaaaS }
+    aaaaS -> { aaaa cdot}
+    Os    -> { ε aa aaaa }
+}
+----------
+
+==== What exatly do we want to describe?
+
+Proposed answer: 
+    a rule system to **recognize** language strings
+
+Parsing Expression Grammar (PEG):
+    models **recursive descent parsing practice**
+
+Example PEG:
+    S <- aaS / ε
+
+     ┌───────────┐
+     │ a a a a ε │ <- Input string
+     └┬─┬─┬─┬─┬──┘
+      │ │ │ │ │   
+      │ │ │ │ ▼──┐
+      │ │ │a│a│ S│◄──┐  
+      │ │ ▼─▼─└──┘   │  
+      │a│a│   S  │◄──┼── Derive structure
+     ┌▼─▼─└──────┘   │  
+     │     S     │◄──┘  
+     └───────────┘
+
+=== Take-Home Points
+
+Key benefits of PEGs:
+
+• Simplicity, formalism, analyzability of CFGs
+• Closer match to syntax practices
+- More expressive than deterministic CFGs (LL/LR)
+- More of the “right kind” of expressiveness:
+  prioritized choice, greedy rules, syntactic predicates
+- Unlimited lookahead, backtracking
+• Linear-time parsing for any PEG
+
+==== What kind of recursive descent parsing?
+
+Key assumptions:
+
+• Parsing functions are *stateless*:
+  depend only on input string
+• Parsing functions *make decisions locally*:
+  return at most one result (success/failure)
+
+Consists of: (∑, N, R, \(e_S\))
+
+- ∑: finite set of _terminals_ (character set)
+- N: finite set of _nonterminals_
+- R: finite set of rules of the form “A <- e”,
+  where, A ∈ N, e is a _parsing expression_.
+- \(e_S\): a parsing expression called the _start expression_.
+
+=== Parsing Expressions
+
+[%autowidth,cols="h,~"]
+|===
+|ε                 |the empty string
+|a                 |terminal (a ∈ ∑)
+|A                 |nonterminal (A ∈ N)
+|\(e_1   e_2\)     |a sequence of parsing expressions
+|\(e_1 / e_2\)     |prioritized choice between alternatives
+|\(e^?, e^*, e^+\) |optional, zero-or-more, one-or-more
+|&e, !e            |syntactic predicates
+|===
+
+==== How PEGs Express Languages
+
+Given input string _s_, a parsing expression either:
+
+- **Matches** and consumes a prefix _s'_ of _s_.
+- **Fails** on _s_.
+
+Example:
+
+[%autowidth,cols=",~"]
+|===
+1.4+s|S <- bad
+     |S matches  [.green]#“badder”#
+     |S matches  [.green]#“baddest”#
+     |S fails on   [.red]#“abad”#
+     |S fails on   [.red]#“babe”#
+|===
+
+=== Prioritized Choice with Backtracking
+
+`S <- A / B` means::
+    “To parse an S, first try to parse an A.
+    If A fails, then backtrack and try to parse a B.”
+
+Example::
+
+[%autowidth,cols=",~"]
+|===
+1.4+s|S <- if C then S else S / if C then S
+     |S matches “if C then S foo”
+     |S matches “if C then \(S_1\) else \(S_2\) ”
+     |S fails on “if C else S”
+|===
+
+Example from the C++ standard::
+  “An *expression-statement* ... can be indistinguishable
+  from a *declaration* ... In those cases the *statement* is a
+  *declaration*.”
++
+[source,peg]
+----
+  statement <- declaration /
+               expression-statement
+----
+
+=== Greedy Option and Repetition
+
+• \(A <- e^?\) equivalent to \(A <- e / ε\)
+• \(A <- e^*\) equivalent to \(A <- e A / ε\)
+• \(A <- e^+\) equivalent to \(A <- e e^*\)
+
+Example::
+  \(I <- L^+\) +
+  \(L <- a / b / c / ...\)
+
+  • I matches “foobar”
+  • I matches “foo(bar)”
+  • I fails on “123”
+
+=== Syntactic Predicates
+
+*And-predicate*: &e succeeds whenever e does, but consumes no input [Parr '94, '95]
+
+*Not-predicate*: !e succeeds whenever e fails
+
+Example::
+  A <- foo &(bar) +
+  B <- foo !(bar)
+
+  • A matches “foobar”
+  • A fails on “foobie”
+  • B matches “foobie”
+  • B fails on “foobar”
+
+Example::
+  \(C <- B I^* E    \) +
+  \(I <- !E (C / T) \) +
+  \(B <- (*         \) +
+  \(E <- *)         \) +
+    T <- [any terminal]
+
+  • C matches `+“(*ab*)cd”+`
+  • C matches `+“(*a(*b*)c*)”+`
+  • C fails on `+“(*a(*b*)”+`
+
+[]
+• Begin marker: `B` and `(*`
+• End marker: `E` and \(E <- *) \)
+• Internal elements: `I` and \(I <- !E (C / T) \)
+  * `!E` means: Only if an end marker doesn't start here...
+  * `(C / T)` means: ...consume a nested comment, 
+    or else consume any single character.
+
+
+=== Unified Grammars
+
+PEGs can express both lexical and hierarchical
+syntax of realistic languages in one grammar
+
+• Example (in paper): Complete self-describing PEG in 2/3 column
+• Example (on web): Unified PEG for Java language
+
+==== Lexical/Hierarchical Interplay
+
+Unified grammars create new design opportunities
+
+Example:
+
+[source,peg]
+-------
+  E <- S / ( E) / ...
+  S <- “ C* “
+  C <- \( E) / !“ !\ T
+  T <- [any terminal]
+-------
+
+To get Unicode “∀”, instead of “\u2200”, write“\(0x2200)”
+or “\(8704)” or “\(FOR_ALL)”
+
+• `E <- S / ( E) / ...`: General-purpose expression syntax
+• `S` and `S <- “ C* “`: String literals
+• \(C^*\) and `C <- \( E) / !“ !\ T`: Quotable characters
+  * `E` recursive refers to \(E <- S / ( E)\)
+
+=== Formal Properties of PEGs
+
+• Express all deterministic languages - LR(k)
+• Closed under union, intersection, complement
+• Some non-context free languages, e.g., \(a^n b^n c^n\)
+• Undecidable whether L(G) = ∅
+• Predicate operators can be eliminated
+  - ...but the process is non-trivial!
+
+=== Minimalist Forms
+
+    Predicate-free PEG    Any PEG
+            ⇩                ⇩
+    TS [Birman '70/'73]   gTS [Birman '70/'73]
+    TDPL [Aho '72]        GTDPL [Aho '72]
+
+    A <- ε                A <- ε
+    A <- a         ⇦   ⇨  A <- a
+    A <- f                A <- f
+    A <- BC / D           A <- B[C, D]
+
+=== Formal Contributions
+
+• Generalize TDPL/GTDPL with more expressive
+  - _structured parsing expression syntax_
+• Negative syntactic predicate - !e
+• Predicate elimination transformation
+  - Intermediate stages depend on generalized parsing expressions
+• Proof of equivalence of TDPL and GTDPL
+
+=== What can't PEGs express directly?
+
+• Ambiguous languages
+  - That's what CFGs were designed for!
+• Globally disambiguated languages?
+  - \(\{a,b\}^n  a \{a,b\}^n\) ?
+• State- or semantic-dependent syntax
+  - C, C++ typedef symbol tables
+  - Python, Haskell, ML layout
+
+=== Generating Parsers from PEGs
+
+Recursive-descent parsing
+
+- Simple & direct, but exponential-time if not careful
+
+Packrat parsing [Birman '70/'73, Ford '02]
+
+- Linear-time, but can consume substantial storage
+
+Classic LL/LR algorithms?
+
+- Grammar restrictions, but both time- & space-efficient
+
+=== Conclusion
+
+PEGs model common parsing practices
+
+- Prioritized choice, greedy rules, syntactic predicates
+
+PEGs naturally complement CFGs
+
+- CFG: generative system, for ambiguous languages
+- PEG: recognition-based, for unambiguous languages
+
+For more info:
+http://pdos.lcs.mit.edu/~baford/packrat
+(or Gooogle for “Packrat Parsing”)
+
+== PEG Paper
+
+[.text-center]
+*Parsing Expression Grammars*: +
+*A Recognition-Based Syntactic Foundation* +
+Bryan Ford +
+Massachusetts Institute of Technology +
+Cambridge, MA +
+baford@mit.edu
+
+== Abstract
+
+For decades we have been using Chomsky’s generative system of
+grammars, particularly context-free grammars (CFGs) and 
+regular expressions (REs), to express the syntax of programming 
+languages and protocols. The power of generative grammars to 
+express ambiguity is crucial to their original purpose of modelling
+natural languages, but this very power makes it unnecessarily 
+difficult both to express and to parse machine-oriented languages using
+CFGs. Parsing Expression Grammars (PEGs) provide an 
+alternative, recognition-based formal foundation for describing 
+machineoriented syntax, which solves the ambiguity problem by not 
+introducing ambiguity in the first place. Where CFGs express 
+nondeterministic choice between alternatives, PEGs instead use prioritized
+choice. PEGs address frequently felt expressiveness limitations of
+CFGs and REs, simplifying syntax definitions and making it 
+unnecessary to separate their lexical and hierarchical components. A
+linear-time parser can be built for any PEG, avoiding both the 
+complexity and fickleness of LR parsers and the inefficiency of 
+generalized CFG parsing. While PEGs provide a rich set of operators for
+constructing grammars, they are reducible to two minimal 
+recognition schemas developed around 1970, TS/TDPL and gTS/GTDPL,
+which are here proven equivalent in effective recognition power.
+
+== Categories and Subject Descriptors
+
+F.4.2 [Mathematical Logic and Formal Languages]: 
+Grammars and Other Rewriting Systems—Grammar types; 
+
+D.3.1 [Programming Languages]: Formal Definitions and Theory—Syntax; 
+
+D.3.4 [Programming Languages]: Processors—Parsing
+
+== General Terms
+
+Languages, Algorithms, Design, Theory
+
+== Keywords
+
+Context-free grammars, regular expressions, parsing expression
+grammars, BNF, lexical analysis, unified grammars, scannerless
+parsing, packrat parsing, syntactic predicates, TDPL, GTDPL
+
+Permission to make digital or hard copies of all or part of this work for personal or
+classroom use is granted without fee provided that copies are not made or distributed
+for profit or commercial advantage and that copies bear this notice and the full citation
+on the first page. To copy otherwise, to republish, to post on servers or to redistribute
+to lists, requires prior specifi c permission and/or a fee.
+POPL’04, January 14–16, 2004, Venice, Italy.
+Copyright 2004 ACM 1-58113-729-X/04/0001 ...$5.00
+
+== 1 Introduction
+
+Most language syntax theory and practice is based on generative
+systems, such as regular expressions and context-free grammars, in
+which a language is defined formally by a set of rules applied 
+recursively to generate strings of the language. A recognition-based
+system, in contrast, defines a language in terms of rules or 
+predicates that decide whether or not a given string is in the language.
+Simple languages can be expressed easily in either paradigm. For
+example, { \(s ∈ a^∗ | s = (aa)^n\) } is a generative definition of a trivial
+language over aunary character set, whosestringsare“constructed”
+by concatenating pairs of a’s. In contrast, {\(s∈a^∗ | (|s| mod 2=0)\)}
+is a recognition-based definition of the same language, in which a
+string of a’s is “accepted” if its length is even.
+
+While most language theory adopts the generative paradigm, most
+practical language applications in computer science involve the
+recognition and structural decomposition, or parsing, of strings.
+Bridging the gap from generative definitions to practical 
+recognizers is the purpose of our ever-expanding library of parsing 
+algorithms with diverse capabilities and trade-offs [9].
+
+Chomsky’s generative system of grammars, from which the 
+ubiquitous context-free grammars (CFGs) and regular expressions (REs)
+arise, was originally designed as a formal tool for modelling and
+analyzing natural (human) languages. Due to their elegance and
+expressive power, computer scientistsadopted generative grammars
+for describing machine-oriented languages as well. The ability of
+a CFG to express ambiguous syntax is an important and powerful
+tool for natural languages. Unfortunately, this power gets in the
+way when we use CFGs for machine-oriented languages that are
+intended to be precise and unambiguous. Ambiguity in CFGs is
+difficult to avoid even when we want to, and it makes general CFG
+parsing an inherently super-linear-time problem [14, 23].
+
+This paper develops an alternative, recognition-based formal 
+foundation for language syntax, Parsing Expression Grammars or
+PEGs. PEGs are stylistically similar to CFGs with RE-like 
+features added, much like Extended Backus-Naur Form (EBNF) 
+notation [30, 19]. A key difference is that in place of the unordered
+choice operator ‘|’ used to indicate alternative expansions for a 
+nonterminal in EBNF, PEGs use a prioritized choice operator ‘/’. This
+operator lists alternative patterns to be tested in order, 
+unconditionally using the first successful match. The EBNF rules ‘A → a b |
+a’ and ‘A → a | a b’ are equivalent in a CFG, but the PEG rules 
+‘A ← a b / a’ and ‘A ← a / a b’ are different. The second alternative
+in the latter PEG rule will never succeed because the first choice is
+always taken if the input string to be recognized begins with ‘a’.
+
+A PEG may be viewed as a formal description of a top-down parser.
+Two closely related prior systems upon which this work is based
+were developed primarily for the purpose of studying top-down
+parsers [4, 5]. PEGshavefar moresyntactic expressiveness than the
+LL(k) language class typically associated with top-down parsers,
+however, and can express all deterministic LR(k) languages and
+many others, including some non-context-free languages. Despite
+their considerable expressive power, all PEGs can be parsed in 
+linear time using a tabular or memoizing parser [8]. These 
+properties strongly suggest that CFGs and PEGs define incomparable 
+language classes, although a formal proof that there are context-free
+languages not expressible via PEGs appears surprisingly elusive.
+
+Besides developing PEGs as a formal system, this paper presents
+pragmatic examples that demonstrate their suitability for describing 
+realisticmachine-oriented languages. Since these languages are
+generally designed to be unambiguous and linearly readable in the
+first place, the recognition-oriented nature of PEGscreates a natural
+affinity in terms of syntactic expressiveness and parsing efficiency.
+
+The primary contribution of this work is to provide language and
+protocol designers with a new tool for describing syntax that is both
+practical and rigorously formalized. A secondary contribution is to
+render this formalism more amenable to further analysis by 
+proving its equivalence to two simpler formal systems, originally named
+TS (“TMG recognition scheme”) and gTS (“generalized TS”) by
+Alexander Birman [4, 5], in reference to an early syntax-directed
+compiler-compiler. These systems were later called TDPL 
+(“Top-Down Parsing Language”) and GTDPL (“Generalized TDPL”) 
+respectively by Aho and Ullman [3]. By extension we prove that with
+minor caveats TS/TDPL and gTS/GTDPL are equivalent in recognition 
+power, an unexpected result contrary to prior conjectures [5].
+
+The rest of this paper is organized as follows. Section 2 first defines
+PEGs informally and presents examples of their usefulness for 
+describing practical machine-oriented languages. Section 3 then 
+defines PEGs formally and proves some of their important properties.
+Section 4 presents useful transformations on PEGs and proves the
+main result regarding the reducibility of PEGs to TDPL and 
+GTDPL. Section 5 outlines open problems for future study, Section 6
+describes related work, and Section 7 concludes.
+
+== 2 Parsing Expression Grammars
+
+Figure 1 shows an example PEG, which precisely specifies a practical
+syntax for PEGs using the ASCII character set. The example
+PEG describes its own complete syntax including all lexical 
+characteristics. Most elements of the grammar should be immediately
+recognizable toanyone familiar withCFGsandregular expressions.
+The grammar consists of a set of definitions of the form ‘A <- e’,
+where A is a nonterminal and e is a parsing expression. The operators
+for constructing parsing expressions are summarized in Table 1.
+
+Single or double quotes delimit string literals, and square brackets
+indicatecharacter classes. Literalsand character classescancontain
+C-like escape codes, and character classes can include ranges such
+as ‘a-z’. The constant ‘.’ matches any single character.
+
+The sequence expression ‘\(e_1\) \(e_2\)’ looks for a match of \(e_1\) immediately 
+followed by a match of \(e_2\), backtracking to the starting point if either 
+pattern fails. The choice expression ‘\(e_1\) / \(e_2\) ’ first attempt pattern 
+\(e_1\), then attempts \(e_2\) from the same starting point if \(e_1\) fails.
+
+.Figure 1. PEG formally describing its own ASCII syntax
+[source,peg]
+------------
+# Hierarchical syntax
+Grammar     <- Spacing Definition+ EndOfFile
+Definition  <- Identifier LEFTARROW Expression
+
+Expression  <- Sequence (SLASH Sequence)*
+Sequence    <- Prefix*
+Prefix      <- (AND / NOT)? Suffix
+Suffix      <- Primary (QUESTION / STAR / PLUS)?
+Primary     <- Identifier !LEFTARROW
+            /  OPEN Expression CLOSE
+            /  Literal / Class / DOT
+
+# Lexical syntax
+Identifier  <- IdentStart IdentCont* Spacing
+IdentStart  <- [a-zA-Z_]
+IdentCont   <- IdentStart / [0-9]
+
+Literal     <- [’] (![’] Char)* [’] Spacing
+            /  ["] (!["] Char)* ["] Spacing
+Class       <- ’[’ (!’]’ Range)* ’]’ Spacing
+Range       <- Char ’-’ Char / Char
+Char        <- ’\\’ [nrt’"\[\]\\]
+            /  ’\\’ [0-2][0-7][0-7]
+            /  ’\\’ [0-7][0-7]?
+            /  !’\\’ .
+
+LEFTARROW   <- ’<-’ Spacing
+SLASH       <- ’/’ Spacing
+AND         <- ’&’ Spacing
+NOT         <- ’!’ Spacing
+QUESTION    <- ’?’ Spacing
+STAR        <- ’*’ Spacing
+PLUS        <- ’+’ Spacing
+OPEN        <- ’(’ Spacing
+CLOSE       <- ’)’ Spacing
+DOT         <- ’.’ Spacing
+
+Spacing     <- (Space / Comment)*
+Comment     <- ’#’ (!EndOfLine .)* EndOfLine
+Space       <- ’ ’ / ’\t’ / EndOfLine
+EndOfLine   <- ’\r\n’ / ’\n’ / ’\r’
+EndOfFile   <- !.
+------------
+
+The ?, \*, and + operators behave as in common regular expression
+syntax, except that they are “greedy” rather than nondeterministic.
+The option expression ‘e? ’ unconditionally “consumes” the text
+matched by e if e succeeds, and the repetition expressions ‘\(e^*\)’
+and ‘stem:[e^+]’ always consume as many successive matches of e as 
+possible. The expression ‘\(a^* a\)’ for example can never match any
+string. Longest-match parsing is almost always the desired behavior 
+where options or repetition occur in practical machine-oriented
+languages. Many forms of non-greedy behavior are still available
+in PEGs when desired, however, through the use of predicates.
+
+The operators & and ! denote _syntactic predicates_ [20], which 
+provide much of the practical expressive power of PEGs. The 
+expression ‘&e’ attempts to match pattern e, then unconditionally
+backtracks to the starting point, preserving only the knowledge of
+whether e succeeded or failed to match. Conversely, the expression 
+‘!e’ fails if e succeeds, but succeeds if e fails. For example,
+the subexpression *‘!EndOfLine .’* in the definition for Comment
+in Figure 1, matches any single character as long as the nonterminal
+*EndOfLine* does not match starting at the same position.
+The expression *‘Identifier !LEFTARROW’* in the definition for
+*Primary*, in contrast, matches any *Identifier* that is not followed
+by a *LEFTARROW* . This latter predicate prevents the right-hand-side
+*Expression* at the beginning of one *Definition* from consuming
+the left-hand-side *Identifier* of the next *Definition*, eliminating 
+the need for an explicit delimiter. Predicates can involve 
+arbitrary parsing expressions requiring any amount of “lookahead.”
+
+.Table 1. Operators for Constructing Parsing Expressions
+[%autowidth%header]
+|===
+|Operator       |Type         |Precedence |Description
+|’ ’            |primary      |5          |Literal string
+|" "            |primary      |5          |Literal string
+|[ ]            |primary      |5          |Character class
+|.              |primary      |5          |Any character
+|( e)          |primary      |5          |Grouping
+|\(e^?\)        |unary suffix |4          |Optional
+|\(e^*\)        |unary suffix |4          |Zero-or-more
+|\(e^+\)        |unary suffix |4          |One-or-more
+|&e             |unary prefix |3          |And-predicate
+|!e             |unary prefix |3          |Not-predicate
+|\(e_1 e_2\)    |binary       |2          |Sequence
+|\(e_1 / e_2\)  |binary       |1          |Prioritized Choice
+|===
+
+
+== 2.1 Unified Language Definitions
+
+Most conventional syntax descriptions are split into two parts: a
+CFG to specify the hierarchical portion, and a set of regular 
+expressions defining the lexical elements to serve as terminals for
+the CFG. CFGs are unsuitable for lexical syntax because they 
+cannot directly express many common idioms, such as the greedy rule
+that usually applies to identifiers and numbers, or “negative” 
+syntax such as the Literal rule above, in which quoted string literals
+may contain any character except the quote character. Regular 
+expressions cannot describe recursive syntax, however, such as large
+expressions constructed inductively from smaller expressions.
+
+Neither of these difficulties exist with PEGs, as demonstrated by
+the unified example grammar. The greedy nature of the repetition
+operator ensures that asequence of letterscan only be interpreted as
+a single Identifier and not as two or more immediately adjacent,
+shorter ones. Not-predicates describe the appropriate negative 
+constraints on the elements that can appear in literals, character classes,
+and comments. The last `‘!’\\’ . ’` alternative in the definition of
+Char ensures that the backslash cannot be used in a literal or 
+character class except as part of an escape sequence.
+
+Each definition in the example grammar that represents a distinct
+lexical “token,” such as *Identifier*, *Literal*, or *LEFTARROW*,
+uses the *Spacing* nonterminal to “consume” any whitespace and/or
+comments immediately following the token. The definition of
+*Grammar* also starts with *Spacing* in order to allow *whitespace* at
+the beginning of the file. Associating whitespace with each 
+immediately preceding token is a convenient convention for PEGs, but
+whitespace could just as easily be associated with the following 
+token by referring to *Spacing* at the beginning of each token 
+definition. Whitespace could even be treated as a separate kind of token,
+consistent with lexical traditions, but doing so in a unified grammar
+such as this one would require many explicit references to *Spacing*
+throughout the hierarchical portion of the syntax.
+
+== 2.2 New Syntax Design Choices
+
+Besides being able to express many existing machine-oriented 
+languages in a concise and unified grammar, PEGs also create new
+possibilities for language syntax design. Consider for example a
+well-known problem with C++ syntax involving nested template
+type expressions:
+
+[source,cpp]
+----
+vector<vector<float> > MyMatrix;
+----
+
+The space between the two right angle brackets is required because
+the C++ scanner is oblivious to the language’s hierarchical syntax,
+and would otherwise interpret the ‘ >> ’ incorrectly as a right shift
+operator. In a language described by a unified PEG, however, it is
+easy to define the language to permit a ‘ >> ’ sequence to be 
+interpreted as either one token or two depending on its context:
+
+[source,peg]
+----
+TemplType <- PrimType (LANGLE TemplType RANGLE)?
+ShiftExpr <- PrimExpr (ShiftOper PrimExpr)*
+ShiftOper <- LSHIFT / RSHIFT
+
+LANGLE    <- ’<’ Spacing
+RANGLE    <- ’>’ Spacing
+LSHIFT    <- ’<<’ Spacing
+RSHIFT    <- ’>>’ Spacing
+----
+
+Such permissiveness can create unexpected syntactic subtleties, of
+course, and caution and good taste are in order: a powerful syntax
+description paradigm also means more rope for the careless language 
+designer to hang himself with. The traditional behavior for operator 
+tokens is still easily expressible if desired, as follows:
+
+[source,peg]
+----
+LANGLE <- !LSHIFT ’<’ Spacing
+RANGLE <- !RSHIFT ’>’ Spacing
+LSHIFT <- ’<<’ Spacing
+RSHIFT <- ’>>’ Spacing
+----
+
+Freeing lexical syntax from the restrictions of regular expressions
+also enables tokens to have hierarchical characteristics, or even to
+refer back to the hierarchical portion of the language. Pascal-like
+nestable comments, for example, cannot be described by a regular
+expression but are easily expressed in a PEG:
+
+[source,peg]
+----
+Comment <- ’(*’ (Comment / !’*)’ .)* ’*)’
+----
+
+Character and string literals in most programming languages permit 
+escape sequences of some kind, to express either special characters 
+or dynamic string substitutions. These escapes usually have
+a highly restrictive syntax, however. A language described by a
+unified PEG could permit the use of arbitrary expressions in such
+escapes, taking advantage of the full power of the language’s 
+expression syntax:
+
+[source,peg]
+----
+Expression <- ...
+Primary    <- Literal / ...
+
+Literal    <- ["] (!["] Char)* ["]
+Char       <- ’\\(’ Expression ’)’
+           /  !’\\’ .
+----
+
+In place of the Java string literal "\u2200" containing the 
+Unicode math symbol ‘∀’, for example, the literal could be 
+written "\(0x2200)", "\(8704)", or even "\(Unicode.FOR_ALL)",
+where *FOR_ALL* is a constant defined in a class named *Unicode* .
+
+== 2.3 Priorities, Not Ambiguities
+
+The specification flexibility provided by PEGs, and the new syntax
+design choices they create, are not limited to the lexical portions
+of a language. Many sensible syntactic constructs are inherently
+ambiguous when expressed in a CFG, commonly leading language
+designers to abandon syntactic formality and relyon informal 
+metarules to solve these problems. The ubiquitous “dangling ELSE”
+problem is a classic example, traditionally requiring either an 
+informal meta-rule or severe expansion and obfuscation of the CFG.
+The correct behavior is easily expressed with the prioritized choice
+operator in a PEG:
+
+[source,peg]
+----
+Statement <- IF Cond THEN Statement ELSE Statement
+          /  IF Cond THEN Statement
+          /  ...
+----
+
+The syntax of C++ contains ambiguities that cannot be resolved
+with any amount of CFG rewriting, in which certain token sequences 
+can be interpreted as either a statement or a definition. The
+language specification [25] resolves this problem with the informal
+meta-rule that such a sequence is always interpreted as a definition
+if possible. Similarly, the syntax of lambda abstractions, let 
+expressions, and conditionals in Haskell [11] is unresolvably ambiguous 
+in the CFG paradigm, and is handled in the Haskell specification 
+with an informal “longest match” meta-rule. PEGs provide the
+necessary tools—prioritized choice, greedy repetition, and syntactic 
+predicates—to define precisely how to resolve such ambiguities.
+
+These tools do not make language syntax design easy, of course.
+In place of having to determine whether two possible alternatives
+in a CFG are ambiguous, PEGs present language designers with
+the analogous challenge of determining whether two alternatives
+in a ‘/’ expression can be reordered without affecting the language.
+Thisquestion isoftenobvious, butsometimesisnot, andisundecidable 
+in general. As with discovering ambiguity in CFGs, however,
+we have the hope of finding automatic algorithms to identify order
+sensitivity or insensitivity conservatively in common situations.
+
+== 2.4 Quirks and Limitations
+
+If the definition of Grammar in Figure 1 did not reference
+*EndOfFile* at the end, then any ASCII file starting with at least
+one correct Definition would be interpreted as a “correct” grammar, 
+even if the file has unreadable garbage at the end. This peculiarity 
+arises from the fact that a parsing expression in a PEG can “succeed” 
+without consuming all input text. We address this minor issue with 
+the *EndOfFile* nonterminal, defined by the predicate expression ‘!.’, 
+which “matches” the end-of-file by failing if any character is 
+available and succeeding otherwise.
+
+Both left and right recursion are permissible in CFGs, but as with
+top-down parsing in general, left recursion is unavailable in PEGs
+because it represents adegenerate loop. For example, the CFG rules
+‘A → a A | a’ and ‘A → A a | a’ represent a series of ‘a’s in a
+CFG, but the PEG rule ‘A ← A a / a’ is degenerate because it
+indicates that in order to recognize nonterminal A, a parser must
+first recognize nonterminal A... This restriction applies not only to
+direct left recursion as inthis example, but also toindirect or mutual
+left recursion involving several nonterminals. Since both left and
+right recursion in a CFG merely represent repetition, however, and
+repetition is easier to express in a PEG using repetition operators,
+this limitation is not a serious problem in practice.
+
+Like a CFG, a PEG is a purely syntactic formalism, not by itself
+capable of expressing languages whose syntax depends on semantic
+predicates [20]. Although the Java language can be described as a
+single unified PEG [7], C and C++ parsers require an incrementally
+constructed symbol table to distinguish between ordinary identifiers
+and typedef-defined type identifiers. Haskell uses a special stage
+in the “syntactic pipeline,” inserted between the scanner and parser,
+to implement the language’s layout-sensitive features.
+
+== 3 Formal Development of PEGs
+
+In this section we define PEGs formally and explore key properties.
+Many of these properties and their proofs were inspired by those
+of the closely related TS/TDPL and gTS/GTDPL systems [4, 5, 3],
+although the formulation of PEGs is substantially different.
+
+== 3.1 Definition of a PEG
+
+In Figure 1 we used a “concrete” ASCII-based syntax for PEGs to
+illustrate the characteristics of PEGs for practical language 
+description purposes. For formal analysis, however, it is more convenient
+to use an abstract syntax for PEGs that represents only its essential
+structure. We begin therefore by defining this abstract syntax.
+
+*Definition:* A parsing expression grammar (PEG) is a 4-tuple 
+
+• \(G = (V_N,V_T,R,e_S)\), where \(V_N\) is a finite set of nonterminal symbols, 
+• \(V_T\) is a finite set of terminal symbols, 
+• \(R\) is a finite set of rules, 
+• \(e_S\) is a parsing expression termed the start expression, 
+• and \(V_N ∩ V_T = ∅\).
+
+Each rule r ∈ R is a pair (A,e), which we write A ← e, where
+\(A ∈ V_N\) and e is a parsing expression. For any nonterminal A, there
+is exactly one e such that A ← e ∈ R. R is therefore a function
+from nonterminals to expressions, and we write R(A) to denote the
+unique expression e such that A ← e ∈ R.
+
+We define parsing expressions inductively as follows. If e, \(e_1\), and
+\(e_2\) are parsing expressions, then so is:
+
+1. ε, the empty string
+2. a, any terminal, where \(a ∈ V_T\).
+3. A, any nonterminal, where \(A ∈ V_N\).
+4. \(e_1 e_2\), a sequence.
+5. \(e_1/e_2\), prioritized choice.
+6. \(e^∗\), zero-or-more repetitions.
+7. !e, a not-predicate.
+
+All subsequent use of theunqualified term “grammar” refers specifically 
+to parsing expression grammars as defined here, and the unqualified 
+term “expression” refers to parsing expressions. We use the 
+variables a,b,c,d to represent terminals, A,B,C,D for nonterminals, 
+x,y,z for strings of terminals, and e for parsing expressions.
+
+The structural requirement that R be a function, mapping each nonterminal 
+in \(V_N\) to a unique parsing expression, precludes the possibility 
+of expressions in the grammar containing “undefined references,” 
+or subroutine failures [5].
+
+The expression set E(G) of G is the set containing the start expression 
+\(e_S\), the expressions used in all grammar rules, and all subexpressions 
+of those expressions.
+
+A repetition-free grammar is a grammar whose expression set contains 
+only expressions constructed without using rule 6 above. A
+predicate-free grammar is one whose expression set contains only
+expressions constructed without using rule 7.
+
+== 3.2 Desugaring the Concrete Syntax
+
+The abstract syntax does not include character classes, the “any
+character” constant ‘.’, the option operator ‘?’, the one-or-more-
+repetitions operator ‘+’, or the and-predicate operator ‘&’, all of
+which appear in the concrete syntax. We treat these features of
+the concrete syntax as “syntactic sugar,” reducing them to abstract
+parsing expressions using local substitutions as follows:
+
+• We consider the ‘.’ expression in the concrete syntax to be a
+  character class containing all of the terminals in \(V_T\).
+• If \(a_1,a_2,...,a_n\) are all of the terminals listed in a character
+  class expression in the concrete syntax, after expanding any
+  ranges, then we desugar this character class expression to the
+  abstract syntax expression \(a_1 /a_2 /.../a_n\).
+• We desugar an option expression e? in the concrete syntax to
+  \(e_d/ε\), where \(e_d\) is the desugaring of e.
+• We desugar a one-or-more-repetitions expression \(e^+\) to \(e_d e^∗_d\),
+  where \(e_d\) is the desugaring of e.
+• We desugar an and-predicate &e to \(!(!e_d)\), where \(e_d\) is the
+  desugaring of e.
+
+== 3.3 Interpretation of a Grammar
+
+*Definition:* To formalize the syntactic meaning of a grammar
+stem:[G = (V_N,V_T,R,e_S)], we define a relation ⇒ G from pairs of the 
+form (e,x) to pairs of the form (n,o), where e is a parsing expression,
+stem:[x ∈ V^∗_T] is an input string to be recognized, n ≥ 0 serves as a “step
+counter,” and stem:[o ∈V^∗_T ∪\{f\}] indicates the result of a recognition 
+attempt. The “output” o of a successful match is the portion of the 
+input string recognized and “consumed,” while a distinguished symbol 
+stem:[f∈V_T] indicates failure. For stem:[((e,x),(n,o)) ∈ ⇒ G] we will write
+stem:[(e,x) ⇒ (n,o)], with the reference to G being implied. We define
+⇒ G inductively as follows:
+
+1. *Empty*: (ε,x) ⇒ (1,ε) for any stem:[x ∈V^∗_T] .
+2. *Terminal (success case)*: (a,ax) ⇒ (1,a) if stem:[a ∈ V_T,  x ∈ V^∗_T] .
+3. *Terminal (failure case)*: (a,bx) ⇒ (1, f) if a 6= b, and (a,ε) ⇒ (1, f).
+4. *Nonterminal*: (A,x) ⇒ (n+1,o) if A ← e ∈ R and (e,x) ⇒ (n,o).
+5. *Sequence (success case)*: If stem:[(e_1,x_1 x_2 y) ⇒ (n_1,x_1)] and
+  stem:[(e_2,x_2 y) ⇒ (n_2,x_2)], then 
+  stem:[(e_1 e_2,x_1 x_2 y) ⇒ (n_1+n_2+1, x_1 x_2)].
+  Expressions stem:[e_1] and stem:[e_2] are matched in sequence, and if each
+  succeeds and consumes input portions stem:[x_1] and stem:[x_2] respectively,
+  then the sequence succeeds and consumes the string stem:[x_1 x_2].
+6. *Sequence (failure case 1)*: If stem:[(e_1,x) ⇒ (n_1, f)], then
+  stem:[(e_1 e_2,x) ⇒ (n_1 +1, f)]. If e_1 is tested and fails, then the 
+  sequence stem:[e_1 e_2] fails without attempting stem:[e_2],
+7. *Sequence (failure case 2)*: If stem:[(e_1,x_1 y) ⇒ (n_1,x_1)] and
+  stem:[(e_2,y) ⇒ (n_2, f)], then stem:[(e_1 e_2,x_1 y) ⇒ (n_1 +n_2 +1, f)]. 
+  If stem:[e_1] succeeds but stem:[e_2] fails, then the sequence expression fails.
+8. *Alternation (case 1)*: If stem:[(e_1,xy) ⇒(n_1,x)], then stem:[(e_1 /e_2,xy)⇒
+  (n_1 +1,x)]. Alternative stem:[e_1] is first tested, and if it succeeds, the
+  expression stem:[e_1 /e_2] succeeds without testing stem:[e_2] .
+9. *Alternation (case 2)*: If stem:[(e_1,x) ⇒ (n_1, f)] and stem:[(e_2,x) ⇒
+  (n_2,o)], then stem:[(e_1 /e_2,x) ⇒ (n_1 +n_2 +1,o)]. If stem:[e_1] fails, then
+  stem:[e_2] is tested and its result is used instead.
+10. *Zero-or-more repetitions (repetition case)*: If stem:[(e,x_1 x_2 y) ⇒
+  (n_1,x_1)] and stem:[(e^∗,x_2 y) ⇒ (n_2,x_2)], then stem:[(e^∗,x_1 x_2 y) ⇒ (n_1 +
+  n_2+1,x_1 x_2)].
+11. *Zero-or-more repetitions (termination case)*: If stem:[(e,x) ⇒
+  (n_1, f)], then stem:[(e^∗,x) ⇒ (n_1+1,ε)].
+12. *Not-predicate (case 1)*: If stem:[(e,xy) ⇒ (n,x)], then stem:[(!e,xy) ⇒
+  (n+1, f)]. If expression e succeeds consuming input x, then
+  the syntactic predicate !e fails.
+13. *Not-predicate (case 2)*: If stem:[(e,x) ⇒ (n, f)], then stem:[(!e,x) ⇒ (n+
+  1,ε)]. If e fails, then !e succeeds but consumes nothing.
+
+We define a relation stem:[⇒^+ _G] from pairs (e,x) to outcomes o, such that
+stem:[(e,x) ⇒^+ o] iff an n exists such that stem:[(e,x) ⇒ (n,o)].
+
+If stem:[(e,x) ⇒^+ y] for stem:[y∈V^∗_T], we say that e matches x in G. If 
+stem:[(e,x) ⇒^+ f], we say that e fails on x in G. The match set stem:[M_G(e)] 
+of expression e in G is the set of inputs x such that e matches x in G.
+
+An expression e handles a string stem:[x ∈V^∗_T] if it either matches or fails
+on x in G. A grammar G handles string x if its start expression stem:[e_S]
+handles x. G is complete if it handles all strings stem:[x ∈V^∗_T].
+
+Two expressions stem:[e_1] and stem:[e_2] are equivalent, written stem:[e_1 ≍ e_2],
+if stem:[(e_1,x) ⇒^+ o] implies stem:[(e_2,x) ⇒^+ o] and vice versa. The resulting
+step counts need not be the same.
+
+TIP: stem:[\asymp] 符号表示等价关系，是 asympotic significance 的缩写。
+    另外还有常用的逻辑符号：∀ \forall；∃ \exists；¬ \neg 等。
+
+*Theorem:* If stem:[(e,x) ⇒ (n,y)], then y is a prefix of stem:[x:∃z(x = yz)].
+
+*Proof:* By induction on an integer variable m ≥ 0, using as the
+induction hypothesis the proposition that the desired property holds
+for all e,x,n ≤ m, and y.
+
+*Theorem:* If stem:[(e,x) ⇒ (n_1,o_1)] and stem:[(e,x) ⇒ (n_2,o_2)], then 
+stem:[n_1 = n_2] and stem:[o_1 = o_2] . That is, the relation ⇒ G is a function.
+
+*Proof:* By induction on a variable m ≥ 0, using the induction hypothesis 
+that the proposition holds for all stem:[e,x,n_1 ≤ m, n_2 ≤ m, o_1],
+and stem:[o_2]. This induction technique will subsequently be referred to
+simply as induction on step counts of ⇒ G .
+
+*Theorem:* A repetition expression e ∗ does not handle any input
+string x on which e succeeds without consuming input: for any stem:[x ∈ V^∗_T], 
+if stem:[(e,x) ⇒(n_1,ε)], then stem:[(e^∗,x) ⇏ (n_2,o_2)] for any 
+stem:[n_2,o_2] . We call this the ∗-loop condition.
+
+*Proof:* By induction on step counts.
+
+== 3.4 Language Properties
+
+This section describes properties of parsing expression languages
+(PELs),theclassof languages that canbeexpressed byPEGs. PELs
+are closed under union, intersection, and complement. It is 
+undecidable in general whether a PEG represents a nonempty language,
+or whether two PEGs represent the same language.
+
+*Definition:* The language stem:[L(G)] of a PEG stem:[G = (V_N,V_T,R,e_S)] is the
+set of strings stem:[x ∈ V^∗_T] for which the start expression stem:[e_S] matches x.
+
+Note that the start expression stem:[e_S] only needs to succeed on input
+string x for x to be included in stem:[L(G)]; stem:[e_S] need not consume all of
+string x. For example, the trivial grammar stem:[(\{\},V_T,\{\},ε)] recognizes
+the language stem:[V^∗_T] and not just the empty string, because the start
+expression ε always succeeds even though it does not examine or consume 
+any input. This definition contrasts with TS and gTS, in which partially 
+consumed input strings are excluded from the language and classified as 
+partial-acceptance failures [5].
+
+*Definition:* A language L over an alphabet stem:[V_T] is a parsing expression 
+language (PEL) iff there exists a parsing expression grammar G whose language 
+is L.
+
+*Theorem:* The class of parsing expression languages is closed under union, 
+intersection, and complement.
+
+*Proof:* Suppose we have two grammars stem:[G_1 = (V^1_N,V_T,R^1,e^1_S)] and
+stem:[G_2 = (V^2_N,V_T,R^2,e^2_S)] respectively, describing languages stem:[L(G_1)]
+and stem:[L(G_2)]. Assume without loss of generality, that stem:[V^1_N ∩ V^2_N = ∅], 
+by renaming nonterminals if necessary. We can form a new grammar
+stem:[G_0 = (V^1_N ∪ V^2_N,V_T,R^1 ∪ R^2,e^0_S)], where stem:[e^0_S] is one 
+of the following:
+
+• If stem:[e^0_S = e^1_S / e^2_S], then stem:[L(G_0) = L(G_1) ∪ L(G_2)].
+• If stem:[e^0_S = \&e^1_S e^2_S], then stem:[L(G_0) = L(G_1) ∩ L(G_2)].
+• If stem:[e^0_S =!e^1_S], then stem:[L(G_0) =V^∗_T − L(G_1)].
+
+*Theorem:* The class of PELs includes non-context-free languages.
+
+*Proof:* The classic example language stem:[a^n b^n c^n] is not context-free,
+but we can recognize it with a PEG stem:[G = (\{A,B,D\},\{a,b,c\},R,D)],
+where R contains the following definitions:
+
+\[A ← a A b / ε\]
+\[B ← b B c / ε\]
+\[D ← \&(A !b) a^∗ B!.\]
+
+*Theorem:* It is undecidable in general whether the language L(G)
+of an arbitrary parsing expression grammar G is empty.
+
+*Proof:* We first prove in the same way as for CFGs [3] that it is
+undecidable whether the intersection of the languages of two PEGs
+is empty. Since PELs are closed under intersection, an algorithm
+to test the emptiness of the language L(G) of any G could be used
+to test whether stem:[L(G_1)∩L(G_2)] is empty, implying that emptiness is
+undecidable as well.
+
+Given an instance stem:[C = (x_1,y_1),...,(x_n,y_n)] of Post’s correspondence 
+problem over an alphabet Σ, it is known to be undecidable whether there 
+is a non-empty string w that can be built from elements of C such that 
+stem:[w = x_{i_1} x_{i_2} ...x_{i_m} = y_{i_1} y_{i_2} ...y_{i_m}], where 
+stem:[1 ≤ i_j ≤ n] for each 1 ≤ j ≤ m.
+
+We build a grammar stem:[G = (V_N,V_T,R,D)] where stem:[V_N = \{A,B,D\}], and
+stem:[V_T = Σ∪\{a_1,...,a_n\}]. The stem:[a_i] in stem:[V_T] are distinct 
+terminals not in Σ, which will serve as markers associated with the elements of C. 
+R contains the following three rules:
+
+• stem:[A ← x_1 Aa_1 /x 2 Aa_2 /.../x_n Aa_n /ε]
+• stem:[B ← y_1 Ba_1 /y 2 Ba_2 /.../y_n Ba_n /ε]
+• stem:[D ← \&. \&(A !.) B !.]
+
+Nonterminal A matches strings of the form 
+stem:[x_{i_1} x_{i_2} ...x_{i_m} a_{i_m} ...a_{i_2} a_{i_1}],
+while B matches strings of the form 
+stem:[y_{i_1} y_{i_2} ...y_{i_m} a_{i_m} ...a_{i_2} a_{i_1}]. 
+The nonterminal D uses theand-predicate operator to match only strings
+matching both A and B, representing solutions to the correspondence 
+problem. The &. at the beginning of the definition of D
+(desugared appropriately) ensures that empty solutions are not allowed, 
+and the !. after the references to A and B ensure that the
+complete input is consumed in each case. An algorithm to decide whether 
+L(G) is nonempty could therefore be used to solve the correspondence 
+problem C, yielding the desired result.
+
+*Definition:* Two PEGs stem:[G_1] and stem:[G_2] are equivalent if they recognize
+the same language: stem:[L(G_1) = L(G_2)].
+
+*Theorem:* The equivalence of two arbitrary PEGs is undecidable.
+
+*Proof:* An algorithm to decide the equivalence of two PEGs could
+also be used to decide the non-emptiness problem above, simply by
+comparing the grammar to be tested against a trivial grammar for
+the empty language.
+
+== 3.5 Analysis of Grammars
+
+We often would like to analyze the behavior of a particular grammar 
+over arbitrary input strings. While many interesting properties
+of PEGs are undecidable in general, conservative analysis proves
+useful and adequate for many practical purposes.
+
+*Theorem:* It is undecidable whether an arbitrary grammar is complete: 
+that is, whether it either succeeds or fails on all input strings.
+
+*Proof:* Suppose we have an arbitrary grammar stem:[G = (V_N,V_T,R,e_S)],
+and we define a new grammar stem:[G' = (V'_N,V_T,R',e'_S)], where 
+stem:[V'_N = V_N ∪\{A\}, A \notin V_N, R' = R∪\{A ← \&e_S A\}], and 
+stem:[e'_S = A]. If G’s start expression e S succeeds on any input string x, 
+then this input will cause a degenerate loop in G' via nonterminal A, so 
+stem:[G'] is incomplete. If stem:[L(G)] is empty, however, then stem:[G'] is 
+complete and also fails on all inputs. An algorithm to decide whether 
+stem:[G'] is complete would therefore allow us to decide whether G is 
+empty, which has already been shown undecidable.
+
+*Definition:* We define a relation stem:[⇀G] consisting of pairs of the 
+form stem:[(e,o)], where e is an expression and stem:[o ∈ {0,1,f}]. We will 
+write stem:[e ⇀ o] for stem:[(e,o) ∈⇀G], with the reference to G being implied. 
+This relation represents an abstract simulation of the stem:[⇒ G] relation. If
+stem:[e ⇀ 0], then e might succeed on some input string while consuming
+no input. If stem:[e ⇀ 1], then e might succeed while consuming at least
+one terminal. If stem:[e ⇀ f], then e might fail on some input. We will
+use the variable s to represent stem:[a ⇀ G] outcome of either 0 or 1. We
+define the simulation relation stem:[⇀ G] inductively as follows:
+
+1. stem:[ε ⇀ 0.]
+2. stem:[a ⇀ 1.]
+3. stem:[a ⇀ f.]
+4. stem:[A ⇀ o] if stem:[R_G (A) ⇀ o.]
+5. stem:[e_1 e_2 ⇀ 0] if stem:[e_1 ⇀ 0] and stem:[e_2 ⇀ 0.] +
+   stem:[e_1 e_2 ⇀ 1] if stem:[e_1 ⇀ 1] and stem:[e_2 ⇀ s.] +
+   stem:[e_1 e_2 ⇀ 1] if stem:[e_1 ⇀ s] and stem:[e_2 ⇀ 1.]
+6. stem:[e_1 e_2 ⇀ f] if stem:[e_1 ⇀ f.]
+7. stem:[e_1 e_2 ⇀ f] if stem:[e_1 ⇀ s] and stem:[e_2 ⇀ f.]
+8. stem:[e_1 /e_2 ⇀ s] if stem:[e_1 ⇀ s.]
+9. stem:[e_1 /e_2 ⇀ o] if stem:[e_1 ⇀ f] and stem:[e_2 ⇀ o.]
+10. stem:[e ⇀ 1] if stem:[e ⇀ 1,]
+11. stem:[e ⇀ 0] if stem:[e ⇀ f.]
+12. stem:[!e ⇀ f] if stem:[e ⇀ s.]
+13. stem:[!e ⇀ 0] if stem:[e ⇀ f.]
+
+Because this relation does not depend on the input string, and there
+are a finite number of relevant expressions in a grammar, we can
+compute this relationover any grammar by applying theabove rules
+iteratively until we reach a fixed point.
+
+*Theorem:* The relation ⇀ G summarizes ⇒ G as follows:
+• If (e,x) ⇒ G (n,ε), then e ⇀ 0.
+• If (e,x) ⇒ G (n,y) and |y| > 0, then e ⇀ 1.
+• If (e,x) ⇒ G (n, f), then e ⇀ f.
+
+*Proof:* By induction over the step counts of the relation ⇒ G . The
+definition rules for ⇀ G above correspond one-to-one to the rules
+for ⇒ G . The conclusion in each case follows immediately from the
+inductive hypothesis, except in the cases for the repetition operator,
+which require the ∗-loop condition theorem from Section 3.3.
+
+== 3.6 Well-Formed Grammars
+
+A well-formed grammar is a grammar that contains no directly or
+mutually left-recursive rules, such as ‘A ← A a / a’, which could
+prevent the grammar from handling any input string. This check-
+able structural property implies completeness, while being permis-
+sive enough for most purposes. A grammar can have left-recursive
+rules but still be complete if its degenerate loops are actually un-
+reachable, but we have little need for such grammars in practice.
+
+*Definition:* We define an inductive set WF G as follows. We write
+WF(e) for e∈WF G, with the reference toG being implied, to mean
+that expression e is well-formed in G.
+1. WF(ε).
+2. WF(a).
+3. WF(A) ifWF(R G (A)).
+4. WF(e 1 e 2) ifWF(e 1) and e 1 * 0 impliesWF(e 2).
+5. WF(e 1 /e 2) if WF(e 1) and WF(e 2).
+6. WF(e ∗) ifWF(e) and e 6* 0.
+7. WF(!e) if WF(e).
+A grammar G is well-formed if all of the expressions in its expres-
+sion set E(G) are well-formed in G. As with the * G relation, the
+WF G set can be computed by iteration to a fixed point.
+Lemma: Assume that grammar G is well-formed, and that all ex-
+pressions in E(G) handle all strings x∈V ∗
+T
+of length n or less. Then
+the expressions in E(G) also handle all strings of length n+1.
+
+*Proof:* By induction over the step counts of ⇒ G . The interesting
+cases are as follows:
+• For a nonterminal A, the induction hypothesis allows us to as-
+sume that R G (A) handles all strings of length n+1; therefore
+so does A by the definition of ⇒ G .
+• For a sequence e 1 e 2, we can assume that e 1 handles all strings
+x of length n+1. If (e 1,x) ⇒ (n,ε), then e 1 * 0, so WF(e 2)
+applies and e 2 also handles x. If (e 1,x) ⇒ (n,y) for |y| > 0,
+then e 2 only needs to handle strings of length n or less, which
+is given. If (e 1,x) ⇒ (n, f), then e 2 is not used.
+• For e ∗, theWF(e) condition ensures that e 1 handles inputs of
+lengthn+1, andthee6*0condition ensuresthat therecursive
+dependency on e ∗ in the success case only needs to handle
+strings of length n or less.
+
+*Theorem:* A well-formed grammar G is complete.
+
+*Proof:* By induction over the length of input strings, each expres-
+sion in E(G) handles every input string. Since G’s start expression
+e S is in E(G), the conclusion follows.
+
+== 3.7 Grammar Identities
+
+A number of important identities allow PEGs to be transformed
+without changing the language they represent. We will use these
+identities in subsequent results.
+
+*Theorem:* The sequence and alternation operators are asso-
+ciative under expression equivalence: e 1 (e 2 e 3) ? (e 1 e 2)e 3 and
+e 1 /(e 2 /e 3) ? (e 1 /e 2)/e 3 .
+
+*Proof:* Trivial, from the definition of ⇒ G .
+
+*Theorem:* Sequence operators can be distributed into choice oper-
+ators on the left but not on the right: e 1 (e 2 /e 3) ? (e 1 e 2)/(e 1 e 3),
+but (e 1 /e 2)e 3 6? (e 1 e 3)/(e 2 e 3).
+
+*Proof:* In the left-side case, the expression (e 1 e 2)/(e 1 e 3) invokes
+e 1 twice from the same starting point—on the same input string—
+making its result the same as the factored e 1 (e 2 /e 3) expression.
+In the right-side case, however, suppose that e 1 succeeds but e 3
+fails. In the expression (e 1 /e 2)e 3, the failure of e 3 causes the whole
+expression to fail. In (e 1 e 3)/(e 2 e 3), however, the first instance of
+e 3 only causes the first alternative to fail; the second alternative
+will then be tried, in which the e 3 might succeed if e 2 consumes a
+different amount of input than e 1 did.
+
+*Theorem:* Predicates can be moved left within sequences distribu-
+tively as follows: e 1 !e 2 ? !(e 1 e 2) e 1 .
+
+*Proof:* If e 1 succeeds, then e 2 is tested starting at the same point in
+each case, resulting in the same overall behavior; the second case
+merely invokes e 1 twice at the same position. If e 1 fails, then the
+predicate in e 1 !e 2 is not tested at all. The predicate in !(e 1 e 2)e 1 is
+tested, and succeeds because of the first e 1 ’s failure, but the overall
+result is still failure due to the second instance of e 1 .
+
+*Definition:* Two expressions e 1 and e 2 are disjoint if they succeed
+on disjoint sets of input strings: M G (e 1)∩M G (e 2) = / 0.
+
+*Theorem:* A choice expression e 1 /e 2 is commutative if its subex-
+pressions are disjoint.
+
+*Proof:* If either e 1 or e 2 fails on a string x, it does not matter which
+is tested first. The only way the language can be affected by chang-
+ing their order is if e 1 and e 2 both succeed on x and consume dif-
+ferent amounts of input. Disjointness precludes this possibility.
+Although the results from Section 3.4 imply that disjointness is un-
+decidable in general, it is easy to “force” a choice expression to be
+disjoint via the following simple transformation:
+
+*Theorem:* e 1 /e 2 ? e 1 /!e 1 e 2 ?!e 1 e 2 /e 1, and the latter two equiv-
+alent choice expressions are disjoint.
+
+*Proof:* Trivial, by case analysis.
+
+== 4 Reductions on PEGs
+
+In this section we present methods of reducing PEGs to simpler
+forms that may be more useful for implementation or easier to rea-
+son about formally. First we describe how to eliminate repetition
+and predicate operators, then we show how PEGs can be mapped
+into the much more restrictive TS/TDPLand gTS/GTDPL systems.
+
+== 4.1 Eliminating Repetition Operators
+
+As in CFGs, repetition expressions can be eliminated from a PEG
+by converting them into recursive nonterminals. Unlike in CFGs,
+the substitute nonterminal in a PEG must be right-recursive.
+
+*Theorem:* Any repetition expression e ∗ can be eliminated by re-
+placing it with a new nonterminal A with the definition A ← e A/ε.
+
+*Proof:* By induction on the length of the input string.
+
+*Theorem:* For any PEG G, an equivalent repetition-free grammar
+G’ can be created.
+
+*Proof:* Simply eliminate all repetition expressions throughout G’s
+nonterminal definitions and start expression.
+
+== 4.2 Eliminating Predicates
+
+In this section we show how to eliminate all predicate operators
+from any well-formed grammar whose language does not include
+the empty string. The restriction to grammars that do not accept
+the empty string is a minor but unavoidable problem: we will show
+later that it is impossible for a predicate-free grammar to accept the
+empty string without accepting all input strings.
+Given a well-formed, repetition-free grammar G = (V_N,V_T,R,e S)
+where ε 6∈ L(G), we will create an equivalent grammar G_0 =
+(V_0
+N,V_T,R^0,e^0_S) that is well-formed, repetition-free, and predicate-
+free. This process occurs in three normalization stages. In the first
+stage, we rewrite the grammar so that sequence and predicate ex-
+pressions only contain nonterminals and choice expressions are dis-
+joint. In the second stage, we further rewrite the grammar so that
+nonterminals never succeed without consuming any input. In the
+third stage we finally eliminate predicates.
+4.2.1 Stage 1
+In this stage we rewrite the existing definitions in R and the original
+start expression e S, adding some new nonterminals and correspond-
+ing definitions in the process, to produce V_0
+N, R^1, and e S1 .
+We first add three special nonterminals, T, Z, and F, with corre-
+sponding rules as follows. The nonterminal T matches any single
+terminal, and has the definition ‘T <- . ’ in concrete PEG syntax,
+before desugaring. The nonterminal Z matches and consumes any
+input string; to avoid introducing repetition operators, we define it
+Z ← TZ/ε. The nonterminal F always fails; to avoid using predi-
+cates we define it F ← ZT.
+We define a function f recursively as follows, to convert expres-
+sions in our original grammar G into our first normal form:
+1. f(e) = e if e ∈ {ε}∪V_N ∪V_T .
+2. f(e 1 e 2) = AB, adding A ← f(e 1) and B ← f(e 2) to R^1 .
+3. f(e 1 /e 2) = A/!A f(e 2), adding A ← f(e 1) to R^1 .
+4. f(!e) =!A, adding A ← f(e) to R^1 .
+
+*Definition:* The stage 1 grammar G_1 of G is (V_0
+N,V_T,R^1,e S1),
+wheree S1 = f(e S), R^1 ={A← f(e) | A←e∈R}∪{newdefinitions
+resulting from application of f}, andV 0
+N =V_N ∪{new nonterminals
+resulting from application of f}.
+Lemma: For any expression e, f(e) ? G_1 e.
+
+*Proof:* By structural induction over e. The only interesting case is
+for choice expressions, which uses the identity e 1 /e 2 ? e 1 /!e 1 e 2 .
+
+*Theorem:* G_1 ? G, all sequence and predicate expressions in the
+expression set of G_1 contain only nonterminals as their subexpres-
+sions, and all choice expressions are disjoint.
+
+*Proof:* Direct from the construction of f.
+4.2.2 Stage 2
+We now rewrite the stage 1 grammar G_1 into another equiva-
+lent grammar G_2 = (V_0
+N,V_T,R^2,e S2), in which all nonterminals ei-
+ther succeed and consume a nonempty input prefix, or fail: ∀A ∈
+V_0
+N (A 6* G_2
+0). This transformation is analogous to ε-reduction on
+CFGs, though the details are different due to predicates.
+We use two functions g 0 and g 1, to “split” expressions into ε-only
+and ε-free parts, respectively. The ε-only part g 0 (e) of an expres-
+sion e is an expression that yields the same result as e on all input
+strings for which e succeeds without consuming any input, and fails
+otherwise. The ε-free part g 1 (e) of e likewise yields the same result
+as e on all inputs for which e succeeds and consumes at least one
+terminal, and fails otherwise.
+We first define g 0 recursively as follows:
+1. g 0 (ε) = ε.
+2. g 0 (a) = F.
+3. g 0 (A) = g 0 (R G (A)).
+4. g 0 (AB) = g 0 (A)g 0 (B) if A * 0, otherwise g 0 (AB) = F.
+5. g 0 (e 1 /e 2) = g 0 (e 1)/g 0 (e 2).
+6. g 0 (!A) =!(A /g 0 (A)).
+Lemma: The function g 0 terminates if G is well-formed.
+
+*Proof:* By structural induction over the WF G relation. Termination
+relies on g 0 (AB) not recursively invoking g 0 (B) if A 6* 0.
+We now define the function g 1 primitive-recursively as follows:
+1. g 1 (ε) = F.
+2. g 1 (a) = a.
+3. g 1 (A) = A.
+4. g 1 (AB) = g 0 (A)B / Ag 0 (B) / AB.
+5. g 1 (e 1 /e 2) = g 1 (e 1)/g 1 (e 2).
+6. g 1 (!e) = F.
+
+*Definition:* The stage 2 grammar G_2 is (V_0
+N,V_T,R^2,e S2), where
+R^2 = {A ← g 1 (e) | A ← e ∈ R^1 }, and e S2 = g 1 (e S1) / g 0 (e S1). We
+effectively split all of the nonterminal definitions in R^1, retaining
+only the ε-free parts in the definitions of R^2, while substituting the
+corresponding ε-only parts at the points where these nonterminals
+are referenced in order to preserve the original behavior. There are
+only two such points: case 6 of g 0, where we rewrite the operands
+of predicate expressions, and case 4 of g 1, for ε-free sequences.
+We say that the splitting invariant holds if the following is true:
+• If (e,x) ⇒ +
+G_1
+ε, then (g 0 (e),x) ⇒ +
+G_2
+ε and (g 1 (e),x) ⇒ +
+G_2
+f.
+• If (e,x) ⇒ +
+G_1
+y for |y| > 0, then (g 0 (e),x) ⇒ +
+G_2
+f and
+(g 1 (e),x) ⇒ +
+G_2
+y.
+• If (e,x) ⇒ +
+G_1
+f, then (g 0 (e),x) ⇒ +
+G_2
+f and (g 1 (e),x) ⇒ +
+G_2
+f.
+Lemma: Assume that the splitting invariant holds for all input
+strings of length n or less. Then the splitting invariant holds for
+strings of length n+1.
+
+*Proof:* By induction over the step counts of ⇒ G_1 and ⇒ G_2 .
+
+*Theorem:* G_2 is well-formed and equivalent to G, and for all non-
+terminals A ∈V_N, A 6* G_2 0.
+
+*Proof:* A direct consequence of the splitting invariant and the fact
+that G is well-formed.
+4.2.3 Stage 3
+Finally we rewrite G_2 into the final grammar G_0 = (V_0
+N,V_T,R^0,e^0_S).
+
+*Definition:* We define a function d, such that d(A,e) “distributes” a
+nonterminal A into an ε-only expression e resulting from the stage
+2 function g 0 :
+1. d(A,e) = e, if e ∈ {ε,F}.
+2. d(A,e 1 e 2) = d(A,e 1) d(A,e 2).
+3. d(A,e 1 /e 2) = d(A,e 1) / d(A,e 2).
+4. d(A,!e) =!(A e).
+Lemma: If e = g 0 (e 0) and e 0 ∈ E(G_2), then A e ? d(A,e) A. That
+is, we can use d(A,e) to move e leftward across a nonterminal ref-
+erence in a sequence expression.
+
+*Proof:* Structural induction on e and the identities in Section 3.7.
+Now define a function n(e,C) = (e (Z/ε) / ε)C.
+Lemma: If e is an ε-only expression in G_2, then !eC ? n(e,C).
+
+*Proof:* If e succeeds, then the (Z/ε) also succeeds and consumes
+the entire remaining input. (The nonterminal Z alone is not suffi-
+cient because it was rewritten in stage 2 to be ε-free.) Since any
+nonterminal C is ε-free, the overall expression will therefore fail.
+If e fails, however, then (e (Z/ε) / ε) succeeds without consuming
+anything, making the overall expression behave according toC.
+We now define a function h 0 to eliminate predicates from ε-
+producing expressions resulting from the g 0 or d functions:
+1. h 0 (ε,C) =C.
+2. h 0 (F,C) = F.
+3. h 0 (e 1 e 2,C) = n(n(h 0 (e 1,C),C) / n(h 0 (e 2,C),C),C).
+4. h 0 (e 1 /e 2,C) = h 0 (e 1,C) / h 0 (e 2,C).
+5. h 0 (!(B/e),C) = n(B/h 0 (e,C),C).
+6. h 0 (!(A (B/e)),C) = n(A (B/h 0 (e,C)),C).
+Lemma: If e = g 0 (e 0) or e = d(A,g 0 (e 0)) and e 0 ∈ E(G_2), then
+h 0 (e,C) is a predicate-free expression equivalent to eC.
+
+*Proof:* By structural induction over e. Case 5 handles predicates
+resulting directly from g 0, which always have the form !(B/e 1),
+where e 1 is likewise an expression resulting from g 0 . Case 6 sim-
+ilarly handles the situation e = d(A,g 0 (e 0)). Case 3 rewrites a se-
+quence e 1 e 2 using the not-predicate analog of DeMorgan’s Law: if
+e 1 and e 2 are ε-only expressions, then e 1 e 2 ?!(!e 1 /!e 2). We can-
+not simply use h 0 (e 1 e 2,C) = h 0 (e 1,C) h 0 (e 2,C) because h 0 (e 1,C)
+consumes input ifC succeeds, which would cause the h 0 (e 2,C) part
+to start at the wrong position.
+We now define a corresponding function h 1 to eliminate predicates
+from the ε-free expressions generated by the stage 2 function g 1 :
+1. h 1 (e) = e, if e ∈ {a,A}.
+2. h 1 (AB) = AB.
+3. h 1 (e 1 B) = h 0 (e 1,B), if e 1 is not a nonterminal.
+4. h 1 (Ae 2) = h 0 (d(A,e 2),A), if e 2 is not a nonterminal.
+5. h 1 (e 1 /e 2) = h 1 (e 1) / h 1 (e 2).
+Lemma: If e=g 1 (e 0) and e 0 ∈E(G_2), then h 1 (e) isapredicate-free
+expression equivalent to e in G_2 .
+
+*Proof:* By structural induction over e. In case 3, we know from
+the definition of g 1 that e 1 is an ε-only expression resulting from
+g 0, so we use the function h 0 to combine it with the subsequent
+(ε-free) nonterminal and eliminate predicates from e 1 . Case 4 is
+similar, except that we must first move e 2 to the left of A using the
+d function before applying the predicate transformation.
+
+*Definition:* The predicate-reduced grammar G_0 of G is
+(V_0
+N,V_T,R^0,e^0_S), where V
+0
+N
+is the set of nonterminals produced
+in stage 1, R^0 = {A ← h 1 (e) | A ← e ∈ R^2 }, and e^0_S =
+h 1 (g 1 (e S1)) / h 0 (g 0 (e S1),T).
+
+*Theorem:* G_0 is well-formed, repetition-free, predicate-free, and
+equivalent to G.
+
+*Proof:* G_0 is repetition-free because G is repetition-free and we
+never introduced any repetition operators. From the previous result,
+each nonterminal A ∈V_0
+N
+is equivalent to the corresponding nonter-
+minal in the stage 2 grammar. By the same result, the h 1 (g 1 (e S1))
+part of the new start expression e^0_S is equivalent to the ε-free part of
+the original start expression e S . The h 0 (g 0 (e S1),T) in the new start
+expression succeeds and consumes exactly one terminal whenever
+the input string is nonempty and the ε-only part of the original start
+expression e S succeeds. Finally, since we made the assumption at
+the start that the original grammar does not accept the empty string,
+the transformed grammar behaves identically for this degenerate
+case. Since the acceptance of a string into the language of a gram-
+mar only depends on the success or failure of the start expression,
+and not on how much of the input the start expression consumes,
+the new grammar G_0 accepts exactly the same strings as G.
+4.2.4 The Empty String Limitation
+To show that we have no hope of avoiding the restriction that the
+original grammar cannot accept the empty input string, we prove
+that any predicate-free grammar cannot accept the empty input
+string without accepting all input strings.
+Lemma: Assume that G is a predicate-free grammar, and that for
+any expression e and input x of length n or less, (e,ε) ⇒ + ε iff
+(e,x) ⇒ + ε. Then the same holds for input strings of length n+1.
+
+*Proof:* By induction over step counts in ⇒ G .
+
+*Theorem:* In a repetition-free grammar G, an expression e matches
+the empty string iff it matches all input strings and produces only ε
+results. In consequence, ε ∈ L(G) implies L(G) =V ∗
+T .
+
+*Proof:* By induction over string length.
+Wecouldwork around theempty stringlimitationbydefining PEGs
+to require all recognized strings to include a designated end marker
+terminal, as Birman does in the original TS and gTS systems [5].
+
+== 4.3 Reduction to TS/TDPL
+
+We can reduce any predicate-free PEG to an instance of Birman’s
+TS system [4, 5], renamed “Top-Down Parsing Language” (TDPL)
+by Aho and Ullman [3]. We will use the latter term for its descrip-
+tiveness. TDPL uses a set of grammar-like definitions, but these
+definitions have only a few fixed forms in place of open-ended hier-
+archical parsing expressions. We can view TDPL as the PEG ana-
+log of Chomsky Normal Form (CNF) for context-free grammars.
+Instead of defining TDPL “from the ground up” as Birman does,
+we simply define it as a restricted form of PEG.
+
+*Definition:* A TDPLgrammar isa PEG G=(V_N,V_T,R,S) inwhich
+S is a nonterminal in V_N and all of the definitions in R have one of
+the following forms:
+1. A ← ε.
+2. A ← a, where a ∈V_T .
+3. A ← f, where f ≡!ε.
+4. A ← BC/D, where B,C,D ∈V_N .
+The third form, A ← f, representing unconditional failure, is con-
+sidered “primitive” in TDPL, although we define it here in terms of
+the parsing expression !ε. The fourth form, A ← BC/D, combines
+the functions of nonterminals, sequencing, and choice. A TDPL
+grammar G is interpreted according to the usual ⇒ G relation.
+
+*Theorem:* Any predicate-free PEG G = (V_N,V_T,R,e S) can be re-
+duced to an equivalent TDPL grammar G_0 =V_0
+N,V_T,R^0,S).
+
+*Proof:* First we add a new nonterminal S with definition S ← e S,
+representing the original start expression. We then add two non-
+terminals E and F with definitions E ← ε and F ← f respectively.
+Finally, we rewrite each definition that does not conform to one of
+the TDPL forms above using the following rules:
+A ← B 7−→ A ← BE/F
+A ← e 1 e 2 7−→ A ← BC/F
+B ← e 1
+C ← e 2
+A ← e 1 /e 2 7−→ A ← BE/C
+B ← e 1
+C ← e 2
+A ← e ∗ 7−→ A ← BA/E
+B ← e
+Aho and Ullman define an “extended TDPL” notation [3] equiva-
+lent in expressiveness to repetition-free, predicate-free PEGs, with
+reduction rules almost identical to those above.
+
+== 4.4 Reduction to gTS/GTDPL
+
+Birman’s “generalized TS” (gTS) system, named “generalized
+TDPL” (GTDPL) by Aho and Ullman, is similar to TDPL, but uses
+slightly different basic rule forms that effectively provide the func-
+tionality of predicates in PEGs.
+
+*Definition:* A GTDPL grammar is a PEG G = (V_N,V_T,R,S) in
+which S is a nonterminal and all of the definitions in R have one
+of the following forms:
+1. A ← ε.
+2. A ← a, where a ∈V_T .
+3. A ← f, where f ≡!ε.
+4. A ← B[C,D], where B[C,D] ≡ BC/!B D, and B,C,D ∈V_N .
+
+*Theorem:* Any PEG G = (V_N,V_T,R,e S) can be reduced to an
+equivalent GTDPL grammar G_0 =V_0
+N,V_T,R^0,S).
+
+*Proof:* First we add the definitions S ← e S, E ← ε, and F ← f, as
+above for TDPL. Then we rewrite all non-conforming definitions
+using the following transformations:
+A ← B 7−→ A ← B[E,F]
+A ← e 1 e 2 7−→ A ← B[C,F]
+B ← e 1
+C ← e 2
+A ← e 1 /e 2 7−→ A ← B[E,C]
+B ← e 1
+C ← e 2
+A ← e ∗ 7−→ A ← B[A,E]
+B ← e
+A ←!e 7−→ A ← B[F,E]
+B ← e
+4.4.1 Parsing PEGs
+Corollary: It is possible to construct a linear-time parser for any
+PEG on a reasonable random-access memory machine.
+
+*Proof:* Reduce the PEG to a GTDPL grammar and then use the
+tabular parsing technique described by Aho and Ullman [3].
+In practice it is not necessary to reduce a PEG all the way to
+TDPL or GTDPL form, though it is typically necessary at least
+to eliminate repetition operators. Practical methods for construct-
+ing such linear-time parsers both manually and automatically, par-
+ticularly using modern functional programming languages such as
+Haskell [11], are discussed in prior work [8, 7].
+4.4.2 Equivalence of TDPL and GTDPL
+
+*Theorem:* Any well-formed GTDPL grammar that does not accept
+the empty string can be reduced to an equivalent TDPL grammar.
+
+*Proof:* Treating the original GTDPL grammar as a repetition-free
+PEG, first eliminate predicates (Section 4.2), then reduce the result-
+ing predicate-free grammar to TDPL (Section 4.3).
+
+== 5 Open Problems
+
+This section briefly outlines some promising directions for future
+work on PEGs and related syntactic formalisms.
+Birman defined a transformation on gTS that converts loop fail-
+ures caused by grammar circularities into ordinary recognition fail-
+ures [5]. By extension it is possible to convert any PEG into a com-
+plete PEG. It is probably possible to transform any PEG into an
+equivalent well-formed PEG, but this conjecture is unverified; Bir-
+man did not define a structural well-formedness property for gTS.
+Such a transformation on PEGs is conceivable despite the unde-
+cidability of a grammar’s completeness, since the transformation
+works essentially by building “run-time” circularity checks into the
+grammar instead of trying to decide statically at “compile-time”
+whether any circular conditions are reachable.
+Perhaps of more practical interest, we would like a useful conserva-
+tive algorithm to determine if a choice expression e 1 /e 2 in a gram-
+mar is definitely disjoint, and therefore commutative. Such an al-
+gorithm would enable us to extend PEG syntax with an unordered
+choice operator ‘|’ analogous to the choice operator used in EBNF
+syntax for CFGs. The ‘|’ operator would be semantically identical
+to ‘/’, but would express the language designer’s assertion that the
+alternatives are disjoint and therefore order-independent, and tools
+such PEGanalyzers and PEG-basedparser generators [7] couldver-
+ify these assertions automatically.
+A final open problem is the relationship and inter-convertibility
+of CFGs and PEGs. Birman proved that TS and gTS can simu-
+late any deterministic pushdown automata (DPDA) [5], implying
+that PEGs can express any deterministic LR-class context-free lan-
+guage. There is informal evidence, however, that a much larger
+class of CFGs might be recognizable with PEGs, including many
+CFGs for which no conventional linear-time parsing algorithm is
+known [7]. It is not even proven yet that CFLs exist that cannot be
+recognized by a PEG, though recent work in lower bounds on the
+complexity of general CFG parsing [14] and matrix product [23]
+shows at least that general CFG parsing is inherently super-linear.
+
+== 6 Related Work
+
+This work is inspired by and heavily based on Birman’s TS/TDPL
+and gTS/GTDPL systems [4, 5, 3]. The ⇒ G relation and the basic
+properties in Sections 3.3 and 3.4 are direct adaptations of Birman’s
+work. The major new features of the present work are the extension
+to support general parsing expressions with repetition and predicate
+operators, the structural analysis and identity results in Sections 3.5
+through 3.7, and the predicate elimination procedure in Section 4.2.
+While parsing expressions could conceivably be treated merely as
+“syntactic sugar” for GTDPLgrammars, it isnot clear that thepred-
+icate elimination transformation, and hence the reduction from GT-
+DPL to TDPL, could be accomplished without the use of more
+general expression-like forms in the intermediate stages. For this
+reason it appears that PEGs represent a useful formal notation in
+its own right, complementary to the minimalist TDPL and GTDPL
+systems.
+Unfortunately it appears TDPL and GTDPL have not seen much
+practical use, perhaps in large measure because they were origi-
+nally developed and presented as formal models for certain types
+of top-down parsers, rather than as a useful syntactic foundation in
+its own right. Adams [1] used TDPL in a modular language proto-
+typing framework, however. In addition, many practical top-down
+parsing libraries and toolkits, including the popular ANTLR [21]
+and the P ARSEC combinator library for Haskell [15], provide back-
+tracking capabilities that conform to this model in practice, if per-
+haps unintentionally. These existing systems generally use “naive”
+backtracking methods that risk exponential runtime in worst-case
+scenarios, but the same features can be implemented in strictly lin-
+ear time using a memoizing “packrat parser” [8, 7].
+The positive form of syntactic predicate (the “and-predicate”) was
+introduced by Parr [20] for use in ANTLR [21], and later incorpo-
+rated into JavaCC under the name “syntactic lookahead” [16]. The
+metafront system includes alimited, fixed-lookahead formof syn-
+tactic predicates under the terms “attractors” and “traps” [6]. The
+negativeformof syntacticpredicate (the“not-predicate”) appears to
+be new, but its effect can be achieved in practical parsing systems
+such as ANTLR and JavaCC using semantic predicates [17].
+Many extensions and variations of context-free grammars have
+been developed, such as indexed grammars [2], W-grammars [28],
+affix grammars [13], tree-adjoining grammars [12], minimalist
+grammars [24], and conjunctive grammars [18]. Most of these ex-
+tensions are motivated by the requirements of expressing natural
+languages, and all are at least as difficult to parse as CFGs.
+Since machine-oriented language translators often need to process
+large inputs in linear or near-linear time, and there appears to be no
+hope of general CFG parsing in much better than O(n 3) time [14],
+most parsing algorithms for machine-oriented languages focus on
+handling subclasses of the CFGs. Classic deterministic top-down
+and bottom-up techniques [3] are widely used, but their limitations
+are frequently felt by language designers and implementors.
+The syntax definition formalism SDF increases the expressiveness
+of CFGs with explicit disambiguation rules, and supports unified
+language descriptions by combining lexical and context-free syn-
+tax definitions into a “two-level” formalism [10]. The nondeter-
+ministic linear-time NSLR(1) parsing algorithm [26] is powerful
+enough to generate “scannerless” parsers from unified syntax defi-
+nitions without treating lexical analysis separately [22], but the al-
+gorithm severely restricts the form in which such CFGscan be writ-
+ten. Other machine-oriented syntax formalisms and tools use CFGs
+extended with explicit disambiguation rules to express both lexical
+and hierarchical syntax, supporting unified syntax definitions more
+cleanly while giving up strictly linear-time parsing [21, 29, 27].
+Thesesystemsgraftrecognition-based functionality ontogenerative
+CFGs, resulting in a “hybrid” generative/recognition-based syntac-
+tic model. PEGs provide similar features in a simpler syntactic
+foundation by adopting the recognition paradigm from the start.
+
+== 7 Conclusion
+
+Parsing expression grammars provide a powerful, formally rigor-
+ous, and efficiently implementable foundation for expressing the
+syntax of machine-oriented languages that are designed to be un-
+ambiguous. Because of their implicit longest-match recognition
+capability coupled with explicit predicates, PEGs allow both the
+lexical and hierarchical syntax of a language to be described in one
+concise grammar. The expressiveness of PEGs also introduces new
+syntax design choices for future languages. Birman’s GTDPL sys-
+tem serves as a natural “normal form” to which any PEG can easily
+be reduced. With minor restrictions, PEGs can be rewritten to elim-
+inate predicates and reduced to TDPL, an even more minimalist
+form. In consequence, we have shown TDPL and GTDPL to be
+essentially equivalent in recognition power. Finally, despite their
+ability to express language constructs requiring unlimited looka-
+head and backtracking, all PEGs are parseable in linear time with a
+suitable tabular or memoizing algorithm.
+
+== Acknowledgments
+
+I would like to thank my advisor Frans Kaashoek, as well as
+François Pottier, Robert Grimm, Terence Parr, Arnar Birgisson, and
+the POPL reviewers, for valuable feedback and discussion and for
+pointing out several errors in the original draft.
+
+== 8 References
+
+[1] Stephen Robert Adams. Modular Grammars for Programming Language 
+Prototyping. PhD thesis, University of Southampton, 1991.
+
+[2] Alfred V. Aho. Indexed grammars—an extension of context-free 
+grammars. Journal of the ACM, 15(4):647–671, October 1968.
+
+[3] Alfred V. Aho and Jeffrey D. Ullman. The Theory of Parsing,
+Translation and Compiling - Vol. I: Parsing. Prentice Hall,
+Englewood Cliffs, N.J., 1972.
+
+[4] Alexander Birman. The TMG Recognition Schema. PhD thesis, 
+Princeton University, February 1970.
+
+[5] Alexander Birman and Jeffrey D. Ullman. Parsing algorithms
+with backtrack. Information and Control, 23(1):1–34, August 1973.
+
+[6] Claus Brabrand, Michael I. Schwartzbach, and Mads Vanggaard. 
+The metafront system: Extensible parsing and transformation. 
+In Third Workshop on Language Descriptions,
+Tools and Applications, Warsaw, Poland, April 2003.
+
+[7] Bryan Ford. Packrat parsing: a practical linear-timealgorithm
+with backtracking. Master’s thesis, Massachusetts Institute of
+Technology, Sep 2002.
+
+[8] Bryan Ford. Packrat parsing: Simple, powerful, lazy, linear
+time. In Proceedings of the 2002 International Conference on
+Functional Programming, Oct 2002.
+
+[9] Dick Grune and Ceriel J.H. Jacobs. Parsing Techniques—A
+Practical Guide. Ellis Horwood, Chichester, England, 1990.
+
+[10] J. Heering, P. R. H. Hendriks, P. Klint, and J. Rekers. The
+syntax definition formalism SDF—reference manual—. SIGPLAN
+Notices, 24(11):43–75, 1989.
+
+[11] Simon Peyton Jones and John Hughes (editors). Haskell 98
+Report, 1998. http://www.haskell.org .
+
+[12] Aravind K. Joshi and Yves Schabes. Tree-adjoining grammars. 
+Handbook of Formal Languages, 3:69–124, 1997.
+
+[13] C.H.A. Koster. Affix grammars. In J.E.L. Peck, editor, ALGOL 68 
+Implementation, pages 95–109, Amsterdam, 1971. North-Holland Publ. Co.
+
+[14] Lillian Lee. Fast context-free grammar parsing requires fast
+boolean matrix multiplication. Journal of the ACM, 49(1):1–15, 2002.
+
+[15] Daan Leijen. Parsec, a fast combinator parser.
+http://www.cs.uu.nl/˜daan .
+
+[16] Sun Microsystems. Java compiler compiler (JavaCC).
+https://javacc.dev.java.net/ .
+
+[17] Sun Microsystems. JavaCC: LOOKAHEAD minitutorial.
+https://javacc.dev.java.net/doc/lookahead.html .
+
+[18] Alexander Okhotin. Conjunctive grammars. Journal of Automata, 
+Languages and Combinatorics, 6(4):519–535, 2001.
+
+[19] International Standards Organization. Syntactic metalanguage
+— Extended BNF, 1996. ISO/IEC 14977.
+
+[20] Terence J. Parr and Russell W. Quong. Adding semantic and
+syntactic predicates to LL(k)—pred-LL(k). In Proceedings of the 
+International Conference on Compiler Construction, Edinburgh, 
+Scotland, April 1994.
+
+[21] Terence J. Parrand RussellW.Quong. ANTLR:A Predicated LL(k) parser 
+generator. Software Practice and Experience, 25(7):789–810, 1995.
+
+[22] Daniel J. Salomon and Gordon V. Cormack. Scannerless
+NSLR(1) parsing of programming languages. In Proceedings
+of the ACM SIGPLAN’89 Conference on Programming Language
+Design and Implementation (PLDI), pages 170–178, Jul 1989.
+
+[23] Amir Shpilka. Lower bounds for matrix product. In IEEE Symposium 
+on Foundations of Computer Science, pages 358–367, 2001.
+
+[24] Edward Stabler. Derivational minimalism. Logical Aspects of
+Computational Linguistics, pages 68–95, 1997.
+
+[25] Bjarne Stroustrup. The C++ Programming Language.
+Addison-Wesley, 3rd edition, June 1997.
+
+[26] Kuo-Chung Tai. Noncanonical SLR(1) grammars. ACM
+Transactions on Programming Languages and Systems,
+1(2):295–320, Oct 1979.
+
+[27] M.G.J. van den Brand, J. Scheerder, J.J. Vinju, and E. Visser.
+Disambiguation filtersfor scannerless generalized LR parsers.
+In Compiler Construction, 2002.
+
+[28] A. van Wijngaarden, B.J. Mailloux, J.E.L. Peck, C.H.A.
+Koster, M. Sintzoff, C.H. Lindsey, L.G.L.T. Meertens, and
+R.G. Fisker. Report on the algorithmic language ALGOL 68.
+Numer. Math., 14:79–218, 1969.
+
+[29] Eelco Visser. A family of syntax definition formalisms. Technical
+Report P9706, Programming Research Group, University of Amsterdam, 1997.
+
+[30] Niklaus Wirth. What can we do about the unnecessary diversity
+of notation for syntactic descriptions. Communications of
+the ACM, 20(11):822–823, November 1977.
+

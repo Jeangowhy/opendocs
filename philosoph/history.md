@@ -1,21 +1,3 @@
-# =🚩Sentences marker
-
-External linkage pertains to entities declared extern, functions, class types 
-and their members (including static members), and variables, and all templates 
-thereof, that are not already internal by the rules above, and all enums. 
-
-This sounds very esoteric, so let’s pin it down with some concrete examples:
-
-从《左传》与《东周列国志》的词语对比中看词义突显
-On the Exposition of Words' Meaning by Comparison between Zuo Zhuan and Records of the States in the Eastern Zhou Dynasty
-
-
-   Before you can use a variable or constant in a JavaScript program, you
-   must declare it. In ES6 and later, this is done with the ``let`` and 
-   ``const`` keywords, which we explain next. Prior to ES6, variables were
-   declared with ``var``, which is more idiosyncratic and is explained later
-   on in this section.
-
 
 ## 世界近代史 Modern World History
 

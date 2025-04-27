@@ -4,10 +4,18 @@
 *~
 # Ignore Vim swap files.
 .*.swp
+.*.swp
+# Ignore draw.io backup file.
+.$*.bkp
+.$*.dtmp
+
 # macOS-specific excludes
 .DS_Store
 .gradle
 .vscode
+
+# VIM swap
+*.sw*
 
 deno.lock
 
@@ -36,8 +44,25 @@ package-lock.json
 .mscbackup
 info.exe.stackdump
 
+.gitignore
 
 concurrency_py.txt
 concurrency_py_asyncio.txt
 fluent_py_2nd.txt
 learn_py_5th.txt
+tempCodeRunnerFile.*
+
+# TypeScript
+tsconfig.json
+jsconfig.json
+
+# LaTeX
+*.fls
+*.fdb*
+*.idx
+*.syn*
+*.ilg
+*.ind
+*.toc
+
+*.wav

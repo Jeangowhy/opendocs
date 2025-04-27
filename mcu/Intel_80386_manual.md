@@ -27,11 +27,11 @@ MD DATE: 2024/03/28
 因此使用 - 符号分隔表头有更好的兼容性，或者将表格做成代码区块按原样显示。
 
 ```html
-<a *tb2_1* name="tb2_1"></a>
+<a *tb2_1* id="tb2_1"></a>
 
-<meta *tb2_1* /><a name="tb2_1"></a>
+<meta *tb2_1* /><a id="tb2_1"></a>
 
-<a name="fig1_1"></a>
+<a id="fig1_1"></a>
 <!-- <meta *tb2_1* /> -->
 <!-- *fig1_1* -->
 ```
@@ -191,8 +191,10 @@ CPU 工艺从 10000nm 发展到 10nm 以内的水平，工作主频从 KHz 水�
 因此英特尔在很长时间里一直生产 80386 处理器，持续到 2007 年才停产。后期的 80386 处理器
 转入 1μm 工艺制造，频率也提高到 40 MHz。
 
-An Illustrated History of Computers 
-http://www.computersciencelab.com/ComputerHistory/History.htm
+* An Illustrated History of Computers 
+  http://www.computersciencelab.com/ComputerHistory/History.htm
+* Intel 80386, a revolutionary CPU
+  https://www.xtof.info/intel80386.html
 
 AMD 64-bit CPU 手册：
 
@@ -1603,24 +1605,24 @@ Tables
 *    [tb9_5](#tb9_5) Conditions That Invalidate the TSS
 *    [tb9_6](#tb9_6) Exception Summary
 *    [tb9_7](#tb9_7) Error-Code Summary
-*    [tb10_1](#tb0_1) Meaning of D, U, and W Bit Pairs
-*    [tb12_1](#tb2_1) Breakpeint Field Recognition Examples
-*    [tb12_2](#tb2_2) Debug Exception Conditions
-*    [tb14_1](#tb4_1) 80386 Real-Address Mode Exceptions
-*    [tb14_2](#tb4_2) New 80386 Exceptions
-*    [tb17_1](#tb7_1) Effective Size Attributes
-*    [tb17_2](#tb7_2) 16-Bit Addressing Forms with the ModR/M Byte
-*    [tb17_3](#tb7_3) 32-Bit Addressing Forms with the ModR/M Byte
-*    [tb17_4](#tb7_4) 32-Bit Addressing Forms with the SIB Byte
-*    [tb17_5](#tb7_5) Task Switch Times for Exceptions
-*    [tb17_6](#tb7_6) 80386 Exceptions
+*    [tb10_1](#tb10_1) Meaning of D, U, and W Bit Pairs
+*    [tb12_1](#tb12_1) Breakpeint Field Recognition Examples
+*    [tb12_2](#tb12_2) Debug Exception Conditions
+*    [tb14_1](#tb14_1) 80386 Real-Address Mode Exceptions
+*    [tb14_2](#tb14_2) New 80386 Exceptions
+*    [tb17_1](#tb17_1) Effective Size Attributes
+*    [tb17_2](#tb17_2) 16-Bit Addressing Forms with the ModR/M Byte
+*    [tb17_3](#tb17_3) 32-Bit Addressing Forms with the ModR/M Byte
+*    [tb17_4](#tb17_4) 32-Bit Addressing Forms with the SIB Byte
+*    [tb17_5](#tb17_5) Task Switch Times for Exceptions
+*    [tb17_6](#tb17_6) 80386 Exceptions
 
 
                             Page 14 of 421
 
 --------------------------------------------------------------------------------
 
-<a name="C01"></a> <!-- *Chapter 1* -->
+<a id="C01"></a> <!-- *Chapter 1* -->
 
 /Chapter 1 -- Introduction to the 80386
 =======================================
@@ -1635,7 +1637,7 @@ The 80386 is an advanced 32-bit microprocessor optimized for multitasking operat
 
 
 * * *
-<a name="S01_01"></a>
+<a id="S01_01"></a>
 
 //1.1 Organization of This Manual
 =================================
@@ -1777,7 +1779,7 @@ The appendices present tables of encodings and other details in a format designe
 
 
 * * *
-<a name="S01_02"></a>
+<a id="S01_02"></a>
 
 //1.2 Related Literature
 ========================
@@ -1793,7 +1795,7 @@ The following books contain additional material concerning the 80386 microproces
 
 
 * * *
-<a name="S01_03"></a>
+<a id="S01_03"></a>
 
 //1.3 Notational Conventions
 ============================
@@ -1823,7 +1825,7 @@ In many register and memory layout descriptions, certain bits are marked as unde
 
 * * *
 
-<a name="fig1_1"></a><!-- *fig1_1* -->  <!-- *Figure 1-1* -->
+<a id="fig1_1"></a><!-- *fig1_1* -->  <!-- *Figure 1-1* -->
 
 [Figure 1-1. Example Data Structure](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig1-1.gif)
 <!-- 
@@ -1918,7 +1920,7 @@ This manual uses special notation to represent sub- and super-script characters.
 
 * * *
 
-<a name="PI___"></a>
+<a id="PI___"></a>
 
 /PART I APPLICATION PROGRAMMING
 ===============================
@@ -1931,7 +1933,7 @@ This manual uses special notation to represent sub- and super-script characters.
 
 * * *
 
-<a name="C02"></a> <!-- *Chapter 2* -->
+<a id="C02"></a> <!-- *Chapter 2* -->
 
 /Chapter 2 -- Basic Programming Model
 =====================================
@@ -1962,7 +1964,7 @@ This chapter contains a section for each aspect of the architecture that is norm
 
 
 * * *
-<a name="S02_01"></a>
+<a id="S02_01"></a>
 
 //2.1 Memory Organization and Segmentation
 ==========================================
@@ -2003,7 +2005,7 @@ During execution of a program, the processor associates with a segment selector 
 
 
 * * *
-<a name="S02_02"></a>
+<a id="S02_02"></a>
 
 //2.2 Data Types
 ================
@@ -2060,7 +2062,7 @@ Although bytes, words, and doublewords are the fundamental types of operands, th
 
 [Figure 2-4](#fig2_4) graphically summarizes the data types supported by the 80386.
 
-<a name="fig2_1"></a><!-- *fig2_1* -->  <!-- *Figure 2-1* -->
+<a id="fig2_1"></a><!-- *fig2_1* -->  <!-- *Figure 2-1* -->
 
 [Figure 2-1. Two-Component Pointer](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig2-1.gif)
 
@@ -2085,7 +2087,7 @@ Although bytes, words, and doublewords are the fundamental types of operands, th
 
 * * *
 
-<a name="fig2_2"></a><!-- *fig2_2* -->  <!-- *Figure 2-2* -->
+<a id="fig2_2"></a><!-- *fig2_2* -->  <!-- *Figure 2-2* -->
 
 [Figure 2-2. Fundamental Data Types](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig2-2.gif)
 
@@ -2110,7 +2112,7 @@ Although bytes, words, and doublewords are the fundamental types of operands, th
 ```
 * * *
 
-<a name="fig2_3"></a><!-- *fig2_3* -->  <!-- *Figure 2-3* -->
+<a id="fig2_3"></a><!-- *fig2_3* -->  <!-- *Figure 2-3* -->
 
 [Figure 2-3. Bytes, Words, and Doublewords in Memory](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig2-3.gif)
 
@@ -2152,7 +2154,7 @@ Although bytes, words, and doublewords are the fundamental types of operands, th
 ```
 * * *
 
-<a name="fig2_4"></a><!-- *fig2_4* -->  <!-- *Figure 2-4* -->
+<a id="fig2_4"></a><!-- *fig2_4* -->  <!-- *Figure 2-4* -->
 
 [Figure 2-4. 80386 Data Types](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig2-4.gif)
 
@@ -2249,7 +2251,7 @@ FAR 48-BIT ╔╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤
 
 
 * * *
-<a name="S02_03"></a>
+<a id="S02_03"></a>
 
 //2.3 Registers
 ===============
@@ -2293,7 +2295,7 @@ Depending on the structure of data (e.g., the way data is parceled into one or m
 
 The processor associates a base address with each segment selected by a segment register. To address an element within a segment, a 32-bit offset is added to the segment's base address. Once a segment is selected (by loading the segment selector into a segment register), a data manipulation instruction only needs to specify the offset. Simple rules define which segment register is used to form an address when only an offset is specified.
 
-<a name="fig2_5"></a><!-- *fig2_5* -->  <!-- *Figure 2-5* -->
+<a id="fig2_5"></a><!-- *fig2_5* -->  <!-- *Figure 2-5* -->
 
 [Figure 2-5. 80386 Applications Register Set](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig2-5.gif)
 
@@ -2346,7 +2348,7 @@ The processor associates a base address with each segment selected by a segment 
 ```
 * * *
 
-<a name="fig2_6"></a><!-- *fig2_6* -->  <!-- *Figure 2-6* -->
+<a id="fig2_6"></a><!-- *fig2_6* -->  <!-- *Figure 2-6* -->
 
 [Figure 2-6. Use of Memory Segmentation](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig2-6.gif)
 
@@ -2388,7 +2390,7 @@ Stack operations are facilitated by three registers:
 3.  The **stack-frame base pointer** (EBP) register. 
     The EBP is the best choice of register for accessing data structures, variables and dynamically allocated work space within the stack. EBP is often used to access elements on the stack relative to a fixed point on the stack rather than relative to the current TOS. It typically identifies the base address of the current stack frame established for the current procedure. When EBP is used as the base register in an offset calculation, the offset is calculated automatically in the current stack segment (i.e., the segment currently selected by SS). Because SS does not have to be explicitly specified, instruction encoding in such cases is more efficient. EBP can also be used to index into segments addressable via other segment registers.
 
-<a name="fig2_7"></a><!-- *fig2_7* -->  <!-- *Figure 2-7* -->
+<a id="fig2_7"></a><!-- *fig2_7* -->  <!-- *Figure 2-7* -->
 
 [Figure 2-7. 80386 Stack](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig2-7.gif)
 
@@ -2420,7 +2422,7 @@ The low-order 16 bits of EFLAGS is named FLAGS and can be treated as a unit. Thi
 
 The flags may be considered in three groups: the status flags, the control flags, and the systems flags. Discussion of the systems flags is delayed until Part II.
 
-<a name="fig2_8"></a><!-- *fig2_8* -->  <!-- *Figure 2-8* -->
+<a id="fig2_8"></a><!-- *fig2_8* -->  <!-- *Figure 2-8* -->
 
 [Figure 2-8. EFLAGS Register](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig2-8.gif)
 
@@ -2470,7 +2472,7 @@ The **instruction pointer register** (EIP) contains the offset address, relative
 
 As [Figure 2-9](#fig2_9) shows, the low-order 16 bits of EIP is named IP and can be used by the processor as a unit. This feature is useful when executing instructions designed for the 8086 and 80286 processors.
 
-<a name="fig2_9"></a><!-- *fig2_9* -->  <!-- *Figure 2-9* -->
+<a id="fig2_9"></a><!-- *fig2_9* -->  <!-- *Figure 2-9* -->
 
 [Figure 2-9. Instruction Pointer Register](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig2-9.gif)
 
@@ -2485,7 +2487,7 @@ As [Figure 2-9](#fig2_9) shows, the low-order 16 bits of EIP is named IP and can
 ```
 
 * * *
-<a name="S02_04"></a>
+<a id="S02_04"></a>
 
 //2.4 Instruction Format
 ========================
@@ -2528,7 +2530,7 @@ The information encoded in an 80386 instruction includes a specification of the 
 
 
 * * *
-<a name="S02_05"></a>
+<a id="S02_05"></a>
 
 //2.5 Operand Selection
 =======================
@@ -2633,7 +2635,7 @@ Special instruction prefix elements may be used to override the default segment 
 *   The use of SS in stack instructions.
 *   The use of CS for instruction fetches.
 
-<a name="tb2_1"></a> <!-- *tb2_1*  -->
+<a id="tb2_1"></a> <!-- *tb2_1*  -->
 
 Table 2-1. Default Segment Register Selection Rules
 
@@ -2717,7 +2719,7 @@ The **base**, **index**, and **displacement** components may be used in any comb
 
     This combination provides efficient indexing of a two-dimensional array when the elements of the array are 2, 4, or 8 bytes wide.
 
-<a name="fig2_10"></a><!-- *fig2_10* -->  <!-- *Figure 2-10* -->
+<a id="fig2_10"></a><!-- *fig2_10* -->  <!-- *Figure 2-10* -->
 
 [Figure 2-10. Effective Address Computation](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig2-10.gif)
 
@@ -2737,7 +2739,7 @@ The **base**, **index**, and **displacement** components may be used in any comb
 ```
 
 * * *
-<a name="S02_06"></a>
+<a id="S02_06"></a>
 
 //2.6 Interrupts and Exceptions
 ===============================
@@ -2781,7 +2783,7 @@ Table 2-2 highlights the exceptions that may be of interest to applications prog
 
 The instruction [INT](#IC_INT) generates an interrupt whenever it is executed; the processor treats this interrupt as an exception. The effects of this interrupt (and the effects of all other exceptions) are determined by exception handler routines provided by the application program or as part of the systems software (provided by systems programmers). The [INT](#IC_INT) instruction itself is discussed in [Chapter 3](#C03). Refer to [Chapter 9](#C09) for a more complete description of exceptions.
 
-<a name="tb2_2"></a> <!-- *tb2_2*  -->
+<a id="tb2_2"></a> <!-- *tb2_2*  -->
 
 Table 2-2. 80386 Reserved Exceptions and Interrupts
 
@@ -2813,7 +2815,7 @@ Table 2-2. 80386 Reserved Exceptions and Interrupts
 
 * * *
 
-<a name="C03"></a> <!-- *Chapter 3* -->
+<a id="C03"></a> <!-- *Chapter 3* -->
 
 /Chapter 3 Applications Instruction Set
 =======================================
@@ -2842,7 +2844,7 @@ The instruction dictionary in [Chapter 17](#C17) contains more detailed descript
 
 
 * * *
-<a name="S03_01"></a>
+<a id="S03_01"></a>
 
 //3.1 Data Movement Instructions
 ================================
@@ -2881,7 +2883,7 @@ The [XCHG](#IC_XCHG) instruction can swap two byte operands, two word operands, 
 
 [POPA](#IC_POPA) (Pop All Registers) restores the registers saved on the stack by [PUSHA](#IC_PUSHA), except that it ignores the saved value of ESP. See [Figure 3-4](#fig3_4).
 
-<a name="fig3_1"></a><!-- *fig3_1* -->  <!-- *Figure 3-1* -->
+<a id="fig3_1"></a><!-- *fig3_1* -->  <!-- *Figure 3-1* -->
 
 [Figure 3-1. PUSH](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-1.gif)
 
@@ -2906,7 +2908,7 @@ The [XCHG](#IC_XCHG) instruction can swap two byte operands, two word operands, 
 
 * * *
 
-<a name="fig3_2"></a><!-- *fig3_2* -->  <!-- *Figure 3-2* -->
+<a id="fig3_2"></a><!-- *fig3_2* -->  <!-- *Figure 3-2* -->
 
 [Figure 3-2. PUSHA](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-2.gif)
 
@@ -2965,7 +2967,7 @@ There are two classes of type conversion instructions:
 
 [MOVZX](#IC_MOVZX) (Move with Zero Extension) extends an 8-bit value to a 16-bit value and an 8- or 16-bit value to 32-bit value by inserting high-order zeros.
 
-<a name="fig3_3"></a><!-- *fig3_3* -->  <!-- *Figure 3-3* -->
+<a id="fig3_3"></a><!-- *fig3_3* -->  <!-- *Figure 3-3* -->
 
 [Figure 3-3. POP](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-3.gif)
 
@@ -2990,7 +2992,7 @@ There are two classes of type conversion instructions:
 
 * * *
 
-<a name="fig3_4"></a><!-- *fig3_4* -->  <!-- *Figure 3-4* -->
+<a id="fig3_4"></a><!-- *fig3_4* -->  <!-- *Figure 3-4* -->
 
 [Figure 3-4. POPA](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-4.gif)
 
@@ -3027,7 +3029,7 @@ There are two classes of type conversion instructions:
 
 * * *
 
-<a name="fig3_5"></a><!-- *fig3_5* -->  <!-- *Figure 3-5* -->
+<a id="fig3_5"></a><!-- *fig3_5* -->  <!-- *Figure 3-5* -->
 
 [Figure 3-5. Sign Extension](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-5.gif)
 
@@ -3048,7 +3050,7 @@ There are two classes of type conversion instructions:
 
 
 * * *
-<a name="S03_02"></a>
+<a id="S03_02"></a>
 
 //3.2 Binary Arithmetic Instructions
 ====================================
@@ -3146,7 +3148,7 @@ For signed byte division, the maximum positive quotient is +127, and the minimum
 
 
 * * *
-<a name="S03_03"></a>
+<a id="S03_03"></a>
 
 //3.3 Decimal Arithmetic Instructions
 =====================================
@@ -3183,7 +3185,7 @@ These instructions operate only on the AL or AH registers. Most utilize the AF f
 
 
 * * *
-<a name="S03_04"></a>
+<a id="S03_04"></a>
 
 //3.4 Logical Instructions
 ==========================
@@ -3218,7 +3220,7 @@ This group of instructions operates on a single bit which can be in memory or in
 
 These instructions first assign the value of the selected bit to CF, the carry flag. Then a new value is assigned to the selected bit, as determined by the operation. OF, SF, ZF, AF, PF are left in an undefined state. Table 3-1 defines these instructions.
 
-<a name="tb3_1"></a> <!-- *tb3_1*  -->
+<a id="tb3_1"></a> <!-- *tb3_1*  -->
 
 Table 3-1. Bit Test and Modify Instructions
 
@@ -3274,7 +3276,7 @@ Even though this instruction can be used to divide integers by a power of two, t
 
 The code sequence in [Figure 3-9](#fig3_9) produces the same result as [IDIV](#IC_IDIV) for any M = 2^(N), where 0 < N < 32. This sequence takes about 12 to 18 clocks, depending on whether the jump is taken; if ECX contains M, the corresponding [IDIV](#IC_IDIV) ECX instruction will take about 43 clocks.
 
-<a name="fig3_6"></a><!-- *fig3_6* -->  <!-- *Figure 3-6* -->
+<a id="fig3_6"></a><!-- *fig3_6* -->  <!-- *Figure 3-6* -->
 
 [Figure 3-6. SAL and SHL](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-6.gif)
 
@@ -3295,7 +3297,7 @@ WORD, AND DOUBLEWORD OPERANDS.
 
 * * *
 
-<a name="fig3_7"></a><!-- *fig3_7* -->  <!-- *Figure 3-7* -->
+<a id="fig3_7"></a><!-- *fig3_7* -->  <!-- *Figure 3-7* -->
 
 [Figure 3-7. SHR](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-7.gif)
 
@@ -3314,7 +3316,7 @@ THE RIGHT OF THE OPERAND. SHR SHIFTS IN ZEROS TO FILL THE VACATED BIT
 LOCATIONS.
 * * *
 
-<a name="fig3_8"></a><!-- *fig3_8* -->  <!-- *Figure 3-8* -->
+<a id="fig3_8"></a><!-- *fig3_8* -->  <!-- *Figure 3-8* -->
 
 [Figure 3-8. SAR](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-8.gif)
 
@@ -3331,7 +3333,7 @@ LOCATIONS.
 ```
 * * *
 
-<a name="fig3_9"></a><!-- *fig3_9* -->  <!-- *Figure 3-9* -->
+<a id="fig3_9"></a><!-- *fig3_9* -->  <!-- *Figure 3-9* -->
 
 [Figure 3-9. Using SAR to Simulate IDIV](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-9.gif)
 
@@ -3381,7 +3383,7 @@ This instruction differs from [ROL](#IC_RCL) in that it treats CF as a high-orde
 
 This instruction differs from [ROR](#IC_RCL) in that it treats CF as a low-order one-bit extension of the destination operand. Each low-order bit that exits from the right side of the operand moves to CF before it returns to the operand as the high-order bit on the next rotation cycle. See [Figure 3-15](#fig3_15) .
 
-<a name="fig3_10"></a><!-- *fig3_10* -->  <!-- *Figure 3-10* -->
+<a id="fig3_10"></a><!-- *fig3_10* -->  <!-- *Figure 3-10* -->
 
 [Figure 3-10. Shift Left Double](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-10.gif)
 
@@ -3398,7 +3400,7 @@ This instruction differs from [ROR](#IC_RCL) in that it treats CF as a low-order
 ```
 * * *
 
-<a name="fig3_11"></a><!-- *fig3_11* -->  <!-- *Figure 3-11* -->
+<a id="fig3_11"></a><!-- *fig3_11* -->  <!-- *Figure 3-11* -->
 
 [Figure 3-11. Shift Right Double](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-11.gif)
 
@@ -3415,7 +3417,7 @@ This instruction differs from [ROR](#IC_RCL) in that it treats CF as a low-order
 ```
 * * *
 
-<a name="fig3_12"></a><!-- *fig3_12* -->  <!-- *Figure 3-12* -->
+<a id="fig3_12"></a><!-- *fig3_12* -->  <!-- *Figure 3-12* -->
 
 [Figure 3-12. ROL](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-12.gif)
 
@@ -3428,7 +3430,7 @@ This instruction differs from [ROR](#IC_RCL) in that it treats CF as a low-order
 ```
 * * *
 
-<a name="fig3_13"></a><!-- *fig3_13* -->  <!-- *Figure 3-13* -->
+<a id="fig3_13"></a><!-- *fig3_13* -->  <!-- *Figure 3-13* -->
 
 [Figure 3-13. ROR](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-13.gif)
 
@@ -3441,7 +3443,7 @@ This instruction differs from [ROR](#IC_RCL) in that it treats CF as a low-order
 ```
 * * *
 
-<a name="fig3_14"></a><!-- *fig3_14* -->  <!-- *Figure 3-14* -->
+<a id="fig3_14"></a><!-- *fig3_14* -->  <!-- *Figure 3-14* -->
 
 [Figure 3-14. RCL](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-14.gif)
 
@@ -3454,7 +3456,7 @@ This instruction differs from [ROR](#IC_RCL) in that it treats CF as a low-order
 ```
 * * *
 
-<a name="fig3_15"></a><!-- *fig3_15* -->  <!-- *Figure 3-15* -->
+<a id="fig3_15"></a><!-- *fig3_15* -->  <!-- *Figure 3-15* -->
 
 [Figure 3-15. RCR](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-15.gif)
 
@@ -3670,7 +3672,7 @@ The difference between [TEST](#IC_TEST) and [AND](#IC_AND) is that [TEST](#IC_TE
 
 
 * * *
-<a name="S03_05"></a>
+<a id="S03_05"></a>
 
 //3.5 Control Transfer Instructions
 ===================================
@@ -3735,7 +3737,7 @@ Table 3-2 shows the conditional transfer mnemonics and their interpretations. Th
 
 Conditional jump instructions contain a displacement which is added to the EIP register if the condition is true. The displacement may be a byte, a word, or a doubleword. The displacement is signed; therefore, it can be used to jump forward or backward.
 
-<a name="tb3_2"></a> <!-- *tb3_2*  -->
+<a id="tb3_2"></a> <!-- *tb3_2*  -->
 
 Table 3-2. Interpretation of Conditional Transfers
 
@@ -3806,7 +3808,7 @@ The upper and lower limit values may each be a word or a doubleword.
 
 
 * * *
-<a name="S03_06"></a>
+<a id="S03_06"></a>
 
 //3.6 String and Character Translation Instructions
 ===================================================
@@ -3910,7 +3912,7 @@ When either the [REPE](#IC_REP) or [REPNE](#IC_REP) prefix modifies either the [
 
 
 * * *
-<a name="S03_07"></a>
+<a id="S03_07"></a>
 
 //3.7 Instructions for Block-Structured Languages
 =================================================
@@ -3966,7 +3968,7 @@ After PROCEDURE B calls PROCEDURE C, [ENTER](#IC_ENTER) creates a new display fo
 
 [LEAVE](#IC_LEAVE) (Leave Procedure) reverses the action of the previous [ENTER](#IC_ENTER) instruction. The [LEAVE](#IC_LEAVE) instruction does not include any operands. [LEAVE](#IC_LEAVE) copies EBP to ESP to release all stack space allocated to the procedure by the most recent [ENTER](#IC_ENTER) instruction. Then [LEAVE](#IC_LEAVE) pops the old value of EBP from the stack. A subsequent [RET](#IC_RET) instruction can then remove any arguments that were pushed on the stack by the calling program for use by the called procedure.
 
-<a name="fig3_16"></a><!-- *fig3_16* -->  <!-- *Figure 3-16* -->
+<a id="fig3_16"></a><!-- *fig3_16* -->  <!-- *Figure 3-16* -->
 
 [Figure 3-16. Formal Definition of the ENTER Instruction](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-16.gif)
 
@@ -3992,7 +3994,7 @@ following listing. LEVEL denotes the value of the second operand.
 
 * * *
 
-<a name="fig3_17"></a><!-- *fig3_17* -->  <!-- *Figure 3-17* -->
+<a id="fig3_17"></a><!-- *fig3_17* -->  <!-- *Figure 3-17* -->
 
 [Figure 3-17. Variable Access in Nested Procedures](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-17.gif)
 
@@ -4020,7 +4022,7 @@ following listing. LEVEL denotes the value of the second operand.
 
 * * *
 
-<a name="fig3_18"></a><!-- *fig3_18* -->  <!-- *Figure 3-18* -->
+<a id="fig3_18"></a><!-- *fig3_18* -->  <!-- *Figure 3-18* -->
 
 [Figure 3-18. Stack Frame for MAIN at Level 1](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-18.gif)
 
@@ -4044,7 +4046,7 @@ following listing. LEVEL denotes the value of the second operand.
 
 * * *
 
-<a name="fig3_19"></a><!-- *fig3_19* -->  <!-- *Figure 3-19* -->
+<a id="fig3_19"></a><!-- *fig3_19* -->  <!-- *Figure 3-19* -->
 
 [Figure 3-19. Stack Frame for Procedure A](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-19.gif)
 
@@ -4080,7 +4082,7 @@ following listing. LEVEL denotes the value of the second operand.
 
 * * *
 
-<a name="fig3_20"></a><!-- *fig3_20* -->  <!-- *Figure 3-20* -->
+<a id="fig3_20"></a><!-- *fig3_20* -->  <!-- *Figure 3-20* -->
 
 [Figure 3-20. Stack Frame for Procedure B at Level 3 Called from A](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-20.gif)
 
@@ -4130,7 +4132,7 @@ following listing. LEVEL denotes the value of the second operand.
 
 * * *
 
-<a name="fig3_21"></a><!-- *fig3_21* -->  <!-- *Figure 3-21* -->
+<a id="fig3_21"></a><!-- *fig3_21* -->  <!-- *Figure 3-21* -->
 
 [Figure 3-21. Stack Frame for Procedure C at Level 3 Called from B](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-21.gif)
 
@@ -4182,7 +4184,7 @@ following listing. LEVEL denotes the value of the second operand.
 
 
 * * *
-<a name="S03_08"></a>
+<a id="S03_08"></a>
 
 //3.8 Flag Control Instructions
 ===============================
@@ -4221,7 +4223,7 @@ The [PUSHF](#IC_PUSHF) and [POPF](#IC_POPF) instructions are not only useful for
 
 [POPF](#IC_POPF) (Pop Flags) transfers specific bits from the word at the top of stack into the low-order byte of the flag register (see [Figure 3-23](#fig3_23)), then increments ESP by two. The variant [POPFD](#IC_POPF) transfers specific bits from the doubleword at the top of the stack into the extended flags register (the RF and VM flags are not changed, however), then increments ESP by four.
 
-<a name="fig3_22"></a><!-- *fig3_22* -->  <!-- *Figure 3-22* -->
+<a id="fig3_22"></a><!-- *fig3_22* -->  <!-- *Figure 3-22* -->
 
 [Figure 3-22. LAHF and SAHF](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-22.gif)
 
@@ -4240,7 +4242,7 @@ THE REMAINING BITS (MARKED --) ARE RESERVED; DO NOT DEFINE.
 
 
 * * *
-<a name="S03_09"></a>
+<a id="S03_09"></a>
 
 //3.9 Coprocessor Interface Instructions
 ========================================
@@ -4255,7 +4257,7 @@ ESC (Escape) is a 5-bit sequence that begins the opcodes that identify floating 
 
 [WAIT](#IC_WAIT) (Wait) is an 80386 instruction that suspends program execution until the 80386 CPU detects that the BUSY pin is inactive. This condition indicates that the coprocessor has completed its processing task and that the CPU may obtain the results.
 
-<a name="fig3_23"></a><!-- *fig3_23* -->  <!-- *Figure 3-23* -->
+<a id="fig3_23"></a><!-- *fig3_23* -->  <!-- *Figure 3-23* -->
 
 [Figure 3-23. Flag Format for PUSHF and POPF](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-23.gif)
 
@@ -4280,7 +4282,7 @@ REGARDLESS OF THE VALUES POPPED INTO THEM.
 
 
 * * *
-<a name="S03_10"></a>
+<a id="S03_10"></a>
 
 //3.10 Segment Register Instructions
 ====================================
@@ -4364,7 +4366,7 @@ Loads ES with the selector identifying the segment pointed to by DESTINATION_X, 
 
 
 * * *
-<a name="S03_11"></a>
+<a id="S03_11"></a>
 
 //3.11 Miscellaneous Instructions
 =================================
@@ -4395,7 +4397,7 @@ Causes the processor to place the address of the starting location of the table 
 
 * * *
 
-<a name="PII__"></a>
+<a id="PII__"></a>
 
 /PART II SYSTEM PROGRAMMING
 ===========================
@@ -4416,7 +4418,7 @@ Causes the processor to place the address of the starting location of the table 
 
 * * *
 
-<a name="C04"></a> <!-- *Chapter 4* -->
+<a id="C04"></a> <!-- *Chapter 4* -->
 
 /Chapter 4 Systems Architecture
 ===============================
@@ -4443,7 +4445,7 @@ These features are implemented by registers and instructions, all of which are i
 
 
 * * *
-<a name="S04_01"></a>
+<a id="S04_01"></a>
 
 //4.1 Systems Registers
 =======================
@@ -4487,7 +4489,7 @@ The systems flags of the EFLAGS register control I/O, maskable interrupts, debug
 
     When set, the VM flag indicates that the task is executing an 8086 program . Refer to [Chapter 14](#C14) for a detailed discussion of how the 80386 executes 8086 tasks in a protected, multitasking environment.
 
-<a name="fig4_1"></a><!-- *fig4_1* -->  <!-- *Figure 4-1* -->
+<a id="fig4_1"></a><!-- *fig4_1* -->  <!-- *Figure 4-1* -->
 
 [Figure 4-1. System Flags of EFLAGS Register](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig4-1.gif)
 
@@ -4569,7 +4571,7 @@ CR2 is used for handling page faults when PG is set. The processor stores in CR2
 
 CR3 is used when PG is set. CR3 enables the processor to locate the page table directory for the current task . Refer to [Chapter 5](#C05) for a description of page tables and page translation.
 
-<a name="fig4_2"></a><!-- *fig4_2* -->  <!-- *Figure 4-2* -->
+<a id="fig4_2"></a><!-- *fig4_2* -->  <!-- *Figure 4-2* -->
 
 [Figure 4-2. Control Registers](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig4-2.gif)
 
@@ -4604,7 +4606,7 @@ The test registers are not a standard part of the 80386 architecture. They are p
 
 
 * * *
-<a name="S04_02"></a>
+<a id="S04_02"></a>
 
 //4.2 Systems Instructions
 ==========================
@@ -4675,7 +4677,7 @@ In addition to the chapters cited above, detailed information about each of thes
 
 * * *
 
-<a name="C05"></a> <!-- *Chapter 5* -->
+<a id="C05"></a> <!-- *Chapter 5* -->
 
 /Chapter 5 Memory Management
 ============================
@@ -4696,7 +4698,7 @@ These translations are performed in a way that is not visible to applications pr
 
 [Figure 5-1](#fig5_1) and the remainder of this chapter present a simplified view of the 80386 addressing mechanism. In reality, the addressing mechanism also includes memory protection features. For the sake of simplicity, however, the subject of protection is taken up in another chapter, [Chapter 6](#C06).
 
-<a name="fig5_1"></a><!-- *fig5_1* -->  <!-- *Figure 5-1* -->
+<a id="fig5_1"></a><!-- *fig5_1* -->  <!-- *Figure 5-1* -->
 
 [Figure 5-1. Address Translation Overview](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-1.gif)
 
@@ -4731,7 +4733,7 @@ ADDRESS ║   SELECTOR    ║   ║            OFFSET            ║
 
 
 * * *
-<a name="S05_01"></a>
+<a id="S05_01"></a>
 
 //5.1 Segment Translation
 =========================
@@ -4778,7 +4780,7 @@ The segment descriptor provides the processor with the data it needs to map a lo
 
 Creation and maintenance of descriptors is the responsibility of systems software, usually requiring the cooperation of compilers, program loaders or system builders, and therating system.
 
-<a name="fig5_2"></a><!-- *fig5_2* -->  <!-- *Figure 5-2* -->
+<a id="fig5_2"></a><!-- *fig5_2* -->  <!-- *Figure 5-2* -->
 
 [Figure 5-2. Segment Translation](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-2.gif)
 
@@ -4808,7 +4810,7 @@ Creation and maintenance of descriptors is the responsibility of systems softwar
 
 * * *
 
-<a name="fig5_3"></a><!-- *fig5_3* -->  <!-- *Figure 5-3* -->
+<a id="fig5_3"></a><!-- *fig5_3* -->  <!-- *Figure 5-3* -->
 
 [Figure 5-3. General Segment-Descriptor Format](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-3.gif)
 
@@ -4857,7 +4859,7 @@ A descriptor table is simply a memory array of 8-byte entries that contain descr
 
 The processor locates the GDT and the current LDT in memory by means of the GDTR and LDTR registers. These registers store the base addresses of the tables in the linear address space and store the segment limits. The instructions [LGDT](#IC_LGDT) and [SGDT](#IC_SGDT) give access to the GDTR; the instructions [LLDT](#IC_LLDT) and [SLDT](#IC_SLDT) give access to the LDTR.
 
-<a name="fig5_4"></a><!-- *fig5_4* -->  <!-- *Figure 5-4* -->
+<a id="fig5_4"></a><!-- *fig5_4* -->  <!-- *Figure 5-4* -->
 
 [Figure 5-4. Format of Not-Present Descriptor](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-4.gif)
 
@@ -4876,7 +4878,7 @@ The processor locates the GDT and the current LDT in memory by means of the GDTR
 ```
 * * *
 
-<a name="fig5_5"></a><!-- *fig5_5* -->  <!-- *Figure 5-5* -->
+<a id="fig5_5"></a><!-- *fig5_5* -->  <!-- *Figure 5-5* -->
 
 [Figure 5-5. Descriptor Tables](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-5.gif)
 
@@ -4934,7 +4936,7 @@ Requested Privilege Level: Used by the protection mechanism. (Refer to [Chapter 
 
 Because the first entry of the GDT is not used by the processor, a selector that has an index of zero and a table indicator of zero (i.e., a selector that points to the first entry of the GDT), can be used as a null selector. The processor does not cause an exception when a segment register (other than CS or SS) is loaded with a null selector. It will, however, cause an exception when the segment register is used to access memory. This feature is useful for initializing unused segment registers so as to trap accidental references.
 
-<a name="fig5_6"></a><!-- *fig5_6* -->  <!-- *Figure 5-6* -->
+<a id="fig5_6"></a><!-- *fig5_6* -->  <!-- *Figure 5-6* -->
 
 [Figure 5-6. Format of a Selector](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-6.gif)
 
@@ -4951,7 +4953,7 @@ Because the first entry of the GDT is not used by the processor, a selector that
 
 * * *
 
-<a name="fig5_7"></a><!-- *fig5_7* -->  <!-- *Figure 5-7* -->
+<a id="fig5_7"></a><!-- *fig5_7* -->  <!-- *Figure 5-7* -->
 
 [Figure 5-7. Segment Registers](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-7.gif)
 
@@ -4996,7 +4998,7 @@ Because most instructions refer to data in segments whose selectors have already
 
 
 * * *
-<a name="S05_02"></a>
+<a id="S05_02"></a>
 
 //5.2 Page Translation
 ======================
@@ -5017,7 +5019,7 @@ A linear address refers indirectly to a physical address by specifying a page ta
 
 [Figure 5-9](#fig5_9) shows how the processor converts the DIR, PAGE, and OFFSET fields of a linear address into the physical address by consulting two levels of page tables. The addressing mechanism uses the DIR field as an index into a page directory, uses the PAGE field as an index into the page table determined by the page directory, and uses the OFFSET field to address a byte within the page determined by the page table.
 
-<a name="fig5_8"></a><!-- *fig5_8* -->  <!-- *Figure 5-8* -->
+<a id="fig5_8"></a><!-- *fig5_8* -->  <!-- *Figure 5-8* -->
 
 [Figure 5-8. Format of a Linear Address](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-8.gif)
 
@@ -5031,7 +5033,7 @@ A linear address refers indirectly to a physical address by specifying a page ta
 ```
 * * *
 
-<a name="fig5_9"></a><!-- *fig5_9* -->  <!-- *Figure 5-9* -->
+<a id="fig5_9"></a><!-- *fig5_9* -->  <!-- *Figure 5-9* -->
 
 [Figure 5-9. Page Translation](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-9.gif)
 
@@ -5087,7 +5089,7 @@ If P=0 in either level of page tables when an attempt is made to use a page-tabl
 
 Note that there is no present bit for the page directory itself. The page directory may be not-present while the associated task is suspended, but the operating system must ensure that the page directory indicated by the CR3 image in the TSS is present in physical memory before the task is dispatched . Refer to [Chapter 7](#C07) for an explanation of the TSS and task dispatching.
 
-<a name="fig5_10"></a><!-- *fig5_10* -->  <!-- *Figure 5-10* -->
+<a id="fig5_10"></a><!-- *fig5_10* -->  <!-- *Figure 5-10* -->
 
 [Figure 5-10. Format of a Page Table Entry](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-10.gif)
 
@@ -5107,7 +5109,7 @@ Note that there is no present bit for the page directory itself. The page direct
 ```
 * * *
 
-<a name="fig5_11"></a><!-- *fig5_11* -->  <!-- *Figure 5-11* -->
+<a id="fig5_11"></a><!-- *fig5_11* -->  <!-- *Figure 5-11* -->
 
 [Figure 5-11. Invalid Page Table Entry](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-11.gif)
 
@@ -5152,7 +5154,7 @@ The existence of the page-translation cache is invisible to applications program
 
 
 * * *
-<a name="S05_03"></a>
+<a id="S05_03"></a>
 
 //5.3 Combining Segment and Page Translation
 ============================================
@@ -5169,9 +5171,49 @@ When the 80386 is used to execute software designed for architectures that don't
 
 The architecture of the 80386 permits segments to be larger or smaller than the size of a page (4 Kilobytes). For example, suppose a segment is used to address and protect a large data structure that spans 132 Kilobytes. In a software system that supports paged virtual memory, it is not necessary for the entire structure to be in physical memory at once. The structure is divided into 33 pages, any number of which may not be present. The applications programmer does not need to be aware that the virtual memory subsystem is paging the structure in this manner.
 
-<a name="fig5_12"></a><!-- *fig5_12* -->  <!-- *Figure 5-12* -->
+<a id="fig5_12"></a><!-- *fig5_12* -->  <!-- *Figure 5-12* -->
 
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-12.gif)
+<!-- ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-12.gif) -->
+
+    Figure 5-12  80386 Addressing Machanism
+
+    16            0 32                                             0            
+    ┌──────────────┬───────────────────────────────────────────────┐            
+    │ SELECTOR     │                 OFFSET                        │ LOGICAL    
+    └──────┬───────┴─────────────────────────┬─────────────────────┘ ADDRESS    
+           │                                 │
+    ┌──────┘                                 │
+    │                                        │
+    │     DESCRIPTOR TABLE                   │
+    │    ┌────────────────┐                  │
+    │    │                │                  │
+    │    │                │                  │
+    │    ├────────────────┤                  │
+    └───►│ SEGMENT        │     ┌─────┐      │
+         │ DESCRIPTOR     ├────►│  +  │◄─────┘
+         ├────────────────┤     └──┬──┘
+         │                │        │
+         └────────────────┘        │
+                                   │                               PAGE FRAME
+         LINEAR  ┌───────────┬─────▼───────┬────────────┐       ┌──────────────┐
+         ADDRESS │     DIR   │    PAGE     │   OFFSET   │       │              │
+                 └────┬──────┴─────┬───────┴─────┬──────┘       │              │
+                      │            │             │              │   PHYSICAL   │
+    ┌─────────────────┘            │             └─────────────►│   ADDRESS    │
+    │   PAGE DIRECTORY             │      PAGE TABLE            │              │
+    │  ┌───────────────┐           │   ┌──────────────┐         │              │
+    │  │               │           │   │              │         │              │
+    │  │               │           │   │              │         └──────────────┘
+    │  │               │           │   │              │
+    │  ├───────────────┤           │   ├──────────────┤
+    └─►│ DIR ENTRY     ├─────┐     └──►│ PG TBL ENTRY │
+       ├───────────────┤     │         ├──────────────┤
+       │               │     └────────►│              │
+       └────────▲──────┘               └──────────────┘
+                │
+    ┌──────┐    │
+    │ CR3  ├────┘
+    └──────┘
 
 //5.3.3 Pages Spanning Several Segments
 ---------------------------------------
@@ -5193,16 +5235,40 @@ Memory-management software may be simpler, however, if it enforces some correspo
 
 An approach to space management that provides even further simplification of space-management software is to maintain a one-to-one correspondence between segment descriptors and page-directory entries, as [Figure 5-13](#fig5_13) illustrates. Each descriptor has a base address in which the low-order 22 bits are zero; in other words, the base address is mapped by the first entry of a page table. A segment may have any limit from 1 to 4 megabytes. Depending on the limit, the segment is contained in from 1 to 1K page frames. A task is thus limited to 1K segments (a sufficient number for many applications), each containing up to 4 Mbytes. The descriptor, the corresponding page-directory entry, and the corresponding page table can be allocated and deallocated simultaneously.
 
-<a name="fig5_13"></a><!-- *fig5_13* -->  <!-- *Figure 5-13* -->
+<a id="fig5_13"></a><!-- *fig5_13* -->  <!-- *Figure 5-13* -->
 
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-13.gif)
+<!-- ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-13.gif) -->
+
+    Figure 5-13  Descriptor per Page Table                                          
+                                                                         PAGE FRAMES
+         LDT           PAGE DIRECTORY              PAGE TABLES           ┌─────────┐
+    ┌────────────┐    ┌──────────────┐            ┌───────────┐     ┌───►│         │
+    │            │    │              │            │           │     │    └─────────┘
+    ├────────────┤    ├──────────────┤            ├───────────┤     │               
+    │            │    │              │            │    PTE    ├─────┘    ┌─────────┐
+    ├────────────┤    ├──────────────┤            ├───────────┤      ┌──►│         │
+    │            │    │              │            │    PTE    ├──────┘   └─────────┘
+    ├────────────┤    ├──────────────┤            ├───────────┤                     
+    │ DESCRIPTOR ├───►│     PDE      ├───────────►│    PTE    ├──────┐   ┌─────────┐
+    ├────────────┤    ├──────────────┤            └───────────┘      └──►│         │
+    │ DESCRIPTOR ├───►│     PDE      ├──────┐                            └─────────┘
+    ├────────────┤    ├──────────────┤      │     ┌───────────┐                     
+    │            │    │              │      │     │           │                     
+    ├────────────┤    ├──────────────┤      │     ├───────────┤          ┌─────────┐
+    │            │    │              │      │     │           │      ┌──►│         │
+    ├────────────┤    ├──────────────┤      │     ├───────────┤      │   └─────────┘
+    │            │    │              │      │     │    PTE    ├──────┘              
+    ├────────────┤    ├──────────────┤      │     ├───────────┤          ┌─────────┐
+    │            │    │              │      └────►│    PTE    ├─────────►│         │
+    └────────────┘    └──────────────┘            └───────────┘          └─────────┘
+         LDT           PAGE DIRECTORY              PAGE TABLES           PAGE FRAMES
 
 * * *
 
 
 * * *
 
-<a name="C06"></a> <!-- *Chapter 6* -->
+<a id="C06"></a> <!-- *Chapter 6* -->
 
 /Chapter 6 Protection
 =====================
@@ -5217,7 +5283,7 @@ An approach to space management that provides even further simplification of spa
 
 
 * * *
-<a name="S06_01"></a>
+<a id="S06_01"></a>
 
 //6.1 Why Protection?
 =====================
@@ -5228,7 +5294,7 @@ The purpose of the protection features of the 80386 is to help detect and identi
 
 
 * * *
-<a name="S06_02"></a>
+<a id="S06_02"></a>
 
 //6.2 Overview of 80386 Protection Mechanisms
 =============================================
@@ -5255,7 +5321,7 @@ The concept of privilege applies both to segment protection and to page protecti
 
 
 * * *
-<a name="S06_03"></a>
+<a id="S06_03"></a>
 
 //6.3 Segment-Level Protection
 ==============================
@@ -5279,7 +5345,7 @@ The protection parameters are placed in the descriptor by systems software at th
 
 When a program loads a selector into a segment register, the processor loads not only the base address of the segment but also protection information. Each segment register has bits in the invisible portion for storing base, limit, type, and privilege level; therefore, subsequent protection checks on the same segment do not consume additional clock cycles.
 
-<a name="fig6_1"></a><!-- *fig6_1* -->  <!-- *Figure 6-1* -->
+<a id="fig6_1"></a><!-- *fig6_1* -->  <!-- *Figure 6-1* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig6-1.gif)
 
@@ -5353,7 +5419,7 @@ The limit field of descriptors for descriptor tables is used by the processor to
 
 Limit checking catches programming errors such as runaway subscripts and invalid pointer calculations. Such errors are detected when they occur, so that identification of the cause is easier. Without limit checking, such errors could corrupt other modules; the existence of such errors would not be discovered until later, when the corrupted module behaves incorrectly, and when identification of the cause is difficult.
 
-<a name="tb6_2"></a> <!-- *tb6_2*  -->
+<a id="tb6_2"></a> <!-- *tb6_2*  -->
 
 Table 6-2. Useful Combinations of E, G, and B Bits
 
@@ -5400,7 +5466,7 @@ The processor automatically evaluates the right of a procedure to access another
 
 It is not necessary to use all four privilege levels. Existing software that was designed to use only one or two levels of privilege can simply ignore the other levels offered by the 80386. A one-level system should use privilege level zero; a two-level system should use privilege levels zero and three.
 
-<a name="fig6_2"></a><!-- *fig6_2* -->  <!-- *Figure 6-2* -->
+<a id="fig6_2"></a><!-- *fig6_2* -->  <!-- *Figure 6-2* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig6-2.gif)
 
@@ -5417,7 +5483,7 @@ Instructions may load a data-segment register (and subsequently use the target s
 
 The addressable domain of a task varies as CPL changes. When CPL is zero, data segments at all privilege levels are accessible; when CPL is one, only data segments at privilege levels one through three are accessible; when CPL is three, only data segments at privilege level three are accessible. This property of the 80386 can be used, for example, to prevent applications procedures from reading or changing tables of the operating system.
 
-<a name="fig6_3"></a><!-- *fig6_3* -->  <!-- *Figure 6-3* -->
+<a id="fig6_3"></a><!-- *fig6_3* -->  <!-- *Figure 6-3* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig6-3.gif)
 
@@ -5459,7 +5525,7 @@ An executable segment whose descriptor has the conforming bit set is called a co
 
 Most code segments are not conforming. The basic rules of privilege above mean that, for nonconforming segments, control can be transferred without a gate only to executable segments at the same level of privilege. There is a need, however, to transfer control to (numerically) smaller privilege levels; this need is met by the [CALL](#IC_CALL) instruction when used with call-gate descriptors, which are explained in the next section. The [JMP](#IC_JMP) instruction may never transfer control to a nonconforming segment whose DPL does not equal CPL.
 
-<a name="fig6_4"></a><!-- *fig6_4* -->  <!-- *Figure 6-4* -->
+<a id="fig6_4"></a><!-- *fig6_4* -->  <!-- *Figure 6-4* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig6-4.gif)
 
@@ -5503,19 +5569,19 @@ For a [CALL](#IC_CALL) instruction (or for a [JMP](#IC_JMP) instruction to a con
 MAX (CPL,RPL) <= gate DPL
 target segment DPL <= CPL
 
-<a name="fig6_5"></a><!-- *fig6_5* -->  <!-- *Figure 6-5* -->
+<a id="fig6_5"></a><!-- *fig6_5* -->  <!-- *Figure 6-5* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig6-5.gif)
 
 * * *
 
-<a name="fig6_6"></a><!-- *fig6_6* -->  <!-- *Figure 6-6* -->
+<a id="fig6_6"></a><!-- *fig6_6* -->  <!-- *Figure 6-6* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig6-6.gif)
 
 * * *
 
-<a name="fig6_7"></a><!-- *fig6_7* -->  <!-- *Figure 6-7* -->
+<a id="fig6_7"></a><!-- *fig6_7* -->  <!-- *Figure 6-7* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig6-7.gif)
 
@@ -5548,13 +5614,13 @@ Procedures that may be called from another privilege level and that require more
 
 A call via a call gate does not check the values of the words copied onto the new stack. The called procedure should check each parameter for validity. A later section discusses how the [ARPL](#IC_ARPL), [VERR](#IC_VERR), [VERW](#IC_VERR), [LSL](#IC_LSL), and [LAR](#IC_LAR) instructions can be used to check pointer values.
 
-<a name="fig6_8"></a><!-- *fig6_8* -->  <!-- *Figure 6-8* -->
+<a id="fig6_8"></a><!-- *fig6_8* -->  <!-- *Figure 6-8* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig6-8.gif)
 
 * * *
 
-<a name="fig6_9"></a><!-- *fig6_9* -->  <!-- *Figure 6-9* -->
+<a id="fig6_9"></a><!-- *fig6_9* -->  <!-- *Figure 6-9* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig6-9.gif)
 
@@ -5578,7 +5644,7 @@ Instructions that have the power to affect the protection mechanism or to influe
 1.  Privileged instructions -- those used for system control.
 2.  Sensitive instructions -- those used for I/O and I/O related activities.
 
-<a name="tb6_3"></a> <!-- *tb6_3*  -->
+<a id="tb6_3"></a> <!-- *tb6_3*  -->
 
 Table 6-3. Interlevel Return Checks
 
@@ -5646,7 +5712,7 @@ Although the 80386 processor automatically performs checks 2 and 3 during instru
 
 [LSL](#IC_LSL) (Load Segment Limit) allows software to test the limit of a descriptor. If the descriptor denoted by the given selector (in memory or a register) is visible at the CPL, [LSL](#IC_LSL) loads the specified 32-bit register with a 32-bit, byte granular, unscrambled limit that is calculated from fragmented limit fields and the G-bit of that descriptor. This can only be done for segments (data, code, task state, and local descriptor tables); gate descriptors are inaccessible. (Table 6-4 lists in detail which types are valid and which are not.) Interpreting the limit is a function of the segment type. For example, downward expandable data segments treat the limit differently than code segments do. For both [LAR](#IC_LAR) and [LSL](#IC_LSL), the zero flag (ZF) is set if the loading was performed; otherwise, the ZF is cleared.
 
-<a name="tb6_4"></a> <!-- *tb6_4*  -->
+<a id="tb6_4"></a> <!-- *tb6_4*  -->
 
 Table 6-4. Valid Descriptor Types for LSL
 
@@ -5700,7 +5766,7 @@ To take advantage of the processor's checking of RPL, the called procedure need 
 
 
 * * *
-<a name="S06_04"></a>
+<a id="S06_04"></a>
 
 //6.4 Page-Level Protection
 ===========================
@@ -5715,7 +5781,7 @@ Two kinds of protection are related to pages:
 
 [Figure 6-10](#fig6_10) highlights the fields of PDEs and PTEs that control access to pages.
 
-<a name="fig6_10"></a><!-- *fig6_10* -->  <!-- *Figure 6-10* -->
+<a id="fig6_10"></a><!-- *fig6_10* -->  <!-- *Figure 6-10* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig6-10.gif)
 
@@ -5755,7 +5821,7 @@ Certain accesses are checked as if they are privilege-level 0 references, even i
 
 
 * * *
-<a name="S06_05"></a>
+<a id="S06_05"></a>
 
 //6.5 Combining Page and Segment Protection
 ===========================================
@@ -5764,7 +5830,7 @@ When paging is enabled, the 80386 first evaluates segment protection, then evalu
 
 For example, it is possible to define a large data segment which has some subunits that are read-only and other subunits that are read-write. In this case, the page directory (or page table) entries for the read-only subunits would have the U/S and R/W bits set to x0, indicating no write rights for all the pages described by that directory entry (or for individual pages). This technique might be used, for example, in a UNIX-like system to define a large data segment, part of which is read only (for shared data or ROMmed constants). This enables UNIX-like systems to define a "flat" data space as one large segment, use "flat" pointers to address within this "flat" space, yet be able to protect shared data, shared files mapped into the virtual space, and supervisor areas.
 
-<a name="tb6_5"></a> <!-- *tb6_5*  -->
+<a id="tb6_5"></a> <!-- *tb6_5*  -->
 
 Table 6-5. Combining Directory and Page Protection
 
@@ -5813,7 +5879,7 @@ Table 6-5. Combining Directory and Page Protection
 
 * * *
 
-<a name="C07"></a> <!-- *Chapter 7* -->
+<a id="C07"></a> <!-- *Chapter 7* -->
 
 /Chapter 7 Multitasking
 =======================
@@ -5842,7 +5908,7 @@ With these structures the 80386 can rapidly switch execution from one task to an
 
 
 * * *
-<a name="S07_01"></a>
+<a id="S07_01"></a>
 
 //7.1 Task State Segment
 ========================
@@ -5869,7 +5935,7 @@ Task state segments may reside anywhere in the linear space. The only case that 
 1.  By allocating the TSS so that it does not cross a page boundary.
 2.  By ensuring that both pages are either both present or both not-present at the time of a task switch. If both pages are not-present, then the page-fault handler must make both pages present before restarting the instruction that caused the task switch.
 
-<a name="fig7_1"></a><!-- *fig7_1* -->  <!-- *Figure 7-1* -->
+<a id="fig7_1"></a><!-- *fig7_1* -->  <!-- *Figure 7-1* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig7-1.gif)
 
@@ -5877,7 +5943,7 @@ Task state segments may reside anywhere in the linear space. The only case that 
 
 
 * * *
-<a name="S07_02"></a>
+<a id="S07_02"></a>
 
 //7.2 TSS Descriptor
 ====================
@@ -5894,7 +5960,7 @@ Having access to a TSS-descriptor does not give a procedure the right to read or
 
 TSS descriptors may reside only in the GDT. An attempt to identify a TSS with a selector that has TI=1 (indicating the current LDT) results in an exception.
 
-<a name="fig7_2"></a><!-- *fig7_2* -->  <!-- *Figure 7-2* -->
+<a id="fig7_2"></a><!-- *fig7_2* -->  <!-- *Figure 7-2* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig7-2.gif)
 
@@ -5902,7 +5968,7 @@ TSS descriptors may reside only in the GDT. An attempt to identify a TSS with a 
 
 
 * * *
-<a name="S07_03"></a>
+<a id="S07_03"></a>
 
 //7.3 Task Register
 ===================
@@ -5917,7 +5983,7 @@ The instructions [LTR](#IC_LTR) and [STR](#IC_STR) are used to modify and read t
 
 [STR](#IC_STR) (Store task register) stores the visible portion of the task register in a general register or memory word. [STR](#IC_STR) is not privileged.
 
-<a name="fig7_3"></a><!-- *fig7_3* -->  <!-- *Figure 7-3* -->
+<a id="fig7_3"></a><!-- *fig7_3* -->  <!-- *Figure 7-3* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig7-3.gif)
 
@@ -5925,7 +5991,7 @@ The instructions [LTR](#IC_LTR) and [STR](#IC_STR) are used to modify and read t
 
 
 * * *
-<a name="S07_04"></a>
+<a id="S07_04"></a>
 
 //7.4 Task Gate Descriptor
 ==========================
@@ -5944,13 +6010,13 @@ A procedure that has access to a task gate has the power to cause a task switch,
 
 [Figure 7-5](#fig7_5) illustrates how both a task gate in an LDT and a task gate in the IDT can identify the same task.
 
-<a name="fig7_4"></a><!-- *fig7_4* -->  <!-- *Figure 7-4* -->
+<a id="fig7_4"></a><!-- *fig7_4* -->  <!-- *Figure 7-4* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig7-4.gif)
 
 * * *
 
-<a name="fig7_5"></a><!-- *fig7_5* -->  <!-- *Figure 7-5* -->
+<a id="fig7_5"></a><!-- *fig7_5* -->  <!-- *Figure 7-5* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig7-5.gif)
 
@@ -5958,7 +6024,7 @@ A procedure that has access to a task gate has the power to cause a task switch,
 
 
 * * *
-<a name="S07_05"></a>
+<a id="S07_05"></a>
 
 //7.5 Task Switching
 ====================
@@ -5994,7 +6060,7 @@ Exception handlers that field task-switch exceptions in the incoming task (excep
 
 The privilege level at which execution resumes in the incoming task is neither restricted nor affected by the privilege level at which the outgoing task was executing. Because the tasks are isolated by their separate address spaces and TSSs and because privilege rules can be used to prevent improper access to a TSS, no privilege rules are needed to constrain the relation between the CPLs of the tasks. The new task begins executing at the privilege level indicated by the RPL of the CS selector value that is loaded from the TSS.
 
-<a name="tb7_1"></a> <!-- *tb7_1*  -->
+<a id="tb7_1"></a> <!-- *tb7_1*  -->
 
 Table 7-1. Checks Made during a Task Switch
 
@@ -6046,14 +6112,14 @@ Test     Test Description                   Exception    Error Code Selects
 
 
 * * *
-<a name="S07_06"></a>
+<a id="S07_06"></a>
 
 //7.6 Task Linking
 ==================
 
 The back-link field of the TSS and the NT (nested task) bit of the flag word together allow the 80386 to automatically return to a task that [CALL](#IC_CALL)ed another task or was interrupted by another task. When a [CALL](#IC_CALL) instruction, an interrupt instruction, an external interrupt, or an exception causes a switch to a new task, the 80386 automatically fills the back-link of the new TSS with the selector of the outgoing task's TSS and, at the same time, sets the NT bit in the new task's flag register. The NT flag indicates whether the back-link field is valid. The new task releases control by executing an [IRET](#IC_IRET) instruction. When interpreting an [IRET](#IC_IRET), the 80386 examines the NT flag. If NT is set, the 80386 switches back to the task selected by the back-link field. Table 7-2 summarizes the uses of these fields.
 
-<a name="tb7_2"></a> <!-- *tb7_2*  -->
+<a id="tb7_2"></a> <!-- *tb7_2*  -->
 
 Table 7-2. Effect of Task Switch on BUSY, NT, and Back-Link
 
@@ -6105,7 +6171,7 @@ Any modification of the linkage order of tasks should be accomplished only by so
 
 
 * * *
-<a name="S07_07"></a>
+<a id="S07_07"></a>
 
 //7.7 Task Address Space
 ========================
@@ -6143,7 +6209,7 @@ By itself, a common linear-to-physical space mapping does not enable sharing of 
 2.  By sharing LDTs. Two or more tasks can use the same LDT if the LDT selectors in their TSSs select the same LDT segment. Those LDT-resident descriptors that point into a linear space that is mapped to a common physical space permit the tasks to share physical memory. This method of sharing is more selective than sharing by the GDT; the sharing can be limited to specific tasks. Other tasks in the system may have different LDTs that do not give them access to the shared areas.
 3.  By descriptor aliases in LDTs. It is possible for certain descriptors of different LDTs to point to the same linear address space. If that linear address space is mapped to the same physical space by the page mapping of the tasks involved, these descriptors permit the tasks to share the common space. Such descriptors are commonly called "aliases". This method of sharing is even more selective than the prior two; other descriptors in the LDTs may point to distinct linear addresses or to linear addresses that are not shared.
 
-<a name="fig7_6"></a><!-- *fig7_6* -->  <!-- *Figure 7-6* -->
+<a id="fig7_6"></a><!-- *fig7_6* -->  <!-- *Figure 7-6* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig7-6.gif)
 
@@ -6153,7 +6219,7 @@ By itself, a common linear-to-physical space mapping does not enable sharing of 
 
 * * *
 
-<a name="C08"></a> <!-- *Chapter 8* -->
+<a id="C08"></a> <!-- *Chapter 8* -->
 
 /Chapter 8 Input/Output
 =======================
@@ -6172,7 +6238,7 @@ This chapter presents the I/O features of the 80386 from the following perspecti
 
 
 * * *
-<a name="S08_01"></a>
+<a id="S08_01"></a>
 
 //8.1 I/O Addressing
 ====================
@@ -6216,7 +6282,7 @@ Memory-mapped I/O, like any other memory reference, is subject to access protect
 
 
 * * *
-<a name="S08_02"></a>
+<a id="S08_02"></a>
 
 //8.2 I/O Instructions
 ======================
@@ -6235,7 +6301,7 @@ The I/O instructions [IN](#IC_IN) and [OUT](#IC_OUT)are provided to move data be
 
 [OUT](#IC_OUT)(Output to Port) transfers a byte, word, or doubleword to an output port from AL, AX, or EAX. The program can specify the number of the port using the same methods as the [IN](#IC_IN) instruction.
 
-<a name="fig8_1"></a><!-- *fig8_1* -->  <!-- *Figure 8-1* -->
+<a id="fig8_1"></a><!-- *fig8_1* -->  <!-- *Figure 8-1* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig8-1.gif)
 
@@ -6262,7 +6328,7 @@ The string I/O primitives can operate on byte strings, word strings, or doublewo
 
 
 * * *
-<a name="S08_03"></a>
+<a id="S08_03"></a>
 
 //8.3 Protection and I/O
 ========================
@@ -6313,7 +6379,7 @@ If I/O map base is greater than or equal to TSS limit, the TSS segment has no I/
 
 Because the I/O permission map is in the TSS segment, different tasks can have different maps. Thus, the operating system can allocate ports to a task by changing the I/O permission map in the task's TSS.
 
-<a name="fig8_2"></a><!-- *fig8_2* -->  <!-- *Figure 8-2* -->
+<a id="fig8_2"></a><!-- *fig8_2* -->  <!-- *Figure 8-2* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig8-2.gif)
 
@@ -6322,7 +6388,7 @@ Because the I/O permission map is in the TSS segment, different tasks can have d
 
 * * *
 
-<a name="C09"></a> <!-- *Chapter 9* -->
+<a id="C09"></a> <!-- *Chapter 9* -->
 
 /Chapter 9 Exceptions and Interrupts
 ====================================
@@ -6355,7 +6421,7 @@ This chapter explains the features that the 80386 offers for controlling and res
 
 
 * * *
-<a name="S09_01"></a>
+<a id="S09_01"></a>
 
 //9.1 Identifying Interrupts
 ============================
@@ -6380,7 +6446,7 @@ Aborts
 
 An abort is an exception that permits neither precise location of the instruction causing the exception nor restart of the program that caused the exception. Aborts are used to report severe errors, such as hardware errors and inconsistent or illegal values in system tables.
 
-<a name="tb9_1"></a> <!-- *tb9_1*  -->
+<a id="tb9_1"></a> <!-- *tb9_1*  -->
 
 Table 9-1. Interrupt and Exception ID Assignments
 
@@ -6410,7 +6476,7 @@ Identifier   Description
 
 
 * * *
-<a name="S09_02"></a>
+<a id="S09_02"></a>
 
 //9.2 Enabling and Disabling Interrupts
 =======================================
@@ -6458,7 +6524,7 @@ To prevent this situation, the 80386, after both a [MOV](#IC_MOV) to SS and a [P
 
 
 * * *
-<a name="S09_03"></a>
+<a id="S09_03"></a>
 
 //9.3 Priority Among Simultaneous Interrupts and Exceptions
 ===========================================================
@@ -6469,7 +6535,7 @@ If more than one interrupt or exception is pending at an instruction boundary, t
 
 
 * * *
-<a name="S09_04"></a>
+<a id="S09_04"></a>
 
 //9.4 Interrupt Descriptor Table
 ================================
@@ -6482,7 +6548,7 @@ The IDT may reside anywhere in physical memory. As [Figure 9-1](#fig9_1) shows, 
 
 [SIDT](#IC_SGDT) (Store IDT register) copies the base and limit value stored in IDTR to a memory location. This instruction can be executed at any privilege level.
 
-<a name="tb9_2"></a> <!-- *tb9_2*  -->
+<a id="tb9_2"></a> <!-- *tb9_2*  -->
 
 Table 9-2. Priority Among Simultaneous Interrupts and Exceptions
 
@@ -6495,11 +6561,11 @@ Debug faults for next instruction
 NMI interrupt
 LOWEST     INTR interrupt
 
-<a name="fig9_1"></a><!-- *fig9_1* -->  <!-- *Figure 9-1* -->
+<a id="fig9_1"></a><!-- *fig9_1* -->  <!-- *Figure 9-1* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig9-1.gif)
 
-<a name="fig9_2"></a><!-- *fig9_2* -->  <!-- *Figure 9-2* -->
+<a id="fig9_2"></a><!-- *fig9_2* -->  <!-- *Figure 9-2* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig9-2.gif)
 
@@ -6507,7 +6573,7 @@ LOWEST     INTR interrupt
 
 
 * * *
-<a name="S09_05"></a>
+<a id="S09_05"></a>
 
 //9.5 IDT Descriptors
 =====================
@@ -6520,7 +6586,7 @@ The IDT may contain any of three kinds of descriptor:
 
 [Figure 9-3](#fig9_3) illustrates the format of task gates and 80386 interrupt gates and trap gates. (The task gate in an IDT is the same as the task gate already discussed in [Chapter 7](#C07).)
 
-<a name="fig9_3"></a><!-- *fig9_3* -->  <!-- *Figure 9-3* -->
+<a id="fig9_3"></a><!-- *fig9_3* -->  <!-- *Figure 9-3* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig9-3.gif)
 
@@ -6528,7 +6594,7 @@ The IDT may contain any of three kinds of descriptor:
 
 
 * * *
-<a name="S09_06"></a>
+<a id="S09_06"></a>
 
 //9.6 Interrupt Tasks and Interrupt Procedures
 ==============================================
@@ -6542,7 +6608,7 @@ An interrupt gate or trap gate points indirectly to a procedure which will execu
 
 The 80386 invokes an interrupt or exception handling procedure in much the same manner as it [CALL](#IC_CALL)s a procedure; the differences are explained in the following sections.
 
-<a name="fig9_4"></a><!-- *fig9_4* -->  <!-- *Figure 9-4* -->
+<a id="fig9_4"></a><!-- *fig9_4* -->  <!-- *Figure 9-4* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig9-4.gif)
 
@@ -6556,7 +6622,7 @@ Certain types of exceptions also cause an error code to be pushed on the stack. 
 
 An interrupt procedure also differs from a normal procedure in the method of leaving the procedure. The [IRET](#IC_IRET) instruction is used to exit from an interrupt procedure. [IRET](#IC_IRET) is similar to [RET](#IC_RET) except that [IRET](#IC_IRET) increments EIP by an extra four bytes (because of the flags on the stack) and moves the saved flags into the EFLAGS register. The IOPL field of EFLAGS is changed only if the CPL is zero. The IF flag is changed only if CPL <= IOPL.
 
-<a name="fig9_5"></a><!-- *fig9_5* -->  <!-- *Figure 9-5* -->
+<a id="fig9_5"></a><!-- *fig9_5* -->  <!-- *Figure 9-5* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig9-5.gif)
 
@@ -6591,7 +6657,7 @@ If the task switch is caused by an exception that has an error code, the process
 
 When interrupt tasks are used in an operating system for the 80386, there are actually two schedulers: the software scheduler (part of the operating system) and the hardware scheduler (part of the processor's interrupt mechanism). The design of the software scheduler should account for the fact that the hardware scheduler may dispatch an interrupt task whenever interrupts are enabled.
 
-<a name="fig9_6"></a><!-- *fig9_6* -->  <!-- *Figure 9-6* -->
+<a id="fig9_6"></a><!-- *fig9_6* -->  <!-- *Figure 9-6* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig9-6.gif)
 
@@ -6599,7 +6665,7 @@ When interrupt tasks are used in an operating system for the 80386, there are ac
 
 
 * * *
-<a name="S09_07"></a>
+<a id="S09_07"></a>
 
 //9.7 Error Code
 ================
@@ -6611,7 +6677,7 @@ With exceptions that relate to a specific segment, the processor pushes an error
 
 If the I-bit is not set, the TI bit indicates whether the error code refers to the GDT (value 0) or to the LDT (value 1). The remaining 14 bits are the upper 14 bits of the segment selector involved. In some cases the error code on the stack is null, i.e., all bits in the low-order word are zero.
 
-<a name="fig9_7"></a><!-- *fig9_7* -->  <!-- *Figure 9-7* -->
+<a id="fig9_7"></a><!-- *fig9_7* -->  <!-- *Figure 9-7* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig9-7.gif)
 
@@ -6619,7 +6685,7 @@ If the I-bit is not set, the TI bit indicates whether the error code refers to t
 
 
 * * *
-<a name="S09_08"></a>
+<a id="S09_08"></a>
 
 //9.8 Exception Conditions
 ==========================
@@ -6699,7 +6765,7 @@ Normally, when the processor detects an exception while trying to invoke the han
 
 The processor always pushes an error code onto the stack of the double-fault handler; however, the error code is always zero. The faulting instruction may not be restarted. If any other exception occurs while attempting to invoke the double-fault handler, the processor shuts down.
 
-<a name="tb9_3"></a> <!-- *tb9_3*  -->
+<a id="tb9_3"></a> <!-- *tb9_3*  -->
 
 Table 9-3. Double-Fault Detection Classes
 
@@ -6725,7 +6791,7 @@ Page Faults     14          Page fault
 
 * * *
 
-<a name="tb9_4"></a> <!-- *tb9_4*  -->
+<a id="tb9_4"></a> <!-- *tb9_4*  -->
 
 Table 9-4. Double-Fault Definition
 
@@ -6757,7 +6823,7 @@ This fault can occur either in the context of the original task or in the contex
 
 To insure a proper TSS to process it, the handler for exception 10 must be a task invoked via a task gate.
 
-<a name="tb9_5"></a> <!-- *tb9_5*  -->
+<a id="tb9_5"></a> <!-- *tb9_5*  -->
 
 Table 9-5. Conditions That Invalidate the TSS
 
@@ -6856,7 +6922,7 @@ The processor makes available to the page fault handler two items of information
     3.  Whether the memory access that caused the exception was a read or write.
 *   CR2 (control register two). The processor stores in CR2 the linear address used in the access that caused the exception (see [Figure 9-9](#fig9_9)). The exception handler can use this address to locate the corresponding page directory and page table entries. If another page fault can occur during execution of the page fault handler, the handler should push CR2 onto the stack.
 
-<a name="fig9_8"></a><!-- *fig9_8* -->  <!-- *Figure 9-8* -->
+<a id="fig9_8"></a><!-- *fig9_8* -->  <!-- *Figure 9-8* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig9-8.gif)
 
@@ -6871,7 +6937,7 @@ The processor may access any of four segments during a task switch:
 
 A page fault can result from accessing any of these segments. In the latter two cases the exception occurs in the context of the new task. The instruction pointer refers to the next instruction of the new task, not to the instruction that caused the task switch. If the design of the operating system permits page faults to occur during task-switches, the page-fault handler should be invoked via a task gate.
 
-<a name="fig9_9"></a><!-- *fig9_9* -->  <!-- *Figure 9-9* -->
+<a id="fig9_9"></a><!-- *fig9_9* -->  <!-- *Figure 9-9* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig9-9.gif)
 
@@ -6897,14 +6963,14 @@ The 80386 reports this exception when it detects a signal from the 80287 or 8038
 
 
 * * *
-<a name="S09_09"></a>
+<a id="S09_09"></a>
 
 //9.9 Exception Summary
 =======================
 
 Table 9-6 summarizes the exceptions recognized by the 386.
 
-<a name="tb9_6"></a> <!-- *tb9_6*  -->
+<a id="tb9_6"></a> <!-- *tb9_6*  -->
 
 Table 9-6. Exception Summary
 
@@ -6951,14 +7017,14 @@ Two-byte SW Interrupt     0-255       NO              TRAP          INT n
 
 
 * * *
-<a name="S09_10"></a>
+<a id="S09_10"></a>
 
 //9.10 Error Code Summary
 =========================
 
 Table 9-7 summarizes the error information that is available with each exception.
 
-<a name="tb9_7"></a> <!-- *tb9_7*  -->
+<a id="tb9_7"></a> <!-- *tb9_7*  -->
 
 Table 9-7. Error-Code Summary
 
@@ -6987,7 +7053,7 @@ Two-byte SW interrupt             0-255         No
 
 * * *
 
-<a name="C10"></a> <!-- *Chapter 10* -->
+<a id="C10"></a> <!-- *Chapter 10* -->
 
 /Chapter 10 Initialization
 ==========================
@@ -7005,7 +7071,7 @@ After a signal on the RESET pin, certain registers of the 80386 are set to prede
 
 
 * * *
-<a name="S10_01"></a>
+<a id="S10_01"></a>
 
 //10.1 Processor State After Reset
 ==================================
@@ -7034,13 +7100,13 @@ All registers not mentioned above are undefined.
 
 These settings imply that the processor begins in real-address mode with interrupts disabled.
 
-<a name="fig10_1"></a><!-- *fig10_1* -->  <!-- *Figure 10-1* -->
+<a id="fig10_1"></a><!-- *fig10_1* -->  <!-- *Figure 10-1* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig10-1.gif)
 
 * * *
 
-<a name="fig10_2"></a><!-- *fig10_2* -->  <!-- *Figure 10-2* -->
+<a id="fig10_2"></a><!-- *fig10_2* -->  <!-- *Figure 10-2* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig10-2.gif)
 
@@ -7048,7 +7114,7 @@ These settings imply that the processor begins in real-address mode with interru
 
 
 * * *
-<a name="S10_02"></a>
+<a id="S10_02"></a>
 
 //10.2 Software Initialization for Real-Address Mode
 ====================================================
@@ -7078,7 +7144,7 @@ After RESET, address lines A{31-20} are automatically asserted for instruction f
 
 
 * * *
-<a name="S10_03"></a>
+<a id="S10_03"></a>
 
 //10.3 Switching to Protected Mode
 ==================================
@@ -7091,7 +7157,7 @@ Immediately after setting the PE flag, the initialization code must flush the pr
 
 
 * * *
-<a name="S10_04"></a>
+<a id="S10_04"></a>
 
 //10.4 Software Initialization for Protected Mode
 =================================================
@@ -7133,7 +7199,7 @@ The initialization procedure can run awhile in protected mode without initializi
 
 
 * * *
-<a name="S10_05"></a>
+<a id="S10_05"></a>
 
 //10.5 Initialization Example
 =============================
@@ -7433,7 +7499,7 @@ END START, SS:DUMMY,DS:DUMMY
 
 
 * * *
-<a name="S10_06"></a>
+<a id="S10_06"></a>
 
 //10.6 TLB Testing
 ==================
@@ -7502,7 +7568,7 @@ For a TLB lookup, the HT bit indicates whether the lookup was a hit (HT := 1) or
 
 For a TLB write, selects which of four associative blocks of the TLB is to be written. For a TLB read, if HT is set, [REP](#IC_REP) reports in which of the four associative blocks the tag was found; if HT is not set, [REP](#IC_REP) is undefined.
 
-<a name="tb10_1"></a> <!-- *tb10_1*  -->
+<a id="tb10_1"></a> <!-- *tb10_1*  -->
 
 Table 10-1. Meaning of D, U, and W Bit Pairs
 
@@ -7514,13 +7580,13 @@ TLB Lookup           after TLB Write
 1     0       Match if X=1         Bit X becomes 1
 1     1       (undefined)          (undefined)
 
-<a name="fig10_3"></a><!-- *fig10_3* -->  <!-- *Figure 10-3* -->
+<a id="fig10_3"></a><!-- *fig10_3* -->  <!-- *Figure 10-3* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig10-3.gif)
 
 * * *
 
-<a name="fig10_4"></a><!-- *fig10_4* -->  <!-- *Figure 10-4* -->
+<a id="fig10_4"></a><!-- *fig10_4* -->  <!-- *Figure 10-4* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig10-4.gif)
 
@@ -7544,7 +7610,7 @@ For the purposes of testing, the V bit functions as another bit of addresss. The
 
 * * *
 
-<a name="C11"></a> <!-- *Chapter 11* -->
+<a id="C11"></a> <!-- *Chapter 11* -->
 
 /Chapter 11 Coprocessing and Multiprocessing
 ============================================
@@ -7561,7 +7627,7 @@ The 80386 has two levels of support for multiple parallel processing units:
 
 
 * * *
-<a name="S11_01"></a>
+<a id="S11_01"></a>
 
 //11.1 Coprocessing
 ===================
@@ -7654,7 +7720,7 @@ The numerics coprocessors can detect six different exception conditions during i
 
 
 * * *
-<a name="S11_02"></a>
+<a id="S11_02"></a>
 
 //11.2 General Multiprocessing
 ==============================
@@ -7716,7 +7782,7 @@ In multiprocessor systems that need a cacheability signal from the CPU, it is re
 
 * * *
 
-<a name="C12"></a> <!-- *Chapter 12* -->
+<a id="C12"></a> <!-- *Chapter 12* -->
 
 /Chapter 12 Debugging
 =====================
@@ -7731,7 +7797,7 @@ The 80386 brings to Intel's line of microprocessors significant advances in debu
 
 
 * * *
-<a name="S12_01"></a>
+<a id="S12_01"></a>
 
 //12.1 Debugging Features of the Architecture
 =============================================
@@ -7788,14 +7854,14 @@ These features make it possible to invoke a debugger that is either a separate t
 
 
 * * *
-<a name="S12_02"></a>
+<a id="S12_02"></a>
 
 //12.2 Debug Registers
 ======================
 
 Six 80386 registers are used to control debug features. These registers are accessed by variants of the [MOV](#IC_MOVRS) instruction. A debug register may be either the source operand or destination operand. The debug registers are privileged resources; the [MOV](#IC_MOVRS) instructions that access them can only be executed at privilege level zero. An attempt to read or write the debug registers when executing at any other privilege level causes a general protection exception. [Figure 12-1](#fig12_1) shows the format of the debug registers.
 
-<a name="fig12_1"></a><!-- *fig12_1* -->  <!-- *Figure 12-1* -->
+<a id="fig12_1"></a><!-- *fig12_1* -->  <!-- *Figure 12-1* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig12-1.gif)
 
@@ -7859,7 +7925,7 @@ To set a data breakpoint for a misaligned field longer than one byte, it may be 
 
 Instruction breakpoint addresses must have a length specification of one byte (LEN = 00); other values are undefined. The processor recognizes an instruction breakpoint address only when it points to the first byte of an instruction. If the instruction has any prefixes, the breakpoint address must point to the first prefix.
 
-<a name="tb12_1"></a> <!-- *tb12_1*  -->
+<a id="tb12_1"></a> <!-- *tb12_1*  -->
 
 Table 12-1. Breakpoint Field Recognition Examples
 
@@ -7889,7 +7955,7 @@ References That Don't Cause Traps      0A0003          4
 
 
 * * *
-<a name="S12_03"></a>
+<a id="S12_03"></a>
 
 //12.3 Debug Exceptions
 =======================
@@ -7903,7 +7969,7 @@ The handler for this exception is usually a debugger or part of a debugging syst
 
 Instruction address breakpoint conditions are faults, while other debug conditions are traps. The debug exception may report either or both at one time. The following paragraphs present details for each class of debug exception.
 
-<a name="tb12_2"></a> <!-- *tb12_2*  -->
+<a id="tb12_2"></a> <!-- *tb12_2*  -->
 
 Table 12-2. Debug Exception Conditions
 
@@ -7975,7 +8041,7 @@ With prior generations of processors, this feature is used extensively for trapp
 
 * * *
 
-<a name="PIII_"></a>
+<a id="PIII_"></a>
 
 /PART III COMPATIBILITY
 =======================
@@ -7990,7 +8056,7 @@ With prior generations of processors, this feature is used extensively for trapp
 
 * * *
 
-<a name="C13"></a> <!-- *Chapter 13* -->
+<a id="C13"></a> <!-- *Chapter 13* -->
 
 /Chapter 13 Executing 80286 Protected-Mode Code
 ===============================================
@@ -8003,7 +8069,7 @@ With prior generations of processors, this feature is used extensively for trapp
 
 
 * * *
-<a name="S13_01"></a>
+<a id="S13_01"></a>
 
 //13.1 80286 Code Executes as a Subset of the 80386
 ===================================================
@@ -8042,7 +8108,7 @@ For formats of these descriptors and documentation of their use refer to the iAP
 
 
 * * *
-<a name="S13_02"></a>
+<a id="S13_02"></a>
 
 //13.2 Two ways to Execute 80286 Tasks
 ======================================
@@ -8062,7 +8128,7 @@ When porting 80286 programs to the 80386, there are two cases to consider:
 
 
 * * *
-<a name="S13_03"></a>
+<a id="S13_03"></a>
 
 //13.3 Differences From 80286
 =============================
@@ -8116,7 +8182,7 @@ This exception may occur in an 80286 program if the operating system enables pag
 
 * * *
 
-<a name="C14"></a> <!-- *Chapter 14* -->
+<a id="C14"></a> <!-- *Chapter 14* -->
 
 /Chapter 14 80386 Real-Address Mode
 ===================================
@@ -8148,7 +8214,7 @@ This chapter discusses certain additional topics that complete the system progra
 
 
 * * *
-<a name="S14_01"></a>
+<a id="S14_01"></a>
 
 //14.1 Physical Address Formation
 =================================
@@ -8157,7 +8223,7 @@ The 80386 provides a one Mbyte + 64 Kbyte memory space for an 8086 program. Segm
 
 Unlike the 8086 and 80286, 32-bit effective addresses can be generated (via the address-size prefix); however, the value of a 32-bit address may not exceed 65535 without causing an exception. For full compatibility with 80286 real-address mode, pseudo-protection faults (interrupt 12 or 13 with no error code) occur if an effective address is generated outside the range 0 through 65535.
 
-<a name="fig14_1"></a><!-- *fig14_1* -->  <!-- *Figure 14-1* -->
+<a id="fig14_1"></a><!-- *fig14_1* -->  <!-- *Figure 14-1* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig14-1.gif)
 
@@ -8165,7 +8231,7 @@ Unlike the 8086 and 80286, 32-bit effective addresses can be generated (via the 
 
 
 * * *
-<a name="S14_02"></a>
+<a id="S14_02"></a>
 
 //14.2 Registers and Instructions
 =================================
@@ -8199,7 +8265,7 @@ The instruction codes that cause undefined opcode traps (interrupt 6) include in
 
 
 * * *
-<a name="S14_03"></a>
+<a id="S14_03"></a>
 
 //14.3 Interrupt and Exception Handling
 =======================================
@@ -8212,7 +8278,7 @@ The primary difference in the interrupt handling of the 80386 compared to the 80
 
 
 * * *
-<a name="S14_04"></a>
+<a id="S14_04"></a>
 
 //14.4 Entering and Leaving Real-Address Mode
 =============================================
@@ -8230,7 +8296,7 @@ Refer to [Chapter 10](#C10) "Initialization" for other aspects of switching to p
 
 
 * * *
-<a name="S14_05"></a>
+<a id="S14_05"></a>
 
 //14.5 Switching Back to Real-Address Mode
 ==========================================
@@ -8260,7 +8326,7 @@ The processor reenters real-address mode if software clears the PE bit in CR0 wi
 
 
 * * *
-<a name="S14_06"></a>
+<a id="S14_06"></a>
 
 //14.6 Real-Address Mode Exceptions
 ===================================
@@ -8271,7 +8337,7 @@ The 80386 reports some exceptions differently when executing in real-address mod
 
 
 * * *
-<a name="S14_07"></a>
+<a id="S14_07"></a>
 
 //14.7 Differences From 8086
 ============================
@@ -8397,7 +8463,7 @@ after the ESC instruction that caused the error.
 
 Two-byte SW interrupt            0-255      INT n                               NO
 
-<a name="tb14_2"></a> <!-- *tb14_2*  -->
+<a id="tb14_2"></a> <!-- *tb14_2*  -->
 
 Table 14-2. New 80386 Exceptions
 
@@ -8432,7 +8498,7 @@ proceed beyond offset 0FFFFH; or an instruction is longer than
 
 
 * * *
-<a name="S14_08"></a>
+<a id="S14_08"></a>
 
 //14.8 Differences From 80286 Real-Address Mode
 ===============================================
@@ -8473,7 +8539,7 @@ The 80286 initializes the MSW register to FFF0H, but the 80386 initializes this 
 
 * * *
 
-<a name="C15"></a> <!-- *Chapter 15* -->
+<a id="C15"></a> <!-- *Chapter 15* -->
 
 /Chapter 15 Virtual 8086 Mode
 =============================
@@ -8499,7 +8565,7 @@ Software that helps implement virtual 8086 machines is called a V86 monitor.
 
 
 * * *
-<a name="S15_01"></a>
+<a id="S15_01"></a>
 
 //15.1 Executing 8086 Code
 ==========================
@@ -8547,7 +8613,7 @@ V86 tasks generate 32-bit linear addresses. While an 8086 program can only utili
 
 Unlike the 8086 and 80286, 32-bit effective addresses can be generated (via the address-size prefix); however, the value of a 32-bit address may not exceed 65,535 without causing an exception. For full compatibility with 80286 real-address mode, pseudo-protection faults (interrupt 12 or 13 with no error code) occur if an address is generated outside the range 0 through 65,535.
 
-<a name="fig15_1"></a><!-- *fig15_1* -->  <!-- *Figure 15-1* -->
+<a id="fig15_1"></a><!-- *fig15_1* -->  <!-- *Figure 15-1* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig15-1.gif)
 
@@ -8555,7 +8621,7 @@ Unlike the 8086 and 80286, 32-bit effective addresses can be generated (via the 
 
 
 * * *
-<a name="S15_02"></a>
+<a id="S15_02"></a>
 
 //15.2 Structure of a V86 Task
 ==============================
@@ -8603,7 +8669,7 @@ Because it does not refer to descriptors while executing 8086 programs, the proc
 
 
 * * *
-<a name="S15_03"></a>
+<a id="S15_03"></a>
 
 //15.3 Entering and Leaving V86 Mode
 ====================================
@@ -8620,7 +8686,7 @@ The processor leaves V86 mode when an interrupt or exception occurs. There are t
 
 Systems software does not manipulate the VM flag directly, but rather manipulates the image of the EFLAGS register that is stored on the stack or in the TSS. The V86 monitor sets the VM flag in the EFLAGS image on the stack or in the TSS when first creating a V86 task. Exception and interrupt handlers can examine the VM flag on the stack. If the interrupted procedure was executing in V86 mode, the handler may need to invoke the V86 monitor.
 
-<a name="fig15_2"></a><!-- *fig15_2* -->  <!-- *Figure 15-2* -->
+<a id="fig15_2"></a><!-- *fig15_2* -->  <!-- *Figure 15-2* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig15-2.gif)
 
@@ -8662,7 +8728,7 @@ Reflecting an interrupt or exception back to the 8086 code involves the followin
 5.  When the [IRET](#IC_IRET) by the privilege-level three handler again traps to the V86 monitor, restore the return link on the privilege-level zero stack to point to the originally interrupted, privilege-level three procedure.
 6.  Execute an [IRET](#IC_IRET) so as to pass control back to the interrupted procedure.
 
-<a name="fig15_3"></a><!-- *fig15_3* -->  <!-- *Figure 15-3* -->
+<a id="fig15_3"></a><!-- *fig15_3* -->  <!-- *Figure 15-3* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig15-3.gif)
 
@@ -8670,7 +8736,7 @@ Reflecting an interrupt or exception back to the 8086 code involves the followin
 
 
 * * *
-<a name="S15_04"></a>
+<a id="S15_04"></a>
 
 //15.4 Additional Sensitive Instructions
 ========================================
@@ -8703,7 +8769,7 @@ Many 8086 programs that were designed to execute on single-task systems set and 
 
 
 * * *
-<a name="S15_05"></a>
+<a id="S15_05"></a>
 
 //15.5 Virtual I/O
 ==================
@@ -8743,7 +8809,7 @@ Buffers of intelligent controllers (for example, a bit-mapped graphics buffer) c
 
 
 * * *
-<a name="S15_06"></a>
+<a id="S15_06"></a>
 
 //15.6 Differences From 8086
 ============================
@@ -8779,7 +8845,7 @@ In general, V86 mode will correctly execute software designed for the 8086, 8088
 
 
 * * *
-<a name="S15_07"></a>
+<a id="S15_07"></a>
 
 //15.7 Differences From 80286 Real-Address Mode
 ===============================================
@@ -8800,7 +8866,7 @@ A locked instruction is guaranteed to lock only the area of memory defined by th
 
 * * *
 
-<a name="C16"></a> <!-- *Chapter 16* -->
+<a id="C16"></a> <!-- *Chapter 16* -->
 
 /Chapter 16 Mixing 16-Bit and 32 Bit Code
 =========================================
@@ -8846,7 +8912,7 @@ On the 80386, 16-bit modules can be mixed with 32-bit modules. To design a syste
 
 
 * * *
-<a name="S16_01"></a>
+<a id="S16_01"></a>
 
 //16.1 How the 80386 Implements 16-Bit and 32-Bit Features
 ==========================================================
@@ -8863,7 +8929,7 @@ The features of the architecture that permit the 80386 to work equally well with
 
 
 * * *
-<a name="S16_02"></a>
+<a id="S16_02"></a>
 
 //16.2 Mixing 32-Bit and 16-Bit Operations
 ==========================================
@@ -8898,7 +8964,7 @@ Choosing a setting of the D-bit that is contrary to the predominant size of oper
 
 
 * * *
-<a name="S16_03"></a>
+<a id="S16_03"></a>
 
 //16.3 Sharing Data Segments Among Mixed Code Segments
 ======================================================
@@ -8919,7 +8985,7 @@ In big, expand-down segments (B=1, G=1, and E=1), all offsets are greater than 6
 
 
 * * *
-<a name="S16_04"></a>
+<a id="S16_04"></a>
 
 //16.4 Transferring Control Among Mixed Code Segments
 =====================================================
@@ -8963,7 +9029,7 @@ Likewise, there are three ways to cause a 32-bit procedure to execute a 16-bit c
 
 Programmers can utilize any of the preceding methods to make a [CALL](#IC_CALL) in a USE16 segment match the corresponding [RET](#IC_RET) in a USE32 segment, or to make a [CALL](#IC_CALL) in a USE32 segment match the corresponding [RET](#IC_RET) in a USE16 segment.
 
-<a name="fig16_1"></a><!-- *fig16_1* -->  <!-- *Figure 16-1* -->
+<a id="fig16_1"></a><!-- *fig16_1* -->  <!-- *Figure 16-1* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig16-1.gif)
 
@@ -9018,7 +9084,7 @@ The interface procedures do little more than call corresponding procedures in ot
 
 * * *
 
-<a name="PIV__"></a>
+<a id="PIV__"></a>
 
 /PART IV INSTRUCTIONS SET
 =========================
@@ -9030,7 +9096,7 @@ The interface procedures do little more than call corresponding procedures in ot
 
 * * *
 
-<a name="C17"></a> <!-- *Chapter 17* -->
+<a id="C17"></a> <!-- *Chapter 17* -->
 
 /Chapter 17 80386 Instruction Set
 =================================
@@ -9146,7 +9212,7 @@ Instruction Set
 
 
 * * *
-<a name="S17_01"></a>
+<a id="S17_01"></a>
 
 //17.1 Operand-Size and Address-Size Attributes
 ===============================================
@@ -9174,7 +9240,7 @@ Instructions that use the stack implicitly (for example: [POP](#IC_POP) EAX also
 
 The stack address-size attribute is controlled by the B-bit of the data-segment descriptor in the SS register. A value of zero in the B-bit selects a stack address-size attribute of 16; a value of one selects a stack address-size attribute of 32.
 
-<a name="tb17_1"></a> <!-- *tb17_1*  -->
+<a id="tb17_1"></a> <!-- *tb17_1*  -->
 
 Table 17-1. Effective Size Attributes
 
@@ -9195,7 +9261,7 @@ N = No, this instruction prefix is not present
 
 
 * * *
-<a name="S17_02"></a>
+<a id="S17_02"></a>
 
 //17.2 Instruction Format
 =========================
@@ -9232,7 +9298,7 @@ The following are the segment override prefixes:
     67H    Address-size override
 ```
 
-<a name="fig17_1"></a><!-- *fig17_1* -->  <!-- *Figure 17-1* -->
+<a id="fig17_1"></a><!-- *fig17_1* -->  <!-- *Figure 17-1* -->
 
 [Figure 17-1. 80386 Instruction Format](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig17-1.gif)
 
@@ -9290,7 +9356,7 @@ The based indexed and scaled indexed forms of 32-bit addressing require the SIB 
 
 [Figure 17-2](#fig17_2) shows the formats of the ModR/M and SIB bytes. The values and the corresponding addressing forms of the ModR/M and SIB bytes are shown in Tables 17-2, 17-3, and 17-4. The 16-bit addressing forms specified by the ModR/M byte are in Table 17-2. The 32-bit addressing forms specified by ModR/M are in Table 17-3. Table 17-4 shows the 32-bit addressing forms specified by the SIB byte
 
-<a name="fig17_2"></a><!-- *fig17_2* -->  <!-- *Figure 17-2* -->
+<a id="fig17_2"></a><!-- *fig17_2* -->  <!-- *Figure 17-2* -->
 
 [Figure 17-2. ModR/M and SIB Byte Formats](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig17-2.gif)
 
@@ -9308,7 +9374,7 @@ The based indexed and scaled indexed forms of 32-bit addressing require the SIB 
 ╚════════╩═════════════╩═════════════╝
 ```
 
-<a name="tb17_2"></a> <!-- *tb17_2*  -->
+<a id="tb17_2"></a> <!-- *tb17_2*  -->
 
 Table 17-2. 16-Bit Addressing Forms with the ModR/M Byte
 
@@ -9365,7 +9431,7 @@ EDI/DI/BH            111    C7    CF    D7    DF    E7    EF    F7    FF
 > 
 > _disp8 denotes an 8-bit displacement following the ModR/M byte, to be sign-extended and added to the index. disp16 denotes a 16-bit displacement following the ModR/M byte, to be added to the index. Default segment register is SS for the effective addresses containing a BP index, DS for other effective addresses._
 
-<a name="tb17_3"></a> <!-- *tb17_3*  -->
+<a id="tb17_3"></a> <!-- *tb17_3*  -->
 
 Table 17-3. 32-Bit Addressing Forms with the ModR/M Byte
 
@@ -9422,7 +9488,7 @@ EDI/DI/BH            111    C7    CF    D7    DF    E7    EF    F7    FF
 > 
 > _[--] [--] means a SIB follows the ModR/M byte. disp8 denotes an 8-bit displacement following the SIB byte, to be sign-extended and added to the index. disp32 denotes a 32-bit displacement following the ModR/M byte, to be added to the index._
 
-<a name="tb17_4"></a> <!-- *tb17_4*  -->
+<a id="tb17_4"></a> <!-- *tb17_4*  -->
 
 Table 17-4. 32-Bit Addressing Forms with the SIB Byte
 
@@ -9644,7 +9710,7 @@ When an exception occurs during the execution of an instruction and the exceptio
 
 Table 17-5 summarizes the task switch times for exceptions.
 
-<a name="tb17_5"></a> <!-- *tb17_5*  -->
+<a id="tb17_5"></a> <!-- *tb17_5*  -->
 
 Table 17-5. Task Switch Times for Exceptions
 
@@ -9829,7 +9895,7 @@ The following functions are used in the algorithmic descriptions:
     
 The "Description" section contains further explanation of the instruction's operation.
 
-<a name="fig17_3"></a><!-- *fig17_3* -->  <!-- *Figure 17-3* -->
+<a id="fig17_3"></a><!-- *fig17_3* -->  <!-- *Figure 17-3* -->
 
 [Figure 17-3. Bit Offset for BIT[EAX, 21]](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig17-3.gif)
 
@@ -9842,7 +9908,7 @@ The "Description" section contains further explanation of the instruction's oper
                        └────────────────────BITOFFSET = 21──────────────┘
 ```
 
-<a name="fig17_4"></a><!-- *fig17_4* -->  <!-- *Figure 17-4* -->
+<a id="fig17_4"></a><!-- *fig17_4* -->  <!-- *Figure 17-4* -->
 
 [Figure 17-4. Memory Bit Indexing](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig17-4.gif)
 
@@ -9887,7 +9953,7 @@ This section lists the exceptions that can occur when the instruction is execute
 
 Application programmers should consult the documentation provided with their operating systems to determine the actions taken when exceptions occur.
 
-<a name="tb17_6"></a> <!-- *tb17_6*  -->
+<a id="tb17_6"></a> <!-- *tb17_6*  -->
 
 Table 17-6. 80386 Exceptions
 
@@ -9917,7 +9983,7 @@ Virtual 8086 tasks provide the ability to simulate Virtual 8086 machines. Virtua
 The instruction set is detailed as follows:
 
 * * *
-<a name="IC_AAA"></a> <!--    *AAA* -->
+<a id="IC_AAA"></a> <!--    *AAA* -->
 
 IC: AAA -- ASCII Adjust after Addition
 ======================================
@@ -9968,7 +10034,7 @@ None
 
 
 * * *
-<a name="IC_AAD"></a> <!--    *AAD* -->
+<a id="IC_AAD"></a> <!--    *AAD* -->
 
 IC: AAD -- ASCII Adjust AX before Division
 ==========================================
@@ -10016,7 +10082,7 @@ None
 
 
 * * *
-<a name="IC_AAM"></a> <!--    *AAM* -->
+<a id="IC_AAM"></a> <!--    *AAM* -->
 
 IC: AAM -- ASCII Adjust AX after Multiply
 =========================================
@@ -10064,7 +10130,7 @@ None
 
 
 * * *
-<a name="IC_AAS"></a> <!--    *AAS* -->
+<a id="IC_AAS"></a> <!--    *AAS* -->
 
 IC: AAS -- ASCII Adjust AL after Subtraction
 ============================================
@@ -10121,7 +10187,7 @@ None
 
 
 * * *
-<a name="IC_ADC"></a> <!--    *ADC* -->
+<a id="IC_ADC"></a> <!--    *ADC* -->
 
 IC: ADC -- Add with Carry
 =========================
@@ -10190,7 +10256,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_ADD"></a> <!--    *ADD* -->
+<a id="IC_ADD"></a> <!--    *ADD* -->
 
 IC: ADD -- Add
 ==============
@@ -10254,7 +10320,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_AND"></a> <!--    *AND* -->
+<a id="IC_AND"></a> <!--    *AND* -->
 
 IC: AND -- Logical AND
 ======================
@@ -10318,7 +10384,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_ARPL"></a> <!--   *ARPL* -->
+<a id="IC_ARPL"></a> <!--   *ARPL* -->
 
 IC: ARPL -- Adjust RPL Field of Selector
 ========================================
@@ -10374,7 +10440,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_BOUND"></a> <!--  *BOUND* -->
+<a id="IC_BOUND"></a> <!--  *BOUND* -->
 
 IC: BOUND -- Check Array Index Against Bounds
 =============================================
@@ -10431,7 +10497,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_BSF"></a> <!--    *BSF* -->
+<a id="IC_BSF"></a> <!--    *BSF* -->
 
 IC: BSF -- Bit Scan Forward
 ===========================
@@ -10495,7 +10561,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_BSR"></a> <!--    *BSR* -->
+<a id="IC_BSR"></a> <!--    *BSR* -->
 
 IC: BSR -- Bit Scan Reverse
 ===========================
@@ -10555,7 +10621,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_BT"></a> <!--     *BT* -->
+<a id="IC_BT"></a> <!--     *BT* -->
 
 IC: BT -- Bit Test
 ==================
@@ -10619,7 +10685,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_BTC"></a> <!--    *BTC* -->
+<a id="IC_BTC"></a> <!--    *BTC* -->
 
 IC: BTC -- Bit Test and Complement
 ==================================
@@ -10684,7 +10750,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_BTR"></a> <!--    *BTR* -->
+<a id="IC_BTR"></a> <!--    *BTR* -->
 
 IC: BTR -- Bit Test and Reset
 =============================
@@ -10749,7 +10815,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_BTS"></a> <!--    *BTS* -->
+<a id="IC_BTS"></a> <!--    *BTS* -->
 
 IC: BTS -- Bit Test and Set
 ===========================
@@ -10814,7 +10880,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_CALL"></a> <!--   *CALL* -->
+<a id="IC_CALL"></a> <!--   *CALL* -->
 
 IC: CALL -- Call Procedure
 ==========================
@@ -11112,7 +11178,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_CBW"></a> <!--    *CBW* -->
+<a id="IC_CBW"></a> <!--    *CBW* -->
 
 IC: CBW/CWDE -- Convert Byte to Word/Convert Word to Doubleword
 ===============================================================
@@ -11164,7 +11230,7 @@ None
 
 
 * * *
-<a name="IC_CLC"></a> <!--    *CLC* -->
+<a id="IC_CLC"></a> <!--    *CLC* -->
 
 IC: CLC -- Clear Carry Flag
 ===========================
@@ -11211,7 +11277,7 @@ None
 
 
 * * *
-<a name="IC_CLD"></a> <!--    *CLD* -->
+<a id="IC_CLD"></a> <!--    *CLD* -->
 
 IC: CLD -- Clear Direction Flag
 ===============================
@@ -11260,7 +11326,7 @@ None
 
 
 * * *
-<a name="IC_CLI"></a> <!--    *CLI* -->
+<a id="IC_CLI"></a> <!--    *CLI* -->
 
 IC: CLI -- Clear Interrupt Flag
 ===============================
@@ -11307,7 +11373,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a name="IC_CLTS"></a> <!--   *CLTS* -->
+<a id="IC_CLTS"></a> <!--   *CLTS* -->
 
 IC: CLTS -- Clear Task-Switched Flag in CR0
 ===========================================
@@ -11361,7 +11427,7 @@ Same exceptions as in Real Address Mode
 
 
 * * *
-<a name="IC_CMC"></a> <!--    *CMC* -->
+<a id="IC_CMC"></a> <!--    *CMC* -->
 
 IC: CMC -- Complement Carry Flag
 ================================
@@ -11408,7 +11474,7 @@ None
 
 
 * * *
-<a name="IC_CMP"></a> <!--    *CMP* -->
+<a id="IC_CMP"></a> <!--    *CMP* -->
 
 IC: CMP -- Compare Two Operands
 ===============================
@@ -11469,7 +11535,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_CMPS"></a> <!--   *CMPS* -->
+<a id="IC_CMPS"></a> <!--   *CMPS* -->
 
 IC: CMPS/CMPSB/CMPSW/CMPSD -- Compare String Operands
 =====================================================
@@ -11564,7 +11630,7 @@ Same exceptions as in Real Address Mode; #PF (fault-code) for a page fault
 
 
 * * *
-<a name="IC_CWD"></a> <!--    *CWD* -->
+<a id="IC_CWD"></a> <!--    *CWD* -->
 
 IC: CWD/CDQ -- Convert Word to Doubleword/Convert Doubleword to Quadword
 ========================================================================
@@ -11617,7 +11683,7 @@ None
 
 
 * * *
-<a name="IC_DAA"></a> <!--    *DAA* -->
+<a id="IC_DAA"></a> <!--    *DAA* -->
 
 IC: DAA -- Decimal Adjust AL after Addition
 ===========================================
@@ -11676,7 +11742,7 @@ None
 
 
 * * *
-<a name="IC_DAS"></a> <!--    *DAS* -->
+<a id="IC_DAS"></a> <!--    *DAS* -->
 
 IC: DAS -- Decimal Adjust AL after Subtraction
 ==============================================
@@ -11735,7 +11801,7 @@ None
 
 
 * * *
-<a name="IC_DEC"></a> <!--    *DEC* -->
+<a id="IC_DEC"></a> <!--    *DEC* -->
 
 IC: DEC -- Decrement by 1
 =========================
@@ -11786,7 +11852,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_DIV"></a> <!--    *DIV* -->
+<a id="IC_DIV"></a> <!--    *DIV* -->
 
 IC: DIV -- Unsigned Divide
 ==========================
@@ -11853,7 +11919,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_ENTER"></a> <!--  *ENTER* -->
+<a id="IC_ENTER"></a> <!--  *ENTER* -->
 
 IC: ENTER -- Make Stack Frame for Procedure Parameters
 ======================================================
@@ -11931,7 +11997,7 @@ None
 
 
 * * *
-<a name="IC_HLT"></a> <!--    *HLT* -->
+<a id="IC_HLT"></a> <!--    *HLT* -->
 
 IC: HLT -- Halt
 ===============
@@ -11978,7 +12044,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a name="IC_IDIV"></a> <!--   *IDIV* -->
+<a id="IC_IDIV"></a> <!--   *IDIV* -->
 
 IC: IDIV -- Signed Divide
 =========================
@@ -12048,7 +12114,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_IMUL"></a> <!--   *IMUL* -->
+<a id="IC_IMUL"></a> <!--   *IMUL* -->
 
 IC: IMUL -- Signed Multiply
 ===========================
@@ -12140,7 +12206,7 @@ When using the accumulator forms (IMUL r/m8, IMUL r/m16, or IMUL r/m32), the res
 
 
 * * *
-<a name="IC_IN"></a> <!--     *IN* -->
+<a id="IC_IN"></a> <!--     *IN* -->
 
 IC: IN -- Input from Port
 =========================
@@ -12203,7 +12269,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a name="IC_INC"></a> <!--    *INC* -->
+<a id="IC_INC"></a> <!--    *INC* -->
 
 IC: INC -- Increment by 1
 =========================
@@ -12254,7 +12320,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_INS"></a> <!--    *INS* -->
+<a id="IC_INS"></a> <!--    *INS* -->
 
 IC: INS/INSB/INSW/INSD -- Input from Port to String
 ===================================================
@@ -12345,7 +12411,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a name="IC_INT"></a> <!--    *INT* -->
+<a id="IC_INT"></a> <!--    *INT* -->
 
 IC: INT/INTO -- Call to Interrupt Procedure
 ===========================================
@@ -12594,7 +12660,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a name="IC_IRET"></a> <!--   *IRET* -->
+<a id="IC_IRET"></a> <!--   *IRET* -->
 
 IC: IRET/IRETD -- Interrupt Return
 ==================================
@@ -12864,7 +12930,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a name="IC_JCC"></a> <!--    *JCC* -->
+<a id="IC_JCC"></a> <!--    *JCC* -->
 
 IC: Jcc -- Jump if Condition is Met
 ===================================
@@ -13001,7 +13067,7 @@ None
 
 
 * * *
-<a name="IC_JMP"></a> <!--    *JMP* -->
+<a id="IC_JMP"></a> <!--    *JMP* -->
 
 IC: JMP -- Jump
 ===============
@@ -13244,7 +13310,7 @@ Same exceptions as under Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_LAHF"></a> <!--   *LAHF* -->
+<a id="IC_LAHF"></a> <!--   *LAHF* -->
 
 IC: LAHF -- Load Flags into AH Register
 =======================================
@@ -13291,7 +13357,7 @@ None
 
 
 * * *
-<a name="IC_LAR"></a> <!--    *LAR* -->
+<a id="IC_LAR"></a> <!--    *LAR* -->
 
 IC: LAR -- Load Access Rights Byte
 ==================================
@@ -13357,7 +13423,7 @@ Same exceptions as in Real Address Mode
 
 
 * * *
-<a name="IC_LEA"></a> <!--    *LEA* -->
+<a id="IC_LEA"></a> <!--    *LEA* -->
 
 IC: LEA -- Load Effective Address
 =================================
@@ -13442,7 +13508,7 @@ Same exceptions as in Real Address Mode
 
 
 * * *
-<a name="IC_LEAVE"></a> <!--  *LEAVE* -->
+<a id="IC_LEAVE"></a> <!--  *LEAVE* -->
 
 IC: LEAVE -- High Level Procedure Exit
 ======================================
@@ -13501,8 +13567,8 @@ Same exceptions as in Real Address Mode
 
 
 * * *
-<a name="IC_LGDT"></a> <!--   *LGDT* -->
-<a name="IC_LIDT"></a> <!--   *LIDT* -->
+<a id="IC_LGDT"></a> <!--   *LGDT* -->
+<a id="IC_LIDT"></a> <!--   *LIDT* -->
 
 IC: LGDT/LIDT -- Load Global/Interrupt Descriptor Table Register
 ================================================================
@@ -13568,7 +13634,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_LGS"></a> <!--    *LGS* -->
+<a id="IC_LGS"></a> <!--    *LGS* -->
 
 IC: LGS/LSS/LDS/LES/LFS -- Load Full Pointer
 ============================================
@@ -13673,7 +13739,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_LLDT"></a> <!--   *LLDT* -->
+<a id="IC_LLDT"></a> <!--   *LLDT* -->
 
 IC: LLDT -- Load Local Descriptor Table Register
 ================================================
@@ -13727,7 +13793,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a name="IC_LMSW"></a> <!--   *LMSW* -->
+<a id="IC_LMSW"></a> <!--   *LMSW* -->
 
 IC: LMSW -- Load Machine Status Word
 ====================================
@@ -13780,7 +13846,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_LOCK"></a> <!--   *LOCK* -->
+<a id="IC_LOCK"></a> <!--   *LOCK* -->
 
 IC: LOCK -- Assert LOCK# Signal Prefix
 ======================================
@@ -13843,7 +13909,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a name="IC_LODS"></a> <!--   *LODS* -->
+<a id="IC_LODS"></a> <!--   *LODS* -->
 
 IC: LODS/LODSB/LODSW/LODSD -- Load String Operand
 =================================================
@@ -13990,7 +14056,7 @@ None
 
 
 * * *
-<a name="IC_LSL"></a> <!--    *LSL* -->
+<a id="IC_LSL"></a> <!--    *LSL* -->
 
 IC: LSL -- Load Segment Limit
 =============================
@@ -14062,7 +14128,7 @@ Same exceptions as in Real Address Mode
 
 
 * * *
-<a name="IC_LTR"></a> <!--    *LTR* -->
+<a id="IC_LTR"></a> <!--    *LTR* -->
 
 IC: LTR -- Load Task Register
 =============================
@@ -14108,7 +14174,7 @@ Same exceptions as in Real Address Mode
 
 
 * * *
-<a name="IC_MOV"></a> <!--    *MOV* -->
+<a id="IC_MOV"></a> <!--    *MOV* -->
 
 IC: MOV -- Move Data
 ====================
@@ -14221,7 +14287,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_MOV_SR"></a> <!--    *MOV* -->
+<a id="IC_MOV_SR"></a> <!--    *MOV* -->
 
 IC: MOV -- Move to/from Special Registers
 =========================================
@@ -14295,7 +14361,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a name="IC_MOVS"></a> <!--   *MOVS* -->
+<a id="IC_MOVS"></a> <!--   *MOVS* -->
 
 IC: MOVS/MOVSB/MOVSW/MOVSD -- Move Data from String to String
 =============================================================
@@ -14376,7 +14442,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_MOVSX"></a> <!--  *MOVSX* -->
+<a id="IC_MOVSX"></a> <!--  *MOVSX* -->
 
 IC: MOVSX -- Move with Sign-Extend
 ==================================
@@ -14425,7 +14491,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_MOVZX"></a> <!--  *MOVZX* -->
+<a id="IC_MOVZX"></a> <!--  *MOVZX* -->
 
 IC: MOVZX -- Move with Zero-Extend
 ==================================
@@ -14474,7 +14540,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_MUL"></a> <!--    *MUL* -->
+<a id="IC_MUL"></a> <!--    *MUL* -->
 
 IC: MUL -- Unsigned Multiplication of AL or AX
 ==============================================
@@ -14548,7 +14614,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_NEG"></a> <!--    *NEG* -->
+<a id="IC_NEG"></a> <!--    *NEG* -->
 
 IC: NEG -- Two's Complement Negation
 ====================================
@@ -14600,7 +14666,7 @@ Same exceptions as in real-address mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_NOP"></a> <!--    *NOP* -->
+<a id="IC_NOP"></a> <!--    *NOP* -->
 
 IC: NOP -- No Operation
 =======================
@@ -14642,7 +14708,7 @@ None
 
 
 * * *
-<a name="IC_NOT"></a> <!--    *NOT* -->
+<a id="IC_NOT"></a> <!--    *NOT* -->
 
 IC: NOT -- One's Complement Negation
 ====================================
@@ -14691,7 +14757,7 @@ Same exceptions as in real-address mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_OR"></a> <!--     *OR* -->
+<a id="IC_OR"></a> <!--     *OR* -->
 
 IC: OR -- Logical Inclusive OR
 ==============================
@@ -14755,7 +14821,7 @@ Same exceptions as in real-address mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_OUT"></a> <!--    *OUT* -->
+<a id="IC_OUT"></a> <!--    *OUT* -->
 
 IC: OUT -- Output to Port
 =========================
@@ -14824,7 +14890,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a name="IC_OUTS"></a> <!--   *OUTS* -->
+<a id="IC_OUTS"></a> <!--   *OUTS* -->
  
 IC: OUTS/OUTSB/OUTSW/OUTSD -- Output String to Port 
 =================================================== 
@@ -14917,7 +14983,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a name="IC_POP"></a> <!--    *POP* -->
+<a id="IC_POP"></a> <!--    *POP* -->
 
 IC: POP -- Pop a Word from the Stack
 ====================================
@@ -15028,7 +15094,7 @@ Same exceptions as in real-address mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_POPA"></a> <!--   *POPA* -->
+<a id="IC_POPA"></a> <!--   *POPA* -->
 
 IC: POPA/POPAD -- Pop all General Registers
 ===========================================
@@ -15097,7 +15163,7 @@ Same exceptions as in real-address mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_POPF"></a> <!--   *POPF* -->
+<a id="IC_POPF"></a> <!--   *POPF* -->
 
 IC: POPF/POPFD -- Pop Stack into FLAGS or EFLAGS Register
 =========================================================
@@ -15149,7 +15215,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a name="IC_PUSH"></a> <!--   *PUSH* -->
+<a id="IC_PUSH"></a> <!--   *PUSH* -->
 
 IC: PUSH -- Push Operand onto the Stack
 =======================================
@@ -15228,7 +15294,7 @@ Same exceptions as in real-address mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_PUSHA"></a> <!--  *PUSHA* -->
+<a id="IC_PUSHA"></a> <!--  *PUSHA* -->
 
 IC: PUSHA/PUSHAD -- Push all General Registers
 ==============================================
@@ -15299,7 +15365,7 @@ Same exceptions as in real-address mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_PUSHF"></a> <!--  *PUSHF* -->
+<a id="IC_PUSHF"></a> <!--  *PUSHF* -->
 
 IC: PUSHF/PUSHFD -- Push Flags Register onto the Stack
 ======================================================
@@ -15350,7 +15416,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a name="IC_RCL"></a> <!--    *RCL* -->
+<a id="IC_RCL"></a> <!--    *RCL* -->
 
 IC: RCL/RCR/ROL/ROR -- Rotate
 =============================
@@ -15469,7 +15535,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_REP"></a> <!--    *REP* -->
+<a id="IC_REP"></a> <!--    *REP* -->
 
 IC: REP/REPE/REPZ/REPNE/REPNZ -- Repeat Following String Operation
 ==================================================================
@@ -15602,7 +15668,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a name="IC_RET"></a> <!--    *RET* -->
+<a id="IC_RET"></a> <!--    *RET* -->
 
 IC: RET -- Return from Procedure
 ================================
@@ -15795,7 +15861,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_SAHF"></a> <!--   *SAHF* -->
+<a id="IC_SAHF"></a> <!--   *SAHF* -->
 
 IC: SAHF -- Store AH into Flags
 ===============================
@@ -15842,7 +15908,7 @@ None
 
 
 * * *
-<a name="IC_SAL"></a> <!--    *SAL* -->
+<a id="IC_SAL"></a> <!--    *SAL* -->
 
 IC: SAL/SAR/SHL/SHR -- Shift Instructions
 =========================================
@@ -15966,7 +16032,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_SBB"></a> <!--    *SBB* -->
+<a id="IC_SBB"></a> <!--    *SBB* -->
 
 IC: SBB -- Integer Subtraction with Borrow
 ==========================================
@@ -16032,7 +16098,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_SCAS"></a> <!--   *SCAS* -->
+<a id="IC_SCAS"></a> <!--   *SCAS* -->
 
 IC: SCAS/SCASB/SCASW/SCASD -- Compare String Data
 =================================================
@@ -16112,7 +16178,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_SET"></a> <!--   *SETcc* -->
+<a id="IC_SET"></a> <!--   *SETcc* -->
 
 IC: SETcc -- Byte Set on Condition
 ==================================
@@ -16188,7 +16254,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_SGDT"></a> <!--   *SGDT* -->
+<a id="IC_SGDT"></a> <!--   *SGDT* -->
 
 IC: SGDT/SIDT -- Store Global/Interrupt Descriptor Table Register
 =================================================================
@@ -16243,7 +16309,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_SHLD"></a> <!--   *SHLD* -->
+<a id="IC_SHLD"></a> <!--   *SHLD* -->
 
 IC: SHLD -- Double Precision Shift Left
 =======================================
@@ -16321,7 +16387,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_SHRD"></a> <!--   *SHRD* -->
+<a id="IC_SHRD"></a> <!--   *SHRD* -->
 
 IC: SHRD -- Double Precision Shift Right
 ========================================
@@ -16399,7 +16465,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_SLDT"></a> <!--   *SLDT* -->
+<a id="IC_SLDT"></a> <!--   *SLDT* -->
 
 IC: SLDT -- Store Local Descriptor Table Register
 =================================================
@@ -16452,7 +16518,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_SMSW"></a> <!--   *SMSW* -->
+<a id="IC_SMSW"></a> <!--   *SMSW* -->
 
 IC: SMSW -- Store Machine Status Word
 =====================================
@@ -16503,7 +16569,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_STC"></a> <!--    *STC* -->
+<a id="IC_STC"></a> <!--    *STC* -->
 
 IC: STC -- Set Carry Flag
 =========================
@@ -16550,7 +16616,7 @@ None
 
 
 * * *
-<a name="IC_STD"></a> <!--    *STD* -->
+<a id="IC_STD"></a> <!--    *STD* -->
 
 IC: STD -- Set Direction Flag
 =============================
@@ -16597,7 +16663,7 @@ None
 
 
 * * *
-<a name="IC_STI"></a> <!--    *STI* -->
+<a id="IC_STI"></a> <!--    *STI* -->
 
 IC: STI -- Set Interrupt Flag
 =============================
@@ -16645,7 +16711,7 @@ None
 
 
 * * *
-<a name="IC_STOS"></a> <!--   *STOS* -->
+<a id="IC_STOS"></a> <!--   *STOS* -->
 
 IC: STOS/STOSB/STOSW/STOSD -- Store String Data
 ===============================================
@@ -16732,7 +16798,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_STR"></a> <!--    *STR* -->
+<a id="IC_STR"></a> <!--    *STR* -->
 
 IC: STR -- Store Task Register
 ==============================
@@ -16785,7 +16851,7 @@ Same exceptions as in Real Address Mode
 
 
 * * *
-<a name="IC_SUB"></a> <!--    *SUB* -->
+<a id="IC_SUB"></a> <!--    *SUB* -->
 
 IC: SUB -- Integer Subtraction
 ==============================
@@ -16850,7 +16916,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_TEST"></a> <!--   *TEST* -->
+<a id="IC_TEST"></a> <!--   *TEST* -->
 
 IC: TEST -- Logical Compare
 ===========================
@@ -16978,7 +17044,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_WAIT"></a> <!--   *WAIT* -->
+<a id="IC_WAIT"></a> <!--   *WAIT* -->
 
 IC: WAIT -- Wait until BUSY# Pin is Inactive (HIGH)
 ===================================================
@@ -17018,7 +17084,7 @@ Same exceptions as in Protected Mode
 
 
 * * *
-<a name="IC_XCHG"></a> <!--   *XCHG* -->
+<a id="IC_XCHG"></a> <!--   *XCHG* -->
 
 IC: XCHG -- Exchange Register/Memory with Register
 ==================================================
@@ -17076,7 +17142,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_XLAT"></a> <!--   *XLAT* -->
+<a id="IC_XLAT"></a> <!--   *XLAT* -->
 
 IC: XLAT/XLATB -- Table Look-up Translation
 ===========================================
@@ -17131,7 +17197,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_XOR"></a> <!--    *XOR* -->
+<a id="IC_XOR"></a> <!--    *XOR* -->
 
 IC: XOR -- Logical Exclusive OR
 ===============================
@@ -17194,7 +17260,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 * * *
 
-<a name="APP__"></a>
+<a id="APP__"></a>
 
 /APPENDICES
 ===========
@@ -17209,7 +17275,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 * * *
 
-<a name="APPA_"></a> <!-- *appa* -->
+<a id="APPA_"></a> <!-- *appa* -->
 
 /Appendix A -- Opcode Map
 =========================
@@ -17513,7 +17579,7 @@ F|         |         |         |         |         |         |        |        |
 
 * * *
 
-<a name="APPB_"></a>  <!-- *appb* -->
+<a id="APPB_"></a>  <!-- *appb* -->
 
 /Appendix B -- Complete Flag Cross-Reference
 ============================================
@@ -17636,7 +17702,7 @@ XOR                  | 0  | M    M  | --   M  | 0       |         |
 
 * * *
 
-<a name="APPC_"></a> <!-- *appc* -->
+<a id="APPC_"></a> <!-- *appc* -->
 
 /Appendix C -- Status Flag Summary
 ==================================
@@ -17707,7 +17773,7 @@ XOR                   | 0    M    M  |  --   M     0  |
 
 * * *
 
-<a name="APPD_"></a> <!-- *appd* -->
+<a id="APPD_"></a> <!-- *appd* -->
 
 /Appendix D -- Condition Codes
 ==============================

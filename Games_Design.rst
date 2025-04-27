@@ -1,10 +1,2147 @@
 
+🟡 Gamer Motivation Model
+==========================
+
+   * `Gamer Motivation Model <https://quanticfoundry.com/gamer-motivation-model/>`__
+   *  https://quanticfoundry.com/wp-content/uploads/2015/12/Gamer-Motivation-Model-Overview.pdf
+   *  https://quanticfoundry.com/wp-content/uploads/2019/04/Gamer-Motivation-Model-Reference.pdf
+
+   .. figure:: https://i0.wp.com/quanticfoundry.com/wp-content/uploads/2015/12/Model-Overview.png?ssl=1
+
+   玩家动机模型是 Nick Yee 和 Nicolas Ducheneaut 合作研究的关于玩家类型的游戏理论模型，此模型
+   对全球 165 万独立玩家进行采样调查，归纳 6 种玩家群体：Action (动作)、Social (社交)、Mastery 
+   (掌控)、Achievement (成就)、Immersion (沉浸式)、Creativity (创意)，每一大类分为两个小类，
+   分别为：破坏与刺激、竞争与社区、挑战与策略、完成与权力、幻想与故事、设计与发现，共12类。
+
+   研究发现，前三大玩家群体是 Strategy (59%)、Fantasy (60%)、Story (58%)。
+
+   Nick Yee 通过对 2000 名中国玩家进行了动机侧写，与美国玩家进行比较后总结出了一套很有意思的统计数值。
+   相较于美国玩家而言，中国玩家在竞争与完成度上尤为突出，但在幻想与故事、发现与设计也就是沉浸动机与创造
+   动机上较低。相较于美国玩家而言中国 75% 的玩家更喜欢竞争。在性别条件上并无明显差异，男性玩家相较女性
+   更关注于破坏且各年龄段下男女动机变化非常小。
+
+   为什么中国游戏市场和玩家呈现出这类趋势？Nick Yee 做出了一系列猜测。
+
+   第一，中国崇尚集体主义，而美国则更崇尚个人主义。竞争动机分析中 Nick Yee 认为，崇尚个人主义玩家
+   竞争性应该更高，然而结果却恰恰相反。
+
+   第二，因为中国游戏市场因政府管制呈现隔离状态。这就是为什么中国游戏市场如此庞大，游戏产品众
+   多且火热，但向海外输出后会“水土不服”，“因为这两种玩家从一开始就不是玩的同一类型的游戏”。
+
+      The Science and Data Behind Our Gamer Motivation Model
+
+      Data From Over 1.65 Million Gamers
+
+      We used established psychometric methods and data from over 1.65 million 
+      gamers to develop an empirical model of gamer motivations. Want to learn more?
+
+      *  Take the Gamer Motivation Profile to get your personalized report along with game recommendations.
+      *  Get a more detailed look into the 12 motivations in this PDF reference sheet.
+      *  Watch a 20-minute talk of how we created the model and some key findings.
+      *  Follow up with our 2019 GDC talk for a deep dive into the 12 motivations.
+
+      Nick Yee and Nicolas Ducheneaut have been studying games and gamers for over two decades.
+
+      They leverage their broad experience in academic, commercial, government, 
+      and game industry research in gaming to analyze game data and generate 
+      actionable insights.
+
+      *  An Empirical Model - We developed our motivation model using established 
+         psychometric methods to identify how gaming preferences cluster together 
+         and to develop a robust assessment tool.
+
+      *  A Large Data Set - Over 1.65 million gamers worldwide have participated 
+         in our Gamer Motivation Profile, providing data on their motivations, 
+         demographics, and game titles they enjoy playing.
+
+      *  Actionable Insights - Our data connects game titles/franchises with 
+         demographic and motivation variables, allowing us to analyze the 
+         motivations of game audiences to produce empirical insights.
+
+   Overview Of Sample
+
+      • 143,757 gamers (unique IP addresses)
+
+      *  Gender: 82% Male, 17% Female, 1% Non-Binary
+      *  Median Age: 26
+
+      • Gamers recruited via Gamer Motivation Profile
+
+      *  Participants took a 5-minute survey to receive a customized report of their
+         gaming motivations, and then could share their profile via social media.
+      *  No other incentive (financial or otherwise) was provided to respondents.
+      *  ~80% of our gamers were recruited via social media sharing of the gaming
+         motivation profiles.
+
+      • Diverse geographic regions
+
+      *  US (73k), Canada (8k), UK (7k), Brazil (6k), Indonesia (6k), Australia (5k),
+         Philippines (3.7k), Singapore (2.6k), Germany (2.3k), Poland (2.3k), Malaysia
+         (1.9k), Russia (1.8k), France (1.8k), Sweden (1.7k), Netherlands (1.5k), Spain
+         (1.3k), Italy (962), New Zealand (926), South Africa (915) …
+
+   Sample Note
+
+      1.25M+ Gamers (unique IP addresses)
+
+      *  Gender: 74% Male / 22% Female / 3% Non-Binary
+      *  Age: Median = 23, Range = 13-85
+      *  Gamer Type: Casual 12% / Core 69% / Hardcore 19%
+
+      Gamers recruited via Gamer Motivation Profile
+
+      *  Participants took a 5-minute survey to receive a customized report of their gaming motivations,
+         and then could share their profile via social media.
+      *  No other incentive (financial or otherwise) was provided to respondents.
+      *  ~80% of our gamers were recruited via social media sharing of the gaming motivation profiles.
+
+      Geographic distribution
+
+      *  North America (33%), Western Europe (14%), East Asia (10%), SE Asia (4.8%), South America
+         (4.6%), Eastern Europe (4.3%), Scandinavia (3.7%), Australasia (3.7%), Southern Europe (3.5%),
+         Central America (1.1%). All other regions < 1%.
+
+   Game Audience Dashboard
+
+      Features At a Glance
+
+      *  Convenient online dashboard based on real-time data.
+      *  Complete access to our catalog of over 3,500 game titles.
+      *  Based on data from over 1.65 million gamers.
+      *  Generate Audience Reports based on individual or multiple game titles/franchises.
+      *  Filter an audience report by gender, age range, gamer type, or gaming frequency.
+      *  Visually explore related game titles using our dynamic graphing features.
+      *  Use reverse lookups to identify games that fit a specific set of criteria.
+      *  Download a PDF overview of the key features.
+         https://quanticfoundry.com/wp-content/uploads/2021/04/Dashboard-Features-Quantic-Foundry.pdf
+
+   A Quick Primer On Interpreting
+
+      ============== ==========
+      Class          Percentile
+      ============== ==========
+      Community      44%
+      Competition    39%
+      Excitement     39%
+      Destruction    43%
+      Completion     46%
+      Power          35%
+      Strategy       59%
+      Challenger     39%
+      Fantasy        60%
+      Story          58%
+      Discovery      48%
+      Designy        47%
+      ============== ==========
+   
+      Percentile Ranks
+
+      Imagine if we went to a school of 1,000 students and arranged
+      everyone in a row by height. Every student would have a
+      percentile rank—the % of students they are taller than.
+      So the student right in the middle would be 50th %-tile (the
+      average). And a student at the 10th %-tile is taller than 10% of the
+      student body, but shorter than 90% of the student body.
+
+      The Motivation Chart
+   
+      The chart in each audience report provides the percentile rank for
+      each motivation for the target game audience--i.e., if this game
+      audience were an individual gamer, where would they fall in the
+      full data set?
+
+      The line in the middle represents the average gamer (the 50th %-
+      tile) in our full data set.
+
+      Thus a Power score of 35% is moderately below average. If this
+      game audience were an individual gamer, they would score higher
+      than 35% of gamers on Power, but lower than 65% of gamers.
+
+      As a whole, the chart visualizes the motivations that are
+      disproportionately important and unimportant for this audience,
+      relative to other gamers.
+
+   Overview Of Motivation Model
+   ::
+
+      Action               Social                  Mastery                 Achievement             Immersion               Creativity
+      “Boom!”              “Let’s Play Together”   “Let Me Think”          “I Want More”           “Once Upon a Time”      “What If?”
+
+      Destruction          Competition             Challenge               Completion              Fantasy                 Design                  
+      Guns. Explosives.    Duels. Matches.         Practice. High          Get All Collectibles.   Being someone else,     Expression.             
+      Chaos. Mayhem.       High on Ranking.        Difficulty. Challenges. Complete All Missions.  somewhere else.         Customization.          
+
+      Excitement           Community               Strategy                Power                   Story                   Discovery
+      Fast-Paced. Action.  Being on Team.          Thinking Ahead.         Powerful Character.     Elaborate plots.        Explore. Tinker.
+      Surprises. Thrills.  Chatting. Interacting.  Making Decisions.       Powerful Equipment.     Interesting characters. Experiment.
+
+   Detail Action Cluster
+
+   *  Destruction 
+
+      Gamers who score high on this component are agents of chaos and
+      destruction. They love having many tools at their disposal to blow things up
+      and cause relentless mayhem. They enjoy games with lots of guns and
+      explosives.
+
+      They gravitate towards titles like Call of Duty and Battlefield. And if they
+      accidentally find themselves in games like The Sims, they are the ones who
+      figure out innovative ways to get their Sims killed.
+
+   *  Excitement
+
+      Gamers who score high on this component enjoy games that are fastpaced, 
+      intense, and provide a constant adrenaline rush. They want to be
+      surprised. They want gameplay that is full of action and thrills, and rewards
+      them for rapid reaction times.
+
+      While this style of gameplay can be found in first-person shooters like Halo,
+      it can also be found in games like Street Fighter and Injustice, as well as
+      energetic platformers like BIT.TRIP RUNNER.
+
+   Detail Social Cluster
+
+   *  Competition
+
+      Gamers who score high on this component enjoy competing with other
+      players, often in duels, matches, or team-vs-team scenarios.
+
+      Competitive gameplay can be found in titles like Starcraft, League of Legends, or
+      the PvP Battlegrounds in World of Warcraft. But competition isn’t always
+      overtly combative; competitive players may care about being acknowledged as
+      the best healer in a guild, or having a high ranking/level on a Facebook
+      farming game relative to their friends.
+
+   *  Community
+
+      Gamers who score high on Community enjoy socializing and collaborating with
+      other people while gaming. They like chatting and grouping up with other
+      players.
+
+      This might be playing Portal 2 with a friend, playing Mario Kart at a party, or
+      being part of a large guild/clan in an online game. They enjoy being part of a
+      team working towards a common goal. For them, games are an integral part of
+      maintaining their social network.
+
+   Detail Mastery Cluster
+
+   *  Challenge
+
+      Gamers who score high on Challenge enjoy playing games that rely heavily
+      on skill and ability. They are persistent and take the time to practice and hone
+      their gameplay so they can take on the most difficult missions and bosses that
+      the game can offer.
+
+      These gamers play at the highest difficulty settings and don’t mind failing
+      missions repeatedly in games like Dark Souls because they know it’s the only
+      way they’ll master the game. They want gameplay that constantly challenges
+      them.
+
+   *  Strategy
+
+      Gamers who score high on this component enjoy games that require
+      careful decision-making and planning. They like to think through their options
+      and likely outcomes. These may be decisions related to balancing
+      resources and competing goals, managing foreign diplomacy, or finding
+      optimal long-term strategies.
+
+      They tend to enjoy both the tactical combat in games like XCOM or Fire
+      Emblem, as well as seeing their carefully-devised plans come to fruition
+      in games like Civilization, Cities: Skylines, or Europa Universalis.
+
+   Detail Achievement Cluster
+
+   *  Completion
+
+      Gamers with high Completion scores want to finish everything the game has
+      to offer. They try to complete every mission, find every collectible, and
+      discover every hidden location.
+
+      For some players, this may mean completing every listed achievement or
+      unlocking every possible character/move in a game. For gamers
+      who score high on Design, this may mean collecting costumes and mounts
+      in games like World of Warcraft.
+
+   *  Power
+
+      Gamers who score high on this component strive for power in the
+      context of the game world. They want to become as powerful as possible,
+      seeking out the tools and equipment needed to make this happen.
+
+      This may mean maxing stats or acquiring the most powerful weapons.
+      Power and Completion often together, but some players enjoy collecting
+      cosmetic items without caring about power, and some players prefer
+      attaining power through strategic optimization rather than grinding.
+
+   Detail Immersion Cluster
+
+   *  Fantasy
+
+      Gamers who score high on Fantasy want their gaming experiences to allow
+      them to become someone else, somewhere else. They enjoy the sense
+      of being immersed in an alter ego in a believable alternate world, and enjoy
+      exploring a game world just for the sake of exploring it.
+
+      These gamers enjoy games like Skyrim, Fallout, and Mass Effect for their fully
+      imagined alternate settings. Gamers who score high on Story want
+      games with elaborate storylines and a cast of multidimensional characters
+      with interesting back-stories and personalities.
+
+   *  Story
+
+      They take the time to delve into the back-stories of characters in games
+      like Dragon Age and Mass Effect, and enjoy the elaborate and thoughtful
+      narratives in games like The Last of Us and BioShock. Gamers who score
+      low on Story tend to find dialogue and quest descriptions to be distracting and
+      skip through them if possible.
+
+
+   Detail Creativity Cluster
+
+   *  Discovery
+
+      Gamers who score high on Discovery are constantly asking “What if?” For
+      them, game worlds are fascinating contraptions to open up and tinker
+      with.
+
+      In an MMO, they might swim out to the edge of the ocean to see what
+      happens. In MineCraft, they might experiment with whether crafting
+      outcomes differ by the time of day or proximity to zombies. They “play”
+      games in the broadest sense of the word, often in ways not intended or
+      imagined by the game’s developers.
+
+   *  Design
+
+      Gamers who score high on this component want to actively express
+      their individuality in the game worlds they find themselves in.
+
+      In games like Mass Effect, they put a lot of time and effort in the character
+      creation process. In city-building games or space strategy games, they take the
+      time to design and customize exactly how their city or spaceships look. To
+      this end, they prefer games that provide the tools and assets necessary
+      to make this possible and easy to do.
+
+
+
+🟡 独立游戏开发方法论
+===================
+
+   游戏（Games）的一个流行的概念是“第九艺术”，文学、绘画、音乐、舞蹈、雕塑、戏剧、建筑、电影所有 8 
+   种艺术形式之后的又一种艺术形式。电子游戏又是可以集合文学、绘画、音乐等等所有艺术形式的，具有交互、
+   娱乐功能的艺术载体。游戏除了基本的娱乐性，还可以具有挑战、社交、教育、训练等潜在属性。
+
+   游戏有多种分类形式，就其玩法而言，可分为玩家对战（PvP）和玩家对战环境（PvE）两种形式。根据是否可
+   联网，又可以分为单机游戏（Offline Games）和联机游戏（Online Games）。
+
+   还可以根据玩家在游戏中的功能来划分：
+
+   *  即时策略游戏（RTS，Real-Time Strategy Game）；
+      *  多人在线战术竞技游戏（MOBA，Multiplayer online battle arena）
+   *  角色扮演游戏（RPG，Role Playing Game）；
+   *  冒险游戏（AVG，Adventure Game）；
+   *  模拟游戏（SLG，Simulation Game）；
+   *  动作类游戏（ACT，Action Game）；
+      *  射击游戏（STG，Shooting Game）；
+
+   除了电子游戏外，还有传统的游戏项目或者体育（游戏）项目，这里不作过多讨论。
+
+   在游戏分类上，有一种非常特殊的“游戏”，甚至可以不看作是游戏，而是“交互式广告阅读器”，这就是
+   超休闲游戏（Hypercasual game）。
+
+   超休闲游戏的核心在流媒体推广，也就是将传统广告互动化。这类游戏属于小品级产品，操作简单、安装包极小，
+   一般还都是竖版，方便手机上单手操作，还是免费类型。游戏核心就是每局游戏时间特别短，操作失败观看激励
+   视频即可复活继续，游戏内 ad 广告跑过推广类流媒体，这款游戏就算制作成功。
+
+   这类游戏的目标用户是碎片化都市人群，主打一个碎片化互动看广告，因此目标用户并非一般意义上的游戏玩家。
+   其推广看平台看渠道，大推还是小推，是不是发推海，每个平台渠道获客价都不同，启推金也不同。综合来看，
+   以人民币结算，想小推一下临时引个流，最低两千块启冲，小手一抖眨眼就没，想玩个大的进榜三，准备好十万，
+   一月之内全能给你造完。当然你下载量也会剧增。至于用户量增多少？就看产品的本事了，几万到几千万不等。
+
+   独立游戏开发（Indie game developers）并非单独一人的开发，独立的意义在于游戏开发主导权的独立。
+   即使有团队，有外部资金支持，只要游戏主导权不受外部干扰，那么就是独立游戏开发。Indie /ˈɪndɪ/ 一词
+   源自唱片工业，独立音乐（Independent music）或称硬地音乐（Indie music），是指有别于主流商业
+   唱片厂牌制作的音乐。顾名思义，独立音乐的制作过程独立自主，从录音到出版都由音乐家独立完成，核心思想
+   在于独立自主。
+
+   独立游戏开发者在选择启动项目之前需要做的一些工作：
+
+   *  理解游戏开发的工作：一个创造软件产品的工作；
+   *  深入理解游戏开发成本：从游戏项目启动，持续迭代，到完成作品、发布，最终流向目标用户手上；
+
+   游戏项目立项时选择的游戏类型决定了这份工作的难度或者完成游戏制作所涉及的技术，一般来说，以下是一般
+   2D/3D 游戏项目制作过程会涉及到的技术或工序：
+
+   *  确定游戏运行平台环境与目标用户：主机（Console）、PC、掌机、手机；
+   *  游戏创意与玩法设计，策划、文案、游戏世界观的构建，选择故事叙述模式；
+   *  配乐、音效设计，如有必要，还可能需要配音、与多语言支持，可能会需要使用到 Musecore 这类软件；
+   *  根据游戏类型来选择合适的游戏引擎，比如 UnrealEngine 或者 Godot，适合的引擎可以降低游戏实现的复杂度；
+   *  根据游戏引擎选择使用的编程语言，原型阶段使用脚本快速实现 DEMO，成熟后再使用静态编译语言改写；
+   *  根据游戏玩法、机制设计场景、角色、UI，这需要 Krita/Blender 这些图形设计或建模软件；
+   *  无论 2D 还是 3D 游戏，角色动画是必不可少的内容，这部分对艺术基础要求较高；
+   *  使用着色器（GPU 编程）实现特效，一般游戏都会使用着色器提升画面效果，同时还能降低 CPU 负担；
+   *  为游戏搭建场景，将角色、动画、配乐，或者语音融合到游戏场景中，制作关卡。如果有点追求，将电影镜头语言加入游戏中；
+   *  建立版本管理系统，明确游戏的功能列表（Features）、原型阶段和产品阶段，避免功能频繁变更带导致工作量在无意间增加；
+   *  不断迭代完善，如果可以，招募原始测试玩家，并建立反馈机制，适时综合测试反馈意见，对游戏加以提升；
+   *  选择好游戏发售平台，比如 store.steampowered.com，store.epicgames.com 或者 itch.io 等等。
+   *  预发布期热身，如果不签发行商，那么自己就需要想办法在发布前期增加曝光量，和更多的潜在用户建立联系；
+
+   不同公司在岗位设置上差别较大，大公司可能为了方便管理，岗位分工更细致，比如，美术部分可能就有原画、
+   动画设计、角色设计；程序部分可能细分前端开发（游戏客户端）、服务端开发、引擎开发；技术与美术结合
+   部分可能设置渲染工程师、技术美术（TA）、动画师、环境设计师等等。此外，还有管理、策划、推广等岗位。
+
+   Digital Content Creation (DCC) 数字内容创作工具是最现代的生产力工具，包括但不仅限于 2D/3D、
+   音频/视频剪辑合成、动态/互动内容创作、图像编辑等等。
+
+   例如，用于视频游戏制作的 UE5、U3D，完全免费开源的 Godot，建模与动画工具 Blender 等等。2D 动画制作
+   工作如 Spine、OpenToonz 等等。程序化贴图 SubstanceDesigner，数字化布料 Style3D (国产之光)、
+   VStitcher、MarvelousDesigner，雕刻建模工具 ZBrush，电影特效魔术师 Houdini，工业设计和建筑设计
+   Rhino，以及传统的收费 3D 工具，如 3Dmax、Maya 等等。
+
+   UnrealEngine 作为一款优秀的大型游戏引擎，其效果非常棒，最新的国产 AAA 大作《黑悟空：神话》就是
+   最好的广告。Godot 作为一个新秀，也完全开源，易学易用，并且具有适量的源代码，不会像 UE5 那样宏大。
+
+   把产品做好并不等同于完成整个游戏的生命周期，完成游戏产品制作只是这个工作中的一个工序。后续将产品装
+   到用户的设备中依然要花费很多成本，这个过程一般涉及与发行商打交道， 这个过程中的交易成本甚至可能大于
+   游戏软件本身的开发成本。也就是说，把产品分发到用户设备里，远远要难于把产品开发出来。和发行商合作也许
+   是一个不错的选择，但是这里面可能有坑，选择信誉好的合作伙伴可以最大程度避免自己的损失，还可以避免自己
+   被卖身。和发行商签订分成合同时需要注意，按毛利（Gross Avenue）分成或者是按净利润（Net Avenue）
+   分成，后者会在发行商扣除一切成本（不排除巧立名目榨取利润）后的额度进行分成。发行商作为合作伙伴，他们
+   可能提供的服务包括：
+
+   *  联系媒体、新闻资源对游戏进行宣传；
+   *  游戏话题事件制造，炒作游戏热度；
+   *  游戏宣传视频制作与直播，带游戏去参展；
+   *  替换开发者维护游戏社区；
+   *  向平方索取资源；
+   *  发售前支付开发者版权费用，或者预付款（此款项要在利润中扣除）；
+
+   游戏通过 Steam 这些电子交易平台出售后，售货款扣除分成后，在打回国内。不过这之前还会涉及一个
+   预提所得税（Withholding income tax）。主要是对游戏在美区的销售收入征收一个 10% ~ 30%
+   的预提税。这笔预提税无论多少，都可以抵免国内所得税，记得申报纳税的时候带着 Steam 的税单和报告
+   去税务局申请抵免。
+
+   预提所得税，简称预提税，是指预先扣缴的所得税。它不是一个税种，而是世界上对这种源泉扣缴的所得税的
+   习惯叫法。我国税法第三条和实施条例第九十一条规定，外国企业在中国境内未设立机构、场所，而有取得的
+   来源于中国境内的利润（股息、红利）、利息、租金、特许权使用费和其他所得，或者虽设立机构、场所，但
+   上述所得与其机构、场所没有实际联系的，都应当缴纳百分之十的所得税。
+
+
+🟡 2024 国家自然科学基金资助项目目录
+========================================
+
+   | 李飞飞 World Labs 空间智能 | https://www.worldlabs.ai/blog
+   | 国家自然科学基金委员会 National Natural Science Fundation of China | https://www.nsfc.gov.cn/
+   | 2024 年度科学基金项目申请规定 | https://www.nsfc.gov.cn/publish/portal0/tab1506/
+   | https://www.nsfc.gov.cn/Portals/0/images/xmzn/2024/pdf/fj20240108_01.pdf
+
+   **机构概况 - 资助格局**
+
+   国家自然科学基金委员会根据科技发展趋势和国家战略需求设立相应的项目类型，经过不断优化调整，形成了
+   结构合理、功能完备的资助体系。
+
+   一、面上项目
+
+   面上项目支持从事基础研究的科学技术人员在科学基金资助范围内自主选题，开展创新性的科学研究，促进各
+   学科均衡、协调和可持续发展。
+
+   二、重点项目
+
+   重点项目支持从事基础研究的科学技术人员针对已有较好基础的研究方向或学科生长点开展深入、系统的创新
+   性研究，促进学科发展，推动若干重要领域或科学前沿取得突破。
+
+   三、重大项目
+
+   重大项目面向科学前沿和国家经济、社会、科技发展及国家安全的重大需求中的重大科学问题，超前部署，
+   开展多学科交叉研究和综合性研究，充分发挥支撑和引领作用，提升我国基础研究源头创新能力。
+
+   四、重大研究计划项目
+
+   重大研究计划围绕国家重大战略需求和重大科学前沿，加强顶层设计，凝炼科学目标，凝聚优势力量，形成
+   具有相对统一目标或方向的项目集群，促进学科交叉与融合，培养创新人才和团队，提升我国基础研究的原始
+   创新能力，为国民经济、社会发展和国家安全提供科学支撑。
+
+   五、国际（地区）合作研究项目
+
+   国际(地区)合作研究项目资助科学技术人员立足国际科学前沿，有效利用国际科技资源，本着平等合作、互利
+   互惠、成果共享的原则开展实质性国际（地区）合作研究，以提高我国科学研究水平和国际竞争能力。国际
+   (地区)合作研究项目分为重点国际（地区）合作研究项目和组织间国际(地区)合作研究项目。
+
+   重点国际（地区）合作研究项目资助科学技术人员围绕科学基金优先资助领域、我国迫切需要发展的研究领域、
+   我国科学家组织或参与的国际大型科学研究项目或计划以及利用国际大型科学设施与境外合作者开展的国际
+   （地区）合作研究。组织间国际(地区)合作研究项目是国家自然科学基金委员会与境外资助机构（或研究机构
+   和国际科学组织）共同组织、资助科学技术人员开展的双（多）边合作研究项目。
+
+   六、青年科学基金项目
+
+   青年科学基金项目支持青年科学技术人员在科学基金资助范围内自主选题，开展基础研究工作，培养青年科学
+   技术人员独立主持科研项目、进行创新研究的能力，激励青年科学技术人员的创新思维，培养基础研究后继人才。
+
+   七、优秀青年科学基金项目
+
+   优秀青年科学基金项目支持在基础研究方面已取得较好成绩的青年学者自主选择研究方向开展创新研究，促进
+   青年科学技术人才的快速成长，培养一批有望进入世界科技前沿的优秀学术骨干。
+
+   八、国家杰出青年科学基金项目
+
+   国家杰出青年科学基金项目支持在基础研究方面已取得突出成绩的青年学者自主选择研究方向开展创新研究，
+   促进青年科学技术人才的成长，吸引海外人才，培养和造就一批进入世界科技前沿的优秀学术带头人。
+
+   九、创新研究群体项目
+
+   创新研究群体项目支持优秀中青年科学家为学术带头人和研究骨干，共同围绕一个重要研究方向合作开展创新
+   研究，培养和造就在国际科学前沿占有一席之地的研究群体。
+
+   十、地区科学基金项目
+
+   地区科学基金项目支持内蒙古自治区、宁夏回族自治区、青海省、新疆维吾尔自治区、新疆生产建设兵团、
+   西藏自治区、广西壮族自治区、海南省、贵州省、江西省、云南省、甘肃省、吉林省延边朝鲜族自治州、
+   湖北省恩施土家族苗族自治州、湖南省湘西土家族苗族自治州、四川省凉山彝族自治州、四川省甘孜藏族
+   自治州、四川省阿坝藏族羌族自治州、陕西省延安市和陕西省榆林市的部分依托单位的科学技术人员在科学
+   基金资助范围内开展创新性的科学研究，培养和扶植该地区的科学技术人员，稳定和凝聚优秀人才，为区域
+   创新体系建设与经济、社会发展服务。
+
+   十一、联合基金项目
+
+   联合基金旨在发挥国家自然科学基金的导向作用，引导与整合社会资源投入基础研究，将有关部门、企业、
+   地区的实际需求凝练转化为科学问题，汇聚优势科研力量开展科研攻关，推动我国相关领域、行业、区域自主
+   创新能力的提升。
+
+   十二、国家重大科研仪器研制项目
+
+   国家重大科研仪器研制项目面向科学前沿和国家需求，以科学目标为导向，加强顶层设计、明确重点发展方向，
+   鼓励和培育具有原创性思想的探索性科研仪器研制，着力支持原创性重大科研仪器设备研制，为科学研究提供
+   更新颖的手段和工具，以全面提升我国的原始创新能力。国家重大科研仪器研制项目包括部门推荐和自由申请
+   两个亚类。
+
+   十三、基础科学中心项目
+
+   基础科学中心项目旨在集中和整合国内优势科研资源，瞄准国际科学前沿，超前部署，充分发挥科学基金制的
+   优势和特色，依靠高水平学术带头人，吸引和凝聚国内外优秀科技人才，着力推动学科深度交叉融合，相对长
+   期稳定地支持科研人员潜心研究和探索，致力科学前沿突破，产出一批国际领先水平的原创成果，抢占国际科
+   学发展的制高点，形成若干具有重要国际影响的学术高地。
+
+   十四、专项项目
+
+   专项项目支持需要及时资助的创新研究，以及与国家自然科学基金发展相关的科技活动，分为研究项目和科技
+   活动项目两个亚类。研究项目用于资助及时落实国家经济社会与科学技术等领域战略研究部署的研究，重大突
+   发事件中涉及的关键科学问题研究，以及需要及时资助的创新性强、有发展潜力的、涉及前沿科学问题的研究。
+   科技活动项目用于资助与国家自然科学基金发展相关的战略与管理研究、学术交流、科学传播、平台建设等活动。
+
+   十五、数学天元基金
+
+   数学天元基金是为凝聚数学家集体智慧，探索符合数学特点和发展规律的资助方式，推动建设数学强国而设立
+   的专项基金。数学天元基金项目支持科学技术人员结合数学学科特点和需求，开展科学研究，培育青年人才，
+   促进学术交流，优化研究环境，传播数学文化，提升中国数学创新能力。
+
+   十六、外国学者研究基金项目
+
+   外国学者研究基金项目旨在支持自愿来华开展研究工作的外国优秀科研人员，在国家自然科学基金资助范围内
+   自主选题，在中国内地开展基础研究工作，促进外国学者与中国学者之间开展长期、稳定的学术合作与交流。
+
+   十七、国际（地区）合作交流项目
+
+   国际（地区）合作交流项目资助国家自然科学基金委员会在与境外科学基金组织、科研机构或者国际组织签署
+   的双（多）边协议框架下，开展的人员交流、在境内举办多（双）边会议、出国（境）参加双（多）边会议，
+   以及其他交流活动，旨在创造合作机遇，密切合作联系，为推动实质性合作奠定基础。
+
+   科学部资助领域分类：
+   ::
+
+      A. 数学物理科学部                                           
+         A01 代数与几何                                           
+         A02 分析学                                            
+         A03 微分方程与动力系统                                            
+         A04 统计与运筹                                           
+         A05 计算数学                                             
+         A06 数学与其他学科的交叉                                             
+         A07 动力学与控制                                            
+         A08 固体力学                                             
+         A09 流体力学                                             
+         A10 生物力学                                             
+         A11 航空航天力学                                            
+         A12 爆炸与冲击动力学                                           
+         A13 环境力学                                             
+         A14 宇宙学和星系                                            
+         A15 恒星与星际介质                                             
+         A16 太阳物理                                             
+         A17 行星科学                                             
+         A18 基本天文学                                           
+         A19 天文技术和方法                                             
+         A20 凝聚态物理                                           
+         A21 原子分子物理                                            
+         A22 光学                                           
+         A23 声学                                           
+         A24 量子调控                                             
+         A25 基础物理                                             
+         A26 粒子物理                                             
+         A27 核物理                                            
+         A28 加速器、反应堆与探测器                                           
+         A29 等离子体物理                                            
+         A30 核技术及其应用                                             
+      B. 化学科学部                                            
+         B01 合成化学                                             
+         B02 催化与表界面化学                                           
+         B03 化学理论与机制                                             
+         B04 化学测量学                                           
+         B05 材料化学                                             
+         B06 环境化学                                             
+         B07 化学生物学                                           
+         B08 化学工程与工业化学                                            
+         B09 能源化学                                             
+      C. 生命科学部                                            
+         C01 微生物学                                             
+         C02 植物学                                            
+         C03 生态学                                            
+         C04 动物学                                            
+         C05 生物物理与生物化学                                            
+         C06 遗传学与生物信息学                                            
+         C07 细胞生物学                                           
+         C08 免疫学                                            
+         C09 神经科学与心理学                                           
+         C10 生物材料、成像与组织工程学                                             
+         C11 生理学与整合生物学                                            
+         C12 发育生物学与生殖生物学                                           
+         C13 农学基础与作物学                                           
+         C14 植物保护学                                           
+         C15 园艺学与植物营养学                                            
+         C16 林学与草学                                           
+         C17 畜牧学                                            
+         C18 兽医学                                            
+         C19 水产学                                            
+         C20 食品科学                                             
+         C21 分子生物学与生物技术                                             
+      D. 地球科学部                                            
+         D01 地理科学                                             
+         D02 地质学                                            
+         D03 地球化学                                             
+         D04 地球物理学和空间物理学                                           
+         D05 大气科学                                             
+         D06 海洋科学                                             
+         D07 环境地球科学                                            
+      E. 工程与材料科学部
+         E01 金属材料
+         E02 无机非金属材料
+         E03 有机高分子材料
+         E04 矿业与冶金工程
+         E05 机械设计与制造
+         E06 工程热物理与能源利用
+         E07 电气科学与工程
+         E08 建筑与土木工程
+         E09 水利工程
+         E10 环境工程
+         E11 海洋工程
+         E12 交通与运载工程
+         E13 新概念材料与材料共性科学
+      F. 信息科学部
+         F01 电子学与信息系统
+         F02 计算机科学
+         F03 自动化
+         F04 半导体科学与信息器件
+         F05 光学和光电子学
+         F06 人工智能
+         F07 交叉学科中的信息科学
+      G. 管理科学部
+         G01 管理科学与工程
+         G02 工商管理
+         G03 经济科学
+         G04 宏观管理与政策
+      H. 医学科学部
+         H01 呼吸系统
+         H02 循环系统
+         H03 消化系统
+         H04 生殖系统/围生医学/新生儿
+         H05 泌尿系统
+         H06 运动系统
+         H07 内分泌系统/代谢和营养支持
+         H08 血液系统
+         H09 神经系统
+         H10 精神卫生与心理健康
+         H11 医学免疫学
+         H12 皮肤病学
+         H13 眼科学
+         H14 耳鼻咽喉头颈科学
+         H15 口腔颅颌面科学
+         H16 急重症医学
+         H17 创伤/烧伤/整形
+         H18 肿瘤学
+         H19 老年医学
+         H20 康复医学
+         H21 医学病毒学与病毒感染
+         H22 医学病原生物与感染
+         H23 医学遗传学
+         H24 特种医学
+         H25 法医学
+         H26 检验医学
+         H27 影像医学/核医学
+         H28 生物医学工程/再生医学
+         H29 放射医学
+         H30 预防医学
+         H31 中医学
+         H32 中药学
+         H33 中西医结合
+         H34 药物学
+         H35 药理学
+
+A. 数学物理科学部
+-------------------------------
+::
+
+   A01 代数与几何
+   A0101 数学史、数理逻辑与公理集合论
+   A0102 解析数论与组合数论
+   A0103 代数数论
+   A0104 群与代数的结构
+   A0105 李理论及其推广
+   A0106 表示论与同调理论
+   A0107 代数几何与复几何
+   A0108 整体微分几何
+   A0109 几何分析
+   A0110 辛几何与数学物理
+   A0111 代数拓扑与几何拓扑
+   A0112 一般拓扑学
+   A02 分析学
+   A0201 单复变函数论
+   A0202 多复变函数论
+   A0203 复动力系统
+   A0204 几何测度论与分形
+   A0205 调和分析与逼近论
+   A0206 非线性泛函分析
+   A0207 算子理论
+   A0208 空间理论
+   A0209 马氏过程与统计物理
+   A0210 随机分析与随机过程
+   A0211 概率极限理论与随机化结构
+   A03 微分方程与动力系统
+   A0301 常微分方程
+   A0302 差分方程
+   A0303 动力系统与遍历论
+   A0304 椭圆与抛物型方程
+   A0305 双曲型方程
+   A0306 混合型、退化型偏微分方程
+   A0307 无穷维动力系统与色散理论
+   A0308 可积系统及其应用
+   A04 统计与运筹
+   A0401 数据采样理论与方法
+   A0402 统计推断与统计计算
+   A0403 贝叶斯统计与统计应用
+   A0404 大数据统计学
+   A0405 连续优化
+   A0406 离散优化
+   A0407 随机优化与统计优化
+   A0408 组合数学
+   A0409 图论及其应用
+   A0410 算法复杂性与近似算法
+   A05 计算数学
+   A0501 算法基础理论与构造方法
+   A0502 数值代数
+   A0503 数值逼近与计算几何
+   A0504 微分方程数值解
+   A0505 反问题建模与计算
+   A0506 复杂问题的可计算建模与数值模拟
+   A0507 新型计算方法
+   A06 数学与其他学科的交叉
+   A0601 控制中的数学方法
+   A0602 信息技术与不确定性的数学理论与方法
+   A0603 经济数学与金融数学
+   A0604 生物与生命科学中的数学
+   A0605 符号计算与机器证明
+   A0606 人工智能中的数学理论与方法
+   A0607 数据科学中的数学理论与方法
+   A0608 安全中的数学理论
+   A0609 与其他领域的交叉
+   A07 动力学与控制
+   A0701 分析力学
+   A0702 非线性振动及其控制
+   A0703 随机动力学及其控制
+   A0704 多体与高维系统非线性动力学
+   A0705 飞行器和载运系统动力学
+   A0706 转子动力学
+   A0707 神经与智能系统动力学
+   A0708 动力学设计与反问题
+   A08 固体力学
+   A0801 固体变形与本构理论
+   A0802 固体强度、损伤、断裂与疲劳
+   A0803 波动、振动与噪声
+   A0804 接触、摩擦与表界面力学
+   A0805 微纳米力学与多尺度力学
+   A0806 材料和结构的优化设计、制造与可靠性
+   A0807 复合材料与结构力学
+   A0808 多场耦合与智能结构力学
+   A0809 软物质与柔性结构力学
+   A0810 流固耦合力学
+   A0811 力化学耦合
+   A0812 实验固体力学
+   A0813 计算固体力学
+   A0814 极端条件下材料与结构力学
+   A0815 物理力学
+   A09 流体力学
+   A0901 湍流与流动稳定性
+   A0902 旋涡与分离流动
+   A0903 空气动力学
+   A0904 水动力学
+   A0905 多相流、渗流与非牛顿流体力学
+   A0906 流动噪声与气动声学
+   A0907 微纳尺度流动与界面流动
+   A0908 多场多介质耦合与流动控制
+   A0909 实验流体力学
+   A0910 计算流体力学
+   A10 生物力学
+   A1001 生物固体力学与生物流体力学
+   A1003 天然生物材料、仿生与运动生物力学
+   A1004 医用材料与器械的力学原理与设计
+   A11 航空航天力学
+   A1101 气动与动力设计基础
+   A1102 结构力学设计与性能评价
+   A1103 飞行力学与控制
+   A12 爆炸与冲击动力学
+   A1201 爆炸力学
+   A1202 冲击动力学
+   A13 环境力学
+   A1301 岩体力学与土力学
+   A1302 环境流体力学与颗粒流
+   A1303 极端环境与灾害力学
+   A14 宇宙学和星系
+   A1401 暗物质、暗能量、早期宇宙、宇宙学模型
+   A1402 宇宙结构的形成和演化
+   A1403 星系的形成、结构和演化
+   A1404 星系相互作用和核活动
+   A1405 银河系的形成、结构和演化
+   A15 恒星与星际介质
+   A1501 星际介质、恒星形成
+   A1502 恒星结构演化和大气、变星双星和多星系统
+   A1503 恒星晚期演化及爆发、致密天体及其相关高能过程
+   A16 太阳物理
+   A1601 太阳内部结构、活动周期、大气和磁场
+   A1602 太阳爆发活动及其对行星际空间的影响
+   A17 行星科学
+   A1701 太阳系的起源和演化、太阳系小天体的探测与性质
+   A1702 太阳系类地行星与巨行星探测、内部结构与大气特性
+   A1703 系外行星的探测与性质、行星系宏的形式和完化
+   A18 基本天文学
+   A1801 天体测量、天文参考系与天文地球动力学， 天文学史
+   A1802 时间与频率
+   A1803 天体力学方法与理论、相对论基本天文学
+   A1804 基本天文学在空间目标监测与导航定位等领域中的应用
+   A19 天文技术和方法
+   A1901 光学、紫外和红外天文技术和方法
+   A1902 射电天文技术和方法
+   A1903 空间天文和高能天体物理技术和方法
+   A1904 天文信息技术、海量数据处理及数值模拟方法
+   A20 凝聚态物理
+   A2001 凝聚态物质结构、相变和晶格动力学
+   A2002 凝聚态物质力热光电性质
+   A2003 凝聚态物质输运性质
+   A2004 凝聚态物质电子结构
+   A2005 半导体基础物理
+   A2006 铁电与多铁体系
+   A2007 磁学及自旋电子学
+   A2008 超导与超流
+   A2009 强关联体系
+   A2010 拓扑凝聚态体系
+   A2011 表面界面与低维物理
+   A2012 液态、准晶与非晶态物理
+   A2013 软凝聚态与生物物理
+   A2014 凝聚态物理新兴与交叉领域
+   A2015 计算物理
+   A21 原子分子物理
+   A2101 原子分子结构、碰撞与谱学
+   A2102 原子分子与光子相互作用
+   A2103 冷原子分子物理及应用
+   A2104 团簇物理
+   A2105 极端环境下的原子分子物理
+   A2106 外场中的原子分子性质及其调控
+   A2107 原子分子物理与其他学科交叉
+   A22 光学
+   A2201 光的传播、探测与成像
+   A2202 光与物质相互作用
+   A2203 光场调控与非线性光学
+   A2204 超快超强光物理
+   A2205 光量子物理和量子光学
+   A2206 微纳光学与光子学
+   A2207 光谱学与固体发光
+   A2208 光学材料与器件物理
+   A2209 新波段光学与新型光源
+   A2210 与光学有关的交叉领域
+   A23 声学
+   A2301 线性与非线性声学
+   A2302 水声和空气动力声学
+   A2303 超声物理与技术
+   A2304 环境声学
+   A2305 生物声学与语言声学
+   A2306 声材料、换能器和测量
+   A2307 与声学有关的交叉领域
+   A24 量子调控
+   A2401 量子材料与物性调控
+   A2402 量子结构与量子效应
+   A2403 精密测量物理
+   A2404 量子计算与量子通信
+   A2405 量子模拟
+   A2406 量子器件物理
+   A2407 新型量子技术与交叉领域
+   A25 基础物理
+   A2501 物理中的数学与计算方法
+   A2502 量子物理与量子信息
+   A2503 统计物理与复杂系统
+   A2504 相对论、引力与宇宙学
+   A2505 交叉科学中的理论物理
+   A26 粒子物理
+   A2601 量子场论与弦论
+   A2602 强相互作用与强子物理
+   A2603 重味物理
+   A2604 电弱相互作用与 Higgs物理
+   A2605 标准模型精确检验与新物理
+   A2606 中微子与粒子天体物理
+   A27 核物理
+   A2701 核结构与衰变
+   A2702 核反应与重离子核物理
+   A2703 中高能核物理
+   A2704 核天体物理
+   A2705 核参数测量与评价
+   A28 加速器、反应堆与探测器
+   A2801 加速器物理
+   A2802 加速器技术及应用
+   A2803 反应堆物理与技术
+   A2804 粒子探测技术
+   A2805 核电子学技术
+   A2806 在线与离线数据处理
+   A29 等离子体物理
+   A2901 等离子体基本过程与特性
+   A2902 等离子体与物质相互作用
+   A2903 等离子体诊断技术
+   A2904 磁约束等离子体
+   A2905 惯性约束等离子体
+   A2906 高能量密度物理
+   A2907 低温等离子体
+   A2908 空间与天体等离子体
+   A30 核技术及其应用
+   A3001 粒子束与物质相互作用
+   A3002 材料与器件辐照损伤
+   A3003 离子注入及离子束材料改性
+   A3004 核分析技术及应用
+   A3005 中子技术及应用
+   A3006 辐射探测与成像
+   A3007 辐射剂量学与辐射防护
+   A3008 同步辐射与自由电子激光原理与技术
+   A3009 光束线技术与实验方法
+   A3010 核技术在其他领域中的应用
+
+B. 化学科学部
+-------------------------------
+::
+
+   B01 合成化学
+   B0101 元素化学
+   B0102 配位化学
+   B0103 团簇与纳米化学
+   B0104 无机合成
+   B0105 催化合成反应
+   B0106 不对称合成
+   B0107 天然产物全合成
+   B0108 新反应与新试剂
+   B0109 高分子合成
+   B0110 超分子化学
+   B0111 仿生与绿色合成
+   B0112 功能分子/材料的合成
+   B0113 结构与反应机制
+   B02 催化与表界面化学
+   B0201 基础理论与表征方法
+   B0202 催化化学
+   B0203 表面化学
+   B0204 胶体与界面化学
+   B0205 电化学
+   B03 化学理论与机制
+   B0301 化学理论与方法
+   B0302 化学模拟与应用
+   B0303 化学热力学
+   B0304 化学动力学
+   B0305 结构化学
+   B0306 光化学与光谱学
+   B0307 化学反应机制
+   B0308 分子电子学与分子磁学
+   B0309 高分子物理与高分子物理化学
+   B0310 化学信息学与人工智能
+   B0311 化学程序与软件
+   B04 化学测量学
+   B0401 分离分析
+   B0402 电分析化学
+   B0403 谱学理论与方法
+   B0404 化学与生物传感
+   B0405 化学成像
+   B0406 生命与公共安全分析
+   B0407 仪器创制与大科学装置应用
+   B05 材料化学
+   B0501 先进表征与理论机制
+   B0502 无机功能材料化学
+   B0503 有机功能材料化学
+   B0504 高分子功能材料化学
+   B0505 复合与杂化材料化学
+   B0506 智能与仿生材料化学
+   B0507 医用材料化学
+   B0508 信息材料化学
+   B0509 生态环境材料化学
+   B0510 含能材料化学
+   B0511 特种功能材料化学
+   B06 环境化学
+   B0601 理论环境化学
+   B0602 环境分析化学
+   B0603 大气污染与控制化学
+   B0604 水污染与控制化学
+   B0605 土壤污染与修复化学
+   B0606 固废污染与处置化学
+   B0607 环境毒理与健康
+   B0608 放射化学与辐射化学
+   B0609 生物安全与防护化学
+   B0610 污染物界面化学行为
+   B07 化学生物学
+   B0701 生物体系分子探针
+   B0702 生物分子的化学生物学
+   B0703 天然产物化学生物学
+   B0704 化学遗传学
+   B0705 生物合成化学
+   B0706 药物化学生物学
+   B0707 化学生物学理论、方法与技术
+   B08 化学工程与工业化学
+   B0801 化工热力学
+   B0802 传递过程
+   B0803 反应工程
+   B0804 分离工程
+   B0805 过程强化与化工装备
+   B0806 介科学与智能化工
+   B0807 绿色化工与化工安全
+   B0808 医药化工
+   B0809 光化学与电化学工程
+   B0810 农业与食品化工
+   B0811 生物质转化与轻工制造
+   B0812 生物化工与合成生物工程
+   B0813 精细化工与专用化学品
+   B0814 产品工程与材料化工
+   B0815 能源化工
+   B0816 资源、环境与生态化工
+   B09 能源化学
+   B0901 氢能源化学
+   B0902 碳基能源化学
+   B0903 热能源化学
+   B0904 机械能源化学
+   B0905 电能源化学
+   B0906 光能源化学
+   B0907 极端环境能源化学
+   B0908 能源材料化学
+
+C. 生命科学部
+-------------------------------
+::
+
+   C01 微生物学
+   C0101 微生物多样性、分类与系统发育
+   C0102 微生物生理与生化
+   C0103 微生物组学与代谢
+   C0104 微生物遗传与生物合成
+   C0105 微生物学新技术与新方法
+   C0106 微生物与环境互作
+   C0107 病毒学
+   C0108 病原细菌学
+   C0109 病原真菌学与其他微生物
+   C02 植物学
+   C0201 植物分类学
+   C0202 植物系统发生与进化
+   C0203 植物光合与固氮
+   C0204 水分和营养物质的运输与代谢
+   C0205 植物与环境互作
+   C0206 植物激素与生长调节物质
+   C0207 植物生殖与发育
+   C0208 植物资源保护与利用
+   C0209 植物化学
+   C0210 植物学研究的新技术、新方法
+   C03 生态学
+   C0301 生态学理论与方法
+   C0302 行为生态学
+   C0303 生理生态学
+   C0304 种群生态学
+   C0305 群落生态学
+   C0306 生态系统生态学
+   C0307 景观与区域生态学
+   C0308 全球变化生态学
+   C0309 环境与生物演化
+   C0310 污染生态学与恢复生态学
+   C0311 土壤生态学
+   C0312 保护生物学
+   C0313 可持续生态学
+   C04 动物学
+   C0401 动物进化与发育
+   C0402 动物系统与分类
+   C0403 动物生理与行为
+   C0404 动物繁育与种群动态
+   C0405 动物资源与保护
+   C0406 海洋动物学
+   C0407 野生动物疫病与传播
+   C0408 实验动物学
+   C05 生物物理与生物化学
+   C0501 结构生物学
+   C0502 分子生物物理
+   C0503 细胞感应与环境生物物理
+   C0504 物理生物学
+   C0505 蛋白质、多肽与酶生物化学
+   C0506 糖、脂生物化学
+   C0507 核酸生物化学
+   C0508 无机生物化学与环境测控
+   C0509 生物学过程与代谢
+   C06 遗传学与生物信息学
+   C0601 遗传物质结构与功能
+   C0602 基因表达及非编码序列调控
+   C0603 表观遗传调控
+   C0604 表型、行为与疾病的遗传学基础
+   C0605 遗传与进化
+   C0606 群体遗传与数量遗传
+   C0607 基因组学
+   C0608 生物数据资源与分析方法
+   C0609 生物大数据解析
+   C07 细胞生物学
+   C0701 细胞器及亚细胞结构、互作与功能
+   C0702 细胞信号转导
+   C0703 细胞增殖及细胞周期
+   C0704 细胞命运及重编程
+   C0705 细胞衰老、死亡及自噬
+   C0706 细胞极性与细胞运动
+   C0707 细胞变异与功能异常
+   C0708 细胞代谢、应激及稳态调控
+   C0709 细胞外微环境与细胞间通讯
+   C08 免疫学
+   C0801 固有免疫
+   C0802 适应性免疫
+   C0803 黏膜免疫与区域免疫
+   C0804 自身免疫与免疫耐受
+   C0805 肿瘤免疫微环境
+   C0806 感染与非感染性炎症
+   C0807 生殖免疫与移植免疫
+   C0808 疫苗、抗体与免疫干预
+   C09 神经科学与心理学
+   C0901 分子与细胞神经生物学
+   C0902 发育与衰老神经生物学
+   C0903 神经系统结构与功能及异常
+   C0904 感觉与运动系统神经生物学
+   C0905 行为与情感神经科学
+   C0906 认知神经生物学
+   C0907 认知心理学
+   C0908 发展与教育心理学
+   C0909 行为、决策与社会心理学
+   C0910 应用心理学及其他
+   C0911 生理与医学心理学
+   C0912 心理疾患与认知障碍及干预
+   C0913 神经科学与心理学研究的新技术和新范式
+   C0914 认知模拟、计算与人工智能
+   C10 生物材料、成像与组织工程学
+   C1001 生物力学与生物流变学
+   C1002 生物材料与生物效应
+   C1003 组织工程学
+   C1004 组织再生与人工器官
+   C1005 生物成像、电子与探针
+   C1006 生物仿生与人工智能
+   C1007 纳米生物学
+   C1008 生物与医学工程新技术新方法
+   C11 生理学与整合生物学
+   C1101 循环与血液生理
+   C1102 内分泌、泌尿与生殖生理
+   C1103 呼吸与消化生理
+   C1104 感觉器官与运动生理
+   C1105 整合生理学与整合生物学
+   C1106 衰老与生物节律
+   C1107 营养与代谢生理学
+   C1108 特殊环境生理与比较生理学
+   C1109 病理生理学
+   C12 发育生物学与生殖生物学
+   C1201 干细胞基础研究
+   C1202 干细胞应用
+   C1203 早期胚胎发育及细胞谱系建立
+   C1204 组织器官发育及体外构建
+   C1205 组织器官稳态维持与再生修复
+   C1206 生殖细胞及性别决定
+   C1207 受精、着床及母胎互作
+   C1208 生殖异常及辅助生殖
+   C13 农学基础与作物学
+   C1301 农业信息学
+   C1302 农艺农机学
+   C1303 农业生物系统工程学
+   C1304 作物生理学
+   C1305 作物逆境生物学
+   C1306 作物种质资源学
+   C1307 作物基因组及遗传学
+   C1308 作物育种学
+   C1309 稻类作物栽培学
+   C1310 麦类作物与玉米栽培学
+   C1311 其他作物栽培学
+   C1312 耕作学
+   C14 植物保护学
+   C1401 植物病理学
+   C1402 农业昆虫学
+   C1403 作物免疫与抗性
+   C1404 农田草害、鼠害及其他有害生物
+   C1405 植物化学保护
+   C1406 生物防治
+   C1407 植物保护新技术
+   C1408 作物、生物因子互作与生态调控
+   C15 园艺学与植物营养学
+   C1501 果树生理与栽培学
+   C1502 果树种质资源与遗传育种学
+   C1503 果树生长发育
+   C1504 蔬菜、瓜果生理与栽培学
+   C1505 蔬菜、瓜果种质资源与遗传育种学
+   C1506 蔬菜与瓜果生长发育
+   C1507 观赏园艺学
+   C1508 茶学
+   C1509 园艺作物采后生物学
+   C1510 食用真菌学
+   C1511 设施园艺学
+   C1512 植物营养基础
+   C1513 肥料与养分管理
+   C16 林学与草学
+   C1601 草种质资源与遗传育种
+   C1602 草培育、保护与利用
+   C1603 木材物理学
+   C1604 林产化学
+   C1605 树木生物学
+   C1606 森林土壤学
+   C1607 森林培育学
+   C1608 森林信息学与森林经理学
+   C1609 森林保护学
+   C1610 林木遗传育种
+   C1611 经济林学
+   C1612 园林学
+   C1613 荒漠化与水土保持
+   C1614 竹学
+   C17 畜牧学
+   C1701 畜牧学基础
+   C1702 家畜种质资源与遗传育种学
+   C1703 家禽及其他经济动物种质资源与遗传育种学
+   C1704 畜禽繁殖学
+   C1705 动物营养学
+   C1706 饲料学
+   C1707 畜禽行为学与智慧养殖
+   C1708 养蜂学
+   C1709 养蚕学
+   C18 兽医学
+   C1801 基础兽医学
+   C1802 兽医病毒学
+   C1803 兽医细菌及其他微生物学
+   C1804 兽医免疫学
+   C1805 兽医寄生虫学
+   C1806 兽医传染病学
+   C1807 中兽医学
+   C1808 兽医药物学与毒理学
+   C1809 临床兽医学
+   C1810 人兽共患病
+   C1811 兽医公共卫生学
+   C19 水产学
+   C1901 水产学基础
+   C1902 水产生物遗传育种学
+   C1903 水产生物繁殖与发育
+   C1904 渔业资源与保护生物学
+   C1905 水产动物营养与饲料学
+   C1906 水产养殖学
+   C1907 水产生物免疫学
+   C1908 水产生物病原学与病害控制
+   C1909 养殖与渔业工程学
+   C20 食品科学
+   C2001 食品原料学
+   C2002 食品生物化学
+   C2003 食品微生物学
+   C2004 食品组分与营养
+   C2005 食品与肠道菌群
+   C2006 食品加工与制造
+   C2007 食品贮藏与保鲜
+   C2008 食品质量与安全检测
+   C2009 食品安全风险评估
+   C2010 食品安全与品质控制
+   C2011 食品风味化学与感官评价
+   C2012 食品科学研究的新方法
+   C21 分子生物学与生物技术
+   C2101 前沿技术基础理论
+   C2102 合成生物学与生物改造技术
+   C2103 生命组学技术
+   C2104 共性生物技术
+   C2105 交叉融合生物技术
+   C2106 应用生物技术
+   C2107 颠覆性生物技术
+
+D. 地球科学部
+-------------------------------
+::
+
+   D01 地理科学
+   D0101 地貌学
+   D0102 水文学和气候学
+   D0103 生物地理与土壤地理
+   D0104 环境地理和灾害地理
+   D0105 景观地理和综合自然地理
+   D0106 冰冻圈科学
+   D0107 地理环境变化与文明演化
+   D0108 经济地理
+   D0109 城市地理和乡村地理
+   D0110 人文地理
+   D0111 土地科学和自然资源管理
+   D0112 区域可持续发展
+   D0113 遥感科学
+   D0114 地理信息学
+   D0115 测量与地图学
+   D0116 地理大数据与空间智能
+   D0117 地理观测与模拟技术
+   D02 地质学
+   D0201 古生物、古人类和古生态学
+   D0202 地层学
+   D0203 矿物学(含矿物物理学)
+   D0204 岩石学
+   D0205 矿床学
+   D0206 沉积学和盆地动力学
+   D0207 石油天然气地质学
+   D0208 煤地质学
+   D0209 第四纪地质学
+   D0210 前寒武纪地质学
+   D0211 大地构造学与构造地质学
+   D0212 行星地质学
+   D0213 水文地质学
+   D0214 工程地质学
+   D0215 数学地质学与遥感地质学
+   D0216 火山学和地热地质学
+   D0217 生物地质学
+   D0218 勘探技术与地质钻探
+   D03 地球化学
+   D0301 同位素地球化学
+   D0302 元素地球化学
+   D0303 地质年代学
+   D0304 有机地球化学
+   D0305 分析地球化学
+   D0306 实验和计算地球化学
+   D0307 宇宙化学和行星化学
+   D0308 岩石地球化学
+   D0309 化石能源地球化学
+   D0310 表层地球化学
+   D0311 矿床与勘查地球化学
+   D0312 生物地球化学
+   D0313 大气和海洋地球化学
+   D0314 新兴交叉地球化学
+   D04 地球物理学和空间物理学
+   D0401 物理大地测量学
+   D0402 卫星大地测量学
+   D0403 应用大地测量学
+   D0404 地震学
+   D0405 地磁学
+   D0406 地球电磁学
+   D0407 重力学
+   D0409 油气地球物理学
+   D0410 矿产地球物理学
+   D0411 工程和环境地球物理学
+   D0408 地球内部物理和地球动力学(含地热学) 
+   D0412 空间物理学
+   D0413 空间天气学
+   D0414 行星物理学
+   D0415 地球和行星物理实验与仪器
+   D05 大气科学
+   D0501 天气学
+   D0502 气候与气候系统
+   D0503 古气候模拟与动力学
+   D0504 大气动力学
+   D0505 大气物理学
+   D0506 大气化学
+   D0507 生态气象
+   D0508 行星大气
+   D0509 大气观测、遥感和探测技术与方法
+   D0510 大气数据与信息技术
+   D0511 大气数值模式发展
+   D0512 地球系统模式发展
+   D0513 气候变化及影响与应对
+   D0514 大气环境与健康气象
+   D0515 应用气象学
+   D06 海洋科学
+   D0601 物理海洋学
+   D0602 海洋化学
+   D0603 海洋地质学与地球物理学
+   D0604 生物海洋学与海洋生物资源
+   D0605 海洋生态学与环境科学
+   D0606 河口海岸学
+   D0607 海洋遥感
+   D0608 海洋物理与观测探测技术
+   D0609 海洋数据科学与信息系统
+   D0610 海洋系统与全球变化
+   D0611 海洋工程与环境效应
+   D0612 海洋灾害与防灾减灾
+   D0613 海洋能源与资源
+   D0614 海陆统筹与可持续发展
+   D0615 极地科学
+   D07 环境地球科学
+   D0701 环境土壤学
+   D0702 环境水科学
+   D0703 环境大气科学
+   D0704 环境生物学
+   D0705 工程地质环境与灾害
+   D0706 环境地质学
+   D0707 环境地球化学
+   D0708 生态毒理学
+   D0709 基础土壤学
+   D0710 土壤侵蚀与土壤肥力
+   D0711 污染物环境行为与效应
+   D0712 环境与健康风险
+   D0713 第四纪环境与环境考古
+   D0714 环境信息与环境预测
+   D0715 环境地球科学新技术新方法
+   D0716 区域环境质量与安全
+   D0717 环境保护与可持续发展
+
+E. 工程与材料科学部
+-------------------------------
+::
+
+   E01 金属材料
+   E0101 金属材料设计、计算与表征
+   E0102 金属材料制备与加工
+   E0103 金属材料使役行为与表面工程
+   E0104 金属结构材料与力学行为
+   E0105 金属基复合材料与结构功能一体化
+   E0106 金属低维与亚稳材料
+   E0107 金属功能材料
+   E0108 金属能源与环境材料
+   E0109 金属信息功能材料
+   E0110 金属生物与仿生材料
+   E02 无机非金属材料
+   E0201 人工晶体与玻璃材料
+   E0202 无机非金属基础材料
+   E0203 碳素材料与超硬材料
+   E0204 结构陶瓷
+   E0205 无机非金属基复合材料
+   E0206 功能陶瓷
+   E0207 无机非金属半导体与信息功能材料
+   E0208 无机非金属能量转换与存储材料
+   E0209 无机非金属类高温超导与磁性材料
+   E0210 无机非金属类生物材料
+   E0211 其他无机非金属材料
+   E03 有机高分子材料
+   E0301 高分子材料制备
+   E0302 高分子材料物理
+   E0303 高分子材料加工与成型
+   E0304 通用高分子材料
+   E0305 高分子共混与复合材料
+   E0306 高分子材料与环境
+   E0307 智能与仿生材料
+   E0308 生物医用有机高分子材料
+   E0309 光电磁功能有机高分子材料
+   E0310 其他有机高分子功能材料
+   E04 矿业与冶金工程
+   E0401 油气井工程
+   E0402 油气开采
+   E0403 油气储存与输送
+   E0404 矿山开采基础理论
+   E0405 矿山开采工程
+   E0406 智能矿山
+   E0407 矿山修复工程
+   E0408 安全科学与工程
+   E0409 矿物工程与物质分离
+   E0410 冶金物理化学与冶金原理
+   E0411 钢铁冶金
+   E0412 有色金属冶金
+   E0413 粉末冶金与粉体工程
+   E0414 材料冶金加工
+   E0415 资源循环利用
+   E05 机械设计与制造
+   E0501 机器人与机构学
+   E0502 传动与驱动
+   E0503 机械动力学
+   E0504 机械结构强度学
+   E0505 机械摩擦学与表面技术
+   E0506 机械设计学
+   E0507 机械仿生学与生物制造
+   E0508 成形制造
+   E0509 加工制造
+   E0510 制造系统与智能化
+   E0511 机械测试理论与技术
+   E0512 微纳机械系统
+   E06 工程热物理与能源利用
+   E0601 工程热力学
+   E0602 内流流体力学
+   E0603 传热传质学
+   E0604 燃烧学
+   E0605 多相流热物理学
+   E0606 热物性与热物理测试技术
+   E0607 可再生能源与新能源利用中的工程热物理问题
+   E07 电气科学与工程
+   E0701 电磁场与电路
+   E0702 超导与电工材料
+   E0703 电机及其系统
+   E0704 电力系统与综合能源
+   E0705 高电压与放电
+   E0706 电力电子学
+   E0707 电能存储与应用
+   E0708 生物电磁技术
+   E08 建筑与土木工程
+   E0801 建筑学
+   E0802 城乡规划
+   E0803 建筑物理
+   E0804 结构工程
+   E0805 工程材料
+   E0806 工程建造与服役
+   E0807 岩土与基础工程
+   E0808 地下与隧道工程
+   E0809 道路与轨道工程
+   E0810 工程防灾
+   E09 水利工程
+   E0901 工程水文与水资源利用
+   E0902 农业水利与农村水利
+   E0903 水力学与河流动力学
+   E0904 水力机械及系统
+   E0905 水工岩土工程
+   E0906 水工结构
+   E10 环境工程
+   E1001 饮用水工程
+   E1002 城市污水处理与资源化
+   E1003 工业水处理与回用
+   E1004 城乡水系统与生态循环
+   E1005 空气污染控制
+   E1006 固废资源转化与安全处置
+   E1007 环境污染治理与修复
+   E1008 区域与城市生态环境系统工程
+   E1009 生态环境风险控制
+   E11 海洋工程
+   E1101 海岸工程与海洋工程
+   E1102 船舶工程
+   E1103 海洋技术
+   E1104 航海与海事技术
+   E12 交通与运载工程
+   E1201 交通系统分析理论
+   E1202 交通规划与设计
+   E1203 交通信息与控制
+   E1204 交通安全与环境
+   E1205 载运工具设计基础
+   E1206 运载系统动力学
+   E1207 运载系统智能化
+   E1208 运载系统运用工程
+   E13 新概念材料与材料共性科学
+   E1301 材料设计与表征新方法
+   E1302 新型材料制备技术与数字制造
+   E1303 材料多功能集成与器件
+   E1304 新型复合与杂化材料
+   E1305 新概念材料
+   E1306 先进制造的关键材料
+   E1307 关键工程材料
+
+
+F. 信息科学部
+-------------------------------
+::
+
+   F01 电子学与信息系统
+   F0101 信息论
+   F0102 信息系统与系统安全
+   F0103 通信理论与系统
+   F0104 通信网络
+   F0105 移动通信
+   F0106 空天通信
+   F0107 海上和水下通信
+   F0108 多媒体通信
+   F0109 光通信
+   F0110 量子通信与量子信息处理
+   F0111 信号理论与信号处理
+   F0112 雷达原理与技术
+   F0113 信息获取与处理
+   F0114 探测与成像
+   F0115 水下信息感知与处理
+   F0116 图像信息处理
+   F0117 多媒体信息处理
+   F0118 电路与系统
+   F0119 电磁场与波
+   F0120 太赫兹理论与技术
+   F0121 微波光子学
+   F0122 物理电子学
+   F0123 敏感电子学与传感器
+   F0124 生物电子学与生物信息处理
+   F0125 医学信息检测与处理
+   F0126 电子信息与其他领域交叉
+   F02 计算机科学
+   F0201 计算机科学的基础理论
+   F0202 系统软件、数据库与工业软件
+   F0203 软件理论、软件工程与服务
+   F0204 计算机系统结构与硬件技术
+   F0205 网络与系统安全
+   F0206 信息安全
+   F0207 计算机网络
+   F0208 物联网及其他新型网络
+   F0209 计算机图形学与虚拟现实
+   F0210 计算机图像视频处理与多媒体技术
+   F0211 信息检索与社会计算
+   F0212 数据科学与大数据计算
+   F0213 生物信息计算与数字健康
+   F0214 新型计算及其应用基础
+   F0215 计算机与其他领域交叉
+   F03 自动化
+   F0301 控制理论与技术
+   F0302 控制系统与应用
+   F0303 系统建模理论与仿真技术
+   F0304 系统工程理论与技术
+   F0305 生物、医学信息系统与技术
+   F0306 自动化检测技术与装置
+   F0307 导航、制导与控制
+   F0308 智能制造自动化系统理论与技术
+   F0309 机器人学与智能系统
+   F0310 人工智能驱动的自动化
+   F0311 新兴领域的自动化理论与技术
+   F04 半导体科学与信息器件
+   F0401 半导体材料
+   F0402 集成电路设计
+   F0403 半导体光电子器件与集成
+   F0404 半导体电子器件与集成
+   F0405 半导体器件物理
+   F0406 集成电路器件、制造与封装
+   F0407 微纳机电器件与控制系统
+   F0408 新型信息器件
+   F0409 半导体与其他领域交叉
+   F05 光学和光电子学
+   F0501 光学信息获取、显示与处理
+   F0502 光子与光电子器件
+   F0503 传输与交换光子器件
+   F0504 红外与太赫兹物理及技术
+   F0505 非线性光学
+   F0506 激光
+   F0507 光谱信息学
+   F0508 应用光学
+   F0509 光学和光电子材料
+   F0510 空间、大气、海洋与环境光学
+   F0511 生物、医学光学与光子学
+   F0512 能源与照明光子学
+   F0513 微纳光子学
+   F0514 光子集成技术与器件
+   F0515 量子光学
+   F0516 交叉学科中的光学问题
+   F06 人工智能
+   F0601 人工智能基础
+   F0602 复杂性科学与人工智能理论
+   F0603 机器学习
+   F0604 机器感知与机器视觉
+   F0605 模式识别与数据挖掘
+   F0606 自然语言处理
+   F0610 交叉学科中的人工智能问题
+   F0607 知识表示与处理
+   F07 交叉学科中的信息科学
+   F0608 智能系统与人工智能安全
+   F0701 教育信息科学与技术
+   F0609 认知与神经科学启发的人工智能
+
+G. 管理科学部
+-------------------------------
+::
+
+   G01 管理科学与工程
+   G0101 复杂系统管理
+   G0102 运筹与管理
+   G0103 决策与博弈
+   G0104 预测与评价
+   G0105 管理统计理论与方法
+   G0106 管理心理与行为
+   G0107 管理系统工程
+   G0108 工业工程与质量管理
+   G0109 物流与供应链管理
+   G0110 服务科学与工程
+   G0111 数据科学与管理
+   G0112 信息系统与管理
+   G0113 风险管理
+   G0114 金融工程
+   G0115 工程管理和项目管理
+   G0116 交通运输管理
+   G0117 数字化平台管理理论
+   G0118 智慧管理与人工智能
+   G0119 新技术驱动的管理理论与方法
+   G02 工商管理
+   G0201 战略管理
+   G0202 企业理论
+   G0203 企业技术创新管理
+   G0204 人力资源管理
+   G0205 财务管理
+   G0206 会计与审计
+   G0207 市场营销
+   G0208 组织行为
+   G0209 商务智能与数字商务
+   G0210 公司金融
+   G0211 企业运营管理
+   G0212 公司治理
+   G0213 创业管理
+   G0214 国际商务管理
+   G0215 旅游管理
+   G03 经济科学
+   G0301 计量经济与经济统计
+   G0302 行为经济与实验经济
+   G0303 数理经济与计算经济
+   G0304 微观经济
+   G0305 宏观经济管理
+   G0306 国际经济与贸易
+   G0307 金融经济
+   G0308 财政与公共经济
+   G0309 产业经济
+   G0310 经济发展与经济制度
+   G0311 农林经济管理
+   G0312 区域经济
+   G0313 人口劳动与健康经济
+   G0314 资源与环境经济
+   G04 宏观管理与政策
+   G0401 公共管理与公共政策
+   G0402 政策科学理论与方法
+   G0403 科技管理与政策
+   G0404 创新管理与政策
+   G0405 健康管理与政策
+   G0406 医药管理与政策
+   G0407 教育管理与政策
+   G0408 文化管理与政策
+   G0409 公共安全与应急管理
+   G0410 社会治理与社会保障
+   G0411 环境与生态管理
+   G0412 资源管理与政策
+   G0413 区域管理与城市治理
+   G0414 数字治理与信息资源管理
+   G0415 全球治理与可持续发展
+
+H. 医学科学部
+-------------------------------
+::
+
+   H01 呼吸系统
+   H0101 呼吸系统结构、功能与发育异常
+   H0102 呼吸系统感染、炎症与免疫
+   H0103 环境因素与气道疾病
+   H0104 支气管哮喘
+   H0105 慢性阻塞性肺疾病
+   H0106 支气管扩张症
+   H0107 肺循环与肺血管疾病
+   H0108 间质性肺疾病
+   H0109 急性肺损伤和急性呼吸窘迫综合征
+   H0110 睡眠呼吸障碍与呼吸调控
+   H0111 呼吸衰竭与呼吸支持
+   H0112 胸膜、纵隔、胸廓与膈肌相关疾病
+   H0113 呼吸介入、气管重建与肺移植
+   H0114 呼吸系统疾病研究新技术与新方法
+   H02 循环系统
+   H0201 心脏结构、功能与发育异常
+   H0202 心肌损伤、修复、重构和再生
+   H0203 先天性心脏病
+   H0204 心电活动异常与心律失常
+   H0205 冠状动脉性心脏病
+   H0206 肺源性心脏病
+   H0207 心肌炎和心肌病
+   H0208 心脏瓣膜疾病和心包疾病
+   H0209 心力衰竭
+   H0210 心脏/血管移植和辅助循环
+   H0211 血管发生及血管结构与功能异常
+   H0212 血管损伤、修复、重构和再生
+   H0213 血压调节异常与高血压病
+   H0214 动脉粥样硬化与动脉硬化
+   H0215 主动脉疾病
+   H0216 周围血管疾病
+   H0217 淋巴管与淋巴循环疾病
+   H0218 微循环与休克
+   H0219 循环系统感染和免疫相关疾病
+   H0220 循环系统疾病研究新技术与新方法
+   H03 消化系统
+   H0301 消化系统结构、功能与发育异常
+   H0302 消化系统免疫相关疾病
+   H0303 消化道动力异常
+   H0304 消化道内环境紊乱、黏膜屏障障碍及相关疾病
+   H0305 胃酸相关疾病和消化系统神经内分泌调节异常
+   H0306 胃肠道及腹腔感染性疾病
+   H0307 肝脏代谢障碍及相关疾病
+   H0308 药物、毒物及酒精性消化系统疾病
+   H0309 炎性及感染性肝病
+   H0310 肝损伤、修复与再生
+   H0311 肝保护和人工肝
+   H0312 胆石症和胆道系统炎症
+   H0313 胰腺外分泌功能异常与胰腺炎
+   H0314 消化系统器官移植
+   H0315 消化系统疾病研究新技术与新方法
+   H04 生殖系统/围生医学/新生儿
+   H0401 男性生殖系统结构、功能与发育异常
+   H0402 男性生殖系统损伤与修复
+   H0403 男性生殖系统炎症与感染
+   H0404 男性生殖内分泌异常及相关疾病
+   H0405 精子发生异常与男性不育
+   H0406 性功能障碍
+   H0407 乳腺结构、功能及发育异常
+   H0408 女性生殖系统结构、功能与发育异常
+   H0409 女性生殖系统损伤与修复
+   H0410 女性生殖系统炎症与感染
+   H0411 女性生殖内分泌异常及相关疾病
+   H0412 子宫内膜异位症与子宫腺肌症
+   H0413 卵母细胞发育、成熟、受精及其异常
+   H0414 早期胚胎发育
+   H0415 胚胎着床、母胎互作与生殖免疫及相关疾病
+   H0416 胎盘发育、结构和功能及其异常
+   H0417 妊娠相关性疾病
+   H0418 分娩与产褥相关疾病
+   H0419 胎儿相关性疾病与胎源性疾病
+   H0420 辅助生殖
+   H0421 新生儿相关疾病
+   H0422 生殖系统/围生医学/新生儿疾病研究新技术与新方法
+   H05 泌尿系统
+   H0501 泌尿系统结构、功能与发育异常
+   H0502 泌尿系统损伤与修复
+   H0503 原发性肾脏疾病
+   H0504 继发性肾脏疾病
+   H0505 慢性肾脏病及其并发症
+   H0506 血液净化和替代治疗
+   H0507 肾移植
+   H0508 泌尿系结石与感染
+   H0509 前列腺及膀胱良性疾病
+   H0510 尿控及排尿功能异常
+   H0511 泌尿系统疾病研究新技术与新方法
+   H06 运动系统
+   H0601 运动系统结构、功能和发育异常
+   H0602 运动系统免疫相关疾病
+   H0603 骨、关节、软组织医用材料
+   H0604 骨、关节、软组织损伤与修复
+   H0605 骨、关节、软组织移植与重建
+   H0606 骨、关节、软组织感染
+   H0607 骨、关节、软组织疲劳与恢复
+   H0608 骨、关节、软组织退行性病变
+   H0609 骨、关节、软组织运动损伤
+   H0610 运动系统畸形与矫正
+   H0611 运动系统疾病研究新技术与新方法
+   H07 内分泌系统/代谢和营养支持
+   H0701 内分泌系统免疫相关疾病
+   H0702 松果体、下丘脑、垂体及相关疾病
+   H0703 甲状腺、甲状旁腺及相关疾病
+   H0704 肾上腺及相关疾病
+   H0705 性腺及相关疾病
+   H0706 胰岛生理调控与功能异常
+   H0707 糖稳态失衡与靶器官胰岛素抵抗
+   H0708 糖尿病
+   H0709 能量代谢调节异常与肥胖
+   H0713 氨基酸、核酸代谢异常
+   H0710 脂质代谢异常
+   H0711 脂肪组织生理调控与功能异常
+   H0712 骨转换、骨代谢异常及钙磷代谢异常
+   H0714 水、电解质、微量元素、维生素代谢异常及酸碱平衡异常
+   H0715 营养不良与营养支持
+   H0716 内分泌系统疾病/代谢异常和营养支持领域研究新技术与新方法
+   H08 血液系统
+   H0801 造血、造血调控与造血微环境
+   H0802 红细胞与相关疾病
+   H0803 白细胞与相关疾病
+   H0804 巨核细胞、血小板与相关疾病
+   H0805 出血、凝血、纤溶与血栓
+   H0806 再生障碍性贫血与骨髓衰竭
+   H0807 骨髓增生异常综合征
+   H0808 骨髓增殖性肿瘤
+   H0809 白血病
+   H0810 淋巴瘤与淋巴细胞疾病
+   H0811 骨髓瘤与浆细胞疾病
+   H0812 血液系统疾病感染与干预
+   H0813 造血干细胞移植与并发症
+   H0814 血液疾病免疫治疗与细胞治疗
+   H0815 输血、血液再生与血液制品
+   H0816 血液系统疾病研究新技术与新方法
+   H09 神经系统
+   H0901 神经系统发育与代谢异常
+   H0902 意识障碍与认知功能障碍
+   H0903 感觉障碍、疼痛与镇痛
+   H0904 运动障碍性疾病
+   H0905 麻醉与镇静
+   H0906 脑血管结构、功能异常及相关疾病
+   H0907 神经系统免疫异常及相关疾病
+   H0908 神经系统屏障和脑脊液循环障碍相关疾病
+   H0909 神经系统炎症、感染及相关疾病
+   H0910 神经损伤、修复与再生
+   H0911 神经-肌肉接头和肌肉疾病、自主神经疾病
+   H0912 神经退行性变及相关疾病
+   H0913 神经电活动异常与发作性疾病
+   H0914 神经保护与功能调控
+   H0915 神经系统疾病研究新技术与新方法
+   H10 精神卫生与心理健康
+   H1001 生物节律紊乱及相关疾病
+   H1002 睡眠与睡眠障碍
+   H1003 器质性精神障碍
+   H1004 物质依赖和其他成瘾性障碍
+   H1005 精神分裂症及精神病性障碍
+   H1006 焦虑障碍、强迫障碍和应激相关障碍
+   H1007 心境障碍
+   H1008 儿童和青少年精神行为障碍
+   H1009 其他精神行为障碍
+   H1010 精神行为障碍的心理评估与干预
+   H1011 精神疾病与心理健康研究新技术与新方法
+   H11 医学免疫学
+   H1101 免疫系统发育与分化异常
+   H1102 免疫应答异常
+   H1103 免疫调节异常
+   H1104 炎症、感染与免疫
+   H1105 器官移植与移植免疫
+   H1106 超敏反应性疾病
+   H1107 自身免疫性疾病
+   H1108 免疫缺陷性疾病
+   H1109 神经内分泌免疫异常
+   H1110 区域免疫及黏膜免疫疾病
+   H1111 疫苗和免疫预防
+   H1112 免疫治疗及其机制
+   H1113 医学免疫学研究新技术与新方法
+   H12 皮肤病学
+   H1201 皮肤形态、结构和功能异常
+   H1202 皮肤免疫性疾病
+   H1203 皮肤感染
+   H1204 非感染性皮肤病
+   H1205 皮肤附属器及相关疾病
+   H1206 皮肤病学研究新技术与新方法
+   H13 眼科学
+   H1301 角膜及眼表疾病
+   H1302 晶状体与白内障
+   H1303 巩膜、葡萄膜、眼免疫
+   H1304 青光眼、视神经及视路疾病
+   H1305 视网膜、脉络膜及玻璃体相关疾病
+   H1306 视觉、视光学与近视、弱视及眼肌疾病
+   H1307 全身疾病眼部表现、眼眶疾病
+   H1308 眼组织移植
+   H1309 眼科学研究新技术与新方法
+   H14 耳鼻咽喉头颈科学
+   H1401 嗅觉、鼻及前颅底疾病
+   H1402 咽喉及颈部疾病
+   H1403 耳及侧颅底疾病
+   H1404 听觉异常与平衡障碍
+   H1405 耳鼻咽喉头颈发育相关疾病
+   H1406 耳鼻咽喉头颈科学研究新技术与新方法
+   H15 口腔颅颌面科学
+   H1501 口腔颅颌面组织器官生长发育相关疾病
+   H1502 口腔颅颌面组织器官缺损修复与再生
+   H1503 牙体牙髓及根尖周组织疾病
+   H1504 牙周及口腔黏膜疾病
+   H1505 唾液、唾液腺及口腔颌面脉管神经及颌骨良性疾病
+   H1506 味觉、口颌面疼痛、咬合及颞下颌关节疾病
+   H1507 牙缺损、缺失修复及牙颌畸形的矫治
+   H1508 口腔颅颌面组织生物力学和生物材料
+   H1509 口腔颅颌面科学研究新技术与新方法
+   H16 急重症医学
+   H1601 脓毒症
+   H1602 器官功能衰竭与支持
+   H1603 心肺复苏
+   H1604 中毒、中暑
+   H1605 急重症医学研究新技术与新方法
+   H17 创伤/烧伤/整形
+   H1701 创伤
+   H1702 烧伤与冻伤
+   H1703 创面愈合与瘢痕
+   H1704 体表组织器官畸形、损伤与修 复、再生
+   H1705 体表组织器官移植与再造
+   H1706 颅颌面畸形与矫正
+   H1707 创伤/烧伤/整形研究新技术与新方法
+   H18 肿瘤学
+   H1801 肿瘤病因
+   H1802 肿瘤发生
+   H1803 肿瘤细胞命运
+   H1804 肿瘤遗传与进化
+   H1805 肿瘤表观遗传
+   H1806 肿瘤免疫
+   H1807 肿瘤代谢
+   H1808 肿瘤微环境
+   H1809 肿瘤复发与转移
+   H1810 肿瘤干细胞
+   H1811 肿瘤学研究与其他学科交叉
+   H1812 肿瘤预防
+   H1813 肿瘤诊断
+   H1814 肿瘤化学药物治疗
+   H1815 肿瘤靶向治疗
+   H1816 肿瘤放射治疗
+   H1817 肿瘤物理治疗
+   H1818 肿瘤免疫治疗
+   H1819 肿瘤生物治疗
+   H1820 肿瘤综合治疗
+   H1821 肿瘤治疗抵抗
+   H1822 肿瘤康复
+   H1823 基于特殊临床特征的肿瘤研究
+   H1824 肿瘤大数据与人工智能
+   H1825 肿瘤学研究临床转化
+   H1826 肿瘤学研究新技术与新方法
+   H19 老年医学
+   H1901 衰老机制与调控
+   H1902 衰老相关疾病
+   H1903 老年医学研究新技术与新方法
+   H20 康复医学
+   H2001 康复治疗与康复机制
+   H2002 康复评定
+   H2003 康复医学研究新技术与新方法
+   H21 医学病毒学与病毒感染
+   H2101 呼吸道病毒与感染
+   H2102 消化道病毒、小RNA病毒与感染
+   H2103 肝炎病毒与感染
+   H2104 逆转录病毒与感染
+   H2105 疱疹病毒与感染
+   H2106 虫媒病毒与感染
+   H2107 出血热病毒与感染
+   H2108 人乳头瘤病毒、狂犬病毒、细小病毒、朊病毒及其他病毒与感染
+   H2109 医学病毒学与病毒感染研究新技术与新方法
+   H22 医学病原生物与感染
+   H2201 病原细菌与感染
+   H2202 病原真菌与感染
+   H2203 寄生虫与感染
+   H2204 支原体、衣原体、立克次氏体、螺旋体与感染
+   H2205 传染病媒介生物
+   H2206 病原生物变异与耐药
+   H2207 医院获得性感染
+   H2208 性传播疾病
+   H2209 病原生物与感染研究新技术与新方法
+   H23 医学遗传学
+   H2301 遗传性疾病
+   H2302 罕见病
+   H2303 医学遗传学研究新技术与新方法
+   H24 特种医学
+   H2401 特殊环境机体适应性改变与损伤机制
+   H2402 特种医学问题评估与防护新技术
+   H25 法医学
+   H2501 法医病理学及法医临床学
+   H2502 法医物证学及法医人类学
+   H2503 法医毒物学
+   H2504 法医学研究新技术与新方法
+   H26 检验医学
+   H2601 生物化学检验
+   H2602 微生物学检验
+   H2603 细胞学和血液学检验
+   H2604 免疫学检验
+   H2605 分子生物学检验
+   H2606 检验医学研究新技术与新方法
+   H27 影像医学/核医学
+   H2701 磁共振成像
+   H2702 X射线与 CT、电子与离子束
+   H2703 超声医学
+   H2704 核医学诊断与治疗
+   H2705 医学光学成像
+   H2706 分子影像
+   H2707 生物电磁成像
+   H2708 医学图像数据处理、分析与可视化
+   H2709 医学影像大数据与人工智能
+   H2710 介入医学与工程
+   H2711 影像医学/核医学研究新技术与新方法
+   H28 生物医学工程/再生医学
+   H2801 脑机交互、神经工程与康复工程
+   H2802 人体医学信号检测、识别、处理与分析
+   H2803 生物医学传感
+   H2804 电磁与物理治疗
+   H2805 生物医学系统建模及仿真
+   H2806 医学信息系统与远程医疗
+   H2807 治疗计划、导航与机器人辅助
+   H2808 纳米医学
+   H2809 医用生物材料与仿生材料
+   H2810 组织器官再生机制与调控
+   H2811 组织与器官构建
+   H2812 器官芯片与系统
+   H2813 检测及治疗的医学器件和仪器
+   H2814 生物医学工程/再生医学研究新技术与新方法
+   H29 放射医学
+   H2901 放射损伤及防治
+   H2902 医学放射生物学
+   H2903 放射医学研究新技术与新方法
+   H30 预防医学
+   H3001 环境卫生
+   H3003 人类营养
+   H3004 食品卫生
+   H3005 妇幼保健
+   H3006 儿童少年卫生
+   H3007 卫生毒理
+   H3008 卫生分析化学
+   H3009 传染病流行病学
+   H3010 非传染病流行病学
+   H3011 流行病学方法与卫生统计
+   H3012 行为、心理因素与健康
+   H3013 地方病学
+   H3014 预防医学研究新技术与新方法
+   H31 中医学
+   H3101 脏腑气血津液体质
+   H3102 病因病机
+   H3103 证候基础
+   H3104 治则治法
+   H3105 中医方剂学
+   H3106 中医诊断学
+   H3107 腧穴与经络
+   H3108 中医内科学
+   H3109 中医外科学
+   H3110 中医骨伤科学
+   H3111 中医妇科学
+   H3112 中医儿科学
+   H3113 中医眼科学
+   H3114 中医耳鼻喉与口腔科学
+   H3115 中医肿瘤学
+   H3116 中医老年病学
+   H3117 中医养生与康复学
+   H3118 中医针灸学
+   H3119 推拿按摩学
+   H3120 民族医学
+   H3121 中医学研究新技术与新方法
+   H32 中药学
+   H3201 中药资源
+   H3202 中药鉴定
+   H3203 中药药效物质
+   H3204 中药质量评价
+   H3205 中药炮制
+   H3206 中药制剂
+   H3207 中药药性理论
+   H3208 中药神经精神药理
+   H3209 中药心脑血管药理
+   H3210 中药抗肿瘤药理
+   H3211 中药内分泌与代谢药理
+   H3212 中药抗炎与免疫药理
+   H3213 中药抗病毒与感染药理
+   H3214 中药消化与呼吸药理
+   H3215 中药泌尿与生殖药理
+   H3216 中药代谢与药物动力学
+   H3217 中药毒理
+   H3218 民族药学
+   H3219 中药学研究新技术与新方法
+   H33 中西医结合
+   H3301 中西医结合基础理论
+   H3302 中西医结合临床基础
+   H3303 中西医结合研究新技术与新方法
+   H34 药物学
+   H3401 合成药物化学
+   H3402 天然药物化学
+   H3403 微生物药物
+   H3404 生物技术药物
+   H3405 海洋药物
+   H3406 特种药物和罕见病药
+   H3407 药物设计与药物信息
+   H3408 药剂学
+   H3409 药物材料
+   H3410 药物分析
+   H3411 药物资源
+   H3412 药物学研究新技术与新方法
+   H35 药理学
+   H3501 神经精神药物药理
+   H3502 心脑血管药物药理
+   H3503 老年病药物药理
+   H3504 抗炎与免疫药物药理
+   H3505 抗肿瘤药物药理
+   H3506 抗感染药物药理
+   H3507 代谢性疾病药物药理
+   H3508 消化与呼吸系统药物药理
+   H3509 血液、泌尿与生殖系统药物药理
+   H3510 药物代谢与药物动力学
+   H3511 临床药理
+   H3512 药物毒理
+   H3513 药理学研究新技术与新方法
+
+
+T. 交叉科学部
+-------------------------------
+::
+
+   T01 物质科学领域
+   T02 智能科学与智造领域
+   T03 生命科学与健康领域
+   T04 融合科学领域
+
+说明： 此为交叉科学部的受理代码， 交叉科学部不设置单独的申请代码。申请交叉科学部项目时， 申请人应当
+首先选择受理代码 (T01、T02、T03 或 T04)，然后从前述八个科学部申请代码中准确选择 2~5 个申请代码。
+
+
 🟡 我的游戏计划种子
 ================
+
 
 - ✨Seeding 种子能有什么用呢？对啊，播种能收获什么呢？是什么未知的世界呢？对啊，能和它们交流吧？
 - ✨千年农夫
 - ✨游戏三国
+- ✨毒壤 (Toxicant Soil)
+
+   在一个古老的世界，有一群原住人，它们靠土地而生，靠土地而繁衍，靠土地而文明。直到一天，地里的
+   作物慢慢枯萎而死，所有人都慌乱了，用不了多久，他们都会饿死在这片祖祖辈辈生活的家园……
+
+   玩家有两种玩法：毒狼模式、统筹模式。在毒狼模式下，玩家扮演一个原住民，并且要探索出，正在这片
+   土地上发生的现象背后的原因。统筹模式下，玩家将以酋长的视角，联合一切力量打败这股未知的力量。
+
 - ✨百业
    
    如果认真起来，世间行业何止百业，每个时代都有各自适配的行业，从古至今，有的行业消失了，
@@ -62,16 +2199,16 @@
 🟡 Wonderful Games 优秀游戏项目
 =============================
 
-1. 底特律：化身为人 Detroit: Become Human https://www.bilibili.com/video/BV1Gp411R7kk
-2. B站 2021小宇宙新星计划 https://www.bilibili.com/blackboard/activity-S49Oq1tKaF.html
-3. B站 2020小宇宙新星计划 https://www.bilibili.com/blackboard/activity-5lyQ_R-_b.html
-4. 小森平的免費下載音效 https://taira-komori.jpn.org/freesoundtw.html
-5. 听说你想做游戏？ https://www.bilibili.com/medialist/play/33075498
-6. 有哪些不容错过的独立游戏？ https://www.zhihu.com/question/372299414
-6. 到底什么才是独立游戏？ https://www.bilibili.com/video/BV1y741147vx
-6. 有哪些冒险类（AVG）游戏能称得上殿堂级？ https://www.zhihu.com/question/21311720
+   1. 底特律：化身为人 Detroit: Become Human https://www.bilibili.com/video/BV1Gp411R7kk
+   2. B站 2021小宇宙新星计划 https://www.bilibili.com/blackboard/activity-S49Oq1tKaF.html
+   3. B站 2020小宇宙新星计划 https://www.bilibili.com/blackboard/activity-5lyQ_R-_b.html
+   4. 小森平的免費下載音效 https://taira-komori.jpn.org/freesoundtw.html
+   5. 听说你想做游戏？ https://www.bilibili.com/medialist/play/33075498
+   6. 有哪些不容错过的独立游戏？ https://www.zhihu.com/question/372299414
+   6. 到底什么才是独立游戏？ https://www.bilibili.com/video/BV1y741147vx
+   6. 有哪些冒险类（AVG）游戏能称得上殿堂级？ https://www.zhihu.com/question/21311720
 
-成也文化败也文化——江南百景图发展史 https://www.bilibili.com/video/BV12U4y1X7az/
+   成也文化败也文化——江南百景图发展史 https://www.bilibili.com/video/BV12U4y1X7az/
 
 
 🌟优秀作品陈列
@@ -97,6 +2234,7 @@
 
 🌟《诡野西部》 Weird West
 ================================================================================
+
    https://www.bilibili.com/read/cv15951866/
    诡野西部（Weird West）》玩法演示 https://www.bilibili.com/video/BV1Zq4y1G7KK
    【诡野西部】新手开局如何偷空武器店 https://www.bilibili.com/video/BV1tB4y1U7yb/
@@ -163,11 +2301,541 @@
    https://github.com/eriksvedang/GameWorld2
 
 
+🌟Animal Well
+================================================================================
+
+   .. figure:: https://www.animalwell.net/press/Animal%20Well/images/gif_capybara.gif
+      :target: https://www.animalwell.net/
+   
+   类银河恶魔城游戏《动物井》(ANIMAL WELL) 是 Billy Basso 开发的冒险解谜游戏，于 2024/5/9
+   在 PlayStation 5、Nintendo Switch、Steam 上发售。
+
+   Explore a surreal, interconnected, labyrinth, and unravel its many secrets. 
+   Collect items, solve puzzles, and try to survive what lurks in the dark. There 
+   is more than what you see.
+
+
+   *  Discover a dense, atmospheric, puzzle box world with multiple layers of secrets
+  
+   *  Collect items that each have multiple uses and let you manipulate your environment 
+      in surprising and meaningful ways
+  
+   *  Tread carefully as you encounter creatures both beautiful and unsettling. You must 
+      assess for yourself what is safe and dangerous
+  
+   *  Custom engine/renderer built specifically for pixel art on modern hardware. Animal 
+      Well looks and plays like no other game
+  
+   *  Takes inspiration from the survival horror genre, adventure games, and Nintendo 
+      classics such as the original Zelda and Metroid
+
+   | PLATFORMS: PS5, Xbox Series X|S Switch & Steam (PC)
+   | RELEASE DATE: May 9th 2024
+   | PRICE: $24.99 USD
+   | Steam 国区: ￥76
+
+   Animal Well is being made with attention paid to every detail. Great care is 
+   being taken to ensure it remains interesting and giving back far into the future, 
+   without the need for updates. The main game is just the beginning; players will 
+   be discovering secrets for years.
+
+   **TEAM**
+
+   Billy Basso is the sole developer of Animal Well. Prior to this he spent the 
+   past 10 years programming games at larger studios, including Netherrealm, Phosphor 
+   Games, and Level Ex. He has had graphics work featured in SIGGRAPH. This will be 
+   his first independent release.
+
+   Dan Adelman started the indie games businesses at Xbox and Nintendo of America 
+   over a decade ago and later helped bring indie hits Axiom Verge 1&2, Mages of 
+   Mystralia, and Chasm to market. He's facilitated the launch of hundreds of 
+   titles. Dan was brought on in 2021 to help with business & marketing.
+
+   2024 年各大平台诞生了不少热门游戏，包括《FF7RB》《小丑牌》《P3R》《圣兽之王》《龙之信条2》...
+
+   《动物井》是一款「类银河恶魔城」游戏，但有别于市面上常见的作品，本作采用了「无战斗」的设计，主打解密和探索。
+   此外，不同于大多数同类作品采用的偏线性路线设计，本作几乎是完全的开放世界，能力的获取并没有先后次序。
+
+   本作一个非常不可思议的地方就是它的容量，PC 版仅有 30MB，Switch 版也只有 70MB。这么小的体积，
+   其视觉效果却是一点也不落后。由于本作并未像现代游戏那样采用大量的贴图和模型，避免了大量的数据文件。
+   而是采用程序化纹理、实时着色的像素，使用 GPU 着色器程序实时渲染特效，因此做到了极小体积的同时，
+   让游戏的像素效果非常惊艳。
+
+   除了画面表现外，本作的音效也非常出色，特别是场景音效，极大地提升了游戏的临场感和代入感。另外，本作的
+   NS 版支持 HD 震动，触感极佳。无论是主角移动还是使用悠悠球等操作，操作反馈都非常舒适！
+
+   「银河城」的老祖宗《密特罗德》早就有「破序」的玩法，指脱离开发者最初设计好的路线，提前进入后期区域、
+   或是提前拿到后期的能力。但无论是《密特罗德》还是目前市面上大多数同类游戏，它们的「破序」要求都很高，
+   是属于「开发者意图以外」的路线。
+
+   但《动物井》却从一开始，就采用了开放世界的设计思路。就好像《旷野之息》中的神兽完全不用按固定顺序一样，
+   《动物井》中的4个主线目标同样没有固定顺序，玩家可以根据自己的节奏进行。
+
+   当然，作为「银河恶魔城」设计最重要的一环，「获得新能力」在本作中也一样是开放的，并没有先后次序之分。
+   大家应该可以想象到，如果一款游戏一味地追求开放、无脑给玩家自由，那样只会适得其反，让游戏体验变得
+   一团糟。这也是《动物井》最让人惊叹的设计之一，本作虽然给了玩家极高的自由度，却并没有因为关键能力
+   获取状况导致卡关，游戏总能让玩家发现接下来最合适的道路。
+
+   游戏中大量存在的、甚至可以说是多到离谱的隐藏路线，也让本作的探索过程充满未知，总有惊喜等待着玩家。
+
+   无战斗但也不简单，不同于《空洞骑士》等作品，《动物井》中完全没有战斗内容——毕竟主角是连手都没有的
+   一颗果冻球，如果让没玩过游戏的玩家来看下面这张图，或许都找不到主角在哪...
+
+   游戏也有一些缺点，虽然整体来看无伤大雅，但在某些时刻确实可能让人烦躁。
+
+   游戏虽然有血量（心心）的概念，但也存在一些即死的关卡，比如被移动的石板直接压死。死亡后会立即在
+   上一个存档点复活，但游戏的存档点不多，很多时候需要跑不少路。但如果只是复活跑图，其实对体验的影响
+   还没有那么大，因为死亡前的进度还是会保留。但地图中存在一些复活后需要重新开启的机关，玩家在从复活
+   点再次前往的过程中，需要经历一个非常繁琐的重开机关的过程。如果在关卡死多几次，着实会让人抓狂。
+
+
+🌟Dark Dungeon 暗黑地牢
+================================================================================
+
+   *  Darkest Dungeon 官网 https://www.darkestdungeon.com/
+   *  暗黑地牢 系列 https://pan.quark.cn/s/72ccc67fa098
+   *  暗黑地牢 I https://store.steampowered.com/app/262060/Darkest_Dungeon
+   *  暗黑地牢 II https://store.steampowered.com/app/1940340/Darkest_Dungeon_II/
+   *  暗黑地牢百科 https://darkestdungeon.fandom.com/wiki/Heroes_(Darkest_Dungeon)
+
+   Red Hook Studios 开发的 Rogue 回合制角色扮演游戏，于2016年1月19日发行。
+
+      **Darkest Dungeon** is a challenging gothic roguelike turn-based RPG about 
+      the psychological stresses of adventuring.
+
+      **Reclaim Your Ancestor's Estate**
+
+      Recruit, train, and lead a team of flawed heroes through twisted forests, 
+      forgotten warrens, ruined crypts, and beyond. You'll battle not only 
+      unimaginable foes, but stress, famine, disease, and the ever-encroaching 
+      dark. Uncover strange mysteries, and pit the heroes against an array of 
+      fearsome monsters with an innovative strategic turn-based combat system.
+
+
+      **Darkest Dungeon II** is a roguelike road trip of the damned. Form a party, 
+      equip your stagecoach, and set off across the decaying landscape on a 
+      last gasp quest to avert the apocalypse. The greatest dangers you face, 
+      however, may come from within...
+
+      **Gather your courage and ride out into the chaos of a world undone.**
+
+      Four heroes and a stagecoach are all that stand between darkness and salvation.
+
+      **Tried and True Turn-based Combat, Improved**
+
+      The ground-breaking genre-defining combat from Darkest Dungeon returns, 
+      but everything from stats to rules has been refined and improved. The all 
+      new Token System helps make your decisions impactful while adding even 
+      more depth of play.
+
+      **System Requirements**
+      ::
+
+         Windows                                            macOS
+
+         Minimum:                                           Minimum:
+         Requires a 64-bit processor and operating system   OS: 10.13.6+
+         OS: Windows 10                                     Processor: Dual Core 2.4GHz
+         Processor: AMD Athlon X4 | Intel Core i5 4460      Memory: 4 GB RAM
+         Memory: 8 GB RAM                                   Graphics: Intel HD 5000 (must support Metal API)
+         Graphics: Nvidia GTX 950 | AMD R7 370              Storage: 5 GB available space
+         Storage: 6 GB available space                      Additional Notes: 2015 MacBook Pro or newer
+
+         Recommended:                                       Recommended:
+         Requires a 64-bit processor and operating system   OS: 10.14+
+         OS: Windows 10                                     Processor: Quad Core 3.0 Ghz
+         Processor: i7 6700k                                Memory: 8 GB RAM
+         Memory: 16 GB RAM                                  Graphics: Intel UHD 630+ (must support Metal API)
+         Storage: 6 GB available space                      Storage: 5 GB available space
+
+   一款有着浓郁克苏鲁风格的、手绘哥特式钢笔画风的“恐怖”游戏，玩家需要全程围绕角色的压力来保持
+   角色的正常不至于崩溃。考验玩家的不仅仅知识战力的提升，还有协作搭配。
+
+   故事讲述了一名贵族领主挖掘出一个隐藏在领土中的邪恶存在，并因此引发了一连串惨剧。玩家将扮演
+   领主的远亲，受邀前往祖先故土重振家族荣誉，收复故土，因此卷入怪异且不可名状的恐怖事件中。
+
+   先祖在古老的、被谣言阴影包围的家族宅邸中度过了一生。在享尽一切奢华与糜烂的生活后，他开始厌倦了
+   那几乎不变的灯红酒绿。就在那时，奇特而令人不安的传言暗示着家族庄园本身可能是通往某个不可名状、
+   难以置信力量的大门。先祖开始耗尽全力去发掘和复原，将家族所有财富花在了黝黑的工人与结实的铁锹上。
+   透过在最深处的地基下浸着盐的岩层中的传送门接触到了远古的邪恶。祖先等人的脚步惊扰了远古的生物，
+   并就此陷入死亡与癫狂的领域之中。最终，只有祖先独自一人狂奔逃离那远古拱廊，直至他失去意识。
+   在他醒来后，他参悟了这里面的一种神秘力量，然后着手写信请求远亲回来，将家族从那贪婪吞噬家族荣光
+   的魔影中解救出来……
+
+   游戏玩法设计上以“耐压性”为中心，玩家需要通过各种技能压制压力或者降低压力怪的攻击，角色属性设计
+   主要分为三类，一般属性（Stats）和技能（Abilities）属于游戏基本配置，决定了角色的基本能力，
+   持续元素（Persistent elements）会在游戏过程中不断获得、替换、清除，它们会影响一般属性。角色
+   死亡是永久的，不可复活。游戏战斗场景中使用了亮度（light level），角色使用的各种饰品特性一般
+   与光亮程度有关：
+
+   1	Stats
+
+      1. 精度修正 Accuracy Modifier
+      2. 暴击机率 Critical Chance
+      3. 伤害输出 Damage
+      4. 躲避受击 Dodge
+      5. 队友保护 Protection
+      6. 进攻速度 Speed
+
+   2	Persistent elements
+
+      1.	特质 Quirks
+      2.	疾病 Diseases
+      3.	压力 Stress
+      4. 死亡 Death
+
+   3	Abilities
+
+      1.	对战技能 Combat skills，所有技能都有角色站位要求，并且可攻击的位置也有限制。
+      2.	扎营技能 Camping skills，在中途点击木柴扎营，扎营时间 12，施放技能要消耗时间。
+
+   速度（SPD）决定了英雄在战斗中相对于其他角色和敌人的优先级。在每一轮战斗开始时，为每个角色分配
+   一个从 1 ~ 8 的随机数，并将角色的 SPD 值加到这个数上；角色轮流出现的可能性顺序基于这个数字，
+   从最高开始，以最低结束。速度为 8 的英雄/怪物更有可能先于速度为 5 的之前行动，但这并不能保证。
+   每个英雄都有一个速度基值，该基值取决于职业和武器级别，可通过适用的饰品、增益、疾病和怪癖修饰。
+
+   怪物种族一共有四种，每种与特定角色都克制关系：
+   ::
+
+      种族           位置     克制
+      人类 Human     废墟     
+      野兽 Beast     兽窟、海湾  、海怪。
+      异魔 Unholy    废墟     死灵法师、先知。十字军对异魔有明显的 +15% 优势（升级到最高 +35% 的伤害）。
+      邪秽 Eldritch  旷野     大部分小怪，叫鸦骷髅食尸鬼，流血抗性高，适合使用训犬师（狗哥）。
+
+      https://darkestdungeon.fandom.com/wiki/Enemies_(Darkest_Dungeon)
+
+   暗黑地牢 I 共有 16 个角色，DLC 补充两个，角色有各自职业类型，不同类型有不同专长，通过决心等级
+   升级能力。决心等级分为七级：0 旅者、1 学徒、2 勇者、3 精英、4 大师、5 冠军、6 传奇。分别是：
+
+   === ============== ======================
+   1.  Abomination    咒缚者（狼人）
+   2.  Antiquarian    古董商人（商人/古商）
+   3.  Arbalest       弩手（箭手）
+   4.  Bounty Hunter  赏金猎人（赏金）
+   5.  Crusader       十字军
+   6.  Grave Robber   盗墓贼（盗墓）
+   7.  Hellion        蛮族战士（恶女）
+   8.  Highwayman     强盗
+   9.  Houndmaster    训犬师（狗哥）
+   10. Jester         小丑
+   11. Leper          麻风剑客（麻风）
+   12. Man-at-Arms    老兵
+   13. Musketeer      火枪手（枪手）
+   14. Occultist      神秘学者（阿三）
+   15. Plague Doctor  瘟疫医生（疫医/医生）
+   16. Vestal         修女
+   17. Flagellant     苦修者（苦修）DLC 专属角色
+   18. Shieldbreaker  破盾者（破盾）DLC 专属角色
+   === ============== ======================
+
+   游戏策略中控制压力是一个非常重要的内容，可以有主动出击和被动降压（例如小丑自带的降压技能），
+   主动出击则是通过眩晕、移位技能控制、降低敌方输出，其中以狗哥、老兵、阿三、疫医最为优秀，眩晕
+   技能附带伤害输出、或者像疫医可以双后位同时控制住。饰品选择根据角色功能来考虑，做控的尽量提高
+   眩晕的概率。总体来说，属性优先级：速度、精准、暴击三者最为重要，缺一不可。饰品会在每周开始时
+   根据当前拥有的英雄等级更新的任务中出来，选择难度合适的进行挑战。比如，阿三可以搭配一个恶魔
+   坩埚，它拥有 +30% 眩晕和 +40% 减益技能概率加成，还有 +3 暴击。这个饰品会和出现 Hag 巫婆
+   一起出现，它会用坩埚将英雄煮到濒死状态才倒出来。这个小 Bose 的属性数据如下，弱点在于放血：
+   ::
+
+      Enemy    HP            DODGE  PROT           SPD   Type     Resistances    Abilities
+
+      Hag      66            5%     0%             5     Human    Stun - 100%    Into The Pot Throws hero into the cauldron.
+                                                                  Blight - 60%   Meat Tenderizer
+                                                                  Bleed - 20%    Season to Perfection Debuff: -10 ACC, -25% DMGStress +10
+                                                                  Debuff - 40%   Taste The Stew Stress +10Self: Heal 6
+                                                                  Move - 200%    
+
+      Cauldron 100 (Empty)   0%     100% (Empty)         Crockery Stun - 200%    None. Passive (while full)
+                14 (Full)             0% (Full)   0               Blight - 200%
+                                                                  Bleed - 200%
+                                                                  Debuff - 200%
+                                                                  Move - 200%
+
+   *  `Darkest Dungeon I - Enemies https://darkestdungeon.fandom.com/wiki/Enemies_(Darkest_Dungeon)>`__
+
+   玩家需要通过驿站马车进行英雄的招募以组成探险队，进行各区域任务的执行与探索。招募后的英雄将以
+   人物卡的形式整编为名册显示在城镇界面的右侧，通过点击人物卡可了解相应英雄的技能、属性、状态的
+   信息，建筑可以使用祖产进行升级，可以将提高英雄名册的上限人数。出发时可将招募英雄组成 4人小队。
+   已经招募的英雄可以解雇，除非是因为新英雄有非常强力的加成特质和能力，或者原有英雄能力差，且有
+   非常麻烦的负面物质（锁定），这时候才会考虑把原来的开除。开除英雄意味着升级装备、技能和其它资金
+   花销全部付诸东流，所以一定要谨慎考虑。
+
+   组队探险时注意，地图区有不同难度选择，尽量保持与英雄等级在 1 个级别内。英雄等级过低增加了难度，
+   过高时会禁止参加。虽然可以利用 BUG 在点击开始时快速点过低难度的地图来让高级别英雄进入低级别
+   地图，俗称“锁车门”。地图分为无 Boss 的训练区，还有 1 或者 2 个 Boss 的地图，在选择时会提示。
+
+   祖产是用于升级建筑的特殊宝物，有四种祖产宝物：雕像、地契、画像和纹章。其中地契最为难得，它与
+   日志看起来有点相似，日志用于回顾每周的活动，包括执行的任务、英雄的升级和死亡、触发的城镇事件、
+   英雄治疗情况、遭遇的建筑事件等等，还可以查看管家目标。
+
+   出发前可以补充消耗性资源，部分资源可以和随机生成的战场中的交互物品作用产生不同的效果。部分物品
+   不需要互动物（如包裹，木箱等），需要互动时会出现提示框，此时使用相应的资源。比如以下常用的情境：
+   
+   *  草药：可以清洗动物尸体、铁处女、酒桶、拼凑的餐桌等以获得各种资源。
+   *  钥匙、铁锹：可以开宝箱、锁住的展柜，如果直接上手，则会导致英雄损伤。
+   *  铁锹：可以挖浅坟、藤壶箱、牡蛎贝壳、浮雕。
+   *  血清：洗丢下的行李、老树获取资源，洗盐水池加血降压力。
+   *  圣水：在光之圣坛、喷泉、雕像、忏悔室、诅咒喷泉使用可以降低英雄的压力。洗骨堆获取资源。
+      洗可怕圣坛、旧神祭坛除负面特质，洗令人不安的雕像可以获得正面特质，草药洗珊瑚也可以获得正面特质。
+      洗装饰瓮可以获得宝石、饰物，如果使用铁锹则会获得负面特质。
+   *  火炬或草药：用在炼金桌上获取光照或资源。
+   *  火把照跛行者祭坛会出一个 boss，类似章鱼的怪物，俗称爬爬，出场必定随机打乱角色顺序。
+   *  点火把看书就不要了，压力暴增 100，书柜也没有好东西。但是看卷轴堆可以清除英雄的负面特质。
+   *  盔甲：不需要物品交互，高概率获得 buff，低概率获得正向特质。
+   *  火把照蠕动虫卵减压、草药洗酒箱可以减 30 压力。
+   *  献祭石碑不用互动物，50 压力对赌移除负面特质或者获得正面特质。
+   *  骨之祭坛不用互动物，获得正向 buff：伤害 +15%，精准 +10%，暴击 +5%。
+   *  `Dungeon Interactions <https://darkestdungeon.fandom.com/wiki/Curio>`__
+
+   游戏中的 22 种基本资源设计，分为用于探险过程的支援物（Provisions）和探险过程的战利品（Loots)，
+   其中包括用于升级建筑的四种祖产（Heirlooms）：
+   ::
+
+      Heirlooms
+      Bust              雕像，四种祖产之一，用于升级建筑：修道院（Abbey）、疗养院（Sanitarium）等。
+      Portrait          画像，四种祖产之一，用于升级建筑：公会（Guild）、客栈（Tavern）。
+      Deed              地契，四种祖产之一，用于升级建筑：马车厢（Stage Coach）、铁匠铺（Blacksmith）。
+      Crest             纹章，四种祖产之一，所有建筑升级都需要。
+
+      祖产之间可以相互兑换：
+
+                  Crest    Bust	   Deed	   Portrait
+      Crest       ---      66.6%    66.6%    66.6%
+      Bust        75%      ---      66.6%    66.6%
+      Deed        75%      66.6%    ---      66.6%
+      Portrait    75%      75%      75%      ---
+
+      Aegis Scale       宙斯盾等级，仅在破盾者的噩梦或与他们的随机遭遇中由 Pliskin、Rattler 和 Adder 掉落。
+      Blueprint         蓝图，一种罕见的传家宝，用于在曾经繁荣的哈姆雷特地区建造新建筑。
+      Invitation        信笺，用于触发城镇事件。
+      Ruby              宝石，可以用来换钱给英雄升级装备。
+
+      Provisions        
+      Antivenom         解药，用于解除腐蚀状态的抗毒血清。
+      Bandage           绷带，在战斗中止血。
+      Dog Treats        狗粮，在战斗中提升狗哥的战力。
+      Firewood          柴火，在探险中露营，同时需要使用一定量的食物。
+      Food              食物，在探险中不定期给英雄提供补给，如果缺粮，压力会暴涨。
+      Holy Water        圣水，除了与物品交互之外，还可以在战斗中服用，以提升防腐蚀、出血等等属性。
+      Laudanum          鸦片酊，除去持续高压（超过 100）产生的恐惧状态。
+      Medicinal Herbs   草药，用于与物品交互产生相应的效果。
+      Shovel            铲子，用于清理过道，如果手工清理，会大大提高英雄的压力，还会减血。此外还可以挖宝。
+      Skeleton Key      钥匙，用于开宝箱或者书柜。
+      Torch             火炬，用于在探险过程中提供照明，可以不带，这样会提高对战难度。
+      The Blood         血酿，暂时稳定猩红热发病状态。The Crimson Court DLC 专属物品。
+      Shard Dust        碎片尘埃，战斗中重置必杀技。The Color of Madness DLC 专属物品。
+
+      https://darkestdungeon.fandom.com/wiki/Category:Items
+      https://darkestdungeon.fandom.com/wiki/Provisions
+
+   队伍中有某些英雄会免费提供一些补给品，例如瘟疫医生自带一件解毒剂，训犬师带的狗粮等等。此外修建
+   区域建筑“粮仓”后，每次任务开始前将免费提供一定量食物。还会根据副本大小自动装备对应数量的木柴
+   （大型副本2个，中型副本1个，小型副本无），同时会根据任务目标给予某些特殊任务物品。任务物品不可
+   返售或丢弃。
+
+   碎片尘埃可用于恢复英雄某些限次数的技能，但会增加压力，该效果自下个回合生效，同时获得一些战斗
+   增益效果，可能加速度/精准/伤害等。同时获得两个持续一次任务的debuff：降低 10% 美德几率，
+   增加 10% 受到压力伤害。多次使用时，受到的压力也会大幅增加。
+
+   在房间中使用木柴就可以扎营，可以通过扎营技能降压力，但会消耗与剩余人数相同的食物量，若食物不足
+   则会减血并且增加压力。每次扎营会有 12 点的时间，使用扎营技能会消耗相应的时间，技能只能使用一次。
+
+   压力值极限为 200，压力极限会导致英雄直接暴毙，到达 100 压力时会随机出现折磨（高概率）/美德。
+   折磨状态会加速队伍的解体，折磨会持续增加压力，这些折磨包括：
+
+   1. 袭击队友，伤害队友。
+   2. 英雄胡言乱语，导致所有队友压力提升。
+   3. 不受控制，不可以控制英雄所用技能，不可以给该名英雄加血。
+
+   触发折磨的英雄可能会自主行动并且受到能力值降低的惩罚，会不时说些负能量话语给队友加压（揶揄），
+   让折磨状态英雄在小镇上进行任何压力释放活动后，折磨状态就会解除，如未处理英雄的折磨状态，这一
+   状态将一直存续。如果通过降压技能或者通过暴击将压力降回 0 就可以解除折磨状态。
+
+   食物和火把是探险时的必需品，没有它们，英雄的压力值会快速增长。火把提供的亮度是非常重要的因素，
+   开始亮度是 100，亮度会随着移动不断降低，怪物能力会增强。使用火把、使用技能、与某些奇物互动
+   可以提升亮度，扎营后亮度会恢复到 100。亮度从高到低分为五个等级，每点燃一个火把增加 25 亮度。
+   可以使用有侦查才能的英雄来提前发现陷阱，否则陷阱触发时将对随机一位英雄造成伤害。侦查出的陷阱
+   可以在队伍位靠近陷阱时，可以选择一位成功率高的英雄解除陷阱。障碍会阻挡英雄在走廊上行进的道路，
+   可以选择使用铁铲清理，选择徒手清理则会给全队英雄造成大量血量和压力伤害，消耗时间导致亮度降低。
+
+   如果将英雄当作消耗品，那么他们就像是蚂蚁一样的存在。蚂蚁之于人，就如人之于神，万物皆为刍狗。
+   捎上一个古董商人负责开包开箱，他能够发现更多宝贝，然后在你认为最极限的时候退出任务，把所有的
+   资源带出来。通过升级导师水平、武器工匠、护具工匠，就可以在驿站招募熟手英雄，而不必逐步磨练。
+
+   克苏鲁神话（Cthulhu Mythos）是以美国作家霍华德·菲利普·洛夫克拉夫特的小说世界观为基础，
+   由奥古斯特·威廉·德雷斯等人整理完善，并由诸多作者所共同创作的一系列文学作品中构建的世界观，
+   是一种虚构的神话，在克苏鲁小说中则是以神话体系的身份出现。作品的共同主题是人类在宇宙中的渺小
+   和以灾难性结局告终的知识探索。从这层意义上，游戏中的英雄就是先祖通过请求信召唤而来的消耗品。
+
+   战斗是回合制设计，每回合开始时，每个英雄和怪物会随机获得正负 4 的速度，加上他们的速度修正后，
+   按速度从高到低决定英雄和怪物本回合进行行动的顺序。
+
+   英雄决心等级，通过完成任务获得砺炼值以达成等级的提升。高决心等级的英雄能够更好的抵抗压力，
+   学习高等级的技能、使用高等级的装备。但与此同时也会拒绝参与低等级的任务。低决心等级的英雄在较
+   高等级的区域探险中会遭遇更高的压力。
+
+   英雄特质可分为积极与消极，随着探险也将获得更多的特质。通过疗养院可进行特质的移除或锁定。
+   当英雄获得5个正面特质后，如再获得正面特质，会随机替换原有的正面特质。被锁定的特质不被替换，
+   锁定正面怪癖的数量最高为 3。特殊正面特质（带有八芒星标记，每个名册一名英雄）可以被清除，
+   无需锁定，也不会被顶替，拥有特殊正面特质的英雄死亡后，身上该特质会消失，重新进入天赋池，
+   其他英雄可能在战斗中重新获得该特质。
+
+   负面特质可以被清除不可被手动锁定（估计是防止笨蛋手滑锁定负面特质），如果负面怪癖在数次探险
+   过程中未得到处理，它也有可能被自动锁定。就像锁定的正面怪癖一样，当获得新的负面怪癖时，已锁定
+   的负面怪癖将不会被替换。被锁定的负面特质可以在疗养院清除，只需要一周时间，与处理未锁定负面
+   特质时间相同，但是价格将变得更昂贵得多。
+
+   性格类特质：
+
+      *  洁癖      不能忍受脏乱。40% 概率与各种泉、水、潭互动。
+      *  嗜血      沉迷于创伤，伤口和折磨。35% 概率与刑具类奇物互动。
+      *  强迫症    带着不可自控的欲望去做某件事。20% 概率与所有奇物互动。
+      *  好奇      热衷于寻求新知。20% 概率与所有奇物互动。
+      *  杀人狂    嗜杀成性。40% 概率与刑具类奇物互动。
+      *  痴迷黑暗  热衷于探究黑魔法。40% 概率与邪秽类奇物互动。
+      *  魔怔      坚信自己被恶魔附身。40% 概率与邪秽类奇物互动。
+      *  酗酒      嗜酒成瘾。40% 概率与饮品类奇物互动。
+      *  自恋狂    极端自恋。40% 概率与带反射面的奇物互动。
+      *  内疚      为自己曾有的或虚构的罪行深深自责。35% 概率与信仰类奇物奇物互动。
+      *  宗教狂热  对宗教事务着迷。40% 概率与信仰类奇物互动。
+      *  瞻礼狂    会产生宗教幻觉和妄想。35% 概率与信仰类奇物互动。
+      *  贪财      对物质财富很着迷。40% 概率与财物类奇物互动。
+      *  盗窃癖    有可能会偷东西。35% 概率与财物类奇物互动。
+      *  恋尸癖    迷恋尸体。40% 概率与各种遗骸互动。
+      *  热衷异象  痴迷于超自然异象。40%概率与令人困惑的奇物互动。（包括炼金台、铠甲等）
+      *  敛财狂    爱钱如命。40% 概率与带锁箱子互动。
+      *  贪食癖    嗜好食物。40% 概率与食物类奇物互动。
+
+   光照修正类特质：
+
+      *  早起者     亮度高于 75 时 +2 速度
+      *  夜行动物   亮度高于 75 时 -2 速度
+      *  喜光       亮度高于 75 时 -20% 压力
+      *  畏光者     亮度高于 75 时 +20% 压力
+      *  光明战士   亮度高于 75 时 +10% 伤害
+      *  畏光       亮度高于 75 时 -10% 伤害
+      *  夜猫子     亮度低于 26 时 +2 速度
+      *  日落而息   亮度低于 26 时 -2 速度
+      *  潜伏者     亮度低于 26 时 +10% 伤害
+      *  夜盲       亮度低于 26 时 -10% 伤害
+      *  惧暗       亮度低于 26 时 +20% 压力
+
+   生命修正类特质：
+
+      *  绝境击杀    生命值低于 50% 时 +5% 暴击
+      *  绝境失心    生命值低于 50% 时 -5% 暴击
+      *  最后一搏    生命值低于 50% 时 +1 速度
+      *  疲软        生命值低于 50% 时 -1 速度
+      *  重振旗鼓    生命值低于 50% 时 +10% 伤害
+      *  精疲力尽    生命值低于 50% 时 -10% 伤害
+      *  死亡恐惧症  生命值低于 50% 时 +20% 压力
+      *  胆大妄为    生命值低于 25% 时 +15 闪避
+      *  晴天战士    生命值高于 99% 时 +20% 伤害
+
+   技能修正类特质：
+
+      *  快速治疗    扎营时 +10% 生命治疗
+      *  强壮      扎营时 +15% 生命治疗
+      *  医生天赋    扎营时 +20% 生命治疗
+      *  冥想者     在冥想和扎营时缓解更多压力
+      *  锐利鹰眼    远程技能 +5% 暴击
+      *  击发缺陷    远程技能 -5% 暴击
+      *  自然之眼    远程技能 +5精 准
+      *  怠惰之眼    远程技能 -5精 准
+      *  正中靶心    远程技能 +10% 伤害
+      *  靶心偏差    远程技能 -5% 伤害
+      *  精准打击    近战技能 +5% 暴击
+      *  腕力虚弱    近战技能 -5% 暴击
+      *  重击者     近战技能 +10% 伤害
+      *  肩膀损伤    近战技能 -5% 伤害
+      *  天才      +20% 受到的生命治疗
+      *  体弱多病    -20% 受到的生命治疗
+      *  悬壶济世    +20% 生命治疗
+      *  医术糟糕    -20% 生命治疗
+      *  强韧      +10% 受到的压力治疗
+      *  沉思者     -10% 受到的压力治疗
+      *  哥特      命运重构 +20% 受到的生命治疗
+      *  苦行      命运重构 -20% 受到的生命治疗
+      *  音乐      鼓舞乐章 +25% 受到的压力治疗
+      *  耳聋      鼓舞乐章 -20% 受到的压力治疗
+      *  精神      神圣恩惠、神圣抚慰 +25% 受到的生命治疗
+      *  科学      神圣恩惠、神圣抚慰 -20% 受到的生命治疗
+
+
+   `暗黑地牢基础常识-特质与疾病 <https://www.bilibili.com/read/cv16355365/>`__
+
+   英雄存在战斗技能与扎营技能，通过工会、生存大师可以查看相应的技能升级、解锁技能选项。每个英雄
+   在同一时间内只可以拥有 4 个可用的战斗技能（咒缚者除外）与扎营技能，在城镇可随时进行已学习的
+   战斗技能与扎营技能的切换激活；在未遭遇怪物的探险路途中，则仅可进行英雄战斗技能的切换激活。
+
+   每个英雄存在其相应的默认武器和护甲，武器和护甲不能被卸下，但可以根据英雄的决心等级在铁匠铺进行
+   升级。此外每个英雄可至多佩带 2 种饰品，通过探险及游牧民货车购买可获取饰品。饰品根据其稀有度，
+   分为普通（白）、优良（绿）、稀有（蓝）、非常稀有（红）、先祖（红）、猎获（金）、猩红庭院（金）、
+   水晶（蓝绿）。部分饰品存在职业需求，仅可由相应的英雄佩带。英雄无法佩带两个相同的饰品。猩红庭院
+   的饰品存在套装效果，通过装备两种存在套装效果的饰品，就会得到额外的属性奖励。
+
+   游戏总共发布了 5 个 DLC 拓展包，完全体约 7GB。
+
+   1. 猩红庭院（The Crimson Court）
+
+      *  新英雄职业：苦修者及其饰品体系，所有英雄新增饰品套装，并带套装属性；
+      *  区域建筑：10 种新建筑用以升级城镇；
+      *  新地牢区域：庭院，采用最复杂、最迂回的机制设计而成
+      *  新的敌人派系：5 个新 Boss。全新游荡 Boss：狂信者
+
+   2. 星之彩（The Color Of Madness）
+
+      *  新英雄招募方式：雇佣兵。所有英雄新增饰品套装，并带套装属性（在战斗中收集彗星碎片，兑换饰品）
+      *  区域建筑：4 种新建筑用以扩建你的小镇
+      *  新地牢区域：农庄。无尽任务，尽可能久地活下去，对付来袭的一波又一波敌人
+      *  新的敌人派系：磨坊主和他忠诚的工人已经变成了行尸走肉。
+      *  3 个新 Boss：磨坊主、星空怪，以及彗星本身
+      *  新游戏机制：具有独特、强大效果的特质（代替光亮度玩法）
+
+      农庄便是这个游戏的无尽模式，但想要开启无尽模式，还需要完成两个前置任务，分别是天中之光和
+      收回农庄。这两个任务类似普通地牢任务，一个是杀死所有敌人，另一个是击杀BOSS。
+
+      收回农庄任务中，最后直面BOSS农场主前固定刷新营火，下一个房间就是农场主，因此需抓住机会
+      调整状态。农场主一回合两动，且会不断召唤瘪壳怪，难度中等。
+
+      击败农场主后，即可开始无尽收获任务，也就是无尽模式。无尽模式下，怪物会一波又一波不断袭来，
+      无穷无尽。怪物遗骸会变成畸变水晶，英雄击破水晶可以恢复血量，否则水晶将在一回合后自动爆炸
+      并对所有英雄造成压力和血量伤害。每次探索农庄将花费一周时间，在农庄撤退不会有任何惩罚。
+      农庄越到后面越吃力，因此发现情况不妙时及时点击左上角撤退，团灭将失去所有战利品。
+
+   3、破盾者（The Shieldbreaker）
+
+      *  新英雄职业：破盾者（及其饰品体系）
+      *  3个新怪物——源自破盾者本体的可怕幻影，蜿蜒滑行在领地出没
+      *  新的消耗品——御盾鳞片，在英雄需要时提供最后的防护堡垒
+
+   4. 火枪手（The Musketeer）免费
+
+      *  新英雄职业：火枪手（及其饰品体系）
+      *  火枪手各方面与弩手一致，可以理解为官方出的弩手皮肤mod
+
+   5. 屠夫马戏团（The Butcher's Circus）免费
+   
+   *  全新哈姆雷特地点：屠夫马戏团
+   *  用 4 名英雄组成的战队进行无阻碍的 PvP 战斗（不要拿你的战役英雄冒险）
+   *  冲击排行榜来展现你对英雄的指挥能力以及抵御不幸和暴力的能力
+   *  解锁旗帜组件，用你的创造力来组装你自己的决斗纹章
+   *  用新的角斗士小饰品来制定战略，在激战中战胜其他英雄
+   
+   屠夫马戏团 "The Butcher's Circus" 是暗黑地牢最后的扩展包，这个扩展包增加了一个全新的用户
+   对战模式（PVP），让玩家能够与其他玩家进行对战。玩家可以使用由 4 名英雄组成的战队进行无阻碍的
+   战斗，通过冲击排行榜来展现玩家对英雄的作战指挥能力，以及抵御不幸和暴力的能力。
+
+
 🌟Oxygen Not included
 ================================================================================
 
-   https://www.klei.com/games/oxygen-not-included
-   缺氧从新开始 https://www.bilibili.com/video/BV1S84y1v7XS/
+   *  缺氧官方 https://www.klei.com/games/oxygen-not-included
+   *  【缺氧流体学】 https://www.bilibili.com/video/BV1YV4y1L7mu/
+   *  缺氧从新开始 https://www.bilibili.com/video/BV1S84y1v7XS/
+   *  缺氧中的物质关系图 https://oni.cnctema.pub/graph/
+   *  Oxygen Not Included v399948 https://www.52pojie.cn/thread-1122945-1-1.html
    
    《缺氧》是开发《饥荒》Klei Entertainment 公司制作并发行的一款太空殖民模拟游戏（space-colony），
    其美术风格也一脉相承，并同样采用了横版 2D 布局。游戏背景设定为一批被派的复制人去挖掘、建立和维护一个
@@ -355,8 +3023,8 @@ Debug Mode
 
 
 
-Tutorial
---------
+Tutorial - Tech
+----------------
 
    游戏使用科技树来管理各种建筑设备，只有通过拥有科技技能的复制人通过相关的研究后才能解锁相应的建筑，
    研究性建筑有三个，依次排序如下，具体参考科学建筑 `Science Buildings`_ ：
@@ -383,11 +3051,118 @@ Tutorial
    气压服可以储存 75 千克的氧气（可供常规复制人呼吸 750 秒，即 1.25 周期），并只能通过气压服
    存放柜补充氧气。当气压服中存有氧气时，穿戴它的复制人会吸入内部的氧气，并将呼出的二氧化碳存储在
    气压服内，并且在复制人脱下气压服时释放到环境中（比如在检查站处脱下时释放在检查站的判定格）。
+   太空服需要储存在专用柜中，并且添加使用气泵填充氧气。同时配合单向通行的太空服检查站来使用，复制人
+   经过检查站时才会穿上太空服，所以检查站和存放柜一般设置在基地出口、复制人房间门口。由于太空服储氧
+   量大，使用气泵充氧速度比较慢，每秒才 500g，需要 2:30 完成。假设有 10 个复制人，可以使用双气泵
+   充氧，并且可以准备 15 ~ 20 套气压服，随时备用在储存柜中。检查站有两种通行模式，允许或者不允许
+   在储存柜没有空位是回归通行，如果允许，则复制人返回检查柜时，会在储存柜满时将太空服丢在地上。地上
+   的气压服如果没有人收拾放置到储存柜，可以选择它并指派给一位没有穿太空服务的复制人，这样他就会拣起来。
+   气压服存放柜可以储存 200kg 氧气，并且以 1.875kg/s 的速率向气压服内充入氧气，40 秒可以充满一件
+   75kg 氧气的气压服。而一个复制人的基准呼吸速率是 100g/s。每个周期 600s 只需要 60kg 氧气。每个
+   储放柜 120 W，一直穿着每周期还不到平均 40 秒工作时间，平台功率消耗 6.67W。
+
    穿戴气压服的复制人不会消耗外部空气，磨损的气压服经太空服锻造台消耗 1 单位芦苇纤维修复后重复使用。
    气压服需要 300kg 精练金属和 2 单位芦苇纤维，铝、铁、钴都可以，可以通过金属精练厂生产，或者养殖
    光滑哈奇获得。芦苇纤维（Reed Fiber）可以通过采收野生的或种植的顶针芦苇 `Thimble Reed`_ 
-   或者修剪训养好的毛鳞壁虎 `Drecko`_ 鳞片获得。
+   或者修剪训养好的毛鳞壁虎 `Drecko`_ 鳞片获得。注意，采收野外芦苇不要挖掉根，这样还可以继续长，
+   并且不需要花费额外的人力养护，不像种植需要大量的污染水浇灌。
 
+   养殖毛鳞壁虎时，需要设置具有照料站、修剪站的畜舍，分别用于驯化毛鳞壁虎和修剪毛鳞获取芦苇纤维。
+   养殖环境最好是氢气以加速毛鳞生长，毛鳞壁虎吃活的火椒藤、芳香百合和米虱木。如果种植芳香百合，
+   就需要在有氯气的环境中种植。可以使用小动物放生点来转移受捆绑的小动物，运送受捆绑的小动物的复制人
+   不需要具备小动物养殖技能。通过将小动物放生到指定的适合生长的位置来提高产出。注意，小动物放置点
+   受到当前房间内的小动物数量限制，只能放生最高 20 只，超出这个数量时无效。
+
+   金、钨、铜、铁是游戏中重要的精练金属，各种高级建筑设备都需要，可以直接使用精练厂将相应的矿石一比
+   一转化，也可以通过养殖光滑哈奇、黄金哈奇获得。碎石机和金属精炼器都能将金属矿精炼成铜，但是前者是
+   粗炼，效率低下。铜矿等金属于矿物可以作为石壳哈奇和光滑哈奇的饲料。进食铜矿（或其它金属矿石）时，
+   石壳哈奇会排泄出煤炭，并提高产下光滑哈奇蛋的概率，光滑哈奇则会排泄出相应的精练金属，转化效率介于
+   碎石机、精练厂之间，转化质量为消化矿物质量的 75%。养殖可以获取所有工厂可以提炼的资源，比如木料，
+   可以通过种植乔木树（Arbor Tree）收获，它也可以通过养殖木壳蟹来获得。
+
+   ==================== =================================================  =================
+   Factories            Materials                                          Products
+   ==================== =================================================  =================
+   Metal Refinery       100 kg Wolframite                                  = 100 kg Tungsten
+   Rock Crusher         100 kg Wolframite                                  = 50 kg Tungsten + 50 kg Sand
+   Metal Refinery       100 kg Copper Ore                                  = 100 kg Copper.
+   Rock Crusher         100 kg Copper Ore                                  = 50 kg Copper + 50 kg Sand.
+   Metal Refinery       100 kg Iron Ore                                    = 100 kg Iron.
+   Rock Crusher         100 kg Iron Ore                                    = 50 kg Iron + 50 kg Sand.
+   Metal Refinery       100 kg Aluminum Ore                                = 100 kg Aluminum.
+   Rock Crusher         100 kg Aluminum Ore                                = 50 kg Aluminum + 50 kg Sand.
+   Metal Refinery       100 kg Cobalt Ore                                  = 100 kg Cobalt.
+   Rock Crusher         100 kg Cobalt Ore                                  = 50 kg Cobalt + 50 kg Sand.
+   Metal Refinery       100 kg Gold Amalgam                                = 100 kg Gold.
+   Rock Crusher         100 kg Gold Amalgam                                = 50 kg Gold + 50 kg Sand.
+   Molecular Forge      1 kg Fullerene + 49.5 kg Gold + 49.5 kg Petroleum  = 100 kg Super Coolant
+   Bleach stone hopper  30 kg Salt + 500 g Gold                            = 10 kg Bleach Stone + 20 kg Sand
+   Oxylite Refinery     600 g/s Oxygen + 3 g/s Gold                        = 600 g/s Oxylite
+   ==================== =================================================  =================
+
+   *  碎石机 Rock Crusher
+   *  分子熔炉 Molecular Forge
+   *  漂白石料斗 bleach stone hopper
+   *  氧石精炼炉 Oxylite Refinery
+
+   电路和自动化会始终伴随着游戏，电力系统在一开始就需要进行设计，游戏提供了低功率电路使用的电线、导线，
+   以及高负荷电线（Heavi-Watt Wire）、高负荷导线。高负荷电缆造价相对高，应该配合变压器和低等造价
+   的电线、导线来给设备供电，它们的造价及功率数据如下：
+
+   =================================== ======== ==================
+   Wire                                    1kw       25 Matals Ore
+   Wire Bridge                             1kw       25 Matals Ore
+   Heavi-Watt Wire                        20kw      100 Matals Ore
+   Heavi-Watt Joint Plate                 20kw      200 Matals Ore
+   Power Transformer                       4kw      200 Matals Ore
+
+   Conductive Wire                         2kw       25 Matals
+   Conductive Wire Bridge                  2kw       25 Matals
+   Heavi-Watt Conductive Wire             50kw      100 Matals
+   Heavi-Watt Conductive Joint Plate      50kw      100 Matals
+   Large Power Transformer                 1kw      200 Matals
+   =================================== ======== ==================
+
+   比如要在 20 格的距离铺设电路给一组 1kw 之内的设备供电，如果全用高负荷电线就需要 2000 的金属矿物，
+   如果使用高负荷导线就需要 2000 精练金属。但是使用变压器和低造价的电线、导线铺设就只需要 200 + 25 * 20
+   总共 700 金属矿物或者精练金属，是高负荷电缆的 1/3 左右。变压器用于隔断不同的电路，电路铺设需要
+   按电路所有工作中的设备总功率来设计，即使高功率的用电器没有线索相应的线路，游戏逻辑上也是按线路的
+   工作中的设备总功率来随机地破坏电路。拆除正常使用的建筑、电路会返还 100% 材料，过热损坏会有损失。
+
+   变压器本身可以通过自动化信息启用、禁用，相应于一个电路开关，配合智能电池，可以在主电路缺电时关闭
+   支路上的用电器，以保障主电路的设备用电安全。注意，电池或者智能电池本身会消耗电量，分别为 2kj 和
+   400j，所以电池不是越多越好，留有备用电池足够支持添加发电原料的这段时间就可以了。
+
+   电路的一大作用就是实现自动化，自动清扫器不仅可以收拾各种零散的资源并归集到储物箱，还可以给其它
+   建造供应需要的原料，是自动化的运输系统的基础工具之一。这种系统的运作不需要复制人的劳动力来维持
+   运转，从而解放他们的劳动力，使他们专注于其他任务。自动清扫器可以在以其自身为中心的 9x9 的区域内
+   搬运固体的物品。比如，将食物原材料装入电动烤炉中，然后将其烹饪完成并掉落在地的食物装入其运作范围
+   内的其他容器，比如说冰箱。自动清扫器的运作会遵循优先级系统的逻辑，这也就意味着它会将低优先级的
+   容器中的物品转移到高优先级的容器之中。
+
+   自动清扫器本身可以浸没在液体中工作，除了可以配合轨道运输，还可以给作物施肥。典型的是冰霜小麦的
+   种植，这种植物不仅需要低温（生长温度 -55°C ↔ 5°C）、净水浇灌，还要施肥。可以使用冰息萝卜获得
+   低温环境，或者使用液温调节器和导热液体管道来制冷。肥料可以通过肥料合成器制造，需要污水、磷矿和
+   泥土等原料。灌溉可以使用水泵、水管、液培砖。施肥可以自动清扫器配合储物箱完成，储物箱存放肥料供
+   自动清扫器使用。但是，自动清扫器无法完成其他任务，尤其是“耕作”、“收割”。要么人工收获，要么等待
+   作物的挂留期结束后自然掉落，冰霜小麦果实的挂留时间 4 周期，这是多数作物的默认值。只要种植的作物
+   足够多，是可以省下收获的工作时间，让作物自然成熟掉落果实。
+
+   注意，清扫器的有效工作区域需要覆盖目标建筑的判定格，并且目标建筑优先级高于储物箱时，才会从储物箱
+   获取相应的资源补充到目标建筑中。煤炭发电机、储物箱组合的测试中，即使发电机的优先级低于储物箱，也
+   会从储物箱中获取煤炭补充到发电机中。建筑判定格 `Cell of Interest`_ 通常位于其蓝图最底一行中间
+   一格（宽度为偶数则偏左一格）。一般来说，建筑判定格规则如下：
+
+   *  复制人使用建筑的位置（不适用多个使用对象的建筑）
+   *  向建筑供应物品的位置
+   *  建筑以物品形式输出产物的位置
+   *  电力接口所在的位置
+   *  建筑蓝图的鼠标抓取点和旋转中心点
+   *  内容物与外界进行热交换的位置
+   *  内容物会与判定格位置的环境及其下方一格的固体砖块（除透气砖、网格砖）进行热交换。
+   *  不过，对于一些建筑来说，上述位置可能不重合在一个方格上。
+
+.. _Cell of Interest: https://oxygennotincluded.fandom.com/wiki/Cell_of_Interest
 .. _Thimble Reed: https://oxygennotincluded.fandom.com/wiki/Thimble_Reed
 .. _Drecko: https://oxygennotincluded.fandom.com/wiki/Drecko
 .. _Geysers: https://oxygennotincluded.fandom.com/wiki/Geysers
@@ -397,10 +3172,22 @@ Tutorial
 .. _Super Computer: https://oxygennotincluded.fandom.com/wiki/Super_Computer
 .. _Virtual Planetarium: https://oxygennotincluded.fandom.com/wiki/Virtual_Planetarium
 
+
+Tutorial - Water and Oxygen
+---------------------------
+
+   *  Oni Database https://oni-assistant.com/database/index
+   *  ONI Food Calculator https://oni-assistant.com/tools/foodcalculator
+
    如游戏名字暗示，氧气是最为重要的生存资源，它与水有紧密的联系，掌握水循环原理以持续地利用污染水、
    浓盐水或纯净水，净化、分流或者水解产生氧气，或者直接使用污水种植。厕所用水，需要净水 5kg/人次，
    并且排出 11.7kg 污水，浴室用水则是恒量输入净水 1000g/s、输出 1000g/s 污水。在设计卫生系统时，
    可以将多余的污水过滤后循环使用，并且在末端排放多余的净水。
+
+   净水器水消耗 120 瓦电力、过滤介质 1000 克/秒、污染水 5 千克/秒，就可以产生净水 5 千克/秒，
+   污染土 200 克/秒。污染水等量转化为净水，过滤介质（沙子或者浮土）转化为 1/5 的污染土。浮土是
+   可再生的资源，在地表的流星雨会带来大量的浮土。所以，基本的水循环中会按每周期每复制人 6.7kg 产生
+   额外的水资源。
 
    污染水处理只需使用净水器过滤一下就只可以变净水，如果污染水中还有大量细菌，那么就可以利用氯气来杀菌，
    但是不能直接使用氯气来杀灭大量的细菌，每周期对细菌产生 29% 的致死率。要完全杀干净，就需将带菌污水
@@ -409,6 +3196,22 @@ Tutorial
    有感染问题。同样，只要氧气不带细菌，复制人也不会吸入其它气体，细菌也有不会感染问题。细菌存活的条件
    是污染物，包括污染水、污染氧，使用空气净化器可以将污染氧净化为氧气，其实环境下细菌会因为替代率不足
    而逐渐消亡，而高温、氯气等会加速细菌的消亡。另外，使用好气闸的自动关闭功能可以很好地避免细菌的传播。
+
+   电解器消耗 120 瓦电力、水 1000 克/秒，可以产生氧气 888 克/秒和氢气 112 克/秒，资源转化 100%，
+   只是单纯消耗电力，输入的气体为 70+°C。每个复制人消耗氧气 100g/s，一台电解器就足以支持 8 个复制人
+   的呼吸需要。每周期 600 秒，每个复制人每同期需要 60kg 氧气，如果完全靠水解供氧，那么水的损耗就是
+   53.3kg 每周期。
+
+   电解器产生氢气 113g/s，这足以供应一台氢气发电机 800w 满负荷发电，只需要 100g/s 氢气的量，另外
+   再配合电控站芯片加持，可以实现1200w 发电量，足以供三几台气泵和一台电解器共 600w 满负荷运行，还有
+   余量供应其它用电设备。比如，低温蒸气泉的蒸气降温需要额外的电来冷凝到常温，这就是一个很好供电模块。
+
+   要解决的另一个基本需求就是复制人的食物，每个复制人每周期需要 1000k cal 的能量。如果只种植米虱木
+   （Mealwood），这可以说是最好种植的食用植物，只要在氧气/污染氧/二氧化碳 环境中保持 10~30°C 的
+   环境温度，仅消耗泥土 10 kg/cycle，无需灌溉、光照就可以在 3 周期收获 600kcal 的米虱 1 单位。
+   大概种植 5 棵米虱木就可以养活一个复制人，同时消耗泥土 50 kg/cycle。泥土可以从污染土转化而来，
+   使用沙子、浮土过滤污染水后可以产生污染土，每个复制人大概可以产生污染土 468 g/cycle。
+
 
    由于游戏的逻辑实现基于“一格一物”原则，在电解水时排出的氧、氢两种气体会在一定条件下出现违反真实物理
    的“分离”现象，因为少量的氢气排出时也需要占据一格子，如果周围有其它氢或者真空的格子，就合并。类似地
@@ -428,19 +3231,22 @@ Tutorial
    高压液库、气库。由于一格一物的约束，以及气体、液体按照密度高低分层堆叠的基本物理性质，可以用来在
    气泵所在位置制造“水门”以占据空间，避免其它气体跑到气泵本体所在的空间中。只需要两种不同密度的液体、
    并且少量不至于淹没气泵，就可以让气泵只能抽到没有被液体占据的其它公位置上的气体。同样的原理，也用
-   在水解制氧的模块设计中，使用“水馒头”完全占据水解器的底部两格以及上面两格的部分，通过气推实现无需
+   在水解制氧的模块设计中，使用“水馒头”完全占据电解器的底部两格以及上面两格的部分，通过气推实现无需
    气体过滤器的氢、氧分离。
 
-   水解器的判定格是水桶侧两格，如果这两格气体压力超过 1.8kg 就不会进行水解，并提示“已达最大气压”。
-   但是如果使用“水馒头”覆盖这两格，就会判断气压正常，这应该是一个 BUG。
+   电解器的判定格是水桶侧两格，如果这两格气体压力超过 1.8kg 就不会进行水解，并提示“已达最大气压”。
+   但是如果使用“水馒头”覆盖这两格，就会判断气压正常，这应该是一个 BUG。只需要通过清瓶器滴两种液体，
+   各 50g 少量即可以形成“水馒头”，它占据了电解器这个建筑所在的四格，又不使它牌淹没状态。只所以使用
+   两种密度不同的液体，就是因为不同的液体占据不同格子，这样就可以分层完全占据电解器建筑所在的格子，
+   最主要的是占据了释放气体的格子。在电解器工作时，释放的气体会在水立瓶的侧的瓶口所在格子出现，因为
+   已经被液体占据，所以就会在四周查找可以使用的格子，这就是“液推”的功能。由于真空的格子有一个特性：
+   连成片的真空，会被第一种气体完全占据。只需要给电解器的周边提供两个真空空间，它工作时释放的两种气体
+   就会占据各自的空间，并且后续也会保持这种逻辑，自然地分离。由于稀疏的液体的存在，电解器在判定时，
+   总是以为气体还没有到达最大气压，所以就可以持续不断地水解出氧气和氢气，从而形成高压气库。气库可以
+   给太空服充氧，效率相当高。真空可以通过水池、水门、气泵等不同形式建立。真空空间一般使用透气砖分隔，
+   并且将透气砖放置到电解器的出气格的水平方向或者上方。如不使用透气砖，那么“水馒头”的头部就会被气体
+   推开，导致失效。
 
-   水作为液体是可以流动的，但又不像气体那样可以在空间中扩散并根据密度慢慢分出层次，水的密度远高于气体，
-   所以游戏处理多种不同密度的液体时，更重的液体可以直接滴入并穿过密度较轻的液体，所以液的分层速度大大
-   快于气体。水这种液体只需要不到 40g 就可以形成一个“水馒头”（占据一格），达到 40g 就会向两边扩散，
-   达到 50g 就可以扩散到 3 格，扩散程度取决于环境。污染水密度重 2g，基本上 80g 可以扩散 3 格左右。
-   游戏中原油（Crude Oil）是最重的液体，密度达到 500g/mol，它可以挂在顶壁上形成固态原油，也可以滴入
-   水中变动液态原油。由于原油流动性较水差，需要 500g 左右才能向两边扩散到 3 格，如果油水混合，300g
-   左右也可以。同样体积下，原油可能比水还轻。
 
    气压是非常重要的游戏参数，对于复制人们而言，气压会在两方面上影响他们。一种是高气压造成的鼓膜破裂效果，
    另一种是可呼吸气体（氧气 氧气和污染氧 污染氧）的气压决定的可以呼吸度。可以呼吸度与可以呼吸气体气压的
@@ -466,12 +3272,112 @@ Tutorial
    另一格。利用这一特点就可以用电闸制作“吞气门”。
 
    如果使用液体围住气体的下、上、左、右，当使用其它元素占据气体所在格，气体就会向左上、右上两格逃逸，
-   但不会向下侧方。可以使用游戏提供的调试模式测试，水解器在制氧时，会在水桶上方依次排出氧气、氢气。
+   但不会向下侧方。可以使用游戏提供的调试模式测试，电解器在制氧时，会在水桶上方依次排出氧气、氢气。
    结合“气推”原理，就可以制作出不需要气体过滤器的氢氧自动分离模块。以上内容都是基于计算机数理逻辑
    进行的推演，是从游戏代码逻辑“一格一物”角度的分析。
 
    【缺氧流体学】从高压制氧到气推，一文带你精通缺氧高压 https://www.bilibili.com/video/BV1914y1h72g/
+   Thermal Conductivity https://oxygennotincluded.fandom.com/wiki/Thermal_Conductivity
 
+   本小节内容关于液体与气体，它们和固体最大的不同就是具有流动性，因此程序逻辑上的模拟也使用不同的
+   算法。主要涉及热量交换、物质交换。游戏循环中最小热量交换计算时间单位为 tick = 0.2 秒，每秒钟
+   5 ticks，这几个关键点用于计算各种物质的热交互。
+
+   热量交换发生在所有相邻的物质之间，除了真空、虚空。物质交换只发生在液体、气体，固体是肯定不会发生。
+   真空的温度是绝对零度，但它不能用作为冷却方法。因为真空没有物质，所以完全不导热，可以作为绝热体。
+
+   所有物质的属性可以在游戏安装目录下的配置文件找到：
+
+   *  气体属性文件： OxygenNotIncluded_Data/StreamingAssets/elements/gas.yaml
+   *  液体属性文件： OxygenNotIncluded_Data/StreamingAssets/elements/liquid.yaml
+   *  固体属性文件： OxygenNotIncluded_Data/StreamingAssets/elements/solid.yaml
+   *  物质名称中英文对照： OxygenNotIncluded_Data/StreamingAssets/strings/strings_preinstalled_zh_klei.po
+
+   游戏中的特殊元素：
+
+        #. `复合物 <https://oxygennotincluded.fandom.com/zh/wiki/复合物>`__
+        #. `真空 <https://oxygennotincluded.fandom.com/wiki/Vacuum>`__
+        #. `虚空 <https://oxygennotincluded.fandom.com/wiki/Void>`__
+
+   虚空是一种特殊的元素，可由调试模式生成，也可以在高旋星体（需修改游戏文件）中见到。虚空与太空暴露
+   的方格类似，会吞噬流入的气体和液体。不同之处在于，虚空还会吞噬落入其中的不稳定固体（如雪、碎冰等），
+   不会被流入的物质替代（与真空不同），而且不可通过修建干板墙来避免吞噬。与真空类似，复制人无法和虚空
+   交互，但可以建造砖块覆盖它来消灭虚空。
+
+   真空是一个没有任何固体、液体或气体占据的区域。显而易见，复制人无法在真空中呼吸。真空会被进入其中
+   的气体、液体或固体方块替代。胃肠胀气或是穿着氧气面罩、喷气服的复制人很可能会破坏玩家构造的真空环境。
+   自然状态下，真空可以由以下几种方式产生，包括自然形成和人工制造：
+
+   *  在油质生态中，充满二氧化碳的空间可能会被浮油生物吸为真空；
+   *  在砂岩生态中被铜矿和煤炭包围的地方自然生成；
+   *  太空生态（太空暴露）可以制造真空；
+   *  虚空可以制造真空；
+   *  用气泵抽走封闭空间内的所有气体；
+   *  将某一空间填满砖块，再使用水门等结构密封，复制人通过水门进入空间内部逐一拆除砖块。
+   *  使用滴液大法，通过一格一物的“液推”原理，将所有气体往上推出将要制造真空的空间。
+
+   发生物质交换时有几种情况：
+
+   *  相邻格子有相同物质，相同气体或者相同液体，这种情况是一格一物的原则下的扩散/合并行为；
+
+   *  相邻格子有不同的物质，但是可以被推开，与它相邻的同物质进行合并。这种情况需要满足物质容量
+      上限条件才会发生。比如，配置文件设置水的单格最大容量是 1000kg，流动速度上限是 125kg。
+
+   *  固体下落过程，会直接将下方的液体、气体相交换位置。
+
+   物质的量是物理量，表示含有一定数目粒子的集合体，符号为 n。物质的量的单位为摩尔（mol）。科学上
+   把含有阿伏伽德罗常数（约 6.02×10²³）个粒子的集体作为一个单位，叫摩尔。1 mol 不同物质中所含
+   的粒子数是相同的，但由于不同粒子的质量不同，1mol不同物质的质量也不同。一般来说，不论什么物质，
+   也不管它处于什么状态，随着温度、压力的变化，体积或密度也会发生相应的变化。
+
+   游戏算法上，液体与固体、气体两者的明显区别是明显的分层流动现象，摩尔质量（molarMass）属性来决定
+   液体的分层，当不同的液体位于相邻的上下位置时，摩尔质量高的物体会直接与交换到下格位置。液体交换直接
+   生效，不像气体那样有一个缓慢的扩散过程，游戏中的气体流动系数（flow）都设置在 0.1 ~ 0.12。所以，
+   气体只在较长的时间后才会出现明显分层，并且不同气体之间的边界不像液体那样有明显边界。
+
+   液体滴落时就明显地发生上下格物质交换，利用液体这种算法就可以设计出“液滴泵”，可以用来给大空间抽真空，
+   效率比气泵还高，也可以极低成本抽液体，甚至是用抽岩浆！液滴进入其它不同密度的液体时，会直接穿过比其
+   密度小的液体，就像是固体一样往下沉。液体的密度远高于气体，不像气体那样在空间中扩散并且慢慢分出层次。
+   游戏处理多种不同密度的液体时，更重的液体可以直接滴入并穿过密度较轻的液体，液体的分层速度大大快于气体。
+
+   真空环境中，气体进入后会占满整个真空区域，而液体则不同，只占足够容纳液体本身的空间。但是液体蒸发
+   形成蒸汽时就像一般的气体那样可以占据整个真空区域。
+
+   液体的流动可以发生在竖直方向（VerticalFlow），也可以发生在水平方向（HorizontalFlow）。液体
+   本身具有极小的可压缩性，一般情况下，最大质量（maxMass）参数决定了每格可以存放多少重量的液体，
+   在受其它不同液体的挤压时，就按照压缩率（Compression）参数合并，比如受压的水每格可以在存放 1010kg。
+
+   净水的流动速度（speed）最高为 125kg，只需要不到 40g 就可以形成一个“水馒头”（占据一格），达到 40g
+   就会向两边扩散，达到 50g 就可以扩散到 3 格，扩散程度取决于环境。污染水密度比水重 2g，大概 80g 可以
+   扩散 3 格左右。一般来讲，当一格液体的质量比某个方向向上不同的且相连的两格液体质量要大时，就会挤压并
+   迫使这两格液体进行合并。液体、气体都存在挤压行为。
+
+   游戏中原油（Crude Oil）是最重的液体，密度达到 500g/mol，它可以挂在顶壁上形成固态原油，也可以滴入
+   水中变动液态原油。由于原油流动性较水差，需要 500g 左右才能向两边扩散到 3 格，如果油水混合，300g
+   左右也可以。同样体积下，原油可能比水还轻。
+
+   Oxygen Not Included v399948 liquid.yaml
+
+   ===== ===================== ========= ============= ======= =================== ================= =============== 
+   | NO. | elementId           | maxMass | Compression | speed | minHorizontalFlow | minVerticalFlow | molarMass     
+   ===== ===================== ========= ============= ======= =================== ================= =============== 
+   | 01. | ViscoGel            |     100 | 1.01        |     1 |                10 |              10 |     10        
+   | 02. | Water               |    1000 | 1.01        |   125 |              0.01 |            0.01 |     18.01528  
+   | 03. | DirtyWater          |    1000 | 1.01        |   125 |              0.01 |            0.01 |     20        
+   | 04. | SaltWater           |    1000 | 1.01        |   100 |              0.01 |            0.01 |     21        
+   | 05. | Brine               |    1000 | 1.01        |   100 |              0.01 |            0.01 |     22        
+   | 06. | Ethanol             |    1000 | 1.01        |   125 |              0.01 |            0.01 |     46.07     
+   | 07. | Petroleum           |     740 | 1.01        |    50 |               0.1 |             0.1 |     82.2      
+   | 08. | Naphtha             |     740 | 1.01        |    30 |                10 |              10 |    102.2      
+   | 09. | SuperCoolant        |     910 | 1.01        |   150 |              0.01 |            0.01 |    250        
+   | 10. | CrudeOil            |     870 | 1.01        |    50 |               0.1 |             0.1 |    500        
+   | 19. | Magma               |    1840 | 1.01        |    60 |                50 |              20 |     50        
+   ===== ===================== ========= ============= ======= =================== ================= ===============
+
+
+
+Tutorial - Gesysers
+-------------------
 
    温度管理也是一个重要的内容，在游戏前期，由于没有热源，环境温度偏凉爽，但是后期随着各种电器、工厂
    的运行，热量会慢慢累积，如果管理不好，最直接的影响就是食物会停止生长，导致严重的后果。如果温度过高
@@ -484,6 +3390,7 @@ Tutorial
    戏中不应和电能的瓦特混为一谈。游戏中并没有什么摩擦生热和电热的说法，所以对于热量的讨论应依附于特定的
    建筑进行。
 
+
    游戏中的部分热源：
 
    *  空间加热器 120 瓦电能产出 18k dtu/s 热量，但是它通常不值得利用，它唯一的增益是 +10 装饰。
@@ -493,14 +3400,40 @@ Tutorial
    *  附近的生态可以提供或者吸收大量热量，生态在星球生成后不会维持自身的温度，所以这是一次性的热源。
    *  液温调节器和温度调节器可以往环境中释放大量热量并冷却其中的液/气体，将它们送往更热的地方吧！
 
+   制冷中使用的冷却剂，如下，除了常见的水、污染水等，还有原油，通过蒸馏获取石油。另外超冷需要发射
+   火箭后获取外星的稀有资源富勒烯，再通过分子熔炉（Molecular Forge）合成：
+
+      90 kg Graphite + 5 kg Sulfur + 5 kg Aluminum       = 100 kg Fullerene
+      1 kg Fullerene + 49.5 kg Gold + 49.5 kg Petroleum  = 100 kg Super Coolant
+
+   +-----------------------+------------------+---------------------+---------+---------+------------+---------------+
+   | Name                  | Freezing point   | Vaporization point  | SHC     | TC      | Density    | Thermal range |
+   |                       | [°C]             | [°C]                |         |         | [g/mol]    | [°C]          |
+   +-----------------------+------------------+---------------------+---------+---------+------------+---------------+
+   | Liquid Carbon Dioxide | -56.55           | -48.15              | 0.846   | 1.460   | 44.01      | 8.40          |
+   | Ethanol               | -114.05          | 78.35               | 2.460   | 0.171   | 46.07      | 222.40        |
+   | Liquid Oxygen         | -218.79          | -182.96             | 1.010   | 2.000   | 15.9994    | 35.83         |
+   | Liquid Hydrogen       | -259.15          | -252.15             | 2.400   | 0.100   | 1.00794    | 7.00          |
+   | Water                 | -0.65            | 99.35               | 4.179   | 0.609   | 18.01528   | 98.70         |
+   | Salt Water            | -7.5             | 99.69               | 4.100   | 0.609   | 21         | 107.19        |
+   | Polluted Water        | -20.65           | 119.35              | 4.179   | 0.580   | 20         | 140.00        |
+   | Crude Oil             | -40.15           | 399.85              | 1.690   | 2.000   | 500        | 440.00        |
+   | Petroleum             | -57.15           | 538.85              | 1.760   | 2.000   | 82.2       | 596.00        |
+   | Methane               | -182.6           | -161.5              | 2.191   | 0.030   | 16.044     | 21.10         |
+   | Super Coolant         | -271.15          | 436.85              | 8.440   | 9.460   | 250        | 708.00        |
+   +-----------------------+------------------+---------------------+---------+---------+------------+---------------+
+
+
    设计管道热交换线路时注意，通风管和水管都有普通型、隔热型、导热热型，需要根据场合使用。特别是导热管，
    通常使用贵金属，成本比较高，只用在关键位置。注意，使用导热管用于获取冷量可能会导致冻坏爆管，这与造管
-   使用什么材料有关。
-   
+   使用什么材料无关，即使使用金制作的温度敏感形导热管道也一样会在液体产生想变时损坏，液体凝结、或气化。
+   但是使用石油作为冷却剂，因为石油凝点是 -40 度，这样就可以获得水作为冷却剂时无法获得的零下温度。如果
+   用于冷却冰霜小麦的灌溉用水，就需要使用石油作为冷却剂。使用金制造的高敏感温度传感器来控制液温调节器的
+   工作状态。一个取巧的方法是让准备进入液温调节器的水刚好升温到 14°C，这样调节后的温度刚好是 0°C。
+
    管道模拟系统每秒使管道中的液体移动 1 格，单格液体管道的容量上限为 10 千克液体。换言之，单根管道的
    最大流速为 10 kg/s。液体在管道内流动不受重力影响。如果液体在管道内发生相变，液体管道会损坏（除非
    该格液体管道中的液体质量小于 1 千克）。气体管道类似，不过每秒流量为 1000 g/s。
-
 
    有多种方法可以直接利用热量：
 
@@ -511,12 +3444,220 @@ Tutorial
    *  冰息萝卜在大多数气体环境下降温缓慢，而且不能大量生产，但是它不消耗任何能量。在理想条件下（高压纯氢环境）吸热速度为 12k dut/s
    *  将氢气通入反熵热量中和器可以达到 80k dut/s 的降温效果。
 
+   控温设备基本使用：
+
+   *  空间加热器：直接将环境中的气体加热到目标温度 70°C；
+   *  液体加热器：直接将环境中的液体加热到目标温度 85°C，使用脉冲信号控制可以加热超过 100°C；
+   *  温度调节器：输入任何气体并按冷却因子 -14°C 降温后输出，调节器自身升温并向环境散热；
+   *  液温调节器：输入任何液体并按冷却因子 -14°C 降温后输出，调节器自身升温并向环境散热；
+
+   使用一般材料制作的液温调节器过热温度为 125°C，如果使用钢制作就可以获得 200°C 的高过热温度。
+   如果使用铌、导热质制作，那么还可以获得更高的过热温度，500°C 或者 900°C。利用高过热温度就可以
+   用来加热水产生蒸汽来驱动蒸汽涡轮机发电。低温蒸汽喷孔是可持续的净水来源，它会喷出 110°C 的蒸汽，
+   只要环境最大压力在 5 千克以内就可以在活跃周期持续喷发。低温蒸汽不能直接驱动蒸汽涡轮机，需要温度
+   高于 125°C 的蒸汽。蒸汽涡轮机需要的蒸汽热量一般来自于岩浆或者液温调节器。蒸汽涡轮机作为十分有效
+   的吞热设备，可以将高温蒸汽冷却为 95°C 的水。常用液温调节器的冷凝水去和低温蒸汽换热，一方面将热能
+   转移到液温调节器的环境中用于生成高温蒸汽，另一方面将低温蒸汽冷凝为水，以降低温蒸汽喷孔的环境气压。
+   温差越大发电功率越大，最大发电功率 850 瓦，配合电厂的电控站产生的增效芯片，可以提高到 1275 瓦。
+   除了蒸汽喷孔的能量，一些高温的环境，也可以利用这样的方法利用热能，当然液体的比热容大、能量也更多。
+
+   蒸汽涡轮机的发电功率方程，单位为瓦特：
+
+      Power = Min( (85 / 21) * 蒸汽质量 * (蒸汽温度 - 95), 850) 
+
+   蒸汽涡轮机的蒸汽吸入口可以被部分堵塞，不同情况下，为达到功率上限，所需要的蒸汽温度分别是：
+
+   +--------+-----------------+-----------+--------------+----------------+
+   | Inlets | Required Temp   | Flow Rate | Heat Deleted | Power Produced |
+   |        | for Max Power   | (kg/s)    | (kDTU/s)     | (W)            |
+   +--------+-----------------+-----------+--------------+----------------+
+   | 5      | 200 °C          | 2         | 877.59       | 850            |
+   +--------+-----------------+-----------+--------------+----------------+
+   | 4      | 226.25 °C       | 1.6       | 877.59       | 850            |
+   +--------+-----------------+-----------+--------------+----------------+
+   | 3      | 270 °C          | 1.2       | 877.59       | 850            |
+   +--------+-----------------+-----------+--------------+----------------+
+   | 2      | 357.5 °C        | 0.8       | 877.59       | 850            |
+   +--------+-----------------+-----------+--------------+----------------+
+   | 1      | 357.5 °C        | 0.4       | 438.8        | 425            |
+   +--------+-----------------+-----------+--------------+----------------+
+
+   游戏循环中最小热量交换计算时间单位为 tick = 0.2 秒，每秒钟 5 ticks，这几个关键点用于计算各种
+   物质的热交互。当蒸汽涡轮机只有一个蒸汽吸入口时，该吸入口每 tick（0.2 秒）吸入 0.08 千克蒸汽。
+   但蒸汽涡轮机需要储存 0.1 千克蒸汽才能开始工作，因而它每两个 tick 才会工作一个 tick，所以它的
+   功率上限降为 425 瓦。为达到该功率上限，所需要的蒸汽温度是 357.5°C 不变。堵口不会影响到蒸汽涡
+   轮机的产热和吞热。它们依旧会每秒吞掉 0.4 千克蒸汽的热量，并按照所吞热量的 10% + 4 千复制热/秒
+   的效率产热。
+
+   低温蒸汽泉 110℃ 的蒸汽，降温到 95℃ 和升温到 125℃，温度差都是 15℃，显然升温方案更节省能量。
+   降温方案中，使用常温水通过水管交换热量就可以让 110°C 蒸气凝结为 65°C 以下的液态水。升温方案中，
+   假定喷口蒸汽量 4kg/s 多一点，那么本身就支持大约 4 * 4 * 15 = 240w 的发电功率，再经过电控站
+   加持就可以达到 360w 的发电功率。再加上一台液温调节器的换能，在蒸汽充足的情况下，完全可以做到 
+   1000w 以上的发电功率。这需要使用两台蒸汽涡轮机，因为每台吸收蒸汽的速率是 2kg/s，需要两台才能及
+   时消化喷口的蒸气，否则就会积压导致喷口效率下降。蒸汽本身提供热能回收后再用于冷却经过蒸汽涡轮机初步
+   降温后的温水，可以降到 50°C 左右，至于要降低到多少度，取决于投入的电力。
+   
+   升温方案设计，使用两个蒸汽涡轮机和一个液温调节器处理一个 4kg/s 的低温蒸汽泉，喷孔上面放液温调节器，
+   并且使用隔热砖围住作为蒸汽室，防止与外部换热降低蒸汽能量。最上面放置两个蒸汽涡轮机，两者路线正文摆放
+   液温调节器，这样可以同时使用高温蒸汽驱动涡轮机。液体循环系统可以按三部分：
+
+   *  集液部分：将蒸汽涡轮机的输出液与蒸汽室底部的液体收集（水泵抽取）到集液箱，集液箱可以通过信号输出
+      控制抽到什么液位暂停；
+
+   *  冷却循环：液温调节器对集液进行降温处理，产生热能升温喷出的蒸汽以达到蒸汽涡轮机的要求。使用水管
+      温度传感判断液温是否冷却到合适温度，如果是就通过信号线控制液体开关阀将其放出到常温水池中。如果
+      温度还太高，就通过液体管桥回流到液温调节器的输入端再次降温。使用液体管道温度传感器控制开关阀时，
+      应该将传感器与开关阀串联，否则就应该在传感器所在的下一格设置开关阀，这样才能刚才让判定的液体流过。
+      如果并联使用液体开关阀，那么就应该让管道经过其端点。否则即使在关闭状态，它也会缓冲一部分液体。
+      在循环管道中，管桥起着限制液体流动方向的同时，还相当于驱动器，可以美其名称“永动机”。另外，管桥的
+      主要作用是明确流向，程序算法需要它来为节点管道网络节点提供方向信息。对于在一段管道流动的物质，
+      当它遇到管道桥的入口时就会进入管道桥所指引的方向，只有在这条路径堵塞后，才会流向后面的管道。多个
+      管道桥出口接入到一段方向明确的主管道时，只有在主管道有空的管道时才能进入主管道。
+
+   *  补水：当冷却循环中缺水（已经冷却好排出），就将集液箱中的水补充到冷却循环中。使用液体
+      元素传感器、非门、液体开关阀控制，传感器检测液温调节器的输出端口大概 2~3 节点的水管处检测水是
+      否存在。如果缺水，就会出现传感器检测不到水，输出红色信号，经非门反转为绿信号并打开开关阀给冷却
+      循环补水。
+   
+   *  过热保护：当蒸汽不足，蒸汽室会被抽至接近真空，并且液温调节器会在缺少水蒸汽的情况下加热到超过
+      过热温度。因此需要在其邻近处放置一个温度传感器，使用金元素制作以提高灵敏度，设备一个保护温度，
+      比如 180℃。液温调节器应该使用钢以上的元素制造，以获得超过 300℃ 的过热温度。当然使用金汞齐
+      制造也能获得 175℃ 的过热温度，但非常容易烧坏。另外，在无水可处理时，蒸气室会被抽到相当真空，
+      这时温度传感器也不好用了，需要搭配气压传感器，通过与门与温度传感器一同控制液温调节器，以确定
+      完全关闭液温调节器。
+   
+   *  喷孔休眠：喷孔喷发时会产生大量的热水，如果不能及时降温到合适温度，可以先使用储液罐临时保存。
+      当喷孔进入休眠期再取出来浇到高温的液温调节器上制造蒸气，并继续冷却其它待处理的温水。这部分
+      可以使用一个时间传感器来控制排水口定时地向液温调节器排水制造蒸汽。
+
+   开关阀的两端其实就等价于两节水管，这是与液冷机这些设备不同之处。开关阀用好了，还可以当作低功耗的
+   过滤器（Element Detector Filter），利用流量控制阀环流也可以实现过滤器功能。利用一格一物原理，
+   可以使用砖块在竖直方向建立一个单格宽度的液体槽，两在横向上左右错开地开辟单格高的分流槽，就可以实现
+   不同液体的分流。气体的分层不明显，由于程序算法上不同于液体，有扰动的现象，所以不能实现类似的分流。
+
+   降温方案中，蒸汽发电系统主要是隔热砖包围的蒸汽室，它内部放置用于制造蒸汽的液温调节器，另外，为了防止
+   热能流失，蒸汽喷孔和初步冷凝后的水（温度也较高）也需要使用隔热砖围起来。整个热交互流程为：液温调节器
+   产生低温水，先给蒸汽涡轮机降温，再给喷口的蒸汽降温并使用蒸汽初步凝结为热水形成水池，然后冷凝水再与
+   水池交换热量，最后回流到液温调节器。为了避免爆管问题，可以使用一般液体管道给喷口蒸汽降温，避免吸热
+   过量导致管内发生气化相变，从而导致爆管。但是，蒸汽涡轮机和水池的冷却可以使用高导热的金属管。同时可以
+   给水池放置一个温度传感器，水温降到正常温度时就可以关闭液温调节器，关闭整个蒸汽发电系统。蒸气涡轮机
+   所发的电能只是回收一部分液冷机的消耗。除非通过电控站给蒸气涡轮机升级，否则整个系统没有富余电力输出，
+   还要输入电力用于生产高温蒸汽。
+
+   金属导热管在正常流速 10kg/s 下只需要 10 节就有非常好的热交换效果，但是使用液体桥和管道组成环流
+   可以让导热管内的水与外界完成充分的换热，可以达到完全与环境温度一致。普通水管由于在高温环境，换热也快。
+   并且主要是给喷孔处的蒸汽降温，使喷气周围压力降到 5kg 水平以下，这样才会有更多的蒸汽喷出。另外，
+   蒸汽室中注入的水也不需要太多，太多只收的能量也多。考虑到蒸汽涡轮机 5 个孔总吸入速率为 2 千克/秒，
+   只需要保证蒸汽室的平均每 5 格蒸汽密度大于这个值就可以。
+
+
+   使用温度调节器可以利用气体快速让环境温度降到冰点，但是不不会像液温调节器那样需要考虑水的冰点，除非
+   使用低凝固点的石油作为冷却剂。如果单用空气降温，考虑到建筑本身开始就含有一定的热量，所有需要一定的
+   时间来降温。如果配合液温调节器，则会更快速达到冰霜小麦的种植环境要求。
+
+   冰霜小麦的生长温度范围是 -55°C ~ 5°C，气压范围是 150g ~ 10kg，需要氧气、污染氧或者二氧化碳
+   环境。野生冰霜小麦的生长周期是 72 周期。人工种植的冰霜小麦的生长周期是 18 周期，需要每周期灌溉
+   20 千克水，并且施肥 5 千克泥土。
+
+   冰霜小麦每次成长时可以收获 18 份冰霜麦粒，它不能直接食用，可以作为种子使用，也可以进一步加工
+   成高价值食品：
+
+   *  冰霜面包，标准[+2]，1200 千卡能量，需要 3 单位 冰霜麦粒 在 电动烤炉 中制作而成。燃气灶可深加工为冰霜汉堡。
+   *  浆果糕， 良好[+3]，4000 千卡能量，好处是永不腐烂，需要 5 单位 冰霜麦粒 和 1 单位 毛刺浆果 在食物压制器制作。
+   *  火椒面包，杰出[+5]，4000 千卡能量，需要 10 单位 冰霜麦粒 和 1 单位 火椒粒 在 燃气灶 中制作而成。
+   *  混合浆果派，杰出[+5]，4200 千卡能量，需要 3 单位 冰霜麦粒 + 4 单位 虫果 + 1 单位 炙烤刺果 在 燃气灶 制作。
+   *  冰霜汉堡，极佳[+6]，6000 千卡能量，这是最高级的食品之一，需要冰霜面包、海生菜、烤肉串各 1 单位 在 燃气灶 制作。
+   *  作为对比，制作 1 单位 海陆双拼 Surf'n'Turf，优秀[+4]，6000 千卡能量，
+      需要 1 单位 烤海鲜（帕库鱼片或生蟹肉 1600 千卡）+ 1 单位烤肉串（2 单位的肉 4000 千卡）在 电动烤炉 制作。
+
+   复制人标准热量消耗为 1000 千卡每周期，所以平均每种值三株冰霜小麦就可以养好一个复制人。
+
+   冰霜小麦的种植十分讲究环境温度控制，建议使用液培砖种植冰霜小麦。冰霜小麦需要灌溉的水会在 -3.65°C 
+   结冰，其最高生长温度为 5°C，常用的方法有三种：
+
+   *  使用液温调节器等方案降温输入的水，确保其在 0-5°C 之间，使用液温调节器较难实现。
+   *  让低温泥浆喷泉/低温盐泥间歇泉的低温水经过铺设在冰霜小麦所在格的导热液体管道以实现降温。
+   *  上一方案的进阶版本：冷却液循环流动，循环中加入液温调节器转移多余的热量（通常配合蒸汽室和蒸汽涡轮机使用）。
+      此方案不必计算，理论上可以输入开水。冷却液建议使用污染水或盐水，浓盐水比热容下降而水有爆管风险故相对不推荐
+
+   用气温调节器配合绝热水管浇灌，只要气温和液培砖保持在 5°C 以下，冰霜小麦就可以生长，水温要求就不高，
+   使用常温净水就可以，它基本不会将热量传递给液培砖。另外，需要使用隔热砖建造的温室保护起来，防止与外部
+   热量交换。另外，内部的气体密度会随着作物的生长面减小，需要及时补充空气。同时，高密度的空气也能提高
+   温度调节器的制冷效率。
+
    使用隔热砖可以避免热量传递，在游戏早期，最好把热排放到不会引起麻烦的地方。较冷的生态（苔原、铁锈）
    可以用来排热，或者通过液体的热交换来达到冷却效果，也可以在较冷的生态处取水、气等资源。游戏中还设计
    了一种“冰息萝卜”物体，它吸热维护生命，保持自身低温。不可通过收获额外获取种子，可拔除后移栽。野生
    冰息萝卜冷却 250 克/秒的气体，人工种植的冰息萝卜冷却 1kg/s 的气体，将其温度降低 5°C 后顶部排出。
-   冰息萝卜自重 400 千克，它可能会显著地减缓降温速率。存活温度 -90°C ↔ 190°C，生长温度 -60°C ↔ 95°C
+   冰息萝卜自重 400 千克，它可能会显著地减缓降温速率。存活温度 -90°C ↔ 190°C，生长温度 -60°C ↔ 95°C。
    https://oxygennotincluded.fandom.com/zh/wiki/冰息萝卜
+   
+   为了获取冰原中的冷量，也可以使用净水，但有前提是使用流量阀限制管道流量为总量的 10% 也就是 1kg/s
+   的流量，这样即使管道中的水变成冰点以下，也不会爆管。
+
+   使用液温调节器可以给液体降温，但是冰霜小麦需要净水，它的冰点在 -0.65°C，如果直接使用液温调节器，
+   不能很好地控制输出 -5°C 以下的水温。因为净水经过液冷就会降温 14°C 左右，除非输入液体的温度刚好
+   比这个温度高几度以内。如果不需严格的净水温度，可以使用储液箱和液体开关阀做一个小水池，通过储液箱
+   的信号控制储水量。然后使用液温调节器给水池的水做循环降温处理，只能将水温控制在 0°C ~ 14°C 左右。
+   液温调节器的两端并联一个液体管道桥，并且绿色的输出口对齐连接，且由管道桥引管到储液池和种植冰霜小麦
+   的液培箱。这样就可以为液温调节器的绿色输出端提供一节管道的缓冲区、为管道桥的白色入口提供多节管道的
+   缓冲区，防止堵管造成温度传感器的失效、误判，导致液温调节器输出冰点的液体引起焊管，也避免了因为液温
+   调节器的输出拥堵而导致其它未进行降温处理的液体走向管道桥的旁路。
+
+   另一个更好的方案是使用 -20.65°C 冷点的污染水，这样只需要建一个污水池，并且使用污染水作为冷却剂，
+   可以将水池降温到冰点以下，使用金来制作管道在水池中交换热量，根据种植使得的用水量来设置水管的与水池
+   中低温水的接触面，然后将降温后的净水引入温室灌溉作物。这个方法最方便做温度管理，不会因为净水作为
+   冷却液时经常爆管且温度不达不到冰霜小麦的环境温度要求。液温调节器需要在入口处设置一个液体管道温度
+   传感器，检测到低于 0°C 的污染水时就关闭液冷机，让冷却剂走并联的液体管道桥。这不仅是最节省材料，
+   使用隔热砖建造冷水池又节能。这种方案只需要将低温水引入温室作为灌溉之用，只需要使用一个水管温度传感器
+   和液体开关阀来保证灌溉水的温度即可，也可以方便地使用导热管来降低温室的空气温度。只不过前期需要消耗
+   大量电来给水池降温，这些转换热能可以考虑使用蒸汽涡轮机收回，以名释放到空间导致空气被加热。还可以
+   通过冰息萝卜所在的冰原采集低温的冰、污染冰，这样就可以减少电能的消耗。当然，制冷产生的热也可以用来
+   种植火椒藤，或者生长在温盐水中的水草，它们需要高温环境，产出火椒粒、海生菜是高级食品原料，正好可以
+   互补做成阴阳农场。
+
+   因为水的比较容较大（TC = 4.179），越多的水热量就越多，为了尽量减少要进行降温处理的液体，可以考虑
+   使用双液体分层结构，只需要在两格高的区间放入少量的密度不同的两种液体，就会按照一格一物原理自动形成
+   水帘。然后液温调节器、灌溉水分别走一边，这样就可以快速达到目标制冷效果。
+   
+   使用隔热砖注意材料，普通砂石隔热效果比起沉积岩、陶瓷等材料肯定是有差别的。隔热质制作的普通砖并没有
+   隔热效果，另外还可以抽真空绝热。游戏中最隔热、最坚硬的物质就是绝热体中子质（Neutronium，TC = 0）。
+   隔热砖使用的材料依隔热效果从高到低为：
+
+   隔热质 > 陶瓷 > 火成岩 > 砂岩、镁铁质岩 > 花岗岩 > 沉积、黑曜石 > 深渊晶石
+
+        #. `导热质 <https://oxygennotincluded.fandom.com/wiki/Thermium>`__
+        #. `隔热质 <https://oxygennotincluded.fandom.com/wiki/Insulite>`__
+        #. `陶瓷 <https://oxygennotincluded.fandom.com/wiki/Ceramic>`__
+        #. `化石 <https://oxygennotincluded.fandom.com/wiki/Fossil>`__
+        #. `沉积岩 <https://oxygennotincluded.fandom.com/wiki/Sedimentary_Rock>`__
+        #. `火成岩 <https://oxygennotincluded.fandom.com/wiki/Igneous_Rock>`__
+        #. `石墨 <https://oxygennotincluded.fandom.com/wiki/Graphite>`__
+        #. `砂岩 <https://oxygennotincluded.fandom.com/wiki/Sandstone>`__
+        #. `花岗岩 <https://oxygennotincluded.fandom.com/wiki/Granite>`__
+        #. `镁铁质岩 <https://oxygennotincluded.fandom.com/wiki/Mafic_Rock>`__
+        #. `黑曜石 <https://oxygennotincluded.fandom.com/wiki/Obsidian>`__
+        #. `深渊晶石 <https://oxygennotincluded.fandom.com/wiki/Abyssalite>`__
+
+
+   SHC = Specific Heat Capacity [(DTU/g)/°C]
+   TC  = Thermal Conductivity [(DTU/(m*s))/°C]
+
+   +-------------------+--------+---------+------------------------+------------------------------------------------------------------------+
+   | Name              | SHC    | TC      | Strength | Melting     | Default Values | Hardness | Hardness | Molar Mass | Material Category  |
+   |                   |        |         |          | Temperature | Temperature    | Tier     |          |            |                    |
+   +-------------------+--------+---------+------------------------+------------------------------------------------------------------------+
+   | Neutronium        | 0      | 0       | 0        | 10000 K     |        1 K     | 100      | 255      | 10000      | Special            |
+   | Ceramic           | 0.84   | 0.62    | 1        | 1683 K      |      242.15 K  | 4        | 50       | 25         | BuildableProcessed |
+   | Igneous Rock      | 1      | 2       | 1        | 1683 K      |      232.15 K  | 3        | 25       | 50         | BuildableRaw       |
+   | Sandstone         | 0.8    | 2.9     | 0.5      | 1200 K      |      242.15 K  | 2        | 10       | 50         | BuildableRaw       |
+   | Mafic Rock        | 0.2    | 1.00    | 1        | 1683 K      |                |          |          |            | BuildableRaw       |
+   | Granite           | 0.79   | 3.39    | 1.5      | 942 K       |      232.15 K  | 5        | 80       | 50         | BuildableRaw       |
+   | Sedimentary Rock  | 0.2    | 2       | 0.2      | 1200 K      |      242.15 K  | 1        | 2        | 50         | BuildableRaw       |
+   | Obsidian          | 0.2    | 2       | 1        | 3000 K      |      242.15 K  | 4        | 50       | 50         | BuildableRaw       |
+   | Abyssalite        | 4      | 0.00001 | 2        | 3695 K      |      300 K     | 7        | 200      | 341.76     | Miscellaneous      |
+   +-------------------+--------+---------+------------------------+------------------------------------------------------------------------+
+
 
    草率地用水管灌溉植物来排放多余热量并不好——不要用热水灌溉喜温凉作物（毛刺花等）。如果没有别的选择，
    使用隔热液体管道或通过阀门控制流量。（滞留在管道内的水会让你的基地迅速升温，它的比热相当高）或者
@@ -532,7 +3673,7 @@ Tutorial
    液温调节器冷却因子 -14°C，这个值对于水的冷却来说，就是流出时的温度比流入的温度低 14°C。但是对于
    其实导热、比热容系数不同的液体来说，就有所差别，原油大概可以降低 10°C。虽然原油的导热好，但是比热容
    比水低太多。正常环境温度下使用，只需要用水淹没机器的底部两格就可以持续工作。
-   
+
    因为管道中的物质出现相变时会导致爆管，比如典型的就是水变成冰，所以为了避免这种问题，可以配合温度
    传感器检测输出口的液体温度，确保其不出超出凝固点、升华点温度。
 
@@ -550,6 +3691,18 @@ Tutorial
    这在游戏早期没有时间和资源建造合适的房间、设备和其他隔热物前很重要。绝大部分材料都可以通过小动物获得。
    游戏早中期使用火成岩建设隔热的砖块和液/气体管道来运送/储存热流体，在后期则换用陶瓷和隔热质等材料，它们
    具有最低的热导率，可以有效隔绝温度传导。
+
+
+Tutorial - Metal Volcano
+------------------------
+
+   铜火山是一座大型火山，定期喷发熔融铜，是典型的金属火山。与间歇泉类型，它也是可再生资源的一种，游戏中
+   不同金属都有对应的火山喷发相应的液态金属物质。要开发好金属岩浆，最基本的方法就是将岩浆的热能与水交换
+   产生蒸气驱动蒸汽涡轮机，用它来将热能转换为电能，同时获得降温后的固态精练金属。这就需要计算火山所喷发
+   的岩浆流量、所蕴含的能量总量，然后再根据这些数据使用相应质量的水来建造蒸汽室，并驱动相应的蒸汽涡轮机。
+   还可以配套使用轨道运输、清扫器，自动运输冷却好的金属块。
+
+   高温火山开发的一般需要使用液温调节器来给
 
    比热容、导热率是物体做热交换时的重要参数，比热容影响获得、失去同一份热量时的温度变化。为了有热量管理
    有个基本认识，需要了解一些基本物质的热能相关属性：
@@ -607,6 +3760,54 @@ Tutorial
    属性的影响，调整后的发电机会获得工程师的调整增益效果，发电功率提升 50%，持续时间 3 周期以上，有效时间
    随工程师的机械属性的增高而增加。
 
+
+   火山或者间歇泉的基部一般是绝热的中子物质。为了使用热能不散失到环境中增加能量的管理难度（熵增），
+   就需要使用隔热砖将火山开发模块包围起来。
+
+   铜火山最大喷发压力 150 千克，熔岩累积超过这个量就会暂停喷发。熔岩产物为 2226.85°C 的熔融铜。
+   多数铜火山喷发周期时长 556 ↔ 995 秒，喷发期产率 5 ↔ 19 千克/秒，单次喷发量 259 ↔ 538 千克，
+   单周期喷发量 9011 ↔ 38969 千克，平均产率 200 ↔ 400 千克/周期。
+
+   为了最大化获取资源，可以将熔岩引流到绝热池子，并通过耐高温物质将热量慢慢传递给水或者水蒸气，并利用
+   合适数量的蒸汽涡轮机只收热能发电。
+
+   假定铜火山单次喷发 300kg，那么从 2226.85°C 的熔融铜降温到 1083.85°C 的固态铜，再到常温，
+   热能数量与物体的比热容有关，铜的比热容 SHC = 0.385，Specific Heat Capacity [(DTU/g)/°C]，
+   每增减 1 (DTU/g)/°C 就需要 0.385j，每克超过 2000°C 多的温差就有超过 770j 的能量，那么对于
+   流量为 400kg 的铜火山，每秒的喷发的熔岩所涉及的热能就有 308,000,000 焦耳，相当于 15400 个智能
+   电池所存储的能量。
+
+   水作为常用的热媒介，它的比热容 SHC = 4.179，相同的质量和温差参数下，热能是铜的 10.85 倍。因为
+   水需要用来制造超出 125°C 的蒸汽，蒸汽涡轮机 5 个口全部工作时可以处理蒸汽为 2 千克/秒，只需要 200°C
+   的蒸汽就可以达到最高发电功率 850w，输出相同质量的 95°C 液体，温差 200°C - 95°C = 105°C，消耗
+   热量 877j/s。因此，假设将熔融铜每秒流量的熔岩降低到常温，就需要转换为 20 倍质量的水为 200°C 的
+   蒸汽，假设熔岩流量为 400kg/s，也就是需要 8 吨水就可以一次处理完铜火山的热能。
+
+   液体管道温度传感器常和液温调节器、液体开关阀配合，仅当液体加热完成、或冷却完成时允许液体通过。
+   传感器能够检测当前所在格中液体管道内的液体温度，并输出自动化信号。玩家可以设定液体管道温度阈值，
+   并选择在高于或是低于该温度时输出绿色信号。若液体管道没有内容物，那么检测的温度值保持为最后数据。
+
+   要求开关阀后面的线路不堵，否则可能误判，误判还可能造成液温调节器输入的液体温度过度导致低温损害，
+   液态水相变为固态的冰导致爆管。所以对于这种一般都是用管道桥实现白口循环接入绿口，白口同时再往外。
+   注意，多个管道口的连接有串、并联两种接法：一个管道器通过管道连接到另一个管道口中就属于串连，如果
+   管道都连接到某一管道上就是并联。首先需要明白，两种连接方式，当主管拥挤时，支管按液体流向从下游到
+   上游支管进行排除运输，这是拥堵的基本处理逻辑。
+
+   使用液体管道温度传感器和液温调节器配合做液冷时，传感器一定要紧接液冷机的白口的输入管道，用于及时
+   在液温过低时关闭液温调节器，并让低温液体通过并联的管道桥跳过液冷机，保证液冷循环不堵死，同时为了
+   防止因为管道拥塞造成误判，输入过冷液体到液温调节器造成爆管，管道桥在并联时，液冷机白口要经过两节
+   管道再接管道桥的白口。这样就相当于有一个缓冲区，避免过冷液因为不能及时流向管道桥，导致后续常温的
+   液体经过传感器时触发液冷机的启动动作，从而导致液冷机输入过冷液体引发误判的爆管。所以连接时，一般
+   绿口对齐，并且从管道桥的绿口引出到循环管道，相当于给液冷机的输出提供了一节管道的缓冲，避免液冷机
+   拥堵导致其它高温液体转而经过管道桥而错过降温处理。
+
+   如果将管道桥这部分称为液冷循环的傍路，那么它相当于有 3 节管道缓冲空间，除了这部分，整个循环管道
+   都可以注满液体，不会导致液冷循环管道的堵塞。
+
+
+
+Tutorial - Foods
+----------------
 
 
    游戏中复制人的食物来源很多，典型且易于获取的有：
@@ -1090,8 +4291,8 @@ https://oxygennotincluded.fandom.com/wiki/Elements
 
     - `农业 <https://oxygennotincluded.fandom.com/wiki/Category:Agriculture>`__
 
-        #. `磷矿 <https://oxygennotincluded.fandom.com/wiki/Fertilizer>`__ •
-        #. `肥料 <https://oxygennotincluded.fandom.com/wiki/Phosphorite>`__
+        #. `肥料 <https://oxygennotincluded.fandom.com/wiki/Fertilizer>`__ •
+        #. `磷矿 <https://oxygennotincluded.fandom.com/wiki/Phosphorite>`__
 
     - `精炼矿物 <https://oxygennotincluded.fandom.com/wiki/Category:Refined_Mineral>`__
 
@@ -1178,7 +4379,7 @@ https://oxygennotincluded.fandom.com/wiki/Elements
     - `有机物 <https://oxygennotincluded.fandom.com/wiki/Category:Organic>`__
 
         #. `固态树脂 <https://oxygennotincluded.fandom.com/wiki/Resin>`__ •
-        #. `木材 <https://oxygennotincluded.wiki.gg/zh/wiki/木材>`__ •
+        #. `木材 <https://oxygennotincluded.fandom.com/wiki/Lumber>`__ •
         #. `污染土 <https://oxygennotincluded.fandom.com/wiki/Polluted_Dirt>`__ •
         #. `污染泥 <https://oxygennotincluded.fandom.com/wiki/Polluted_Mud>`__ •
         #. `泥巴 <https://oxygennotincluded.fandom.com/wiki/Mud>`__ •
@@ -1361,7 +4562,7 @@ Building
    *  `地堡砖  <https://oxygennotincluded.fandom.com/wiki/Bunker_Tile>`__
    *  `存储砖  <https://oxygennotincluded.fandom.com/wiki/Storage_Tile>`__
    *  `隔热砖  <https://oxygennotincluded.fandom.com/wiki/Insulated_Tile>`__
-   *  `运载管道  <https://oxygennotincluded.fandom.com/wiki/Transit_Tube_Crossing>`__
+   *  `运载管道  <https://oxygennotincluded.fandom.com/wiki/Transit_Tube>`__
    *  `运载管道渡口  <https://oxygennotincluded.fandom.com/wiki/Transit_Tube_Crossing>`__
    *  `运载管道入口  <https://oxygennotincluded.fandom.com/wiki/Transit_Tube_Access>`__
    *  `存储箱  <https://oxygennotincluded.fandom.com/wiki/Storage_Bin>`__
@@ -1439,7 +4640,7 @@ Building
    *  `飞行小动物陷阱 <https://oxygennotincluded.fandom.com/wiki/Airborne_Critter_Trap>`__
    *  `飞行小动物公寓 <https://oxygennotincluded.fandom.com/wiki/Airborne_Critter_Condo>`__
    *  `小动物移取点 <https://oxygennotincluded.fandom.com/wiki/Critter_Pick-Up>`__
-   *  `小动物公寓 <https://oxygennotincluded.fandom.com/wiki/Airborne_Critter_Condo>`__
+   *  `小动物公寓 <https://oxygennotincluded.fandom.com/wiki/Critter_Condo>`__
    *  `脱水机 <https://oxygennotincluded.fandom.com/wiki/Dehydrator>`__
    *  `充水机 <https://oxygennotincluded.fandom.com/wiki/Rehydrator>`__
    *  `冰箱 <https://oxygennotincluded.fandom.com/wiki/Refrigerator>`__
@@ -2458,7 +5659,7 @@ Achievements
    +----------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
    | |Swamp Chard (Spaced Out)|             | -                                                    | 1      | +15   |  2   | -           | -      | -               | -                                                                         | -             | -                       | -                     | 1 |Swamp Chard Heart (Spaced Out)|  | -        | -     | -        | -      | -                      | -                                                                       | -                |
    +----------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
-   | |Saturn Critter Trap|                  | |Planter Box|\ |Farm Tile|\ |Hydroponic Farm|        | 2      | +15   |  2   | -90.1       | -0.1   | -               | -                                                                         | -             | 10 kg |Polluted Water|  | 1 |Critter|           | 1 |Plant Meat| 900.1 g |Hydrogen|   | 30       | 120   | 40       | 10     | 2200 (Cannot mutate)   | -                                                                       | -                |
+   | |Saturn Critter Trap|                  | |Planter Box|\ |Farm Tile|\ |Hydroponic Farm|        | 2      | +15   |  2   | -90.1       | -0.1   | -               | -                                                                         | -             | 10 kg |Polluted Water|  | 1 |Critter|           | 1 |Plant Meat| 900.1 g |Hydrogen|   | 30       | 120   | 40       | 10     | 2200 (Cannot mutate)   | -                                                                       | -                |
    +----------------------------------------+------------------------------------------------------+--------+-------+------+-------------+--------+-----------------+---------------------------------------------------------------------------+---------------+-------------------------+-----------------------+-------------------------------------+----------+-------+----------+--------+------------------------+-------------------------------------------------------------------------+------------------+
 
 .. _Floral Scents: https://oxygennotincluded.fandom.com/wiki/Floral_Scents
@@ -3107,38 +6308,72 @@ Achievements
    SHC = Specific Heat Capacity [(DTU/g)/°C]
    TC  = Thermal Conductivity [(DTU/(m*s))/°C]
 
-   +-----------------------+--------------------+-----------------------+--------+--------+-----------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+
-   | Name                  | Condensation point | Condensate into       | SHC    | TC     | Weight molar mass (u) | Light Absortion | Description                                                                                                                          |
-   +-----------------------+--------------------+-----------------------+--------+--------+-----------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+
-   | Hydrogen              | -252.15 °C         | Liquid Hydrogen       | 2.400  | 0.168  | 1.00794               | 10%             | (H) Hydrogen is the universe's most common and atomically light element in a Gaseous state.                                          |
-   | Helium (unused)       | -268.93 °C         | Liquid Helium         | 0.140  | 0.236  | 4                     | 10%             | (He) Helium is an atomically lightweight, chemical Gas.                                                                              |
-   | Gas Carbon            | 4826.85 °C         | Liquid Carbon         | 0.710  | 1.700  | 12.0107               | 30%             | (C) Carbon is an abundant, versatile element heated into a Gaseous state.                                                            |
-   | Polluted Oxygen       | -182.96 °C         | Liquid Oxygen         | 1.010  | 0.024  | 15.9994               | 10%             | (O₂) Polluted Oxygen is dirty, unfiltered air.  It is breathable.                                                                    |
-   | Oxygen                | -182.96 °C         | Liquid Oxygen         | 1.005  | 0.024  | 15.9994               | 0%              | (O₂) Oxygen is an atomically lightweight and breathable Gas, necessary for sustaining life.  It tends to rise above other gases.     |
-   | Natural Gas           | -161.5 °C          | Methane               | 2.191  | 0.035  | 16.044                | 25%             | Natural Gas is a mixture of various alkanes in a Gaseous state.  It is useful in Power production.                                   |
-   | Steam                 | 99.35 °C           | Water                 | 4.179  | 0.184  | 18.01528              | 10%             | (H₂O) Steam is a water that has been heated into a scalding Gas.                                                                     |
-   | Sour Gas              | -161.5 °C          | Methane               | 1.898  | 0.018  | 19.044                | 25%             | Sour Gas is a hydrocarbon Gas containing high concentrations of hydrogen sulfide.  It is a byproduct of highly heated Petroleum.     |
-   | Gas Phosphorus        | 280.45 °C          | Liquid Phosphorus     | 0.770  | 0.236  | 30.973762             | 50%             | (P) Phosphorus is a chemical element in a Gaseous state.                                                                             |
-   | Gas Sulfur            | 337 °C             | Liquid Sulfur         | 0.700  | 0.200  | 32                    | 10%             | (S) Sulfur is a common chemical element and byproduct of Natural Gas production.  This selection is in a Gaseous state.              |
-   | Chlorine              | -34.6 °C           | Liquid Chlorine       | 0.480  | 0.008  | 34.453                | 20%             | (Cl) Chlorine is an extremely toxic chemical in a Gaseous state.                                                                     |
-   | Carbon Dioxide        | -48.15 °C          | Liquid Carbon Dioxide | 0.846  | 0.015  | 44.01                 | 10%             | (CO₂) Carbon Dioxide toxic, atomically heavy chemical compound in a Gaseous state.  It tends to sink below other gases.              |
-   | Propane (unused)      | -42.15 °C          | Liquid Propane        | 2.400  | 0.015  | 44.1                  | 25%             | (C₃H₈) Propane is a natural alkane Gas.  It is useful in Power production.                                                           |
-   | Gas Ethanol           | 78.35 °C           | Ethanol               | 2.148  | 0.167  | 46.07                 | 50%             | (C₂H₅OH) Ethanol is a high toxic chemical compound. It can be used as highly effective fuel source when it's burned.                 |
-   | Rock Gas              | 2356.85 °C         | Magma                 | 1.000  | 0.100  | 50                    | 50%             | Rock Gas is rock that has been superheated into a Gaseous state.                                                                     |
-   | Salt Gas              | 1464.85 °C         | Molten Salt           | 0.880  | 0.444  | 50                    | 10%             | (NaCl) Salt Gas is an edible chemical compound that has been superheated into a Gaseous state.                                       |
-   | Gas Steel             | 3826.85 °C         | Liquid Steel          | 0.490  | 1.000  | 54.97                 | 50%             | Steel is a superheated Metal Gas composed of iron and carbon.                                                                        |
-   | Gas Iron              | 2749.85 °C         | Liquid Iron           | 0.449  | 1.000  | 55.845                | 50%             | (Fe) Iron is a common industrial Metal, heated into a Gas.                                                                           |
-   | Gas Copper            | 2560.85 °C         | Liquid Copper         | 0.386  | 1.000  | 63.546                | 50%             | (Cu) Copper is a conductive Metal heated into a Gas.                                                                                 |
-   | Gas Aluminum          | 2470 °C            | Molten Aluminum       | 0.910  | 2.500  | 63.546                | 50%             | (Al) Aluminum is a low density Metal.                                                                                                |
-   | Gas Niobium           | 4743.85 °C         | Liquid Niobium        | 0.265  | 1.000  | 92.9                  | 50%             | (Nb) Niobium is a Rare Metal. This selection is in a Gaseous state.                                                                  |
-   | Gas Tungsten          | 5929.85 °C         | Liquid Tungsten       | 0.134  | 1.000  | 183.84                | 50%             | (W) Tungsten is a superheated crystalline Metal. This selection is in a Gaseous state.                                               |
-   | Gas Super Coolant     | 436.85 °C          | Super Coolant         | 8.440  | 1.200  | 190                   | 50%             | Super Coolant is an industrial grade Fullerene coolant. This selection is in a Gaseous state.                                        |
-   | Gas Gold              | 2855.85 °C         | Liquid Gold           | 0.129  | 1.000  | 196.966569            | 50%             | (Au) Gold is a conductive precious Metal, heated into a Gas.                                                                         |
-   | Gas Lead              | 1749 °C            | Molten Lead           | 0.128  | 3.500  | 196.966569            | 50%             | (Pb) Lead is a soft yet extremely dense Refined Metal.                                                                               |
-   | Gas Mercury (unused)  | 356.75 °C          | Mercury               | 0.140  | 8.300  | 200.59                | 50%             | (Hg) Mercury is a toxic Metal heated into a Gaseous state.                                                                           |
-   | Nuclear Fallout       | 66.9 °C            | Nuclear Waste         | 0.265  | 1.000  | 92.9                  | 50%             | TBD                                                                                                                                  |
-   | Gas Cobalt            | 2926.9 °C          | Liquid Cobalt         | 0.420  | 1.000  | 58.9                  | 50%             | (Co) Cobalt is an industrial Metal, heated into a Gas.                                                                               |
-   +-----------------------+--------------------+-----------------------+--------+--------+-----------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+
+   ======================= ==================== ======================= ======== ======== ======================= ================= =================
+   | Name                  | Condensation point | Condensate into       | SHC    | TC     | Weight molar mass (u) | Light Absortion | Description   
+   ======================= ==================== ======================= ======== ======== ======================= ================= =================
+   | Hydrogen              | -252.15 °C         | Liquid Hydrogen       | 2.400  | 0.168  | 1.00794               | 10%             | (H) Hydrogen is the universe's most common and atomically light element in a Gaseous state.
+   | Helium (unused)       | -268.93 °C         | Liquid Helium         | 0.140  | 0.236  | 4                     | 10%             | (He) Helium is an atomically lightweight, chemical Gas.
+   | Gas Carbon            | 4826.85 °C         | Liquid Carbon         | 0.710  | 1.700  | 12.0107               | 30%             | (C) Carbon is an abundant, versatile element heated into a Gaseous state.
+   | Polluted Oxygen       | -182.96 °C         | Liquid Oxygen         | 1.010  | 0.024  | 15.9994               | 10%             | (O₂) Polluted Oxygen is dirty, unfiltered air.  It is breathable.
+   | Oxygen                | -182.96 °C         | Liquid Oxygen         | 1.005  | 0.024  | 15.9994               | 0%              | (O₂) Oxygen is an atomically lightweight and breathable Gas, necessary for sustaining life.  It tends to rise above other gases.
+   | Natural Gas           | -161.5 °C          | Methane               | 2.191  | 0.035  | 16.044                | 25%             | Natural Gas is a mixture of various alkanes in a Gaseous state.  It is useful in Power production.
+   | Steam                 | 99.35 °C           | Water                 | 4.179  | 0.184  | 18.01528              | 10%             | (H₂O) Steam is a water that has been heated into a scalding Gas.
+   | Sour Gas              | -161.5 °C          | Methane               | 1.898  | 0.018  | 19.044                | 25%             | Sour Gas is a hydrocarbon Gas containing high concentrations of hydrogen sulfide.  It is a byproduct of highly heated Petroleum.
+   | Gas Phosphorus        | 280.45 °C          | Liquid Phosphorus     | 0.770  | 0.236  | 30.973762             | 50%             | (P) Phosphorus is a chemical element in a Gaseous state.
+   | Gas Sulfur            | 337 °C             | Liquid Sulfur         | 0.700  | 0.200  | 32                    | 10%             | (S) Sulfur is a common chemical element and byproduct of Natural Gas production.  This selection is in a Gaseous state.
+   | Chlorine              | -34.6 °C           | Liquid Chlorine       | 0.480  | 0.008  | 34.453                | 20%             | (Cl) Chlorine is an extremely toxic chemical in a Gaseous state.
+   | Carbon Dioxide        | -48.15 °C          | Liquid Carbon Dioxide | 0.846  | 0.015  | 44.01                 | 10%             | (CO₂) Carbon Dioxide toxic, atomically heavy chemical compound in a Gaseous state.  It tends to sink below other gases.
+   | Propane (unused)      | -42.15 °C          | Liquid Propane        | 2.400  | 0.015  | 44.1                  | 25%             | (C₃H₈) Propane is a natural alkane Gas.  It is useful in Power production.
+   | Gas Ethanol           | 78.35 °C           | Ethanol               | 2.148  | 0.167  | 46.07                 | 50%             | (C₂H₅OH) Ethanol is a high toxic chemical compound. It can be used as highly effective fuel source when it's burned.
+   | Rock Gas              | 2356.85 °C         | Magma                 | 1.000  | 0.100  | 50                    | 50%             | Rock Gas is rock that has been superheated into a Gaseous state.
+   | Salt Gas              | 1464.85 °C         | Molten Salt           | 0.880  | 0.444  | 50                    | 10%             | (NaCl) Salt Gas is an edible chemical compound that has been superheated into a Gaseous state.
+   | Gas Steel             | 3826.85 °C         | Liquid Steel          | 0.490  | 1.000  | 54.97                 | 50%             | Steel is a superheated Metal Gas composed of iron and carbon.
+   | Gas Iron              | 2749.85 °C         | Liquid Iron           | 0.449  | 1.000  | 55.845                | 50%             | (Fe) Iron is a common industrial Metal, heated into a Gas.
+   | Gas Copper            | 2560.85 °C         | Liquid Copper         | 0.386  | 1.000  | 63.546                | 50%             | (Cu) Copper is a conductive Metal heated into a Gas.
+   | Gas Aluminum          | 2470 °C            | Molten Aluminum       | 0.910  | 2.500  | 63.546                | 50%             | (Al) Aluminum is a low density Metal.
+   | Gas Niobium           | 4743.85 °C         | Liquid Niobium        | 0.265  | 1.000  | 92.9                  | 50%             | (Nb) Niobium is a Rare Metal. This selection is in a Gaseous state.
+   | Gas Tungsten          | 5929.85 °C         | Liquid Tungsten       | 0.134  | 1.000  | 183.84                | 50%             | (W) Tungsten is a superheated crystalline Metal. This selection is in a Gaseous state.
+   | Gas Super Coolant     | 436.85 °C          | Super Coolant         | 8.440  | 1.200  | 190                   | 50%             | Super Coolant is an industrial grade Fullerene coolant. This selection is in a Gaseous state.
+   | Gas Gold              | 2855.85 °C         | Liquid Gold           | 0.129  | 1.000  | 196.966569            | 50%             | (Au) Gold is a conductive precious Metal, heated into a Gas.
+   | Gas Lead              | 1749 °C            | Molten Lead           | 0.128  | 3.500  | 196.966569            | 50%             | (Pb) Lead is a soft yet extremely dense Refined Metal.
+   | Gas Mercury (unused)  | 356.75 °C          | Mercury               | 0.140  | 8.300  | 200.59                | 50%             | (Hg) Mercury is a toxic Metal heated into a Gaseous state.
+   | Nuclear Fallout       | 66.9 °C            | Nuclear Waste         | 0.265  | 1.000  | 92.9                  | 50%             | TBD
+   | Gas Cobalt            | 2926.9 °C          | Liquid Cobalt         | 0.420  | 1.000  | 58.9                  | 50%             | (Co) Cobalt is an industrial Metal, heated into a Gas.
+   ======================= ==================== ======================= ======== ======== ======================= ================= =================
+
+Oxygen Not Included v399948 gas.yaml
+
+   ===== ==================== ====================== ======= =============== ========================= ==================== ================= ============ ========== ======================= ============================ ============================= ========================== ============ ========================================== ================== =========================================
+   | NO. | elementId          | specificHeatCapacity | flow  |       lowTemp | lowTempTransitionTarget | defaultTemperature | defaultPressure | molarMass  | toxicity | lightAbsorptionFactor | solidSurfaceAreaMultiplier | liquidSurfaceAreaMultiplier | gasSurfaceAreaMultiplier | isDisabled | localizationID                           | materialCategory | tags                                   
+   ===== ==================== ====================== ======= =============== ========================= ==================== ================= ============ ========== ======================= ============================ ============================= ========================== ============ ========================================== ================== =========================================
+   | 01. | AluminumGas        |               0.91   |  0.1  |       2743.15 | MoltenAluminum          |               3200 |        202      |  63.546    | 0        | 0.5                   |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.ALUMINUMGAS.NAME        | Unbreathable     | - Metal - RefinedMetal - EmitsLight    
+   | 02. | CarbonDioxide      |               0.846  |  0.1  |        225    | LiquidCarbonDioxide     |                300 |        139      |  44.01     | 0.0001   | 0.1                   |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.CARBONDIOXIDE.NAME      | Unbreathable     | -                                      
+   | 03. | CarbonGas          |               0.71   |  0.1  |       5100    | MoltenCarbon            |               5700 |         38      |  12.0107   | 0        | 0.3                   |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.CARBONGAS.NAME          | Unbreathable     | - EmitsLight                           
+   | 04. | ChlorineGas        |               0.48   |  0.1  |        238.55 | Chlorine                |                300 |        228      |  34.453    | 0        | 0.2                   |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.CHLORINEGAS.NAME        | Unbreathable     | -                                      
+   | 05. | ContaminatedOxygen |               1.01   |  0.12 |         90.19 | LiquidOxygen            |                300 |        101.3    |  15.9994   | 0.01     | 0.1                   |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.CONTAMINATEDOXYGEN.NAME | Breathable       | -                                      
+   | 06. | CopperGas          |               0.386  |  0.1  |       2834    | MoltenCopper            |               3200 |        202      |  63.546    | 0        | 0.5                   |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.COPPERGAS.NAME          | Unbreathable     | - Metal - RefinedMetal - EmitsLight    
+   | 07. | GoldGas            |               0.1291 |  0.1  |       3129    | MoltenGold              |               3500 |        624      | 196.966569 | 0        | 0.5                   |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.GOLDGAS.NAME            | Unbreathable     | - Metal - RefinedMetal - EmitsLight    
+   | 08. | Helium             |               0.14   |  0.1  |          4.22 | LiquidHelium            |                300 |         13      |   4        | 0        | 0.1                   |                         25 |                           1 |                        1 | true       | STRINGS.ELEMENTS.HELIUM.NAME             | Unbreathable     | -                                      
+   | 09. | Hydrogen           |               2.4    |  0.1  |         21    | LiquidHydrogen          |                300 |          7      |   1.00794  | 0        | 0.1                   |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.HYDROGEN.NAME           | Unbreathable     | -                                      
+   | 10. | IronGas            |               0.449  |  0.1  |       3023    | MoltenIron              |               4000 |        177      |  55.845    | 0        | 0.5                   |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.IRONGAS.NAME            | Unbreathable     | - Metal - RefinedMetal - EmitsLight    
+   | 11. | LeadGas            |               0.128  |  0.1  |       2022.15 | MoltenLead              |               3500 |        624      | 196.966569 | 0        | 0.5                   |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.LEADGAS.NAME            | Unbreathable     | - Metal - RefinedMetal - EmitsLight    
+   | 12. | MercuryGas         |               0.14   |  0.1  |        629.9  | Mercury                 |                850 |        633      | 200.59     | 0        | 0.5                   |                         25 |                           1 |                        1 | true       | STRINGS.ELEMENTS.MERCURYGAS.NAME         | Unbreathable     | - Metal                                
+   | 13. | Methane            |               2.191  |  0.1  |        111.65 | LiquidMethane           |                300 |          7      |  16.044    | 0        | 0.25                  |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.METHANE.NAME            | Unbreathable     | - CombustibleGas                       
+   | 14. | NiobiumGas         |               0.265  |  0.1  |       5017    | MoltenNiobium           |               5500 |        500      |  92.9      | 0        | 0.5                   |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.NIOBIUMGAS.NAME         | Unbreathable     | - Metal - RefinedMetal - EmitsLight    
+   | 15. | Oxygen             |               1.005  |  0.12 |         90.19 | LiquidOxygen            |                300 |        101.3    |  15.9994   | 0        | 0                     |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.OXYGEN.NAME             | Breathable       | -                                      
+   | 16. | PhosphorusGas      |               0.7697 |  0.1  |        553.6  | LiquidPhosphorus        |                700 |         98      |  30.973762 | 0        | 0.5                   |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.PHOSPHORUSGAS.NAME      | Unbreathable     | - EmitsLight                           
+   | 17. | Propane            |               2.4    |  0.1  |        231    | LiquidPropane           |                350 |        140      |  44.1      | 0        | 0.25                  |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.PROPANE.NAME            | Unbreathable     | -                                      
+   | 18. | RockGas            |               1      |  0.1  |       2630    | Magma                   |               3000 |       1076      |  50        | 0        | 0.5                   |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.ROCKGAS.NAME            | Unbreathable     | - EmitsLight                           
+   | 19. | SaltGas            |               0.88   |  0.1  |       1738    | MoltenSalt              |               3000 |       1076      |  50        | 0        | 0.1                   |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.SALTGAS.NAME            | Unbreathable     | -                                      
+   | 20. | SourGas            |               1.898  |  0.1  |        111.65 | LiquidMethane           |                300 |          7      |  19.044    | 0        | 0.25                  |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.SOURGAS.NAME            | Unbreathable     | -                                      
+   | 21. | Steam              |               4.179  |  0.1  |        372.5  | Water                   |                400 |         57      |  18.01528  | 0        | 0.1                   |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.STEAM.NAME              | Unbreathable     | -                                      
+   | 22. | SteelGas           |               0.49   |  0.1  |       4100    | MoltenSteel             |               4500 |       1076      |  54.97     | 0        | 0.5                   |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.STEELGAS.NAME           | Unbreathable     | - Metal - Alloy - RefinedMetal         
+   | 23. | SulfurGas          |               0.7    |  0.1  |        610.15 | LiquidSulfur            |                700 |          7      |  32        | 0        | 0.1                   |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.SULFURGAS.NAME          | Unbreathable     | -                                      
+   | 24. | SuperCoolantGas    |               8.44   |  0.1  |        710    | SuperCoolant            |                850 |        550      | 190        | 0        | 0.5                   |                         25 |                           1 |                        1 | -          | STRINGS.ELEMENTS.SUPERCOOLANTGAS.NAME    | Unbreathable     | -                                      
+   | 25. | TungstenGas        |               0.134  |  0.1  |       6203    | MoltenTungsten          |               6500 |        581.9685 | 183.84     | 0        | 0.5                   |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.TUNGSTENGAS.NAME        | Unbreathable     | - Metal - RefinedMetal                 
+   | 26. | EthanolGas         |               2.148  |  0.1  |        351.5  | Ethanol                 |                390 |          7      |  46.07     | 0        | 0.5                   |                         25 |                           1 |                        1 | false      | STRINGS.ELEMENTS.ETHANOLGAS.NAME         | Unbreathable     | -                                      
+   | 27. | Syngas             |               2.4    |  0.1  |         21    | MoltenSyngas            |                320 |          7      |  26.96     | 0        | 0.1                   |                         25 |                           1 |                        1 | true       | STRINGS.ELEMENTS.SYNGAS.NAME             | Unbreathable     | - CombustibleGas                       
+   ===== ==================== ====================== ======= =============== ========================= ==================== ================= ============ ========== ======================= ============================ ============================= ========================== ============ ========================================== ================== =========================================
 
 
 液态元素属性表
@@ -3157,48 +6392,94 @@ Achievements
    TC  = Thermal Conductivity [(DTU/(m*s))/°C]
    Thermal range = [(Evaporation temperature) - (Freezing temperature)] °C
 
-   +--------------------------+------------------+-----------------------+---------------------+--------------------------+---------+---------+------------+---------------+
-   | Name                     | Freezing point   | Freezes into          | Vaporization point  | Evaporates into          | SHC     | TC      | Density    | Thermal range |
-   |                          | [°C]             |                       | [°C]                |                          |         |         | [g/mol]    | [°C]          |
-   +--------------------------+------------------+-----------------------+---------------------+--------------------------+---------+---------+------------+---------------+
-   | Liquid Hydrogen          | -259.15          | Solid Hydrogen        | -252.15             | Hydrogen                 | 2.400   | 0.100   | 1.00794    | 7.00          |
-   | Liquid Helium (unused)   | -273.2           |                       | -268.93             | Helium                   | 0.140   | 0.236   | 4          | 4.27          |
-   | Visco-Gel                | -30.65           | Solid Visco Gel       | 479.85              | Naphtha                  | 1.550   | 0.450   | 10         | 449.20        |
-   | Liquid Carbon            | 3551.85          | Refined Carbon        | 4826.85             | Gas Carbon               | 0.710   | 2.000   | 12.0107    | 1275.00       |
-   | Liquid Oxygen            | -218.79          | Solid Oxygen          | -182.96             | Oxygen                   | 1.010   | 2.000   | 15.9994    | 35.83         |
-   | Methane                  | -182.6           | Solid Methane         | -161.5              | Natural Gas              | 2.191   | 0.030   | 16.044     | 21.10         |
-   | Water                    | -0.65            | Ice                   | 99.35               | Steam                    | 4.179   | 0.609   | 18.01528   | 98.70         |
-   | Polluted Water           | -20.65           | Polluted Ice          | 119.35              | Steam                    | 4.179   | 0.580   | 20         | 140.00        |
-   | Salt Water               | -7.5             | Brine                 | 99.69               | Steam                    | 4.100   | 0.609   | 21         | 107.19        |
-   | Brine                    | -22.5            | Brine Ice             | 102.75              | Steam                    | 3.400   | 0.609   | 22         | 125.25        |
-   | Brackene                 | -16.5            | Frozen Brackene       | 80                  | 10% Brackwax  90% Brine  | 4.100   | 0.609   | 23         | 96.5          |
-   | Liquid Phosphorus        | 44.15            | Phosphorus            | 280.45              | Gas Phosphorus           | 0.770   | 0.236   | 30.973762  | 236.30        |
-   | Liquid Sulfur            | 115.2            | Sulfur                | 337                 | Gas Sulfur               | 0.700   | 0.200   | 32         | 221.80        |
-   | Molten Salt              | 799.85           | Salt                  | 1464.85             | Salt Gas                 | 0.700   | 0.444   | 32         | 665.00        |
-   | Liquid Chlorine          | -100.98          | Solid Chlorine        | -34.6               | Chlorine                 | 0.480   | 0.008   | 34.453     | 66.38         |
-   | Liquid Carbon Dioxide    | -56.55           | Solid Carbon Dioxide  | -48.15              | Carbon Dioxide           | 0.846   | 1.460   | 44.01      | 8.40          |
-   | Liquid Propane (unused)  | -188.2           | Solid Propane         | -42.15              | Propane                  | 2.400   | 0.015   | 44.1       | 146.05        |
-   | Ethanol                  | -114.05          | Solid Ethanol         | 78.35               | Gas Ethanol              | 2.460   | 0.171   | 46.07      | 222.40        |
-   | Magma                    | 1409.85          | Igneous Rock          | 2356.85             | Rock Gas                 | 1.000   | 1.000   | 50         | 947.00        |
-   | Molten Glass             | 1126.85          | Glass                 | 2356.85             | Rock Gas                 | 0.200   | 1.000   | 50         | 1230.00       |
-   | Liquid Resin             | 20               | Resin                 | 125                 | 25% Isoresin  75% Steam  | 1.100   | 0.150   | 52.5       | 105.00        |
-   | Liquid Iron              | 1534.85          | Iron                  | 2749.85             | Gas Iron                 | 0.449   | 4.000   | 55.845     | 1215.00       |
-   | Molten Aluminum          | 660.3            | Aluminum              | 2470                | Aluminum Gas             | 0.910   | 20.500  | 55.845     | 1809.70       |
-   | Liquid Cobalt            | 1494.9           | Cobalt                | 2926.9              | Gas Cobalt               | 0.420   | 4.000   | 58.9       | 1432          |
-   | Liquid Copper            | 1083.85          | Copper                | 2560.85             | Gas Copper               | 0.386   | 12.000  | 63.546     | 1477.00       |
-   | Liquid Steel             | 1083.85          | Steel                 | 3826.85             | Gas Steel                | 0.386   | 80.000  | 63.546     | 2743.00       |
-   | Petroleum                | -57.15           | Solid Petroleum       | 538.85              | Sour Gas                 | 1.760   | 2.000   | 82.2       | 596.00        |
-   | Liquid Niobium           | 2476.85          | Niobium               | 4743.85             | Gas Niobium              | 0.265   | 54.000  | 92.9       | 2267.00       |
-   | Naphtha                  | -50.15           | Solid Naphtha         | 538.85              | Sour Gas                 | 2.191   | 0.200   | 102.2      | 589.00        |
-   | Nuclear Waste            | 26.9             | Solid Nuclear Waste   | 526.9               | Nuclear Fallout          | 7.440   | 6.000   | 150        | 500           |
-   | Liquid Tungsten          | 3421.85          | Tungsten              | 5929.85             | Gas Tungsten             | 0.134   | 4.000   | 183.84     | 2508.00       |
-   | Liquid Gold              | 1063.85          | Gold                  | 2855.85             | Gas Gold                 | 0.129   | 6.000   | 196.966569 | 1792.00       |
-   | Molten Lead              | 327.5            | Lead                  | 1749                | Gas Lead                 | 0.128   | 11.000  | 196.966569 | 1421.50       |
-   | Mercury (unused)         | -38.8            | Solid Mercury         | 356.75              | Gas Mercury              | 0.140   | 8.300   | 200.59     | 395.55        |
-   | Liquid Uranium           | 132.9            | Depleted Uranium      | 4131.9              | Rock Gas                 | 1.690   | 2.000   | 238.02     | 3999          |
-   | Super Coolant            | -271.15          | Solid Super Coolant   | 436.85              | Gas Super Coolant        | 8.440   | 9.460   | 250        | 708.00        |
-   | Crude Oil                | -40.15           | Solid Crude Oil       | 399.85              | Petroleum                | 1.690   | 2.000   | 500        | 440.00        |
-   +--------------------------+------------------+-----------------------+---------------------+--------------------------+---------+---------+------------+---------------+
+   ========================== ================== ======================= ===================== ========================== ========= ========= ============ ================
+   | Name                     | Freezing point   | Freezes into          | Vaporization point  | Evaporates into          | SHC     | TC      | Density    | Thermal range 
+   |                          | [°C]             |                       | [°C]                |                          |         |         | [g/mol]    | [°C]          
+   ========================== ================== ======================= ===================== ========================== ========= ========= ============ ================
+   | Liquid Hydrogen          | -259.15          | Solid Hydrogen        | -252.15             | Hydrogen                 | 2.400   | 0.100   | 1.00794    | 7.00          
+   | Liquid Helium (unused)   | -273.2           |                       | -268.93             | Helium                   | 0.140   | 0.236   | 4          | 4.27          
+   | Visco-Gel                | -30.65           | Solid Visco Gel       | 479.85              | Naphtha                  | 1.550   | 0.450   | 10         | 449.20        
+   | Liquid Carbon            | 3551.85          | Refined Carbon        | 4826.85             | Gas Carbon               | 0.710   | 2.000   | 12.0107    | 1275.00       
+   | Liquid Oxygen            | -218.79          | Solid Oxygen          | -182.96             | Oxygen                   | 1.010   | 2.000   | 15.9994    | 35.83         
+   | Methane                  | -182.6           | Solid Methane         | -161.5              | Natural Gas              | 2.191   | 0.030   | 16.044     | 21.10         
+   | Water                    | -0.65            | Ice                   | 99.35               | Steam                    | 4.179   | 0.609   | 18.01528   | 98.70         
+   | Polluted Water           | -20.65           | Polluted Ice          | 119.35              | Steam                    | 4.179   | 0.580   | 20         | 140.00        
+   | Salt Water               | -7.5             | Brine                 | 99.69               | Steam                    | 4.100   | 0.609   | 21         | 107.19        
+   | Brine                    | -22.5            | Brine Ice             | 102.75              | Steam                    | 3.400   | 0.609   | 22         | 125.25        
+   | Brackene                 | -16.5            | Frozen Brackene       | 80                  | 10% Brackwax  90% Brine  | 4.100   | 0.609   | 23         | 96.5          
+   | Liquid Phosphorus        | 44.15            | Phosphorus            | 280.45              | Gas Phosphorus           | 0.770   | 0.236   | 30.973762  | 236.30        
+   | Liquid Sulfur            | 115.2            | Sulfur                | 337                 | Gas Sulfur               | 0.700   | 0.200   | 32         | 221.80        
+   | Molten Salt              | 799.85           | Salt                  | 1464.85             | Salt Gas                 | 0.700   | 0.444   | 32         | 665.00        
+   | Liquid Chlorine          | -100.98          | Solid Chlorine        | -34.6               | Chlorine                 | 0.480   | 0.008   | 34.453     | 66.38         
+   | Liquid Carbon Dioxide    | -56.55           | Solid Carbon Dioxide  | -48.15              | Carbon Dioxide           | 0.846   | 1.460   | 44.01      | 8.40          
+   | Liquid Propane (unused)  | -188.2           | Solid Propane         | -42.15              | Propane                  | 2.400   | 0.015   | 44.1       | 146.05        
+   | Ethanol                  | -114.05          | Solid Ethanol         | 78.35               | Gas Ethanol              | 2.460   | 0.171   | 46.07      | 222.40        
+   | Magma                    | 1409.85          | Igneous Rock          | 2356.85             | Rock Gas                 | 1.000   | 1.000   | 50         | 947.00        
+   | Molten Glass             | 1126.85          | Glass                 | 2356.85             | Rock Gas                 | 0.200   | 1.000   | 50         | 1230.00       
+   | Liquid Resin             | 20               | Resin                 | 125                 | 25% Isoresin  75% Steam  | 1.100   | 0.150   | 52.5       | 105.00        
+   | Liquid Iron              | 1534.85          | Iron                  | 2749.85             | Gas Iron                 | 0.449   | 4.000   | 55.845     | 1215.00       
+   | Molten Aluminum          | 660.3            | Aluminum              | 2470                | Aluminum Gas             | 0.910   | 20.500  | 55.845     | 1809.70       
+   | Liquid Cobalt            | 1494.9           | Cobalt                | 2926.9              | Gas Cobalt               | 0.420   | 4.000   | 58.9       | 1432          
+   | Liquid Copper            | 1083.85          | Copper                | 2560.85             | Gas Copper               | 0.386   | 12.000  | 63.546     | 1477.00       
+   | Liquid Steel             | 1083.85          | Steel                 | 3826.85             | Gas Steel                | 0.386   | 80.000  | 63.546     | 2743.00       
+   | Petroleum                | -57.15           | Solid Petroleum       | 538.85              | Sour Gas                 | 1.760   | 2.000   | 82.2       | 596.00        
+   | Liquid Niobium           | 2476.85          | Niobium               | 4743.85             | Gas Niobium              | 0.265   | 54.000  | 92.9       | 2267.00       
+   | Naphtha                  | -50.15           | Solid Naphtha         | 538.85              | Sour Gas                 | 2.191   | 0.200   | 102.2      | 589.00        
+   | Nuclear Waste            | 26.9             | Solid Nuclear Waste   | 526.9               | Nuclear Fallout          | 7.440   | 6.000   | 150        | 500           
+   | Liquid Tungsten          | 3421.85          | Tungsten              | 5929.85             | Gas Tungsten             | 0.134   | 4.000   | 183.84     | 2508.00       
+   | Liquid Gold              | 1063.85          | Gold                  | 2855.85             | Gas Gold                 | 0.129   | 6.000   | 196.966569 | 1792.00       
+   | Molten Lead              | 327.5            | Lead                  | 1749                | Gas Lead                 | 0.128   | 11.000  | 196.966569 | 1421.50       
+   | Mercury (unused)         | -38.8            | Solid Mercury         | 356.75              | Gas Mercury              | 0.140   | 8.300   | 200.59     | 395.55        
+   | Liquid Uranium           | 132.9            | Depleted Uranium      | 4131.9              | Rock Gas                 | 1.690   | 2.000   | 238.02     | 3999          
+   | Super Coolant            | -271.15          | Solid Super Coolant   | 436.85              | Gas Super Coolant        | 8.440   | 9.460   | 250        | 708.00        
+   | Crude Oil                | -40.15           | Solid Crude Oil       | 399.85              | Petroleum                | 1.690   | 2.000   | 500        | 440.00        
+   ========================== ================== ======================= ===================== ========================== ========= ========= ============ ================
+
+Oxygen Not Included v399948 liquid.yaml
+
+   ===== ===================== ========= ============= ======= =================== ================= ====================== ===================== ========= ========== ========================= ========================== ==================== ============= =============== ========== ======================= ============================ ============================= ========================== =========================================== ============ ===================================== 
+   | NO. | elementId           | maxMass | Compression | speed | minHorizontalFlow | minVerticalFlow | specificHeatCapacity | thermalConductivity | lowTemp | highTemp | lowTempTransitionTarget | highTempTransitionTarget | defaultTemperature | defaultMass | molarMass     | toxicity | lightAbsorptionFactor | solidSurfaceAreaMultiplier | liquidSurfaceAreaMultiplier | gasSurfaceAreaMultiplier | localizationID                            | isDisabled |
+   ===== ===================== ========= ============= ======= =================== ================= ====================== ===================== ========= ========== ========================= ========================== ==================== ============= =============== ========== ======================= ============================ ============================= ========================== =========================================== ============ ===================================== 
+   | 01. | ViscoGel            |     100 | 1.01        |     1 |                10 |              10 |                 1.55 |                0.45 |  242.5  |   753    | SolidViscoGel           | Naphtha                  |             238    |         100 |     10        |     0    |                  0.1  |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.VISCOGEL.NAME            | false      | -                                    
+   | 02. | Water               |    1000 | 1.01        |   125 |              0.01 |            0.01 |                4.179 |               0.609 |  272.5  |   372.5  | Ice                     | Steam                    |             300    |        1000 |     18.01528  |     0    |                  0.25 |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.WATER.NAME               | false      | - AnyWater                           
+   | 03. | DirtyWater          |    1000 | 1.01        |   125 |              0.01 |            0.01 |                4.179 |                0.58 |  252.5  |   392.5  | DirtyIce                | Steam                    |             300    |        1000 |     20        |     0.1  |                  0.7  |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.DIRTYWATER.NAME          | false      | - Mixture - AnyWater                 
+   | 04. | SaltWater           |    1000 | 1.01        |   100 |              0.01 |            0.01 |                  4.1 |               0.609 |  265.65 |   372.84 | Brine                   | Steam                    |             300    |        1100 |     21        |     0    |                  0.25 |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.SALTWATER.NAME           | false      | - AnyWater                           
+   | 05. | Brine               |    1000 | 1.01        |   100 |              0.01 |            0.01 |                  3.4 |               0.609 |  250.65 |   375.9  | BrineIce                | Steam                    |             282.15 |        1200 |     22        |     0    |                  0.25 |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.BRINE.NAME               | false      | - AnyWater                           
+   | 06. | Ethanol             |    1000 | 1.01        |   125 |              0.01 |            0.01 |                 2.46 |               0.171 |  159.1  |   351.5  | SolidEthanol            | EthanolGas               |             300    |        1000 |     46.07     |     0    |                  0.25 |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.ETHANOL.NAME             | false      | - CombustibleLiquid                  
+   | 07. | Petroleum           |     740 | 1.01        |    50 |               0.1 |             0.1 |                 1.76 |                   2 |  216    |   812    | SolidPetroleum          | SourGas                  |             300    |         190 |     82.2      |     0    |                  0.8  |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.PETROLEUM.NAME           | false      | - CombustibleLiquid                  
+   | 08. | Naphtha             |     740 | 1.01        |    30 |                10 |              10 |                2.191 |                 0.2 |  223    |   812    | SolidNaphtha            | SourGas                  |             350    |         740 |    102.2      |     0.25 |                  0.8  |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.NAPHTHA.NAME             | false      | - Oil                                
+   | 09. | SuperCoolant        |     910 | 1.01        |   150 |              0.01 |            0.01 |                 8.44 |                9.46 |    2    |   710    | SolidSuperCoolant       | SuperCoolantGas          |             238    |         800 |    250        |     0    |                  0.9  |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.SUPERCOOLANT.NAME        | false      | -                                    
+   | 10. | CrudeOil            |     870 | 1.01        |    50 |               0.1 |             0.1 |                 1.69 |                   2 |  233    |   673    | SolidCrudeOil           | Petroleum                |             350    |         200 |    500        |     0    |                  1    |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.CRUDEOIL.NAME            | false      | -                                    
+   |     |                     |         |             |       |                   |                 |                      |                     |         |          |                         |                          |                    |             |               |          |                       |                            |                             |                          |                                           |            |                                      
+   | 11. | LiquidHydrogen      |    1000 | 1.01        |   180 |              0.01 |            0.01 |                  2.4 |                 0.1 |   14    |    21    | SolidHydrogen           | Hydrogen                 |              18    |         600 |      1.00794  |     0    |                  1    |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.LIQUIDHYDROGEN.NAME      | false      | -                                    
+   | 12. | LiquidOxygen        |     500 | 1.01        |   200 |              0.01 |            0.01 |                 1.01 |                   2 |   54.36 |    90.19 | SolidOxygen             | Oxygen                   |              74.36 |         300 |     15.9994   |     0    |                  1    |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.LIQUIDOXYGEN.NAME        | false      | -                                    
+   | 13. | LiquidMethane       |    1000 | 1.01        |   180 |              0.01 |            0.01 |                2.191 |                0.03 |   90.55 |   111.65 | SolidMethane            | Methane                  |             100    |         600 |     16.044    |     0    |                  0.6  |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.LIQUIDMETHANE.NAME       | false      | -                                    
+   | 14. | LiquidPhosphorus    |    1000 | 1.01        |   100 |                 2 |               1 |               0.7697 |               0.236 |  317.3  |   553.6  | Phosphorus              | PhosphorusGas            |             500    |         200 |     30.973762 |     0    |                  1    |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.LIQUIDPHOSPHORUS.NAME    | false      | - EmitsLight                         
+   | 15. | LiquidSulfur        |     740 | 1.01        |    50 |               0.1 |             0.1 |                  0.7 |                 0.2 |  388.35 |   610.15 | Sulfur                  | SulfurGas                |             450    |         190 |     32        |     0    |                  0.1  |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.LIQUIDSULFUR.NAME        | false      | -                                    
+   | 16. | Chlorine            |    1000 | 1.01        |   180 |              0.01 |            0.01 |                 0.48 |              0.0081 |  172.17 |   238.55 | SolidChlorine           | ChlorineGas              |             200    |         600 |     34.453    |     0    |                  1    |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.CHLORINE.NAME            | false      | -                                    
+   | 17. | LiquidCarbonDioxide |    2000 | 1.01        |   125 |              0.01 |            0.01 |                0.846 |                1.46 |  216.6  |   225    | SolidCarbonDioxide      | CarbonDioxide            |             220    |         600 |     44.01     |     0    |                  1    |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.LIQUIDCARBONDIOXIDE.NAME | false      | -                                    
+   | 18. | LiquidPropane       |    1000 | 1.01        |   180 |              0.01 |            0.01 |                  2.4 |                 0.1 |   85    |   231    | SolidPropane            | Propane                  |             200    |         600 |     44.1      |     0    |                  1    |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.LIQUIDPROPANE.NAME       | false      | -                                    
+   |     |                     |         |             |       |                   |                 |                      |                     |         |          |                         |                          |                    |             |               |          |                       |                            |                             |                          |                                           |            |                                      
+   | 19. | Magma               |    1840 | 1.01        |    60 |                50 |              20 |                    1 |                   1 | 1683    |  2630    | IgneousRock             | RockGas                  |            2000    |        1840 |     50        |     0    |                  1    |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.MAGMA.NAME               | false      | - EmitsLight                         
+   |     |                     |         |             |       |                   |                 |                      |                     |         |          |                         |                          |                    |             |               |          |                       |                            |                             |                          |                                           |            |                                      
+   | 20. | MoltenCarbon        |    4000 | 1.01        |   150 |              0.01 |            0.01 |                 0.71 |                   2 | 3825    |  5100    | RefinedCarbon           | CarbonGas                |            4600    |         600 |     12.0107   |     0    |                  1    |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.MOLTENCARBON.NAME        | false      | -                                    
+   | 21. | MoltenSalt          |     740 | 1.01        |    50 |               0.1 |             0.1 |                  0.7 |               0.444 | 1073    |  1738    | Salt                    | SaltGas                  |             450    |         190 |     32        |     0    |                  0.1  |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.MOLTENSALT.NAME          | false      | -                                    
+   | 22. | MoltenGlass         |    1840 | 1.01        |    60 |                50 |              20 |                  0.2 |                   1 | 1400    |  2630    | Glass                   | RockGas                  |            2000    |         200 |     50        |     0    |                  0.7  |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.MOLTENGLASS.NAME         | false      | - EmitsLight                         
+   | 23. | MoltenAluminum      |    7870 | 1.01        |   100 |                30 |               3 |                 0.91 |                20.5 |  933.45 |  2743.15 | Aluminum                | AluminumGas              |            2000    |        1000 |     55.845    |     0    |                  1    |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.MOLTENALUMINUM.NAME      | false      | - Metal - RefinedMetal - EmitsLight  
+   | 24. | MoltenIron          |    7870 | 1.01        |   100 |                30 |               3 |                0.449 |                   4 | 1808    |  3023    | Iron                    | IronGas                  |            2500    |        1000 |     55.845    |     0    |                  1    |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.MOLTENIRON.NAME          | false      | - Metal - RefinedMetal - EmitsLight  
+   | 25. | MoltenSteel         |    3870 | 1.01        |   100 |                20 |              10 |                0.386 |                  80 | 1357    |  4100    | Steel                   | SteelGas                 |            2000    |         900 |     63.546    |     0    |                  1    |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.MOLTENSTEEL.NAME         | false      | - Metal - RefinedMetal - EmitsLight  
+   | 26. | MoltenCopper        |    3870 | 1.01        |   100 |                20 |               2 |                0.386 |                  12 | 1357    |  2834    | Copper                  | CopperGas                |            1800    |         900 |     63.546    |     0    |                  1    |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.MOLTENCOPPER.NAME        | false      | - Metal - RefinedMetal               
+   | 27. | MoltenNiobium       |    3870 | 1.01        |   100 |                20 |              10 |                0.265 |                  54 | 2750    |  5017    | Niobium                 | NiobiumGas               |            3000    |         900 |     92.9      |     0    |                  1    |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.MOLTENNIOBIUM.NAME       | false      | - Metal - RefinedMetal - EmitsLight  
+   | 28. | MoltenTungsten      |    3870 | 1.01        |   100 |                20 |              10 |                0.134 |                   4 | 3695    |  6203    | Tungsten                | TungstenGas              |            4000    |         200 |    183.84     |     0    |                  0.7  |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.MOLTENTUNGSTEN.NAME      | false      | - Metal - RefinedMetal               
+   | 29. | MoltenGold          |    9970 | 1.01        |   100 |                25 |               1 |               0.1291 |                   6 | 1337    |  3129    | Gold                    | GoldGas                  |            2000    |         870 |    196.966569 |     0    |                  1    |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.MOLTENGOLD.NAME          | false      | - Metal - RefinedMetal - EmitsLight  
+   | 30. | MoltenLead          |    9970 | 1.01        |   100 |                25 |               1 |                0.128 |                  11 |  600.65 |  2022.15 | Lead                    | LeadGas                  |            2000    |        3000 |    196.966569 |     0    |                  1    |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.MOLTENLEAD.NAME          | false      | - Metal - RefinedMetal - EmitsLight  
+   |     |                     |         |             |       |                   |                 |                      |                     |         |          |                         |                          |                    |             |               |          |                       |                            |                             |                          |                                           |            |                                      
+   | 31. | MoltenSyngas        |    1000 | 1.01        |   180 |              0.01 |            0.01 |                  2.4 |                 0.1 |   14    |    21    | SolidSyngas             | Syngas                   |              18    |         600 |      1.00794  |     0    |                  1    |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.MOLTENSYNGAS.NAME        | true       | -                                    
+   | 32. | LiquidHelium        |    1000 | 1.01        |   100 |              0.01 |            0.01 |                  0.2 |               0.236 |    0    |     4.22 | -                       | Helium                   |               1    |         200 |      4        |     0    |                  0.8  |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.LIQUIDHELIUM.NAME        | true       | -                                    
+   | 33. | NuclearWaste        |    9970 | 1.01        |   100 |                25 |               1 |                 7.44 |                   6 |    0    |  4405    | -                       | -                        |            2000    |        3000 |    196.966569 |     0    |                  1    |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.NUCLEARWASTE.NAME        | true       | - Metal - RefinedMetal - EmitsLight  
+   | 34. | MoltenUranium       |    9970 | 1.01        |   100 |                25 |               1 |                 1.69 |                   2 | 1132    |  4405    | DepletedUranium         | RockGas                  |            2000    |        3000 |    196.966569 |     0    |                  1    |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.MOLTENURANIUM.NAME       | true       | - Metal - RefinedMetal - EmitsLight  
+   | 35. | Mercury             |    1000 | 1.01        |   140 |              0.01 |            0.01 |                 0.14 |                 8.3 |  234.3  |   629.9  | SolidMercury            | MercuryGas               |             320    |         600 |    200.59     |     0    |                  1    |                          1 |                          25 |                        1 | STRINGS.ELEMENTS.MERCURY.NAME             | true       | - Metal                              
+   ===== ===================== ========= ============= ======= =================== ================= ====================== ===================== ========= ========== ========================= ========================== ==================== ============= =============== ========== ======================= ============================ ============================= ========================== =========================================== ============ ===================================== 
 
 
 固态元素属性表
@@ -3209,10 +6490,10 @@ Achievements
    SHC = Specific Heat Capacity [(DTU/g)/°C]
    TC  = Thermal Conductivity [(DTU/(m*s))/°C]
 
-   +-----------------------+--------+---------+------------------+--------------+------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------------+-------------------+
-   | Name                  | SHC    | TC      | Gas Surface      | Electrical   | Strength | Melting     | Melts into             | Default Values | Default Values | Max Mass  | Hardness | Hardness | Molar Mass | Material Category  | Tags                           | CollapseNotes     |
-   |                       |        |         | Area Multiplier  | Conductivity |          | Temperature |                        | Temperature    | Mass           |           | Tier     |          |            |                    |                                |
-   +-----------------------+--------+---------+------------------+--------------+------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------------+-------------------+
+   ======================= ======== ========= ================== ============== ========== ============= ======================== ================ ================ =========== ========== ========== ============ ==================== ================================ =====================
+     Name                    SHC      TC        Gas Surface        Electrical     Strength   Melting       Melts into               Default Values   Default Values   Max Mass    Hardness   Hardness   Molar Mass   Material Category    Tags                             CollapseNotes
+                                                Area Multiplier    Conductivity              Temperature                            Temperature      Mass                         Tier                                                                                    
+   ======================= ======== ========= ================== ============== ========== ============= ======================== ================ ================ =========== ========== ========== ============ ==================== ================================ =====================
    | Neutronium            | 0      | 0       | 0                | 0            | 0        | 10000 K     | Neutronium             |        1 K     |      20000 kg  | 20000 kg  | 100      | 255      | 10000      | Special            |                                | # When melted, the game crash
    | Abyssalite            | 4      | 0.00001 | 1                | 0.01         | 2        | 3695 K      | Liquid Tungsten        |      300 K     |        500 kg  |  3200 kg  | 7        | 200      | 341.76     | Miscellaneous      |                                | # WSe2 - random stacking dense low thermal conductivity
    | Solid Hydrogen        | 2.4    | 1       | 1                | 0            | 0.25     | 14 K        | Liquid Hydrogen        |        5 K     |        600 kg  |  1000 kg  | 1        | 2        | 44.1       |                    | Burns                          |
@@ -3263,7 +6544,99 @@ Achievements
    | Fertilizer            | 0.83   | 2       | 1                | 0            | 0.2      | 398.15 K    | Dirt                   |      242.15 K  |        200 kg  |   300 kg  | 1        | 2        | 50         | Agriculture        |                                |
    | Algae                 | 0.2    | 2       | 1                | 0            | 0.2      | 398.15 K    | Dirt                   |      290 K     |        200 kg  |   300 kg  | 1        | 2        | 4          | Organics           |                                |
    | Brine Ice             | 0.2    | 2       | 1                | 0.1          | 1        | 256.65 K    | Brine                  |      232.15 K  |       1200 kg  |  1200 kg  | 3        | 25       | 18.01528?  | Liquifiable        |                                |
-   +-----------------------+--------+---------+------------------+--------------+------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------------+-------------------+
+   ======================= ======== ========= ================== ============== ========== ============= ======================== ================ ================ =========== ========== ========== ============ ==================== ================================ =====================
+
+Oxygen Not Included v399948 solid.yaml
+
+   ===== ==================== ======================= ===================== ========== ========== ========================== ==================== ============= ========= ============== ========== ================ ======================= ============================ ============================= ========================== =============== ============ ===========================================
+   | NO. | elementId          |  specificHeatCapacity | thermalConductivity | strength | highTemp | highTempTransitionTarget | defaultTemperature | defaultMass | maxMass | hardnessTier | hardness |      molarMass | lightAbsorptionFactor | solidSurfaceAreaMultiplier | liquidSurfaceAreaMultiplier | gasSurfaceAreaMultiplier | buildMenuSort | isDisabled | localizationID                           
+   ===== ==================== ======================= ===================== ========== ========== ========================== ==================== ============= ========= ============== ========== ================ ======================= ============================ ============================= ========================== =============== ============ ===========================================
+   | 01. | Aerogel            |                1      |               0.003 |    0.001 | 10000    | Katairite                |             290    |           1 |       2 |          1   |        2 |     200        |               0.25    |                          1 |                           1 |                        1 |             1 | true       | STRINGS.ELEMENTS.AEROGEL.NAME            
+   | 02. | Algae              |                0.2    |               2     |    0.2   |   398.15 | Dirt                     |             290    |         200 |     300 |          1   |        2 |       4        |               1       |                          1 |                           1 |                        1 |             2 | false      | STRINGS.ELEMENTS.ALGAE.NAME              
+   | 03. | Aluminum           |                0.91   |             205     |    1     |   933.45 | MoltenAluminum           |             300    |         200 |    1000 |          3   |       25 |      55.845    |               1       |                          1 |                           1 |                        1 |             2 | false      | STRINGS.ELEMENTS.ALUMINUM.NAME           
+   | 04. | AluminumOre        |                0.91   |              20.5   |    0.7   |  1357    | MoltenAluminum           |             300    |         500 |     500 |          3   |       25 |     143.09     |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.ALUMINUMORE.NAME        
+   | 05. | Bitumen            |                1.76   |               0.17  |    0.1   |   812    | CarbonDioxide            |             232.15 |         740 |    1840 |          1   |        2 |      82.2      |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.BITUMEN.NAME            
+   | 06. | BleachStone        |                0.5    |               4     |    1     |   942    | Chlorine                 |             300    |          50 |     500 |          4   |       50 |      43        |               1       |                          1 |                           1 |                        1 |             3 | false      | STRINGS.ELEMENTS.BLEACHSTONE.NAME        
+   | 07. | Brick              |                0.84   |               0.62  |    1     |  1683    | Magma                    |             300    |        1000 |    2000 |          4   |       50 |      25        |               1       |                          1 |                           1 |                        1 |             1 | true       | STRINGS.ELEMENTS.BRICK.NAME              
+   | 08. | BrineIce           |                3.4    |               2.18  |    1     |   256.65 | Brine                    |             232.15 |        1000 |    1100 |          3   |       25 |      18.01528  |               0.33333 |                          1 |                           1 |                        1 |             5 | false      | STRINGS.ELEMENTS.BRINEICE.NAME           
+   | 09. | Carbon             |                0.71   |               1     |    0.8   |   550    | RefinedCarbon            |             300    |         600 |    4000 |          1   |        2 |      12.0107   |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.CARBON.NAME             
+   | 10. | CarbonFibre        |                0.52   |               0     |    1     |  5000    | MoltenCarbon             |             300    |        1000 |     800 |          8   |      250 |      25        |               1       |                          1 |                           1 |                        1 |             1 | true       | STRINGS.ELEMENTS.CARBONFIBRE.NAME        
+   | 11. | Cement             |                1.55   |               8     |    1     |  1683    | Magma                    |             300    |        1000 |    2000 |          7   |      200 |      25        |               1       |                          1 |                           1 |                        1 |             1 | true       | STRINGS.ELEMENTS.CEMENT.NAME             
+   | 12. | CementMix          |                0.52   |               8     |    1     |  1683    | Magma                    |             300    |        1000 |    2000 |          2   |       10 |      25        |               1       |                          1 |                           1 |                        1 |             1 | true       | STRINGS.ELEMENTS.CEMENTMIX.NAME          
+   | 13. | Ceramic            |                0.84   |               0.62  |    1     |  2123    | Magma                    |             300    |        1000 |    2000 |          4   |       50 |      25        |               1       |                          1 |                           1 |                        1 |             5 | false      | STRINGS.ELEMENTS.CERAMIC.NAME            
+   | 14. | Clay               |                0.92   |               2     |    0.2   |  1200    | Ceramic                  |             290    |        1000 |    1840 |          1.5 |        5 |     200        |               1       |                          1 |                           1 |                        1 |             3 | false      | STRINGS.ELEMENTS.CLAY.NAME               
+   | 15. | Copper             |                0.385  |              60     |    0.8   |  1357    | MoltenCopper             |             300    |         900 |    3870 |          3   |       25 |      63.546    |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.COPPER.NAME             
+   | 16. | Creature           |                3.47   |               0.6   |    1     | 10000    | Creature                 |             310    |          40 |     200 |          1   |       10 |      25        |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.CREATURE.NAME           
+   | 17. | CrushedIce         |                2.05   |               2.18  |    0.4   |   272.5  | Water                    |             242.15 |          10 |      20 |          2   |       10 |      18.01528  |               0.5     |                          1 |                           1 |                     1000 |             5 | false      | STRINGS.ELEMENTS.CRUSHEDICE.NAME         
+   | 18. | CrushedRock        |                0.2    |               2     |    0.7   |  1683    | Magma                    |             300    |        1000 |    1840 |          2   |       10 |      50        |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.CRUSHEDROCK.NAME        
+   | 19. | Cuprite            |                0.386  |               4.5   |    0.7   |  1357    | MoltenCopper             |             300    |         800 |    1840 |          3   |       25 |     143.09     |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.CUPRITE.NAME            
+   | 20. | DepletedUranium    |                1      |              20     |    1     |  1132    | MoltenUranium            |             300    |         100 |     200 |          8   |      250 |     120        |               1       |                          1 |                           1 |                        1 |             1 | true       | STRINGS.ELEMENTS.DEPLETEDURANIUM.NAME    
+   | 21. | Diamond            |                0.516  |              80     |    2.5   |  4200    | MoltenCarbon             |             300    |         700 |    1840 |          8   |      250 |      12.0107   |               0.1     |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.DIAMOND.NAME            
+   | 22. | Dirt               |                1.48   |               2     |    0.2   |   600    | Sand                     |             290    |        1840 |    1840 |          1   |        2 |      50        |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.DIRT.NAME               
+   | 23. | DirtyIce           |                3.05   |               1     |    1     |   252.5  | DirtyWater               |             230    |         500 |     800 |          2   |       10 |      25        |               0.8     |                          1 |                           1 |                        1 |             5 | false      | STRINGS.ELEMENTS.DIRTYICE.NAME           
+   | 24. | Electrum           |                0.15   |               2     |    0.7   |  1337    | MoltenGold               |             300    |         800 |    1840 |          1   |        2 |      95.61     |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.ELECTRUM.NAME           
+   | 25. | EnrichedUranium    |                1      |              20     |    1     |  1132    | MoltenUranium            |             300    |         100 |     200 |          8   |      250 |     120        |               1       |                          1 |                           1 |                        1 |             1 | true       | STRINGS.ELEMENTS.ENRICHEDURANIUM.NAME    
+   | 26. | Fertilizer         |                0.83   |               2     |    0.2   |   398.15 | Dirt                     |             300    |         200 |     300 |          1   |        2 |      50        |               1       |                          1 |                           1 |                        1 |             5 | false      | STRINGS.ELEMENTS.FERTILIZER.NAME         
+   | 27. | FoolsGold          |                0.386  |               4.5   |    0.7   |  1357    | MoltenIron               |             300    |         800 |    1840 |          3   |       25 |      95.61     |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.FOOLSGOLD.NAME          
+   | 28. | Fossil             |                0.91   |               2     |    0.2   |  1612    | Magma                    |             300    |         500 |    1000 |          4   |       50 |     200        |               1       |                          1 |                           1 |                        1 |             4 | false      | STRINGS.ELEMENTS.FOSSIL.NAME             
+   | 29. | Fullerene          |                0.95   |              50     |    1     |  4200    | MoltenCarbon             |             242.15 |          30 |      50 |          8   |      250 |      12.0107   |               1       |                          1 |                           1 |                        1 |            52 | -          | STRINGS.ELEMENTS.FULLERENE.NAME          
+   | 30. | Glass              |                0.84   |               1.11  |    1     |  1700    | MoltenGlass              |             300    |        1000 |     800 |          2   |       10 |      25        |               0.1     |                          1 |                           1 |                        1 |             5 | false      | STRINGS.ELEMENTS.GLASS.NAME              
+   | 31. | Gold               |                0.129  |              60     |    0.7   |  1337    | MoltenGold               |             300    |         870 |    9970 |          1   |        2 |     196.966569 |               1       |                          1 |                           1 |                        1 |             3 | false      | STRINGS.ELEMENTS.GOLD.NAME               
+   | 32. | GoldAmalgam        |                0.15   |               2     |    0.8   |  1337    | MoltenGold               |             300    |         800 |    1840 |          1   |        2 |      95.61     |               1       |                          1 |                           1 |                        1 |             3 | false      | STRINGS.ELEMENTS.GOLDAMALGAM.NAME        
+   | 33. | Granite            |                0.79   |               3.39  |    1.5   |   942    | Magma                    |             300    |        1840 |    1840 |          5   |       80 |      50        |               1       |                          1 |                           1 |                        1 |             2 | false      | STRINGS.ELEMENTS.GRANITE.NAME            
+   | 34. | Ice                |                2.05   |               2.18  |    1     |   272.5  | Water                    |             232.15 |        1000 |    1100 |          3   |       25 |      18.01528  |               0.33333 |                          1 |                           1 |                        1 |             5 | false      | STRINGS.ELEMENTS.ICE.NAME                
+   | 35. | IgneousRock        |                1      |               2     |    1     |  1683    | Magma                    |             300    |        1840 |    1840 |          3   |       25 |      50        |               1       |                          1 |                           1 |                        1 |             2 | false      | STRINGS.ELEMENTS.IGNEOUSROCK.NAME        
+   | 36. | Iron               |                0.449  |              55     |    1     |  1808    | MoltenIron               |             300    |        1000 |    7870 |          4   |       50 |      55.845    |               1       |                          1 |                           1 |                        1 |             2 | false      | STRINGS.ELEMENTS.IRON.NAME               
+   | 37. | IronOre            |                0.449  |               4     |    0.9   |  1808    | MoltenIron               |             300    |         800 |    1840 |          3   |       25 |     159.6882   |               1       |                          1 |                           1 |                        1 |             2 | false      | STRINGS.ELEMENTS.IRONORE.NAME            
+   | 38. | Isoresin           |                1.3    |               0.17  |    0.4   |   373.15 | Naphtha                  |             242.15 |          30 |      50 |          2   |       10 |     162.14     |               1       |                          1 |                           1 |                        1 |            51 | -          | STRINGS.ELEMENTS.ISORESIN.NAME           
+   | 39. | Katairite          |                4      |             1.0e-05 |    2     |  3695    | MoltenTungsten           |             300    |         500 |    3200 |          7   |      150 |     341.76     |               1       |                          1 |                           1 |                        1 |           100 | false      | STRINGS.ELEMENTS.KATAIRITE.NAME          
+   | 40. | Lead               |                0.128  |              35     |    0.8   |   600.65 | MoltenLead               |             300    |        2000 |    2000 |          4   |       10 |      55.845    |               1       |                          1 |                           1 |                        1 |             2 | false      | STRINGS.ELEMENTS.LEAD.NAME               
+   | 41. | Lime               |                0.834  |               2     |    0.2   |  1330    | Magma                    |             290    |        1000 |    1840 |          4   |       50 |     200        |               1       |                          1 |                           1 |                        1 |             4 | false      | STRINGS.ELEMENTS.LIME.NAME               
+   | 42. | MaficRock          |                0.2    |               1     |    1     |  1683    | Magma                    |             300    |        1840 |    1840 |          1   |        2 |      50        |               1       |                          1 |                           1 |                        1 |            20 | false      | STRINGS.ELEMENTS.MAFICROCK.NAME          
+   | 43. | Niobium            |                0.265  |              54     |    0.8   |  2750    | MoltenNiobium            |             242.15 |          30 |      50 |          4   |       50 |      92.9      |               1       |                          1 |                           1 |                        1 |            50 | -          | STRINGS.ELEMENTS.NIOBIUM.NAME            
+   | 44. | Obsidian           |                0.2    |               2     |    1     |  3000    | Magma                    |             300    |        1000 |    1840 |          4   |      200 |      50        |               1       |                          1 |                           1 |                        1 |             3 | false      | STRINGS.ELEMENTS.OBSIDIAN.NAME           
+   | 45. | OxyRock            |                1      |               4     |    1     |  1683    | Magma                    |             300    |         200 |     500 |          2   |       10 |      43        |               1       |                          1 |                           1 |                        1 |             5 | false      | STRINGS.ELEMENTS.OXYROCK.NAME            
+   | 46. | PhosphateNodules   |                0.15   |               2     |    0.8   |   700    | LiquidPhosphorus         |             300    |         600 |    1840 |          3   |       25 |      95.61     |               1       |                          1 |                           1 |                        1 |             1 | true       | STRINGS.ELEMENTS.PHOSPHATENODULES.NAME   
+   | 47. | Phosphorite        |                0.15   |               2     |    0.8   |   517    | LiquidPhosphorus         |             300    |         600 |    1840 |          3   |       25 |      95.61     |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.PHOSPHORITE.NAME        
+   | 48. | Phosphorus         |                0.7697 |               0.236 |    0.85  |   317.3  | LiquidPhosphorus         |             300    |         200 |    1000 |          0   |        0 |      30.973762 |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.PHOSPHORUS.NAME         
+   | 49. | Polypropylene      |                1.92   |               0.15  |    0.4   |   433    | Naphtha                  |             296    |         913 |     913 |          1   |        1 |      42.08     |               1       |                          1 |                           1 |                        1 |            10 | false      | STRINGS.ELEMENTS.POLYPROPYLENE.NAME      
+   | 50. | Radium             |                1      |              20     |    1     |  1233    | Magma                    |             300    |         100 |     200 |          8   |      250 |     120        |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.RADIUM.NAME             
+   | 51. | RefinedCarbon      |                0.71   |               1     |    0.8   |  4600    | MoltenCarbon             |             300    |         600 |    4000 |          1   |        2 |      12.0107   |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.REFINEDCARBON.NAME      
+   | 52. | Regolith           |                0.2    |               1     |    0.5   |  1683    | Magma                    |             300    |        1000 |    1000 |          1   |        2 |      50        |               1       |                          1 |                           1 |                        1 |            20 | false      | STRINGS.ELEMENTS.REGOLITH.NAME           
+   | 53. | Rust               |                0.449  |               4     |    0.9   |  1808    | MoltenIron               |             300    |         800 |    1840 |          3   |       25 |     159.6882   |               1       |                          1 |                           1 |                        1 |             2 | false      | STRINGS.ELEMENTS.RUST.NAME               
+   | 54. | Salt               |                0.7    |               0.444 |    0.1   |  1073    | MoltenSalt               |             290    |         500 |    2000 |          1   |        5 |      50        |               1       |                          1 |                           1 |                        1 |            10 | false      | STRINGS.ELEMENTS.SALT.NAME               
+   | 55. | Sand               |                0.83   |               2     |    0.25  |  1986    | MoltenGlass              |             300    |        1000 |    1840 |          2   |       10 |      50        |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.SAND.NAME               
+   | 56. | SandCement         |                1.5    |               8     |    1     |  1683    | Magma                    |             300    |        1000 |    2000 |          4   |       50 |      25        |               1       |                          1 |                           1 |                        1 |             1 | true       | STRINGS.ELEMENTS.SANDCEMENT.NAME         
+   | 57. | SandStone          |                0.8    |               2.9   |    0.5   |  1200    | Magma                    |             300    |        1000 |    1840 |          2   |       10 |      50        |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.SANDSTONE.NAME          
+   | 58. | SedimentaryRock    |                0.2    |               2     |    0.2   |  1200    | Magma                    |             300    |        1840 |    1840 |          1   |        2 |      50        |               1       |                          1 |                           1 |                        1 |             2 | false      | STRINGS.ELEMENTS.SEDIMENTARYROCK.NAME    
+   | 59. | Slabs              |                0.52   |               8     |    1     |  1683    | Magma                    |             300    |        1000 |    2000 |          4   |       50 |      25        |               1       |                          1 |                           1 |                        1 |             1 | true       | STRINGS.ELEMENTS.SLABS.NAME              
+   | 60. | SlimeMold          |                0.2    |               2     |    0.2   |   398.15 | Dirt                     |             290    |         200 |     300 |          1   |        2 |       4        |               1       |                          1 |                           1 |                        1 |             3 | false      | STRINGS.ELEMENTS.SLIMEMOLD.NAME          
+   | 61. | Snow               |                2.05   |               0.545 |    0.3   |   272.5  | Water                    |             242.15 |          10 |      20 |          2   |       10 |      18.01528  |               1       |                          1 |                           1 |                     1000 |             5 | false      | STRINGS.ELEMENTS.SNOW.NAME               
+   | 62. | SolidCarbonDioxide |                0.846  |               1.46  |    0.6   |   216.6  | LiquidCarbonDioxide      |             192.15 |         600 |    2000 |          1   |        2 |      44.01     |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.SOLIDCARBONDIOXIDE.NAME 
+   | 63. | SolidChlorine      |                0.48   |               0.75  |    0.5   |   172.17 | Chlorine                 |             150    |         600 |    1000 |          3   |       25 |      34.453    |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.SOLIDCHLORINE.NAME      
+   | 64. | SolidCrudeOil      |                1.69   |               2     |    0.1   |   233    | CrudeOil                 |             200    |         870 |    1840 |          1   |        2 |     500        |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.SOLIDCRUDEOIL.NAME      
+   | 65. | SolidHydrogen      |                2.4    |               1     |    0.25  |    14    | LiquidHydrogen           |               5    |         600 |    1000 |          1   |        2 |      44.1      |               0.75    |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.SOLIDHYDROGEN.NAME      
+   | 66. | SolidMercury       |                0.14   |               8.3   |    0.5   |   234.3  | Mercury                  |             200    |         600 |    1000 |          1   |        2 |     200.59     |               1       |                          1 |                           1 |                        1 |             1 | true       | STRINGS.ELEMENTS.SOLIDMERCURY.NAME       
+   | 67. | SolidMethane       |                2.191  |               0.03  |    1     |   111.65 | LiquidMethane            |              50    |         500 |     750 |          1   |        2 |      16.044    |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.SOLIDMETHANE.NAME       
+   | 68. | SolidNaphtha       |                2.191  |               0.2   |    0.1   |   223    | Naphtha                  |             200    |         740 |    1840 |          1   |        2 |     102.2      |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.SOLIDNAPHTHA.NAME       
+   | 69. | SolidOxygen        |                1.01   |               1     |    0.5   |    54.36 | LiquidOxygen             |              30    |         300 |       1 |          1   |        2 |      50        |               0.75    |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.SOLIDOXYGEN.NAME        
+   | 70. | SolidPetroleum     |                1.76   |               2     |    0.1   |   216    | Petroleum                |             200    |         740 |    1840 |          1   |        2 |      82.2      |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.SOLIDPETROLEUM.NAME     
+   | 71. | SolidPropane       |                2.4    |               1     |    0.5   |    85    | LiquidPropane            |              60    |         600 |    1000 |          2   |       10 |      44.1      |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.SOLIDPROPANE.NAME       
+   | 72. | SolidSuperCoolant  |                8.44   |               9.46  |    0.1   |     2    | SuperCoolant             |              80    |         740 |    1840 |          1   |        2 |     250        |               1       |                          1 |                           1 |                        1 |            62 | -          | STRINGS.ELEMENTS.SOLIDSUPERCOOLANT.NAME  
+   | 73. | SolidViscoGel      |                1.55   |               0.45  |    0.1   |   242.5  | ViscoGel                 |             150    |         100 |     150 |          1   |        2 |      95        |               0.2     |                          1 |                           1 |                        1 |            63 | -          | STRINGS.ELEMENTS.SOLIDVISCOGEL.NAME      
+   | 74. | Steel              |                0.49   |              54     |    2     |  2700    | MoltenSteel              |             300    |         400 |   10000 |          4   |       50 |      54.97     |               1       |                          1 |                           1 |                        1 |            10 | false      | STRINGS.ELEMENTS.STEEL.NAME              
+   | 75. | Sulfur             |                0.7    |               0.2   |    0.1   |   388.35 | LiquidSulfur             |             290    |         500 |    2000 |          1   |        5 |      50        |               1       |                          1 |                           1 |                        1 |            10 | false      | STRINGS.ELEMENTS.SULFUR.NAME             
+   | 76. | SuperInsulator     |                5.57   |             1.0e-05 |    2     |  3895    | MoltenTungsten           |             300    |         900 |    1800 |          7   |      200 |     341.76     |               1       |                          1 |                           1 |                        1 |            60 | -          | STRINGS.ELEMENTS.SUPERINSULATOR.NAME     
+   | 77. | TempConductorSolid |                0.622  |             220     |    0.8   |  2950    | MoltenNiobium            |             242.15 |         900 |    1800 |          5   |       80 |     174.35     |               1       |                          2 |                           2 |                        2 |            61 | -          | STRINGS.ELEMENTS.TEMPCONDUCTORSOLID.NAME 
+   | 78. | ToxicSand          |                0.83   |               2     |    0.25  |  1986    | MoltenGlass              |             300    |        1000 |    1840 |          2   |       10 |      50        |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.TOXICSAND.NAME          
+   | 79. | Tungsten           |                0.134  |              60     |    0.9   |  3695    | MoltenTungsten           |             300    |         200 |    1000 |          7   |      200 |     183.84     |               1       |                          1 |                           1 |                        1 |             4 | false      | STRINGS.ELEMENTS.TUNGSTEN.NAME           
+   | 80. | Unobtanium         |                0      |               0     |    0     | 10000    | Unobtanium               |               1    |       20000 |   20000 |        100   |      255 |   10000        |               1       |                          0 |                           0 |                        0 |             1 | false      | STRINGS.ELEMENTS.UNOBTANIUM.NAME         
+   | 81. | UraniumOre         |                1      |              20     |    1     |  1132    | MoltenUranium            |             300    |         100 |     200 |          8   |      250 |     120        |               1       |                          1 |                           1 |                        1 |             1 | true       | STRINGS.ELEMENTS.URANIUMORE.NAME         
+   | 82. | Wolframite         |                0.134  |              15     |    0.8   |  3200    | MoltenTungsten           |             300    |         600 |    1840 |          6   |      150 |     150        |               1       |                          1 |                           1 |                        1 |             4 | false      | STRINGS.ELEMENTS.WOLFRAMITE.NAME         
+   | 83. | Yellowcake         |                1      |              20     |    1     |  1132    | MoltenUranium            |             300    |         100 |     200 |          8   |      250 |     120        |               1       |                          1 |                           1 |                        1 |             1 | true       | STRINGS.ELEMENTS.YELLOWCAKE.NAME         
+   | 84. | SolidEthanol       |                2.46   |              20     |    1     |   159.1  | Ethanol                  |             150    |         100 |     200 |          8   |      250 |      46.07     |               1       |                          1 |                           1 |                        1 |             1 | false      | STRINGS.ELEMENTS.SOLIDETHANOL.NAME       
+   | 85. | SolidSyngas        |                2.4    |               1     |    0.25  |    14    | MoltenSyngas             |               5    |         600 |    1000 |          1   |        2 |      44.1      |               0.75    |                          1 |                           1 |                        1 |             1 | true       | STRINGS.ELEMENTS.SOLIDSYNGAS.NAME        
+   ===== ==================== ======================= ===================== ========== ========== ========================== ==================== ============= ========= ============== ========== ================ ======================= ============================ ============================= ========================== =============== ============ ===========================================
 
 
 Game Mechanics 游戏机制
@@ -6384,8 +9757,8 @@ other Related Pages
 
 
 
-Rockets 火箭
-===========
+Rockets 火箭发展超简史
+======================
 
    19 世纪中叶，第二次工业革命开启人类社会进步的快进模式，1876 年内燃机正式登上了历史的舞台。
    人类开始了大规模的烧开水时代，通过高压蒸汽为机械提供驱动力。
@@ -6501,6 +9874,13 @@ Rockets 火箭
    *  北京航空航天大学-火箭发动机专业综合实验 https://www.bilibili.com/video/BV1BJ411S7sX/
    *  【Tech Ingredients】手把手教你制作固体火箭发动机 https://www.bilibili.com/video/BV1XK411u7gU/
    *  南开大学 - 军事理论 （艾跃进） https://www.bilibili.com/video/BV1Yx4y1n73F/
+   *  旋转爆震发动机原理 https://www.bilibili.com/video/BV1Us4y1m7h8
+
+   目前，涡扇喷气发动机潜能已经到顶，为了获得更高的速度，需要新型技术。脉冲爆震发动机就是通过爆炸式
+   燃烧产生的巨大能量来实现超过 16 马赫的飞行速度，目前实验成功的模型有旋转爆震发动机（rotating detonation）。
+   马赫数是速度与音速的比值，音速(即声音的传播速度)在不同高度、温度与大气密度等状态下具有不同数值，
+   只是一个相对值，每“一马”的具体速度并不固定。奥地利物理学家恩斯特·马赫（Ernst Mach，1838-1916）
+   首次引用这个单位，所以用他的名字命名这个相对速度单位。
 
 
 Rockets 火箭
@@ -7865,7 +11245,7 @@ Geyser Variants
    |                                   |                         |            |        | 2000 - 4000    | 3333 - 6666 | 60 - 1140       | 10% - 90%       | 15000 - 135000 | 3703 - 66666     | 1333 - 5333              | `Tide Pools`_            |
    +-----------------------------------+-------------------------+------------+--------+----------------+-------------+-----------------+-----------------+----------------+------------------+--------------------------+--------------------------+
    | |Polluted Water Vent|             | |Polluted Water|        | 30 °C      | 500    | 2800 - 3200    | 4666 - 5333 | 492 - 708       | 42% - 58%       | 63000 - 87000  | 8046 - 12698     | 2613 - 3413              |                          |
-   |                                   | with `Food Poisoning`_                        |            |        +----------------+-------------+-----------------+-----------------+----------------+------------------+--------------------------+--------------------------+
+   |                                   | with `Food Poisoning`_  |            |        +----------------+-------------+-----------------+-----------------+----------------+------------------+--------------------------+--------------------------+
    |                                   |                         |            |        | 2000 - 4000    | 3333 - 6666 | 60 - 1140       | 10% - 90%       | 15000 - 135000 | 3703 - 66666     | 1333 - 5333              |                          |
    +-----------------------------------+-------------------------+------------+--------+----------------+-------------+-----------------+-----------------+----------------+------------------+--------------------------+--------------------------+
    | |Natural Gas Geyser|              | |Natural Gas|           | 150 °C     | 5      | 98 - 112       | 163 - 186   | 492 - 708       | 42% - 58%       | 63000 - 87000  | 281 - 444        | 91 - 119                 | `Marsh`_, `Jungle`_      |
@@ -8491,6 +11871,382 @@ Geyser Probabilities
    :height: 25px
    :target: https://oxygennotincluded.fandom.com/wiki/Molten_Aluminum
 
+
+
+Metal Volcano 金属火山
+=====================
+
+   This article has not been revised for the current version (`U51-600112`_). 
+   It was last updated for `U46-552078`_. It may contain inaccuracies.
+
+   A highly pressurized volcano that periodically erupts with `Molten`_ `Metals`_.
+
+   +-------------------+---------------------------------------+
+   | Dimensions        | 3×3 tiles                             |
+   +-------------------+---------------------------------------+
+   |`Decor`_           | +10 (Radius: 2 tiles)                 |
+   +-------------------+---------------------------------------+
+   | Category          | Geysers                               |
+   +-------------------+---------------------------------------+
+   | Effects           | `Refined Metal`_: Average 300 g/s     |
+   |                   | *or*                                  |
+   |                   | `Niobium`_: Average 1.2 kg/s          |
+   +-------------------+---------------------------------------+
+   | Deconstructible   | No                                    |
+   +-------------------+---------------------------------------+
+
+   **Metal Volcanoes** are a special type of `geyser`_ and a renewable, infinite 
+   source of `Refined Metals`_. In the Base Game they are always buried, but in 
+   the `Spaced Out! DLC`_ they can sometimes spawn uncovered when settling a new 
+   `Planetoid`_.
+
+   Like a typical geyser, they alternate between an active state in which they 
+   produce their material and an inactive "dormant" state where they do nothing. 
+   During the eruption phase, output of liquid metal can be blocked by over-pressurization. 
+   The maximum pressure it will output at is 150 kg in a `Gas`_, such as Steam, 
+   or when its first two layers are fully submerged in a `Liquid`_, such as its 
+   own output. The tile of interest from which the emission comes out from is the 
+   exact center tile of the 3 by 3 volcano, which, on the 4 tile `neutronium`_ 
+   base is shifted to the left.
+
+   The `Base Game`_ has volcanoes for `Gold`_, `Copper`_ and `Iron`_, while the 
+   Spaced Out! DLC introduces volcanoes for `Tungsten`_, `Cobalt`_, `Aluminum`_, 
+   `Uranium`_, and `Niobium`_. In Spaced Out!, Niobium Volcanoes are the only 
+   renewable source of Niobium.
+
+   +-----------------------------------+-----------------------------------+------------+--------+------------+
+   | Name                              | Produced Element                  | Temp       |        |            |
+   +-----------------------------------+-----------------------------------+------------+--------+------------+
+   | |Copper Volcano|                  | `Liquid Copper`__                 | 2226.85 °C | 2500 K | 4040.33 °F |
+   +-----------------------------------+-----------------------------------+------------+--------+------------+
+   | |Iron Volcano|                    | `Liquid Iron`__                   | 2526.85 °C | 2800 K | 4580.33 °F |
+   +-----------------------------------+-----------------------------------+------------+--------+------------+
+   | |Gold Volcano|                    | `Liquid Gold`__                   | 2626.85 °C | 2900 K | 4760.33 °F |
+   +-----------------------------------+-----------------------------------+------------+--------+------------+
+   | |Aluminum Volcano| |Spaced Out!|  | `Molten Aluminum`__               | 1726.85 °C | 2000 K | 3140.33 °F |
+   +-----------------------------------+-----------------------------------+------------+--------+------------+
+   | |Tungsten Volcano| |Spaced Out!|  | `Liquid Tungsten`__               | 3726.85 °C | 4000 K | 6740.33 °F |
+   +-----------------------------------+-----------------------------------+------------+--------+------------+
+   | |Niobium Volcano| |Spaced Out!|   | `Liquid Niobium`__                | 3226.85 °C | 3500 K | 5840.33 °F |
+   +-----------------------------------+-----------------------------------+------------+--------+------------+
+   | |Cobalt Volcano| |Spaced Out!|    | `Liquid Cobalt`__ |Spaced Out!|   | 2226.85 °C | 2500 K | 4040.33 °F |
+   +-----------------------------------+-----------------------------------+------------+--------+------------+
+   | |Uranium Volcano| |Spaced Out!|   | `Liquid Uranium`__ |Spaced Out!|  | 2226.85 °C | 2500 K | 4040.33 °F |
+   +-----------------------------------+-----------------------------------+------------+--------+------------+
+
+   Contents
+
+   -  1 Metal Volcano Taming
+
+      -  1.1 Early Game
+      -  1.2 Late Game
+
+   -  2 Useful Links
+
+Metal Volcano Taming
+--------------------
+
+
+Early Game
+~~~~~~~~~~
+
+
+   Dump `Sand`_ in it.
+
+   Compared to `Raw Minerals`_, `Sand`_ has a Heat Capacity higher than `Granite`_ 
+   and `Sandstone`_ but lower than `Igneous Rock`_, and a melting point higher 
+   than all three. If the Sand melts, it turns into `Liquid Glass`_ which may cool 
+   into `Glass`_ debris which can be retrieved.
+
+   As the molten metal transfers its heat to the sand, it will solidify into 
+   `Refined Metal`_ and can be delivered to a `Storage Bin`_ in a pool of liquid 
+   (such as one of the many `Polluted Water`_ pools in a `Swamp Biome`_) to finish 
+   cooling.
+
+   Regularly dumping small amounts of `Sand`_ every few eruptions can be an effective 
+   way to create `Glass`_ at a 1:1 ratio, far better than the 4:1 ratio of a `Glass Forge`_ 
+   and also not requiring its >1kW electrical grid set-up.
+
+   If `Glass`_ is not sought after, dumping a large amount of `Sand`_ (>30t) can be 
+   an easy fire-and-forget option likely to last several dozen cycles and cover an 
+   entire Active Period of eruptions. Heat dispersal to the rest of the environment 
+   can be prevented by walling the volcano sides with `Insulated Tile`_ and a vacuum 
+   atmosphere room with the `Gas Pump`_. Collection of the `Refined Metal`_ could 
+   then be handled by an `Auto-Sweeper`_.
+
+Late Game
+~~~~~~~~~
+
+
+   Metal Volcanoes eject their metals in molten form at appropriately hot temperatures. 
+   Although **all Metal Volcanoes except Niobium** follow the same rules for their 
+   eruption periods and ejection rates, the metals have different ejection temperatures, 
+   freezing points, and specific heat capacities, therefore it is unlikely to have a 
+   one-size fits all solution which is not wasteful for most volcanoes.
+
+   Any geyser, vent, or, in this case, volcano, cycles through 3 phases. The dormant phase, 
+   and the active phase which contains the ejection phase, and the idle phase. And it's 
+   important to view it as such, since merely calculating the volcano's average output over 
+   its lifetime can still lead to equipment overheating.
+
+   -  During the **Ejection Phase**, Metal and Heat is rapidly introduced into the 
+      environment, therefore one needs a **Buffer** to catch the Heat in.
+
+   -  During the **Idle Phase**, all the produced heat from the **Ejection Phase**, 
+      stored in the **Buffer** must be moved away to be ready for the next ejection.
+
+   -  And during the **Dormant Phase**, nothing happens, but it can not be relied 
+      upon as a large period of time to let the entirety of the setup cool down, 
+      that's what the **Idle Phase** should be for.
+
+   By far the best buffer and heat deletion combination is `Water`_ (or rather, 
+   `Steam`_) and the `Steam Turbine`_. In perfect conditions, a `Self-Cooled Steam Turbine`_ 
+   can delete 292.53kDTU per second.
+
+   To calculate how big of a water buffer must be in place, it is handy to know that 
+   the ejected metal exchanges its temperature with the environment much more readily 
+   as a `Liquid`_ than as debris.
+
+   To get the Ratio of Ejection amount to buffer size, you first calculate the total 
+   amount of heat to be removed from the ejected metal until it solidifies, which is 
+   the difference of its Output and Freezing temperature multiplied by its SHC. Then, 
+   you divide that number by the amount of heat your buffer medium (water) can take 
+   before its temperature leaves the permissible range. In other words, you calculate 
+   the difference between the high and the low end of your permissible range and multiply 
+   it with the SHC of you buffer medium (which is 4.179 for water). The permissible 
+   range for a `self-cooled Steam Turbine`_ is 138°C - 125°C. For a Steam Turbine 
+   cooled by `Aquatuners`_ it is 275°C-125°C because steel equipment will break above 
+   that temperature. The latter version cuts down the amount of water needed by a 
+   factor of 10.
+
+   .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/f72e9a39cbc1dfe572ed673a62d37fff5aa450b6
+
+      :math:`R = \frac{SHC_{metal} \cdot (T_{output} - T_{freezing})}{SHC_{water} \cdot (138 - 125)}`
+
+   The Ejection amount can be simply multiplied with this ratio (different for 
+   every metal) to get the size of the water buffer needed.
+
+   **Examples:**
+
+   -  A Gold Volcano that spews 11kg/s for 27 seconds, with gold's ratio of 3.71, 
+      needs about 1150kg of Water.
+
+   -  An Iron Volcano that spews 17kg/s for 22 seconds, with iron's ratio of 8.2, 
+      needs about 3100kg of Water.
+
+   -  An Aluminum Volcano that spews 8.2kg/s for 32 seconds, with aluminum's ratio of 17.87, 
+      needs about 4700kg of Water.
+
+
+   To calculate how many `Self-Cooled Steam Turbines`_ are required, first calculate 
+   the output that one turbine can take care of by dividing the amount of cooling 
+   the Turbine can do (292,53kDTU) by the amount of Heat produced by one gram of metal. 
+   Then take the average output over an activity period (not average over lifetime) 
+   and round up to the next whole number of turbines:
+
+   .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/f9b5a39b2ff84086d9e876f60423c1e8209f7d61
+
+      :math:`\eta = \frac{292530}{SHC_{metal} \cdot Temp_{metal}}`
+
+   .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/c43a85a4544a538a2bf3d4f9a2978a0c6b6949e8
+
+      :math:`\Delta_{active} = \frac{\Delta_{erupting} \ast t_{erupting}}{t_{period}}`
+
+   .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/8086abea1451bf5e7b99c63157a541534259dd9f
+
+      :math:`n_{Turbines}=\left\lceil {\frac {\Delta_{active}}{\eta }}\right\rceil`
+
+
+   Note that since all metal volcanoes (except Niobium) produce between 200 and 400 kg/cycle, 
+   the bounds on Δ\ :sub:`active` will always be between 333.33 and 666.67 g/s; Niobium 
+   volcanoes instead produce 800-1600 kg/cycle, so Δ\ :sub:`active` will be between 
+   1333.33-2666.67 g/s. Also note that Temp\ :sub:`metal` must be in Kelvin, not in °C 
+   (e.g. iron emits at 2526.85 °C = 2800 K, so η = 292530 / (0.449 * 2800) = about 232).
+
+   **Examples:**
+
+   -  A Gold Volcano that spews 11kg/s for 27 seconds every 570 seconds, or 521g/s. 
+      One Turbine is needed since it can handle up to 781 g/s:
+
+      .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/53be8ef8c4247866dd3dfbb503a2048c30f3a63d
+
+         :math:`\eta = \frac{292530}{0.129 \cdot 2900} \approx 781.96`
+
+      .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/86439f6d69665da512390c381d330fbf632d8a1d
+
+         :math:`\Delta_{active} = \frac{11000 \ast 27}{570} \approx 521.05`
+
+      .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/9eee8c3418956d4de16a543e19178026f9885b0d
+
+         :math:`n_{Turbines} \approx \left\lceil \frac{521.05}{781.96} \right\rceil = 1`
+
+   -  An Iron Volcano that spews 17kg/s for 22 seconds every 780 seconds, or 479.5g/s. 
+      Three Turbines are needed since one can handle up to 232 g/s, two can handle 465 g/s 
+      (not quite enough!), and three can handle 698 g/s:
+
+      .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/05eb2747c77258cab3afc46b65e8785572ae2069
+
+         :math:`\eta = \frac{292530}{0.449 \cdot 2800} \approx 232.68`
+
+      .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/c4d8753d3b01e2161d65100c74ebc2b652224c23
+
+         :math:`\Delta_{active} = \frac{17000 \ast 22}{780} \approx 479.49`
+
+      .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/34f0489f3c3b4ac12fb72d1c62cdea59cc8b1113
+
+         :math:`n_{Turbines} \approx \left\lceil \frac{479.49}{232.68} \right\rceil = 3`
+
+
+   -  An Aluminum Volcano that spews 8.2kg/s for 32 seconds every 450 seconds, or 583.1g/s. Four Turbines are needed since one can handle up to 160 g/s, so three would be 482g/s and four therefore 642g/s:
+
+      .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/0d1a1f72d2a7679de28273733b452197da7eadd3
+
+         :math:`\eta = \frac{292530}{0.91 \cdot 2000} \approx 160.73`
+
+      .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/01b869f4da36bc9a1193b99e82c366ebb212b930
+
+         :math:`\Delta_{active} = \frac{8200 \ast 32}{450} \approx 583.11`
+
+      .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/40c65f2aec8825f6943f08d13ac29e5d33b900bf
+
+         :math:`n_{Turbines} \approx \left\lceil \frac{583.11}{160.73} \right\rceil = 4`
+
+
+   `Niobium`_ volcanoes are a unique exception to the eruption behavior exhibited 
+   by other metal volcanoes; their eruption patterns resemble that of regular, 
+   `magma`_-producing volcanoes- long intervals between eruptions, but emitting 
+   massive quantities of very hot, very conductive `Liquid Niobium`_ during eruptions- 
+   potentially several hundred kilograms per second. Further complicating things, 
+   `Liquid Niobium`_ will form a tile of solid `Niobium`_ when cooled at a mere 
+   50kg of mass, well below the volume emitted per second while erupting. This will 
+   result in the volcano quickly entombing itself in tiles of `Niobium`_ if conventional 
+   methods are used to tame it, providing a unique challenge and necessitating an 
+   alternative strategy.
+
+   +----------+-------------+-------------+-----------------------+-------+---------------------+-----------------+-----------------------------------+
+   | Metal    | Output      | Freezing    |   Temperature Range   | SHC   |    Heat in DTU/g    |      Ratio      |      Amount of Metal Handled      |
+   |          | Temperature | Temperature |                       |       |                     |                 |              (g/s)                |
+   |          |             |             +------------+----------+-------+----------+----------+-------+---------+--------------+------+------+------+
+   |          |             |             | to solid   | to 125°C |       | to solid | to 125°C | exact | rounded | by 1 Turbine | by 2 | by 3 | by 4 |
+   +----------+-------------+-------------+------------+----------+-------+----------+----------+-------+---------+--------------+------+------+------+
+   | Gold     | 2626.85     | 1063.85     | 1563       | ~2500    | 0.129 | 201.627  | 322.739  | 3.71  | 4       | 781          |      |      |      |
+   +----------+-------------+-------------+------------+----------+-------+----------+----------+-------+---------+--------------+------+------+------+
+   | Tungsten | 3726.85     | 3421.85     | 305        | ~3600    | 0.134 | 40.870   | 482.648  | 0.75  | 2       | 545          | 1091 |      |      |
+   +----------+-------------+-------------+------------+----------+-------+----------+----------+-------+---------+--------------+------+------+------+
+   | Niobium  | 2726.85     | 2476.85     | 250        | ~2600    | 0.265 | 66.250   | 689.490  | 1.22  | 2       | 315          | 630  | 946  | 1261 |
+   +----------+-------------+-------------+------------+----------+-------+----------+----------+-------+---------+--------------+------+------+------+
+   | Copper   | 2226.85     | 1083.85     | 1143       | ~2100    | 0.386 | 441.198  | 811.314  | 8.12  | 10      | 303          | 606  | 909  |      |
+   +----------+-------------+-------------+------------+----------+-------+----------+----------+-------+---------+--------------+------+------+------+
+   | Iron     | 2526.85     | 1534.85     | 992        | ~2400    | 0.449 | 445.408  | 1078.431 | 8.20  | 10      | 232          | 465  | 698  |      |
+   +----------+-------------+-------------+------------+----------+-------+----------+----------+-------+---------+--------------+------+------+------+
+   | Cobalt   | 2626.85     | 1494.9      | 1131.95    | ~2500    | 0.420 | 475.419  | 1050.777 | 8.75  | 10      | 278          | 557  | 835  |      |
+   +----------+-------------+-------------+------------+----------+-------+----------+----------+-------+---------+--------------+------+------+------+
+   | Aluminum | 1726.85     | 660.30      | 1066.55    | ~1600    | 0.910 | 970.561  | 1457.684 | 17.87 | 20      | 160          | 321  | 482  | 642  |
+   +----------+-------------+-------------+------------+----------+-------+----------+----------+-------+---------+--------------+------+------+------+
+   | Uranium  | 2626.85     | 132.9       | 2493.95    | ~2500    | 1.690 | 475.419  | 1050.777 | 8.75  | 10      | 278          | 557  | 835  |      |
+   +----------+-------------+-------------+------------+----------+-------+----------+----------+-------+---------+--------------+------+------+------+
+
+   These calculations are for **self-cooled** steam turbines only. The color of 
+   the cells in the last four columns indicate the viability of that many self-cooled 
+   turbines for a volcano of that type, with red indicating entirely insufficient 
+   for all sizes, orange indicating sufficient for some but not all volcanoes, 
+   and green indicating sufficient to handle even the highest-output volcanoes. 
+   For turbines being cooled by `Thermo Aquatuners`_ instead (located in the same 
+   area as the volcano) then the heat deletion per Turbine can be raised up to 
+   1538.05 kDTU/s (at 300°C) at which point a single Turbine is enough to handle 
+   any Metal Volcano.
+
+Useful Links
+------------
+
+
+   -  `Sheets Calculator`_  for Water amount and Steam pressure 
+
+
+.. _U51-600112: https://oxygennotincluded.fandom.com/wiki/Versions/U51-600112
+.. _U46-552078: https://oxygennotincluded.fandom.com/wiki/Versions/U46-552078
+.. _Molten: https://oxygennotincluded.fandom.com/wiki/Liquid
+.. _Metals: https://oxygennotincluded.fandom.com/wiki/Metal
+.. _Decor: https://oxygennotincluded.fandom.com/wiki/Decor
+.. _Refined Metal: https://oxygennotincluded.fandom.com/wiki/Refined_Metal
+.. _Niobium: https://oxygennotincluded.fandom.com/wiki/Niobium
+.. _geyser: https://oxygennotincluded.fandom.com/wiki/Geyser
+.. _Refined Metals: https://oxygennotincluded.fandom.com/wiki/Refined_Metal
+.. _Spaced Out! DLC: https://oxygennotincluded.fandom.com/wiki/Spaced_Out!
+.. _Planetoid: https://oxygennotincluded.fandom.com/wiki/Planetoid_Clusters
+.. _Gas: https://oxygennotincluded.fandom.com/wiki/Gas
+.. _Liquid: https://oxygennotincluded.fandom.com/wiki/Liquid
+.. _neutronium: https://oxygennotincluded.fandom.com/wiki/Neutronium
+.. _Base Game: https://oxygennotincluded.fandom.com/wiki/Oxygen_Not_Included
+.. _Gold: https://oxygennotincluded.fandom.com/wiki/Gold
+.. _Copper: https://oxygennotincluded.fandom.com/wiki/Copper
+.. _Iron: https://oxygennotincluded.fandom.com/wiki/Iron
+.. _Tungsten: https://oxygennotincluded.fandom.com/wiki/Tungsten
+.. _Cobalt: https://oxygennotincluded.fandom.com/wiki/Cobalt
+.. _Aluminum: https://oxygennotincluded.fandom.com/wiki/Aluminum
+.. _Uranium: https://oxygennotincluded.fandom.com/wiki/Uranium
+.. _Liquid Copper: https://oxygennotincluded.fandom.com/wiki/Liquid_Copper
+.. _Liquid Iron: https://oxygennotincluded.fandom.com/wiki/Liquid_Iron
+.. _Liquid Gold: https://oxygennotincluded.fandom.com/wiki/Liquid_Gold
+.. _Molten Aluminum: https://oxygennotincluded.fandom.com/wiki/Molten_Aluminum
+.. _Liquid Tungsten: https://oxygennotincluded.fandom.com/wiki/Liquid_Tungsten
+.. _Liquid Niobium: https://oxygennotincluded.fandom.com/wiki/Liquid_Niobium
+.. _Liquid Cobalt: https://oxygennotincluded.fandom.com/wiki/Liquid_Cobalt
+.. _Liquid Uranium: https://oxygennotincluded.fandom.com/wiki/Liquid_Uranium
+.. _Sand: https://oxygennotincluded.fandom.com/wiki/Sand
+.. _Raw Minerals: https://oxygennotincluded.fandom.com/wiki/Raw_Mineral
+.. _Granite: https://oxygennotincluded.fandom.com/wiki/Granite
+.. _Sandstone: https://oxygennotincluded.fandom.com/wiki/Sandstone
+.. _Igneous Rock: https://oxygennotincluded.fandom.com/wiki/Igneous_Rock
+.. _Liquid Glass: https://oxygennotincluded.fandom.com/wiki/Liquid_Glass
+.. _Glass: https://oxygennotincluded.fandom.com/wiki/Glass
+.. _Storage Bin: https://oxygennotincluded.fandom.com/wiki/Storage_Bin
+.. _Polluted Water: https://oxygennotincluded.fandom.com/wiki/Polluted_Water
+.. _Swamp Biome: https://oxygennotincluded.fandom.com/wiki/Swamp_Biome
+.. _Glass Forge: https://oxygennotincluded.fandom.com/wiki/Glass_Forge
+.. _Insulated Tile: https://oxygennotincluded.fandom.com/wiki/Insulated_Tile
+.. _Gas Pump: https://oxygennotincluded.fandom.com/wiki/Gas_Pump
+.. _Auto-Sweeper: https://oxygennotincluded.fandom.com/wiki/Auto-Sweeper
+.. _Water: https://oxygennotincluded.fandom.com/wiki/Water
+.. _Steam: https://oxygennotincluded.fandom.com/wiki/Steam
+.. _Steam Turbine: https://oxygennotincluded.fandom.com/wiki/Steam_Turbine
+.. _Self-Cooled Steam Turbine: https://oxygennotincluded.fandom.com/wiki/Steam_Turbine#Self-Cooled_Steam_Turbine
+.. _self-cooled Steam Turbine: https://oxygennotincluded.fandom.com/wiki/Steam_Turbine#Self-cooled-steam-turbine
+.. _Aquatuners: https://oxygennotincluded.fandom.com/wiki/Thermo_Aquatuner
+.. _Self-Cooled Steam Turbines: https://oxygennotincluded.fandom.com/wiki/Steam_Turbine#Self-Cooled_Steam_Turbine
+.. _magma: https://oxygennotincluded.fandom.com/wiki/Magma
+.. _Thermo Aquatuners: https://oxygennotincluded.fandom.com/wiki/Thermo_Aquatuner
+.. _Sheets Calculator: https://docs.google.com/spreadsheets/d/1-l8G2lu-kDTA6vnXyreyCM-r3yJcCisJe1r497fp7io/edit?usp=sharing%7CGoogle
+
+
+.. |Iron Volcano| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/9/9b/Iron_Volcano.png
+   :width: 30px
+   :height: 30px
+.. |Copper Volcano| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c6/Copper_Volcano.png
+   :width: 30px
+   :height: 30px
+.. |Gold Volcano| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/4/4c/Gold_Volcano.png
+   :width: 30px
+   :height: 30px
+.. |Aluminum Volcano| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/79/Aluminum_Volcano.png
+   :width: 46px
+   :height: 30px
+.. |Spaced Out!| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/8/8d/SO_icon.png
+   :width: 30px
+   :height: 15px
+   :target: https://oxygennotincluded.fandom.com/wiki/Spaced_Out!
+.. |Tungsten Volcano| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f7/Tungsten_Volcano.png
+   :width: 46px
+   :height: 30px
+.. |Niobium Volcano| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/5/5b/Niobium_Volcano.png
+   :width: 46px
+   :height: 30px
+.. |Cobalt Volcano| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/18/Cobalt_Volcano.png
+   :width: 46px
+   :height: 30px
+.. |Uranium Volcano| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/13/Uranium_Volcano.jpg
+   :width: 30px
+   :height: 30px
 
 
 Plants Category 植物分类
@@ -10215,8 +13971,8 @@ Gallery
 
 .. |Shine Bug| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/69/Shine_Bug.png
    :target: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/6/69/Shine_Bug.png
-.. |Sun Bug| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3c/Sun_Bug png
-   :target: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3c/Sun_Bug png
+.. |Sun Bug| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3c/Sun_Bug.png
+   :target: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/3/3c/Sun_Bug.png
 .. |Royal Bug| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/fb/Royal_Bug.png
    :target: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/fb/Royal_Bug.png
 .. |Coral Bug| image:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/1/14/Coral_Bug.png
@@ -10323,8 +14079,8 @@ Buildings Category 建筑分类
    -  `Building <https://oxygennotincluded.fandom.com/wiki/Building>`__
    -  `Cell of Interest <https://oxygennotincluded.fandom.com/wiki/Cell_of_Interest>`__
    -  `Overheating <https://oxygennotincluded.fandom.com/wiki/Overheating>`__
-   -  `Automation (Building) <https://oxygennotincluded.fandom.com/wiki/Automation_(Building)>`__
    -  `Base (Building) <https://oxygennotincluded.fandom.com/wiki/Base_(Building)>`__
+   -  `Automation (Building) <https://oxygennotincluded.fandom.com/wiki/Automation_(Building)>`__
    -  `Decor <https://oxygennotincluded.fandom.com/wiki/Decor>`__
    -  `Dev Generator <https://oxygennotincluded.fandom.com/wiki/Dev_Generator>`__
    -  `Flooding <https://oxygennotincluded.fandom.com/wiki/Flooding>`__
@@ -10337,7 +14093,6 @@ Buildings Category 建筑分类
    -  `Polymer Press/fr <https://oxygennotincluded.fandom.com/wiki/Polymer_Press/fr>`__
    -  `Power (Building) <https://oxygennotincluded.fandom.com/wiki/Power_(Building)>`__
    -  `Printing Pod <https://oxygennotincluded.fandom.com/wiki/Printing_Pod>`__
-   -  `Printing Pod/fr <https://oxygennotincluded.fandom.com/wiki/Printing_Pod/fr>`__
    -  `Radbolt Sensor <https://oxygennotincluded.fandom.com/wiki/Radbolt_Sensor>`__
    -  `Radiation Sensor <https://oxygennotincluded.fandom.com/wiki/Radiation_Sensor>`__
    -  `Refinement (Building) <https://oxygennotincluded.fandom.com/wiki/Refinement_(Building)>`__
@@ -11355,7 +15110,7 @@ Gallery
 
 
 
-Steam Turbine 涡轮蒸汽机
+Steam Turbine 蒸汽涡轮机
 -----------------------
 
    .. figure:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/c/c6/Building_Steam_Turbine.png
@@ -11378,407 +15133,437 @@ Steam Turbine 涡轮蒸汽机
       https://www.siemens-energy.com/cn/zh/home/products-services/product/sgt5-9000hl.html
       Siemens HL-class gas turbines for higher power plant efficiency https://www.bilibili.com/video/BV1PV411J7Z5/
 
-   Draws in `Steam`_ from the tiles directly below the machine's foundation and uses 
-   it to generate electrical `Power`_. Outputs Water.
+
+   Draws in `Steam`_ from the tiles directly below the machine's foundation and 
+   uses it to generate electrical `Power`_.
+
+   Outputs Water.
 
    Useful for converting geothermal energy into usable power.
 
-   +------------------+--------------------------------------------------------------------------------------------------+
-   | `Research`_      | `Renewable Energy`_                                                                              |
-   +------------------+--------------------------------------------------------------------------------------------------+
-   | Dimensions       | 5×3 tiles                                                                                        |
-   +------------------+--------------------------------------------------------------------------------------------------+
-   | Rotation         | Mirrored                                                                                         |
-   +------------------+--------------------------------------------------------------------------------------------------+
-   | Category         | `Power`_                                                                                         |
-   +------------------+--------------------------------------------------------------------------------------------------+
-   | Power            | 0-850 `W`_                                                                                       |
-   +------------------+--------------------------------------------------------------------------------------------------+
-   | Heat             | +4 kDTU/s                                                                                        |
-   +------------------+--------------------------------------------------------------------------------------------------+
-   | `Overheat`_ at   | 1000 `°C`_                                                                                       |
-   +------------------+--------------------------------------------------------------------------------------------------+
-   | `Piping`_        | Output: Water Output                                                                             |
-   +------------------+------------------------------+-------------------------------------+-----------------------------+
-   | Requires         | `Steam`_: 2 kg/s @ 125+ °C   | Building temperature: below 100 °C  |  `Electrical Engineering`_  |
-   +------------------+------------------------------+-------------------------------------+-----------------------------+
-   | Storage Capacity | `Steam`_: ?? kg              | `Water`_: ?? kg                                                   |
-   +------------------+------------------------------+-------------------------------------------------------------------+
-   | Effects          | `Water`_: same mass as input Steam @ 95 °C                                                       |
-   +------------------+------------------------------+-------------------------------------------------------------------+
-   | Auto In          | Green: Enable                | Red: Disable                                                      |
-   +------------------+------------------------------+-------------------------------------------------------------------+
-   | materials        | `Refined Metal`_ 800 `kg`_   | `Plastic`_ 200 `kg`_                                              |
-   +------------------+------------------------------+-------------------------------------------------------------------+
+   +--------------------+---------------------------------------------+
+   | `Research`_        | `Renewable Energy`_                         |
+   +--------------------+---------------------------------------------+
+   | Dimensions         | 5×3 tiles                                   |
+   +--------------------+---------------------------------------------+
+   | Rotation           | Mirrored                                    |
+   +--------------------+---------------------------------------------+
+   | Category           | `Power`_                                    |
+   +--------------------+---------------------------------------------+
+   | Power              | 0-850 `W`_                                  |
+   +--------------------+---------------------------------------------+
+   | Heat               | +4 kDTU/s                                   |
+   +--------------------+---------------------------------------------+
+   | `Overheat`_ at     | 100 `°C`_                                   |
+   +--------------------+---------------------------------------------+
+   | `Piping`_          | Output: Water Output                        |
+   +--------------------+---------------------------------------------+
+   | Requires           | `Steam`_: 2 kg/s @ 125+ °C                  |
+   |                    | Building temperature: below 0 °C            |
+   |                    | `Electrical Engineering`_                   |
+   +--------------------+---------------------------------------------+
+   | Storage Capacity   | `Steam`_: ?? kg `Water`_: ?? kg             |
+   |                    | `Ice`_:500kg                                |
+   +--------------------+---------------------------------------------+
+   | Effects            | `Water`_: same mass as input Steam @ 95 °C  |
+   +--------------------+---------------------------------------------+
+   | Auto In            | Green: Enable                               |
+   |                    | Red: Disable                                |
+   +--------------------+---------------------------------------------+
+   | Materials          | `Refined Metal`_  800 `kg`_                 |
+   |                    | `Plastic`_ 200 `kg`_                        |
+   +--------------------+---------------------------------------------+
 
-   **Steam Turbine** is the primary device in harvesting `Power`_ from Heat, usually `magma`_ 
-   or `Aquatuners`_, and can do it exceptionally well provided you can keep the temperature 
-   of the `Steam`_ passing the turbine high.
 
-   Steam Turbines are also an incredibly effective heat deletion device capable of removing 
-   significant amounts of heat from the environment and turning the heat into power instead; 
-   this makes the Steam Turbine useful in many cooling devices.
+   **Steam Turbine** is the primary device in harvesting `Power`_ from Heat, 
+   usually `magma`_ or `Aquatuners`_, and can do it exceptionally well provided 
+   you can keep the temperature of the `Steam`_ passing the turbine high.
+
+   Steam Turbines are also an incredibly effective heat deletion device capable
+   of removing significant amounts of heat from the environment and turning the 
+   heat into power instead; this makes the Steam Turbine useful in many cooling 
+   devices.
 
    It requires a `Duplicant`_ with Electrical Engineering `skill`_ to build.
 
-Contents
-~~~~~~~~
+   Contents
 
-   -  1 Requirements
-   -  2 Mechanics
-      -  2.1 Maximum Power Production
-      -  2.2 Heat Deletion
-   -  3 Usage
-      -  3.1 Self-Cooled Steam Turbine
-         -  3.1.1 Maximum Steam Temperature for sustainable self-cooling
-      -  3.2 Variable number of inlets at high temperatures
-      -  3.3 Synergy with Thermo Aquatuners
-         -  3.3.1 Using Water or Polluted Water as Coolant
-         -  3.3.2 Using Super Coolant as Coolant
-         -  3.3.3 Comparing Power Efficiency of Coolants
-   -  4 Trivia
-      -  4.1 Reintroducing exhaust water
-      -  4.2 Steam from multiple rooms
-         -  4.2.1 Cool and Hot Steam Vents
-      -  4.3 Other tips
-   -  5 History
-   -  6 Reference
-   -  7 Navigation
+      -  1 Requirements
+      -  2 Mechanics
 
+         -  2.1 Maximum Power Production
+         -  2.2 Heat Deletion
 
-Reqiremen
-~~~~~~~~~
+      -  3 Usage
 
-   The `steam`_ below the generator must be at least 125 °C. If the steam below the 
-   generator becomes less than 125 °C the Steam Turbine will cease to produce any power.
+         -  3.1 Self-Cooled Steam Turbine
 
-   Additionally, the steam turbine itself must be kept below 100 °C. If its temperature 
-   gets higher than 100 °C, the warning message "Turbine too hot" will appear, and 
-   the turbine will cease to operate.
+            -  3.1.1 Maximum Steam Temperature for sustainable self-cooling
+
+         -  3.2 Variable number of inlets at high temperatures
+         -  3.3 Synergy with Thermo Aquatuners
+
+            -  3.3.1 Using Water or Polluted Water as Coolant
+            -  3.3.2 Using Super Coolant as Coolant
+            -  3.3.3 Comparing Power Efficiency of Coolants
+
+      -  4 Trivia
+
+         -  4.1 Reintroducing exhaust water
+         -  4.2 Steam from multiple rooms
+
+            -  4.2.1 Cool and Hot Steam Vents
+
+         -  4.3 Other tips
+
+      -  5 History
 
 
+Requirements
+~~~~~~~~~~~~
+
+   The `steam`_ below the generator must be at least 125 °C. If the steam below 
+   the generator becomes less than 125 °C the Steam Turbine will cease to produce 
+   any power.
+
+   Additionally, the steam turbine itself must be kept below 100 °C. If its 
+   temperature gets higher than 100 °C, the warning message "Turbine too hot" 
+   will appear, and the turbine will cease to operate.
+
+   Ice stored within the steam turbine will be used to cool the turbine. When 
+   the ice melts into water, that water is output through the same port as used 
+   steam.
 
 Mechanics
-~~~~~~~~~
+'''''''''
 
-   To use the generator it must have hot `steam`_ below its base, a `water`_ output and 
-   a `power`_ connection. Note: not all of the inlets need to be uncovered for full 
-   functionality (see below).
+   To use the generator it must have hot `steam`_ below its base, a `water`_ 
+   output and a `power`_ connection. Note: not all of the inlets need to be 
+   uncovered for full functionality (see below).
 
-   While active, every non-blocked inlet will use 0.4 kg of Steam (for a max of 2 kg with 
-   5 inlets) per second. It outputs Water with the same mass as input Steam at a fixed 
-   temperature of 95 °C.
-
+   While active, every non-blocked inlet will use 0.4 kg of Steam (for a max of 
+   2 kg with 5 inlets) per second. It outputs Water with the same mass as input 
+   Steam at a fixed temperature of 95 °C.
 
 Maximum Power Production
-~~~~~~~~~~~~~~~~~~~~~~~~
+''''''''''''''''''''''''
 
+   Power produced per steam temperature
 
-   +--------------------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Power produced per steam temperature | :math:`P = \left( \frac{85}{21} \right) \cdot \overset{˙}{m} \cdot (T_{steam} - 95)` |steam_turbin_formular_a|  |
-   +--------------------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Power to Heat ratio                  | :math:`\frac{\left( \frac{85}{21} \right)}{4.179} = 0.969\frac{W}{kDTU/s}`           |steam_turbin_formular_b|  |
-   +--------------------------------------+-----------------------------------------------------------------------------------------------------------------+
+   .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/38e212a6b19ec516b61dbefa1d4d81a7e3fda290
 
-.. |steam_turbin_formular_a| image:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/38e212a6b19ec516b61dbefa1d4d81a7e3fda290
-.. |steam_turbin_formular_b| image:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/e51bf653ed46aacd24bfefb7b469b7d5c866e2a7
+      :math:`P = \left( \frac{85}{21} \right) \cdot \overset{˙}{m} \cdot (T_{steam} - 95)`
 
-   :math:`P` is the produced power in W, :math:`\overset{˙}{m}` is the mass flow rate 
-   in kg/s and :math:`T_{steam}` is the temperature of the steam in Celsius.
+   Power to Heat ratio
 
-   The power output depends on the consumption rate and the temperature of the steam. 
-   Assuming max steam consumption rate (2 kg/s), power output is 242 watts at 125 °C, 
-   capped at 850 watts at 200 °C or higher.
+   .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/e51bf653ed46aacd24bfefb7b469b7d5c866e2a7
 
-   With a lower flow rate, a higher temperature is required for the same heat deletion 
-   and power production in accordance with the following table:
+      :math:`\frac{\left( \frac{85}{21} \right)}{4.179} = 0.969\frac{W}{kDTU/s}`
 
-   +-----------------+-----------------+-----------------+-----------------+-----------------+
-   | Inlets          | Required Temp   | Flow Rate       | Heat Deleted    | Power Produced  |
-   |                 | for Max Power   | (kg/s)          | (kDTU/s)        | (W)             |
-   +-----------------+-----------------+-----------------+-----------------+-----------------+
-   | 5               | 200 °C          | 2               | 877.59          | 850             |
-   +-----------------+-----------------+-----------------+-----------------+-----------------+
-   | 4               | 226.25 °C       | 1.6             | 877.59          | 850             |
-   +-----------------+-----------------+-----------------+-----------------+-----------------+
-   | 3               | 270 °C          | 1.2             | 877.59          | 850             |
-   +-----------------+-----------------+-----------------+-----------------+-----------------+
-   | 2               | 357.5 °C        | 0.8             | 877.59          | 850             |
-   +-----------------+-----------------+-----------------+-----------------+-----------------+
-   | 1\*             | 357.5 °C        | 0.4             | 438.8           | 425             |
-   +-----------------+-----------------+-----------------+-----------------+-----------------+
+   :math:`P` is the produced power in W, :math:`\overset{˙}{m}` is the mass flow 
+   rate in kg/s and :math:`T_{steam}` is the temperature of the steam in Celsius.
 
-   **Note for 1 inlet:** A steam turbine can absorb 0.08 kg steam in each tick (0.2 second)
-   from each inlet. But a steam turbine needs more than 0.1 kg Steam to start conversion. 
-   As a result, when only one inlet is unblocked, the Turbine works only one tick every 
-   two ticks. So the average power generation is limited to 425 W, not 850 W. Therefore, 
-   the required temperature difference for max power is also reduced by half.
+   The power output depends on the consumption rate and the temperature of the 
+   steam. Assuming max steam consumption rate (2 kg/s), power output is 242 
+   watts at 125 °C, capped at 850 watts at 200 °C or higher.
 
-   This does not affect the heat deletion and production. They still delete the heat of 
-   0.4 kg Steam per second, and in turn, produce 10% of that + 4 kDTU themselves.
+   With a lower flow rate, a higher temperature is required for the same heat 
+   deletion and power production in accordance with the following table:
+
+   +--------+-----------------+-----------+--------------+----------------+
+   | Inlets | Required Temp   | Flow Rate | Heat Deleted | Power Produced |
+   |        | for Max Power   | (kg/s)    | (kDTU/s)     | (W)            |
+   +--------+-----------------+-----------+--------------+----------------+
+   | 5      | 200 °C          | 2         | 877.59       | 850            |
+   +--------+-----------------+-----------+--------------+----------------+
+   | 4      | 226.25 °C       | 1.6       | 877.59       | 850            |
+   +--------+-----------------+-----------+--------------+----------------+
+   | 3      | 270 °C          | 1.2       | 877.59       | 850            |
+   +--------+-----------------+-----------+--------------+----------------+
+   | 2      | 357.5 °C        | 0.8       | 877.59       | 850            |
+   +--------+-----------------+-----------+--------------+----------------+
+   | 1      | 357.5 °C        | 0.4       | 438.8        | 425            |
+   +--------+-----------------+-----------+--------------+----------------+
+
+   **Note for 1 inlet:** A steam turbine can absorb 0.08 kg steam in each tick 
+   (0.2 second) from each inlet. But a steam turbine needs more than 0.1 kg Steam 
+   to start conversion. As a result, when only one inlet is unblocked, the Turbine 
+   works only one tick every two ticks. So the average power generation is limited 
+   to 425 W, not 850 W. Therefore, the required temperature difference for max 
+   power is also reduced by half.
+
+   This does not affect the heat deletion and production. They still delete the 
+   heat of 0.4 kg Steam per second, and in turn, produce 10% of that + 4 kDTU 
+   themselves.
 
    Thus, to summarize this section:
 
-   -  If the Steam is below 200 °C, have as many inputs unblocked as possible to maximize 
-      power generation through having the Turbine suck in as much as steam as possible.
+   -  If the Steam is below 200 °C, have as many inputs unblocked as possible 
+      to maximize power generation through having the Turbine suck in as much 
+      as steam as possible.
 
-   -  If the Steam is above 200 °C, block the inputs to just two to maximize power generation 
-      while minimizing steam consumption and heat generation of the Turbine.
-
+   -  If the Steam is above 200 °C, block the inputs to just two to maximize 
+      power generation while minimizing steam consumption and heat generation 
+      of the Turbine.
 
 Heat Deletion
-~~~~~~~~~~~~~
+'''''''''''''
 
-   +--------------------------+---------------------------------------------------------------------------------------------------+
-   | Heat Removed from Steam  | :math:`q_{removed} = 4.179 \cdot \overset{˙}{m} \cdot (T_{steam} - 95)` |steam_turbin_formular_c| |
-   +--------------------------+---------------------------------------------------------------------------------------------------+
-   | Heat Produced by Turbine | :math:`{\overset{˙}{Q}}_{out} = \frac{q_{removed}}{10} + 4`             |steam_turbin_formular_d| |
-   +--------------------------+---------------------------------------------------------------------------------------------------+
+   Heat Removed from Steam  
+   
+   .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/d35c3b4885f3f4fcf86ec926d0de65027ce5a22b
 
-.. :|steam_turbin_formular_c_ https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/d35c3b4885f3f4fcf86ec926d0de65027ce5a22b
-.. :|steam_turbin_formular_d_ https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/88a58b9a44cc707e6b4603839a5cd51fe4c89f59
+      :math:`q_{removed} = 4.179 \cdot \overset{˙}{m} \cdot (T_{steam} - 95)`
 
-   As long as the steam turbine works (own temperature below 100 °C and steam temperature 
-   above 125 °C) it will reduce the input steam in temperature to 95 °C Water. How much 
-   heat is deleted :math:`q_{removed}` in kDTU/s depends on the Specific Heat Capacity 
-   of Water (4.179(DTU/g)/°C), the flow rate :math:`\overset{˙}{m}` in kg/s, and the steam's 
-   temperature :math:`T_{steam}` in Celsius.
+   Heat Produced by Turbine 
+   
+   .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/88a58b9a44cc707e6b4603839a5cd51fe4c89f59
 
-   The heat produced by the steam turbine :math:`{\overset{˙}{Q}}_{out}` is 10% of the 
-   removed Heat plus 4kDTU operational cost.
+      :math:`{\overset{˙}{Q}}_{out} = \frac{q_{removed}}{10} + 4`
+
+   As long as the steam turbine works (own temperature below 100 °C and steam 
+   temperature above 125 °C) it will reduce the input steam in temperature to 95 °C 
+   Water. How much heat is deleted :math:`q_{removed}` in kDTU/s depends on the 
+   Specific Heat Capacity of Water (4.179(DTU/g)/°C), the flow rate :math:`\overset{˙}{m}` 
+   in kg/s, and the steam's temperature :math:`T_{steam}` in Celsius.
+
+   The heat produced by the steam turbine :math:`{\overset{˙}{Q}}_{out}` is 10% of 
+   the removed Heat plus 4kDTU operational cost.
 
    .. table:: Example with max pressure (2 kg/s) and 5 inlet
 
-      +---------------------+---------------------+----------------------------+---------------------+
-      | Temperature         | Heat Deleted        | Heat Transfered to Turbine | Real Heat Deleted   |
-      |                     | (kDTU/s)            | (kDTU/s)                   | (kDTU/s)            |
-      +---------------------+---------------------+----------------------------+---------------------+
-      | 125 °C              | 250.74              | 25.07 + 4 = 29.07          | 221.67              |
-      +---------------------+---------------------+----------------------------+---------------------+
-      | 150 °C              | 459.69              | 45.97 + 4 = 49.97          | 409.72              |
-      +---------------------+---------------------+----------------------------+---------------------+
-      | 200 °C              | 877.59              | 87.76 + 4 = 91.76          | 785.83              |
-      +---------------------+---------------------+----------------------------+---------------------+
-      | 300 °C              | 1713.39             | 171.34 + 4 = 175.34        | 1538.05             |
-      +---------------------+---------------------+----------------------------+---------------------+
-      | 400 °C              | 2549.19             | 254.92 + 4 = 258.92        | 2290.27             |
-      +---------------------+---------------------+----------------------------+---------------------+
-      | 500 °C              | 3384.99             | 338.50 + 4 = 342.50        | 3042.49             |
-      +---------------------+---------------------+----------------------------+---------------------+
-      | 750 °C              | 5474.49             | 547.45 + 4 = 551.45        | 4923.04             |
-      +---------------------+---------------------+----------------------------+---------------------+
-      | 1000 °C             | 7563.99             | 756.40 + 4 = 760.40        | 6803.59             |
-      +---------------------+---------------------+----------------------------+---------------------+
-
+      +--------------+--------------+----------------------------+--------------------+
+      | Temperature  | Heat Deleted | Heat Transfered to Turbine | Real Heat Deleted  |
+      |              | (kDTU/s)     | (kDTU/s)                   | (kDTU/s)           |
+      +--------------+--------------+----------------------------+--------------------+
+      | 125 °C       | 250.74       | 25.07 + 4 = 29.07          | 221.67             |
+      +--------------+--------------+----------------------------+--------------------+
+      | 150 °C       | 459.69       | 45.97 + 4 = 49.97          | 409.72             |
+      +--------------+--------------+----------------------------+--------------------+
+      | 200 °C       | 877.59       | 87.76 + 4 = 91.76          | 785.83             |
+      +--------------+--------------+----------------------------+--------------------+
+      | 300 °C       | 1713.39      | 171.34 + 4 = 175.34        | 1538.05            |
+      +--------------+--------------+----------------------------+--------------------+
+      | 400 °C       | 2549.19      | 254.92 + 4 = 258.92        | 2290.27            |
+      +--------------+--------------+----------------------------+--------------------+
+      | 500 °C       | 3384.99      | 338.50 + 4 = 342.50        | 3042.49            |
+      +--------------+--------------+----------------------------+--------------------+
+      | 750 °C       | 5474.49      | 547.45 + 4 = 551.45        | 4923.04            |
+      +--------------+--------------+----------------------------+--------------------+
+      | 1000 °C      | 7563.99      | 756.40 + 4 = 760.40        | 6803.59            |
+      +--------------+--------------+----------------------------+--------------------+
 
 Usage
 ~~~~~
 
-
 Self-Cooled Steam Turbine
 '''''''''''''''''''''''''
 
-   A Steam Turbine can be used to cool itself using its own 95 °C exhaust water to maintain 
-   a temperature of less than 100 °C, this requires limiting the steam temperature to around 
-   135 °C and power output to around 330 watts. Maximizing the heat transfer between the 
-   exhaust water and the Steam Turbine involves snaking radiant pipes behind the Steam Turbine. 
-   This works for any material radiant pipe (even lead) if the atmosphere is more than 500 g 
-   `Hydrogen`_. Copper/Gold radiant pipes even manage to cool the turbine in an +1500g `Oxygen`_ 
+   A Steam Turbine can be used to cool itself using its own 95 °C exhaust water 
+   to maintain a temperature of less than 100 °C, this requires limiting the 
+   steam temperature to around 135 °C and power output to around 330 watts. 
+   Maximizing the heat transfer between the exhaust water and the Steam Turbine 
+   involves snaking radiant pipes behind the Steam Turbine. This works for any 
+   material radiant pipe (even lead) if the atmosphere is more than 500 g `Hydrogen`_. 
+   Copper/Gold radiant pipes even manage to cool the turbine in an +1500g `Oxygen`_ 
    atmosphere. This can be made yet more effective by adding in one or more liquid layers.
 
-   A self cooling Steam Turbine produces the most power per unit heat deleted of all setups, 
-   and they can be very attractive due to not needing an Aquatuner and the associated plumbing, 
-   circuit and automation, while being able to cool up to 292.53 kDTU/s without problems. The 
-   drawback to this is that, with their limited steam temperature, you will require more of 
-   them to match the heat deletion or power production of comparable ATST setups, and so they 
-   are best used when space and materials are less important than efficiency.
-
+   A self cooling Steam Turbine produces the most power per unit heat deleted 
+   of all setups, and they can be very attractive due to not needing an Aquatuner 
+   and the associated plumbing, circuit and automation, while being able to cool 
+   up to 292.53 kDTU/s without problems. The drawback to this is that, with their 
+   limited steam temperature, you will require more of them to match the heat 
+   deletion or power production of comparable ATST setups, and so they are best 
+   used when space and materials are less important than efficiency.
 
 Maximum Steam Temperature for sustainable self-cooling
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-   There is only limited cooling potential in the exhaust water: raising the temperature 
-   of 2000 g/s of water from 95 °C to 100 °C requires 41.79 kDTU/s, substituting this into 
-   the equation \*Heat produced by turbine\* and solving for steam temperature results in 
-   a value of 140.2 °C, this is where the heat produced by the Turbine exactly equals the 
-   available cooling in the water. The Steam Turbine would generate 365 watts.
+   There is only limited cooling potential in the exhaust water: raising the 
+   temperature of 2000 g/s of water from 95 °C to 100 °C requires 41.79 kDTU/s, 
+   substituting this into the equation \*Heat produced by turbine\* and solving 
+   for steam temperature results in a value of 140.2 °C, this is where the heat 
+   produced by the Turbine exactly equals the available cooling in the water. 
+   The Steam Turbine would generate 365 watts.
 
-   While theoretically a self-cooled Steam Turbine could run on 140 °C steam this is an 
-   unstable equilibrium, if the Turbine gets too hot the flow of exhaust water halts and 
-   it is unable to cool itself, typically stalling until the player intervenes. Furthermore 
-   heat exchange between the exhaust water and Steam Turbine is imperfect and there may be 
-   heat bleed between the Steam chamber and the Steam Turbine. Due to these factors a 
-   practical self-cooled Steam Turbine typically runs on steam temperatures not exceeding 
-   135 °C and generates around 330 watts.
-
+   While theoretically a self-cooled Steam Turbine could run on 140 °C steam 
+   this is an unstable equilibrium, if the Turbine gets too hot the flow of 
+   exhaust water halts and it is unable to cool itself, typically stalling until 
+   the player intervenes. Furthermore heat exchange between the exhaust water 
+   and Steam Turbine is imperfect and there may be heat bleed between the Steam 
+   chamber and the Steam Turbine. Due to these factors a practical self-cooled 
+   Steam Turbine typically runs on steam temperatures not exceeding 135 °C and 
+   generates around 330 watts.
 
 Variable number of inlets at high temperatures
 ''''''''''''''''''''''''''''''''''''''''''''''
 
-   To remove as much heat as possible, the steam turbine should not be obstructed, but for 
-   power efficiency, as much Heat (kDTU) should be turned into usable Energy (J), or rather, 
-   no Heat should be wasted.
+   To remove as much heat as possible, the steam turbine should not be obstructed, 
+   but for power efficiency, as much Heat (kDTU) should be turned into usable 
+   Energy (J), or rather, no Heat should be wasted.
 
    .. figure:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/7/7f/Steam_turbine_power_optimization.png
 
-      |Steam turbine power optimization|
+   When the temperature of the steam rises too high multiple ports can be automatically blocked by doors one at a time. Above 200 °C the first door closes, above 226.25 °C the second, and above 270 °C the third. The fourth door however should not close at 357.5 °C, but rather at 444 °C.
 
-   When the temperature of the steam rises too high multiple ports can be automatically 
-   blocked by doors one at a time. Above 200 °C the first door closes, above 226.25 °C 
-   the second, and above 270 °C the third. The fourth door however should not close at 
-   357.5 °C, but rather at 444 °C.
+   The temperature at which two inlets have the 850 W cap is 357.5 °C, any hotter 
+   and all DTU above is wasted, a gradual increase.
 
-   The temperature at which two inlets have the 850 W cap is 357.5 °C, any hotter and 
-   all DTU above is wasted, a gradual increase.
+   Taking only one inlet immediately cuts the used DTU's in half, but for every 
+   degree the steam gets hotter it also only wastes half of the DTU until it hits 
+   620 °C where it has its own cap of 425 W.
 
-   Taking only one inlet immediately cuts the used DTU's in half, but for every degree 
-   the steam gets hotter it also only wastes half of the DTU until it hits 620 °C where 
-   it has its own cap of 425 W.
+   .. table:: To gain 850 W, only 877.59 kDTU are needed (With two inlets this 
+      is at 357,5 °C), everything in excess is wasted. And half of the DTU deleted 
+      with one inlet are wasted, therefore we get following table:
 
-   .. table:: To gain 850 W, only 877.59 kDTU are needed (With two inlets this is at 357,5 °C), 
-      everything in excess is wasted. And half of the DTU deleted with one inlet are wasted, 
-      therefore we get following table:
-
-   +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
-   | Temperature | 1 Inlet      |                |             | 2 Inlets     |                |             |
-   +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
-   |             | Heat deleted | Power produced | Heat wasted | Heat deleted | Power produced | Heat wasted |
-   +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
-   | 357 °C      | 437.96 kDTU  | 212.19 W       | 218.98 kDTU | 875.92 kDTU  | 848.76 W       | 0.00 kDTU   |
-   +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
-   | 358 °C      | 439.63 kDTU  | 213.00 W       | 219.82 kDTU | 879.26 kDTU  | 850.00 W       | 2.07 kDTU   |
-   +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
-   | 359 °C      | 441.30 kDTU  | 213.81 W       | 220.65 kDTU | 882.60 kDTU  | 850.00 W       | 5.41 kDTU   |
-   +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
-   |             |              |                |             |              |                |             |
-   +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
-   | 443°C       | 581.72 kDTU  | 281.84 W       | 290.86 kDTU | 1163.43 kDTU | 850.00 W       | 286.24 kDTU |
-   +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
-   | 444°C       | 583.39 kDTU  | 282.65 W       | 291.69 kDTU | 1166.78 kDTU | 850.00 W       | 289.58 kDTU |
-   +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
-   | 445°C       | 585.06 kDTU  | 283.46 W       | 292.53 kDTU | 1170.12 kDTU | 850.00 W       | 292.93 kDTU |
-   +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
-   | 446°C       | 586.73 kDTU  | 284.27 W       | 293.37 kDTU | 1173.46 kDTU | 850.00 W       | 296.27 kDTU |
-   +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
-   |             |              |                |             |              |                |             |
-   +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
-   | 498 °C      | 673.65 kDTU  | 326.39 W       | 336.83 kDTU | 1347.31 kDTU | 850.00 W       | 470.12 kDTU |
-   +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
-   | 499 °C      | 675.33 kDTU  | 327.20 W       | 337.66 kDTU | 1350.65 kDTU | 850.00 W       | 473.46 kDTU |
-   +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
-   | 500 °C      | 677.00 kDTU  | 328.01 W       | 338.50 kDTU | 1354.00 kDTU | 850.00 W       | 476.80 kDTU |
-   +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
+      +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
+      | Temperature | 1 Inlet      |                |             | 2 Inlets     |                |             |
+      +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
+      |             | Heat deleted | Power produced | Heat wasted | Heat deleted | Power produced | Heat wasted |
+      +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
+      | 357 °C      | 437.96 kDTU  | 212.19 W       | 218.98 kDTU | 875.92 kDTU  | 848.76 W       | 0.00 kDTU   |
+      +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
+      | 358 °C      | 439.63 kDTU  | 213.00 W       | 219.82 kDTU | 879.26 kDTU  | 850.00 W       | 2.07 kDTU   |
+      +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
+      | 359 °C      | 441.30 kDTU  | 213.81 W       | 220.65 kDTU | 882.60 kDTU  | 850.00 W       | 5.41 kDTU   |
+      +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
+      |             |              |                |             |              |                |             |
+      +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
+      | 443°C       | 581.72 kDTU  | 281.84 W       | 290.86 kDTU | 1163.43 kDTU | 850.00 W       | 286.24 kDTU |
+      +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
+      | 444°C       | 583.39 kDTU  | 282.65 W       | 291.69 kDTU | 1166.78 kDTU | 850.00 W       | 289.58 kDTU |
+      +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
+      | 445°C       | 585.06 kDTU  | 283.46 W       | 292.53 kDTU | 1170.12 kDTU | 850.00 W       | 292.93 kDTU |
+      +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
+      | 446°C       | 586.73 kDTU  | 284.27 W       | 293.37 kDTU | 1173.46 kDTU | 850.00 W       | 296.27 kDTU |
+      +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
+      |             |              |                |             |              |                |             |
+      +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
+      | 498 °C      | 673.65 kDTU  | 326.39 W       | 336.83 kDTU | 1347.31 kDTU | 850.00 W       | 470.12 kDTU |
+      +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
+      | 499 °C      | 675.33 kDTU  | 327.20 W       | 337.66 kDTU | 1350.65 kDTU | 850.00 W       | 473.46 kDTU |
+      +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
+      | 500 °C      | 677.00 kDTU  | 328.01 W       | 338.50 kDTU | 1354.00 kDTU | 850.00 W       | 476.80 kDTU |
+      +-------------+--------------+----------------+-------------+--------------+----------------+-------------+
 
    The exact tipping point is 444.84°C / 832.71 °F / 717.99 K.
 
-
 Synergy with Thermo Aquatuners
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+''''''''''''''''''''''''''''''
 
 Using Water or Polluted Water as Coolant
 ''''''''''''''''''''''''''''''''''''''''
 
    At 200°C two steam turbines can delete 1,755,180 DTU/s, and three `Thermo Aquatuners`_ 
-   using `Water`_ or `Polluted Water`_ as coolant produce 1,755,180 DTU/s. This means 
-   that two steam turbines to three Thermo Aquatuners is an ideal ratio for deleting heat 
-   with the steam turbine when using Water or Polluted Water as the coolant.
+   using `Water`_ or `Polluted Water`_ as coolant produce 1,755,180 DTU/s. This 
+   means that two steam turbines to three Thermo Aquatuners is an ideal ratio for 
+   deleting heat with the steam turbine when using Water or Polluted Water as the coolant.
 
+   Watts of power used: 
+   
    .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/a1d6f859e5ec639eab263f271bba862c44998f97
 
-      Watts of power used: :math:`\left( {1200 \cdot 3 = 3,600} \right) - \left( {850 \cdot 2 = 1700} \right) = 1,900`
+      :math:`\left( {1200 \cdot 3 = 3,600} \right) - \left( {850 \cdot 2 = 1700} \right) = 1,900`                                                                                              
 
-   .. figrue:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/67182c859cdb459611fac7e9d89051228b1c2e25
+   Heat (DTU/s) deleted per spent watt: 
+   
+   .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/67182c859cdb459611fac7e9d89051228b1c2e25
 
-      Heat (DTU/s) deleted per spent watt: :math:`\frac{1,755,180}{1,900} \cong 923.78`
-
+      :math:`\frac{1,755,180}{1,900} \cong 923.78`                                                                   
 
 Using Super Coolant as Coolant
 ''''''''''''''''''''''''''''''
 
-   At 200°C three steam turbines can delete 2,632,770 DTU/s (2,357,490 DTU/s real deletion), 
-   and two Thermo Aquatuners using `Super Coolant`_ as coolant produce 2,363,200 DTU/s. 
-   This means that three steam turbines to two Thermo Aquatuners is a pretty good ratio 
-   for deleting heat with the steam turbine when using Super Coolant as the coolant.
+   At 200°C three steam turbines can delete 2,632,770 DTU/s (2,357,490 DTU/s real 
+   deletion), and two Thermo Aquatuners using `Super Coolant`_ as coolant produce 
+   2,363,200 DTU/s. This means that three steam turbines to two Thermo Aquatuners 
+   is a pretty good ratio for deleting heat with the steam turbine when using 
+   Super Coolant as the coolant.
+
+   Watts of power used: 
 
    .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/364d71316fafa3354b2fbac364e57991080bdd15
 
-      Watts of power used: :math:`\left( {1200 \cdot 2 = 2400} \right) - \left( {\left( {\frac{2,363,200}{2,632,770} \cdot 850} \right) \cdot 3 = 2,288.9} \right) \cong 111.1`
+      :math:`\left( {1200 \cdot 2 = 2400} \right) - \left( {\left( {\frac{2,363,200}{2,632,770} \cdot 850} \right) \cdot 3 = 2,288.9} \right) \cong 111.1`                                                                                                                                                                   
 
-   .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/b926e6683534537d2a8ba872c2bb17bde8bd83dc
+   Heat (DTU/s) deleted per spent watt: 
 
-      Heat (DTU/s) deleted per spent watt: :math:`\frac{2,363,200}{111.1} \cong 21,270.9`
+   .. figure::  https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/b926e6683534537d2a8ba872c2bb17bde8bd83dc
+
+      :math:`\frac{2,363,200}{111.1} \cong 21,270.9`                                                                     
 
 
 Comparing Power Efficiency of Coolants
 ''''''''''''''''''''''''''''''''''''''
 
-   Using Super Coolant is approximately 23 times more efficient than using Water or 
-   Polluted Water as coolant in a Steam Turbine/Thermo Aquatuner combo: 
+   Using Super Coolant is approximately 23 times more efficient than using Water 
+   or Polluted Water as coolant in a Steam Turbine/Thermo Aquatuner combo: 
 
    .. figure:: https://services.fandom.com/mathoid-facade/v1/media/math/render/svg/1470d81adf50d7247230a81b4f2a312f9d4dec6e
 
       :math:`\left( {\frac{21,270.9}{923.78} \cong 23} \right)`
 
-
 Trivia
 ~~~~~~
-
 
 Reintroducing exhaust water
 '''''''''''''''''''''''''''
 
-   Will cooling the steam with output water give less energy? No, steam turbines yield 
-   their power proportional to the amount of heat they delete.
+   Will cooling the steam with output water give less energy? No, steam turbines 
+   yield their power proportional to the amount of heat they delete.
 
    Experiment:
 
-   -  First, let's assume we have 10 kg Steam at 200 °C, for 5 seconds it will provide 
-      850 W → a total of 8,358 MDTU deleted for 4250 J.
+   -  First, let's assume we have 10 kg Steam at 200 °C, for 5 seconds it will 
+      provide 850 W → a total of 8,358 MDTU deleted for 4250 J.
 
-   -  Then, let's assume the same 10 kg of Steam at 200 °C but add the 95 °C Water back 
-      in instantaneously and lets assume the Steam Turbine could suck up water 95 °C hot. 
-      For the first second we get 850 W. The second second the steam will be 179 °C for 680 W, 
-      the third second 162.2°C for 544 W. On an infinite timescale the water will have 
-      reached 95 °C a total of 8,358 MDTU deleted for 4250 J.
+   -  Then, let's assume the same 10 kg of Steam at 200 °C but add the 95 °C 
+      Water back in instantaneously and lets assume the Steam Turbine could 
+      suck up water 95 °C hot. For the first second we get 850 W. The second 
+      second the steam will be 179 °C for 680 W, the third second 162.2°C for 
+      544 W. On an infinite timescale the water will have reached 95 °C a total 
+      of 8,358 MDTU deleted for 4250 J.
+
+   Of course a steam turbine will stop at 125 °C, but the heat will remain to be 
+   harnessed later.
+
+   As a matter of fact the opposite holds true since the more important limit 
+   is the 200 °C maximum temperature, or rather the 850 W power cap. If we run 
+   the same thought experiment as before, 10 kg of Steam at 300 °C will still 
+   run for 5 seconds at 850 W and produce 4250 J of energy... however, the 
+   cooled Steam can run for 9 seconds at ever decreasing power (see table below), 
+   producing about 5684.69 J while doing so.
+
+   +------------------+--------------+----------------+------------+
+   | seconds passed   | Steam        | Temperature    | Power      |
+   |                  | temperature  | difference     | produced   |
+   +------------------+--------------+----------------+------------+
+   | 0                | 300.00 °C    | 205.00         | 850.00 W   |
+   +------------------+--------------+----------------+------------+
+   | 1                | 259.00 °C    | 164.00         | 850.00 W   |
+   +------------------+--------------+----------------+------------+
+   | 2                | 226.20 °C    | 131.20         | 850.00 W   |
+   +------------------+--------------+----------------+------------+
+   | 3                | 199.96 °C    | 104.96         | 849.68 W   |
+   +------------------+--------------+----------------+------------+
+   | 4                | 178.97 °C    | 83.97          | 679.74 W   |
+   +------------------+--------------+----------------+------------+
+   | 5                | 162.17 °C    | 67.17          | 543.79 W   |
+   +------------------+--------------+----------------+------------+
+   | 6                | 148.74 °C    | 53.74          | 435.03 W   |
+   +------------------+--------------+----------------+------------+
+   | 7                | 137.99 °C    | 42.99          | 348.03 W   |
+   +------------------+--------------+----------------+------------+
+   | 8                | 129.39 °C    | 34.39          | 278.42 W   |
+   +------------------+--------------+----------------+------------+
+   | 9                | 122.51 °C    | temp too low   |            |
+   +------------------+--------------+----------------+------------+
 
    .. Note::
 
       Second 这个词不仅有“第二，次等”的意思，还有表示时间“秒”，作为动词还可以表示“赞成”，I second you。
       the first second, the second second, the third second 分别表示了前三秒的时间。
-
-   Of course a steam turbine will stop at 125 °C, but the heat will remain to be harnessed later.
-
-   As a matter of fact the opposite holds true since the more important limit is the 200 °C 
-   maximum temperature, or rather the 850 W power cap. If we run the same thought experiment 
-   as before, 10 kg of Steam at 300 °C will still run for 5 seconds at 850 W and produce 4250 J 
-   of energy... however, the cooled Steam can run for 9 seconds at ever decreasing power 
-   (see table below), producing about 5684.69 J while doing so.
-
-   +---------------------+---------------------+---------------------+---------------------+
-   | seconds passed      | Steam               | Temperature         | Power               |
-   |                     | temperature         | difference          | produced            |
-   +---------------------+---------------------+---------------------+---------------------+
-   | 0                   | 300.00 °C           | 205.00              | 850.00 W            |
-   +---------------------+---------------------+---------------------+---------------------+
-   | 1                   | 259.00 °C           | 164.00              | 850.00 W            |
-   +---------------------+---------------------+---------------------+---------------------+
-   | 2                   | 226.20 °C           | 131.20              | 850.00 W            |
-   +---------------------+---------------------+---------------------+---------------------+
-   | 3                   | 199.96 °C           | 104.96              | 849.68 W            |
-   +---------------------+---------------------+---------------------+---------------------+
-   | 4                   | 178.97 °C           | 83.97               | 679.74 W            |
-   +---------------------+---------------------+---------------------+---------------------+
-   | 5                   | 162.17 °C           | 67.17               | 543.79 W            |
-   +---------------------+---------------------+---------------------+---------------------+
-   | 6                   | 148.74 °C           | 53.74               | 435.03 W            |
-   +---------------------+---------------------+---------------------+---------------------+
-   | 7                   | 137.99 °C           | 42.99               | 348.03 W            |
-   +---------------------+---------------------+---------------------+---------------------+
-   | 8                   | 129.39 °C           | 34.39               | 278.42 W            |
-   +---------------------+---------------------+---------------------+---------------------+
-   | 9                   | 122.51 °C           | temp too low        |                     |
-   +---------------------+---------------------+---------------------+---------------------+
 
 
 Steam from multiple rooms
@@ -11786,13 +15571,10 @@ Steam from multiple rooms
 
    .. figure:: https://static.wikia.nocookie.net/oxygennotincluded_gamepedia_en/images/f/f4/Steam_turbine_multiple_rooms.png
 
-      |Steam turbine multiple rooms|
-
-   For the steam turbine to function only 1 port requires 125 °C. Therefore it is 
-   possible to create setup where a steam turbine accepts steam from 2 steam rooms 
-   where the temperature of one steam room is at 100 °C and the other above 125 °C.
-   This effectively allows you to cool a room to 100 °C.
-
+   For the steam turbine to function only 1 port requires 125 °C. Therefore it 
+   is possible to create setup where a steam turbine accepts steam from 2 steam 
+   rooms where the temperature of one steam room is at 100 °C and the other 
+   above 125 °C. This effectively allows you to cool a room to 100 °C.
 
 Cool and Hot Steam Vents
 ''''''''''''''''''''''''
@@ -11804,18 +15586,17 @@ Cool and Hot Steam Vents
    Steam (0.4 kg/s) from a `Steam Vent`_ on one side, and three ports above 135 °C 
    Steam (1.2 kg/s) are effectively 1.6 kg/s of 226.25 °C Steam and produce 850 W.
 
-
 Other tips
 ~~~~~~~~~~
 
-   -  Like most generators it will continue to run, consuming its power source, unless 
-      turned off manually or by an `automation`_ connection.
+   -  Like most generators it will continue to run, consuming its power source, 
+      unless turned off manually or by an `automation`_ connection.
 
-      -  It can often be useful to allow the Steam Turbine to simply waste excess power, 
-         if it is primarily being used to delete heat.
+      -  It can often be useful to allow the Steam Turbine to simply waste 
+         excess power, if it is primarily being used to delete heat.
 
-   -  Steam Turbines cannot add to the packets from their output port, so each one 
-      should have a dedicated uncloggable pipe segment.
+   -  Steam Turbines cannot add to the packets from their output port, so each 
+      one should have a dedicated uncloggable pipe segment.
 
    -  A metal refinery with a coolant of petroleum, crude oil, or super coolant 
       combined with a steam turbine actually generates excess power when refining 
@@ -11823,68 +15604,66 @@ Other tips
       This is further improved with the operating duplicant's `Machinery`_ attribute, 
       since the refinery draws its 1200 W of power for less than the full 40 s/batch.
 
-   -  An Aquatuner cooling Super Coolant will run energy neutral when combined with 
-      a steam turbine that has engie's tune-up. Even better, a single aquatuner/turbine 
-      setup with all 5 input ports open will not reach thermal equilibrium until ~236 °C 
-      steam temperature, meaning the setup requires no automation. With dupe's time 
-      for engie's tune-up and buffered by a power grid, this setup can provide energy-free 
-      cooling. Care must be taken not to deplete the heat in the cooling target, 
-      otherwise the setup will start drawing power.
+   -  An Aquatuner cooling Super Coolant will run energy neutral when combined 
+      with a steam turbine that has engie's tune-up. Even better, a single 
+      aquatuner/turbine setup with all 5 input ports open will not reach thermal 
+      equilibrium until ~236 °C steam temperature, meaning the setup requires no 
+      automation. With dupe's time for engie's tune-up and buffered by a power grid, 
+      this setup can provide energy-free cooling. Care must be taken not to deplete 
+      the heat in the cooling target, otherwise the setup will start drawing power.
 
    -  Steam Turbines exchange heat with their foundation tiles, and as such can be 
-      cooled with a heat-conductive `foundation tile`_ that's not in contact with Steam. 
-      Considering how high those tiles' `Thermal Conductivity`_ is, one tile can be 
-      enough to cool a Turbine when using active cooling.
-
-   .. figure:: hhttps://static.wikia.nocookie.net/oxygennotincluded/images/2/22/使用蒸汽涡轮机下方砖块换热.png
-
+      cooled with a `heat-conductive foundation tile`_ that's not in contact with 
+      Steam. Considering how high those tiles' `Thermal Conductivity`_ is, one 
+      tile can be enough to cool a Turbine when using active cooling.
 
 History
 ~~~~~~~
 
--  `OC-252151`_: Introduced.
--  `OC-252656`_: Steam turbine now works on a pressure differential and no longer requires water cooling.
--  `QLM3-326232`_: Steam turbine reworked.
--  `RP-379337`_: Steam turbines correctly obtain boost from Engie's Tune-up.
--  `U47-561558`_: Steam Turbine shows obstructed tiles for steam intake before placing it.
+   -  `OC-252151`_: Introduced.
+   -  `OC-252656`_: Steam turbine now works on a pressure differential and no longer requires water cooling.
+   -  `QLM3-326232`_: Steam turbine reworked.
+   -  `RP-379337`_: Steam turbines correctly obtain boost from Engie's Tune-up.
+   -  `U47-561558`_: Steam Turbine shows obstructed tiles for steam intake before placing it.
 
 .. _Steam: https://oxygennotincluded.fandom.com/wiki/Steam
 .. _Power: https://oxygennotincluded.fandom.com/wiki/Power_(Building)
 .. _Research: https://oxygennotincluded.fandom.com/wiki/Research
 .. _Renewable Energy: https://oxygennotincluded.fandom.com/wiki/Renewable_Energy
-.. _Overheat: https://oxygennotincluded.fandom.com/wiki/Overheating
 .. _W: https://oxygennotincluded.fandom.com/wiki/Units
+.. _Overheat: https://oxygennotincluded.fandom.com/wiki/Overheating
 .. _°C: https://oxygennotincluded.fandom.com/wiki/Units
-.. _kg: https://oxygennotincluded.fandom.com/wiki/Units
 .. _Piping: https://oxygennotincluded.fandom.com/wiki/Piping
 .. _Electrical Engineering: https://oxygennotincluded.fandom.com/wiki/Skills
+.. _Water: https://oxygennotincluded.fandom.com/wiki/Water
+.. _Ice: https://oxygennotincluded.fandom.com/wiki/Ice
 .. _Refined Metal: https://oxygennotincluded.fandom.com/wiki/Refined_Metal
+.. _kg: https://oxygennotincluded.fandom.com/wiki/Units
 .. _Plastic: https://oxygennotincluded.fandom.com/wiki/Plastic
 .. _magma: https://oxygennotincluded.fandom.com/wiki/Magma
 .. _Aquatuners: https://oxygennotincluded.fandom.com/wiki/Thermo_Aquatuner
 .. _Duplicant: https://oxygennotincluded.fandom.com/wiki/Duplicant
 .. _skill: https://oxygennotincluded.fandom.com/wiki/Skills
 .. _steam: https://oxygennotincluded.fandom.com/wiki/Steam
-.. _steam: https://oxygennotincluded.fandom.com/wiki/Steam
 .. _water: https://oxygennotincluded.fandom.com/wiki/Water
 .. _power: https://oxygennotincluded.fandom.com/wiki/Power_(Building)
 .. _Hydrogen: https://oxygennotincluded.fandom.com/wiki/Hydrogen
 .. _Oxygen: https://oxygennotincluded.fandom.com/wiki/Oxygen
 .. _Thermo Aquatuners: https://oxygennotincluded.fandom.com/wiki/Thermo_Aquatuner
-.. _Water: https://oxygennotincluded.fandom.com/wiki/Water
 .. _Polluted Water: https://oxygennotincluded.fandom.com/wiki/Polluted_Water
 .. _Super Coolant: https://oxygennotincluded.fandom.com/wiki/Super_Coolant
 .. _Cool Steam Vent: https://oxygennotincluded.fandom.com/wiki/Cool_Steam_Vent
 .. _Steam Vent: https://oxygennotincluded.fandom.com/wiki/Steam_Vent
 .. _automation: https://oxygennotincluded.fandom.com/wiki/Automation_(Building)
 .. _Machinery: https://oxygennotincluded.fandom.com/wiki/Machinery
-.. _foundation tile: https://oxygennotincluded.fandom.com/wiki/Unusual_uses_of_Gameplay_Mechanics#Steam_Turbine_cooling_via_its_foundation_tiles
+.. _heat-conductive foundation tile: https://oxygennotincluded.fandom.com/wiki/Unusual_uses_of_Gameplay_Mechanics#Steam_Turbine_cooling_via_its_foundation_tiles
 .. _Thermal Conductivity: https://oxygennotincluded.fandom.com/wiki/Thermal_Conductivity
 .. _OC-252151: https://oxygennotincluded.fandom.com/wiki/Versions/OC-252151
 .. _OC-252656: https://oxygennotincluded.fandom.com/wiki/Versions/OC-252656
 .. _QLM3-326232: https://oxygennotincluded.fandom.com/wiki/Versions/QLM3-326232
 .. _RP-379337: https://oxygennotincluded.fandom.com/wiki/Versions/RP-379337
 .. _U47-561558: https://oxygennotincluded.fandom.com/wiki/Versions/U47-561558
+
 
 
 

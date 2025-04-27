@@ -1,0 +1,2884 @@
+== Asciidoctor.js: AsciiDoc in JavaScript powered by Asciidoctor
+Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Guillaume Grossetie <https://github.com/mogztter[@mogztter]>; Anthonny Quérouil <https://github.com/anthonny[@anthonny]>
+:idprefix:
+:idseparator: -
+:uri-nodejs: https://nodejs.org
+:uri-opal: https://opalrb.com
+:uri-repo: https://github.com/asciidoctor/asciidoctor.js
+:uri-freesoftware: https://www.gnu.org/philosophy/free-sw.html
+ifndef::uri-rel-file-base[:uri-rel-file-base: link:]
+:uri-contribute: {uri-rel-file-base}CONTRIBUTING.adoc
+:uri-contribute-code: {uri-rel-file-base}CONTRIBUTING-CODE.adoc
+:uri-user-manual: https://docs.asciidoctor.org/asciidoctor.js/latest/
+:license: {uri-repo}/blob/main/LICENSE
+:experimental:
+:endash:
+
+// ifdef::env-github[]
+image:https://github.com/asciidoctor/asciidoctor.js/workflows/Build/badge.svg[GitHub Actions Status, link=https://github.com/asciidoctor/asciidoctor.js/actions]
+image:https://img.shields.io/npm/v/asciidoctor.svg[npm version, link=https://www.npmjs.org/package/asciidoctor]
+image:https://img.shields.io/npm/dm/asciidoctor[npm stats, link=https://www.npmjs.org/package/asciidoctor]
+image:https://img.shields.io/badge/jsdoc-main-blue.svg[JSDoc, link=https://asciidoctor.github.io/asciidoctor.js/main]
+image:https://img.shields.io/badge/zulip-join_chat-brightgreen.svg[project chat,link=https://asciidoctor.zulipchat.com/]
+// endif::[]
+
+Asciidoctor.js brings AsciiDoc to the JavaScript world!
+
+This project uses {uri-opal}[Opal] to transpile http://asciidoctor.org[Asciidoctor], a modern implementation of AsciiDoc, from Ruby to JavaScript to produce _asciidoctor.js_.
+The _asciidoctor.js_ script can be run on any JavaScript platform, including Node.js, GraalVM and, of course, a web browser.
+
+=== Quickstart
+
+ $ npm i asciidoctor --save
+
+Here is a simple example that converts AsciiDoc to HTML5:
+
+.sample.js
+[source,javascript]
+----
+import asciidoctor from 'asciidoctor' // <1>
+
+const Asciidoctor = asciidoctor()
+const content = 'http://asciidoctor.org[*Asciidoctor*] ' +
+  'running on https://opalrb.com[_Opal_] ' +
+  'brings AsciiDoc to Node.js!'
+const html = Asciidoctor.convert(content) // <2>
+console.log(html) // <3>
+----
+<1> Instantiate the Asciidoctor.js library
+<2> Convert AsciiDoc content to HTML5 using Asciidoctor.js
+<3> Print the HTML5 output to the console
+
+Save the file as _sample.js_ and run it using the `node` command:
+
+ $ node sample.js
+
+You should see the following output in your terminal:
+
+[source.output,html]
+----
+<div class="paragraph">
+<p><a href="http://asciidoctor.org"><strong>Asciidoctor</strong></a> running on <a href="http://opalrb.com"><em>Opal</em></a> brings AsciiDoc to Node.js!</p>
+</div>
+----
+
+It's also possible to use the following `script` tag directly into your HTML page:
+
+```html
+<script src="node_modules/@asciidoctor/core/dist/browser/asciidoctor.js"></script>
+```
+
+=== Learning
+
+If you want to learn more about _Asciidoctor.js_, please read the {uri-user-manual}[User Manual].
+
+=== Contributing
+
+In the spirit of {uri-freesoftware}[free software], _everyone_ is encouraged to help improve this project.
+If you discover errors or omissions in the source code, documentation, or website content, please don't hesitate to submit an issue or open a pull request with a fix.
+New contributors are always welcome!
+
+The {uri-contribute}[Contributing] guide provides information on how to contribute.
+
+If you want to write code, the {uri-contribute-code}[Contributing Code] guide will help you to get started quickly.
+
+=== Copyright
+
+Copyright (C) 2013-present Dan Allen, Guillaume Grossetie, Anthonny Quérouil and the Asciidoctor Project.
+Free use of this software is granted under the terms of the MIT License.
+
+See the {license}[LICENSE] file for details.
+
+=== Changelog
+
+Refer to the https://github.com/asciidoctor/asciidoctor.js/blob/main/CHANGELOG.adoc[CHANGELOG] for a complete list of changes.
+
+
+== Asciidoctor core
+
+This package provides Asciidoctor core functionality:
+
+* parser
+* built-in converters
+* extensions
+
+=== Install
+
+```console
+$ npm i @asciidoctor/core --save
+```
+
+=== Usage
+
+Here is a simple example that converts AsciiDoc to HTML5:
+
+**sample.js**
+
+```javascript
+const asciidoctor = require('@asciidoctor/core')() // ①
+const content = 'http://asciidoctor.org[*Asciidoctor*] ' +
+  'running on https://opalrb.com[_Opal_] ' +
+  'brings AsciiDoc to Node.js!'
+const html = asciidoctor.convert(content) // ②
+console.log(html) // ③
+```
+1. Instantiate the Asciidoctor.js library
+2. Convert AsciiDoc content to HTML5 using Asciidoctor.js
+3. Print the HTML5 output to the console
+
+Save the file as _sample.js_ and run it using the `node` command:
+
+```console
+$ node sample.js
+```
+
+You should see the following output in your terminal:
+
+```html
+<div class="paragraph">
+<p><a href="http://asciidoctor.org"><strong>Asciidoctor</strong></a> running on <a href="http://opalrb.com"><em>Opal</em></a> brings AsciiDoc to Node.js!</p>
+</div>
+```
+
+If you want to know more about Asciidoctor.js, please read the [User Manual](https://asciidoctor-docs.netlify.com/asciidoctor.js/).
+
+=== Changelog
+
+Refer to the [CHANGELOG](https://github.com/asciidoctor/asciidoctor.js/blob/main/CHANGELOG.adoc) for a complete list of changes.
+
+
+== Asciidoctor.js Documentation
+:uri-opal: https://opalrb.com
+
+[source,yml]
+----
+name: asciidoctor.js
+title: Asciidoctor.js
+version: '3.0'
+asciidoc:
+  attributes:
+    url-jsdoc-latest: 'http://asciidoctor.github.io/asciidoctor.js/main'
+nav:
+- modules/setup/nav.adoc
+- modules/processor/nav.adoc
+- modules/extend/nav.adoc
+- modules/cli/nav.adoc
+- modules/spec/nav.adoc
+- modules/project/nav.adoc
+----
+
+// modules/cli/nav.adoc
+// CLI References
+// The Command Line Interface (CLI) for Asciidoctor.js.
+
+
+Asciidoctor.js brings AsciiDoc to the JavaScript world!
+
+This project uses {uri-opal}[Opal] to transpile https://asciidoctor.org[Asciidoctor], a modern implementation of AsciiDoc, from Ruby to JavaScript to produce _asciidoctor.js_.
+The _asciidoctor.js_ script can be run on any JavaScript platform, including Node.js, GraalVM and, of course, a web browser.
+
+
+== Setup
+* xref:browser-optimization.adoc[Install guide]
+* xref:install.adoc[Install guide]
+* xref:quick-tour.adoc[A quick tour]
+* xref:runtime.adoc[Runtime]
+
+== Asciidoctor.js for the browser
+
+Asciidoctor.js produces bundles that target different environments.
+The browser bundle is _not_ minified and includes the Opal runtime code.
+
+On this page, you'll learn how to optimize Asciidoctor.js for the browser.
+
+=== Google Clojure Compiler
+
+We recommend to use the Clojure Compiler to reduce the size and improve the performance of Asciidoctor.js.
+
+https://dl.google.com/closure-compiler/compiler-latest.zip[Download the latest version] of the Clojure Compiler.
+
+NOTE: The Closure Compiler requires Java 8 or higher.
+
+. Unzip the zip archive and copy the jar file at the root of the project
+. Build the project using `npm`
+. Once the project is built, run the following command:
+
+ $ java -jar closure-compiler-v20190121.jar \
+   --jscomp_off=undefinedVars \
+   --js_output_file=build/asciidoctor-browser.min.js \
+   --compilation_level=ADVANCED build/asciidoctor-browser.js
++
+NOTE: We need to add the `--jscomp_off=undefinedVars` flag because the Closure Compiler wrongly assumes that the `Opal` global variable is undefined.
+
+
+== Install guide
+:url-node-releases: https://nodejs.org/en/about/releases/
+
+On this page, you'll learn:
+
+* [x] How to install Asciidoctor.js.
+* [x] How to setup Asciidoctor.js in your JavaScript environment.
+
+=== Install Asciidoctor.js
+
+We recommend using the latest long term support (LTS) release of Node.
+While you can use other versions of Node, Asciidoctor.js is only tested against {url-node-releases}[active LTS releases].
+
+Once you've installed an active Node LTS release on your machine, open a terminal and type:
+
+[source]
+$ npm i asciidoctor
+
+NOTE: If you prefer Yarn over npm, you can install Asciidoctor.js using `yarn add asciidoctor`
+
+Asciidoctor.js provides different builds for different JavaScript environments.
+See below for a link to the right one and instructions on how to use it.
+
+=== Basic browser setup
+
+Import Asciidoctor.js in a `<script type="module">` tag.
+You can instantiate the processor using the `Asciidoctor()`.
+
+```html
+<script type="module">
+  import Asciidoctor from './node_modules/@asciidoctor/core/dist/browser/asciidoctor.js'
+  const asciidoctor = Asciidoctor()
+</script>
+```
+
+[NOTE]
+====
+You need to pay attention to local testing — if you try to load the HTML file locally (i.e. with a file:// URL), you'll run into CORS errors due to JavaScript module security requirements.
+You need to do your testing through a server. 
+
+Learn more about https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules[JavaScript modules].
+====
+
+=== Node
+
+```js
+const Asciidoctor = require('asciidoctor')
+
+const asciidoctor = Asciidoctor()
+```
+
+=== AMD (System.js, RequireJS, etc)
+
+```js
+requirejs(['asciidoctor'], function (asciidoctor) {
+  //...
+})
+```
+
+=== TypeScript
+
+```js
+import Processor from 'asciidoctor'
+
+const processor = Processor()
+```
+
+NOTE: We are using the name `processor` to avoid confusion with the `Asciidoctor` namespace.
+
+=== Webpack
+
+```js
+import Asciidoctor from 'asciidoctor'
+
+const asciidoctor = Asciidoctor()
+```
+
+=== GraalVM
+
+==== Node.js application
+
+https://www.graalvm.org/docs/reference-manual/languages/js/[GraalVM can run Node.js applications]. +
+To install `asciidoctor.js` module, use the `npm` executable in the [.path]_/bin_ folder of the GraalVM package.
+
+Create the following code snippet to a file named `app.js` and save it in the same directory where you installed the Node.js modules:
+
+.app.js
+```js
+const Asciidoctor = require('asciidoctor')
+
+const asciidoctor = Asciidoctor()
+```
+
+Then execute it on GraalVM using the `node` command (available in the [.path]_/bin_ folder of the GraalVM package):
+
+ $ node app.js
+
+==== Embed in a JVM-based application
+
+https://www.graalvm.org/reference-manual/embed-languages/[With the Graal Polyglot API, you can embed JavaScript code in a JVM-based application].
+However, this is currently an *experimental* feature.
+Please, share any feedback or issues you may have.
+
+IMPORTANT: The Graal Polyglot feature gives you a "pure" JavaScript (ECMAScript) engine, not a Node.js engine.
+In other words, Node.js features such as `require` or core module such as `fs` won't be available.
+
+To embed Asciidoctor.js in a Java application, create the following code snippet to a file named `app.js` (tested on v21.1.0):
+
+.app.js
+```js
+var asciidoctor = Asciidoctor()
+```
+
+Copy the file `node_modules/asciidoctor.js/dist/graalvm/asciidoctor.js` in the resources of your application.
+Then create a Java file named `AsciidoctorGraalVM.java` with the following content:
+
+.AsciidoctorGraalVM.java
+```java
+\include::example$AsciidoctorGraalVM.java[]
+```
+<1> The `IncludeResolver` class will be used to read the content of a file when using the `include::` directive
+<2> Make sure that `asciidoctor.js` and `app.js` are available in the classpath of the application
+
+[TIP]
+====
+The source attribute of the https://github.com/graalvm/graaljs/blob/master/docs/user/JavaScriptCompatibility.md#loadsource[global `load` method] provided by GraalVM can be of type:
+
+- a `String`: the path of the source file or a URL to execute.
+- `java.lang.URL`: the URL is queried for the source code to execute.
+- `java.io.File`: the File is read for the source code to execute.
+====
+
+=== What's next?
+
+Now that Asciidoctor.js is installed, you are ready to take a xref:quick-tour.adoc[quick tour].
+
+
+== A quick tour
+
+Asciidoctor.js is a _fast_ text processor for converting AsciiDoc content to HTML5, slidedecks and other formats.
+This is quick tour will give you an overview of how to convert AsciiDoc content to HTML5.
+
+=== Your first conversion
+
+The first thing you need to do is instantiate Asciidoctor.js to get a {url-jsdoc-latest}/#asciidoctor[processor]:
+
+```js
+var asciidoctor = Asciidoctor()
+```
+
+To convert an AsciiDoc-formatted string:
+
+```js
+var html = asciidoctor.convert('Hello, _Asciidoctor_')
+console.log(html)
+// <div class="paragraph">
+// <p>Hello, <em>Asciidoctor</em></p>
+// </div>
+```
+
+[NOTE]
+====
+When converting a string, the header and footer are excluded by default to make Asciidoctor consistent with other lightweight markup engines like Markdown.
+If you want to produce a standalone document, enable it using the `standalone` option:
+
+```js
+var html = asciidoctor.convert('*This* is Asciidoctor.', { standalone: true })
+```
+====
+
+Alternatively, you can use the function `convertFile` to convert a file containing AsciiDoc markup to HTML 5:
+
+```js
+var doc = asciidoctor.convertFile('/path/to/file.adoc') // <1>
+```
+<1> The command will output to the file `file.html` in the same directory. +
+The variable `doc` will contain an {uri-js-api-doc}/#document[Asciidoctor.Document] object.
+
+Alternatively, you can capture the HTML 5 output in a variable instead of writing it to a file:
+
+```js
+var html = asciidoctor.convertFile('/path/to/file.adoc', { to_file: false, standalone: true })
+```
+
+[NOTE]
+====
+As seen above, the convert functions accept an optional argument to specify options. +
+Use of this argument is described in the xref:processor:convert-options.adoc[Convert options section].
+====
+
+If you are using Node.js, you can also use a `Buffer`:
+
+```js
+var html = asciidoctor.convert(fs.readFileSync('/path/to/file.adoc')) // <1>
+```
+<1> `readFileSync` will return a `Buffer`: https://nodejs.org/api/fs.html#fs_fs_readfilesync_path_options
+
+=== Load and convert
+
+To parse an AsciiDoc file into an {uri-js-api-doc}/#document[Asciidoctor.Document] object:
+
+```js
+var doc = asciidoctor.loadFile('file.adoc')
+```
+
+You can get information about the document:
+
+```js
+console.log(doc.getDocumentTitle())
+console.log(doc.getAttributes())
+```
+
+More than likely, you will want to convert the document.
+To convert an {uri-js-api-doc}/#document[Asciidoctor.Document] to HTML5, use the `convert` function on a `Document`:
+
+```js
+var doc = asciidoctor.loadFile('file.adoc')
+doc.convert()
+```
+
+As with the convert functions, it's also possible to load an AsciiDoc-formatted string and a `Buffer`:
+
+```js
+var doc = asciidoctor.load('Hello, _Asciidoctor_')
+```
+```js
+var doc = asciidoctor.load(fs.readFileSync('/path/to/file.adoc'))
+```
+
+=== Styling the HTML with CSS
+
+Asciidoctor.js uses CSS for HTML document styling.
+It comes bundled with a stylesheet, named `asciidoctor.css`.
+
+TIP: The default stylesheet is located at [.path]_node_modules/asciidoctor.js/dist/css/asciidoctor.css_
+
+When you generate a document using Node.js, the `asciidoctor.css` stylesheet is embedded into the HTML output by default (when the safe mode is less than `secure`).
+
+```js
+asciidoctor.convertFile('/path/to/file.adoc', { safe: 'safe' })
+```
+
+To have your document link to the stylesheet, set the `linkcss` attribute:
+
+```js
+asciidoctor.convertFile('/path/to/file.adoc', { safe: 'safe', attributes: { linkcss: true } })
+```
+
+== Runtime environment
+:uri-xmlhttprequest: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
+:uri-spidermonkey-read: https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Introduction_to_the_JavaScript_shell#Built-in_functions
+:uri-phantomjs-read: http://phantomjs.org/api/fs/method/read.html
+:uri-node-fs: https://nodejs.org/api/fs.html
+
+:uri-v8: https://developers.google.com/v8
+:uri-graalvm: https://www.graalvm.org
+:uri-electron: https://electronjs.org
+:uri-phantomjs: http://phantomjs.org
+:uri-webworker: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
+:uri-spidermonkey: https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey
+
+By default, Asciidoctor.js will try his best to automatically detect the runtime environment using Duck typing.
+
+=== Configure the Runtime environment
+
+CAUTION: The following section covers an advanced topic. For most use cases, you don't need to explicitly configure the runtime environment.
+
+Now that you have been warned,
+you can use the `runtime` configuration object when instantiating Asciidoctor.js
+to explicitly define the runtime environment:
+
+```js
+const asciidoctor = require('asciidoctor')({
+  runtime: {
+    platform: 'browser',
+    engine: 'v8',
+    framework: 'webextensions'
+  }
+})
+```
+
+The following values are recognized:
+
+`runtime.platform`::
+
+* `node`: Node.js
+* `java`: Java (GraalVM)
+* `standalone`: Standalone (spidermonkey)
+* `browser`: Browser (Chrome, Firefox, Opera, Edge...)
+
+`runtime.engine`::
+
+* {uri-v8}[`v8`]
+* {uri-graalvm}[`graalvm`]
+
+`runtime.framework`::
+
+* {uri-electron}[`electron`]
+* {uri-webworker}[`webworker`]
+* {uri-spidermonkey}[`spidermonkey`]
+* {uri-phantomjs}[`phantomjs`]
+
+=== I/O module
+
+The I/O module provides an implementation for reading files.
+
+By default, Asciidoctor.js will determine the I/O module upon the runtime environment.
+To explicitly define the I/O module,
+you can specify the attribute `runtime.ioModule` when instantiating Asciidoctor.js:
+
+```js
+const asciidoctor = require('asciidoctor')({
+  runtime: {
+    ioModule: 'xmlhttprequest'
+  }
+})
+```
+
+`ioModule` can be one of:
+
+`node`::
+The implementation will use the {uri-node-fs}[`fs` module].
+
+`xmlhttprequest`::
+The implementation will use the {uri-xmlhttprequest}[`XMLHttpRequest` object].
+
+`graalvm`::
+The implementation will use a bounded class named `IncludeResolver`:
++
+```java
+context.getPolyglotBindings().putMember("IncludeResolver", new IncludeResolver());
+```
+
+`spidermonkey`::
+The implementation will use the {uri-spidermonkey-read}[`read` function].
+
+`phantomjs`::
+The implementation will use the {uri-phantomjs-read}[`fs.read` function].
+
+=== Retrieve the runtime environment
+
+Once Asciidoctor.js is instantiated, you can retrieve the runtime environment with the `getRuntime` function:
+
+```js
+const asciidoctor = require('asciidoctor')()
+console.log(asciidoctor.getRuntime())
+// { ioModule: 'node', platform: 'node', engine: 'v8', framework: '' }
+```
+
+It can be useful to make sure that the runtime environment has been correctly determined.
+
+
+=== examples/AsciidoctorGraalVM.java
+
+[source,java]
+----
+import org.graalvm.polyglot.Context;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+
+public class AsciidoctorGraalVM {
+
+  public static void main(String... args) {
+    Context context = Context.newBuilder("js")
+                                .allowIO(true)
+                                .allowAllAccess(true)
+                                .allowPolyglotAccess(PolyglotAccess.ALL)
+                                .build();
+    context.getPolyglotBindings().putMember("IncludeResolver", new IncludeResolver()); // <1>
+    context.eval("js", "var IncludeResolver = Polyglot.import('IncludeResolver');");
+    ClassLoader classLoader = AsciidoctorGraalVM.class.getClassLoader();
+    context.eval("js", "load('" + classLoader.getResource("asciidoctor.js") + "')"); // <2>
+    context.eval("js", "load('" + classLoader.getResource("app.js") +"')"); // <2>
+  }
+
+  public static class IncludeResolver {
+    public String read(String path) throws IOException, URISyntaxException {
+      Path filePath = Paths.get(path);
+      List<String> lines;
+      File file = filePath.toFile();
+      if (file.exists()) {
+        lines = Files.readAllLines(filePath, StandardCharsets.UTF_8);
+      } else {
+        Path fileName = filePath.getFileName();
+        URL url = this.getClass().getClassLoader().getResource(fileName.toString());
+        if (url != null) {
+          lines = Files.readAllLines(Paths.get(url.toURI()), StandardCharsets.UTF_8);
+        } else {
+          lines = new ArrayList<>();
+        }
+      }
+      return String.join("\n", lines);
+    }
+
+    public String pwd() {
+      return Paths.get("").toAbsolutePath().toString();
+    }
+  }
+}
+----
+
+== Processor API
+//** xref:processor-api.adoc[Asciidoctor processor]
+** xref:convert-options.adoc[Convert options]
+** xref:extract-api.adoc[Extract information from a document]
+** xref:manipulate-api.adoc[Manipulate a document]
+** xref:logging-api.adoc[Logging]
+
+////
+TODO Describe the following functions in detailed :
+
+.convert
+.convertFile
+
+.load
+.loadFile
+
+.getCoreVersion
+.getVersion
+
+////
+
+
+== Examples (sample.adoc)
+
+[source,asciidoc]
+----
+== The Documentation Chronicles: Based on True Events
+Kismet Chameleon <kismet@asciidoctor.org>
+v1.0, October 2, 2018: First incarnation
+
+=== The Ravages of Writing
+----
+
+=== logger.js
+
+[source,js]
+----
+const memoryLogger = asciidoctor.MemoryLogger.create()
+asciidoctor.LoggerManager.setLogger(memoryLogger)
+
+asciidoctor.convert('some content')
+const errorMessage = memoryLogger.getMessages()[0]
+expect(errorMessage.severity.toString()).to.equal('ERROR')
+expect(errorMessage.message['text']).to.equal('invalid part, must have at least one section (e.g., chapter, appendix, etc.)')
+const sourceLocation = errorMessage.message['source_location']
+expect(sourceLocation.getLineNumber()).to.equal(8)
+expect(sourceLocation.getFile()).to.be.undefined
+expect(sourceLocation.getDirectory()).to.equal(process.cwd())
+expect(sourceLocation.getPath()).to.equal('<stdin>')
+----
+
+=== test.js
+
+[source,js]
+----
+const asciidoctor = require('asciidoctor')()
+
+// tag::load-file[]
+var doc = asciidoctor.loadFile('sample.adoc')
+// end::load-file[]
+
+// tag::document-title[]
+console.log(doc.getDocumentTitle()) // The Documentation Chronicles: Based on True Events
+// end::document-title[]
+
+// tag::doctitle-partition[]
+var doctitle = doc.getDocumentTitle({ partition: true })
+console.log(doctitle.getMain())     // The Documentation Chronicles
+console.log(doctitle.getSubtitle()) // Based on True Events
+console.log(doctitle.getCombined()) // The Documentation Chronicles: Based on True Events
+console.log(doctitle.hasSubtitle()) // true
+// end::doctitle-partition[]
+
+// tag::author[]
+console.log(doc.getAuthor()) // Kismet Chameleon
+// end::author[]
+
+// tag::author-attributes[]
+console.log(doc.getAttribute('author'))         // Kismet Chameleon
+console.log(doc.getAttribute('firstname'))      // Kismet
+console.log(doc.getAttribute('lastname'))       // Chameleon
+console.log(doc.getAttribute('middlename'))     // undefined
+console.log(doc.getAttribute('authorinitials')) // KC
+console.log(doc.getAttribute('email'))          // kismet@asciidoctor.org
+// end::author-attributes[]
+
+// tag::revision[]
+console.log(doc.getRevisionDate())   // October 2, 2018
+console.log(doc.getRevisionNumber()) // 1.0
+console.log(doc.getRevisionRemark()) // First incarnation
+// end::revision[]
+
+// tag::revision-info[]
+var revisionInfo = doc.getRevisionInfo()
+console.log(revisionInfo.getDate())   // October 2, 2018
+console.log(revisionInfo.getNumber()) // 1.0
+console.log(revisionInfo.getRemark()) // First incarnation
+// end::revision-info[]
+
+// tag::has-revision-info[]
+console.log(doc.hasRevisionInfo()) // true
+// end::has-revision-info[]
+
+// tag::revision-attributes[]
+console.log(doc.getAttribute('revdate'))   // October 2, 2018
+console.log(doc.getAttribute('revnumber')) // 1.0
+console.log(doc.getAttribute('revremark')) // First incarnation
+// end::revision-attributes[]
+----
+
+
+== Convert options
+
+This document describes the list of options you can use when converting a document.
+[cols="15m,15a,15a,15a"]
+|====
+|Name |Description |Default{nbsp}value |Allowed{nbsp}values
+
+|attributes
+|Sets additional document attributes, which override equivalently-named attributes defined in the document unless the value ends with `@`.
+|_not set_
+|Any number of built-in or user-defined attributes in one of the following formats:
+
+JSON: +
+`{'name': 'value'}` +
+Array: +
+`['name=value']` +
+String: +
+`'name=value'` +
+
+|backend
+|Selects the converter to use (as registered with this keyword).
+|html5
+|html5, docbook5, or any backend registered through an active converter
+
+|base_dir
+|Sets the base (aka working) directory containing the document and resources.
+|The directory of the source file, or the working directory if the source is read from a stream.
+|file path
+
+|catalog_assets
+|If true, tells the parser to capture images and links in the reference table. (Normally only IDs, footnotes and indexterms are included). The reference table is available via the `references` property on the `document` AST object. _(Experimental)._
+|false
+|_boolean_
+
+|doctype
+|Sets the document type.
+|article
+|article, book, manpage or inline
+
+|extensions_registry
+|Overrides the extensions registry instance.
+Instead of providing a JavaScript function containing extensions to register, this option lets you replace the extension registry itself, giving you complete control over how extensions are registered for this processor.
+|_not set_
+|`Extensions.Registry` instance
+
+|mkdirs
+|If true, the processor will create the necessary output directories if they don't yet exist.
+|false
+|_boolean_
+
+|parse
+|If true, the source is parsed eagerly (i.e., as soon as the source is passed to the `load` or `loadFile` API). If false, parsing is deferred until the `parse` method is explicitly invoked.
+|true
+|_boolean_
+
+|safe
+|Sets the safe mode.
+|secure
+|unsafe, safe, server or secure
+
+|sourcemap
+|Keeps track of the file and line number for each parsed block.
+ (Useful for tooling applications where the association between the converted output and the source file is important).
+|false
+|_boolean_
+
+|standalone
+|If true, add the document header and footer (i.e., framing) around the body content in the output.
+|false
+|_boolean_
+
+|template_dirs
+|An array of directories containing templates to be used instead of the default built-in templates.
+|_not set_
+|An array of file paths
+
+|to_dir
+|Destination directory for output file(s), relative to `base_dir`.
+|The directory containing the source file, or the working directory if the source is read from a stream.
+|file path
+
+|to_file
+|The name of the output file to write, or true to use the default output file (`docname` + `outfilesuffix`).
+|_not set_
+|true, file path
+|====
+
+=== Usage
+
+In the following example, we define the `safe` option to `unsafe` and we also define two attributes:
+
+`showtitle`:: display the title of an embedded document
+`icons`:: use font icons instead of text for admonitions
+
+[source,javascript]
+----
+var content = '= Document title'
+var html = asciidoctor.convert(content, { 'safe': 'server', 'attributes': { 'showtitle': true, 'icons': 'font' } })
+console.log(html)
+// <h1>Document title</h1>
+----
+
+NOTE: You can read more about document attributes on https://asciidoctor.org/docs/user-manual/#attribute-catalog
+
+
+== Extract information from a document
+ifndef::env-site,env-github[]
+\include::_attributes.adoc[]
+endif::[]
+
+Assumptions:
+
+* [x] You've successfully installed Asciidoctor.js.
+
+To make it easier to understand, in the following examples, we will use this sample file:
+
+.sample.adoc
+[source,adoc]
+----
+\include::{examplesdir}/sample.adoc[]
+----
+
+=== Document header
+
+==== Get the document title
+
+[source,js]
+----
+\include::{examplesdir}/test.js[tags=load-file;document-title]
+----
+
+By default, the document title is separated into a main title and subtitle using the industry standard, a colon followed by a space.
+You can partition the title from the API when calling the `getDocumentTitle` function:
+
+[source,js]
+----
+\include::{examplesdir}/test.js[tags=load-file;doctitle-partition]
+----
+
+==== Get the author
+
+[source,js]
+----
+\include::{examplesdir}/test.js[tags=load-file;author]
+----
+
+Asciidoctor uses the author's name and email to assign values to a number of built-in attributes that can be used throughout the document's body but also retrieve with the `getAttribute` function:
+
+[source,js]
+----
+\include::{examplesdir}/test.js[tags=load-file;author-attributes]
+----
+
+These attributes include:
+
+author::
+    The author's full name, which includes all of the characters or words prior to a semicolon (`;`), angle bracket (`<`) or the end of the line.
+
+firstname::
+    The first word in the author attribute.
+
+lastname::
+    The last word in the author attribute.
+
+middlename::
+    If a firstname and lastname are present, any remaining words or characters found between these attributes are assigned to the middlename attribute.
+
+authorinitials::
+    The first character of the firstname, middlename, and lastname attributes.
+
+email::
+    An email address, delimited by angle brackets (<>).
+
+==== Get the document revision information
+
+[source,js]
+----
+\include::{examplesdir}/test.js[tags=load-file;revision]
+----
+
+Alternatively, you can also get all the revision information at once:
+
+[source,js]
+----
+\include::{examplesdir}/test.js[tags=load-file;revision-info]
+----
+
+You can also check if the document contains revision info with `hasRevisionInfo` function:
+
+[source,js]
+----
+\include::{examplesdir}/test.js[tags=load-file;has-revision-info]
+----
+
+As with the author, revision information are also available as built-in attributes:
+
+[source,js]
+----
+\include::{examplesdir}/test.js[tags=load-file;revision-attributes]
+----
+
+revdate::
+    Date of document version
+
+revnumber::
+    Version number of the document
+
+revremark::
+    Version comments
+
+=== What's next?
+
+You can read the {url-jsdoc-latest}[API docs] to learn more about the API.
+
+
+== Manipulate a document
+
+=== Update a document attribute
+
+To update a document attribute, you will need to use the `setAttribute` function:
+
+[source,javascript]
+----
+var content = '== Title'
+var doc = asciidoctor.load(content)
+console.log(doc.getAttribute('data-uri')) // prints undefined
+console.log(doc.getAttribute('data-uri', 'false')) // prints 'false'
+
+doc.setAttribute('data-uri', 'true')
+console.log(doc.getAttribute('data-uri')) // prints 'true'
+----
+
+=== Unset a document attribute
+
+To unset a document attribute, you will need to use the `removeAttribute` function:
+
+[source,javascript]
+----
+var content = '== Title'
+var doc = asciidoctor.load(content)
+doc.setAttribute('data-uri', 'true')
+console.log(doc.getAttribute('data-uri')) // prints 'true'
+
+doc.removeAttribute('data-uri')
+console.log(doc.getAttribute('data-uri')) // prints undefined
+----
+
+=== What's next?
+
+You can read the {url-jsdoc-latest}[API docs] to learn more about the API.
+
+
+== Logging
+
+All warning and error messages in Asciidoctor.js are routed through a logger.
+Messages related to the input document also include context about the source location (file name, file directory, file path, line number), which can be useful for integrations and tooling.
+
+When using the API, you can feed your own logger to the `LoggerManager` to capture, route, or observe the messages.
+
+=== Logger
+
+==== Default logger
+
+The default logger will output all warning and error messages to `stderr` (the standard error output stream).
+
+Depending on your JavaScript environment, `stderr` will be resolved to:
+
+* https://developer.mozilla.org/fr/docs/Web/API/Console/warn[`console.warn`] function in a browser environment
+* https://nodejs.org/api/process.html#process_process_stderr[`process.stderr`] property in a Node.js environment
+
+==== In-memory logger
+
+In addition to the default logger, Asciidoctor.js provides a built-in in-memory logger named `MemoryLogger`.
+This logger won't output messages to `stderr` but instead they will be stored in-memory.
+
+First we need to instantiate this logger using the `create` function:
+
+```js
+const memoryLogger = asciidoctor.MemoryLogger.create()
+```
+
+Once the logger is instantiated, we need to tell the Asciidoctor processor that we want to use it:
+
+```js
+asciidoctor.LoggerManager.setLogger(memoryLogger)
+```
+
+The above code will effectively replace the default logger with the in-memory logger.
+
+
+===== Error and warning messages
+
+The in-memory logger stores every warning and error messages generated by the Asciidoctor.js processor.
+Once the processing is done, you can retrieve all these messages using the `getMessages` function:
+
+```js
+const loggerManager = asciidoctor.LoggerManager
+const memoryLogger = asciidoctor.MemoryLogger.create()
+loggerManager.setLogger(memoryLogger)
+
+asciidoctor.convert('input')
+
+memoryLogger.getMessages() // returns an array of Message
+```
+
+For every message, you can get the following information:
+
+```js
+const message = memoryLogger.getMessages()[0]
+console.log(message.getSeverity()) // <1>
+console.log(message.getText()) // <2>
+const sourceLocation = message.getSourceLocation() // <3>
+if (sourceLocation) {
+  console.log(sourceLocation.getLineNumber()) // <4>
+  console.log(sourceLocation.getFile()) // <5>
+  console.log(sourceLocation.getDirectory()) // <6>
+  console.log(sourceLocation.getPath()) // <7>
+}
+```
+<1> returns the severity (`ERROR` or `WARNING`)
+<2> returns the error or warning text message
+<3> returns the context about the source location (can be undefined)
+<4> returns the source line number associated to the message
+<5> returns the file name associated to the message (or `undefined` when converting from a String)
+<6> returns the absolute path to the source file parent directory, or the execution path when converting from a String
+<7> returns the path associated to the message (or `<stdin>` when converting from a String)
+
+==== Logger instances
+
+The Asciidoctor.js processor can only have one logger configured.
+If you want to restore the default logger after replacing it, you should save a reference:
+
+```js
+const loggerManager = asciidoctor.LoggerManager
+const defaultLogger = loggerManager.getLogger() // <1>
+try {
+  const memoryLogger = asciidoctor.MemoryLogger.create()
+  loggerManager.setLogger(memoryLogger) // <2>
+  // convert a document then do something with the in-memory logger
+} finally {
+  loggerManager.setLogger(defaultLogger) // <3>
+}
+```
+<1> save the default logger
+<2> replace the default logger with the in-memory logger
+<3> restore the default logger
+
+==== Custom logger
+
+In this section, we will explain how to replace the default logger by the popular logging library https://github.com/winstonjs/winston[Winston].
+To instantiate a new logger, we can use the `newLogger` function on the `LoggerManager`:
+
+```js
+const winston = require('winston') // <1>
+const winstonLogger = asciidoctor.LoggerManager.newLogger('WinstonLogger', {
+  postConstruct: function () {
+    this.logger = winston.createLogger({
+      level: 'warning',
+      format: winston.format.json(),
+      transports: [
+        new winston.transports.File({ filename: 'error.log', level: 'error' }),
+        new winston.transports.File({ filename: 'combined.log' })
+      ]
+    })
+  },
+  add: function (severity, _, message) {
+    const level = asciidoctor.LoggerSeverity.get(severity).toLowerCase() // <2>
+    logger.log({
+      level: level,
+      message: message.getText()
+    }) // <3>
+  }
+})
+```
+<1> Import the `winston` library (`winston` package must be installed: `npm install winston`)
+<2> Convert the severity (number) to a logger level (`'error'`, `'warn'`...)
+<3> Send messages to the Winston logger
+
+=== Logger formatter
+
+==== Default logger formatter
+
+The default formatter will output messages using the following human readable format:
+
+ asciidoctor: ${severity}: ${message}
+
+NOTE: The message can include context about the source location.
+
+Here's an example using the default formatter:
+
+```
+asciidoctor: ERROR: <stdin>: line 8: invalid part, must have at least one section (e.g., chapter, appendix, etc.)
+```
+
+==== Custom Logger formatter
+
+In this section, we will demonstrate how to replace the default formatter to output messages as JSON.
+To do that, we are going to use the `newFormatter` function to instantiate a new formatter and the `setFormatter` function to replace the default formatter on a logger:
+
+```js
+const loggerManager = asciidoctor.LoggerManager
+const defaultLogger = loggerManager.getLogger()
+const jsonFormatter = asciidoctor.LoggerManager.newFormatter('JsonFormatter', {
+  call: function (severity, time, programName, message) {
+    const text = message['text']
+    const sourceLocation = message['source_location']
+    return JSON.stringify({
+      programName: programName,
+      message: text,
+      sourceLocation: {
+        lineNumber: sourceLocation.getLineNumber(),
+        path: sourceLocation.getPath()
+      },
+      severity: severity
+    }) + '\n'
+  }
+})
+defaultLogger.setFormatter(jsonFormatter)
+```
+
+Here's the result:
+
+```json
+{"programName":"asciidoctor","message":"invalid part, must have at least one section (e.g., chapter, appendix, etc.)","sourceLocation":{"lineNumber":8,"path":"<stdin>"},"severity":"ERROR"}
+```
+
+== Extend & Customize
+
+.xref:index.adoc[Extend & Customize]
+* xref:stylesheets/index.adoc[Stylesheets]
+* xref:extensions/index.adoc[Extensions]
+** xref:extensions/register.adoc[Register Extensions]
+** xref:extensions/preprocessor.adoc[Preprocessor]
+** xref:extensions/tree-processor.adoc[Tree Processor]
+** xref:extensions/postprocessor.adoc[Postprocessor]
+** xref:extensions/docinfo-processor.adoc[Docinfo Processor]
+** xref:extensions/block-processor.adoc[Block Processor]
+** xref:extensions/block-macro-processor.adoc[Block Macro Processor]
+** xref:extensions/inline-macro-processor.adoc[Inline Macro Processor]
+** xref:extensions/include-processor.adoc[Include Processor]
+** xref:extensions/compile-ruby-extension.adoc[Compile Ruby Extension]
+** xref:extensions/ecosystem.adoc[Extensions ecosystem]
+* xref:converter/template-converter.adoc[Template Converter]
+* xref:converter/custom-converter.adoc[Custom Converter]
+
+Asciidoctor provides a default stylesheet and built-in converters so you can quickly process and convert your document,
+but it also lets you use custom stylesheets and converters.
+The Asciidoctor project includes alternative stylesheet themes from the stylesheet factory and specialized converters. +
+You can also create your own themes and converters.
+
+Asciidoctor is highly customizable and has different levels of customization.
+
+Built-in attributes::
+  Asciidoctor has built-in document attributes that can be used to control the output.
+  For instance, you can change the "Table Of Contents" location by using the `toc` attribute. +
+  The https://asciidoctor.org/docs/user-manual/#builtin-attributes[Asciidoctor User Manual^] describes every built-in attributes that you can use.
+
+Stylesheets::
+  As mentioned above, Asciidoctor provided a default stylesheet but you can xref:stylesheets/index.adoc#apply-theme[apply an alternative theme]. +
+  You can also create your own themes.
+
+Docinfo files::
+  You can add custom content to the head or footer of an output document using docinfo files.
+  Docinfo files are useful for injecting auxiliary metadata, stylesheet, and script information into the output not added by the converter.
+
+Template converter::
+  A template converter is an implementation that uses templates to convert each block from a parsed AsciiDoc document tree to the output format.
+
+Extensions::
+  Asciidoctor provides an xref:extensions/index.adoc[extension API] that offers a xref:extensions/register.adoc[list of extension points] that open up the language to new use cases.
+
+Custom converter::
+  A custom converter is a specific implementation provided by the user that extends the `Asciidoctor.Converter` class.
+
+=== partials/node-name-list.adoc
+
+* document
+* embedded
+* outline
+* section
+* admonition
+* audio
+* colist
+* dlist
+* example
+* floating-title
+* image
+* listing
+* literal
+* stem
+* olist
+* open
+* page_break
+* paragraph
+* preamble
+* quote
+* thematic_break
+* sidebar
+* table
+* toc
+* ulist
+* verse
+* video
+* inline_anchor
+* inline_break
+* inline_button
+* inline_callout
+* inline_footnote
+* inline_image
+* inline_indexterm
+* inline_kbd
+* inline_menu
+* inline_quoted
+
+
+== Extension Examples
+
+=== sample-stylesdir-link.adoc
+[source,asciidoc]
+----
+= Title
+:linkcss:
+:stylesdir: stylesheets/
+:stylesheet: styles.css
+
+Welcome to the preamble of this page!
+
+== First section
+
+This is a paragraph with a https://asciidoctor.org/[link].
+----
+
+
+== sample-stylesdir.adoc
+[source,asciidoc]
+----
+= Title
+:stylesdir: stylesheets/
+:stylesheet: styles.css
+
+Welcome to the preamble of this page!
+
+== First section
+
+This is a paragraph with a https://asciidoctor.org/[link].
+----
+
+
+== sample-stylesheet.adoc
+
+[source,asciidoc]
+----
+= Title
+:stylesheet: styles.css
+
+Welcome to the preamble of this page!
+
+== First section
+
+This is a paragraph with a https://asciidoctor.org/[link].
+----
+
+
+=== digital-postprocessor.js
+
+[source,js]
+----
+module.exports = function (registry) {
+  registry.postprocessor(function () {
+    var self = this
+    self.process(function (doc, output) {
+      return output.replace(/digitale?/g, 'numérique')
+    })
+  })
+}
+----
+
+
+=== draft-preprocessor.js
+
+[source,js]
+----
+module.exports = function (registry) {
+  registry.preprocessor(function () {
+    var self = this
+    self.process(function (doc, reader) {
+      var lines = reader.lines
+      for (var i = 0; i < lines.length; i++) {
+        if (lines[i].match(/^\/\/\s?draft.*/)) {
+          doc.setAttribute('status', 'DRAFT')
+        }
+      }
+      return reader
+    })
+  })
+}
+----
+
+
+=== emoticon-inline-macro-processor.js
+
+[source,js]
+----
+module.exports = function (registry) {
+  registry.inlineMacro('emoticon', function () {
+    var self = this
+    self.process(function (parent, target) {
+      var text
+      if (target === 'grin') {
+        text = ':D'
+      } else if (target === 'wink') {
+        text = ';)'
+      } else {
+        text = ':)'
+      }
+      return self.createInline(parent, 'quoted', text, { 'type': 'strong' })
+    })
+  })
+}
+----
+
+
+=== foo-include-processor.js
+
+[source,js]
+----
+module.exports = function (registry) {
+  registry.includeProcessor(function () {
+    var self = this
+    self.handles(function (target) {
+      return target.endsWith('.foo')
+    })
+    self.process(function (doc, reader, target, attrs) {
+      var content = ['foo']
+      return reader.pushInclude(content, target, target, 1, attrs)
+    })
+  })
+}
+----
+
+
+=== gdpr-tree-processor.js
+
+[source,js]
+----
+module.exports = function (registry) {
+  registry.treeProcessor(function () {
+    var self = this
+    self.process(function (doc) {
+      doc.getBlocks()[0] = self.createBlock(doc, 'paragraph', 'GDPR compliant :)')
+      return doc
+    })
+  })
+}
+----
+
+
+=== lorem-block-macro.js
+
+[source,js]
+----
+// NOTE: Below we are using a minimalist implementation to generate lorem ipsum text.
+// If you need a complete implementation, you can use the following Node package:
+// var lorem = require('lorem-ipsum')
+
+var dictionary = {
+  words: [
+    'lorem',
+    'ipsum',
+    'dolor',
+    'sit',
+    'amet'
+  ]
+}
+
+function getRandomArbitrary (min, max) {
+  return Math.random() * (max - min) + min
+}
+
+function lorem (opts) {
+  var count = opts.count
+  var units = opts.units
+  var words = dictionary.words
+  if (units === 'sentences') {
+    var sentences = []
+    var sentence = []
+    for (i = 0; i < count; i++) {
+      var sentenceLength = getRandomArbitrary(5, 15)
+      for (j = 0; j < sentenceLength; j++) {
+        // use predictive position for testing purpose
+        var position = j % words.length
+        // var position = Math.floor(Math.random() * words.length)
+        var word = dictionary.words[position]
+        if (j === 0) {
+          // capitalize the first letter
+          word = word.charAt(0).toUpperCase() + word.slice(1)
+        }
+        sentence.push(word)
+      }
+      sentence[sentence.length - 1] += '.'
+      sentences.push(sentence.join(' '))
+    }
+    return sentences.join(' ')
+  }
+}
+
+module.exports = function (registry) {
+  registry.blockMacro(function () {
+    var self = this
+    self.named('lorem')
+    self.process(function (parent, target, attrs) {
+      var size = parseInt(attrs.size)
+      var result = lorem({ count: size, units: target })
+      return self.createBlock(parent, 'paragraph', result)
+    })
+  })
+}
+----
+
+
+=== love-footer-docinfo-processor.js
+
+[source,js]
+----
+module.exports = function (registry) {
+  registry.docinfoProcessor(function () {
+    var self = this
+    self.atLocation('footer')
+    self.process(function () {
+      return 'Made with <3'
+    })
+  })
+}
+----
+
+
+=== shout-block.js
+
+[source,js]
+----
+module.exports = function (registry) {
+  registry.block(function () {
+    var self = this
+    self.named('shout')
+    self.onContext('paragraph')
+    self.process(function (parent, reader) {
+      var lines = reader.getLines().map(function (l) { return l.toUpperCase() })
+      return self.createBlock(parent, 'paragraph', lines)
+    })
+  })
+}
+----
+
+
+== Stylesheets
+
+On this page, you'll learn:
+
+* [x] How to apply a theme.
+//* [x] How to create a new theme.
+
+[#apply-theme]
+=== Applying a theme
+
+A custom stylesheet can be stored in the same directory as your document or in a separate directory.
+Like the default stylesheet, you can have the output document link to your custom stylesheet or embed it.
+
+If the stylesheet is in the same directory as your document, you can apply it when converting your document to HTML from the API.
+
+```js
+asciidoctor.convertFile('file.adoc', { 'attributes': { 'stylesheet': 'styles.css' } })
+```
+
+. Save your custom stylesheet in the same directory as `file.adoc`
+. Call the `asciidoctor` processor
+. Set the attribute `stylesheet`
+. Assign the stylesheet file's name to the `stylesheet` attribute
+. Enter your document file's name.
+
+Alternatively, let's set the `stylesheet` attribute in the header of `file.adoc`.
+
+----
+\include::{examplesdir}/sample-stylesheet.adoc[]
+----
+
+When your document and the stylesheet are stored in different directories, you need to tell Asciidoctor where to look for the stylesheet in relation to your document.
+Asciidoctor uses the relative or absolute path you assign to the `stylesdir` attribute to find the stylesheet.
+Let's move `styles.css` into `docs/stylesheets/`.
+Our AsciiDoc document, `file.adoc`, is saved in the `docs/` directory.
+
+----
+\include::{examplesdir}/sample-stylesdir.adoc[]
+----
+
+After processing `file.adoc`, its HTML output (`file.html`), which includes the embedded `styles.css` stylesheet, is created in the `docs/` directory.
+
+You can also set `stylesdir` in the API.
+
+```js
+asciidoctor.convertFile('file.adoc', { 'attributes': { 'stylesdir': 'stylesheets/', 'stylesheet': 'styles.css' } })
+```
+
+If you don't want to embed the `styles.css` stylesheet into your HTML output, make sure to set `linkcss`.
+
+----
+\include::{examplesdir}/sample-stylesdir-link.adoc[]
+----
+
+After your document is converted, notice that a copy of `styles.css` was not created in the `docs/` directory.
+Unlike when you link to the default Asciidoctor stylesheet, any custom stylesheets you link to are not copied to the directory where your output is saved.
+
+//== Creating a theme
+// TODO: Explain how to create a new theme using https://github.com/mogztter/asciidoctor-stylesheets
+// TIP: If you are not familiar with https://sass-lang.com/[Sass], it might be easier to adapt an existing theme rather than creating a new one from scratch.
+
+== Extensions
+
+Asciidoctor provides an extension API that offers a xref:extensions/register.adoc[list of extension points] that open up the language to new use cases.
+
+The goal for Asciidoctor has always been to allow extensions to be written using the full power of a programming language, similar to what we've done with the backend (conversion) mechanism.
+That way, you don't have to shave yaks to get the functionality you want, and you can distribute the extension using defacto-standard packaging mechanisms like npm.
+
+WARNING: The extension API in Asciidoctor is stable with the exception of inline macros.
+Since inline content is not parsed until the convert phase, the inline macro processor must return converted text (e.g., HTML) rather than an AST node.
+Once Asciidoctor is changed to https://github.com/asciidoctor/asciidoctor/issues/61[process inline content during the parse phase^], the inline macro processor will need to return an inline node.
+When that switch occurs, there will either be some sort of adapter or required migration for inline macro processors, but that has yet to be determined.
+
+
+== Register Extensions
+
+These extension points are currently available.
+
+Preprocessor::
+Processes the raw source lines before they are passed to the parser.
+See xref:extensions/preprocessor.adoc[Preprocessor Example].
+
+Tree processor::
+Processes the {url-jsdoc-latest}/#document[Asciidoctor.Document (AST)] once parsing is complete.
+See xref:extensions/tree-processor.adoc[Tree Processor Example].
+
+Postprocessor::
+Processes the output after the document has been converted, but before it's written to disk.
+See xref:extensions/postprocessor.adoc[Postprocessor Example].
+
+Docinfo Processor::
+Adds additional content to the header or footer regions of the generated document.
+See xref:extensions/docinfo-processor.adoc[Docinfo Processor Example].
+
+Block processor::
+Processes a block of content marked with a custom block style (i.e., `[custom]`). (similar to an AsciiDoc filter)
+See xref:extensions/block-processor.adoc[Block Processor Example].
+
+Block macro processor::
+Registers a custom block macro and processes it (e.g., `gist::12345[]`).
+See xref:extensions/block-macro-processor.adoc[Block Macro Processor Example].
+
+Inline macro processor::
+Registers a custom inline macro and processes it (e.g., `btn:[Save]`).
+See xref:extensions/inline-macro-processor.adoc[Inline Macro Processor Example].
+
+Include processor::
+Processes the `include::<filename>[]` directive.
+See xref:extensions/include-processor.adoc[Include Processor Example].
+
+=== Register one or more extensions
+
+
+You can register an extension globally as follows:
+
+[source,javascript]
+----
+const asciidoctor = require('asciidoctor')()
+asciidoctor.Extensions.register(function () {
+  this.block(function () {
+    const self = this
+    self.named('shout')
+    self.onContext('paragraph')
+    self.process(function (parent, reader) {
+      const lines = reader.getLines().map(l => l.toUpperCase())
+      return self.createBlock(parent, 'paragraph', lines)
+    })
+  })
+})
+
+const text = `[shout]\
+\nSay it loud.\
+\nSay it proud.`
+
+const html = asciidoctor.convert(text)
+console.log(html)
+
+// <div class="paragraph">
+// <p>SAY IT LOUD.
+// SAY IT PROUD.</p>
+// </div>
+----
+
+You can register more than one processor of each type, though you can only have one processor per custom block or macro.
+Each registered class is instantiated when the {url-jsdoc-latest}/#document[Asciidoctor.Document] is created.
+
+NOTE: There is currently no extension point for processing a built-in block, such as a normal paragraph.
+Look for that feature in a future Asciidoctor release.
+
+You can also create one or more registries.
+It can be useful when you want to convert the same text with different extensions enabled.
+
+[source,javascript]
+----
+const asciidoctor = require('asciidoctor')()
+
+const registryA = asciidoctor.Extensions.create()
+const registryB = asciidoctor.Extensions.create()
+
+registryA.block(function () {
+  const self = this
+  self.named('shout')
+  self.onContext('paragraph')
+  self.process(function (parent, reader) {
+    // Transform text to uppercase
+    const lines = reader.getLines().map(l => l.toUpperCase())
+    return self.createBlock(parent, 'paragraph', lines)
+  })
+})
+
+registryB.block(function () {
+  const self = this
+  self.named('shout')
+  self.onContext('paragraph')
+  self.process(function (parent, reader) {
+    // Replace period at end of line with three three exclamation marks
+    const lines = reader.getLines().map(l => l.replace(/\.$/g, ' !!!'))
+    return self.createBlock(parent, 'paragraph', lines)
+  })
+})
+
+const text = `[shout]\
+\nSay it loud.\
+\nSay it proud.`
+
+console.log(asciidoctor.convert(text, { 'extension_registry': registryA }))
+console.log('')
+console.log(asciidoctor.convert(text, { 'extension_registry': registryB }))
+
+// <div class="paragraph">
+// <p>SAY IT LOUD.
+// SAY IT PROUD.</p>
+// </div>
+//
+// <div class="paragraph">
+// <p>Say it loud !!!
+// Say it proud !!!</p>
+// </div>
+----
+
+In the example above, we've created two registries:
+
+* `registryA`
+* `registryB`
+
+Both registry have a `[shout]` block extension registered with a specific implementation.
+
+The first block extension is registered in the `registryA` and will transform the text to uppercase.
+The other one is registered in the `registryB` and will replace `.` by `{nbsp}!!!`.
+
+
+== Preprocessor Extension Example
+
+Purpose::
+Set the status of the document to `DRAFT` (using Document attributes) if it contains a comment that starts with `draft`.
+
+=== sample-draft-doc.adoc
+
+```adoc
+= This documentation is not ready yet
+
+=== First section
+
+// draft: we need to talk about Y.
+
+In this section, we are going to talk about X.
+```
+
+=== DraftPreprocessor
+
+.draft-preprocessor.js
+```js
+\include::example$extensions/draft-preprocessor.js[]
+```
+
+=== Usage
+
+```js
+const asciidoctor = require('asciidoctor')()
+const registry = asciidoctor.Extensions.create()
+require('./draft-preprocessor.js')(registry)
+
+const doc = asciidoctor.loadFile('sample-draft-doc.adoc', { 'extension_registry': registry })
+console.log(doc.getAttribute('status')) // 'DRAFT'
+const result = doc.convert()
+```
+
+== Tree Processor Extension Example
+
+Purpose::
+Make the document GDPR compliant by replacing the first block (paragraph) with the sentence "GDPR compliant :)"
+
+=== sample-gdpr-doc.adoc
+
+```adoc
+== Privacy agreement
+
+We track you for your own safety!
+```
+
+=== GDPRTreeProcessor
+
+.gdpr-tree-processor.js
+```js
+\include::example$extensions/gdpr-tree-processor.js[]
+```
+
+=== Usage
+
+```js
+const asciidoctor = require('asciidoctor')()
+const registry = asciidoctor.Extensions.create()
+require('./gdpr-tree-processor.js')(registry)
+
+const doc = asciidoctor.convertFile('sample-gdpr-doc.adoc', { 'extension_registry': registry })
+console.log(doc.getBlocks()[0].getSource()) // 'GDPR compliant :)'
+```
+
+
+== Postprocessor Extension Example
+
+Purpose::
+Replace every occurrences of the word "digital" or "digitale" by "numérique"... Pretty useful right ? :)
+
+=== sample-digital-doc.adoc
+
+```adoc
+== Le digital au service de la relation client
+
+Comment la révolution digitale va transformer votre entreprise.
+```
+
+=== DigitalPostprocessor
+
+.digital-postprocessor.js
+```js
+\include::example$extensions/digital-postprocessor.js[]
+```
+
+=== Usage
+
+```js
+const asciidoctor = require('asciidoctor')()
+const registry = asciidoctor.Extensions.create()
+require('./digital-postprocessor.js')(registry)
+
+const html = asciidoctor.convertFile('sample-digital-doc.adoc', { 'to_file': false, 'extension_registry': registry })
+console.log(html) // digital is gone... Long live numérique!
+```
+
+== Docinfo Extension Example
+
+Purpose::
+Add the sentence "Made with <3" in the footer.
+
+=== sample-love-doc.adoc
+
+```adoc
+== Title
+
+=== First section
+
+This is a paragraph.
+```
+
+=== LoveFooterDocinfoProcessor
+
+.love-footer-docinfo-processor.js
+```js
+\include::example$extensions/love-footer-docinfo-processor.js[]
+```
+
+=== Usage
+
+```js
+const asciidoctor = require('asciidoctor')()
+const registry = asciidoctor.Extensions.create()
+require('./love-footer-docinfo-processor.js')(registry)
+
+const html = asciidoctor.convertFile('sample-love-doc.adoc', { 'to_file': false, 'extension_registry': registry })
+console.log(html)
+```
+
+
+== Block Extension Example
+
+Purpose::
+Capitalize the text in a `shout` block paragraph as if the author was yelling!
+
+=== sample-shout-doc.adoc
+
+```adoc
+[shout]
+Say it loud.
+Say it proud.
+```
+
+=== ShoutBlock
+
+.shout-block.js
+```js
+\include::example$extensions/shout-block.js[]
+```
+
+=== Usage
+
+```js
+const asciidoctor = require('asciidoctor')()
+const registry = asciidoctor.Extensions.create()
+require('./shout-block.js')(registry)
+
+const html = asciidoctor.convertFile('sample-shout-doc.adoc', { 'to_file': false, 'extension_registry': registry })
+console.log(html)
+// <div class="paragraph">
+// <p>SAY IT LOUD.
+// SAY IT PROUD.</p>
+// </div>
+```
+
+
+== Block Macro Extension Example
+
+Purpose::
+Generate lorem ipsum text.
+
+=== sample-lorem-doc.adoc
+
+```adoc
+lorem::sentences[size=2]
+```
+
+=== ShoutBlock
+
+.lorem-block-macro.js
+```js
+\include::example$extensions/lorem-block-macro.js[]
+```
+
+=== Usage
+
+```js
+const asciidoctor = require('asciidoctor')()
+const registry = asciidoctor.Extensions.create()
+require('./lorem-block-macro.js')(registry)
+
+const html = asciidoctor.convert('lorem::sentences[size=2]', { 'extension_registry': registry })
+console.log(html)
+// <div class="paragraph">
+// <p>Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit. Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit. Lorem ipsum dolor sit amet lorem ipsum dolor.</p>
+// </div>
+```
+
+
+== Inline Macro Processor Extension Example
+
+Purpose::
+Replace the macro `emoticon` with the corresponding text emoticon.
+
+=== sample-emoticon-doc.adoc
+
+```adoc
+emoticon:wink[]
+emoticon:grin[]
+emoticon:x[]
+```
+
+=== EmoticonInlineMacroProcessor
+
+.emoticon-inline-macro-processor.js
+```js
+\include::example$extensions/emoticon-inline-macro-processor.js[]
+```
+
+=== Usage
+
+```js
+const asciidoctor = require('asciidoctor')()
+const registry = asciidoctor.Extensions.create()
+require('./emoticon-inline-macro-processor.js')(registry)
+
+const html = asciidoctor.convertFile('sample-emoticon-doc.adoc', { 'to_file': false, 'extension_registry': registry })
+console.log(html)
+```
+
+
+== Include Processor Extension Example
+
+Purpose::
+Return the content "foo" if the file extension of the include directive target is "foo".
+
+=== sample-foo-doc.adoc
+
+```adoc
+\include::./test.foo[]
+```
+
+=== FooIncludeProcessor
+
+.foo-include-processor.js
+```js
+\include::example$extensions/foo-include-processor.js[]
+```
+
+=== Usage
+
+```js
+const asciidoctor = require('asciidoctor')()
+const registry = asciidoctor.Extensions.create()
+require('./foo-include-processor.js')(registry)
+
+const html = asciidoctor.convert('include::./test.foo[]', { extension_registry: registry })
+console.log(html)
+// <div class="paragraph">
+// <p>foo</p>
+// </div
+```
+
+
+== Compile Ruby Extensions to JavaScript
+
+On this page, you’ll learn how to compile an Asciidoctor extension written in Ruby to JavaScript using Opal.
+
+WARNING: This is an advanced technique that has some limitations.
+The recommended way to use extensions in Asciidoctor.js is to write them directly in JavaScript.
+
+
+Now that you've been warned, let's say you want to use the following Asciidoctor extension (written in Ruby) in your JavaScript based application.
+
+.lib/tel-inline-macro.rb
+```ruby
+# An inline macro that turns URIs with the tel: URI scheme into links.
+#
+# Usage
+#
+#   tel:1-800-555-1212[]
+#
+Asciidoctor::Extensions.register do
+  inline_macro do
+    named :tel
+    parse_content_as :text
+    process do |parent, target, attrs|
+      if (text = attrs['text']).empty?
+        text = target
+      end
+      target = %(tel:#{target})
+      (create_anchor parent, text, type: :link, target: target)
+    end
+  end
+end
+```
+
+=== Compilation
+
+To compile this extension, you will need to install the `opal-compiler` package:
+
+ $ npm install opal-compiler
+
+Once this package is installed, you can write the following Node script to compile the extension:
+
+.compile.js
+```js
+const fs = require('fs')
+const Builder = require('opal-compiler').Builder
+// Opal object will be available on the global scope
+
+const builder = Builder.create()
+builder.appendPaths('lib') // <1>
+const result = builder.build('tel-inline-macro.rb') // <2>
+fs.writeFileSync('tel-inline-macro.js', result.toString(), 'utf8') // <3>
+```
+<1> The extension file is in the `lib` directory
+<2> The extension file is named `tel-inline-macro.rb`
+<3> A file named `tel-inline-macro.js` will be written
+
+Then run it:
+
+ $ node compile.js
+
+The above command will create a file named [.path]_tel-inline-macro.js_ containing the extension code in JavaScript.
+
+=== Usage
+
+In the previous section, we've showed how to compile a Ruby extension to JavaScript.
+In this section we will use this extension.
+
+Let's create a simple document:
+
+.document.adoc
+```adoc
+== Contacts
+
+=== Professional
+
+Guillaume Grossetie tel:1-800-555-1212[]
+```
+
+Next we create a Node script to convert this document:
+
+.convert.js
+[source,javascript]
+----
+const asciidoctor = require('asciidoctor')()
+require('./tel-inline-macro.js') // <1>
+
+const html = asciidoctor.convertFile('document.adoc', { 'to_file': false }) // <2>
+console.log(html)
+----
+<1> Load the local extension named [.path]_tel-inline-macro.js_
+<2> Convert the document with the `tel` inline macro extension enabled
+
+NOTE: Asciidoctor.js must be installed: `npm install asciidoctor.js`
+
+Then we run it:
+
+ $ node convert.js
+
+```
+<div class="sect1">
+<h2 id="_professional">Professional</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Guillaume Grossetie <a href="tel:1-800-555-1212">1-800-555-1212</a></p> // <1>
+</div>
+</div>
+</div>
+```
+<1> The `tel` macro was converted to a link
+
+== Extensions ecosystem
+:uri-twemoji: https://blog.twitter.com/developer/en_us/a/2014/open-sourcing-twitter-emoji-for-everyone.html
+:uri-plantuml-server: https://github.com/plantuml/plantuml-server
+:uri-chartist: https://gionkunz.github.io/chartist-js/
+:uri-kroki: https://kroki.io/
+:uri-bytefield: https://bytefield-svg.deepsymmetry.org/
+
+:uri-ext-interactive-runner-gh: https://github.com/oncletom/asciidoctor-extension-interactive-runner
+:uri-ext-plantuml-gh: https://github.com/eshepelyuk/asciidoctor-plantuml.js
+:uri-ext-emoji-gh: https://github.com/mogztter/asciidoctor-emoji
+:uri-ext-chart-gh: https://github.com/mogztter/asciidoctor-chart
+:uri-ext-color-gh: https://github.com/mogztter/asciidoctor-color
+:uri-ext-kroki-gh: https://github.com/mogztter/asciidoctor-kroki
+:uri-ext-tweet-gh: https://github.com/mogztter/asciidoctor-tweet
+:uri-ext-bytefield-gh: https://github.com/Deep-Symmetry/bytefield-svg
+:uri-ext-antora-indexer-gl: https://gitlab.com/djencks/asciidoctor-antora-indexer
+:uri-ext-jsonpath-gl: https://gitlab.com/djencks/asciidoctor-jsonpath
+:uri-ext-mathjax-gl: https://gitlab.com/djencks/asciidoctor-mathjax.js
+:uri-ext-openblock-gl: https://gitlab.com/djencks/asciidoctor-openblock
+:uri-ext-template-gl: https://gitlab.com/djencks/asciidoctor-template
+
+Here's a list of extensions provided by the awesome community:
+
+Byte field::
+  Draw byte field diagrams using {uri-bytefield}[bytefield-svg]. +
+  {uri-ext-bytefield-gh}
+
+Chart::
+  Render charts using {uri-chartist}[Chartist.js]. +
+  {uri-ext-chart-gh}
+
+Color::
+  Render color chips for a given color reference (either a name, rgb, rgba, hsl, hsla or hex reference) +
+  {uri-ext-color-gh}
+
+Diagrams::
+  Convert diagrams to images using {uri-kroki}[Kroki]. +
+  {uri-ext-kroki-gh}
+
+Emoji::
+  Inline macro to render `emoji:heart[]` as an `<img>` that points to a remote SVG using {uri-twemoji}[Twemoji from Twitter]. +
+  {uri-ext-emoji-gh}
+
+Interactive runner::
+  Transform AsciiDoc code listings into interactive playgrounds which run in the browser.
+  Add the `%interactive` option to your `[source]` block. +
+  {uri-ext-interactive-runner-gh}
+
+MathJax::
+  Server-side mathjax rendering into inline svg. +
+  {uri-ext-mathjax-gl}
+
+Open Block::
+  Nest open blocks to any depth using a block macro, at least until the spec allows this directly. +
+  {uri-ext-openblock-gl}
+
+PlantUML::
+  Render PlantUML, Ditaa and Graphiz (DOT) diagrams as PNG or SVG using a {uri-plantuml-server}[PlantUML server]. +
+  {uri-ext-plantuml-gh} +
+  No longer maintained.
+  Consider using Kroki instead.
+
+Queries::
+  Query an external json document or (in Antora) the Antora content catalog and render the result as a list, table, count, or repeating template block.
+
+Json:::
+  {uri-ext-jsonpath-gl}
+
+Antora:::
+  {uri-ext-antora-indexer-gl}
+
+Template::
+  Define a block or inline template and "call" it with "variables", with the result isolated from the main document:
+  that is, the attributes do not leak out of the template. +
+  {uri-ext-template-gl}
+
+Tweet::
+  Render tweet using the Twitter API.
+Use the `tweet` macro with a tweet id: `tweet::1041369960436703232[]`. +
+  {uri-ext-tweet-gh}
+
+
+== Template Converter
+:url-abstractnode-jsdoc: {url-jsdoc-latest}/#abstractnode
+:url-section-jsdoc: {url-jsdoc-latest}/#section
+:url-document-jsdoc: {url-jsdoc-latest}/#document
+:url-block-jsdoc: {url-jsdoc-latest}/#block
+:url-handlebars-register-helpers: https://handlebarsjs.com/api-reference/runtime.html#handlebars-registerhelper-name-helper
+:url-handlebars-register-partials: https://handlebarsjs.com/api-reference/runtime.html#handlebars-registerpartial-name-partial
+:url-nunjucks-add-filter: https://mozilla.github.io/nunjucks/api.html#addfilter
+
+On this page, you'll learn how to use templates to have full control over the output.
+
+=== Built-in template engines
+
+By default, Asciidoctor.js supports the following template engines with the corresponding file extensions:
+
+EJS::
+`.ejs`
+
+Handlebars::
+`.handlebars`, `.hbs`
+
+Nunjucks::
+`.nunjucks`, `.njk`
+
+Pug::
+`.pug`
+
+[NOTE]
+====
+Please note that the dependencies are optional, so you will need to install them explicitly.
+For instance, if you want to use Nunjucks, you will need to install the `nunjucks` package:
+
+ $ npm i nunjucks
+====
+
+Once the dependency is installed, you can create template files in a directory.
+
+=== Plain JavaScript templates
+
+Asciidoctor.js also supports templates written in plain JavaScript.
+In this case, you should write JavaScript files that export a default function:
+
+[source,js]
+----
+module.exports = ({ node }) => `<p class="paragraph">${node.getContent()}</p>`
+----
+
+This function will be called with a <<template-context>> as argument.
+
+=== Naming convention
+
+Let's say, we want to use Nunjucks to write templates.
+We create a directory named _templates_ and a file named _paragraph.njk_:
+
+[source,njk]
+----
+<p class="paragraph">{{ node.getContent() | safe }}</p>
+----
+
+[NOTE]
+====
+By default, Nunjucks will automatically escape all output for safety.
+Here, we are using the built-in `safe` filter to mark the output as safe.
+As a result, Nunjucks will not escape this output.
+====
+
+As mentioned above, the file extension _njk_ is important because it tells Asciidoctor.js that this file is a Nunjucks template.
+Moreover, the name _paragraph_ is also important as it matches a node name.
+For reference, here's the complete list of node's name:
+
+\include::partial$node-name-list.adoc[]
+
+You don't need to create a template for all the nodes.
+Asciidoctor.js can fallback on a built-in converter.
+For instance, we can use the built-in HTML 5 converter for every node except for paragraph nodes where we use a custom template.
+
+=== Templates directory
+
+You can instruct Asciidoctor.js to use a template directory from the CLI with the `--template-dir` option (or `-T` for short):
+
+ $ asciidoctor --template-dir ./templates doc.adoc
+
+You can also configure the template directory using the API:
+
+[source,js]
+----
+asciidoctor.convertFile('doc.adoc', { safe: 'safe', backend: 'html5', template_dir: './templates' })
+----
+
+==== Multiple templates directories
+
+It's also possible to use more than one template directory.
+In this case, we can repeat the `--template-dir` option from the CLI:
+
+ $ asciidoctor --template-dir ./templates-a --template-dir ./templates-b doc.adoc
+
+In the above command, we are using two templates directories named _templates-a_ and _templates-b_.
+
+From the API, we will need to define the `template_dirs` option:
+
+[source,js]
+----
+asciidoctor.convertFile('doc.adoc', { safe: 'safe', backend: 'html5', template_dirs: ['./templates-a', './templates-b'] })
+----
+
+==== Conflicts resolution
+
+Here's how Asciidoctor.js resolve conflicts in the following situations:
+
+Two or more templates are defined for the same node name in the same directory::
+For instance, you have a _paragraph.njk_ and a _paragraph.hbs_ file in your template directory.
+In this case, the rule is "last one wins" in alphabetical order.
+Since _njk_ is after _hbs_ in alphabetical order, Asciidoctor.js will use the Nunjucks template over the Handlebars template.
+
+Two or more templates are defined for the same node in different directories::
+For instance, we have a _paragraph.njk_ in _template-a_ directory and a _paragraph.njk_ in _template-b_ directory.
+In this case, the rule is still "last one wins" but the order in the `template_dirs` option is important. +
+If I declare the following:
++
+[source,js]
+----
+const options = { template_dirs: ['template-a', 'template-b'] }
+----
++
+Then _template-b/paragraph.njk_ will win because it's effectively the last one.
+Now, if I change the order in the `template_dirs` option:
++
+[source,js]
+----
+const options = { template_dirs: ['template-b', 'template-a'] }
+----
++
+Then _template-a/paragraph.njk_ will win!
+
+Please note that it's not a recommended practice, and you should try to avoid conflicts upstream.
+
+[[helpers-js-file]]
+==== helpers.js file
+
+You can create a `helpers.js` file in your template directory.
+This file can be used to declare utility functions that can be used in the templates.
+For instance, if you are using Handlebars, you might want to register {url-handlebars-register-partials}[partials] or {url-handlebars-register-helpers}[helpers].
+Similarly, if you are using Nunjucks, you might want to {url-nunjucks-add-filter}[add custom filters].
+
+If this file exists, Asciidoctor.js will load it (using the Node.js `require` directive) and call the `configure` function if it's exported:
+
+.helpers.js
+[source,js]
+----
+module.exports.configure = (context) => {
+  // ...
+}
+----
+
+The `context` object will contain an <<isolated-environment,isolated environement>> (if supported) template engine keyed by template engine name:
+
+`handlebars.environment`::
+An isolated Handlebars environment obtained via https://handlebarsjs.com/api-reference/runtime.html#handlebars-create[`Handlebars.create()`]
+
+`nunjucks.environment`::
+An isolated Nunjucks environment obtained via https://mozilla.github.io/nunjucks/api.html#configure[`nunjucks.configure()`]
+
+Here's a concrete example where we add a Nunjucks filter `shorten` which returns the first count characters in a string, with count defaulting to 5:
+
+.helpers.js
+[source,js]
+----
+module.exports.configure = (context) => {
+  context.nunjucks.environment.addFilter('shorten', (str, count) => str.slice(0, count || 5))
+}
+----
+
+[[isolated-environment]]
+===== Isolated environment
+
+An isolated environment means that each environment has its own helpers, partials, filters...
+It's worth noting that an environment is isolated per template directory. +
+For instance, if we define a value with the same name in two directories the last one won't overwrite the first one:
+
+.web/helpers.js
+[source,js]
+----
+module.exports.configure = (context) => {
+  context.nunjucks.environment.addGlobal('cdn', '//cdn.web.com')
+}
+----
+
+.blog/helpers.js
+[source,js]
+----
+module.exports.configure = (context) => {
+  context.nunjucks.environment.addGlobal('cdn', '//cdn.blog.io')
+}
+----
+
+With the above definition, the value `cdn` will be equals to:
+
+[horizontal]
+`//cdn.web.com`:: if we are using the template directory _web_
+`//cdn.blog.io`:: if we are using the template directory _blog_
+
+===== Stateless
+
+EJS, Plain JavaScript and Pug templates do not rely on an "environment". +
+As a result, you don't need to define a `configure` function.
+Instead, you can use the `helpers.js` file to export values and functions that will be accessible in all templates:
+
+.helpers.js
+[source,js]
+----
+let assetUriScheme
+module.exports.version = '1.0.0'
+module.exports.getAssetUriScheme = (document) => {
+  if (assetUriScheme) {
+    return assetUriScheme
+  }
+  const scheme = document.getAttribute('asset-uri-scheme', 'https')
+  assetUriScheme = (scheme && scheme.trim() !== '') ? `${scheme}:` : ''
+  return assetUriScheme
+}
+----
+
+In the above example, the value `version` and the function `getAssetUriScheme` will be available on the `helpers` key in the template context:
+
+.video.js
+[source,js]
+----
+module.exports = function ({ node, _, helpers }) {
+  const target = node.getAttribute('target')
+  const document = node.getDocument()
+  const src = `${helpers.getAssetUriScheme(document)}//www.youtube.com/embed/${target}}` // <1>
+  return `<figure class="video"><iframe src="${src}" frameborder="0"/></figure>`
+}
+----
+<1> Use the `getAssetUriScheme` function defined in the `helpers.js` file
+
+[[template-context]]
+=== Template context
+
+Asciidoctor.js will pass the following context to the template:
+
+`node`::
+An {url-abstractnode-jsdoc}[AbstractNode] from the Asciidoctor.js AST.
+Depending on the context, it can be a {url-section-jsdoc}[Section], a {url-document-jsdoc}[Document], a {url-block-jsdoc}[Block]... +
+We recommend reading the {url-jsdoc-latest}[JS API documentation] to find out what it's available on each Node.
+
+`opts`::
+An optional JSON of options.
+
+`helpers`::
+The functions and values exported from the _helpers.js_ file.
+
+=== Template options
+
+You can configure the template engine using the `template_engine_options` option.
+Here's a few examples:
+
+[source,js]
+----
+const options = {
+  template_engine_options: {
+    nunjucks: {
+      autoescape: false
+    },
+    handlebars: {
+      noEscape: true
+    },
+    pug: {
+      doctype: 'xml'
+    },
+    ejs: {
+      delimiter: '?',
+      openDelimiter: '[',
+      closeDelimiter: ']'
+    }
+  }
+}
+----
+
+To find out which options you can use, please read the official documentation of your template engine:
+
+EJS::
+  https://github.com/mde/ejs#options
+
+Handlebars::
+  https://handlebarsjs.com/api-reference/compilation.html#handlebars-compile-template-options
+
+Nunjucks::
+  https://mozilla.github.io/nunjucks/api.html#constructor
+
+Pug::
+  https://pugjs.org/api/reference.html#options
+
+=== Template cache
+
+For performance reasons, templates are cached, but you can disable this feature using the `template_cache` option:
+
+[source,js]
+----
+asciidoctor.convert(input, { template_cache: false })
+----
+
+It might be useful when you want to configure the same template directory with different options.
+In the following example, we want to an XML https://pugjs.org/language/doctype.html[doctype].
+We need to disable the cache otherwise the second conversion will not reconfigure the templates with the `doctype: 'xml'` option:
+
+[source,js]
+----
+const options = {
+  safe: 'safe',
+  doctype: 'inline',
+  backend: 'html5',
+  template_dir: '/path/to/templates/pug',
+  template_cache: false, // disable template cache
+}
+
+console.log(asciidoctor.convert(`image:cat.png[]`, options)) // <img src="cat.png"/>
+console.log(asciidoctor.convert('image:cat.png[]', Object.assign(options, {
+  template_engine_options: {
+    pug: {
+      doctype: 'xml'
+    }
+  }
+}))) // <img src="cat.png"></img>
+----
+
+
+== Custom Converter
+:url-abstractnode-jsdoc: {url-jsdoc-latest}/#abstractnode
+:url-document-jsdoc: {url-jsdoc-latest}/#document
+:url-section-jsdoc: {url-jsdoc-latest}/#section
+:url-class-mdn: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+
+On this page, you'll learn how to create and register a custom converter.
+
+=== Data structure
+
+But first let's briefly explain how the Asciidoctor.js processor works.
+When you convert a document with Asciidoctor.js, the processor will create a tree representation of your document called an Abstract Syntax Tree (AST).
+
+This tree or data structure consists of nodes.
+Let's take a concrete example with the following document:
+
+[source,adoc]
+----
+== Title
+
+=== Section 1
+
+=== Section 2
+----
+
+In the example above we have a document with two sections.
+Quite logically our tree representation will consist of a {url-document-jsdoc}[Document] node that contains two {url-section-jsdoc}[Section] nodes.
+As you can see the structure is hierarchical as the two `Section` nodes are the children of the `Document` node and the `Document` node itself is the root of the tree.
+
+If we convert this document, the converter will be responsible to convert every _node_ in your document.
+In the example above, the task of the converter will be to convert a `Document` node and two `Section` nodes.
+
+=== Custom converter class
+
+Now let's see how to create a custom converter.
+
+A custom converter is a JavaScript {url-class-mdn}[class] with a `convert` function:
+
+[source,js]
+----
+class CustomConverter {
+  convert (node, transform) { // <1> <2>
+    return node.getContent()
+  }
+}
+----
+<1> `node` is a node that extends {url-abstractnode-jsdoc}[AbstractNode].
+<2> `transform` will only be defined when the node is a {url-document-jsdoc}[Document]. +
+The value will be equals to `embedded` if we convert to an embeddable document,
+or `document` if we convert to a standalone document (ie. `standalone` is equals to `true`).
+
+To register a custom converter we can use the function `register` on the `ConverterFactory`:
+
+[source,js]
+----
+asciidoctor.ConverterFactory.register(new CustomConverter(), ['html5']) // <1>
+----
+<1> Instantiate the `CustomConverter` and register it for the `html5` backend
+
+[NOTE]
+====
+The `html5` is the default backend, so the above code will effectively replace the built-in HTML5 converter provided by Asciidoctor.js
+====
+
+Before we continue, let's create a little more advanced custom converter:
+
+[source,js]
+----
+class CustomConverter {
+  convert (node, transform) {
+    const nodeName = transform || node.getNodeName()
+    if (nodeName === 'embedded') {
+      return `<embedded>
+${node.getContent()}
+</embedded>` // <1>
+    } else if (nodeName === 'document') {
+      return `<document>
+${node.getContent()}
+</document>` // <2>
+    } else if (nodeName === 'section') {
+      return `${node.getTitle()}` // <3>
+    }
+    return '' // <4>
+  }
+}
+----
+<1> If the node is an `embedded` document we return the document content inside a `<embedded>` tag
+<2> If the node is a standalone `document` we return the document content inside a `<document>` tag
+<3> If the node is a `section` we return the section's title
+<4> Otherwise we return an empty string
+
+Once the custom registered we can convert our document:
+
+[source,js]
+----
+const doc = asciidoctor.load(`= Title
+
+=== Section 1
+
+=== Section 2`)
+
+console.log(doc.convert())
+// Prints:
+// <embedded>
+// Section 1
+// Section 2
+// </embedded>
+----
+
+Here's the complete list of node's name:
+
+\include::partial$node-name-list.adoc[]
+
+=== Composition pattern
+
+In the previous section, we saw how to create and register a standalone custom converter.
+But you might want to use your custom converter only on some nodes and delegate the rest to an another converter (for instance the built-in converter).
+
+In the example below we will use a custom converter to convert `paragraph` but the other nodes will be converted using the built-in HTML5 converter:
+
+[source,js]
+----
+const asciidoctor = require('asciidoctor')()
+
+class SemanticParagraphConverter {
+  constructor () {
+    this.baseConverter = asciidoctor.Html5Converter.$new() // <1>
+  }
+
+  convert (node, transform) {
+    if (node.getNodeName() === 'paragraph') {
+      return `<p>${node.getContent()}</p>` // <2>
+    }
+    return this.baseConverter.convert(node, transform) // <3>
+  }
+}
+----
+<1> Instantiate the built-in HTML5 converter
+<2> Define how the `paragraph` node will be converted
+<3> By default call the built-in HTML5 converter
+
+
+== Specifications
+
+** Include directive
+*** xref:browser-include-spec.adoc[Processing in the browser]
+*** xref:include-support-matrix.adoc[Support matrix]
+
+
+== Include directive processing in the browser
+
+This document describes how the include directive is processed in the browser environment (xmlhttprequest IO module).
+This handling has slightly different rules than when a file-based document.
+The rules are listed in the order in which they are applied.
+
+In these definitions, there are several commonly occurring terms that pertain to the include directive:
+
+* target - the target of the include directive as specified in the document
+* include path - the resolved path of the include; usually an absolute path or URL
+* relative path - the path of the include relative to the root document unless the include path is absolute
+* base dir - the base directory defined on the processor; usually matches the directory of the root document
+* parent dir - the directory of the file containing a nested include; nested includes are resolved relative to the file in which they occur
+
+Since the browser doesn't know the environment the document was intended for, the path resolver is initialized to consider paths with both forward and backslashes.
+
+=== Top-level include
+
+* If the target starts with file://, the target is used as both the include path and the relative path.
+In this case, the base dir value has no impact.
+
+* If the target is an absolute URL (i.e., starts with http:// or https:// scheme), the target must either descend from the base dir or the allow-uri-read attribute must be set on the document.
+If either test succeeds, the target is used as both the include path and the relative path.
+// QUESTION should we try to compute the relative path starting from the base dir in this case?
+If both these tests fail, the include is replaced with a link.
+
+* If the target is an absolute path (i.e., starts with a posix root, a Windows drive letter, or a UNC path), the file:// scheme (or \file:/// if the path starts with a Windows drive letter) is prepended to the target and the result is used as both the include path and the relative path.
+In this case, the base dir value has no impact.
+
+* If the target is relative and the base dir equals `.`, the target is used as both the include path and the relative path.
+The include path will be resolved relative to the window.location.href (per the behavior of XMLHttpRequest).
+
+* If the target is relative and the base dir begins with file://, the base dir is prepended to the target to create the include path.
+The target is used as the relative path.
+
+* If the target is relative and the base dir is relative, the base dir is prepended to the target to create the include path.
+The include path will be resolved relative to the window.location.href (per the behavior of XMLHttpRequest).
+The target is used as the relative path.
+
+* If the target is relative and the base dir is an absolute URL (i.e., starts with http:// or https:// scheme), the base dir is prepended to the target and used as the include path.
+The target is used as the relative path.
+
+=== Nested include
+
+* If the target starts with file://, the target is used as both the include path and the relative path.
+In this case, the base dir value has no impact.
+
+* If the target is a URL (starts with http:// or https:// scheme), the target must either descend from the base dir or the allow-uri-read attribute must be set on the document.
+If both these tests fail, the include is replaced with a link.
+If either test succeeds, the target is used as both the include path and the relative path.
+
+* If the target is an absolute path (i.e., starts with a posix root, a Windows drive letter, or a UNC path), the file:// scheme (or \file:/// when the path starts with a Windows drive letter) is prepended to the target and the result is used as both the include path and the relative path.
+In this case, the base dir value has no impact.
+
+* If the target is relative and the parent dir equals `.`, the target is used as both the include path and the relative path.
+The include path will be resolved relative to window.location.href (per the behavior of XMLHttpRequest).
+
+* If the target is relative and the parent dir begins with file://, the parent dir is prepended to the target to create the include path.
+If the base dir equals `.`, or the include path does not descend from the base dir, the include path is used as the relative path.
+If the include path descends from the base dir, the relative path is the path difference.
+
+* If the target is relative and the parent dir is relative, the parent dir is prepended to the target to create the include path.
+The include path will be resolved relative to the window.location.href (per the behavior of XMLHttpRequest).
+If the base dir equals `.`, or the include path does not descend from the base dir, the include path is used as the relative path.
+If the include path descends from the base dir, the relative path is the path difference.
+
+* If the target is relative and the parent dir is an absolute URL (i.e., starts with http:// or https:// scheme), the parent dir must descend from the base dir or the allow-uri-read attribute must be set on the document.
+If either test succeeds, the parent dir is prepended to the target and used as the include path.
+If the parent dir descends from the base dir, the relative path is the path difference.
+Otherwise, the relative path is the target.
+If both these tests fail, the include is replaced with a link.
+
+
+== Include directive support matrix
+:icon-ok: 👌
+:icon-ko: ❌
+ifdef::env-github[]
+:icon-ok: :ok_hand:
+:icon-ko: :x:
+endif::[]
+
+This document describes how the include directive is resolved in the following environments:
+
+* Browser (XMLHttpRequest IO module)
+* Node.js
+* MRI (Ruby)
+
+[cols="1m,1m,1,1,1", options="header"]
+|===
+|Path
+|Base dir
+|Browser
+|Node.js
+|MRI
+
+|+path/to/file.adoc+
+|+file:///root+
+|{icon-ok}
+|{icon-ok}
+|{icon-ko} +
+The resolved path is `/root/file:/root/path/to/file.adoc`.
+
+|+path/../path/to/file.adoc+
+|+file:///root+
+|{icon-ok}
+|{icon-ok}
+|{icon-ko} +
+The resolved path is `/root/file:/root/path/to/file.adoc`.
+
+|+file:///root/path/to/file.adoc+
+|
+|{icon-ok}
+|{icon-ok}
+|{icon-ko} +
+include uri not readable: `\file:///root/path/to/file.adoc`.
+
+|+file:///root/path/../path/to/file.adoc+
+|
+|{icon-ok}
+|{icon-ok}
+|{icon-ko} +
+include uri not readable: `\file:///root/path/../path/to/file.adoc`.
+
+|+path/to/file.adoc+
+|
+|{icon-ko} +
+Unable to get the current directory in a reliable way.
+|{icon-ok}
+|{icon-ok}
+
+|+file:///root/path/to/file.adoc+
+|+file:///root/path/to+
+|{icon-ok}
+|{icon-ok}
+|{icon-ko} +
+include uri not readable: `\file:///root/path/to/file.adoc`.
+
+|+https://raw.com/main/file.adoc+
+|+https://raw.com/main+
+|{icon-ok}
+|{icon-ok}
+|{icon-ok}
+
+|+https://raw.com/main/file.adoc+
+|
+|{icon-ok}
+|{icon-ok}
+|{icon-ok}
+
+|+file.adoc+
+|+https://raw.com/main+
+|{icon-ok}
+|{icon-ko} +
+`SecurityError: Jail is not an absolute path: \https://raw.com/main`
+|{icon-ko} +
+include file not found: `\{local_pwd}/https:/raw.com/main/file.adoc`.
+
+|+../v1.5.0/file.adoc+
+|+https://raw.com/main+
+|{icon-ok}
+|{icon-ko} +
+`SecurityError: Jail is not an absolute path: \https://raw.com/main`
+|{icon-ko} +
+include file not found: `\{local_pwd}/https:/raw.com/main/file.adoc`.
+
+|+https://raw.com/main/../v1.5.0/file.adoc+
+|
+|{icon-ok}
+|{icon-ko} +
+The `xmlhttprequest` module does not expand path and therefore returns a 404.
+|{icon-ok}
+|===
+
+
+== Policies & Governance
+* xref:version-and-lifecycle-policies.adoc[Version Lifecycle Policy]
+
+== Asciidoctor.js Version and Lifecycle Policies
+:keywords: release policy
+:uri-semver: https://semver.org/
+:uri-node-release-schedule: https://github.com/nodejs/Release#release-schedule
+:uri-browser-usage: https://caniuse.com/usage-table
+:uri-graalvm: http://www.graalvm.org/
+:uri-nashorn-jep-deprecated: https://openjdk.java.net/jeps/335
+
+=== 2.0.0 and Greater Version Policy
+
+Asciidoctor will follow the {uri-semver}[semantic versioning] rules with the release of Asciidoctor.js 2.0.0.
+Each Asciidoctor.js release will be versioned *major.minor.patch*.
+
+Major::
+Major releases occur when there are substantial changes in functionality or when new functionality breaks backwards compatibility.
+Releases within the same major version number will maintain API compatibility.
+
+Minor::
+Minor releases add new features, improvements to existing features, and fixes that maintain backwards compatibility.
+Only the latest major release will receive new features.
+
+Patch::
+Patch releases fix bugs and maintain backwards compatibility.
+Only the latest minor release of the two latest major releases will receive patches.
+Patch releases happen as needed depending on the urgency of the fix.
+
+Pre-release::
+Major and minor releases may include pre-release versions (major.minor.patch-alpha.n | -beta.n | -rc.n).
+Once a release candidate (rc) has been thoroughly tested, the stable release will be published.
+
+=== 2.0.0 and Greater Lifecycle Policy
+
+Only the two most recent major versions of Asciidoctor.js will be supported.
+When a new major version of Asciidoctor.js enters General Availability (GA), the previous major version will enter Maintenance.
+
+[#lifecycle-phases]
+==== Lifecycle phases
+
+General Availability (GA)::
+Software enters General Availability on the date an initial major version is released and is available for download.
+
+Active Support (AS)::
+Active Support begins on the date a major release enters General Availability.
+A major release with Active Support will be actively maintained with new features and bug fixes.
+Only one major release can be in Active Support at a time.
+In other words, Active Support ends when a new major release enters General Availability.
+
+Maintenance Support (MS)::
+Maintenance Support begins on the date a new major release enters Active Support.
+A major release with Maintenance Support will only receive bug fixes.
+Only one major release can be in Maintenance Support at a time.
+In other words, Maintenance support ends when the major release in Active Support enters Maintenance Support.
+
+End of Life (EOL)::
+The date after which the software no longer receives maintenance releases.
+
+[#js-platform-support]
+=== JavaScript platform Support
+
+Node.js::
+Support will be provided on the latest active LTS.
+Please read the {uri-node-release-schedule}[Node.js Release Schedule] to find the latest active LTS.
+
+Browsers::
+Support will be provided on the latest version of all modern browsers with at least 1% usage according to the {uri-browser-usage}[usage table] provided by https://caniuse.com.
+Please note that Asciidoctor.js may work on older versions (using Polyfill or not) but it's not guaranteed.
+
+Nashorn::
+Not actively maintained, efforts should be put on {uri-graalvm}[GraalVM].
+For reference, please read the JDK Enhancement Proposal (JEP) to {uri-nashorn-jep-deprecated}[Deprecate the Nashorn JavaScript Engine].
+
+GraalVM support::
+Support will be provided on the the latest stable version.

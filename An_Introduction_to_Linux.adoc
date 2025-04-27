@@ -1,0 +1,2529 @@
+:icons: font
+:stem: latexmath
+:toc:
+:source-highlighter: highlight.js
+
+[source]
+-------------
+https://cvw.cac.cornell.edu/linux/intro/introduction
+https://cvw.cac.cornell.edu/linux/intro/history
+https://cvw.cac.cornell.edu/linux/intro/why-linux
+https://cvw.cac.cornell.edu/linux/intro/files-processes
+https://cvw.cac.cornell.edu/linux/shells/index
+https://cvw.cac.cornell.edu/linux/shells/overview-shells
+https://cvw.cac.cornell.edu/linux/shells/exercise-shells
+https://cvw.cac.cornell.edu/linux/shells/man-pages
+https://cvw.cac.cornell.edu/linux/shells/directory-navigation
+https://cvw.cac.cornell.edu/linux/shells/interacting-files-directories
+https://cvw.cac.cornell.edu/linux/shells/io-redirection
+https://cvw.cac.cornell.edu/linux/shells/exercise-redirection
+https://cvw.cac.cornell.edu/linux/shells/searching
+https://cvw.cac.cornell.edu/linux/shells/exercise-pipe-sort-count
+https://cvw.cac.cornell.edu/linux/shells/job-control
+https://cvw.cac.cornell.edu/linux/shells/environment-variables
+https://cvw.cac.cornell.edu/linux/text-editors/index
+https://cvw.cac.cornell.edu/linux/text-editors/overview-editors
+https://cvw.cac.cornell.edu/linux/text-editors/vim
+https://cvw.cac.cornell.edu/linux/text-editors/emacs
+https://cvw.cac.cornell.edu/linux/miscellaneous/index
+https://cvw.cac.cornell.edu/linux/miscellaneous/accounts
+https://cvw.cac.cornell.edu/linux/miscellaneous/remote-connections
+https://cvw.cac.cornell.edu/linux/miscellaneous/filesystem
+https://cvw.cac.cornell.edu/linux/miscellaneous/file-permissions
+https://cvw.cac.cornell.edu/linux/miscellaneous/optional-topics
+-------------
+
+
+== An Introduction to Linux
+
+-  link:{URL01}[An Introduction to Linux]
+-  link:{URL02}[Background]
+** link:{URL03}[Introduction]
+** link:{URL04}[History]
+** link:{URL05}[Why Linux?]
+** link:{URL06}[Files and Processes]
+-  link:{URL07}[Shells]
+** link:{URL08}[Introduction to Shells]
+** link:{URL09}[Exercise: Working with the Shell]
+** link:{URL10}[Manual Pages]
+** link:{URL11}[Directory Navigation]
+** link:{URL12}[Interacting with Files and Directories]
+** link:{URL13}[I/O and Redirection]
+** link:{URL14}[Exercise: Redirecting Output]
+** link:{URL15}[Searching]
+** link:{URL16}[Exercise: Piping, Sorting, and Counting]
+** link:{URL17}[Job Control]
+** link:{URL18}[Environment Variables]
+-  link:{URL19}[Text Editors]
+** link:{URL20}[Overview]
+** link:{URL21}[Vim]
+** link:{URL22}[Emacs]
+-  link:{URL23}[Miscellaneous and Tips]
+** link:{URL24}[Accounts]
+** link:{URL25}[Remote Connections]
+** link:{URL26}[Filesystem]
+** link:{URL27}[File Permissions]
+** link:{URL28}[Optional Topics]
+-  link:{URL29}[Quiz]
+
+== Roadmap: An Introduction to Linux
+
+.Tux, the Linux penguin. Source: Wikipedia
+image::https://cvw.cac.cornell.edu/linux/Tux.png[The Linux mascot is a cartoon penguin named Tux]
+
+Linux is a powerful operating system that includes a multitude of tools
+for programmers and system administrators. It is a robust, stable, and
+flexible operating system that can be tailored to run on a variety of
+hardware — from phones to supercomputers. Linux is widely used in
+academic and scientific communities because it is so versatile and
+includes over 40 years of scientific tools development.
+
+This tutorial is intended for the beginning Linux user and should help
+you get acquainted with some basic principles of the Linux operating
+system. There is also a wealth of free information about Linux available
+online — and in several books — so this will not be a comprehensive
+tutorial, but rather a starting point to help you begin using Linux
+comfortably. This roadmap focuses on features that are relevant to the
+scientific communities utilizing Linux-based
+https://operations.access-ci.org/[ACCESS resources]. However, it may
+also be useful to other beginning Linux or Unix users in the academic or
+scientific communities and beyond.
+
+=== Objectives
+
+After you complete this workshop, you should be able to:
+
+* Describe the Linux operating system
+* Explain why Linux is useful in scientific computing
+* List ways to get command line help in Linux
+* Demonstrate issuing commands in a _shell_
+* Demonstrate editing files
+* Explain how to connect to remote servers and transfer files
+* Explain how to create and manage accounts with permissions
+
+=== Prerequisites
+
+There are no prerequisites for this course.
+There are no prerequisites for this course.
+
+=== Requirements
+
+System requirements include:
+
+* Access to Linux is necessary to work through the exercises. It is
+  available as a free download from the developer site or other sites
+  dedicated to distributing Linux.
+
+* These exercises will work on most other Linux systems. In this
+  workshop, the exercises were run on
+  https://www.tacc.utexas.edu/systems/stampede2[Stampede2]; you will need
+  an link:https://cvw.cac.cornell.edu/environment/basic-access/allocation[allocation on Stampede2] 
+  to run the exercises there.
+
+
+== Background
+
+Peter Vaillancourt, Rich Knepper, and Adam Brazier +
+Cornell Center for Advanced Computing
+
+Revisions: 1/2023, 11/2019, 10/2017, 9/2014 (original)
+
+This topic describes the history and motivation behind Linux, identifies
+its fundamental design paradigm, and explains how modern Linux supports
+scientific computing.
+
+=== Objectives
+
+After you complete this segment, you should be able to:
+
+* Explain the role of Unix and the GNU foundation in the development of Linux
+* List the four essential properties that make Linux advantageous to the
+  scientific community
+* Define the terms kernel, shell, process, file, and directory as they
+  are used in Linux
+
+=== Prerequisites
+
+There are no prerequisites for this course.
+There are no prerequisites for this course.
+
+
+==== Background
+
+Peter Vaillancourt, Rich Knepper, and Adam Brazier +
+Cornell Center for Advanced Computing
+
+Revisions: 1/2023, 11/2019, 10/2017, 9/2014 (original)
+
+This topic describes the history and motivation behind Linux, identifies
+its fundamental design paradigm, and explains how modern Linux supports
+scientific computing.
+
+===== Objectives
+
+After you complete this segment, you should be able to:
+
+* Explain the role of Unix and the GNU foundation in the development of Linux
+* List the four essential properties that make Linux advantageous to the
+  scientific community
+* Define the terms kernel, shell, process, file, and directory as they
+  are used in Linux
+
+===== Prerequisites
+
+There are no prerequisites for this course.
+
+
+== Introduction
+
+The Linux operating system is an extremely versatile Unix-like operating
+system, and has taken a clear lead in the _High Performance Computing (HPC)_ 
+and scientific computing community. Linux is a
+multi-user, preemptive multitasking operating system that provides a
+number of facilities including management of hardware resources,
+directories, and _file systems_, as well as the loading and
+execution of programs. A vast number of utilities and libraries have
+been developed (mostly free and open source as well) to accompany or
+extend Linux.
+
+There are two major components of Linux, the _kernel_ and the _shell_:
+
+. The _kernel_ is the core of the Linux operating system that
+  schedules _processes_ and interfaces directly with the
+  hardware. It manages system and user I/O, processes, devices, files, and
+  memory.
+. The _shell_ is a text-only interface to the kernel. Users input
+  commands through the shell, and the kernel receives the tasks from the
+  shell and performs them. The shell tends to do four jobs repeatedly:
+  display a prompt, read a command, process the given command, then
+  execute the command. After which it starts the process all over again.
+
+It is important to note that users of a Linux system typically _do not_
+interact with the kernel directly. Rather, most user interaction is done
+through the shell or a desktop environment.
+
+
+== History
+
+=== Unix
+
+The Unix operating system got its start in 1969 at Bell Laboratories and
+was written in assembly language. In 1973, Ken Thompson and Dennis
+Ritchie succeeded in rewriting Unix in their new language C. This was
+quite an audacious move; at the time, system programming was done in
+assembly in order to extract maximum performance from the hardware. The
+concept of a _portable_ operating system was barely a gleam
+in anyone's eye.
+
+The creation of a portable operating system was very significant in the
+computing industry, but then came the problem of licensing each type of
+Unix. Richard Stallman, an American software freedom activist and
+programmer recognized a need for open source solutions and launched the
+GNU project in 1983, later founding the https://www.fsf.org/[Free
+Software Foundation]. His goal was to create a completely free and open
+source operating system that was Unix-compatible or
+https://en.wikipedia.org/wiki/Unix-like[Unix-like].
+
+=== Linux
+
+In 1987, the source code to a minimalistic Unix-like operating system
+called https://en.wikipedia.org/wiki/MINIX[MINIX] was released by Andrew
+Tanenbaum, a professor at Vrije Universiteit, for academic purposes.
+Linus Torvalds began developing a new operating system
+https://groups.google.com/forum/#!msg/comp.os.minix/dlNtH7RRrGA/SwRavCzVE7gJ[based
+on MINIX] while a student at the University of Helsinki in 1991. In
+September of 1991, Torvalds released the first version (0.1) of the
+Linux _kernel_.
+
+Torvalds greatly enhanced the open source community by releasing the
+Linux kernel under the
+https://en.wikipedia.org/wiki/GNU_General_Public_License[GNU General
+Public License] so that everyone has access to the source code and can
+freely make modifications to it. Many components from the GNU project,
+such as the https://en.wikipedia.org/wiki/GNU_Core_Utilities[GNU Core
+Utilities], were then integrated with the Linux kernel, thus completing
+the first free and open source operating system.
+
+Linux has been adapted to a variety of computer systems of many sizes
+and purposes. Furthermore, different variants of Linux (called Linux
+distributions) have been
+https://en.wikipedia.org/wiki/Linux_distribution#History[developed over
+time] to meet various needs. There are now hundreds of different Linux
+distributions available, with a wide variety of features. The most
+popular operating system in the world is actually
+https://en.wikipedia.org/wiki/Android_(operating_system)[Android], which
+is built on the Linux kernel.
+
+
+== Why Linux?
+
+Linux has been so heavily utilized in the _HPC_ and
+scientific computing community that it has become the standard in many
+areas of academic and scientific research, particularly those requiring
+HPC. There have been over 40 years of development in Unix and Linux,
+with many academic, scientific, and system tools. In fact, as of
+November 2017, __all of the
+https://www.top500.org/statistics/list/[TOP500] supercomputers in the
+world run Linux!__
+
+Linux has four essential properties which make it an excellent operating
+system for the science community:
+
+* *Performance* – Performance of the operating system can be
+  _optimized_ for specific tasks such as running small portable
+  devices or large supercomputers.
+* *Functionality* – A number of community-driven scientific applications
+  and libraries have been developed under Linux such as molecular
+  dynamics, linear algebra, and fast-Fourier transforms.
+* *Flexibility* – The system is flexible enough to allow users to build
+  applications with a wide array of support tools such as
+  _compilers_, scientific libraries, debuggers, and network monitors.
+* *Portability* – The operating system, utilities, and
+  libraries have been ported to a wide variety of devices including
+  desktops, _clusters_, supercomputers, mainframes, embedded
+  systems, and smart phones.
+
+
+== Files and Processes
+
+Everything in Linux is considered to be either a _file_ or a __process__:
+
+* A _process_ is an executing program identified by a unique
+  process identifier, called a _PID_. Processes may be short in
+  duration, such as a process that prints a file to the screen, or they
+  may run indefinitely, such as a monitor program.
+* A _file_ is a collection of data, with a location in the
+  _file system_ called a _path_. Paths will
+  typically be a series of words (directory names) separated by forward
+  slashes, /. Files are generally created by users via text editors,
+  _compilers_, or other means.
+* A _directory_ is a special type of file. Linux uses a directory
+  to hold information about other files. You can think of a directory as a
+  container that holds other files or directories; it is equivalent to a
+  folder in Windows or macOS.
+
+A file is typically stored on physical storage media such as a disk
+(hard drive, flash disk, etc.). Every file must have a name because the
+operating system identifies files by their name. File names may contain
+any characters, although some special characters (such as spaces,
+quotes, and parenthesis) can make it difficult to access the file, so
+you should avoid them in filenames. On most common Linux variants, file
+names can be as long as 255 characters, so it is convenient to use
+descriptive names.
+
+Files can hold any sequence of _bytes_; it is up to the user
+to choose the appropriate application to correctly interpret the file
+contents. Files can be human readable text organized line by line, a
+structured sequence only readable by a specific application, or a
+machine-readable byte sequence. Many programs interpret the contents of
+a file as having some special structure, such as a pdf or postscript
+file. In scientific computing, binary files are often used for
+_efficiency_ storage and data access. Some other examples include 
+scientific data formats like _NetCDF_ or _HDF_ which have specific 
+formats and provide _application programming interfaces (APIs)_ for 
+reading and writing.
+
+The Linux kernel is responsible for organizing processes and interacting 
+with files; it allocates time and memory to each process and handles the 
+file system and communications in response to system calls. The Linux 
+system uses files to represent everything in the system: devices, 
+internals to the kernel, configurations, etc.
+
+== Shells
+
+Peter Vaillancourt, Rich Knepper, and Adam Brazier +
+Cornell Center for Advanced Computing
+
+Revisions: 1/2023, 11/2019, 10/2017, 9/2014 (original)
+
+A variety of different _shells_ are available for Linux and
+Unix, each with pros and cons. While *bash* (updated version of sh) and
+*tcsh* (descended from C-shell/csh) are the most common shells, the
+choice of shell is entirely up to user preference and availability on
+the system. In most Linux distributions, bash is the default shell.
+
+The purpose of a shell is to interpret commands for the Operating System
+(OS) to execute. Since bash and other shells are scripting languages, a
+shell can also be used for programming via _scripts_. The
+shell is an interactive and customizable environment for the user.
+
+All examples in this tutorial use the *bash shell*.
+
+=== Objectives
+
+After you complete this segment, you should be able to:
+
+* Explain how to find more information about a Linux command or program
+* Describe Linux's hierarchial _file system_ and how to navigate it
+* List common commands used to interact with files and directories
+* Explain different commands to locate files
+* Describe the three types of input/output _streams_
+* Demonstrate input redirection, output redirection, and error redirection
+* Demonstrate listing running _processes_
+* Demonstrate using job control commands
+* Explain the purpose of the $__PATH__ variable
+
+=== Prerequisites
+
+There are no prerequisites for this course.
+
+== Introduction to Shells
+
+Tip: Don't type the prompt character
+
+The shell prompt is where the characters you type will appear. In
+technical documentation, the prompt is typically represented by a `$`
+character. _Do not type_ the $ when attempting to reproduce the
+examples.
+
+The shell input to run a command typically follows a certain format:
+
+[source,bash]
+----
+$ <command> <option(s)> <argument(s)>
+----
+
+. *command* – the executable (program or package) that is to be run.
+  * If you are running your own application, you must include either the
+    full _path_ or the relative path as part of the command.
+  * Most commands that come packaged with the OS or are installed by the
+    package manager (executables often located in `/bin` or `/usr/bin`)
+    do not need the path because they have already been added to the
+    _environment variable_ `$PATH`.
+. *option(s)* – (A.K.A. "flags") optional arguments for the command that
+  alter the behavior.
+  * Start with a `-` or `--` (example: `-h` or `--help` for help).
+  * Each command may have different options or no options at all.
+  * Some options require an argument immediately following.
+  * Explore options for commands by reading the Manual Pages.
+. *argument(s)* – depend on the command and the flags selected.
+  * Certain flags require an argument.
+  * Filename arguments must include a path unless located in the current
+    directory.
+
+=== Basic Examples
+
+To determine which shell you are currently using, you can type the
+`echo` command followed by the system environment variable `$SHELL`
+as follows:
+
+[source,bash]
+----
+$ echo $SHELL
+/bin/bash
+----
+
+Here, `echo` is the command entered through the shell, and `$SHELL`
+is a command argument. The output is showing the location of the
+installed bash.
+
+=== Tab Completion
+
+The bash shell includes an incredibly useful feature called
+https://en.wikipedia.org/wiki/Command-line_completion[tab completion],
+which enables you to enter part of a command, press the `Tab` key, and
+it will complete the command if there is no ambiguity. If there are
+multiple options, hitting `Tab` again will display the possible
+options. Below is an example on Stampede2 where "py" was entered
+followed by `Tab`:
+
+[source,bash]
+----
+$ py
+pydoc        pygobject-codegen-2.0  pygtk-demo  pystuck  python2    python2.7-config  python-config
+pygmentize   pygtk-codegen-2.0      pyjwt       python   python2.7  python2-config    
+----
+
+Use tab completion to finish commands, file names, and directory names.
+Try it out at any point and see how much it simplifies your workflow!
+
+
+== Exercise: Working with the Shell
+
+Try these _shell_ commands at the prompt. Many of these
+commands have extensive optional arguments.
+
+=== Display $ __PATH##, the value of the PATH _variable_
+
+The *`PATH`* _environment variable_ stores designated paths
+to executables; as a result, these executables can be executed without
+reference to their full paths. Commonly used paths are added to this
+environment variable by the system at startup. Later we will see how to
+add additional paths to the environment variable. Executables in
+directories included in `$PATH` are often referred to as being "in the
+path" of the current shell.
+
+[source,bash]
+----
+$ echo $PATH
+/usr/local/bin:/usr/bin:/bin
+----
+
+=== List the available shells in the system
+
+The *`cat`* (concatenate) command is a standard Linux utility that
+concatenates and prints the content of a file to standard output (shell
+output). In this case, _shells_ is the name of the file, and _/etc/_ is
+the pathname of the directory where this file is stored.
+
+[source,bash]
+----
+$ cat /etc/shells
+/bin/sh
+/bin/bash
+/sbin/nologin
+/usr/bin/sh
+/usr/bin/bash
+/usr/sbin/nologin
+/bin/tcsh
+/bin/csh
+/usr/bin/tmux
+/bin/ksh
+/bin/rksh
+/bin/zsh
+----
+
+=== Find the current date and time of the system
+
+Use the *`date`* command.
+
+[source,bash]
+----
+$ date
+Fri Nov  9 19:23:23 CST 2018
+----
+
+=== List all of your own current running _processes_
+
+Use the *`ps`* command (process status). In Linux, each process is
+associated with a _PID_ or _process identifier_.
+
+[source,bash]
+----
+$ ps
+  PID TTY          TIME CMD
+  916 pts/58   00:00:00 bash
+ 1531 pts/58   00:00:00 ps
+----
+
+
+== Manual Pages
+
+The easiest way to get more information about a particular Linux command
+or program is to use the *`man`* command followed by the item you want
+information on:
+
+[source,bash]
+----
+$ man <program or command>
+----
+
+This will bring up the manual page ("man page") for the program within
+the _shell_, which have been formatted from the online man
+pages. These pages can be referenced from any Linux or Unix shell where
+`man` is installed, which is most systems. Linux includes a built-in
+manual for nearly all commands, so these should be your go-to reference.
+
+The manual is divided into a number of sections by type of topic, for
+example:
+
+.Example of man page sections
+[cols=",",options="header,autowidth",]
+|===
+|Section |Description
+|1       |Executable programs and shell commands
+|2       |System calls (functions provided by the _kernel_)
+|3       |Library calls (functions within program libraries)
+|4       |Special files
+|5       |File formats and conventions
+|6       |Games
+|7       |Miscellaneous (including macro packages and conventions)
+|8       |System administration commands (usually only for root)
+|===
+
+If you specify a specific section when you issue the command, only that
+section of the manual will be displayed. For example, `man 2 mkdir`
+will display the Section 2 man page for the `mkdir` command. Section 1
+for any command is displayed by default.
+
+If your terminal does not support scrolling with the mouse, you can
+navigate the man pages by using the up and down arrow keys to scroll up
+and down or by using the enter key to advance a line and the space bar
+to advance a page. Use the q key to quit out of the manual.
+
+The man pages follow a common layout. Within a man page, sections may
+include the following topics:
+
+NAME::
+  a one-line description of what it does.
+SYNOPSIS::
+  basic syntax for the command line.
+DESCRIPTION::
+  describes the program's functionalities.
+OPTIONS::
+  lists command line options that are available for this program.
+EXAMPLES::
+  examples of some of the options available.
+SEE ALSO::
+  list of related commands.
+
+Example snippets from the man page for the `rm` (Remove) command:
+
+[source,bash]
+----
+$ man rm
+RM(1)                            User Commands                           RM(1)
+
+NAME
+    rm - remove files or directories
+
+SYNOPSIS
+    rm [OPTION]... FILE...
+
+DESCRIPTION
+    This  man page documents the GNU version of rm.  rm removes each 
+    specified file. By default, it does not remove directories.
+
+     If the -I or --interactive=once option is given,  and  there  are  more
+     than  three  files  or  the  -r,  -R, or --recursive are given, then rm
+     prompts the user for whether to proceed with the entire operation.   If
+     the response is not affirmative, the entire command is aborted.
+----
+
+Depending on the command, the OPTIONS section can be quite lengthy:
+
+[source,bash]
+----
+OPTIONS
+    Remove (unlink) the FILE(s).
+
+       -f, --force
+              ignore nonexistent files, never prompt
+
+       -i     prompt before every removal
+
+       -r, -R, --recursive
+              remove directories and their contents recursively
+
+       -v, --verbose
+              explain what is being done
+----
+
+*Fun fact:* there is even a manual entry for the `man` command. Try:
+
+[source,bash]
+----
+$ man man
+----
+
+Issuing the `man` command with the ` -k` option will print the short
+man page descriptions for any pages that match the command. For example,
+if you are wondering if there is a manual entry for the `who` command:
+
+[source,bash]
+----
+$ man -k who
+----
+
+Since there is a man page listed, you can then display the man page for
+the `who` command with `man who`.
+
+
+== Directory Navigation
+
+=== Directories
+
+In a hierarchical _file system_ like Linux, the
+__root directory__ is the highest directory in the
+hierarchy, and in Linux this is the *`/`* directory. The
+_home_ directory is created for the user, and is
+typically located at `/home/<username>`. Commonly used shorthands for
+the home directory are `~` or `$HOME`. The home directory is usually
+the initial default working directory when you open a _shell_.
+
+The _absolute _path_ or _full path_ details the
+entire path through the directory structure to get to a file, starting
+at `/`. A _relative path_ is the path from where you are now
+(your present working directory) to the file in question. An easy way to
+know if a path is absolute is to check if it contains the `/`
+character at the very beginning of the path.
+
+The "`.`" directory is a built-in shortcut for the current directory
+path and similarly the "`..`" directory is the directory above the
+current directory. These special shortcuts exist in every directory on
+the file system, except "`..`" does not exist in the root directory
+(`/`) because it is at the top. Files that begin with a dot "`.`"
+(i.e. `.bashrc`) are called _dot files_ and are hidden by
+default during navigation (in the sense that the `ls` command will not
+display them), since they are usually used for user preferences or
+system configuration.
+
+=== Navigating
+
+Here is a list of common commands used for navigating directories:
+
+==== _pwd_ command
+
+*`pwd`* – **p**rint **w**orking **d**irectory. Prints the full path to
+the directory you are in, starting with the root directory. On Stampede2
+you might see:
+
+[source,bash]
+----
+$ pwd
+/home1/05574/<username>
+----
+
+==== ls command
+
+*`ls`* – **l**i**s**ts the contents of a directory.
+
+[source,bash]
+----
+$ ls
+test1.txt  test2.txt  test3.txt
+----
+
+* Displays the files in the current directory or any directory specified
+  with a path.
+* Use the wildcard `*` followed by a file extension to view all files
+  of a specific type (i.e. `ls *.c` to display all C code files).
+* Use the `-a` option to display **a**ll files, including dot files.
+* There are many options for this command, so be sure to check the man
+  pages. A Stampede2 example:
++
+[source,bash]
+----
+$ ls -lha $SCRATCH
+total 12K
+drwx------ 3 <username> G-819251 4.0K Jul  9 14:57 .
+drwxr-xr-x 5 root       root     4.0K May 14 16:13 ..
+drwx------ 2 <username> G-819251 4.0K Jul  9 14:57 .slurm
+----
+
+==== cd command
+
+*`cd`* – **c**hange **d**irectory to the directory or path following
+the command. The following command will take you from your current
+directory to your home directory on most Linux systems:
+
+[source,bash]
+----
+$ cd ~ 
+----
+
+* This example will take you up one directory, in this case to the root
+directory ` / `, and then over to the `var` directory:
++
+[source,bash]
+----
+$ cd ../var
+----
+* With no arguments, `cd` will take you back to your home directory.
+
+
+== Interacting with Files and Directories
+
+=== Interacting
+
+Here is a list of common commands used for interacting with files and
+directories:
+
+==== mkdir command
+
+*`mkdir`* – **m**a**k**e a new **dir**ectory of the given name, as
+  permissions allow.
+
+[source,bash]
+----
+$ mkdir Newdir
+----
+
+==== mv command
+
+*`mv`* – **m**o**v**e files, directories, or both to a new location.
+
+[source,bash]
+----
+$ mv file1 Newdir
+----
+
+This can also be used to rename files:
+
+[source,bash]
+----
+$ mv file1 file2
+----
+
+Use wildcards like `*` to move all files of a specific type to a new
+location:
+
+[source,bash]
+----
+$ mv *.c ../CodeDir
+----
+
+You can always verify that the file was moved with `ls`.
+
+==== cp command
+
+*`cp`* – **c**o**p**y files, directories, or both to a new location.
+
+[source,bash]
+----
+$ cp file1 ~/
+----
+
+You can give the copy a different name than the original in the same
+command:
+
+[source,bash]
+----
+$ cp file1 file1_copy
+----
+
+To copy a directory, use the `-r` option (**r**ecursively). In this
+case, both the source and the destination are directories, and must
+already exist.
+
+[source,bash]
+----
+$ cp -r Test1 ~/testresults
+----
+
+==== rm command
+
+*`rm`* – **r**e**m**oves files or directories *_permanently_* from the
+system.
+
+Warning: Linux does not typically have a "trash bin" or equivalent as on
+other OS
+
+When you issue `rm` to remove a file, it is difficult to impossible to
+recover removed files without resorting to backup restore.
+
+[source,bash]
+----
+$ rm file1
+----
+
+With the `-r` or `-R` option, it will also remove/delete entire
+directories recursively and permanently.
+
+[source,bash]
+----
+$ rm -r Junk
+----
+
+Caution: Avoid using wildcards like `*`.
+
+For instance, the example below will remove all of the files and
+subdirectories within your current directory, so *_use with caution._*
+
+[source,bash]
+----
+$ rm -r *
+----
+
+To remove an empty directory, use `rmdir`
+
+==== touch command
+
+*`touch`* – changes a file's modification timestamp without editing
+the contents of the file. It is also useful for creating an empty file
+when the filename given does not exist.
+
+Try these commands to get more familiar with Linux files and
+directories.
+
+
+== I/O and Redirection
+
+=== Input and Output (I/O)
+
+As the title of this section suggests, I/O stands for input/output. Your
+commands or programs will often have input and/or output. It is
+important to know how to specify where your input is from or to redirect
+where output should go; for example, you may want your output to go to a
+file rather than printing to the screen. Inputs and outputs of a program
+are called _streams_ in Linux. There are three types of
+streams:
+
+stdin::
+  **st**an**d**ard **in**put - the stream of data going into a program.
+  By default, this is input from the keyboard.
+stdout::
+  **st**an**d**ard **out**put - the output stream where data is written
+  out by a program. By default, this output is sent to the screen.
+stderr::
+  **st**an**d**ard **err**or - another output stream (independent of
+  stdout) where programs output error messages. By default, error output
+  is sent to the screen.
+
+=== Output Redirection
+
+It is often useful to save the output (stdout) from a program to a file.
+This can be done with the redirection operator *`>`*.
+
+[source,bash]
+----
+$ example_program > my_output.txt
+----
+
+For another example, imagine that you run the `ls` command on a
+directory that has so many files that your screen scrolls and you cannot
+see all of the files listed. You might want to redirect that output to a
+file so you can open it up in a text editor and look more closely at the
+output:
+
+[source,bash]
+----
+$ ls > output_file.txt
+----
+
+Redirection of this sort will create the named file if it doesn't exist,
+or else overwrite the existing file of the same name. If you know the
+file already exists (or even if it does not), you can append the output
+file instead of rewriting it using the redirection operator *`>>`*.
+
+[source,bash]
+----
+$ ls >> output_file
+----
+
+=== Input Redirection
+
+Input can also be given to a command from a file instead of typing it in
+the _shell_ by using the redirection operator *`<`*.
+
+[source,bash]
+----
+$ mycommand < programinput
+----
+
+Alternatively, you can use the _pipe_ operator *`|`* like
+this:
+
+[source,bash]
+----
+$ cat programinput | mycommand
+----
+
+Using the pipe operator `|`, you can link commands together. _The pipe
+will link stdout from one command to stdin of another command_. In the
+above example, we use the `cat` command to print the file to the
+screen (stdout), and then we redirect that printing to the command
+`mycommand`.
+
+=== Error Redirection
+
+When performing normal redirection of the standard output of a program
+(stdout), stderr will not be redirected because it is a separate stream.
+Many programmers find it useful to redirect only stderr to a separate
+file. You might do this to make it easier to find the error messages
+from your program. This can be accomplished in the shell with a
+redirection operator *`2>`*.
+
+[source,bash]
+----
+$ command 2> my_error_file
+----
+
+In addition, you can merge stderr with stdout by using *`2>&1`*.
+
+[source,bash]
+----
+$ command > combined_output_file 2>&1
+----
+
+=== Redirect _and_ Save Output
+
+Redirecting the output of a command to a file is useful, but it means
+that you will not see anything on the screen while it is running. This
+can be undesirable, especially for long-running commands. To have the
+output go to both a file _and_ the screen, use the `tee` command:
+
+[source,bash]
+----
+$ command | tee outputfile
+----
+
+You can also use `tee` to catch stderr with:
+
+[source,bash]
+----
+$ command 2>&1 | tee outputfile
+----
+
+
+== Exercise: Redirecting Output
+
+=== Viewing Output
+
+Use *`ls`* (list files) and *`>`* (redirect) to create a file named
+"mylist" which contains a list of your files.
+
+[source,bash]
+----
+$ ls -l /etc > mylist
+----
+
+There are three main methods for viewing a file from the command prompt.
+Try each of these on your "mylist" file to get a feel for how they work:
+
+* *`cat`* shows the contents of the _entire file_ at the terminal and
+  scrolls automatically to the end.
++
+[source,bash]
+----
+$ cat mylist
+----
+* *`more`* shows the contents of the file, pausing when it fills the screen.
++
+[source,bash]
+----
+$ more mylist
+----
+** Note that it reads the entire file before displaying, so it could
+  take a long time to load for large files.
+** Use the spacebar to advance one page at a time.
+* *`less`* is similar to `more`, but with more features. It shows
+  the contents of the file, pausing when it fills the screen.
++
+[source,bash]
+----
+$ less mylist
+----
+** Note that `less` is *faster* than `more` on large files because
+  it does not read the entire input file before displaying.
+** Use the spacebar to advance one page at a time, or use the arrow keys
+  to scroll one line at a time. Enter *q* to quit. Entering *g* or *G*
+  will take you to the beginning or end of the file, respectively.
+** You can also *search* within a file (similar to Vim) by typing */*
+  and the word or characters you are searching for (example:
+  */ _foo_* will search for "foo"). `less` will jump to the
+  first match for the word. Move between matches by using *n* and *?*
+  keys.
+
+TIP: Reference the man pages
+
+It may also be useful to explore the man pages for `head` and `tail`
+and try them out, especially in conjunction with these viewing methods.
+
+=== Combining Redirection and Viewing
+
+Now let's try an exercise where we enter the famous quote "Four score
+and seven years ago" from Lincoln's Gettysburg address into a file
+called "lincoln.txt". First, use `cat` to direct stdin to "lincoln.txt":
+
+[source,bash]
+----
+$ cat > lincoln.txt
+----
+
+Next, enter the quote above. To end the text input, press *Control-D*.
+
+[source,bash]
+----
+Four score and seven years ago
+[Control-D]
+----
+
+Finally, you can use `cat` to view the file you just created:
+
+[source,bash]
+----
+$ cat lincoln.txt
+Four score and seven years ago
+----
+
+Now try adding another line of the famous quote to the existing file:
+
+[source,bash]
+----
+$ cat >> lincoln.txt
+our fathers brought forth on this continent, a new nation
+[Control-D]
+----
+
+If you wish, you could try appending the rest of the speech to the file.
+Finally, try viewing the file in both `more` and `less` to test them
+out. Feel free to test navigation in both and try searching with
+`less`. If you have a longer file, try viewing that as well so you can
+get used to scrolling.
+
+=== Creating a Simple Script
+
+We can also redirect input to a _script_ file that we create
+and then run the script. First, we will create the script file called
+"tryme.sh" that contains the `cat` command without any arguments,
+forcing it to read from stdin.
+
+[source,bash]
+----
+$ cat > tryme.sh
+#!/bin/sh
+cat
+[Control-D]
+----
+
+The first line of the script `#!/bin/sh` indicates which
+_shell_ interpreter to use. `/bin/sh` is a special
+_sort_ of file, called a _symlink_, which points at the
+default interpreter. You can see where it points by:
+
+[source,bash]
+----
+$ ls -l /bin/sh
+----
+
+The default is often `/bin/bash`, but you can also specify to use bash
+(or another shell) directly by replacing the line with the location of
+bash on your system, which is usually `#!/bin/bash`.
+
+Next, we can execute the script using the `source` command, and
+redirect the "lincoln.txt" file to stdin. This will cause the script to
+execute the `cat` command with the contents of "lincoln.txt" as input,
+consequently printing it to the screen (via stdout):
+
+[source,bash]
+----
+$ source tryme.sh < lincoln.txt
+Four score and seven years ago
+our fathers brought forth on this continent, a new nation
+----
+
+If you omit the redirection character `<`, the script will try to read
+from stdin (keyboard input) and then immediately print it back out.
+
+
+== Searching
+
+=== Locating Files With `find`
+
+The `find` command provides a wide range of capabilities for searching
+through directory trees, including executing commands on found files,
+searching for files based on creation and modification times, and more.
+It will search any set of directories you specify for files that match
+the criteria. For example, you might have thousands of files in your
+_home_ directory and be looking for a file named
+_foo_:
+
+[source,bash]
+----
+$ pwd
+/home/jolo
+
+$ find . -name foo 
+./foo
+----
+
+In the example above, the first argument "`.`" indicates for `find`
+to start searching in the current directory (/home/jolo), and the flag
+`-name` with the argument `foo` means to search for a file named
+"foo". Find returns the relative _path_ of the file "foo"
+when it finds it in the _file system_. In this case, the file
+was found right in the home directory.
+
+You can also specify more than one location to search:
+
+[source,bash]
+----
+$ find /home/jolo/Project /home/jolo/Results/ . $HOME -name foo
+----
+
+This searches for the file name "foo" in the "/home/jolo/Project/",
+"/home/jolo/Results/", and the current directory.
+
+=== Locating Files With `locate`
+
+Another command provided on most Linux systems is the `locate`
+command, which builds a file-based _database_ of files and
+their locations and will match _strings_. `locate` is
+_usually faster_ than `find` because it searches the database, rather
+than looking in each directory and subdirectory. You can use
+`locate myfile` in order to find where the file is located. Try
+`locate -h` for a full list of options.
+
+=== Pattern Matching With `grep`
+
+The `grep` (global _regular expression_ print) command is
+another useful utility that searches the named input file for lines that
+match the given pattern and prints those matching lines. In the
+following example, `grep` searches for instances of the word "bar" in
+the file "foo":
+
+[source,bash]
+----
+$ cat foo
+tool
+bar
+cats
+dogs
+
+$ grep bar foo
+bar
+----
+
+If there are no matches, `grep` will not print anything to the screen.
+
+
+== Exercise: Piping, Sorting, and Counting
+
+=== Piping
+
+The _pipe_ operator (`|`) _sends the output of the command
+to its left to the input of the command on its right_, thereby
+_chaining_ simple commands together to perform more complex
+processing than a single command can do. It is similar to the
+redirection operator but directs the output to the next command instead
+of a file. Most Linux commands will read from stdin and write to stdout
+instead of only using a file, so `|` can be a very useful tool.
+
+Another useful bash command is `history`, which will print all the
+bash commands you've entered in the _shell_ on the system to
+stdout (up to a maximum set by the system administrator). This can be
+very useful when you only remember one part of a command or forget exact
+syntax, but it will quickly become more daunting to search the output
+the longer you use the shell . You can use `|` combined with `grep`
+to quickly and easily search this output. First try just the `history`
+command to view the normal output, then try searching for the `cat`
+command, which we've used several times, like this:
+
+[source,bash]
+----
+$ history | grep cat
+ 1901  cat /etc/shells
+ 1927  cat programinput | mycommand
+ 1929  cat mylist
+ 1930  cat > lincoln.txt
+ 1931  cat lincoln.txt
+ 1932  cat >> lincoln.txt
+ 1933  cat > tryme.sh
+ 1936  cat foo
+ 1937  history | grep cat
+----
+
+As you can see, it is much easier to find specific past commands by this
+method. The numbers before the commands indicate the line number in the
+bash history file, which corresponds to when the command was entered, as
+long as your history has not been cleared. You can even redirect this
+output to a file by:
+
+[source,bash]
+----
+$ history | grep cat > cat_history.txt
+----
+
+This file can then be searched using `less`, a text editor (covered
+later), or by the grep command. For example, you can use grep to search
+for "lincoln":
+
+[source,bash]
+----
+$ cat cat_history.txt | grep lincoln
+ 1930  cat > lincoln.txt
+ 1931  cat lincoln.txt
+ 1932  cat >> lincoln.txt
+----
+
+Here's another example. Say you wanted to identify the
+_processes_ using `bash`; you could use `ps -ef` (which
+outputs _all_ processes in full format) as input to `grep` like so:
+
+[source,bash]
+----
+$ ps -ef | grep bash
+----
+
+There are many ways to use `|`, as you have seen in these examples,
+but feel free to explore more options!
+
+=== Sorting
+
+The `sort` command _sorts_ the content of a file or any
+stdin, and prints the sorted list to the screen.
+
+[source,bash]
+----
+$ cat temp.txt 
+cherry
+apple
+x-ray
+clock
+orange
+bananna
+
+$ sort temp.txt
+apple
+bananna
+cherry
+clock
+orange
+x-ray
+----
+
+To see the sorted list in reverse order, use the `-r` option.
+`sort -n` will sort the output numerically rather than alphabetically.
+
+[source,bash]
+----
+$ cat temp2.txt
+7
+48
+1
+56
+8
+32
+
+$ sort -nr temp2.txt
+56
+48
+32
+8
+7
+1
+----
+
+Note that the two options can be combined by `-nr`, and order does not
+matter unless there is an input for a particular option. If you were
+looking for a filename that began with a "w", you may try:
+
+[source,bash]
+----
+$ ls | sort -r
+----
+
+=== Counting
+
+The `wc` command reads either stdin or a list of files and generates a
+few different count summaries:
+
+* numbers of lines (by counting the number of newline characters)
+* numbers of words
+* numbers of _bytes_
+
+Using the file temp.txt from the previous example, we can use `wc` to
+count the lines, words, and bytes (or characters):
+
+[source,bash]
+----
+$ wc temp.txt 
+ 6  6 40 temp.txt
+----
+
+The output shows that there are *6* lines, *6* words, and *40* bytes (or
+characters) in the file temp.txt. You can also use the following options
+with `wc` to specify certain behavior:
+
+* Only display line count: `-l`
++
+[source,bash]
+----
+$ wc -l temp.txt
+6 temp.txt
+----
+* Only display word count: `-w`
++
+[source,bash]
+----
+$ wc -w temp.txt
+6 temp.txt
+----
+* Only display byte count: `-c`
++
+[source,bash]
+----
+$ wc -c temp.txt
+40 temp.txt
+----
+
+You can pipe `ls` to `wc -l` to list the number of files in a
+directory:
+
+[source,bash]
+----
+$ ls | wc -l
+----
+
+
+== Job Control
+
+In addition to starting commands, the _shell_ provides basic
+job control functions for _processes_. For shell sessions,
+such as _interactive sessions_ on Stampede2, it can be useful
+to see and control processes that run for longer times. Job control
+allows the user to stop, suspend, and resume jobs from within the shell.
+This is useful if you have a program that runs longer than desired, does
+not complete due to a bug, or has other problems. From within a shell
+session, the `ps` command will show the current processes running in
+your shell session.
+
+[source,bash]
+----
+$ ps
+  PID TTY          TIME CMD
+ 4621 pts/7    00:00:00 bash
+32273 pts/7    00:00:00 ps
+----
+
+From within a running process, using Ctrl C will send an interrupt
+signal to the process, which will usually cause it to terminate (I/O and
+other factors can block the interrupt from taking effect immediately).
+If you have executed a long-running program that you want to complete,
+but you want to do other things in the same shell while it runs (rather
+than starting a new shell on the system), you can suspend the process by
+pressing Ctrl Z. It can be resumed in the **b**ack**g**round with
+`bg`. Similarly, a process can be invoked and immediately sent to the
+background by adding an `&` at the end of the command:
+
+[source]
+----
+$ mylong-runningcode.o &
+----
+
+A running job can be brought to the **f**ore**g**round with `fg`:
+
+[source,bash]
+----
+$ ./longscript.sh &
+$ fg
+./longscript.sh
+----
+
+While using job control in the shell you can also use the `jobs`
+command to display currently running jobs, similar to `ps`.
+
+[source,bash]
+----
+$ ./longscript.sh &
+$ jobs
+[1]+  Running                 ./longscript.sh &
+$ fg
+./longscript.sh
+----
+
+In the example above, we invoke `longscript.sh &` and immediately send
+it to the background. The `jobs` command shows the list of running
+jobs under shell control. Using `fg`, we can bring "longscript.sh"
+back to the foreground. See the manual page (`man fg`) for details
+about how to specify which job will be brought to the foreground if
+there is more than one background job.
+
+You can also use the `top` command to view details about running
+processes. The program https://hisham.hm/htop/[`htop`] is a common,
+more interactive, alternative to `top` that is not installed by
+default on most Linux systems, but is worth exploring. And finally, use
+the `kill` command followed by a _PID_ to stop a process.
+For more information on these job control commands, see their respective
+man pages.
+
+
+== Environment Variables
+
+As mentioned previously, the _environment variable_ `PATH`
+stores a list of directory _paths_ that the
+_shell_ will search, in order, when you issue a command.
+`$PATH` refers to the _value assigned to_ this variable. The paths in
+`$PATH` may be modified by the OS, a system administrator, environment
+management tools, or directly by the user. You can view the current list
+of directories with `echo $PATH`.
+
+If a command you issue is not found in any of the paths in `$PATH`,
+then the shell will not be able to execute it, unless it is prefaced by
+the full path to the command. You can change the directories in the list
+by assigning a new value to `PATH`. Since `PATH` is an environment
+variable, you typically do this through the `export` command, which
+ensures that the new `$PATH` value is passed down to subshells of the
+current shell.
+
+=== Add directory to path
+
+To _add_ directories to your path, you can use:
+
+[source,bash]
+----
+$ export PATH=$PATH:/path/to/new/command
+----
+
+Again, the *`$PATH`* on the right-hand side of the `=` means "the
+current value of the `PATH` variable." The *`:`* joins directories
+in the path _variable_ together. Inserting *`$PATH:`*
+before the directory you want to add has the effect of appending the new
+directory to the list of existing directory paths. If you want your
+additional directory to be the first one searched for commands, put it
+immediately after the `=` and follow it with *`:$PATH`*. Note that
+no spaces should appear on either side of the `=` sign.
+
+=== Redefine path
+
+If you wanted to *completely replace* the list with a different path:
+
+[source,bash]
+----
+$ export PATH=/path/to/replacement/directory
+----
+
+[WARNING]
+=========
+This command *completely replaces* the previous path.
+
+Please keep in mind that using
+`export PATH=/path/to/replacement/directory` will _erase_ the previous
+list of directories in your path.
+=========
+
+Try `env` to list all environment variables. Examples such as
+`SHELL`, `HOME`, and `PATH` are built-in environment variables.
+Any variable can be declared to the shell, just locally, by typing
+
+[source,bash]
+----
+$ MYVAR=something
+----
+
+To make a shell variable into an environment variable, you need to
+`export` it. This places the variable into the environment of the
+current shell, plus any subshells that are started from that shell. You
+can `export` an existing shell variable, or you can create and export
+a shell variable in a single line:
+
+[source,bash]
+----
+$ export MYVAR
+$ export MYVAR2=something_else
+----
+
+Conventionally, shell variables are declared in all capital letters. The
+value of the variable can then be used in bash commands or
+_scripts_ by inserting `$MYVAR`. Note again the use of a
+preceding *`$`* when using the variable and the absence of the *`$`*
+prefix when setting the variable value. If you want to insert the
+variable inside a _string_, it is safest to do this by using
+the form `${MYVAR}` and placing the beginning and ending portions of
+the string on either side. This cleanly distinguishes the name of the
+variable from any neighboring characters in the string. For example:
+
+[source,bash]
+----
+$ DATAPATH=/home/jolo/Project
+$ ls $DATAPATH
+$ cp newdatafile.txt ${DATAPATH}/todaysdatafile.txt
+$ ls $DATAPATH
+todaysdatafile.txt
+----
+
+== Text Editors
+
+Peter Vaillancourt, Rich Knepper, and Adam Brazier +
+Cornell Center for Advanced Computing
+
+Revisions: 1/2023, 11/2019, 10/2017, 9/2014 (original)
+
+A text editor is a tool to assist the user with creating and editing
+files. There is no "best" text editor; it depends on personal
+preferences. Regardless of your typical _workflow_, you will
+likely need to be proficient in using at least one common text editor if
+you are using Linux for scientific computing or similar work. Two of the
+most widely used command-line editors are *Vim* and *Emacs*, both of
+which are available on TACC systems via the `vim` and `emacs`
+commands, respectively.
+
+=== Objectives
+
+After you complete this segment, you should be able to:
+
+* List the two most widely used command line editors and how to access them
+* Describe the major differences between text editors
+* Discuss the basic functionality of Vim and Emacs
+
+=== Prerequisites
+
+There are no prerequisites for this course.
+
+=== Overview
+
+This topic is a brief introduction to the basics of both Vim and Emacs.
+It is recommended that you try each one and work through testing each of
+the commands to select which one works best for your workflow.
+Additional editors on Stampede2 you may want to consider are
+https://www.nano-editor.org/[nano], a simple text editor designed for
+new users, or https://help.gnome.org/users/gedit/stable/[gedit], a
+general-purpose text editor focused on simplicity and ease of use, with
+a simple _GUI_. There are also many more, so feel free to
+explore other options.
+
+Each text editor in Linux has a designed workflow to assist you in
+editing, and some workflows work better than others depending on your
+preferences. For example, Emacs relies heavily on key-chords (or
+multiple key strokes), while Vim uses distinct editing
+https://en.wikibooks.org/wiki/Learning_the_vi_Editor/Vim/Modes#Modes[modes].
+Vim users tend to enter and exit the editor repeatedly and use the
+_shell_ for complex tasks, while Emacs users typically remain
+within the editor and use Emacs itself for
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Shell.html[complex
+tasks]. Most users develop a preference for one text editor and stick
+with it.
+
+=== What about Vi?
+
+The Vi editor (command is `vi`) is the predecessor of Vim. Most modern
+systems actually _alias_ `vi` to `vim` so that you are
+using `vim` whenever you enter the `vi` command. You can determine
+if this is the case by entering the following:
+
+[source,bash]
+----
+$ which vi
+alias vi='vim'
+    /bin/vim
+----
+
+The line `alias vi='vim'` tells you that `vim` will be executed
+whenever the command `vi` is entered. The above output is actually
+from Stampede2. For this reason, we will focus on Vim in this tutorial
+and not Vi. We will also provide a basic overview of Emacs.
+
+
+== Vim
+
+.Source: https://www.vim.org/logos.php[vim.org]
+image::https://cvw.cac.cornell.edu/linux/text-editors/vim_editor.gif[logo for Vim: The editor]
+
+=== Basic Functions
+
+* *Open* an existing file by entering *`vim`* in the
+  _shell_ followed by the name of the file.
+* *Create* a new file in the same way as opening a file by specifying
+  the new filename. The new file will not be saved unless specified.
+* *Save* a file that is currently open by entering the *`:w`* command.
+* *Quit* an open file by entering the *`:q`* command. If you have made
+  any edits without saving, you will see an error message. If you wish to
+  _quit without saving_ the edits, use *`:q!`*.
+* *Save and Quit* at the same time by combining the commands: *`:wq`*.
+* *Edit* the file by entering insert mode to add and remove text.
+  Entering into normal mode will allow you to easily copy, paste, and
+  delete (as well as other functionality).
+* *Cancel* a command before completely entering it by hitting *`Esc`* twice.
+
+=== Normal (Command) Mode
+
+Vim starts in normal mode, and returns to normal mode whenever you exit
+another mode. When in normal mode, there is no text at the bottom of the
+shell, except the commands you are entering.
+
+=== Navigation
+
+Navigation in normal mode has a large number of shortcuts and extra
+features, which we will only cover some of here. Basic movement can be
+done using the arrow keys or using the letter keys as shown in the
+table.
+
+.Keys for basic movement.
+[cols="^,^",options="header,autowidth",]
+|===
+|Move |Key
+|←    |h
+|↓    |j
+|↑    |k
+|→    |l
+|===
+
+The benefits of using the alternate keys is that you do not have to move
+your hand back-and-forth to the arrow keys while in this mode, and can
+more effectively enter Vim commands (once you are practiced). Some other
+examples of navigation shortcuts include:
+
+* Move to the *beginning of the line*: `0`
+* Move to the *end of the line*: `$`
+* Move to the *beginning of the next word*: `w` This can also be used
+  with a number to move multiple words at once (i.e. `5w` moves 5 words
+  forward).
+* Move to the *end of the current word*: `e` This can be used with a
+  number in the same way that `w` can to move multiple words at once.
+
+These extra navigation shortcuts become powerful when combined with
+other Vim functions, allowing you to edit text and navigate through the
+file without changing modes.
+
+=== Insert Mode
+
+When you first open a document, you will always start in normal mode and
+have to enter insert mode. To enter insert mode where the cursor is
+currently located in the file, press the letter *`i`* or the
+*`Insert`* key. Additionally, you can press the letter *`a`* (for
+append) if you would like to enter insert mode at the character after
+the cursor. To exit insert mode, press the *`Esc`* key. When in insert
+mode, `-- INSERT --` will be visible at the bottom of the shell.
+Navigation in insert mode is done with the standard arrow keys.
+
+=== Editing Features
+
+Here are some important commands to know:
+
+* *Undo* the previous command, even the last edit in insert mode, with
+  the command *`u`*
+* *Redo* the previous command (after undo) with *`Ctrl-R`*
+* *Copy* (yank) characters, words, or lines:
+** *`yl`* to copy a single character under the cursor
+** *`yy`* to copy the current line
+** *`y#y`* or `#yy` where `#` is replaced with the number of lines
+  you want to copy (i.e. `y25y` will copy 25 lines).
+* *Paste* (put) characters, words, or lines:
+** *`p`* will paste after the cursor for characters and words, or on
+  the next line (regardless of the cursor location within a line) if you
+  are pasting lines.
+** *`P`* will paste before the cursor for characters and words, or on
+  the preceding line (regardless of the cursor location within a line) if
+  you are pasting lines.
+* *Delete* or *Cut* characters, words, or lines (that can then be pasted
+  elsewhere):
+** *`x`* to delete a single character under the cursor
+** *`dd`* to delete the current line
+** *`d#d`* or `#dd` where `#` is replaced with the number of lines
+  you want to delete (similar to copy).
+* *Search* for _strings_ throughout a file and optionally *replace*:
+** A basic search for a word is simply *`/word`* followed by
+  `Enter`. This will jump to the first occurrence of the word after the
+  cursor. Phrases can also be used.
+** Once a search is active, you can use *`n`* to jump to the next
+  occurrence and *`N`* to jump to the previous occurrence.
+** https://vim.wikia.com/wiki/Search_and_replace[Search and replace] has
+  many options, but one example is to find all occurrences of
+  " _foo_" in the file and replace (substitute) them with "bar"
+  with the command: *`:%s/foo/bar/g`*
+* *Split* the screen _vertically_ or _horizontally_ to view multiple
+  files at once in the same shell:
+** *`:sp <filename>`* will open the specified file above the current
+  active file and split the screen horizontally.
+** *`:vsp <filename>`* will open the specified file to the left of the
+  current active file and split the screen vertically
+** Navigate between split-screen files by pressing *`Ctrl-W`* followed
+  by navigation keys (i.e. `Ctrl-W h` or `Ctrl-W ←` to move to the
+  left file)
+** Also note that you can open several documents at once from the shell
+  using appropriate flags. See `man vim` for more information.
+
+Any of the editing commands can easily be combined with navigation
+commands. For example, `5de` will delete the next 5 words, or `y$`
+will copy from the current cursor location to the end of the line. There
+are a large number of combinations and possible commands. Note that
+copying, pasting, and deleting can also be done efficiently using visual
+mode.
+
+=== Visual Mode
+
+From normal mode, press the *`v`* key to enter visual mode. This mode
+enables you to highlight words in sections to perform commands on them,
+such as copy or delete. Navigation in visual mode is done with the
+normal mode navigation keys or the standard arrow keys. For example, if
+you are in normal mode and you want to copy a few words from a single
+line and paste them on another line:
+
+. Navigate to the first character of the first word you want to copy
+. Enter visual mode by `v`
+. Navigate to the last character of the last word you want to copy (this
+  should highlight all the words you want)
+. Enter `y` to copy the words
+. Navigate to where you want to paste the words
+. Enter `p` to paste
+
+Note that step 6 will paste after the cursor instead of on the next line
+even if you have copied several lines. You can also replace that step
+with `P` to paste before the cursor.
+
+=== Vim and the Shell
+
+Working with Vim regularly can mean switching back and forth between it
+and the shell, but there are two ways to simplify this. From normal
+mode, you can use the command *`:!`* followed by any shell command to
+execute a single command without closing the file. For example, `:!ls`
+will display the contents of the current directory. This will appear to
+background Vim while executing the command (so you can see the shell and
+output), and display the following message upon completion:
+
+[source,bash]
+----
+Press ENTER or type command to continue
+----
+
+Pressing `Enter` will return you to your open file. Alternatively, you
+can simply background the file while in normal mode with *`Ctrl-Z`* to
+view the shell and issue commands. When you want to return to the file,
+use the foreground command *`fg`*. In this way, you can actually have
+a number of files open (with or without splitting the screen) all in the
+same shell, and easily switch between them. Note that if you background
+multiple files, the foreground command will bring them up in reverse
+order (most recent file accessed first).
+
+=== Customization
+
+Vim uses a `.vimrc` file for customizations. Essentially, this file is
+to consist of Vim commands that you would like issued each time you open
+Vim to customize your experience. One example of a command you will
+likely want is `syntax on`, which provides syntax highlighting for
+programming languages. There are also a number of commands you can
+explore to customize the coloring of the syntax. Here is an example of a
+simple `.vimrc` file that you may use:
+
+[source,bash]
+----
+syntax on
+set tabstop=4
+set expandtab
+set number
+set hls
+----
+
+In addition to syntax highlighting, the above customizations will set
+tabs to be 4 characters wide, replace tabs with spaces, show line
+numbers along the left-hand side of the screen, and highlight matching
+words when searching. There is a global `vimrc` file that sets
+system-wide Vim initializations (you will not have access to this on
+Stampede2), and each user has their own located at `~/.vimrc` wich can
+be used for personal initializations.
+
+=== A Hands-On Tutorial
+
+One of the most effective ways to learn Vim is through the built-in
+hands-on tutorial that can be accessed via the shell by the command
+*`vimtutor`*. This command will open a text file in Vim that will walk
+you through all the major functionalities of Vim as well as a few useful
+tips and tricks. If you plan to use Vim even occasionally, it is a great
+resource. Furthermore, the above list of features and commands is not
+exhaustive, and the interested new Vim user should certainly explore the
+man pages and online resources to discover more Vim features.
+
+
+== Emacs
+
+.Source: https://www.gnu.org/software/emacs/emacs.html[gnu.org]
+image::https://cvw.cac.cornell.edu/linux/text-editors/emacs.png[Emacs logo]
+
+=== Basic Functionality
+
+* *Open* an existing file by entering *`emacs`* in the
+  _shell_ followed by the name of the file. This will default
+  to running Emacs in a _GUI_, but it can also be run within
+  the shell (`emacs -nw`). Note that to use the GUI with a remote
+  connection such as Stampede2, you must use X11 forwarding (covered in
+  the Remote Connections section), otherwise the `emacs` command will
+  open within the shell. If you want to run the GUI and keep the shell
+  free, you can open and background Emacs with `emacs &`. Use
+  `Ctrl-x f` to open a file from within Emacs.
+* *Create* a new file in the same way as opening a file by specifying
+  the new filename. The new file will not be saved unless specified.
+* *Save* a file that is currently open by entering the
+*`Ctrl-x Ctrl-s`* command.
+* *Quit* by entering *`Ctrl-x Ctrl-c`*.
+* *Save and Quit* is the same command as quitting, except that when you
+  have unsaved files it will ask if you would like to save each one. To
+  save, enter `y`.
+* *Edit* a file by simply entering and removing text.
+* *Cancel* a command before completely entering it or a command that is
+  executing with *`Ctrl-g`* or by hitting *`Esc`* 3 times.
+
+=== Navigation
+
+Similar to Vim, navigation in Emacs has shortcuts and extra features.
+Basic movement can be done using the arrow keys or using the letter keys
+in the following table:
+
+.Keys for basic movement.
+[cols="^,^",options="header,autowidth",]
+|===
+|Move |Command
+|←    |Ctrl-b
+|↓    |Ctrl-n
+|↑    |Ctrl-p
+|→    |Ctrl-f
+|===
+
+The benefits of using the alternate keys is that you do not have to move
+your hand back-and-forth to the arrow keys, and can more effectively
+enter Emacs commands (once you are practiced). Some other examples of
+navigation shortcuts include:
+
+* Move to the *next screen view*: `Ctrl-v`
+* Move to the *previous screen view*: `Alt-v`
+* Move to the *next word*: `Alt-f` This can also be used with a number
+  to move multiple words at once (i.e. `Alt-5f` moves 5 words forward).
+* Move to the *previous word*: `Alt-b` This can be used with a number
+  in the same way to move multiple words at once.
+* Move to the *beginning of the line*: `Ctrl-a`
+* Move to the *end of the line*: `Ctrl-e`
+* Move to the *beginning of a sentence*: `Alt-a`
+* Move to the *end of a sentence*: `Alt-e`
+
+Note that the more customary keys `Page Up`, `Page Down`, `Home`,
+and `End` all work as expected.
+
+=== Editing Features
+
+Here are some important commands to know:
+
+* *Undo* the previous command with the command *`Ctrl-x u`*
+* *Redo* the previous command (after undo) by performing a non-editing
+  command (such as `Ctrl-f`), and then undo the undo with `Ctrl-x u`
+* *Delete* or *Cut* characters, words, or lines (that can then be pasted elsewhere):
+  ** *`Backspace`* to delete a single character before the cursor
+  ** *`Ctrl-d`* to delete a single character after the cursor
+  ** *`Alt-Backspace`* to delete the word before the cursor
+  ** *`Alt-d`* to delete the word after the cursor
+  ** *`Ctrl-k`* to delete from the cursor to end of the line
+  ** *`Alt-k`* to delete from the cursor to end of the sentence
+* *Paste* characters, words, or lines:
+  ** *`Ctrl-y`* pastes the most recent deleted text
+  ** *`Alt-y`* pastes the deleted text before the most recent
+* *Copy* characters, words, or lines: The easiest way to copy is
+  actually to _cut_ the text and then paste it back where it was. Then it
+  can be pasted in a new location also.
+* *Search* for _strings_ throughout a file and optionally *replace*:
+  ** *`Ctrl-s`* starts a forward search that is incremental (each
+    character you enter updates the search). Entering `Ctrl-s` again skips
+    to the next occurrence. `Enter` ends the search.
+  ** *`Ctrl-r`* starts a backwards search that behaves similarly to the
+    forward search.
+  ** https://www.gnu.org/software/emacs/manual/html_node/emacs/Search.html#Search[Search
+    and replace] has many options, but one example is to find all
+    occurrences of " _foo_" in the file and replace them with
+    "bar" with the command: *`Alt-x replace-string foo Enter bar`*
+  ** You can use tab-completion for entering commands after typing
+    `Alt -x`. For example, type `Alt-x`, then `rep`, then hit `Tab`
+    twice to see a list of matching commands. Since similar commands are
+    named similarly, you will find other useful related commands, such as
+    `replace-regexp`.
+* *Split* the screen _vertically_ or _horizontally_ to view multiple
+  files at once in emacs:
+  ** *`Ctrl-x 3`* will split the screen horizontally
+  ** *`Ctrl-x 2`* will split the screen vertically
+  ** *`Ctrl-x 1`* closes all panes except the active one
+  ** *`Ctrl-x 0`* closes a pane
+
+=== Highlighting Mode
+
+This mode enables you to highlight words in sections to perform commands
+on them, such as copy or delete. For example, if you want to copy a few
+words from a single line and paste them on another line:
+
+. Navigate to the first character of the first word you want to copy
+. Enter highlighting mode by `Ctrl-Space`
+. Navigate to the last character of the last word you want to copy (this
+  should highlight all the words you want)
+. Enter `Alt-w` to copy the words
+. Navigate to where you want to paste the words
+. Enter `Ctrl-y` to paste
+
+=== Emacs and the Shell
+
+There are several options for running shell commands from Emacs. To
+execute a single shell command while in Emacs, use the command
+*`Alt-!`* followed by the shell command and hit `Enter`. The output
+of the command will display in a portion of the screen called an
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Echo-Area.html[echo
+area]. There are several more features for running shell commands,
+including running an interactive shell inside Emacs (we recommend
+https://www.emacswiki.org/emacs/AnsiTerm[ansi-term]). For more about
+these features, please see the
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Shell.html[Emacs
+documentation] on the topic. Alternatively, you can suspend Emacs with
+the command *`Ctrl-z`*. As with suspending Vim, you can execute
+commands in the shell, and then return to Emacs with the foreground
+command *`fg`*.
+
+=== Customization
+
+Emacs is customizable in many ways including changing the
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Key-Bindings.html[key
+bindings] for commands, the color scheme (themes), and more. Due to the
+breadth of options, we refer you to existing documentation on
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Customization.html[customization].
+
+=== A Hands-On Tutorial
+
+One of the most effective ways to learn Emacs is through the built-in
+hands-on tutorial that can be accessed by opening Emacs without any
+filename input. It will walk you through all the major functionalities
+of Emacs as well as a few useful tips and tricks. If you plan to use
+Emacs even occasionally, it is a great resource. Furthermore, the above
+list of features and commands is not exhaustive, and the interested new
+Emacs user should certainly explore the man pages and online resources
+to discover more Emacs features. In particular,
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Buffers.html[buffers]
+are a useful concept to understand when using Emacs, but are not covered
+here.
+
+Additionally, you may want to consider looking into
+https://www.spacemacs.org/[spacemacs] if you are familiar with Vim key
+bindings or would like to continue using emacs with more customization.
+Users can install spacemacs to their loca directory on Stampede2 using git.
+
+== Miscellaneous and Tips
+
+Peter Vaillancourt, Rich Knepper, and Adam Brazier +
+Cornell Center for Advanced Computing
+
+Revisions: 1/2023, 11/2019, 10/2017, 9/2014 (original)
+
+This topic covers connecting to and using remote Linux machines (such as
+TACC systems). It includes typical usage scenarios like setting file
+permissions and copying files between systems. It also includes
+pertinent background information such as typical Linux filesystem
+organization, the role of the root user, how software is installed, and
+how to use storage volumes.
+
+=== Objectives
+
+After you complete this segment, you should be able to:
+
+* Demonstrate using ssh and scp to connect to a remote system
+* Explain how Linux users and groups relate to system access and file permission
+* Demonstrate displaying and changing file permissions
+* Explore optional topics as needed, including file compression,
+  software package installation, mounting file systems, and system
+  administration.
+
+=== Prerequisites
+
+There are no prerequisites for this course.
+
+== Accounts
+
+
+A user account is required for a user to log into any Linux system. An
+account typically includes identity information such as username,
+password, user id (UID), and group identifier (GIDs) so that the system
+can identify the user. An account will also include a set of resources
+such as accessible disk space that the user can work in, typically
+called a _home_ directory and information about the default
+_shell_ preference.
+
+=== Username
+
+Every account in a Linux system is associated with a unique username,
+which is typically a sequence of alphanumeric characters at least three
+characters in length. It is case sensitive; for example, `Apple01` is
+a different username than `apple01`. A unique integer, the user id
+(UID), is assigned to each username. Linux uses the UID rather than the
+username to manage user accounts since it is more efficient to process
+numbers than _strings_. However, you don't necessarily need
+to know your UID.
+
+=== Group
+
+Linux also has the notion of a group of users who need to share files
+and processes. Each account is assigned a primary group with a numerical
+group id (GID) that corresponds to the particular group. A single
+account can belong to many groups, but you may have only one primary
+group. Groups can also be used to assign certain permissions to users on
+the system.
+
+=== Password
+
+Each username requires a password. The username is the account
+identifier, and the password is the authenticator. A password is
+required for operations such as logging into the system and accessing
+files. Password requirements differ between systems; a sample
+requirement is that the password must be a minimum of 8 characters with
+at least 3 of the following character classes:
+
+* lower-case letters
+* upper-case letters
+* numerical digits
+* punctuation
+
+When you enter your password, the system encrypts it and compares it to
+a stored string. This ensures that even the Operating System does not
+know your plain text password. This method is frequently used on
+websites and servers, especially those that run Linux. Once you have the
+system username and password, you are ready to log into the remote
+system using a secure shell (`ssh`). See the
+link:remote-connections[remote connections] page for details about SSH.
+
+
+== Remote Connections
+
+
+=== Connect Remotely with `ssh`
+
+**S**ecure **SH**ell (SSH) is designed to be a secure way to connect to
+remote resources from your local machine over an unsecured network. The
+following example uses an account with username "jolo" using SSH to log
+into a machine named "foo.edu":
+
+[source,bash]
+----
+$ ssh jolo@foo.edu
+----
+
+This will open a connection to the remote machine "foo.edu" and log in
+as the user if authentication is successful. If you
+https://docs.tacc.utexas.edu/hpc/stampede3/#access[log into Stampede3]
+via SSH, a password and/or private key will be required for
+authentication. The above example is the most straightforward version of
+the command, but there are many additional options. For example, to use
+a https://www.ssh.com/ssh/public-key-authentication[key pair] (where
+`my_key` is the name of the private key file) to login, then the
+command will look like:
+
+[source,bash]
+----
+$ ssh -i my_key jolo@foo.edu
+----
+
+Another common option is
+https://en.wikipedia.org/wiki/X_Window_System[X11] forwarding, which can
+be achieved using the `-X` or `-Y` flags. X11 forwarding is useful
+when you are going to use applications that open up outside of the
+_shell_. For more information on this and other options, see
+the man page for `ssh`.
+
+==== SSH setup
+
+In order to access a Linux system via `ssh`, you will need an ssh
+client and a terminal program on your system. Sometimes these are
+included in a single application for simplicity. There are many
+different terminals available, but here are a few examples:
+
+* On Linux, simply open your terminal _emulator_ and enter `ssh` commands
+* On Mac OS, the Terminal app is included with the system, and `ssh`
+  can be invoked from the command line in the Terminal app
+* On Windows:
+  ** The Linux Bash Shell is available as the
+    https://docs.microsoft.com/en-us/windows/wsl/about[Windows Subsystem for
+    Linux] and supports many Linux commands, including `ssh`
+  ** One commonly-used terminal and ssh client combo is
+    https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html[PuTTY]
+  ** Another terminal and ssh client combo is
+    https://mobaxterm.mobatek.net/[MobaXterm]
+
+=== Securely Copy with `scp`
+
+**S**ecure **C**opy **P**rotocol (SCP) is based on the SSH protocol, and
+is used for securely copying files across the network.
+
+==== Copy to a remote resource
+
+Say you have a file "code.c" located in your current directory on your
+local machine that you want to copy *to a remote resource* in the
+"Project" directory under your _home_ directory on the remote
+machine (we'll stick with the user "jolo" and "foo.edu"). This can be
+done using `scp` as follows:
+
+[source,bash]
+----
+$ scp code.c jolo@foo.edu:~/Project
+----
+
+==== Copy from a remote resource
+
+Alternatively, if you want to copy the file "output.txt" *from a remote
+resource* located in the "Project" directory to the directory "Results"
+on your local machine _and rename the file_ to "Run12_data.txt" during
+the move:
+
+[source,bash]
+----
+$ scp jolo@foo.edu:~/Project/output.txt ./Results/Run12_data.txt
+----
+
+Similar syntax can be used to copy from a remote host to another remote
+host as well. The `-r` option can be used to copy full directories
+recursively. For more options, see the `scp` man page.
+
+==== SCP setup
+
+To use `scp` with a remote system, similar to `ssh`, you will need a
+program to support it. Here are a few examples:
+
+* On Linux, open your terminal emulator and enter `scp` commands
+* On Mac OS, open the Terminal app and enter `scp` commands
+* On Windows:
+** The https://docs.microsoft.com/en-us/windows/wsl/about[Windows
+  Subsystem for Linux] supports many Linux commands, including `scp`
+** From the developers of PuTTY, you can use
+  https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html[PSCP]
+** https://mobaxterm.mobatek.net/[MobaXterm] comes with a built-in SCP client
+
+If you are expecting to copy large files to or from remote locations,
+note that File and Directory Compression will be covered later in this
+tutorial, under Optional Topics.
+
+
+== Filesystem
+
+
+As we discussed previously, Linux has a hierarchical
+_filesystem_. The files and directories form a tree
+structure, in accordance with the
+https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard[Filesystem
+Hierarchy Standard (FHS)]. The topmost directory is the `_root directory/_` 
+and all directories are contained within or below this
+directory in the hierarchy. There are several directories within the
+root directory – called subdirectories – that are generated upon
+installation of a Linux distribution. Many of these are used exclusively
+by the system. There are also some generated for use by users, where
+subdirectories can be created without elevated permissions.
+
+.A sample portion of the filesystem structure tree
+image::https://cvw.cac.cornell.edu/linux/miscellaneous/filesystem_structure.jpg[Filesystem Tree Structure with the root at the top and various default directories at the second level as described below]
+
+The FHS includes descriptions of the core directories in the hierarchy,
+causing this structure to be relatively standard across Linux systems.
+The table provides a list of the major subdirectories of the root
+directory `/`. There is no need to remember the purpose of every
+directory unless you are working at a lower level within a Linux system.
+Rather, this table should give you an idea of the basic layout of a
+Linux filesystem and possibly serve as a useful reference in the future.
+
+.Based in part on content from
+http://l.github.io/debian-handbook/html/en-US/sect.filesystem-hierarchy.html[Debian]
+and up-to-date with FHS 3.0
+[width="100%",cols="50%,50%",options="header,autowidth",]
+|===
+|Directory |Contents
+|`bin` |Binary files for command execution
+
+|`boot` |Files for the
+https://en.wikipedia.org/wiki/Booting#Modern_boot_loaders[boot loader]
+
+|`dev` |https://en.wikipedia.org/wiki/Device_file[Device files] 
+      for interacting with devices connected to the system
+
+|`etc` |System configuration files
+
+|`home` |User _home_ directories
+
+|`lib` |System shared libraries needed by binaries in `bin` and `sbin`
+
+|`media` |Location for temporarily mounting filesystems from replaceable media
+
+|`mnt` |Location for temporarily mounting filesystems
+
+|`opt` |Optional application software packages
+
+|`proc` |https://en.wikipedia.org/wiki/Virtual_file_system[Virtual filesystem] 
+        for _process_ and system information
+
+|`root` |Home directory of root user
+
+|`run` |Run-time _variable_ data since last boot
+
+|`sbin` |System binary files for command execution
+
+|`srv` |Data for services provided by the system
+
+|`sys` |Virtual directory for system information
+
+|`tmp` |Temporary files
+
+|`usr` a| Read-only user data for all users; Some important subdirectories include:
+
+* `/usr/bin` - program binaries
+* `/usr/include` - https://en.wikipedia.org/wiki/Include_directive[include files]
+* `/usr/lib` - libraries for binaries in `/usr/bin` and `/usr/sbin`
+* `/usr/local` - local host data
+* `/usr/sbin` - Non-essential system binaries
+* `/usr/share` - shared data, such as documentation
+* `/usr/src` - _kernel_ source code and headers
+
+|`var` |Variable data
+|===
+
+Most of the work you do will likely be performed in your home directory
+while on a Linux system, while programs you use will reside in other
+locations, as explained above. You may want to familiarize yourself with
+the https://docs.tacc.utexas.edu/hpc/stampede3/#files[Stampede3 Filesystem] 
+as well as how to
+https://docs.tacc.utexas.edu/hpc/stampede3/#files-filesystems[navigate it] 
+if you are planning on doing work there. Also feel free to peruse
+Optional Topics in a later section for more information on the root user and mounts.
+
+
+== File Permissions
+
+
+Linux is a multi-user environment where many users can run programs and
+share data. File permissions are used to protect users and system files
+by controlling who can *read*, *write*, and *execute* files. The types
+of permissions a file can have are:
+
+.Types of permissions a file can have.
+[cols="^,^,^",options="header,autowidth",]
+|===
+|Read Permissions |Write Permissions |Execute Permissions
+|r |w |x
+|===
+
+Furthermore, files and directories have 3 levels of permissions: *User*,
+*Group* and *World*. When displayed, permissions are arranged into three
+sets of three characters each. The first set is the User (owner)
+permissions, the second is Group permissions, and finally, permissions
+for Others or everyone else on the system (World). In the following
+example, the owner can read and write the file, while group and all
+others have read access only.
+
+.File permissions example: owner can read and write, while group and
+others have read access only.
+[cols="^,^,^",options="header,autowidth",]
+|===
+|User (owner) |Group |Others (everyone else)
+|rw- |r-- |r--
+|===
+
+=== Displaying File Permissions
+
+You can view a file's permissions by using the "long list" option
+`ls -l`, which outputs the permissions as a character
+_string_ at the beginning of the row for each file or
+directory. The string will begin with a `d` for a directory or a `-`
+for a file. The next nine characters refer to the file permissions in
+the order discussed above. Other information included per row of the
+output is (in order) links to the file, username of the owner, group,
+file size, date and time of last edit, and filename. For example:
+
+[source,bash]
+----
+$ ls -l $HOME
+-rw-r--r-- 1 jdoe jdoe            796631 2009-11-20 14:25 image_data.dat
+-rwxrwxr-- 1 jdoe community_group 355    2010-02-18 15:50 my_script.sh
+----
+
+In this example, user "jdoe" owns the two files: "image_data.dat" and
+"my_script.sh". For the first file, we can tell that "jdoe" has read and
+write access (but not execute permissions) because of the `rw-` in the
+`-`*`rw-`*`r--r--` character string on that row. Similarly, we can
+see that the group only has read access (`-rw-`*`r--`*`r--`) and
+all others on the system only have read access (`-rw-r--`*`r--`*).
+The second file can be read, written, and executed by "jdoe" and others
+who are in the "community_group".
+
+=== Changing File Permissions
+
+You can use the `chmod` command to change permissions on a file or
+directory (use `chmod -R` for recursive). This command changes the
+file permission bits of each file according to a given mode, which can
+be either a symbolic representation (characters) of changes to be made
+or an octal number representing the bit pattern for the new mode bits.
+
+==== Symbolic Mode
+
+The syntax of the command in symbolic mode is
+
+[source,bash]
+----
+chmod [references][operator][modes] file
+----
+
+* *references* can be "u" for user, "g" for group, "o" for others, or
+  "a" for all three types
+* *operator* can be "+" to add, "-" to remove permissions, and "=" to
+  set the modes exactly
+* *modes* can be "r" for read, "w" for write, and "x" for execute
+
+In the following example, we are giving the owner read, write, and
+execute permissions, while the group and everyone else is given no
+permissions.
+
+[source,bash]
+----
+$ chmod u+rwx my_script.sh
+
+$ ls -l my_script.sh
+-rwx------ 1 jdoe community_group     355 2010-02-18 15:50 my_script.sh
+----
+
+The `u+` _adds_ permissions for the user, and the `rwx` specifies
+_which permissions_ to add. A common use for this method is to make a
+_script_ that you have written executable. The command
+`chmod u+x my_script.sh` will make the script executable by the owner.
+Once you have changed the permissions, you can run the script by issuing
+`./my_script.sh`.
+
+Alternatively, you can run a script with the `source` command, in
+which case it is not necessary for the script file to be executable.
+However, be aware that doing `source my_script.sh` will run the
+commands from `my_script.sh` as if you were typing them into the
+current _shell_. Thus, any _variables_ defined or
+changed in the script will remain defined or changed in your current
+shell environment, unlike what happens when you run an executable
+script, which does not affect your current environment.
+
+==== Numeric Mode
+
+Numeric mode uses numbers from one to four octal digits (0-7). The
+rightmost digit selects permissions for the World, the second digit for
+other users in the group, and the third digit (leftmost) is for the
+owner. The fourth digit is rarely used.
+
+The value for each digit is derived by adding up the bits with values 4
+(read only), 2 (write only), and 1 (execute only). For example, to give
+read and write permissions, but not execute permissions, you would use a
+6. The value 0 removes all permission for the specified set, whereas the
+value 7 turns on all permissions (read, write, and execute).
+
+Let's say you have an executable that you would like others in your
+group to be able to read and execute, but you do not want anybody else
+to be able to have any access. First you need to set the read, write,
+and execute permission for yourself (7), then give read and execute to
+your group (5), and finally no permissions for everybody else (0). So
+the full number you would use is 750.
+
+[source,bash]
+----
+$ ls -l my_script.sh
+rw-r--r-- 1 jdoe community_group     355 2010-02-18 15:50 my_script.sh
+
+$ chmod 750 my_script.sh
+
+$ ls -l my_script.sh
+-rwxr-x--- 1 jdoe community_group    355 2010-02-18 15:50 my_script.sh
+----
+
+For more on user permissions, see _Root and Sudo_ later in Optional Topics.
+
+
+== Optional Topics
+
+
+=== File and Directory Compression
+
+Compression in Linux typically involves packing collections of files
+into an archive using the https://en.wikipedia.org/wiki/Tar_(computing)[`tar`] 
+command, which gets its name from **t**ape **ar**chive. Files or directories 
+can be packed into a single tar file, as well as compressed further either the
+`-z` option to tar or other programs. The `-c` flag is used to
+**c**reate an archive and the `-x` flag is for e**x**tracting an
+archive. The `-v` option enables **v**erbose output, and `-f`
+specifies to store as an archive **f**ile. By default, directories are
+added recursively, unless otherwise specified. Here is an example of
+creating an archive or tar file:
+
+[source,bash]
+----
+$ tar -cvf my_archive.tar file1 file2 file3
+file1
+file2
+file3
+----
+
+And to extract the same archive (not verbose):
+
+[source,bash]
+----
+$ tar -xf my_archive.tar
+----
+
+A program commonly used along with `tar` is
+https://en.wikipedia.org/wiki/Gzip[`gzip`], which creates archives
+with the extension `.gz`. A file can be compressed simply by
+`gzip file` (with an added `-r` for a directory) _or_ a `.tar.gz`
+file can be created (or extracted) by adding the `-z` option to a
+`tar` command. For example, the same command from above to extract
+with `gzip`:
+
+[source,bash]
+----
+$ tar -xzf my_archive.tar.gz
+----
+
+Another common extension for a gzipped tar file is .tgz.
+
+For more on compression, see this
+https://www.digitalocean.com/community/tutorials/an-introduction-to-file-compression-tools-on-linux-servers[detailed article].
+
+=== Symbolic Links
+
+Symbolic links are a special type of file which refer to another file in
+the _filesystem_. The symbolic link contains the location of
+the target file. Symbolic links are used to provide pointers to files in
+more than one place and can be used to facilitate program execution,
+make navigating on the system easier, and are frequently used to manage
+system library versions. To make a symbolic link:
+
+[source,bash]
+----
+$ ln -s data/file/thats/far/away righthere
+----
+
+See the man pages for `ln` for more information on linking files.
+
+=== Root and Sudo
+
+The *root* user on any system is the administrative account with the
+highest level of permissions and access. This account is sometimes
+referred to as the https://en.wikipedia.org/wiki/Superuser[superuser].
+By default, most Linux systems have a single root account when installed
+and user accounts have to be set up. The root account has a UID of 0,
+and the system will treat any user with a UID of 0 as root.
+
+If you have access to a root account on any Linux system, best practice
+is to _only use this account when the privileges are needed_ to perform
+your work (such as installing packages), and to use a user account for
+all of your other work. Note that the _root directory_ is
+_not_ the _home_ directory of the root user, but rather the
+root of the filesystem. The home directory of the root user is actually
+located at `/root`.
+
+The program *sudo* allows users to run commands with the equivalent
+privileges of another user. The default privileges selected are the root
+user's, but any user can be selected. A user with sudo privileges can
+run commands with root privileges without logging in as root (must enter
+user's password) by putting `sudo` in front the command. The first
+user account created on some Linux distributions is given sudo
+privileges by default, but most distributions require you to
+specifically give sudo privileges to a user. This is typically done by
+editing the `/etc/sudoers` file (requires either root or sudo access),
+or running a command like `usermod`.
+
+=== Package Managers
+
+The root user and any user with sudo privileges have full access to the
+features of a https://en.wikipedia.org/wiki/Package_manager[package manager]. 
+In short, https://en.wikipedia.org/wiki/Package_format[packages] are archives 
+of software and associated data, and a package manager is used to install,
+uninstall, and manage packages on a system. They are used in the _shell_ or 
+through a _GUI_, and have varying features. Most Linux distributions have 
+a default package manager installed with the system. Some common package 
+managers available are:
+
+* https://en.wikipedia.org/wiki/APT_(Debian)[APT], which includes:
+** apt
+** aptitude
+** apt-get
++
+The Debian-recommended CLI choice is `apt`; see
+https://debian-handbook.info/browse/stable/sect.apt-get.html[this
+article] for a detailed explanation.
+* https://en.wikipedia.org/wiki/Synaptic_(software)[Synaptic] - a GUI for APT
+* https://en.wikipedia.org/wiki/Dpkg[dpkg]
+* https://en.wikipedia.org/wiki/Yum_(software)[yum]
+* https://en.wikipedia.org/wiki/Arch_Linux#Pacman[pacman]
+
+Commands for these package managers can be found in their supporting
+documentation or via the man pages. Note that on a managed resource, the
+availability of user software is often managed through the Module Utility.
+
+https://modules.readthedocs.io/en/latest/index.html[Environment Modules]
+
+=== Mounting Storage Volumes or Devices
+
+The `mount` command can be used to attach the filesystem of another
+device at a specified place in the directory tree for easy read/write
+access. `mount` with no arguments is useful for seeing what devices
+are mounted. Typically, you must specify the
+https://en.wikipedia.org/wiki/File_system#Types_of_file_systems[type] of
+the filesystem, name of the
+https://www.dell.com/support/kbdoc/en-us/000132092/ubuntu-linux-terms-for-your-hard-drive-and-devices-explained#Linux_device_naming_convention[device],
+and the _path_ to where you want to mount it:
+
+[source,bash]
+----
+mount -t [type] [device] [path]
+----
+
+Use the `umount` command to unmount a device's filesystem. It has
+similar options to `mount`, and both commands have thorough man pages.
+Another way to mount a device is to use
+https://help.ubuntu.com/community/Fstab[`fstab`], which automates the
+_process_. Network shares can be mounted

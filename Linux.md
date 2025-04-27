@@ -1,7 +1,10 @@
 
 
 # 🚩 Linux 族谱
-[Linux 族谱](https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg)
+
+*   [Linux 族谱](https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg)
+*   [鸿蒙微内核性能与兼容性实现](https://www.usenix.org/system/files/osdi24-chen-haibo.pdf)
+
 
 什么是Linux？
 
@@ -26,6 +29,7 @@ Linux 最早由 Linus Torvalds 在1991年开始编写。在这期间，Richard S
 下面我就简单得介绍一下目前比较著名、流行的 Linux 发行版本。部分资料来源 DistroWatch.com：
 
 Mandriva
+
 Mandriva 原名 Mandrake，最早由Ga&euml;l Duval创建并在1998年7月发布。记得前两年国内刚开始普及Linux时，Mandrake非常流行。说起Mandrake的历史，其实最早Mandrake的开发者是基于Redhat进行开发的。Redhat默认采用GNOME桌面系统，而Mandrake将之改为KDE。而由于当时的Linux普遍比较难安装，不适合第一次接触Linux的新手，所以Mandrake还简化了安装系统。我想这也是当时Mandrake在国内如此红火的原因之一。Mandrake在易用性方面的确是下了不少功夫，包括默认情况下的硬件检测等。
 
 Mandrake的开发完全透明化，包括“cooker”。当系统有了新的测试版本后，便可以在cooker上找到。之前Mandrake的新版本的发布速度很快，但从9.0之后便开始减缓。估计是希望能够延长版本的生命力以确保稳定和安全性。
@@ -166,6 +170,1189 @@ FreeBSD除了作为服务器系统外，也适合桌面用户。不过，考虑�
 免费下载：是
 官方主页：http://www.freebsd.org/
 
+
+
+# 🚩 GUI 图形界面架构
+
+*   https://www.x.org/wiki/
+    The X.Org project provides an open source implementation of the X Window System. 
+
+*   [Xorg Sources Download](https://www.x.org/wiki/Releases/Download/)
+*   [The (Re)Architecture of the X Window System](https://www.kernel.org/doc/ols/2004/ols2004v1-pages-227-238.pdf)
+*   [X.Org Development](https://www.x.org/wiki/Development/)
+*   [The X New Developer’s Guide](https://www.x.org/wiki/guide/)
+*   [The X New Developer’s Guide: X Window System Concepts](https://www.x.org/wiki/guide/concepts/)
+*   [X Window System Version 11 Release 7.7](https://www.x.org/releases/X11R7.7/)
+*   [X Window System Protocol](https://www.x.org/releases/X11R7.7/doc/xproto/x11protocol.html)
+*   [Wayland](https://wayland.freedesktop.org/)
+*   [Open Source Desktop Technology Road Map](https://wiki.freedesktop.org/xorg/Development/Documentation/Obsolescence/roadmap-2-clean.pdf)
+*   [FreeBSD Handbook - Chapter 5. The X Window System](https://docs.freebsd.org/en/books/handbook/book/#x11)
+*   [The Wayland Protocol](https://wayland-book.com)
+
+X Window Server 图形系统起源于 1984 年，是 UNIX 操作系统上基于位图显示的图形用户界面系统。
+它定义了一种客户端/服务器架构，运行在本地、远程主机上的的应用程序的 GUI 数据发送到服务器，图形
+服务器负责向硬件绘制图形界面。当前最新版本为 11，因此双简称为 X、X11 或者 X Window 窗口系统。
+其核心是服务器端口（X Server），负责与计算机的显示硬件通信，并管理输入设备的事件。它的所有绘图
+行为都是根据 X Protocol 文档所述的请求（Requests）规范进行，也就是客户端请服务器进行绘图。
+文档还定义了数十种服务器与客户端之间的事件。
+
+    Definitive Guides to the X Window System:
+        Volume 0:X Protocol Reference Manual
+        Volume 1:Xlib Programming Manual
+        Volume 2:Xlib Reference Manual
+        Volume 3M:X Window System User's Guide
+        Volume 4M:X Toolkit Intrinsics Programming Manual
+        Volume 5:X Toolkit Intrinsics Reference Manual
+        Volume 6A:Motif Programming Manual
+        Volume 7A:XView Programming Manual
+        Volume 8:X Window System Administrator's Guide
+
+X Window 图形程序基本运行过程：
+
+- 用户通过鼠标键盘对 X server 下达操作命令 
+- X server 利用 Event 传递用户操作信息给 X client 
+- X client 运算相应的程序运算 
+- X client 利用 Request 传回所要显示的结果 
+- X server 将结果显示在屏幕上
+
+X Window System 使用 C/S 结构设计的好处：
+
+- 采用 C/S 架构可以解耦，client 可以采用任意语言开发，只要符合 X11 Protocol 要求。
+- 资源统一管理，方便共享。X server 接管硬件及输入事件，clinet 可以方便共享使用，也可主动给各个 clients 发消息。
+- 远程显示支持，一般来说 server 和 client 是在同一台电脑上，在不同网络的电脑上运行就是远程登录。
+
+客户端（X client）通常是各类 GUI 应用，例如 Firefox 浏览器、xterm、xclock 等等。屏幕（screen）
+是逻辑概念上的屏幕，可以是一台物理显示器、多台物理显示器或者是 VNC 虚拟显示器。客户端与服务端的通信
+方式有三种：TCP，unix socket 和共享内存通信。后两种方式仅限于 X client 与 X server 位于同一
+主机内运行的情况，无需网络链路径，通信效率更高。这种远程渲染的图形系统也称为远程桌面（Remote Desktop），
+但是，远程桌面通常是以位图形式交客户端桌面图像。而更有效率的方案是在服务器端实现绘图逻辑，客户端只
+需要很小的网络带宽来传递绘图行为、图形交互事件。
+
+一台电脑上可以运行多个 X server，一个 X server 可以管理多个 screen，一个 screen 又可以对应
+单个或多个物理显示器，多个显示器合成一个逻辑 screen。在配置环境变量 DISPLAY 的参数值包含此信息，
+其格式为 hostname:display.screen，可以使用 IP 地址表示主机名，本地连接通常省略。加冒号后接
+display:screen。例如，localhost:10.0，表示通过 TCP 协议向远程机器自身的第 10 号 X server
+显示器发送绘图请求，并将图形绘制到 0 号屏幕上。最简化的配置省略主机和 display，只设置 screen
+编号，比如 ":0"，表示连接到本地默认的 X Server。
+
+* https://goteleport.com/blog/x11-forwarding/
+* https://unix.stackexchange.com/questions/503806/what-are-x-server-display-and-screen
+* https://github.com/Xpra-org/xpra
+* https://wiki.x2go.org/doku.php
+
+The XFree86 Project, Inc is a global volunteer organization which produces 
+XFree86®, the freely redistributable open-source implementation of the X Window 
+System continuously since 1992.
+
+XFree86 runs primarily on UNIX® and UNIX-like operating systems like Linux, 
+all of the BSD variants, Sun Solaris both native 32 and 64 bit support, Solaris 
+x86, Mac OS X (via Darwin) as well as other platforms like OS/2 and Cygwin.
+
+What XFree86 does, is provide a client/server interface between the display 
+hardware (those physical things like the mouse, keyboard, and video displays) 
+and the desktop environment, (this is typically called a window manager as it 
+deals with how X is displayed i.e. the overall appearance). Yet X it goes 
+beyond that and also gives the infrastructure and a standardized application 
+interface (API).
+
+All of this which makes XFree86 platform-independent, network-transparent 
+and fully extensible. In short, XFree86 is the premier open source X11-based 
+desktop infrastructure. Our group's goals and overall purpose are Detailed 
+in goals and purpose detailed in our Mission Statement.
+
+*   [XFree86](https://www.xfree86.org/)
+
+Xorg 是 X Window 系统的一个开源实现版本，并已成为大多数 Linux 发行版默认的 X Window 系统实现。
+它包含了 X Server、X Client 客户端应用程序以及一系列字体。Xorg 的发展充分利用了现代硬件的发展，
+支持 3D 图形加速、高分辨率显示和先进的输入设备处理等功能。现在已经成为 XFree86 的替代产品。Xorg
+基金会本身也是从 XFree86 项目组分拆出来的成立的组织，2004 成立以来带领 Xorg 实现快速取得市场认可。
+
+In a period between close to the end of 2003 and beginning of 2004, there were 
+attempts from leading XFree86.org project members to apply a few restrictions 
+on the existing 1.0 license of the upcoming XFree86 X4.4.0 release. Since not 
+all (developers, distributors, hardware vendors) were able or willing to agree 
+with and implement that new licensing policy in their code, their development 
+process and their products, they consequently split up and rejoined in the form 
+of the X.Org Foundation.
+
+
+Wayland 是一个相对较新的显示服务器协议，旨在提供比传统 X Window 系统更简单、更高效的方法来管理
+窗口和处理输入设备。Wayland 不采用与 X Window 系统的客户端/服务器模型，而是直接在服务器中实现
+大部分功能，这意味着更少的延迟和更高的性能。Wayland 设计目标是简化架构，提高图形渲染的效率和安全性。
+它通过避免不必要的中间处理和减少上下文切换，实现无缝和流畅的图形体验。Wayland 在安全性方面提出改进，
+比如通过严格控制应用程序对屏幕内容的访问，以防止信息泄露。
+
+Wayland 和 Xorg 都是用于图形显示的协议和服务器软件，但它们有一些重要的区别。Wayland 更加简洁
+和现代化，它设计用于提供更好的性能和更低的延迟。而 Xorg 相对比较复杂，但也更加成熟和稳定。Wayland
+在某些方面可能比 Xorg 更加适合于一些特定的应用场景，而对于其他一些特定需求，Xorg 可能仍然是更好的
+选择。两者都在不断发展，以满足用户对图形显示的不同需求。
+
+X Window Architecture vs. Wayland Architecture
+
+![X Window Architecture](https://wayland.freedesktop.org/x-architecture.png)
+![Wayland Architecture](https://wayland.freedesktop.org/wayland-architecture.png)
+
+X Window 在推出之后快速演化，1987 年其核心协议就已经是第 11 版本，此构架将"提供机制，而非策略"
+这个哲学贯彻地非常彻底，以致于核心协议基本稳定，不需要特别大的改动。于是乎，几十年后，到现在，X Window
+依然是 X11 R7.7。X Window 核心层之外提供一个扩展层，开发者可以开发相应扩展，来实现自己的扩展协议，
+这使得 X11 具有非常良好的可扩展性。核心扩展如下，Modern Extensions To X：
+
+*   XKB - X Keyboard Extension 
+*   Xinput 2 - 多点触摸输入支持，MultiPointer X (MPX)
+*   Composite - 混成器扩展，用于离屏重绘。
+*   RandR and Xinerama - 屏幕缩放、旋转，多屏处理扩展。
+*   SYNC - X Synchronization Extension，用于消息同步的扩展。
+
+X Window 系统最初是为哪些只有几 MB 内存的机器设计的，Composite 扩展用于在离屏缓冲内存（off-screen）
+中绘图，以避免早期机器因为性能导致的画面频闪等不稳定问题。但是，随着硬件和 Linux 系统的发展，这个
+扩展显得累赘了，并且现代机器的显示刷新频率早已经不是几十年前的水平。因此，最新的 Wayland 在架构设计
+上将 Compositor 的功能角色整合到了服务端，它就像是 X Server ＋ Window Manager，重新设计的构架
+更简单而且高效，它一举解决了 X Window 发展这么多年来积累的、通过"扩展"去解决的那些问题。
+
+RandR 表示 The X Resize, Rotate and Reflect Extension，如其全称所示，是一个用于处理图形
+旋转与缩放的扩展。最初 X Window 设计是一个 screen 对应一个用户显示器，为了解决现代多显示配置需要，
+引入了 Xinerama 扩展，它可以将多个输出设备对象集合到一个逻辑屏幕，实现界面跨屏伸缩。
+
+Xinerama 实际上在一个扩展中提供了两个密切相关的功能：在 X Server 中的设备之间进行多路复用，以及
+允许客户端查询 X Server 以发现每个逻辑屏幕下的设备边界的协议。后来，硬件发展到一个图形适配器驱动
+多个输出设备，一显卡配置多个显示接口，也是常见的。Xinerama 协议被重新用于这些设备：这使得能够从
+多头卡中检索监视器信息，即使此用例不再需要多路复用功能。
+
+Waylang is  a protocol between a compositor and its clients, not an X server 
+and not a fork. The compositor sends input events to the clients. The clients 
+render locally and then communicate video memory buffers and information 
+about updates to those buffers back to the compositor.
+
+Wayland is a replacement for the X11 window system protocol and architecture 
+with the aim to be easier to develop, extend, and maintain.
+
+Wayland is the language (protocol) that applications can use to talk to a 
+display server in order to make themselves visible and get input from the 
+user (a person). A Wayland server is called a "compositor". Applications 
+are Wayland clients.
+
+Wayland also refers to a system architecture. It is not just a server-client 
+relationship between a compositor and applications. There is no single common 
+Wayland server like Xorg is for X11, but every graphical environment brings 
+with it one of many compositor implementations. Window management and the end 
+user experience are often tied to the compositor rather than swappable components.
+
+A core part of Wayland architecture is libwayland: an inter-process communication 
+library that translates a protocol definition in XML to a C language API. 
+This library does not implement Wayland, it merely encodes and decodes 
+Wayland messages. The actual implementations are in the various compositor 
+and application toolkit projects.
+
+Wayland does not restrict where and how it is used. A Wayland compositor 
+could be a standalone display server running on Linux kernel modesetting 
+and evdev input devices or on many other operating systems, or a nested 
+compositor that itself is an X11 or Wayland application (client). Wayland 
+can even be used in application-internal communication as is done in some 
+web browsers.
+
+桌面环境（Desktop Environment）是指操作系统上的一种图形化操作环境，在商业服务器上通常不需要这样
+的图形界面，服务器的运维活动一般都通过软件终端（Terminal）运行命令的方式进行维护。而个人用户，家庭
+或者办公用户则是桌面环境的主要用户。Windows 是微软开发封闭源代码的自带桌面环境的操作系统，相比
+Linux 这样的开源操作系统，它的开发建设是通过网络上的众多开发者（估计几百万），集众人之力完成的一个
+强大的操作系统，它的诞生源自 Linus 个人的在大学时期的一个小作品，慢慢成长为当前最流行最稳定可靠的
+开源操作系统。Linux 本身不含图形界面，因此需要通过社区力量实现桌面环境，这也就是为何 Linux 系统
+上的桌面环境繁花入眼，也堪称百花齐放了。
+
+Linux 环境上的图形界面实现丰富多样，从协议、构架层面上的设计到各种不同的具体实现，它们之间不一定
+在上层设计与具体实现的分离，也存在构架与实现统一的情况，例如 Wayland，或者 Xfce 轻量级桌面环境。
+毫无疑问，GNU/Linux 发行版的桌面环境和窗口管理器正在走向：Wayland 图形服务器替代 X11 (Xorg)。
+
+有了视窗图形系统，还需要有绘制图形界面的构架，例如 Qt 或者 GTK 这些图形框架。通过图形框架，应用
+开发人员就可以更快速地制作应用程序，这个过程类似一个组件组装、搭积木的过程。
+
+[GTK](https://docs.gtk.org/gtk4/getting_started.html) 
+
+A feature-rich development tool
+
+GTK has all the features that a widget toolkit needs to have. These features 
+make it the most trusted toolkit for developing Linux applications.
+
+Create apps that users just love
+
+Offering a complete set of UI elements, GTK is suitable for projects ranging 
+from small one-off tools to complete application suites.
+
+基于 X Window 等图形系统框架之上，Linxu 用户可以有多种桌面环境选择，以用户为中心的桌面环境包括：
+
+*   [GNOME](https://www.gnome.org/)
+    GNOME (/ɡnoʊm/) is a desktop environment that aims to be simple and easy 
+    to use. It is designed by The GNOME Project and is composed entirely of 
+    free and open-source software. The default display is Wayland instead of Xorg.
+
+*   [KDE](https://develop.kde.org/products/frameworks/)
+
+    The KDE Frameworks are add-on libraries for coding applications with Qt.
+
+    The individual Frameworks are well documented, tested and their API style 
+    will be familiar to Qt developers.
+
+    Frameworks are developed under the proven KDE governance model with a 
+    predictable release schedule, a clear and vendor neutral contributor 
+    process, open governance and flexible LGPL or MIT licensing.
+
+    The frameworks are cross-platform and function on Windows, Mac, Android and Linux.
+
+*   [Xfce Desktop Environment](https://xfce.org/?lang=en)
+
+    Xfce is a lightweight desktop environment for UNIX-like operating systems. 
+    It aims to be fast and low on system resources, while still being visually 
+    appealing and user friendly.
+
+    Xfce embodies the traditional UNIX philosophy of modularity and re-usability. 
+    It consists of a number of components that provide the full functionality 
+    one can expect of a modern desktop environment. They are packaged separately 
+    and you can pick among the available packages to create the optimal personal 
+    working environment.
+
+    Another priority of Xfce is an adherence to standards, specifically those 
+    defined at freedesktop.org.
+
+Windows 操作系统上也可以使用 WSL 环境使用这些图形界面，可以使用开源的 VcXsrv、Xming，或者收费
+软件 MobaXterm（个人版本免费）、Xmanager。
+
+
+## Xorg Sources [rsync]
+
+Xorg 源代码可以通过 HTTP/FTP 以及 gitlab 或者 rsync 同步工具获取，
+
+*   https://www.x.org/releases/individual/
+*   https://ftp.kaist.ac.kr/x.org/X11R7.7/
+*   https://gitlab.freedesktop.org/xorg
+
+*   https://dbus.freedesktop.org/doc/dbus-specification.html
+*   https://dbus.freedesktop.org/doc/dbus-daemon.1.html
+*   [D-Bus Tutorial by Karunesh Johri](https://www.softprayog.in/programming/d-bus-tutorial)
+
+Remote synchronization (rsync) 是一个常用的 Linux 文件同步应用程序，它不仅可以在本地计算机
+同步文件，还可以与远程计算机同步文件。它也可以当作文件复制工具，替代 cp 和 mv 命令。与其他文件传输
+工具不同（FTP 或 scp），rsync 的最大特点是会检查发送方和接收方已有的文件，仅传输有变动的部分，
+默认规则是根据文件大小或修改时间变动。rsync 支持特性：
+
+*   可以镜像保存整个目录树和文件系统文件系统。
+*   可以很容易做到保持原来文件的权限、时间、软硬链接等等。
+*   无须特殊权限即可安装。
+*   快速：首次同步会复制全部内容，后续同步只传输改动文件。使用数据压缩传输，节省带宽。
+*   安全：可以使用 scp、ssh 等方式来传输文件，当然也可以通过直接的socket连接。
+*   支持匿名传输，以方便进行网站镜像。
+
+总结：一个 rsync 命令相当于 scp、cp、rm 命令，但是比它们命令更胜一筹。
+
+rsync使用方式有三种：
+
+*   Local 本地模式，主机本地之间的数据传输（此时类似于 cp 命令的功能）。
+*   Access via remote shell，借助 rcp 或 ssh 等通道来进行远程数据传输（此时类似于 scp 命令的功能）。
+*   daemon 守护进程模式，本地主机连接网络远程主机上的 rsync daemon 守护进程进行远程文件传输。
+
+远程同步文件登录 remote 主机要先认证，认证过程中用到的协议有 2 种：ssh 和 rsync 协议。
+rsync daemon 默认监听 TCP 873 端口。自带的 rsync:// 协议认证是默认方式，也是常用方式。
+
+注意：rsync-daemon 认证方式，需要服务器和客户端都安装 rsync，但是只需要服务器端启动 rsync 守护
+进程服务，同时设置 /etc/rsyncd.conf 配置文件。客户端启动不启动 rsync 服务。
+
+SSH 认证方式下，可通过系统用户进行认证，rsync 通过 ssh 隧道进行传输，类似于 scp 工具。同步操作
+不局限于 rsync 中定义的同步文件夹，也不需要用 873 端口进行传输，而使用 SSH 端口传输数据。也不需
+要 rsync 服务和配置文件。例如，以下命令启用 SSH 通道同步文件，使用压缩数据传输（-z）和保持文件
+归档属性（-a）：
+
+    rsync -avz /SRC -e ssh root@192.168.100.10:/DEST 
+
+    rsync -avz /SRC -e "ssh -p22" root@192.168.100.10:/DEST  
+
+    rsync -avz --delete --exclude=**/stats --exclude=**/error -e "ssh -i /root/rsync/mirror-rsync-key" someuser@example.com:/var/www/
+
+命令基本用法：
+
+    Local:
+        rsync [OPTION...] SRC... [DEST]
+
+    Access via remote shell:
+        Pull:
+            rsync [OPTION...] [USER@]HOST:SRC... [DEST]
+        Push:
+            rsync [OPTION...] SRC... [USER@]HOST:DEST
+
+    Access via rsync daemon:
+        Pull:
+            rsync [OPTION...] [USER@]HOST::SRC... [DEST]
+            rsync [OPTION...] rsync://[USER@]HOST[:PORT]/SRC... [DEST]
+        Push:
+            rsync [OPTION...] SRC... [USER@]HOST::DEST
+            rsync [OPTION...] SRC... rsync://[USER@]HOST[:PORT]/DEST)
+
+The ':' usages connect via remote shell, while '::' & 'rsync://' usages connect
+to an rsync daemon, and require SRC or DEST to start with a module name.
+
+同时包含服务端，因此可以支持 rsync:// 协议进行文件传输。访问的资源使用 module name 指定，
+在执行命令时省略 module name 可以获取 rsync 守护程序分配的所有 module 名称列表，就像
+ls 命令列表根目录一样：
+
+    rsync rsync://ftp.kaist.ac.kr/
+    rsync rsync://ftp.kaist.ac.kr/x.org
+    rsync -r -a rsync://ftp.kaist.ac.kr/x.org/X11R7.7/ x.org_X11R7.7
+
+使用 rsync --daemon --help 查看服务端启动命令使用方式。
+
+rsync 支持增量备份，也就是默认只复制有变动的文件。--link-dest 参数用来指定同步时的基准目录，
+SRC 目录的文件与基准文件比较，找出变动的部分复制到 DEST 目录。DEST 目录中包含所有文件，实际上，
+只有那些变动过的文件是复制的副本，其他没有变动的文件都是指向基准目录文件的硬链接。
+
+注意：x.org 代码文件中使用了符号链接，并且超出了目录层级，所以 rsync 服务器只提供了文档文件。
+最新版本 X11R7.7 代码文件链接到了 individual 目录。
+
+1. 如果 SRC 存在链接文件并且没有使用 -a 归档模式或使用 --links，则会提示 skipping non-regular file
+2. 如果 SRC 存在子目录并且没有使用 -r 目录递归模式，则会提示 skipping directory
+
+/etc/rsyncd.conf 配置文件参考，注意，只有行首以 # 开始才被认为是注释。后面出现的 # 并不表示
+配置文件中的注解，需要在配置文件中删除：
+
+    # GLOBAL PARAMETERS
+    log file = /var/log/rsyncd.log      # 日志文件位置，启动 rsync 后自动产生这个文件，无需提前创建
+    pidfile = /var/run/rsyncd.pid       # 进程标志文件 pid 的存放位置
+    lock file = /var/run/rsyncd.lock    # 支持 max connections 参数的锁文件
+
+    # MODULE PARAMETERS
+    [module_test]                       # 自定义同步模块名称 module name 
+    path = /tmp/                        # rsync 目标主机数据存放路径，源主机的数据将同步至此目录
+    comment = sync etc from client
+    dont compress = *.gz *.bz2 *.zip
+    uid = root                          # 设置 daemon 作为 root 运行时的文件传输替代账户
+    gid = root                          # 设置 daemon 作为 root 运行时的文件传输替代账户组
+    port = 873                          # 默认端口
+    ignore errors                       # 表示出现错误忽略错误
+    use chroot = no                     # 默认为 true，修改为 no，增加对目录文件软连接的备份
+    read only = no                      # 设置 rsync 源主机为读写权限
+    list = no                           # 不显示 rsync 源主机资源列表
+    max connections = 200               # 最大连接数
+    timeout = 600                       # 设置超时时间
+    auth users = admin                  # 执行数据同步的用户名，多个用户名使用逗号分隔。
+    secrets file = /etc/rsyncd.secrets  # 用户认证配置文件，里面保存用户名称和密码，必须手动创建这个文件
+    hosts allow = 192.168.0.104         # 允许进行数据同步的源主机 IP 地址，多个地址使用逗号分隔。
+    hosts deny = 192.168.110.10         # 禁止数据同步的源主机 IP 地址，多个地址使用逗号分隔。
+
+以上配置文件定义了一个可同步的模块 module_test，使用以下命令就可以和服务器通进行文件同步：
+
+    rsync rsync://localhost/module_test
+    rsync rsync://Jeango@localhost/module_test
+
+认证配置包含 auth users 中指定的用户列表，格式为 username:option，如果用户名含空格，那么可以
+使用逗号开头表示此配置项只能逗号为分隔符号。默认允许无密码的匿名方式访问，"anonymous rsync"。
+
+    auth users = joe:deny @guest:deny admin:rw @rsync:ro susan joe sam
+    auth users = , joe:deny, @Some Group:deny, admin:rw, @RO Group:ro
+
+选项包括：拒绝用户（组）连接 deny，只读访问 ro (read-only) 或者可读写访问 rw (read/write)。
+
+用户账户对应的密码保存在 secrets file 指定的密码本文件中，比如 /etc/rsyncd.secrets，内容格式
+为 username:password 或者 @groupname:password，每个账户配置占据一行。密码本在每次验证时会
+重新读取，因此更新密码不需要重启服务进程。
+
+注意，必须保证 secrets file 文件拥有者必须和运行 deamon 进程的是同一个账户。假设 root 账户运行
+rsync --daemon，则 secrets file 的 owner 也必须是 root，并且必须为读写权限 600。可以设置
+strict modes = false 来禁用密码本文件的所有者检查，此功能适用于 Windows 操作系统上运行 rsync。
+执行客户端命令连接时，可以通过 --password-file=FILE 指定密码文件，避免手动输入密码。客户端使用
+的密码文件不用带用户名，只需要密码。
+
+    chmod 600 /etc/rsyncd.secrets
+    chown  admin:Administrators /etc/rsyncd.secrets
+
+可以使用环境变量来设置客户端登录密码，避免手动软件：
+
+    export RSYNC_PASSWORD=your-password
+
+rsync 常见错误：
+
+*   @ERROR: invalid uid  配置不存在的用户名，未配置认证（密码本和认证用户名）情况下设置 uid。
+*   @ERROR: invalid gid  不存在相应的用户组。
+*   @ERROR: setuid failed 守护进程的账号无权修改 setuid，Operation not permitted。
+*   @ERROR: auth failed on module 配置文件没有配置相应的模块。
+*   @ERROR: chroot failed   服务器端的目录不存在或无权限，创建目录并修正权限可解决问题。
+*   @ERROR: Unknown module  模块名错误，请求的模块与配置文件中定义的模块名不一致。
+*   ERROR: password file must not be other-accessible 客户端指定的密码文件可被其它用户访问。
+
+通过 log file 指定的日志文件内容查错，以下是客户端两个命令对应的服务端响应日志记录：
+
+    ==> rsync rsync://localhost/module_test
+    2024/10/20 00:08:25 [1864] Global parameter port found in module section!
+    2024/10/20 00:08:25 [1864] params.c:Parameter() - Ignoring badly formed line in config file: ignore errors
+    2024/10/20 00:08:25 [1864] ::1 is not a known address for "DESKTOP-CBSK60R": spoofed address?
+    2024/10/20 00:08:25 [1864] connect from UNKNOWN (::1)
+    2024/10/20 00:08:25 [1864] rsync allowed access on module module_test from UNKNOWN (::1)
+    2024/10/20 00:08:29 [1864] auth failed on module module_test from UNKNOWN (::1) for OCEAN: password mismatch
+
+    ==> rsync rsync://Jeango@localhost/module_test
+    2024/10/20 00:28:26 [1903] Global parameter port found in module section!
+    2024/10/20 00:28:26 [1903] params.c:Parameter() - Ignoring badly formed line in config file: ignore errors
+    2024/10/20 00:28:26 [1903] ::1 is not a known address for "DESKTOP-CBSK60R": spoofed address?
+    2024/10/20 00:28:26 [1903] connect from UNKNOWN (::1)
+    2024/10/20 00:28:26 [1903] rsync allowed access on module module_test from UNKNOWN (::1)
+    2024/10/20 00:28:28 [1903] rsync on module_test/ from Jeango@UNKNOWN (::1)
+    2024/10/20 00:28:28 [1903] building file list
+    2024/10/20 00:28:28 [1903] sent 370 bytes  received 29 bytes  total size 441973
+
+可以看到，客户端没有指定用户名时，会自动使用一个账户进行登录，这个账户可能与运行服务端时使用的账户有关，
+也可以与客户端当前账户有关，但是有可能会出现 nobody 用户名的情况，原因未明。总结一下，验证失败的原因
+大概有以下几种:
+
+*   配置文件中没设置当前登录用户，no matching rule；
+*   配置文件中密码本文件名配置错误，no secrets file；
+*   用户名正确但使用了错误的密码，password mismatch；
+*   设置了用户名，但密码本中没有相应密码，secret not found；
+
+请求服务器资源时，如果没有指定模块名称，那么就是在执行列表请求（module-list）。默认的模块配置
+为可列表状态，list = yes。如果设置为 false，并且客户端被 hosts allow" 和 "hosts deny"
+配置拒绝时，守护进程会假装模块不存在。如果 reverse lookup 配置为全局禁用、模块中启用时，潜在
+的客户端控制 DNS 服务器反向解释依然可以揭示当前连接到相应模块的客户端。
+
+Realize that if "reverse lookup" is disabled globally but enabled for the module, 
+the resulting reverse lookup to a potentially client-controlled DNS server may 
+still reveal to the client that it hit an existing module. The default is for 
+modules to be listable.
+
+配置项 reverse lookup 用于反向域名解析（根据 IP 查询其域名），如不需要记录客户端 IP 地址，可以
+禁用它来节省时间，服务端会使用 UNDETERMINED 替代。此功能与 hosts allow 和 hosts deny，以及
+日志中的 %h 点位符号有关。此功能（全局配置项）默认启用，可以进行模块级配置，守护进程会在客户端连接
+时立即将主机域名反向解释得到其 IP 地址。
+
+配置项 forward lookup 用于正向域名解析（根据域名查询 IP），与 hosts allow/deny 设置的域名相关。
+
+配置文件的配置值设置乎有点混乱，此选项有三套选项值：yes/no, 0/1 or true/false 都是可能的值。
+配置文件以行为单位，配置要换行可以使用 \ 结尾对换行符号进行转义。每个配置项使用 = 分隔配置项名称
+与配置值。注意，只有首个 = 符号才是配置项分隔符号。
+
+使用 use chroot 配置项将守护进程限制在某个目录内以提高安全性，默认值是 true。缺点是需要 root 权限，
+并且不能备份指向 path 外部的符号连接所指向的目录文件。
+
+*   use chroot 选项未设置（unset），默认情况下会尝试启用 chroot，失败时允许守护进程继续（记录警告）。
+    一个例外是，当模块的路径中有一个 dot-dir “/./” 分隔符时，这会导致该模块的 unset 被视为 true。
+    在 rsync 3.2.7 之前，默认值为 true。新的 unset 默认值使以非 root 用户身份设置 rsync 守护进程
+    或在 chroot 失败的系统上运行守护进程变得更加容易。在 rsyncd.conf 中将值显式设置为 true 总是需要 chroot 成功。
+*   use chroot = true 表示在传输文件之间将切换到 path 指定的根目录。
+*   use chroot = false 表示将 path 路径中的 dot-dir /./ 替代为 /。
+
+    path = /var/rsync/./module1
+
+
+[X server source layout](https://www.x.org/wiki/Development/)
+
+    Xserver Directory Layout
+    XXX: Add more directories, such as miext/ and the hw/kdrive/ subdirectories.
+
+    =========== ================================================================
+    Name        Explanation
+    dix/        The device independent parts of X, for example the code used for 
+                dispatching requests (see Dispatch() in dix/dispatch.c) and handling  
+                resources. main() is located in this directory in main.c.
+    doc/        Less documentation than would be expected - contains the X server  
+                man page and an explanation of the scheduler.
+    fb/         Code for doing graphical operations on framebuffer surfaces,  
+                for example blitting and compositing images.
+    hw/         Hardware dependent code, driver APIs and configuration file operations.
+    hw/dmx/     Distributed Multi-Head X code - well documented in hw/dmx/doc/html/index.html.
+    hw/kdrive/  The kdrive server and associated code.
+    hw/xfree86/ Code associated with unix-like OSes, such as Linux or BSD.
+    hw/xquartz/ Mac OS X specific code.
+    hw/xwin/    Cygwin/X code, for running on Windows machines.
+    include/    Xserver include files lie here.
+    mi/         Machine independent code, used for things like high-level graphical  
+                operations. Makes calls down to the fb/ code through function pointers  
+                in screens, windows or gcs.
+    os/         Operating system dependent code that does not control hardware,  
+                things like authentication, or processing arguments passed to the  
+                server (see ProcessCommandLine() in util.c for example).
+    randr/      Code for the RandR extension.
+    render/     Code for the Render extension.
+    Xext/       Code for various extensions, for example Xinerama and Xv.
+    xtrans/     Code for handling network connections.
+    =========== ================================================================
+
+
+# 🐣 WSL - Windows Subsystem for Linux
+- [WSL Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+- [WSL VSCode](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode)
+- [VSCode Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)
+- [VSCode Remote Development](https://code.visualstudio.com/docs/remote/wsl)
+- [Using C++ and WSL in VS Code](https://code.visualstudio.com/docs/cpp/config-wsl)
+- [chmod chown wsl improvements](https://devblogs.microsoft.com/commandline/chmod-chown-wsl-improvements/)
+- [linux GTK、KDE、Gnome、XWindows 图形界面](https://www.jb51.net/LINUXjishu/512251.html)
+- WSL - Windows Subsystem for Linux & Xfce Desktop https://www.jianshu.com/p/2dd28c78355a
+
+Windows 1607 x64 位版本后提供了 WSL - Windows Subsystem for Linux 功能，即在 Windows
+运行的 Linux 开发环境，能原生运行 Linux ELF 格式可执行文件。
+
+WSL 目的是运行 Bash 和 Linux 核心命令行工具，并不包含 GUI 组件，所以 Gnome, KDE 等子系统
+不能使用。对于不需要图形的开发，WSL 体验甚至超过了在纯 Linux 下开发，因为节省了 GUI 的消耗，
+使得系统意想不到的稳定。而且没有虚拟机那恶心的地址桥接、转换，Windows 的网络通信地址和端口直接
+可以在 WSL 上使用。
+
+因为 WSL 是基于代码转译原理实现的 Linux 应用运行，因此 WSL 不支持完整的 GUI 桌面环境，但是，
+它至少可以为大部分 Linux 工具提供一个正常 Windows 工作环境。WSL 2 升级后，已经可以实现 X Server
+图形界面的支持，号称 WSLg。
+
+Visual Studio Code 开发非常方便，只需要在主机上安装 VSCode 插件包，含有 Remote - WSL 插件，
+它可以处理映射到 Linux 系统的 `/mnt/c` 目录，使用 remote-wsl 菜单命令，或打开终端输入 wsl 
+即可以进行远程开发。
+
+Remote Development extension pack 插件包：
+
+- Remote - SSH 安全 Shell 可以打开远程系统的文件，包括虚拟机。
+- Remote - Containers 提供 sandboxed 工具链和基于窗口的应用。
+- Remote - WSL 使用集成于 Windows 的 Linux 子系统功能。 
+
+使用 Sublime Text 也可以结合 wsl 命令使用。
+
+首先，打开 更新和安全 -> 针对开发人员 -> 开发人员模式，然后在 PowerShell 执行命令安装 WSL：
+
+    dism /online /enable-feature /featurename:microsoft-windows-subsystem-linux
+
+打开 Microsoft store 选择 Linxu 系统进行安装。
+
+    wsl -l -v
+    wsl --list --verbose
+    wsl -l --all
+
+WSL 系统安装目标位置和安装包位置，以 Ubuntuon 系统为例，但是尽量不要直接在 Windows 系统修改
+这里的文件，因为它们是按 Linux 系统组织的：
+
+    C:\Users\xxx\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_xxx\LocalState\rootfs
+    C:\Program Files\WindowsApps\CanonicalGroupLimited.UbuntuonWindows_xxx
+
+可以通过网络访问 WSL 子系统文件系统，直接在文件资源管理器输入 `\\wsl$` 就可以。
+
+Linux 子系统访问 Windows 寄主系统的文件，只需要到 `/mnt` 挂载点就可以看到 c 盘的文件。
+
+安装 GCC 开发工具：
+
+    wsl
+    sudo apt install gcc
+    sudo apt install g++
+
+    sudo apt-get install libpng-dev
+    sudo apt-get install zlib1g-dev
+
+    sudo apt-get install zlib1g
+    sudo apt-get install --reinstall zlibc zlib1g zlib1g-dev
+
+使用 cat 命令生成代码，再编译并运行示例程序：
+
+    cat > demo.c << END
+    #include <stdio.h>
+    int main()
+    {
+        printf("\033[5;46;37m%s\033[0m\n", "hello");
+    }
+    END
+
+    gcc demo.c -o demo && ./demo
+
+`cat >>` 表示附加内容到文件，`cat >` 表示覆盖文件内容，`cat file` 表示打印文件内容。`<< END` 
+表示设置一个结束标记，再次输入 END 就会停止 cat 命令。
+
+使用 Sublime 时就要配置以下命令：
+
+    wsl gcc ../src/demo.c -o pr && wsl ./pr
+
+升级到 WSL 2:
+
+    dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+    wsl --set-default-version 2
+    wsl --set-version <distribution name> <versionNumber>
+
+下载文件较大，需要网络快速。安装成功后，打开 PowerShell，键入 bash 并回车，即可进入 Linux 子系统。
+使用 lsb_release -a 命令查看 Linux 子系统版本，目前已经支持的子系统如下：
+
+- Ubuntu 16.04 LTS
+- Ubuntu 18.04 LTS
+- Ubuntu 20.04 LTS
+- openSUSE Leap 15.1
+- SUSE Linux Enterprise Server 12 SP5
+- SUSE Linux Enterprise Server 15 SP1
+- Kali Linux
+- Debian GNU/Linux
+- Fedora Remix for WSL
+- Pengwin
+- Pengwin Enterprise
+- Alpine WSL
+
+在 Windows 10 Build 19041，版本号 2004 或更高系统中，可以使用 WSL 2，可以通过 winver 命令查看当前系统版本。
+
+WSL 版本功能对比：
+
+|              Feature               |   WSL 1   |   WSL 2   |
+|------------------------------------|-----------|-----------|
+| 集成 Windows & Linux               | ✅         | ✅         |
+| Fast boot times                    | ✅         | ✅         |
+| Small resource foot print          | ✅         | ✅         |
+| Managed VM                         | ❌         | ✅         |
+| Full Linux Kernel                  | ❌         | ✅         |
+| Full system call compatibility     | ❌         | ✅         |
+| 运行当前版本 VMWare and VirtualBox  | ✅         | ❌         |
+| Performance across OS file systems | ✅         | ❌         |
+
+
+Linux 子系统的管理：
+
+    wsl -l --all
+    wsl --list --running
+    wsl --terminate Ubuntu
+
+    wsl --export <Linux_distrib> <export_file>
+    wsl --export Ubuntu C:\WSL\Ubuntu.tar
+
+    wsl --import <system_name> <save_path> <import_path>
+    wsl --import MyUbuntu C:\WSL\Ubuntu C:\WSL\Ubuntu.tar
+
+    wsl --distribution MyUbuntu
+    wsl --unregister MyUbuntu
+
+
+DrvFs 是 WSL 提供的文件驱动器映射系统，通过它可以装饰各个磁盘分区映射到 `/mnt/c`, `/mnt/d` 等目录上。
+
+    mount -l
+    sudo umount /mnt/c
+    sudo mount -t drvfs C: /mnt/c -o metadata
+
+启动 WSL，Windows 的硬盘会自动 mount 到 Linux 系统下，但是早期版本所有 Windows 文件的 owner
+和 group 都会设置为 root，读写权限则是从 Windows 系统下继承过来。经常可以看到一片绿油油的 777
+权限的文件和文件夹列表，这显然和 Linux 系统中的最佳实践不符的，而且对这些文件使用 chmod 或者 chown
+是不起作用的，简直没法忍。
+
+或者使用添加 umask 和 fmask 等参数装载：
+
+    sudo mount -t drvfs C: /mnt/c -o metadata,uid=1000,gid=1000,umask=22,fmask=111
+
+这些标记说明，umask=22 和 fmask=111 表示文件和目录有相应的 read/write/execute 权限：
+
+- uid: the user ID used for the owner of all files
+- gid: the group ID used for the owner of all files
+- umask: an octal mask of permissions to exclude for all files and directories.
+- fmask: an octal mask of permissions to exclude for all regular files.
+- dmask: an octal mask of permissions to exclude for all directories.
+
+
+但是每次使用时手动 mount 也太麻烦了，这时正好用上另一个新特性 Automatically Configuring WSL。
+把下面 automount 的选项添加到 wsl 配置文件中就可以了。
+
+    sudo cat > /etc/wsl.conf << END
+    [automount] 
+    enabled = true 
+    root = /mnt/ 
+    options = "metadata,umask=22,fmask=11" 
+    mountFsTab = false 
+    END
+
+如果 sudo cat 执行不了，可以使用 sudo vim 进行编辑。
+
+现在重启 WSL 的 console, Windows 硬盘上的文件和文件夹都拥有正常权限了。但是，用 mkdir 命令
+创建一个空文件夹，就会发现新的文件夹还是 777 权限。这可能是 wsl 的一个bug (Issue 1801, Issue 352)，
+console 默认的 umask 值仍然是 0000。work-around 的方法是在 .profile、.bashrc、.zshrc 
+或者其他 shell 配置文件中重新设置一下 umask。
+
+    #Fix mkdir command has wrong permissions
+    if grep -q Microsoft /proc/version; then
+        if [ "$(umask)" == '0000' ]; then
+            umask 0022
+        fi
+    fi
+
+[WSL 磁盘空间管理](https://learn.microsoft.com/zh-cn/windows/wsl/disk-space)：
+
+    # wsl.exe --system -d <distribution-name> df -h /mnt/wslg/distro
+
+    $ df -h /
+    Filesystem      Size  Used Avail Use% Mounted on
+    /dev/sdb        251G   23G  217G  10% /
+
+    du -h ~/.local | sort -h
+    du -h /var/cache | sort -h
+
+根据查询到的空间占用大头，选择清理相应的安装包缓存空间或垃圾文件，或清理未使用的 Docker 镜像：
+
+    sudo apt-get clean
+    sudo apt-get autoclean
+    sudo apt-get autoremove
+
+    docker system prune
+    docker volume prune
+    docker network prune
+    docker container prune
+    docker image prune -a // -a would clean image without linking a container
+
+查找 Linux 发行版的 .vhdx 文件和磁盘路径
+
+    $path="HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss"
+    (Get-ChildItem -Path $path)[0].GetValue("BasePath") + "\ext4.vhdx"
+
+
+压缩未曾使用的空间，压缩后大小应该和 df 命令查询到的 Used 所示大小一致：
+
+    > wsl.exe --shutdown
+    > diskpart
+    DISKPART> select vdisk file="C:\Users\OCEAN\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu20.04LTS_79rhkp1fndgsc\LocalState\ext4.vhdx"
+
+    DiskPart 已成功选择虚拟磁盘文件。
+
+    DISKPART> detail vdisk
+
+        设备类型 ID: 0 (未知)
+        供应商 ID: {00000000-0000-0000-0000-000000000000} (未知)
+        状态: 已添加
+        虚拟大小:  256 GB
+        物理大小:   25 GB
+        文件名: C:\Users\OCEAN\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu20.04LTS_79rhkp1fndgsc\LocalState\ext4.vhdx
+        为子级: 否
+        父文件名:
+        找不到关联的磁盘号。
+
+    DISKPART> compact vdisk
+
+        100 百分比已完成
+
+        DiskPart 已成功压缩虚拟磁盘文件。
+
+    DISKPART> detach vdisk
+
+        虚拟磁盘服务错误:
+        虚拟磁盘已经分离。
+
+
+## 🐤🐥 GUI - X Window 图形协议
+- [The Xlib Manual](https://tronche.com/gui/x/xlib/)
+- [Dear imgui](https://github.com/ocornut/imgui)
+- [Dear ImGUI 在线演示](https://greggman.github.io/doodles/glfw-imgui/out/glfw-imgui.html)
+- [Nuklear UI](https://github.com/Immediate-Mode-UI/Nuklear)
+- [Nuklear UI Doc](https://cdn.statically.io/gh/vurtun/nuklear/master/doc/nuklear.html)
+- [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxsrv/)
+- [WSL Terminal](https://github.com/mskyaxl/wsl-terminal)
+- [FVWM - F? Virtual Window Manager](https://www.fvwm.org/)
+- [FVWM - Beginners Guide by Jaimos F Skriletz](http://zensites.net/fvwm/guide/)
+- [FVWM 简明使用指南](https://docs.huihoo.com/homepage/shredderyin/fvwm_frame.html)
+- [Windows Subsystem for Linux GUI](https://github.com/microsoft/wslg?tab=readme-ov-file)
+
+GUI 程序是指某一类带有图形界面的程序，和控制台程序的区别就是图形处理的差别。在传统 DOS 系统中，
+可以通过硬件中断的方式设置显卡工作在图形模式下，程序通过写显卡内存数据实现图形显示。
+
+而在现代的操作系统中，通过新的 API 实现，或者通过现成的图形库实现 GUI 程序。如果是 Windows 系统，
+可以选择 MFC 或 ALT，或更新的 .Net 框架。
+
+在 Linux 下选择也很多，但 X Window 是通用性最好的一下图形界面协议。
+
+此外，还有大量可跨平台的 GUI 图形库，如基于 OpenGL 的 IMGUI、Nuklear UI 等，还有 Qt、wxWidgets 等。
+
+用 C++ 从零编写 GUI 这种想法是每个好奇者都会有的想法，但是要从头实现一款自己的界面库，你需要了解
+界面库是如何运作的，消息机制、绘图机制，字体处理，甚至多语言处理。另外一个层面上讲，程序终归是要依赖
+系统运行，底层部分肯定是要基于系统 API 之上。
+
+即使作一层抽象，像 IMGUI 这类直白图形库，也是需要处理与系统的关系的。Immediate Mode GUI 是一种
+简化的图形架构，这种类型的更多的适用于显示区域实时刷新的程序里面，应用于游戏界面的实现上，如著名的
+游戏引擎 Unity 就是用 IMGUI 模式写的 GUI。
+
+IMGUI 这种实现模式的优势在于他在实现和实用上都会比传统的 Retained Mode GUI，例如 Qt、 MFC 等，
+要简单不少，不用去管理图形组件的生存周期。IMGUI 模式没有图形控件对象，不保存任何状态，不用单独的去
+实现 UI 和程序间数据的交换，甚至都不需要单独为事件写回调函数。每个控件都通过绘图函数实现，直接在
+程序的 Draw() 函数里要哪个控件就调用哪个函数绘图。也因此，在 IMGUI 中实现带状态的图形会显得麻烦，
+比如动画控件。
+
+基于系统 API 调用实现 GUI 图形界面，在 Windows 系统中 GUI 编程采用的是消息循环机制，通过 API 
+向系统注册窗口类，并设置好消息处理的回调函数，处理好用户与系统 GUI 交互过程中产生的事件，这就是一个
+基本程序流程。而 MFC 则是使用各种类帮你组织好了系统 API，这样开始 GUI 程序就会比直接使用 API 
+更方便。MFC 作为最经典的 Windows GUI 框架，现在已经不更新了，但是其中的框架思想是值得学习的，
+台湾的侯捷老师编写了一本《深入浅出 MFC》可以参考，此书是讲原理更关心 MFC 的框架设计。如果要快速上
+手则合适参考李久进的《MFC 深入浅出》 或《Windows 程序设计》。
+
+
+而 X Window 系统是一个基于网络的图形界面系统，说它是图形协议自然是因为它的架构特别。它于 1984 
+年在麻省理工学院开发，有将近 20 年的应用历史，X Window 系统广泛的应用于桌面 Linux（如 Fedora、
+Debian、Ubuntu 等），嵌入式 Linux（如 Nokia 的 Maemo、Intel 的 Moblin 等）。随着 Nokia 
+和 Intel 高调的将 Maemo 和 Moblin 合并为 Meego，X Window 系统的应用将被推向一个新的高潮。
+
+X Window 是 C/S 架构，涵盖 X Server、X 协议、X Client 三部分内容。X Client 有三种开发模式：
+基于 XLib、基于 GTK、基于 Qt。
+
+
+X Window 图形程序基本运行过程：
+
+- 用户通过鼠标键盘对 X server 下达操作命令 
+- X server 利用 Event 传递用户操作信息给 X client 
+- X client 运算相应的程序运算 
+- X client 利用 Request 传回所要显示的结果 
+- X server 将结果显示在屏幕上
+
+X Client 客户端提供界面实现，执行各种 X 程序，创建一些图形相关资源如 XImage；
+
+常见的情况是 X server 与 X client 都在同一台电脑上运行，分别运行于网络上不同的电脑上即远程桌面。
+X client 是与硬件无关的，它并不关心你使用的是什么显卡什么显示器什么键盘鼠标，这些只与 X server 
+相关。服务器端运行在有显示设备的主机上，控制输入输出，维护字体，颜色等相关资源，为客户端提供 GC、
+Pixmap、Window 等资源。例如，使用 XFree86 桌面环境，运行 xf86config 或 xf86cfg 进行的配置
+实际上只是与 X server 有关。X protocol 就是 X server 和 X client 之间通信的协议，支持现在
+常用的网络通信协议，如 TCP/IP，默认 X server 侦听 tcp 6000 端口。
+
+从控制台进入 X 图形环境一般是用 startx 命令：
+
+    startx [[client] options .....] [-- [server] options ....] 
+    xinit [[client] options ] [-- [server] [display] options] 
+
+把上面 [client] 和 [server] 分别称为 client 程序和 server 程序。
+
+X window system 使用 C/S 结构设计的好处：
+
+- 采用 C/S 架构可以解耦，client 可以采用任意语言开发，只要符合 X protocol 要求。
+- 资源统一管理，方便共享。X server 接管硬件及输入事件，clinet 可以方便共享使用，也可主动给各个 clients 发消息。
+- 远程显示支持，一般来说 server 和 client 是在同一台电脑上，在不同网络的电脑上运行就是远程登录。
+
+常用的 GTK+，Qt 就是很流行的 x toolkit，实现了常用的组件，而 xlib 封装 X 协议中的打包、解包等操作。
+所以平时基于 Qt 等框架开发应用的时候，无需理会 X server 的存在。
+
+XLib 就是 C Language X Interface 客户端的 C 语言接口库，它封装了 X 协议，并对应用程序提供方便
+使用的 API。使用 X-Lib，应用程序不用直接向服务器发送请求与处理回复。
+
+Windows 10 可以通过 WSL 提供的运行环境安装和运行 X Window 图形系统，常用的 X Server 实现有
+Xmanager, Xming, VcXsrv 等：
+
+- Xmanager 是商业软件，需要付费。
+- Xming 是开源软件，从 2007 年最后一个免费版本 (6.9.0.31) 之后，就需要捐助才能下载。
+- VcXsrv 为开源免费软件，使用方式及界面与 Xming 极为相近。
+  https://github.com/marchaesen/vcxsrv
+
+WSL 安装 xfce desktop 软件在后台运行就可以提供 Linux 的图形界面，它的优点是轻量、占用系统资源少：
+
+    sudo apt-get install xfce4-terminal
+    sudo apt-get install xfce4
+
+Windows 系统安装 VcXsrv 后，开始菜单里现在出现了一个文件夹 VcXsrv，选择里面的 **XLaunch**，
+一路选择下一步，使用 Start no Client 启动服务端。另外，由于软件升级变动，使用 VM 模式，因此，
+启动服务端时，勾选上 Disable access control 选项以及输入 -ac 额外参数即可。否则 Broadway
+类型显示器就不能成功连接，导致图形服务初始化失败。
+
+数据内容丢失。虽然 Multiple Windows 这种多窗口模式与 Windows 界面集成最好，但是也可以选择
+带有标题栏的 One large window 模式，带有标题栏或者不带标题，也可以选择使用全屏模式。Windows
+系统的多桌面功能配合使用更佳，通过触摸板的手势可以快速切换 Windows 与 X-Server 界面。可以尝试
+Xming，它比 VcXsrc 好在 Multiple 模式下，默认的任务面板不会出现在所有 Windows 桌面上，只在
+当前运行的 Xming 的桌面上才会显示。另一个选择是使用 MobaXterm，这是一个多面手，包含 SSH client
+和 X server 功能，还有一些附加的网络工具。
+
+安装 xfce 后，使用 `wsl --shutdown` 命令退出 WSL 系统，再重新进入执行 xfce4-session 或者 
+startxfce4，**XLaunch** 服务端窗口就会有图形界面。
+
+    $ startx
+    xauth:  file /home/jeango/.Xauthority does not exist
+
+    /usr/lib/xorg/Xorg.wrap: Only console users are allowed to run the X server
+    
+    xinit: giving up
+    xinit: unable to connect to X server: Connection refused
+    xinit: server error
+    Couldn't get a file descriptor referring to the console
+
+    $ xfce4-session --display=192.168.0.104:0
+    Authorization required, but no authorization protocol specified
+    Unable to init server: Broadway display type not supported: 192.168.0.104:0
+    xfce4-session: Cannot open display: 192.168.0.104:0.
+    Type 'xfce4-session --help' for usage.
+
+可以将默认显示器配置写入配置文件，IP 地址自行替换为正确值：
+
+    # WSL 1
+    echo "export DISPLAY=:0.0" >> ~/.bashrc
+    # WSL 2
+    echo "export DISPLAY=192.168.0.104:0" >> ~/.bashrc
+
+    export DISPLAY="$(grep nameserver /etc/resolv.conf | sed 's/nameserver //'):0"
+
+成功启动图形界面后，会在 Windows 系统桌面中创建 xfce4-panel 面板，一个默认固定在顶部，另一个
+像任务栏一样固定在底部中间位置，可以参考文档对其进行配置。
+https://docs.xfce.org/xfce/xfce4-panel/4.14/preferences
+
+声音支持还未实现直接声卡播放，目前只能通过软件将声音数据发送到宿主（Windows）上播放，默认使用的是
+PulseAudio，这是用于 Linux，POSIX 和 Windows 系统的网络低延迟声音服务器。配置参考 WSL 社区文档：
+
+*   https://github.com/microsoft/WSL/issues/5816
+*   https://www.linuxuprising.com/2021/03/how-to-get-sound-pulseaudio-to-work-on.html
+
+主要是在 WSL 环境配置 PulseAudio 要联接的服务器（Windows），以及服务器端启用 TCP 连接功能：
+
+    # on WSL (Linux)
+    # echo 'export PULSE_SERVER=tcp:127.0.0.1' >> ~/.profile
+    export WSL2IP=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}')
+    export DISPLAY="$WSL2IP":0.0
+    export PULSE_SERVER=tcp:"$WSL2IP"
+
+    # on Host (Windows)
+    # Download https://pgaskin.net/pulseaudio-win32/
+    # Modify config.pa file, add the following configurations:
+    # Here, we allow connections from 127.0.0.1 which is the local IP address, 
+    # and WSL use the default space (172.16.0.0 - 172.31.255.255) for WSL2.
+    load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1;172.16.0.0/12
+    load-module module-esound-protocol-tcp auth-ip-acl=127.0.0.1;172.16.0.0/12
+    load-module module-waveout sink_name=output source_name=input record=0
+
+请注意，出于安全和隐私考虑，Windows 10（2018年4月更新）似乎限制了对录音设备的访问。也许需要通过
+添加 record = 0 来避免 PulseAudio 服务器使用它。则当最后一个客户端断开连接并超时后，服务器将
+自动终止自身。也可以设置 exit-idle-time = -1 来避免服务器自动关闭，此选项以秒为单位。
+
+执行 `pulseaudio --start` 检查服务端是否在侦听默认 TCP 端口：
+
+    netstat -ano | grep 4713
+    TCP    0.0.0.0:4713           0.0.0.0:0              LISTENING       12012
+    TCP    [::]:4713              [::]:0                 LISTENING       12012
+
+使用 PulseAudio 自带的命令播放测试音乐：
+
+    paplay /mnt/c/Music/16.凡人歌.ogg
+    paplay -p --server=tcp:localhost /mnt/c/Music/16.凡人歌.ogg
+    paplay -p --server=tcp:172.17.54.177 /c/Music/16.凡人歌.ogg
+
+WSL 中执行 `pavucontrol` 命令，如果 PulseAudio 服务器连接不上，就会一直显示：
+
+    Establishing connection to PulseAudio. Please wait...
+
+
+另外，注意不要在鼠标与触摸板配置中禁用，Setting -> Mouse and Touchpad，在设备列表中有一个
+Windows pointer 设备，如果禁用了它就会导致 X-Server 图形界面自动关闭。再次启动前需要修改配置
+文件，否则 VcXsrv 服务端会启动后立即闪退。通过 xinput 命令可以查询、配置输入设备。
+
+    $ xinput
+    ⎡ Virtual core pointer                          id=2    [master pointer  (3)]
+    ⎜   ↳ Virtual core XTEST pointer                id=4    [slave  pointer  (2)]
+    ⎜   ↳ Windows pointer                           id=6    [slave  pointer  (2)]
+    ⎣ Virtual core keyboard                         id=3    [master keyboard (2)]
+        ↳ Virtual core XTEST keyboard               id=5    [slave  keyboard (3)]
+        ↳ Windows keyboard                          id=7    [slave  keyboard (3)]
+
+    $ xinput enable 6
+
+此配置为临时性设置，应该将配置写入 /etc/X11/Xsession.d 目录下的配置文件中。也可以尝试在 GUI
+界面中双击触发配置写入磁盘文件。 
+https://manpages.ubuntu.com/manpages/oracular/en/man5/Xsession.5.html
+
+X11 默认输入配置文件，以及配置文档查询命令如下：
+
+    cat /usr/share/X11/xorg.conf.d/40-libinput.conf
+
+    man xorg.conf
+
+    https://wiki.ubuntu.com/X/Config/Input
+
+Xfce 默认配置只允许 console 用户启动 X-Server。如果您确定无安全隐患并且只关心功能，而不是关心
+安全，可以设置为任何人（anybody）都可以使用 root 权限启动 X-Server，因为它具有特权硬件访问权限
+并访问大量文件可能会打开一个很大的安全漏洞。文档参考 man Xorg.wrap：
+
+    CONFIG FILE
+       Xorg.wrap's  default  behavior  can  be  overridden from the /etc/X11/Xwrapper.config config file. Lines starting with a # in
+       Xwrapper.config are considered comments and will be ignored. Any other non empty lines must take the form of key = value.        
+
+       allowed_users = rootonly|console|anybody
+               Specify which users may start the X server through the wrapper. Use rootonly to only allow root, use console to  only    
+               allow users logged into a physical console, and use anybody to allow anybody.  The default is console.
+
+       needs_root_rights = yes|no|auto
+               Configure if the wrapper should drop its elevated (root) rights before starting the X server. Use yes to force execu‐    
+               tion as root, no to force execution with all suid rights dropped, and auto to let the wrapper  auto-detect.  The  de‐    
+               fault is auto.
+
+       When  auto-detecting  the wrapper will drop rights if kms graphics are available and not drop them if no kms graphics are de‐    
+       tected. If a system has multiple graphics cards and some are not kms capable auto-detection may fail,  in  this  case  manual    
+       configuration should be used.
+
+配置好 Linux 图形界面后就只可以安装使用 Inkscape 这些工具软件，这款软件在 Windows 环境下真的
+卡到没办法使用。官方已经升级到 1.5 版本，但是 Ubuntu 还只提供 0.92 安装包。只能以个人软件包存档
+（Personal Package Archive）方式安装。PPA 允许 Linux 用户、应用程序开发人员创建自己的软件
+仓库来分发软件。通过 PPA，可以轻松地获得更加新的软件版本或获得官方 Ubuntu 仓库以外的软件。可惜，
+WSL 环境下，这些软件并不能使用绘板的压感信号。
+
+    $ sudo apt install inkscape
+    Reading package lists... Done
+    Building dependency tree       
+    Reading state information... Done
+    inkscape is already the newest version (0.92.5-1ubuntu1.1).
+
+    # https://inkscape.org/release/inkscape-1.4/gnulinux/ubuntu/ppa/dl/
+    sudo add-apt-repository ppa:inkscape.dev/stable
+    sudo apt update
+    sudo apt install inkscape
+
+可以将 VcXsrv 配置保存到文件，并通过命令行加载：
+
+    if [[ -z "$(tasklist | grep vcxsrv | grep Console)" ]]; then
+        "C:\Program Files (x86)\VcXsrv\xlaunch.exe" -run "C:\Users\OCEAN\config.xlaunch" > /c/tmp/xsrv.log 2>&1
+    fi
+
+    # "C:\Program Files (x86)\VcXsrv\vcxsrv.exe" :0 -clipboard -multiwindow -ac
+    # "C:\Program Files (x86)\Xming\Xming.exe" :0 -clipboard -multiwindow -ac
+    # wsl --exec xfce4-session --display=192.168.0.104:0 > /c/tmp/xfce.log 2>&1
+    wsl -- xfce4-session --display=192.168.0.104:0 > /c/tmp/xfce.log 2>&1
+
+    srv=$(tasklist | grep Services | grep vcxsrv | awk "{print \$2}")
+
+    if ! [[ -z "$srv" ]]; then
+        # taskkill -f -im vcxsrv.exe
+        for it in $srv; do taskkill -f -pid $it; done
+    fi
+
+不同方式启动 Xfce 会话，消耗的时间会不一样，后台任务执行会等待几分钟的时间才能连接上 X 服务程序：
+
+    wsl xfce4-session --display=192.168.0.104:0
+    xfce4-session --display=192.168.0.104:0 &
+
+使用过程中发现，静置 10 分钟左右会出现 Linux 图形应用程序失去事件响应、黑屏，似乎又不是是待机引起
+的问题。`Ubuntu Desktop Guide <https://help.ubuntu.com/stable/ubuntu-help/power.html>`__
+
+导致 Xfce 桌面卡死问题可能是屏幕保护程序机制，或者屏幕亮度锁定，因为锁定后无法接收解锁信号，导致
+桌面失去响应。可以卸载屏保程序或者调整设置：
+
+    Applications -> Settings -> Light Locker Settings ->
+    Automatically lock the session -> Never
+
+    sudo apt purge xfce4-screensaver
+    sudo apt autoremove
+
+另外，桌面管理器、面板（panel）也有相应命令来重置：
+
+    // Window Manager (xfwm4) https://docs.xfce.org/xfce/xfwm4/start
+    // Panel (xfce4-panel) https://docs.xfce.org/xfce/xfce4-panel/start
+
+    xfwm4 --replace &
+    xfce4-panel -r &
+
+The Xfce 4 Window Manager is part of the Xfce Desktop Environment. The command to 
+run it in the foreground is xfwm4; to run it in the background use xfwm4 –daemon. 
+The window manager is responsible for the placement of windows on the screen, 
+provides the window decorations and allows them to be moved, resized or closed.
+
+可以创建 .desktop 桌面的快捷方式用于执行重置：
+
+    [Desktop Entry]
+    Version=1.0
+    Type=Application
+    Name=Repanel
+    Comment=Replace panel
+    Exec=xfce4-panel -r
+    Icon=xfce4-panel
+    Path=/
+    Terminal=false
+    StartupNotify=false
+
+    [Desktop Entry]
+    Version=1.0
+    Type=Application
+    Name=Replace
+    Comment=Replace Desktop 
+    Exec=xfwm4 --replace &
+    Icon=system-reboot
+    Path=/
+    Terminal=false
+    StartupNotify=false
+
+可以将脚本当作 Windows 服务运行，但是脚本不能直接使用 sc 注册为服务，它注册 exe 程序，因此
+需要通过脚本解释器来执行脚本。还可以使用“启动”或者 Task Scheduler 功能，或者利用现有的工具
+（避免自己实现服务程序）。Microsoft Windows Resource Kits 工具集提供的 instsrv.exe
+和 srvany.exe 两个实用工具，或者 Python 中的 pywin32 模块也提供了服务注册功能。PowerShell
+可以使用 New-Service 将一个 .ps1 脚本文件注册为服务。`NSSM <https://nssm.cc/download>`__
+是一个开源服务程序管理工具实现。使用 Go 语言提供的服务程序模块，可以非常方便地实现自己的服务。
+
+    sc create xlaunch binPath="C:\msys64\usr\bin\mintty.exe C:\vcpkg\xsrv.sh"
+    sc create xlaunch binPath="C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -File C:\vcpkg\xsrv.ps1" -Description "XLaunch"
+
+    nssm install xsrv "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" "C:\vcpkg\xsrv.ps1"
+    nssm edit xsrv
+    nssm start xsrv
+
+    New-Service -Name "XLaunch" -BinaryPathName "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -File C:\vcpkg\xsrv.ps1"
+
+使用 NSSM 设置 vcxsrv.exe 为服务，如果启动失败，并且服务设置为自动运行，这会导致随着
+时间增加，vcxsrv.exe 服务进程也会不断增加，可能是因为尝试重启导致的。
+
+PowerShell 作为一个最新的脚本解释器，它还可以编译和链接的完整 C# 应用到新的可执行文件。例如，
+以下此脚本通过内嵌 C# 代码，编译得到一个 hello.exe 可执行程序︰
+
+    $source = @"
+    using System;
+    class Hello {
+        static void Main() {
+        while
+        Console.WriteLine("Hello World!");
+        }
+    }
+    "@
+    Add-Type -TypeDefinition $source -Language CSharp -OutputAssembly "hello.exe" -OutputType ConsoleApplication
+
+    # https://learn.microsoft.com/zh-cn/archive/msdn-magazine/2016/may/windows-powershell-writing-windows-services-in-powershell
+
+Ubuntu 默认源速度如果缓慢，可以切换到阿里源，使用 vim 编辑源配置：
+
+    sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+    sudo vim /etc/apt/sources.list
+
+先备分配置文件，再将配置文件中的内容替换：
+
+- cn.archive.ubuntu.com ---> mirrors.aliyun.com
+- security.ubuntu.com ---> mirrors.aliyun.com
+
+vim 的替换 substitute 命令 `:s` 用来查找和替换字符串，语法如下：
+
+    :{作用范围}s/{目标}/{替换}/{替换标志}
+    
+    :%s/cn.archive.ubuntu.com/mirrors.aliyun.com
+    :%s/security.ubuntu.com/mirrors.aliyun.com
+
+保存并退出，执行一下以下代码更新软件包到最新状态。
+
+    sudo apt update
+    sudo apt upgrade
+
+安装中文语言包
+
+    sudo apt install language-pack-zh-hans language-pack-zh-hans-base
+
+设置本地化环境变量
+
+    echo "LANG=zh_CN.UTF-8" >> ~/.profile
+
+中文输入法
+
+    sudo apt install fcitx fcitx-pinyin
+    echo -e "export XMODIFIERS=@im=fcitx\nexport GTK_IM_MODULE=fcitx\nexport QT_IM_MODULE=fcitx\n" >> .profile
+
+
+## 🐤🐥 SSH 登录设置
+
+在 Windows WSL 系统上启用 SSH 服务，先适当修改配置文件，更改端口 Port 22 改成 Port，或启用
+密码验证 PasswordAuthentication，并创建密钥对：
+
+```sh
+$ sudo vi /etc/ssh/sshd_config
+$ cd /etc/ssh              
+$ sudo ssh-keygen -A
+ ssh-keygen: generating new host keys: RSA DSA ECDSA ED25519   
+$ sudo /etc/init.d/ssh start
+  * Starting OpenBSD Secure Shell server sshd          [ OK ]
+$ sudo service ssh restart
+
+# 开机自启设置
+# vi /etc/rc.local
+# service sshd start
+```
+
+启用密码验证就可以使用用户账户登录：
+
+    ssh root@localhost -p 22
+
+未启用密码登录，且未正确配置登录密钥，就可能出现公钥权限问题 Permission denied (publickey).
+
+使用公钥登录需要在服务器中记录受认可的公钥，以下情况都会导致公钥访问权限被拒绝：
+
+- 本地访问远程主机的公钥没有添加或者被取消（无法认证）
+- 远程服务器公钥文件夹权限错误，.ssh 和 .ssh/authorized_keys，需要保证只有用户自己有权限，否则验证无效。
+
+使用 ssh-keygen 为本地机器生成的一对秘钥，公钥文件的内容，C:\Users\XXX\.ssh\id_rsa.pub，
+应该保存在远程服务器端已认证秘钥文件内 `~/.ssh/authorized_keys`。登录时，注意要指定相应的用户账户。
+
+使用 SSH 客户端登录时，如果需要运行 GUI，那么就需要转发 X Client 和 X Server 之间的数据，X11
+协议的所有数据包通过 SSH 加密通道安全转发（X11 Forwarding）。
 
 
 # 🚩 Debian 编译内核教程
@@ -3137,11 +4324,12 @@ echo "deb http://download.virtualbox.org/virtualbox/debian stretch contrib" > /e
 
 
 
-# 🚩 chmod chown chgrp 文件属性修改
+# 🚩 File Permissions: chmod chown chgrp 文件属性修改
 
-每个文件都有一组权限信息，可以使用 ls 命令查看：
+https://www.kernel.org/doc/html/latest/filesystems/index.html
 
-    $ ls -l
+每个文件都有一组权限信息，可以使用 `ls -l` 命令查看：
+
     -rw-r--r-- 1 jeango jeango   31 May  4 07:56 demo.sh
     ---------- - ------ ------ ---- ------------ -------
     ^          ^ ^      ^      ^    ^            ^
@@ -3179,7 +4367,7 @@ echo "deb http://download.virtualbox.org/virtualbox/debian stretch contrib" > /e
 
 为所有用户或用户组增加或清除所有权限，所有权值相加为 7。
 
-权限可以使用简写符号表示，权限前的 + 号表示增加权限，- 表示移除权限，无 +- 符号表示替换权限：
+权限可以使用 agou 简写符号表示，权限前的 + 号表示增加权限，- 表示移除权限，无 +- 符号表示替换权限：
 
 ```sh
 # Use the octal CHMOD Command:
@@ -3187,24 +4375,43 @@ chmod -R 007 folder_name
 
 # OR use the symbolic CHMOD Command:
 chmod -R a+rwx,u-rwx,g-rwx folder_name
+
+chmod -wrx demo.sh
+chmod 000 demo.sh
+
+chmod +wrx demo.sh
+chmod 777 demo.sh
+
+chmod -R 777 /upload
 ```
 
-    u = user owner
-    g = group owner
-    o = other
-    a = all (user + group + other)
+How do I use symbolic mode?
+Symbolic mode uses more symbols, but the symbols are simpler to understand. 
+That's attractive to sysadmins that are new to standard Linux permissions.
 
-    + for adding permissions
-    – for removing permissions
-    = for overriding existing permissions with new value
+    Each access level has a symbol:
 
-    chmod -wrx demo.sh
-    chmod 000 demo.sh
+    Access level                Symbol
+    Read                        r
+    Write                       w
+    Execute                     x
+    setuid/setgid               s
+    sticky                      t
 
-    chmod +wrx demo.sh
-    chmod 777 demo.sh
+    Each identity has a symbol:
 
-    chmod -R 777 /upload
+    Identity                    Symbol
+    User                        u
+    Group                       g
+    Others                      o
+    All (user + group + other)  a
+
+    There are also operators to manipulate the permissions:
+
+    Task                        Operator
+    Grant a level of access     +
+    Remove a level of access    -
+    Set a level of access       =
 
 在 Android 系统中使用 Termux 等工具修改文件权限时，会有一个尴尬的情况，那就是将权限改成 007 这
 种，所有权丢失，导致不能访问文件。不小心将 070 权限写成 07 就会导致结果为 007 权限，从而使 user
@@ -3252,6 +4459,35 @@ chmod -R a+rwx,u-rwx,g-rwx folder_name
     usermod -aG 组名 用户名
 
 
+Linux 文件权限中还有 SetUID, SetGID, Sticky 三种特别的标志比特，常用于提升权限。SetUID 允许
+用户以可执行程序文件的所有者权限运行。SetGID 则允许目录中的创建的文件继承目录的 group ID。
+注意，设置 setuid/setgid 标志后，`ls -l` 命令可以看到 s 符号取代执行符号（x）。
+
+    sudo chmod u+s /path/to/file
+    sudo chmod g+s /path/to/directory
+    sudo chmod +t /path/to/directory
+
+SetUID (Set User ID) and SetGID (Set Group ID) are special permissions in 
+Unix-like operating systems. SetUID allows users to run an executable with 
+the permissions of the executable’s owner, typically granting elevated 
+privileges. SetGID, on the other hand, affects group access. For directories, 
+it ensures that files created within the directory inherit the directory’s 
+group ID, rather than the creating user’s primary group ID. For executable 
+files, it allows the file to run with the group permissions of the file’s group.
+
+The Sticky Bit is a permission setting used primarily on directories. It 
+restricts file deletion within the directory such that only the file’s owner, 
+the directory’s owner, or the superuser can delete or rename files. Commonly 
+used on directories like /tmp.
+
+Unix 第五版（1974 年）中，引入了粘性位以用于纯可执行文件。它告诉操作系统在操作完成后将程序的 Text
+代码段保留在交换空间中。通过允许内核在单个操作中将应用程序从交换内存移动到实际内存来加速后续执行。
+因此，使用粘粘位可以让常用程序（例如编辑器）的加载速度大大提高。更改 stickied 程序中的可执行文件
+需要从可执行文件中删除粘性位，运行程序并退出以清除缓存，替换二进制可执行文件并恢复粘性位。
+
+目录设置粘性位时，文件系统会以不同的方式处理该目录中的文件，只允许文件的所有者、目录的所有者或
+root 用户重命名或删除文件。如果没有设置粘性位，任何用户写入和执行对目录的访问都可以重命名或删除
+其内容，而不管文件的所有者如何。这通设置在 /tmp 目录中，以防止普通用户删除或传输属于其他用户的文件。
 
 
 # 🚩 dd: Convert and copy a file

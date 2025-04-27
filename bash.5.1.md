@@ -187,6 +187,171 @@ Appendix D [Indexes]
                                                               [Contents] [Index]
 
 
+## //⚡ String manipulate/testing
+
+Bash 字符处理包含了条件判断中的字符串匹配与字符串操作：
+
+- 3.2.5.2 Conditional Constructs Bash
+- 3.5.3 Shell Parameter Expansion (String manipulate)
+
+条件判断中可使用正则匹配，正则表达式核心用法是在 [[ ]] 结构中使用 =~ 操作符：
+
+    if [[ "string" =~ pattern ]]; then
+        echo "Matched"
+    fi
+
+通过 ${BASH_REMATCH[n]} 访问捕获的正则分组：
+
+    [[ "2023-08-19" =~ ([0-9]{4})-([0-9]{2})-([0-9]{2}) ]]
+    echo "年: ${BASH_REMATCH[1]}, 月: ${BASH_REMATCH[2]}, 日: ${BASH_REMATCH[3]}"
+
+示例，判断目录中的 tex 文件，与指定列表的不匹配项：
+
+    #!/usr/bin/bash
+    thesetex="versGB tikzdebut VTKZ tkztitre tkz1 tkz2 tkz3 tkz3a"
+    for it in *.tex
+    do
+        if ! [[ $thesetex =~ "${it:0:-4}" ]]; then echo "$it"; fi
+    done
+
+Bash 脚本的参数扩展（Parameter Expansion）语法非常灵活。以下是语法详细功能说明及示例：
+
+    语法	功能描述
+    ${!prefix*}	展开所有以 prefix 开头的变量名，使用双引号包裹时作为单一字符串
+    ${!prefix@}	同上，使用双引号包裹时中保留分词（数组元素）
+    ${!name[*]}	获取数组的索引/键（合并），对应 ${params[*]} 获取数组所有元素值。
+    ${!name[@]}	获取数组的索引/键（分列），对应 ${params[@]} 获取数组所有元素值。
+    ${#parameter}	字符串长度或数组元素个数
+
+变量名前缀扩展（Indirect Expansion）功能：展开式返回一个含有以 prefix 作为变量名称前缀的已定义变量名称数组。注意区别 * 和 @ 操作符号的差异仅在使用双引号包裹时体现，也就是在没有使用双引号包括扩展表达式时，它们等价。使用双引号包裹的 "${!prefix*}" 返回一个字符串，而 "${!prefix@}" 返回一个数组，元素为名称带有 prefix 前缀的变量名。特别是星号扩展，它的表达会与是否使用双引号包裹而产生多种情况，它虽然返回的是一个字符串，但是由于 Bash 在变量赋值时会将空格作为数组元素的分界符号，因为将一个含有空格的字符串赋值给变量后，这个变量本身又会变量数组。
+
+    uuNAME="Alice"
+    uuAGE=30
+    uuCITY="Paris"
+
+    ustar="${!uu*}"
+    printf "[%s]"  $ustar    # Output: [uuAGE][uuCITY][uuNAME]
+    printf "[%s]" "${!uu*}"  # Output: [uuAGE uuCITY uuNAME]
+
+    uat="${!uu@}"
+    printf "[%s]"  $uat      # Output: [uuAGE][uuCITY][uuNAME]
+    printf "[%s]" "${!uu@}"  # Output: [uuAGE][uuCITY][uuNAME]
+
+数组索引/键的展开，遍历关联数组的键值对。关联数组需要 Bash 4.0+ 支持，使用 declare -A 定义关联数组，在早期版本中可用 ${!prefix*} ，但对关联数组的 ${!name[@]} 语法支持需 Bash 4+。注意：无论是 ${!name[*]} 还是 ${!name[@]} 语法，在不使用双引号包裹时等价，都是取关联数组的 key 作为返回的新数组元素。但是，如果使用双引号包裹，则完全不同，前者将所有 key 作为一个字符串，后者则是将各个 key 作为一个独立的字符串。
+
+    declare -A user=([name]="Alice" [age]=30 [city]="Paris")
+
+    for keys in ${!user[*]}; do
+        echo "$keys -> ${user[$keys]}"
+    done
+
+    for key in ${!user[@]}; do
+        echo "$key -> ${user[$key]}"
+    done
+
+同样，作为 bash 脚本输入参数的 $ 数组也一样，$* 和 $@ 等价，但是 "$*" 和 "$@" 不同。注意，脚本参数数组不是关联数组。需要使用 $0 ~ $9 等内置变量访问，或者使用循环枚举。如果传入参数使用 --key=value 格式参数，那么就需要进行格式处理。使用以下脚本测试输入参数：
+
+    cat >/usr/bin/viw <<EOF
+    declare -A params
+
+    for arg in "\$@"; do
+        if [[ \$arg == --*=* ]]; then
+            IFS='=' read -r key value <<< "\${arg#--}"
+            params["\$key"]="\$value"
+        fi
+    done
+    echo "abc = \${params[abc]}"
+    echo "params value = \${params[@]}"
+    EOF
+    viw --abc=xyz --xyz=uvw
+
+整合 pandoc/sed/curl 等工具制作一个用于抓取网页内容的脚本，并转换为 AsciiDoc 文档：
+
+    cat >/usr/bin/viw <<EOF
+    # useage:
+    # viw --uurl=url
+    # viw --uurl=url --start=star_tag --end=end_tag
+    declare -A params
+
+    for arg in "\$@"; do
+        if [[ \$arg == --*=* ]]; then
+            IFS='=' read -r key value <<< "\${arg#--}"
+            params["\$key"]="\$value"
+        fi
+    done
+
+    if [[ -z "\${params[start]}" ]] || [[ -z "\${params[end]}" ]]; then
+        pandoc -tasciidoc -rhtml "\${params[url]}" | vim -
+    elif ! [[ -z \${params[url]} ]]; then
+        curl "\${params[url]}" |
+        sed -n "/\$(echo \${params[start]})/,/\$(echo \${params[end]})/p" |
+        pandoc -tasciidoc -rhtml | vim -
+    fi
+    EOF
+    viw --url=https://www.diancang.xyz/xueshuzaji/16692/322008.html --start=panel-heading --end=m-page
+
+
+变量值长度 ${#parameter} 语法可以返回字符串长度或数组元素个数：
+
+• 如果 parameter 是普通变量，返回其值的字符长度。
+• 如果 parameter 是数组，返回数组元素个数。
+
+示例：
+
+    str="Hello World"
+    echo ${#str}       # 输出字符串长度：11
+
+    arr=("a" "b" "c")
+    echo ${#arr[@]}    # 输出数组元素个数：3
+    echo ${#arr[*]}    # 输出数组元素个数：3
+
+    declare -A dict=([a]=1 [b]=2)
+    echo ${#dict[@]}  # 输出：2
+
+
+Bash 脚本中字符串操作称为参数扩展（Parameter Expansion），提供了强大的字符串处理能力。
+以下是这些扩展操作符的详细对比说明：
+
+    综合对比表
+    类型	操作符	核心功能	常用场景
+    删除	# ## % %%	修剪前缀/后缀	路径处理、文件扩展名操作
+    替换	/ //	字符串替换	文本批量修改
+    大小写	^ ^^ , ,, ~ ~~	字符大小写转换	输入标准化、数据格式化
+    其他	: # :- :+ @	子字符串/长度/默认值/属性	条件处理、元编程
+
+    删除操作（前缀/后缀）
+    操作符	作用描述	示例（假设 var="dir/sub/file.txt"）
+    ${var#pattern}	删除最短匹配的前缀	${var#*/} → sub/file.txt
+    ${var##pattern}	删除最长匹配的前缀	${var##*/} → file.txt
+    ${var%pattern}	删除最短匹配的后缀	${var%.*} → dir/sub/file
+    ${var%%pattern}	删除最长匹配的后缀	${var%%.*} → dir/sub/file
+
+    大小写转换
+    操作符	作用描述	示例（假设 var="hello World"）
+    ${var^}	首字母大写	${var^} → Hello World
+    ${var^^}	所有字母大写	${var^^} → HELLO WORLD
+    ${var,}	首字母小写	${var,} → hello World
+    ${var,,}	所有字母小写	${var,,} → hello world
+    ${var~}	反转首字母大小写	${var~} → Hello World
+    ${var~~}	反转所有字母大小写	${var~~} → HELLO wORLD
+
+    高级用法：
+    可指定模式匹配字符：${var^^[aeiou]} 仅转换元音字母
+
+示例，提取文件名和扩展名：
+
+    file="/path/to/image.jpg"
+    filename=${file##*/}      # → image.jpg
+    basename=${filename%.*}   # → image
+    extension=${filename##*.} # → jpg
+
+示例，批量重命名文件：
+
+    for f in *.txt; do
+    mv "$f" "${f%.txt}.md"  # 修改扩展名 .txt → .md
+    done
+
+
 ## //⚡ Sublime Text build config
 
 Sublime Text 脚本配置参考（ShellScript.sublime-build）：
@@ -7955,7 +8120,7 @@ Index Entry     Section
 
     !:          |Special Parameters|
 
-#
+`#`
                                                                   *index_pav_#*
 
     #:          |Special Parameters|

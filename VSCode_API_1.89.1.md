@@ -12,6 +12,102 @@
 /TOC - Visual Studio Code API
 =============================
 
+Get Started
+-----------
+- [Your First Extension][LN001]
+- [Extension Anatomy][LN002]
+- [Wrapping Up][LN003]
+
+Extension Capabilities
+----------------------
+- [Overview][LN004]
+- [Common Capabilities][LN005]
+- [Theming][LN006]
+- [Extending Workbench][LN007]
+
+Extension Guides
+----------------
+- [Overview][LN008]
+- [Command][LN009]
+- [Color Theme][LN010]
+- [File Icon Theme][LN011]
+- [Product Icon Theme][LN012]
+- [Chat][LN013]
+- [Language Model][LN014]
+- [Tree View][LN015]
+- [Webview][LN016]
+- [Notebook][LN017]
+- [Custom Editors][LN018]
+- [Virtual Documents][LN019]
+- [Virtual Workspaces][LN020]
+- [Web Extensions][LN021]
+- [Workspace Trust][LN022]
+- [Task Provider][LN023]
+- [Source Control][LN024]
+- [Debugger Extension][LN025]
+- [Markdown Extension][LN026]
+- [Test Extension][LN027]
+- [Custom Data Extension][LN028]
+- [Telemetry][LN029]
+
+UX Guidelines
+-------------
+- [Overview][LN030]
+- [Activity Bar][LN031]
+- [Sidebars][LN032]
+- [Panel][LN033]
+- [Status Bar][LN034]
+- [Views][LN035]
+- [Editor Actions][LN036]
+- [Quick Picks][LN037]
+- [Command Palette][LN038]
+- [Notifications][LN039]
+- [Webviews][LN040]
+- [Context Menus][LN041]
+- [Walkthroughs][LN042]
+- [Settings][LN043]
+
+Language Extensions
+-------------------
+- [Overview][LN044]
+- [Syntax Highlight Guide][LN045]
+- [Semantic Highlight Guide][LN046]
+- [Snippet Guide][LN047]
+- [Language Configuration Guide][LN048]
+- [Programmatic Language Features][LN049]
+- [Language Server Extension Guide][LN050]
+- [Embedded Languages][LN051]
+
+Testing and Publishing
+----------------------
+- [Testing Extensions][LN052]
+- [Publishing Extensions][LN053]
+- [Bundling Extensions][LN054]
+- [Continuous Integration][LN055]
+
+Advanced Topics
+---------------
+- [Extension Host][LN056]
+- [Remote Development and Codespaces][LN057]
+- [Using Proposed API][LN058]
+- [Migrate from TSLint to ESLint][LN059]
+- [Python Extension Template][LN060]
+
+References
+----------
+- [VS Code API ][LN061]
+- [Contribution Points][FX002]
+- [Activation Events][FX001]
+- [Extension Manifest][FX000]
+- [Built-in Commands][LN065]
+- [When clause contexts][LN066]
+- [Theme Color][LN067]
+- [Product Icon Reference][LN068]
+- [Document Selector][LN069]
+
+Scripts
+--------------
+
 ```sh
 # https://github.com/microsoft/vscode-docs/blob/main/api/toc.json
 sed -n 's| *//.*||;p' 'vscode-docs\api\toc.json' \
@@ -107,100 +203,8 @@ EOF
 ```
 
 
-Get Started
------------
-- [Your First Extension][LN001]
-- [Extension Anatomy][LN002]
-- [Wrapping Up][LN003]
 
-Extension Capabilities
-----------------------
-- [Overview][LN004]
-- [Common Capabilities][LN005]
-- [Theming][LN006]
-- [Extending Workbench][LN007]
-
-Extension Guides
-----------------
-- [Overview][LN008]
-- [Command][LN009]
-- [Color Theme][LN010]
-- [File Icon Theme][LN011]
-- [Product Icon Theme][LN012]
-- [Chat][LN013]
-- [Language Model][LN014]
-- [Tree View][LN015]
-- [Webview][LN016]
-- [Notebook][LN017]
-- [Custom Editors][LN018]
-- [Virtual Documents][LN019]
-- [Virtual Workspaces][LN020]
-- [Web Extensions][LN021]
-- [Workspace Trust][LN022]
-- [Task Provider][LN023]
-- [Source Control][LN024]
-- [Debugger Extension][LN025]
-- [Markdown Extension][LN026]
-- [Test Extension][LN027]
-- [Custom Data Extension][LN028]
-- [Telemetry][LN029]
-
-UX Guidelines
--------------
-- [Overview][LN030]
-- [Activity Bar][LN031]
-- [Sidebars][LN032]
-- [Panel][LN033]
-- [Status Bar][LN034]
-- [Views][LN035]
-- [Editor Actions][LN036]
-- [Quick Picks][LN037]
-- [Command Palette][LN038]
-- [Notifications][LN039]
-- [Webviews][LN040]
-- [Context Menus][LN041]
-- [Walkthroughs][LN042]
-- [Settings][LN043]
-
-Language Extensions
--------------------
-- [Overview][LN044]
-- [Syntax Highlight Guide][LN045]
-- [Semantic Highlight Guide][LN046]
-- [Snippet Guide][LN047]
-- [Language Configuration Guide][LN048]
-- [Programmatic Language Features][LN049]
-- [Language Server Extension Guide][LN050]
-- [Embedded Languages][LN051]
-
-Testing and Publishing
-----------------------
-- [Testing Extensions][LN052]
-- [Publishing Extensions][LN053]
-- [Bundling Extensions][LN054]
-- [Continuous Integration][LN055]
-
-Advanced Topics
----------------
-- [Extension Host][LN056]
-- [Remote Development and Codespaces][LN057]
-- [Using Proposed API][LN058]
-- [Migrate from TSLint to ESLint][LN059]
-- [Python Extension Template][LN060]
-
-References
-----------
-- [VS Code API ][LN061]
-- [Contribution Points][LN062]
-- [Activation Events][LN063]
-- [Extension Manifest][LN064]
-- [Built-in Commands][LN065]
-- [When clause contexts][LN066]
-- [Theme Color][LN067]
-- [Product Icon Reference][LN068]
-- [Document Selector][LN069]
-
-## /api/index.md
+# /api/index.md
 ----------------
 
     ---
@@ -212,7 +216,7 @@ References
     MetaDescription: Visual Studio Code has a rich extension API. Learn how to create your own extensions for VS Code.
     ---
 
-# Extension API
+## Extension API
 
 Visual Studio Code is built with extensibility in mind. From the UI to the editing experience, almost every part of VS Code can be customized and enhanced through the Extension API. In fact, many core features of VS Code are built as [extensions][LK001] and use the same Extension API.
 
@@ -250,7 +254,7 @@ Building a good extension can take a lot of time and effort. Here is what each s
 * **Language Extensions** illustrates how to add support for a programming language with guides and code samples.
 * **Testing and Publishing** includes in-depth guides on various extension development topics, such as [testing][LN069] and [publishing][LN069] extensions.
 * **Advanced Topics** explains advanced concepts such as [Extension Host][LN069], [Supporting Remote Development and GitHub Codespaces][LN069], and [Proposed API][LN069].
-* **References** contains exhaustive references for the [VS Code API][LN069], [Contribution Points][LN069], and many other topics.
+* **References** contains exhaustive references for the [VS Code API][LN069], [Contribution Points][FX002], and many other topics.
 
 ## What's new?
 
@@ -273,9 +277,9 @@ To provide feedback on the documentation, create new issues at [Microsoft/vscode
 If you have extension questions that you cannot find an answer for, or issues with the VS Code Extension API, please open new issues at [Microsoft/vscode][LK012].
 
 
-<a id="_api_get-started_your-first-extension" />
+<a id="_api_get-started_your-first-extension" ></a>
 
-## /api/get-started/your-first-extension
+# /api/get-started/your-first-extension
 ----------------------------------------
 
     ---
@@ -287,7 +291,7 @@ If you have extension questions that you cannot find an answer for, or issues wi
     MetaDescription: Create your first Visual Studio Code extension (plug-in) with a simple Hello World example.
     ---
 
-# Your First Extension
+## Your First Extension
 
 In this topic, we'll teach you the fundamental concepts for building extensions. Make sure you have [Node.js][LK013] and [Git][LK014] installed.
 
@@ -353,7 +357,7 @@ You should see the updated message showing up.
 Here are some ideas for things for you to try:
 
 - Give the **Hello World** command a new name in the Command Palette.
-- [Contribute][LN069] another command that displays current time in an information message. Contribution points are static declarations you make in the `package.json` [Extension Manifest][LN069] to extend VS Code, such as adding commands, menus, or keybindings to your extension.
+- [Contribute][LN069] another command that displays current time in an information message. Contribution points are static declarations you make in the `package.json` [Extension Manifest][FX000] to extend VS Code, such as adding commands, menus, or keybindings to your extension.
 - Replace the `vscode.window.showInformationMessage` with another [VS Code API][LN069] call to show a warning message.
 
 ## Debugging the extension
@@ -381,9 +385,9 @@ In this guide, we mainly describe how to develop VS Code extension with TypeScri
 This is also a good time to review our [UX Guidelines][LN070] so you can start designing your extension user interface to follow the VS Code best practices.
 
 
-<a id="_api_get-started_extension-anatomy" />
+<a id="_api_get-started_extension-anatomy" ></a>
 
-## /api/get-started/extension-anatomy
+# /api/get-started/extension-anatomy
 -------------------------------------
 
     ---
@@ -395,7 +399,7 @@ This is also a good time to review our [UX Guidelines][LN070] so you can start d
     MetaDescription: Explain the structure of a Visual Studio Code extension (plug-in)
     ---
 
-# Extension Anatomy
+## Extension Anatomy
 
 In the last topic, you were able to get a basic extension running. How does it work under the hood?
 
@@ -407,8 +411,8 @@ The `Hello World` extension does 3 things:
 
 Understanding these three concepts is crucial to writing extensions in VS Code:
 
-- [**Activation Events**][LN073]: events upon which your extension becomes active.
-- [**Contribution Points**][LN073]: static declarations that you make in the `package.json` [Extension Manifest][LN074] to extend VS Code.
+- [**Activation Events**][FX001]: events upon which your extension becomes active.
+- [**Contribution Points**][FX002]: static declarations that you make in the `package.json` [Extension Manifest][FX000] to extend VS Code.
 - [**VS Code API**][LN074]: a set of JavaScript APIs that you can invoke in your extension code.
 
 In general, your extension would use a combination of Contribution Points and VS Code API to extend VS Code's functionality. The [Extension Capabilities Overview][LN074] topic helps you find the right Contribution Point and VS Code API for your extension.
@@ -440,11 +444,11 @@ However, let's focus on `package.json` and `extension.ts`, which are essential t
 
 ### Extension Manifest
 
-Each VS Code extension must have a `package.json` as its [Extension Manifest][LN076]. The `package.json` contains a mix of Node.js fields such as `scripts` and `devDependencies` and VS Code specific fields such as `publisher`, `activationEvents` and `contributes`. You can find description of all VS Code specific fields in [Extension Manifest Reference][LN076]. Here are some most important fields:
+Each VS Code extension must have a `package.json` as its [Extension Manifest][FX000]. The `package.json` contains a mix of Node.js fields such as `scripts` and `devDependencies` and VS Code specific fields such as `publisher`, `activationEvents` and `contributes`. You can find description of all VS Code specific fields in [Extension Manifest Reference][FX000]. Here are some most important fields:
 
 - `name` and `publisher`: VS Code uses `<publisher>.<name>` as a unique ID for the extension. For example, the Hello World sample has the ID `vscode-samples.helloworld-sample`. VS Code uses the ID to uniquely identify your extension.
 - `main`: The extension entry point.
-- `activationEvents` and `contributes`: [Activation Events][LN076] and [Contribution Points][LN076].
+- `activationEvents` and `contributes`: [Activation Events][FX001] and [Contribution Points][FX002].
 - `engines.vscode`: This specifies the minimum version of VS Code API that the extension depends on.
 
 ```json
@@ -521,9 +525,9 @@ export function deactivate() {}
 ```
 
 
-<a id="_api_get-started_wrapping-up" />
+<a id="_api_get-started_wrapping-up" ></a>
 
-## /api/get-started/wrapping-up
+# /api/get-started/wrapping-up
 -------------------------------
 
     ---
@@ -535,13 +539,13 @@ export function deactivate() {}
     MetaDescription: Next steps to take after studying the Getting Started section
     ---
 
-# Wrapping Up
+## Wrapping Up
 
 In the [Your First Extension][LN076] topic, you learned how to create, run, and debug an extension. In the [Extension Anatomy][LN076] topic, you learned fundamental concepts to Visual Studio Code extension development. However, we have only seen the tip of the iceberg, and here are some suggested routes for furthering your VS Code extension development skills.
 
 ## Extension Capabilities
 
-In this section, we split the [VS Code API][LN076] and [Contribution Points][LN076] into a few categories, each with short descriptions as to what your extension could achieve. Validate that your extension idea is achievable by reviewing the [VS Code API][LN076] or reading the [Extension Capabilities][LN076] section for new extension ideas.
+In this section, we split the [VS Code API][LN076] and [Contribution Points][FX002] into a few categories, each with short descriptions as to what your extension could achieve. Validate that your extension idea is achievable by reviewing the [VS Code API][LN076] or reading the [Extension Capabilities][LN076] section for new extension ideas.
 
 ## Guides & Samples
 
@@ -560,9 +564,9 @@ This section includes topics that help you develop high-quality VS Code extensio
 - How to set up [Continuous Integration][LN076] for your extension
 
 
-<a id="_api_extension-capabilities_overview" />
+<a id="_api_extension-capabilities_overview" ></a>
 
-## /api/extension-capabilities/overview
+# /api/extension-capabilities/overview
 ---------------------------------------
 
     ---
@@ -574,9 +578,9 @@ This section includes topics that help you develop high-quality VS Code extensio
     MetaDescription: Learn the details of what's possible with Visual Studio Code's rich extension (plug-in) API.
     ---
 
-# Extension Capabilities Overview
+## Extension Capabilities Overview
 
-Visual Studio Code offers many ways for extensions to extend its capabilities. It can sometimes be hard to find the right [Contribution Points][LN076] and [VS Code API][LN076] to use. This topic splits extension capabilities into a few categories. Each category describes:
+Visual Studio Code offers many ways for extensions to extend its capabilities. It can sometimes be hard to find the right [Contribution Points][FX002] and [VS Code API][LN076] to use. This topic splits extension capabilities into a few categories. Each category describes:
 
 - Some functionalities your extension could use
 - Links to more detailed topics for using these functionalities
@@ -698,9 +702,9 @@ A custom style sheet provided by users or extensions would work against the DOM 
 Instead, VS Code aims to provide a well-designed extension API supporting UI customizations. The API is documented, comes with tooling and samples, and is kept stable across all upcoming releases of VS Code.
 
 
-<a id="_api_extension-capabilities_common-capabilities" />
+<a id="_api_extension-capabilities_common-capabilities" ></a>
 
-## /api/extension-capabilities/common-capabilities
+# /api/extension-capabilities/common-capabilities
 --------------------------------------------------
 
     ---
@@ -712,7 +716,7 @@ Instead, VS Code aims to provide a well-designed extension API supporting UI cus
     MetaDescription: Common capabilities that Visual Studio Code extensions (plug-ins) can take advantage of
     ---
 
-# Common Capabilities
+## Common Capabilities
 
 Common Capabilities are important building blocks for your extensions. Almost all extensions use some of these functionalities. Here is how you can take advantage of them.
 
@@ -804,9 +808,9 @@ Progress can be shown in different locations using the [`ProgressLocation`][LN10
 The [Progress sample][LK024] illustrates this API.
 
 
-<a id="_api_extension-capabilities_theming" />
+<a id="_api_extension-capabilities_theming" ></a>
 
-## /api/extension-capabilities/theming
+# /api/extension-capabilities/theming
 --------------------------------------
 
     ---
@@ -818,7 +822,7 @@ The [Progress sample][LK024] illustrates this API.
     MetaDescription: Learn how to add custom themes for colors and icons in Visual Studio Code.
     ---
 
-# Theming
+## Theming
 
 In Visual Studio Code, there are three types of themes:
 
@@ -857,9 +861,9 @@ Redefine all the built-in icons used in the workbench. Examples are the icons in
 The [Product Icon Theme guide][LN108] discusses how to create a Product Icon Theme.
 
 
-<a id="_api_extension-capabilities_extending-workbench" />
+<a id="_api_extension-capabilities_extending-workbench" ></a>
 
-## /api/extension-capabilities/extending-workbench
+# /api/extension-capabilities/extending-workbench
 --------------------------------------------------
 
     ---
@@ -871,7 +875,7 @@ The [Product Icon Theme guide][LN108] discusses how to create a Product Icon The
     MetaDescription: Explain how to extend Visual Studio Code's workbench area with custom UI components
     ---
 
-# Extending Workbench
+## Extending Workbench
 
 "Workbench" refers to the overall Visual Studio Code UI that encompasses the following UI components:
 
@@ -913,9 +917,9 @@ Extensions can create custom [`StatusBarItem`][LN116] that display in the Status
 You can learn more by reviewing the [Status Bar extension sample][LK030].
 
 
-<a id="_api_extension-guides_overview" />
+<a id="_api_extension-guides_overview" ></a>
 
-## /api/extension-guides/overview
+# /api/extension-guides/overview
 ---------------------------------
 
     ---
@@ -927,7 +931,7 @@ You can learn more by reviewing the [Status Bar extension sample][LK030].
     MetaDescription: Learn from Visual Studio Code extension guides and code samples
     ---
 
-# Extension Guides
+## Extension Guides
 
 Once you have learned the basics of Visual Studio Code Extension API in the [Hello World][LN116] sample, it's time to build some real-world extensions. While the [Extension Capabilities][LN116] section offers high-level overviews of what an extension **can** do, this section contains a list of detailed code guides and samples that explains **how** to use a specific VS Code API.
 
@@ -943,7 +947,7 @@ In each guide or sample, you can expect to find:
 
 ## Guides & Samples
 
-Here are the guides on the VS Code website, including their usage of the [VS Code API][LN116] and [Contribution Points][LN116]. Don't forget to refer to the [UX Guidelines][LN116] to learn the user interface best practices for creating extensions.
+Here are the guides on the VS Code website, including their usage of the [VS Code API][LN116] and [Contribution Points][FX002]. Don't forget to refer to the [UX Guidelines][LN116] to learn the user interface best practices for creating extensions.
 
 | Guide on VS Code Website | API & Contribution |
 | --- | --- |
@@ -1000,9 +1004,9 @@ These samples are [Language Extensions][LN116] samples:
 | [LSP Web Extension Sample][LK140] | [/api/language-extensions/language-server-extension-guide][LK140] |  |
 
 
-<a id="_api_extension-guides_command" />
+<a id="_api_extension-guides_command" ></a>
 
-## /api/extension-guides/command
+# /api/extension-guides/command
 --------------------------------
 
     ---
@@ -1014,7 +1018,7 @@ These samples are [Language Extensions][LN116] samples:
     MetaDescription: A guide to using commands programmatically in Visual Studio Code extensions (plug-ins)
     ---
 
-# Commands
+## Commands
 
 Commands trigger actions in Visual Studio Code. If you have ever [configured a keybinding][LN116], then you've worked with commands. Commands are also used by extensions to expose functionality to users, bind to actions in VS Code's UI, and implement internal logic.
 
@@ -1230,9 +1234,9 @@ vscode.commands.executeCommand('setContext', 'myExtension.numberOfCoolOpenThings
 ```
 
 
-<a id="_api_extension-guides_color-theme" />
+<a id="_api_extension-guides_color-theme" ></a>
 
-## /api/extension-guides/color-theme
+# /api/extension-guides/color-theme
 ------------------------------------
 
     ---
@@ -1244,7 +1248,7 @@ vscode.commands.executeCommand('setContext', 'myExtension.numberOfCoolOpenThings
     MetaDescription: A guide to creating Color Theme in Visual Studio Code
     ---
 
-# Color Theme
+## Color Theme
 
 Colors visible in the Visual Studio Code user interface fall in two categories:
 
@@ -1375,9 +1379,9 @@ Color IDs can also be contributed by extensions through the [color contribution 
 - [CSS Tricks - Creating a VS Code theme][LK142]
 
 
-<a id="_api_extension-guides_file-icon-theme" />
+<a id="_api_extension-guides_file-icon-theme" ></a>
 
-## /api/extension-guides/file-icon-theme
+# /api/extension-guides/file-icon-theme
 ----------------------------------------
 
     ---
@@ -1389,7 +1393,7 @@ Color IDs can also be contributed by extensions through the [color contribution 
     MetaDescription: A guide to creating a File Icon Theme in Visual Studio Code
     ---
 
-# File Icon Theme
+## File Icon Theme
 
 Visual Studio Code displays icons next to filenames throughout its UI, and extensions can contribute new sets of file icons that users can choose from.
 
@@ -1593,9 +1597,9 @@ Language default icons are always shown if
 - the file icon theme does define `"showLanguageModeIcons":true`
 
 
-<a id="_api_extension-guides_product-icon-theme" />
+<a id="_api_extension-guides_product-icon-theme" ></a>
 
-## /api/extension-guides/product-icon-theme
+# /api/extension-guides/product-icon-theme
 -------------------------------------------
 
     ---
@@ -1607,7 +1611,7 @@ Language default icons are always shown if
     MetaDescription: A guide to creating Product Icon Theme in Visual Studio Code
     ---
 
-# Product Icon Theme
+## Product Icon Theme
 
 Visual Studio Code contains a set of built-in icons that are used in views and the editor, but can also be referenced in hovers, the status bar, and even by extensions. Examples are the icons in filter action buttons and view icons, in the status bar, breakpoints, and the folding icons in trees and the editor.
 
@@ -1713,9 +1717,9 @@ To find out which icon is used at a certain location in the VS Code UI, open Dev
 The [Product Color Theme sample][LK148] can be used as a playground.
 
 
-<a id="_api_extension-guides_chat" />
+<a id="_api_extension-guides_chat" ></a>
 
-## /api/extension-guides/chat
+# /api/extension-guides/chat
 -----------------------------
 
     ---
@@ -1727,7 +1731,7 @@ The [Product Color Theme sample][LK148] can be used as a playground.
     MetaDescription: A guide to creating an AI extension in Visual Studio Code
     ---
 
-# Chat extensions
+## Chat extensions
 
 Visual Studio Code's Copilot Chat architecture enables extension authors to integrate with the [Copilot Chat][LK149] experience. A chat extension is a VS Code extension that uses the Chat extension API by contributing a *Chat participant*.
 
@@ -2051,9 +2055,9 @@ Once you have created your AI extension, and once we finalize the Chat and Langu
 - Upload to the Marketplace as described in [Publishing Extension][LK161].
 
 
-<a id="_api_extension-guides_language-model" />
+<a id="_api_extension-guides_language-model" ></a>
 
-## /api/extension-guides/language-model
+# /api/extension-guides/language-model
 ---------------------------------------
 
     ---
@@ -2065,7 +2069,7 @@ Once you have created your AI extension, and once we finalize the Chat and Langu
     MetaDescription: A guide to adding AI-powered features to a VS Code extension by using language models and natural language understanding.
     ---
 
-# Language Model API
+## Language Model API
 
 The Language Model API enables you to [use the Language Model][LK162] and integrate AI-powered features and natural language processing in your Visual Studio Code extension.
 
@@ -2221,9 +2225,9 @@ Once we finalize the Language Model API (expected in the next couple of months),
 - [Build a chat extension][LN141]
 
 
-<a id="_api_extension-guides_tree-view" />
+<a id="_api_extension-guides_tree-view" ></a>
 
-## /api/extension-guides/tree-view
+# /api/extension-guides/tree-view
 ----------------------------------
 
     ---
@@ -2235,7 +2239,7 @@ Once we finalize the Language Model API (expected in the next couple of months),
     MetaDescription: A guide to using Tree View in Visual Studio Code extension (plug-in).
     ---
 
-# Tree View API
+## Tree View API
 
 The Tree View API allows extensions to show content in the sidebar in Visual Studio Code. This content is structured as a tree and conforms to the style of the [built-in views][LN142] of VS Code.
 
@@ -2673,7 +2677,7 @@ If your view can be empty, or if you want to add Welcome content to another exte
   "viewsWelcome": [
     {
       "view": "nodeDependencies",
-      "contents": "No node dependencies found [learn more][LK165].\n[Add Dependency][LN153]"
+      "contents": "No node dependencies found [learn more][LK165].\n[Add Dependency](command:nodeDependencies.addEntry)"
     }
   ]
 }
@@ -2706,9 +2710,9 @@ vscode.window.createTreeView('ftpExplorer', {
 See [ftpExplorer.ts][LK168] in the `tree-view-sample` for the implementation.
 
 
-<a id="_api_extension-guides_webview" />
+<a id="_api_extension-guides_webview" ></a>
 
-## /api/extension-guides/webview
+# /api/extension-guides/webview
 --------------------------------
 
     ---
@@ -2720,7 +2724,7 @@ See [ftpExplorer.ts][LK168] in the `tree-view-sample` for the implementation.
     MetaDescription: Use the Webview API to create fully customizable views within Visual Studio Code.
     ---
 
-# Webview API
+## Webview API
 
 The webview API allows extensions to create fully customizable views within Visual Studio Code. For example, the built-in Markdown extension uses webviews to render Markdown previews. Webviews can also be used to build complex user interfaces beyond what VS Code's native APIs support.
 
@@ -3852,9 +3856,9 @@ If you'd like to learn more about VS Code extensibility, try these topics:
 - [Extension Capabilities][LN179] - Take a look at other ways to extend VS Code.
 
 
-<a id="_api_extension-guides_notebook" />
+<a id="_api_extension-guides_notebook" ></a>
 
-## /api/extension-guides/notebook
+# /api/extension-guides/notebook
 ---------------------------------
 
     ---
@@ -3866,7 +3870,7 @@ If you'd like to learn more about VS Code extensibility, try these topics:
     MetaDescription: Use the Notebook API to create rich Notebook experiences within Visual Studio Code.
     ---
 
-# Notebook API
+## Notebook API
 
 The Notebook API allows Visual Studio Code extensions to open files as notebooks, execute notebook code cells, and render notebook outputs in a variety of rich and interactive formats. You may know of popular notebook interfaces like Jupyter Notebook or Google Colab – the Notebook API allows for similar experiences inside Visual Studio Code.
 
@@ -4445,9 +4449,9 @@ Samples:
 * [vscode-simple-jupyter-notebook][LK190]: Jupyter notebook with debugging support provided by the existing Xeus debugger
 
 
-<a id="_api_extension-guides_custom-editors" />
+<a id="_api_extension-guides_custom-editors" ></a>
 
-## /api/extension-guides/custom-editors
+# /api/extension-guides/custom-editors
 ---------------------------------------
 
     ---
@@ -4459,7 +4463,7 @@ Samples:
     MetaDescription: Use the Custom Editor API to create customizable editors within Visual Studio Code.
     ---
 
-# Custom Editor API
+## Custom Editor API
 
 Custom editors allow extensions to create fully customizable read/write editors that are used in place of VS Code's standard text editor for specific types of resources. They have a wide variety of use cases, such as:
 
@@ -4762,9 +4766,9 @@ If you'd like to learn more about VS Code extensibility, try these topics:
 [sample]: https://github.com/microsoft/vscode-extension-samples/tree/main/custom-editor-sample
 
 
-<a id="_api_extension-guides_virtual-documents" />
+<a id="_api_extension-guides_virtual-documents" ></a>
 
-## /api/extension-guides/virtual-documents
+# /api/extension-guides/virtual-documents
 ------------------------------------------
 
     ---
@@ -4776,7 +4780,7 @@ If you'd like to learn more about VS Code extensibility, try these topics:
     MetaDescription: A guide to using Virtual Documents in Visual Studio Code extensions (plug-ins)
     ---
 
-# Virtual Documents
+## Virtual Documents
 
 The text document content provider API allows you to create readonly documents in Visual Studio Code from arbitrary sources. You can find a sample extension with source code at: [https://github.com/microsoft/vscode-extension-samples/blob/main/virtual-document-sample/README.md][LK194].
 
@@ -4901,9 +4905,9 @@ When VS Code is opened on a folder or workspace of a such a file system we call 
 
 
 
-<a id="_api_extension-guides_virtual-workspaces" />
+<a id="_api_extension-guides_virtual-workspaces" ></a>
 
-## /api/extension-guides/virtual-workspaces
+# /api/extension-guides/virtual-workspaces
 -------------------------------------------
 
     ---
@@ -4915,7 +4919,7 @@ When VS Code is opened on a folder or workspace of a such a file system we call 
     MetaDescription: Learn how to support virtual workspaces in extensions
     ---
 
-# Virtual Workspaces
+## Virtual Workspaces
 
 Extensions like the [GitHub Repositories][LK197] extension open VS Code on one or more folders backed by a [file system provider][LN198]. When an extension implements a file system provider, workspace resources may not be located on the local disk, but be **virtual**, located on a server or the cloud, and editing operations happen there.
 
@@ -5117,9 +5121,9 @@ return vscode.languages.registerCompletionItemProvider({ language: 'typescript',
 Work is under way that will add file system provider support to LSP. Tracked in Language Server Protocol [issue #1264][LK199].
 
 
-<a id="_api_extension-guides_web-extensions" />
+<a id="_api_extension-guides_web-extensions" ></a>
 
-## /api/extension-guides/web-extensions
+# /api/extension-guides/web-extensions
 ---------------------------------------
 
     ---
@@ -5131,7 +5135,7 @@ Work is under way that will add file system provider support to LSP. Tracked in 
     MetaDescription: Learn how to run extensions in Visual Studio Code for the web and the web extension host.
     ---
 
-# Web Extensions
+## Web Extensions
 
 Visual Studio Code can run as an editor in the browser. One example is the `github.dev` user interface reached by pressing `.` (the period key) when browsing a repository or Pull Request in GitHub. When VS Code is used in the Web, installed extensions are run in an extension host in the browser, called the 'web extension host'. An extension that can run in a web extension host is called a 'web extension'.
 
@@ -5628,9 +5632,9 @@ If an extension wants to provide a debugger or terminal that also work in the we
 * [lsp-web-extension-sample][LK231]
 
 
-<a id="_api_extension-guides_workspace-trust" />
+<a id="_api_extension-guides_workspace-trust" ></a>
 
-## /api/extension-guides/workspace-trust
+# /api/extension-guides/workspace-trust
 ----------------------------------------
 
     ---
@@ -5642,7 +5646,7 @@ If an extension wants to provide a debugger or terminal that also work in the we
     MetaDescription: A guide for updating Visual Studio Code extensions to support Workspace Trust
     ---
 
-# Workspace Trust Extension Guide
+## Workspace Trust Extension Guide
 
 ## What is Workspace Trust?
 
@@ -5749,9 +5753,9 @@ Similar to debugging, VS Code prevents running tasks in Restricted Mode. If your
 See the [Workspace Trust user guide][LN218] for details on enabling and configuring Workspace Trust.
 
 
-<a id="_api_extension-guides_task-provider" />
+<a id="_api_extension-guides_task-provider" ></a>
 
-## /api/extension-guides/task-provider
+# /api/extension-guides/task-provider
 --------------------------------------
 
     ---
@@ -5763,7 +5767,7 @@ See the [Workspace Trust user guide][LN218] for details on enabling and configur
     MetaDescription: Learn how to contribute tasks to Visual Studio Code through an extension (plug-in).
     ---
 
-# Task Provider
+## Task Provider
 
 Users normally define [tasks][LN218] in Visual Studio Code in a `tasks.json` file. However, there are some tasks during software development that can be automatically detected by a VS Code extension with a Task Provider. When the **Tasks: Run Task** command is run from VS Code, all active Task Providers contribute tasks that the user can run. While the `tasks.json` file lets the user manually define a task for a specific folder or workspace, a Task Provider can detect details about a workspace and then automatically create a corresponding VS Code Task. For example, a Task Provider could check if there is a specific build file, such as `make` or `Rakefile`, and create a build task. This topic describes how extensions can auto-detect and provide tasks to end-users.
 
@@ -5887,9 +5891,9 @@ return new vscode.Task(definition, vscode.TaskScope.Workspace, `${flavor} ${flag
 The full example, including the implementation of `Pseudoterminal` is at [https://github.com/microsoft/vscode-extension-samples/tree/main/task-provider-sample/src/customTaskProvider.ts][LK233].
 
 
-<a id="_api_extension-guides_scm-provider" />
+<a id="_api_extension-guides_scm-provider" ></a>
 
-## /api/extension-guides/scm-provider
+# /api/extension-guides/scm-provider
 -------------------------------------
 
     ---
@@ -5901,7 +5905,7 @@ The full example, including the implementation of `Pseudoterminal` is at [https:
     MetaDescription: A guide illustrating how to use Source Control API.
     ---
 
-# Source Control API
+## Source Control API
 
 The Source Control API allows extension authors to define Source Control Management (SCM) features. There is a slim, yet powerful API surface which allows many different SCM systems to be integrated in Visual Studio Code, while having a common user interface with all of them.
 
@@ -6085,12 +6089,12 @@ To learn more about VS Code extensibility model, try these topics:
 - [Git Extension][LK235] - Learn by reading the Git extension implementation
 - [Extension API Overview][LN228] - Learn about the full VS Code extensibility model.
 - [Extension Manifest File][LN228] - VS Code package.json extension manifest file reference
-- [Contribution Points][LN228] - VS Code contribution points reference
+- [Contribution Points][FX002] - VS Code contribution points reference
 
 
-<a id="_api_extension-guides_debugger-extension" />
+<a id="_api_extension-guides_debugger-extension" ></a>
 
-## /api/extension-guides/debugger-extension
+# /api/extension-guides/debugger-extension
 -------------------------------------------
 
     ---
@@ -6102,7 +6106,7 @@ To learn more about VS Code extensibility model, try these topics:
     MetaDescription: Learn how to provide debugger extensions (plug-ins) for Visual Studio Code through a Debug Adapter.
     ---
 
-# Debugger Extension
+## Debugger Extension
 
 Visual Studio Code's debugging architecture allows extension authors to easily integrate existing debuggers into VS Code, while having a common user interface with all of them.
 
@@ -6471,9 +6475,9 @@ Mock Debug shows examples for the [three types of DebugAdapterDescriptorFactorie
 For development, the `inline` and `server` modes are particularly useful because they allow for debugging extension and debug adapter within a single process.
 
 
-<a id="_api_extension-guides_markdown-extension" />
+<a id="_api_extension-guides_markdown-extension" ></a>
 
-## /api/extension-guides/markdown-extension
+# /api/extension-guides/markdown-extension
 -------------------------------------------
 
     ---
@@ -6485,7 +6489,7 @@ For development, the `inline` and `server` modes are particularly useful because
     MetaDescription: Learn how to extend Visual Studio Code's built-in Markdown preview.
     ---
 
-# Markdown Extension
+## Markdown Extension
 
 Markdown extensions allow you to extend and enhance Visual Studio Code's built-in Markdown preview. This includes changing the look of the preview or adding support for new Markdown syntax.
 
@@ -6565,9 +6569,9 @@ Contributed scripts are loaded asynchronously and reloaded on every content chan
 The [Markdown Preview Mermaid Support][LK255] extension demonstrates using scripts to add [Mermaid][LK256] diagrams and flowchart support to the markdown preview. You can review the Mermaid extension's source code on [GitHub][LK257].
 
 
-<a id="_api_extension-guides_testing" />
+<a id="_api_extension-guides_testing" ></a>
 
-## /api/extension-guides/testing
+# /api/extension-guides/testing
 --------------------------------
 
     ---
@@ -6579,7 +6583,7 @@ The [Markdown Preview Mermaid Support][LK255] extension demonstrates using scrip
     MetaDescription: Testing APIs in VS Code allow users to discover and run unit tests in their workspace
     ---
 
-# Testing API
+## Testing API
 
 The Testing API allows Visual Studio Code extensions to discover tests in the workspace and publish results. Users can execute tests in the Test Explorer view, from decorations, and inside commands. With these new APIs, Visual Studio Code supports richer displays of outputs and diffs than was previously possible.
 
@@ -6961,9 +6965,9 @@ Additional [context keys][LN241] are available in the `when` clauses of your men
 If you want to reveal a test in the Explorer, you can pass the test to the command `vscode.commands.executeCommand('vscode.revealTestInExplorer', testItem)`.
 
 
-<a id="_api_extension-guides_custom-data-extension" />
+<a id="_api_extension-guides_custom-data-extension" ></a>
 
-## /api/extension-guides/custom-data-extension
+# /api/extension-guides/custom-data-extension
 ----------------------------------------------
 
     ---
@@ -6975,11 +6979,11 @@ If you want to reveal a test in the Explorer, you can pass the test to the comma
     MetaDescription: Learn how to extend Visual Studio Code's HTML and CSS language support.
     ---
 
-# Custom Data Extension
+## Custom Data Extension
 
 [Custom Data format][LK263] allows extension authors to easily extend VS Code's HTML / CSS language support without having to write code.
 
-The two [Contribution Points][LN242] for using custom data in an extension are:
+The two [Contribution Points][FX002] for using custom data in an extension are:
 
 - `contributes.html.customData`
 - `contributes.css.customData`
@@ -7004,9 +7008,9 @@ VS Code will load the HTML/CSS entities defined in both files and provide langua
 You can find the [custom-data-sample][LK264] at [microsoft/vscode-extension-samples][LK264].
 
 
-<a id="_api_extension-guides_telemetry" />
+<a id="_api_extension-guides_telemetry" ></a>
 
-## /api/extension-guides/telemetry
+# /api/extension-guides/telemetry
 ----------------------------------
 
     ---
@@ -7018,7 +7022,7 @@ You can find the [custom-data-sample][LK264] at [microsoft/vscode-extension-samp
     MetaDescription: Learn how Visual Studio Code extensions can enable telemetry and respect user telemetry choices.
     ---
 
-# Telemetry extension authors guide
+## Telemetry extension authors guide
 
 Visual Studio Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement][LK265] and [telemetry documentation][LN243] to learn more.
 
@@ -7062,9 +7066,9 @@ We understand that telemetry can be a sensitive topic for many users and we aim 
 * Use just the `telemetry.telemetryLevel` setting, as it can sometimes be incorrect compared to `isTelemetryEnabled`.
 
 
-<a id="_api_ux-guidelines_overview" />
+<a id="_api_ux-guidelines_overview" ></a>
 
-## /api/ux-guidelines/overview
+# /api/ux-guidelines/overview
 ------------------------------
 
     ---
@@ -7076,7 +7080,7 @@ We understand that telemetry can be a sensitive topic for many users and we aim 
     MetaDescription: Guidelines that showcase best practices for creating Visual Studio Code extensions.
     ---
 
-# UX Guidelines
+## UX Guidelines
 
 These guidelines cover the best practices for creating extensions that seamlessly integrate with VS Code's native interface and patterns. In these guidelines, you can expect to find:
 
@@ -7191,9 +7195,9 @@ In contrast to the Command Palette's consistent location, [Context Menus][LN261]
 ![Overview of the Settings page][LN264]
 
 
-<a id="_api_ux-guidelines_activity-bar" />
+<a id="_api_ux-guidelines_activity-bar" ></a>
 
-## /api/ux-guidelines/activity-bar
+# /api/ux-guidelines/activity-bar
 ----------------------------------
 
     ---
@@ -7205,7 +7209,7 @@ In contrast to the Command Palette's consistent location, [Context Menus][LN261]
     MetaDescription: UX guidelines for the Activity Bar in a Visual Studio Code extension.
     ---
 
-# Activity Bar
+## Activity Bar
 
 The Activity Bar is a core navigation surface in VS Code. Extensions can contribute [View Containers][LN265] to the Activity Bar that appear as Activity Bar Items. Users can drag the item to other locations like the Panel to customize their layout.
 
@@ -7227,9 +7231,9 @@ The Activity Bar is a core navigation surface in VS Code. Extensions can contrib
 - [View contribution point][LN266]
 
 
-<a id="_api_ux-guidelines_sidebars" />
+<a id="_api_ux-guidelines_sidebars" ></a>
 
-## /api/ux-guidelines/sidebars
+# /api/ux-guidelines/sidebars
 ------------------------------
 
     ---
@@ -7241,7 +7245,7 @@ The Activity Bar is a core navigation surface in VS Code. Extensions can contrib
     MetaDescription: UX guidelines for the Side Bar in a Visual Studio Code extension.
     ---
 
-# Sidebars
+## Sidebars
 
 The Primary and Secondary Sidebars consists of one or more [Views][LN266] contributed by a [View Container][LN266]. Extensions can contribute Views to an existing View Container (for example, Explorer) or they can contribute an entirely new View Container.
 
@@ -7294,9 +7298,9 @@ As with other toolbars, be careful to not add too many actions to reduce clutter
 - [Welcome View extension sample][LK269]
 
 
-<a id="_api_ux-guidelines_panel" />
+<a id="_api_ux-guidelines_panel" ></a>
 
-## /api/ux-guidelines/panel
+# /api/ux-guidelines/panel
 ---------------------------
 
     ---
@@ -7308,7 +7312,7 @@ As with other toolbars, be careful to not add too many actions to reduce clutter
     MetaDescription: UX guidelines for the Panel Bar in a Visual Studio Code extension.
     ---
 
-# Panel
+## Panel
 
 The Panel functions as another main area to display [View Containers][LN272].
 
@@ -7353,9 +7357,9 @@ The Panel Toolbar can expose options scoped to the currently selected View. For 
 - [View Actions extension guide][LN276]
 
 
-<a id="_api_ux-guidelines_status-bar" />
+<a id="_api_ux-guidelines_status-bar" ></a>
 
-## /api/ux-guidelines/status-bar
+# /api/ux-guidelines/status-bar
 --------------------------------
 
     ---
@@ -7367,7 +7371,7 @@ The Panel Toolbar can expose options scoped to the currently selected View. For 
     MetaDescription: UX guidelines for status bar and status bar items in a Visual Studio Code extension.
     ---
 
-# Status Bar
+## Status Bar
 
 The [Status Bar][LN276] sits at the bottom of the VS Code workbench and displays information and actions that relate to your workspace. Items are placed into two groups: Primary (left) and Secondary (right). Items that relate to the entire workspace (status, problems/warnings, sync) go on the left and items that are secondary or contextual (language, spacing, feedback) go on the right. Limit the number of items added, as other extensions contribute to the same area.
 
@@ -7420,9 +7424,9 @@ If you need to show an item that is highly visible for warning or error purposes
 * [Status Bar extension sample][LK269]
 
 
-<a id="_api_ux-guidelines_views" />
+<a id="_api_ux-guidelines_views" ></a>
 
-## /api/ux-guidelines/views
+# /api/ux-guidelines/views
 ---------------------------
 
     ---
@@ -7434,7 +7438,7 @@ If you need to show an item that is highly visible for warning or error purposes
     MetaDescription: UX guidelines for views in a Visual Studio Code extension.
     ---
 
-# Views
+## Views
 
 [Views][LN281] are containers of content that can appear in the Sidebar or Panel. Views can contain Tree Views, Welcome Views, or Webview Views and can also display View Actions. Views can also be rearranged by the user or moved to another View Container (for example, from the Primary Sidebar to the Secondary Sidebar). Limit the number of Views created as other extensions can contribute in the same View Container.
 
@@ -7538,9 +7542,9 @@ Views can expose [View Actions][LN288] on the View Toolbar. Be careful not to ad
 * [Webview View extension sample][LK269]
 
 
-<a id="_api_ux-guidelines_editor-actions" />
+<a id="_api_ux-guidelines_editor-actions" ></a>
 
-## /api/ux-guidelines/editor-actions
+# /api/ux-guidelines/editor-actions
 ------------------------------------
 
     ---
@@ -7552,7 +7556,7 @@ Views can expose [View Actions][LN288] on the View Toolbar. Be careful not to ad
     MetaDescription: UX guidelines for editor actions in a Visual Studio Code extension.
     ---
 
-# Editor Actions
+## Editor Actions
 
 [Editor actions][LN289] can appear in the editor toolbar. You can either add an icon as a quick action or add menu item under the overflow menu (**...**).
 
@@ -7581,9 +7585,9 @@ Views can expose [View Actions][LN288] on the View Toolbar. Be careful not to ad
 * [Webview extension sample][LK270]
 
 
-<a id="_api_ux-guidelines_quick-picks" />
+<a id="_api_ux-guidelines_quick-picks" ></a>
 
-## /api/ux-guidelines/quick-picks
+# /api/ux-guidelines/quick-picks
 ---------------------------------
 
     ---
@@ -7595,7 +7599,7 @@ Views can expose [View Actions][LN288] on the View Toolbar. Be careful not to ad
     MetaDescription: UX guidelines for quick picks used in a Visual Studio Code extension.
     ---
 
-# Quick Picks
+## Quick Picks
 
 [Quick Picks][LN291] are an easy way to perform actions and receive input from the user. This is helpful when selecting a configuration option, needing to filter content, or picking from a list of items.
 
@@ -7654,9 +7658,9 @@ Quick Pick Items can be grouped into clear sections using Quick Pick Separators.
 * [Quick Pick extension sample][LK270]
 
 
-<a id="_api_ux-guidelines_command-palette" />
+<a id="_api_ux-guidelines_command-palette" ></a>
 
-## /api/ux-guidelines/command-palette
+# /api/ux-guidelines/command-palette
 -------------------------------------
 
     ---
@@ -7668,7 +7672,7 @@ Quick Pick Items can be grouped into clear sections using Quick Pick Separators.
     MetaDescription: UX guidelines for the Command Palette in a Visual Studio Code extension.
     ---
 
-# Command Palette
+## Command Palette
 
 The [Command Palette][LN296] is where all Commands are found. It's important that your command names are labeled appropriately so users can easily find them.
 
@@ -7694,9 +7698,9 @@ The [Command Palette][LN296] is where all Commands are found. It's important tha
 * [Hello World extension sample][LK270]
 
 
-<a id="_api_ux-guidelines_notifications" />
+<a id="_api_ux-guidelines_notifications" ></a>
 
-## /api/ux-guidelines/notifications
+# /api/ux-guidelines/notifications
 -----------------------------------
 
     ---
@@ -7708,7 +7712,7 @@ The [Command Palette][LN296] is where all Commands are found. It's important tha
     MetaDescription: UX guidelines for notifications in a Visual Studio Code extension.
     ---
 
-# Notifications
+## Notifications
 
 [Notifications][LN297] display brief information that is surfaced from the bottom right of VS Code.
 
@@ -7776,9 +7780,9 @@ When needing to display progress for an indeterminate timeframe (for example, se
 * [Notifications extension sample][LK271]
 
 
-<a id="_api_ux-guidelines_webviews" />
+<a id="_api_ux-guidelines_webviews" ></a>
 
-## /api/ux-guidelines/webviews
+# /api/ux-guidelines/webviews
 ------------------------------
 
     ---
@@ -7790,7 +7794,7 @@ When needing to display progress for an indeterminate timeframe (for example, se
     MetaDescription: UX guidelines for webviews in a Visual Studio Code extension.
     ---
 
-# Webviews
+## Webviews
 
 If you need to display custom functionality that is beyond what the VS Code API supports, you can use [webviews][LN303], which are fully customizable. It's important to understand that webviews should only be used if you absolutely need them.
 
@@ -7843,9 +7847,9 @@ You can also place webviews into any view container (sidebar or panel) and these
 * [Webview View extension sample][LK273]
 
 
-<a id="_api_ux-guidelines_context-menus" />
+<a id="_api_ux-guidelines_context-menus" ></a>
 
-## /api/ux-guidelines/context-menus
+# /api/ux-guidelines/context-menus
 -----------------------------------
 
     ---
@@ -7857,7 +7861,7 @@ You can also place webviews into any view container (sidebar or panel) and these
     MetaDescription: UX guidelines for using context menus in a Visual Studio Code extension.
     ---
 
-# Context Menus
+## Context Menus
 
 [Menu items][LN307] appear in views, actions, and right-click menus. It's important that the grouping of menus remain consistent. If your extension has actions that relate to files, place your actions in the File Explorer context menu (when appropriate). If an extension has actions for certain file types, only display it for those items.
 
@@ -7880,9 +7884,9 @@ You can also place webviews into any view container (sidebar or panel) and these
 * [Context Menu API reference][LN307]
 
 
-<a id="_api_ux-guidelines_walkthroughs" />
+<a id="_api_ux-guidelines_walkthroughs" ></a>
 
-## /api/ux-guidelines/walkthroughs
+# /api/ux-guidelines/walkthroughs
 ----------------------------------
 
     ---
@@ -7894,7 +7898,7 @@ You can also place webviews into any view container (sidebar or panel) and these
     MetaDescription: UX guidelines for walkthroughs in a Visual Studio Code extension.
     ---
 
-# Walkthroughs
+## Walkthroughs
 
 Walkthroughs provide a consistent experience for onboarding users to an extension via a multi-step checklist featuring rich content.
 
@@ -7918,9 +7922,9 @@ Walkthroughs provide a consistent experience for onboarding users to an extensio
 - [Visual Studio Code Color Mapper][LK275]
 
 
-<a id="_api_ux-guidelines_settings" />
+<a id="_api_ux-guidelines_settings" ></a>
 
-## /api/ux-guidelines/settings
+# /api/ux-guidelines/settings
 ------------------------------
 
     ---
@@ -7932,7 +7936,7 @@ Walkthroughs provide a consistent experience for onboarding users to an extensio
     MetaDescription: UX guidelines for settings contributed by a Visual Studio Code extension.
     ---
 
-# Settings
+## Settings
 
 [Settings][LN308] are how a user can configure your extension. Settings can be inputs boxes, booleans, dropdowns, lists, key/value pairs. If your extension requires the user to configure specific settings, you can open the Settings UI and query your extension setting via the setting ID.
 
@@ -7958,9 +7962,9 @@ Walkthroughs provide a consistent experience for onboarding users to an extensio
 * [Configuration contribution point][LN308]
 
 
-<a id="_api_language-extensions_overview" />
+<a id="_api_language-extensions_overview" ></a>
 
-## /api/language-extensions/overview
+# /api/language-extensions/overview
 ------------------------------------
 
     ---
@@ -7972,7 +7976,7 @@ Walkthroughs provide a consistent experience for onboarding users to an extensio
     MetaDescription: Learn how to write a Language Extension (plug-in) to add support for a programming language in Visual Studio Code.
     ---
 
-# Language Extensions Overview
+## Language Extensions Overview
 
 Visual Studio Code provides smart editing features for different programming languages through Language Extensions. VS Code doesn't provide built-in language support but offers a set of APIs that enable rich language features. For example, it has a bundled [HTML][LK276] extension that allows VS Code to show syntax highlighting for HTML files. Similarly, when you type `console.` and `log` shows up in IntelliSense, it is the [Typescript Language Features][LK277] extension at work.
 
@@ -8037,9 +8041,9 @@ When the user opens a [multi-root workspace][LN314], you might need to adapt you
 Embedded languages are common in web development. For example, CSS/JavaScript inside HTML, and GraphQL inside JavaScript/TypeScript. The [Embedded languages][LN314] topic discusses how you can make language features available to embedded languages.
 
 
-<a id="_api_language-extensions_syntax-highlight-guide" />
+<a id="_api_language-extensions_syntax-highlight-guide" ></a>
 
-## /api/language-extensions/syntax-highlight-guide
+# /api/language-extensions/syntax-highlight-guide
 --------------------------------------------------
 
     ---
@@ -8051,7 +8055,7 @@ Embedded languages are common in web development. For example, CSS/JavaScript in
     MetaDescription: A guide to syntax highlighting
     ---
 
-# Syntax Highlight Guide
+## Syntax Highlight Guide
 
 Syntax highlighting determines the color and style of source code displayed in the Visual Studio Code editor. It is responsible for colorizing keywords like `if` or `for` in JavaScript differently than strings and comments and variable names.
 
@@ -8398,9 +8402,9 @@ The scope inspector displays the following information:
 [tm-grammars]: https://macromates.com/manual/en/language_grammars
 
 
-<a id="_api_language-extensions_semantic-highlight-guide" />
+<a id="_api_language-extensions_semantic-highlight-guide" ></a>
 
-## /api/language-extensions/semantic-highlight-guide
+# /api/language-extensions/semantic-highlight-guide
 ----------------------------------------------------
 
     ---
@@ -8412,7 +8416,7 @@ The scope inspector displays the following information:
     MetaDescription: A guide to syntax highlighting
     ---
 
-# Semantic Highlight Guide
+## Semantic Highlight Guide
 
 Semantic highlighting is an addition to syntax highlighting as described in the [Syntax Highlight guide][LN327]. Visual Studio Code uses TextMate grammars as the main tokenization engine. TextMate grammars work on a single file as input and break it up based on lexical rules expressed in regular expressions.
 
@@ -8714,9 +8718,9 @@ We have a [Semantic Tokens sample][LK285] that illustrates how to create a seman
 The [scope inspector][LN332] tool allows you to explore what semantic tokens are present in a source file and what theme rules they match to. To see semantic token, use a built-in theme (for example, Dark+) on a TypeScript file.
 
 
-<a id="_api_language-extensions_snippet-guide" />
+<a id="_api_language-extensions_snippet-guide" ></a>
 
-## /api/language-extensions/snippet-guide
+# /api/language-extensions/snippet-guide
 -----------------------------------------
 
     ---
@@ -8728,7 +8732,7 @@ The [scope inspector][LN332] tool allows you to explore what semantic tokens are
     MetaDescription: Learn how to bundle snippets into an extension (plug-in) for Visual Studio Code
     ---
 
-# Snippet Guide
+## Snippet Guide
 
 The [`contributes.snippets`][LN333] Contribution Point allows you to bundle snippets into a Visual Studio Code extension for sharing.
 
@@ -8777,9 +8781,9 @@ The final generator output has two files: an extension manifest `package.json` w
 Copy the generated snippets folder to a new folder under your `.vscode/extensions` folder and restart VS Code.
 
 
-<a id="_api_language-extensions_language-configuration-guide" />
+<a id="_api_language-extensions_language-configuration-guide" ></a>
 
-## /api/language-extensions/language-configuration-guide
+# /api/language-extensions/language-configuration-guide
 --------------------------------------------------------
 
     ---
@@ -8791,7 +8795,7 @@ Copy the generated snippets folder to a new folder under your `.vscode/extension
     MetaDescription: A guide to configure language support for any language in Visual Studio Code.
     ---
 
-# Language Configuration Guide
+## Language Configuration Guide
 
 The [`contributes.languages`][LN333] Contribution Point allows you to define a language configuration that controls the following Declarative Language Features:
 
@@ -9040,9 +9044,9 @@ If all the specified properties match, the rule is considered to match and no fu
 - `removeText`. The number of characters to remove from the new line's indentation.
 
 
-<a id="_api_language-extensions_programmatic-language-features" />
+<a id="_api_language-extensions_programmatic-language-features" ></a>
 
-## /api/language-extensions/programmatic-language-features
+# /api/language-extensions/programmatic-language-features
 ----------------------------------------------------------
 
     ---
@@ -9054,7 +9058,7 @@ If all the specified properties match, the rule is considered to match and no fu
     MetaDescription: Visual Studio Code language extensions contribute programming language features. These guidelines present the language features available in Visual Studio Code and explain the API.
     ---
 
-# Programmatic Language Features
+## Programmatic Language Features
 
 Programmatic Language Features is a set of smart-editing features powered by the [`vscode.languages.*`][LN334] API. There are two common ways to provide a dynamic language feature in Visual Studio Code. Let's take [Hover][LN335] as an example:
 
@@ -9947,9 +9951,9 @@ export function activate(ctx: vscode.ExtensionContext): void {
 > Return the list of all workspace edits that need to be performed, for example all edits across all files that contain references to the symbol.
 
 
-<a id="_api_language-extensions_language-server-extension-guide" />
+<a id="_api_language-extensions_language-server-extension-guide" ></a>
 
-## /api/language-extensions/language-server-extension-guide
+# /api/language-extensions/language-server-extension-guide
 -----------------------------------------------------------
 
     ---
@@ -9961,7 +9965,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
     MetaDescription: Learn how to create Language Servers to provide rich language features in Visual Studio Code.
     ---
 
-# Language Server Extension Guide
+## Language Server Extension Guide
 
 As you have seen in the [Programmatic Language Features][LN369] topic, it's possible to implement Language Features by directly using `languages.*` API. Language Server Extension, however, provides an alternative way of implementing such language support.
 
@@ -10886,9 +10890,9 @@ You will see this timeout error if the server isn't running when you try to atta
 Please open an issue at [https://github.com/microsoft/language-server-protocol][LK320].
 
 
-<a id="_api_language-extensions_embedded-languages" />
+<a id="_api_language-extensions_embedded-languages" ></a>
 
-## /api/language-extensions/embedded-languages
+# /api/language-extensions/embedded-languages
 ----------------------------------------------
 
     ---
@@ -10900,7 +10904,7 @@ Please open an issue at [https://github.com/microsoft/language-server-protocol][
     MetaDescription: Learn how to create Language Servers to provide rich language features for embedded programming languages in Visual Studio Code.
     ---
 
-# Embedded Programming Languages
+## Embedded Programming Languages
 
 Visual Studio Code provides rich language features for programming languages. As you have read in the
 [Language Server extension guide][LN377], you can write language servers to support any programming language. However, it involves more effort to enable such support for embedded languages.
@@ -11167,9 +11171,9 @@ Request forwarding:
 Overall, we recommend building a language server by embedding language services, as this approach gives you more control over the user experience and the server is reusable for any LSP-compliant editors. However, if you have a simple use case where embedded content can be easily handled without context or language server state, or if bundling the Node.js library is a problem for you, you can consider the Request Forwarding approach.
 
 
-<a id="_api_working-with-extensions_testing-extension" />
+<a id="_api_working-with-extensions_testing-extension" ></a>
 
-## /api/working-with-extensions/testing-extension
+# /api/working-with-extensions/testing-extension
 -------------------------------------------------
 
     ---
@@ -11181,7 +11185,7 @@ Overall, we recommend building a language server by embedding language services,
     MetaDescription: Write tests for your Visual Studio Code extension (plug-in).
     ---
 
-# Testing Extensions
+## Testing Extensions
 
 Visual Studio Code supports running and debugging tests for your extension. These tests will run inside a special instance of VS Code named the **Extension Development Host**, and have full access to the VS Code API. We refer to these tests as integration tests, because they go beyond unit tests that can run without a VS Code instance. This documentation focuses on VS Code integration tests.
 
@@ -11542,9 +11546,9 @@ main();
 - [Continuous Integration][LN379] - Run your extension tests in a Continuous Integration service such as Azure DevOps.
 
 
-<a id="_api_working-with-extensions_publishing-extension" />
+<a id="_api_working-with-extensions_publishing-extension" ></a>
 
-## /api/working-with-extensions/publishing-extension
+# /api/working-with-extensions/publishing-extension
 ----------------------------------------------------
 
     ---
@@ -11556,7 +11560,7 @@ main();
     MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
     ---
 
-# Publishing Extensions
+## Publishing Extensions
 
 Once you have made a high-quality extension, you can publish it to the [VS Code Extension Marketplace][LK337] so others can find, download, and use your extension. Alternatively, you can [package][LN380] an extension into the installable VSIX format and share it with other users.
 
@@ -12071,9 +12075,9 @@ The same rule applies for the [display name][LN413] of an extension.
 You can either use npm or yarn v1 to manage your extension's dependencies.
 
 
-<a id="_api_working-with-extensions_bundling-extension" />
+<a id="_api_working-with-extensions_bundling-extension" ></a>
 
-## /api/working-with-extensions/bundling-extension
+# /api/working-with-extensions/bundling-extension
 --------------------------------------------------
 
     ---
@@ -12085,7 +12089,7 @@ You can either use npm or yarn v1 to manage your extension's dependencies.
     MetaDescription: Bundling Visual Studio Code extensions (plug-ins) with webpack.
     ---
 
-# Bundling Extensions
+## Bundling Extensions
 
 The first reason to bundle your Visual Studio Code extension is to make sure it works for everyone using VS Code on any platform. Only bundled extensions can be used in VS Code for Web environments like [github.dev][LK352] and [vscode.dev][LK352]. When VS Code is running in the browser, it can only load one file for your extension so the extension code needs to be bundled into one single web-friendly JavaScript file. This also applies to [Notebook Output Renderers][LN413], where VS Code will also only load one file for your renderer extension.
 
@@ -12300,9 +12304,9 @@ To address the warning, you should either:
 * [Continuous Integration][LN415] - Learn how to run extension CI builds on Azure Pipelines.
 
 
-<a id="_api_working-with-extensions_continuous-integration" />
+<a id="_api_working-with-extensions_continuous-integration" ></a>
 
-## /api/working-with-extensions/continuous-integration
+# /api/working-with-extensions/continuous-integration
 ------------------------------------------------------
 
     ---
@@ -12314,7 +12318,7 @@ To address the warning, you should either:
     MetaDescription: Use Continuous Integration for testing Visual Studio Code extensions (plug-ins).
     ---
 
-# Continuous Integration
+## Continuous Integration
 
 Extension integration tests can be run on CI services. The [`@vscode/test-electron`][LK361] library helps you set up extension tests on CI providers and contains a [sample extension][LK362] setup on Azure Pipelines. You can check out the [build pipeline][LK363] or jump directly to the [`azure-pipelines.yml` file][LK364].
 
@@ -12326,7 +12330,7 @@ The publish command is similar to publishing from a local environment using [`vs
 
 ## Azure Pipelines
 
-<a href="https://azure.microsoft.com/services/devops/"><img alt="Azure Pipelines" src="/assets/api/working-with-extensions/continuous-integration/pipelines-logo.png" width="318" /></a>
+<a href="https://azure.microsoft.com/services/devops/"><img alt="Azure Pipelines" src="/assets/api/working-with-extensions/continuous-integration/pipelines-logo.png" width="318" ></a>
 
 [Azure Pipelines][LK365] is great for running VS Code extension tests as it supports running the tests on Windows, macOS, and Linux. For Open Source projects, you get unlimited minutes and 10 free parallel jobs. This section explains how to set up an Azure Pipelines for running your extension tests.
 
@@ -12551,9 +12555,9 @@ deploy:
 All of the above examples refer to a hypothetical project built with [Yarn][LK374], but can be adapted to use [npm][LK374], [Grunt][LK375], [Gulp][LK376], or any other JavaScript build tool.
 
 
-<a id="_api_advanced-topics_extension-host" />
+<a id="_api_advanced-topics_extension-host" ></a>
 
-## /api/advanced-topics/extension-host
+# /api/advanced-topics/extension-host
 --------------------------------------
 
     ---
@@ -12565,7 +12569,7 @@ All of the above examples refer to a hypothetical project built with [Yarn][LK37
     MetaDescription: The Visual Studio Code Extension Host is responsible for managing extensions and ensuring the stability and performance of Visual Studio Code.
     ---
 
-# Extension Host
+## Extension Host
 
 The **Extension Host** is responsible for running extensions.
 
@@ -12621,12 +12625,12 @@ VS Code aims to deliver a stable and high performance editor to users, and misbe
 * Slowing down UI operations
 * Modifying the UI
 
-Additionally, VS Code lets extensions declare their [Activation Events][LN416] and loads them lazily. For example, the Markdown extension should only be loaded when a user opens a Markdown file. This makes sure that extensions do not consume unnecessary CPU and memory.
+Additionally, VS Code lets extensions declare their [Activation Events][FX001] and loads them lazily. For example, the Markdown extension should only be loaded when a user opens a Markdown file. This makes sure that extensions do not consume unnecessary CPU and memory.
 
 
-<a id="_api_advanced-topics_remote-extensions" />
+<a id="_api_advanced-topics_remote-extensions" ></a>
 
-## /api/advanced-topics/remote-extensions
+# /api/advanced-topics/remote-extensions
 -----------------------------------------
 
     ---
@@ -12637,7 +12641,7 @@ Additionally, VS Code lets extensions declare their [Activation Events][LN416] a
     MetaDescription: A guide to adding Visual Studio Code Remote Development and GitHub Codespaces support to extensions
     ---
 
-# Supporting Remote Development and GitHub Codespaces
+## Supporting Remote Development and GitHub Codespaces
 
 **[Visual Studio Code Remote Development][LN416]** allows you to transparently interact with source code and runtime environments sitting on other machines (whether virtual or physical). **[GitHub Codespaces][LK377]** is a service that expands these capabilities with managed cloud-hosted environments that are accessible from both VS Code and a browser-based editor.
 
@@ -13245,9 +13249,9 @@ There are a few extension problems that could be resolved with some added functi
 - See our [CONTRIBUTING][LK399] guide for details.
 
 
-<a id="_api_advanced-topics_using-proposed-api" />
+<a id="_api_advanced-topics_using-proposed-api" ></a>
 
-## /api/advanced-topics/using-proposed-api
+# /api/advanced-topics/using-proposed-api
 ------------------------------------------
 
     ---
@@ -13259,7 +13263,7 @@ There are a few extension problems that could be resolved with some added functi
     MetaDescription: Use Visual Studio Code's Proposed API
     ---
 
-# Using Proposed API
+## Using Proposed API
 
 At Visual Studio Code, we take Extension API compatibility seriously. We give our best effort to avoid breaking API changes, and extension authors could expect published extensions to continue to work. However, this puts great limitation on us: once we introduce an API, we cannot easily change it anymore.
 
@@ -13318,9 +13322,9 @@ If you'd like to set it so that your extension using the proposed API is always 
 ```
 
 
-<a id="_api_advanced-topics_tslint-eslint-migration" />
+<a id="_api_advanced-topics_tslint-eslint-migration" ></a>
 
-## /api/advanced-topics/tslint-eslint-migration
+# /api/advanced-topics/tslint-eslint-migration
 -----------------------------------------------
 
     ---
@@ -13331,7 +13335,7 @@ If you'd like to set it so that your extension using the proposed API is always 
     MetaDescription: A guide to migrating extension projects from the TSLint linter to ESLint.
     ---
 
-# Migrate from TSLint to ESLint
+## Migrate from TSLint to ESLint
 
 [TSLint][LK403] has been the recommended linter in the past but now TSLint is deprecated and [ESLint][LK404] is taking over its duties. This article will help you migrate from TSLint to ESLint.
 
@@ -13402,9 +13406,9 @@ The removal of TSLint depends on your project, but usually these are the steps:
 * Uninstall TSLint with `npm uninstall tslint`.
 
 
-<a id="_api_advanced-topics_python-extension-template" />
+<a id="_api_advanced-topics_python-extension-template" ></a>
 
-## /api/advanced-topics/python-extension-template
+# /api/advanced-topics/python-extension-template
 -------------------------------------------------
 
     ---
@@ -13415,7 +13419,7 @@ The removal of TSLint depends on your project, but usually these are the steps:
     MetaDescription: Using the Python extension template and API to integrate linters, formatters, and language features into Visual Studio Code
     ---
 
-# Authoring Python Extensions
+## Authoring Python Extensions
 
 >**Note**: If you are new to VS Code extension authoring, you may want to read the [Your First Extension][LN442] tutorial first and try creating a simple Hello World extension.
 
@@ -13498,9 +13502,9 @@ Once your extension is ready to publish, there is a `nox` `build-package` task t
 If you are new to creating and publishing VS Code extensions, we recommend you follow best practices outlined in the main VS Code [extension authoring][LN444] topics. Here you'll find guidance to help make your extension look great on the Marketplace and how to become a verified publisher so that the users feel confident installing your extension.
 
 
-<a id="_api_references_vscode-api" />
+<a id="_api_references_vscode-api" ></a>
 
-## /api/references/vscode-api
+# /api/references/vscode-api
 -----------------------------
 
 - https://code.visualstudio.com//api/references/vscode-api
@@ -13585,9 +13589,9 @@ An example from the VS Code API is `window.onDidChangeActiveTextEditor` which is
 The VS Code API uses the `undefined` and `null` TypeScript types where appropriate to support [strict null checking][LK429].
 
 
-<a id="_api_references_contribution-points" />
+<a id="_api_references_contribution-points" ></a>
 
-## /api/references/contribution-points
+# /api/references/contribution-points
 --------------------------------------
 
     ---
@@ -13599,9 +13603,9 @@ The VS Code API uses the `undefined` and `null` TypeScript types where appropria
     MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
     ---
 
-# Contribution Points
+## Contribution Points
 
-**Contribution Points** are a set of JSON declarations that you make in the `contributes` field of the `package.json` [Extension Manifest][LN449]. Your extension registers **Contribution Points** to extend various functionalities within Visual Studio Code. Here is a list of all available **Contribution Points**:
+**Contribution Points** are a set of JSON declarations that you make in the `contributes` field of the `package.json` [Extension Manifest][FX000]. Your extension registers **Contribution Points** to extend various functionalities within Visual Studio Code. Here is a list of all available **Contribution Points**:
 
 - [`breakpoints`][LN449]
 - [`colors`][LN449]
@@ -15060,7 +15064,7 @@ Contribute welcome content to [Custom views][LN491]. Welcome content only applie
     "viewsWelcome": [
       {
         "view": "scm",
-        "contents": "In order to use git features, you can open a folder containing a git repository or clone from a URL.\n[Open Folder][LN492]\n[Clone Repository][LN493]\nTo learn more about how to use git and source control in VS Code [read our docs][LK437].",
+        "contents": "In order to use git features, you can open a folder containing a git repository or clone from a URL.\n[Open Folder](command:vscode.openFolder)\n[Clone Repository](command:git.clone)\nTo learn more about how to use git and source control in VS Code [read our docs](https://aka.ms/vscode-scm).",
         "when": "config.git.enabled && git.state == initialized && workbenchState == empty"
       }
     ]
@@ -15096,14 +15100,14 @@ SVGs are recommended for images given their ability to scale and their support f
           {
             "id": "runcommand",
             "title": "Run Command",
-            "description": "This step will run a command and check off once it has been run.\n[Run Command][LN495]",
+            "description": "This step will run a command and check off once it has been run.\n[Run Command](command:getting-started-sample.runCommand)",
             "media": { "image": "media/image.png", "altText": "Empty image" },
             "completionEvents": ["onCommand:getting-started-sample.runCommand"]
           },
           {
             "id": "changesetting",
             "title": "Change Setting",
-            "description": "This step will change a setting and check off when the setting has changed\n[Change Setting][LN496]",
+            "description": "This step will change a setting and check off when the setting has changed\n[Change Setting](command:getting-started-sample.changeSetting)",
             "media": { "markdown": "media/markdown.md" },
             "completionEvents": ["onSettingChanged:getting-started-sample.sampleSetting"]
           }
@@ -15132,9 +15136,9 @@ Available completion events include:
 Once a step has been checked off, it will remain checked off until the user explicitly unchecks the step or resets their progress (via the **Getting Started: Reset Progress** command).
 
 
-<a id="_api_references_activation-events" />
+<a id="_api_references_activation-events" ></a>
 
-## /api/references/activation-events
+# /api/references/activation-events
 ------------------------------------
 
     ---
@@ -15146,9 +15150,9 @@ Once a step has been checked off, it will remain checked off until the user expl
     MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of Activation Events.
     ---
 
-# Activation Events
+## Activation Events
 
-**Activation Events** is a set of JSON declarations that you make in the `activationEvents` field of `package.json` [Extension Manifest][LN497]. Your extension becomes activated when the **Activation Event** happens. Here is a list of all available **Activation Events**:
+**Activation Events** is a set of JSON declarations that you make in the `activationEvents` field of `package.json` [Extension Manifest][FX000]. Your extension becomes activated when the **Activation Event** happens. Here is a list of all available **Activation Events**:
 
 - [`onLanguage`][LN498]
 - [`onCommand`][LN498]
@@ -15378,9 +15382,9 @@ The `*` activation event is emitted and interested extensions will be activated 
 > **Note:** An extension **must** export an `activate()` function from its main module and it will be invoked **only once** by VS Code when any of the specified activation events is emitted. Also, an extension **should** export a `deactivate()` function from its main module to perform cleanup tasks on VS Code shutdown. Extension **must** return a Promise from `deactivate()` if the cleanup process is asynchronous. An extension may return `undefined` from `deactivate()` if the cleanup runs synchronously.
 
 
-<a id="_api_references_extension-manifest" />
+<a id="_api_references_extension-manifest" ></a>
 
-## /api/references/extension-manifest
+# /api/references/extension-manifest
 -------------------------------------
 
     ---
@@ -15392,7 +15396,7 @@ The `*` activation event is emitted and interested extensions will be activated 
     MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules, and runtime resources.
     ---
 
-# Extension Manifest
+## Extension Manifest
 
 Every Visual Studio Code extension needs a manifest file `package.json` at the root of the extension directory structure.
 
@@ -15705,14 +15709,14 @@ There are several Node.js modules available on npmjs to help with writing VS Cod
 
 To learn more about VS Code extensibility model, try these topics:
 
-- [Contribution Points][LN516] - VS Code contribution points reference
-- [Activation Events][LN516] - VS Code activation events reference
+- [Contribution Points][FX002] - VS Code contribution points reference
+- [Activation Events][FX001] - VS Code activation events reference
 - [Extension Marketplace][LN516] - Read more about the VS Code Extension Marketplace
 
 
-<a id="_api_references_commands" />
+<a id="_api_references_commands" ></a>
 
-## /api/references/commands
+# /api/references/commands
 ---------------------------
 
     ---
@@ -15724,7 +15728,7 @@ To learn more about VS Code extensibility model, try these topics:
     MetaDescription: Visual Studio Code built-in commands reference.
     ---
 
-# Built-in Commands
+## Built-in Commands
 
 This document lists a subset of Visual Studio Code commands that you might use with `vscode.commands.executeCommand` API.
 
@@ -16246,9 +16250,9 @@ Simple commands that do not require parameters can be found in the Keyboard Shor
 To review the default `keybindings.json`, run **Preferences: Open Default Keyboard Shortcuts (JSON)** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 
-<a id="_api_references_when-clause-contexts" />
+<a id="_api_references_when-clause-contexts" ></a>
 
-## /api/references/when-clause-contexts
+# /api/references/when-clause-contexts
 ---------------------------------------
 
     ---
@@ -16259,7 +16263,7 @@ To review the default `keybindings.json`, run **Preferences: Open Default Keyboa
     MetaDescription: Visual Studio Code when clause context reference.
     ---
 
-# when clause contexts
+## when clause contexts
 
 Visual Studio Code sets various context keys and specific values depending on what elements are visible and active in the VS Code UI. These contexts can be used to selectively enable or disable extension commands and UI elements, such as menus and views.
 
@@ -16598,9 +16602,9 @@ The list of active context keys is extensive and may contain [custom context key
 >**Note**: Some context keys are for VS Code internal use and may change in the future.
 
 
-<a id="_api_references_theme-color" />
+<a id="_api_references_theme-color" ></a>
 
-## /api/references/theme-color
+# /api/references/theme-color
 ------------------------------
 
     ---
@@ -16612,7 +16616,7 @@ The list of active context keys is extensive and may contain [custom context key
     MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
     ---
 
-# Theme Color
+## Theme Color
 
 You can customize your active Visual Studio Code [color theme][LN520] with the `workbench.colorCustomizations` user [setting][LN520].
 
@@ -17807,9 +17811,9 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 Color IDs can also be contributed by extensions through the [color contribution point][LN545]. These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions][LN546] tab.
 
 
-<a id="_api_references_icons-in-labels" />
+<a id="_api_references_icons-in-labels" ></a>
 
-## /api/references/icons-in-labels
+# /api/references/icons-in-labels
 ----------------------------------
 
     ---
@@ -17821,7 +17825,7 @@ Color IDs can also be contributed by extensions through the [color contribution 
     MetaDescription: Reference of all product icons by id
     ---
 
-# Product Icon Reference
+## Product Icon Reference
 
 Visual Studio Code contains a set of built-in icons that are used in views and the editor, but can also be used in hovers, the status bar, and by extensions. These icons are **product icons** as opposed to **file icons**, which are used next to file names throughout the UI.
 
@@ -18651,9 +18655,9 @@ VS Code extensions can use these icons in labels, views, and trees.
 
 
 
-<a id="_api_references_document-selector" />
+<a id="_api_references_document-selector" ></a>
 
-## /api/references/document-selector
+# /api/references/document-selector
 ------------------------------------
 
     ---
@@ -18665,7 +18669,7 @@ VS Code extensions can use these icons in labels, views, and trees.
     MetaDescription: Visual Studio Code extensions can filter their features based on Document Selectors by language, file type, and location.
     ---
 
-# Document Selectors
+## Document Selectors
 
 Extensions can filter their features based on document selectors by language, file type, and location. This topic discusses document selectors, document schemes, and what extensions authors should be aware about.
 
@@ -18753,7 +18757,7 @@ Documents are usually stored on the file system, but not always: there are untit
 To learn more about VS Code extensibility model, try these topics:
 
 - [Extension Manifest File][LN548] - VS Code package.json extension manifest file reference
-- [Contribution Points][LN549] - VS Code contribution points reference
+- [Contribution Points][FX002] - VS Code contribution points reference
 
 
 [LK001]: https://github.com/microsoft/vscode/tree/main/extensions
@@ -19207,6 +19211,10 @@ To learn more about VS Code extensibility model, try these topics:
 [LK449]: https://www.npmjs.com/package/vscode-languageclient
 [LK450]: https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_Expressions#creating_a_regular_expression
 [LK451]: https://github.com/microsoft/vscode-codicons
+
+[FX000]: https://code.visualstudio.com/api/references/extension-manifest
+[FX001]: https://code.visualstudio.com/api/references/activation-events
+[FX002]: https://code.visualstudio.com/api/references/contribution-points
 
 [LN001]: #_api_get-started_your-first-extension
 [LN002]: #_api_get-started_extension-anatomy

@@ -11245,6 +11245,8 @@ The result is:
    https://docutils.sourceforge.io/docs/user/config.html#math-output
 .. _LaTeX package:
    ../../user/latex.html#latex-document-classes-and-packages
+.. _LaTeX syntax for mathematics:
+    https://docutils.sourceforge.io/docs/ref/rst/mathematics.html
 
 
 Mathematical symbols
@@ -11426,6 +11428,19 @@ formulas and not supported by LaTeX.
   `\Omega`   ``\Omega``    `\lambda`  ``\lambda``   `\psi`     ``\psi``
   ========== ============  ========== ============  ========== ============  ============== ===============
 
+..
+    Γ   \Gamma              α   \alpha              μ   \mu                 ω   \omega
+    Δ   \Delta              β   \beta               ν   \nu                 ϝ   \digamma
+    Λ   \Lambda             γ   \gamma              ξ   \xi                 ε   \varepsilon
+    Φ   \Phi                δ   \delta              π   \pi                 ϰ   \varkappa
+    Π   \Pi                 ϵ   \epsilon            ρ   \rho                φ   \varphi
+    Ψ   \Psi                ζ   \zeta               σ   \sigma              ϖ   \varpi
+    Σ   \Sigma              η   \eta                τ   \tau                ϱ   \varrho
+    Θ   \Theta              θ   \theta              υ   \upsilon            ς   \varsigma
+    Υ   \Upsilon            ι   \iota               ϕ   \phi                ϑ   \vartheta
+    Ξ   \Xi                 κ   \kappa              χ   \chi                Ω   \Omega
+    λ   \lambda             ψ   \psi            
+
 In LaTeX, the default font for capital Greek letters is upright/roman.
 *Italic* capital Greek letters can be obtained by loading a `package
 providing the "ISO" math style`__. They are used by default in MathML.
@@ -11452,6 +11467,13 @@ Letterlike symbols
   `\mho`        ``\mho``         `\eth`     ``\eth``      `\Bbbk`    ``\Bbbk``
   ============= ===============  ========== ============  ========== ============  =========== =============
 
+..
+    ∀  \forall      ℵ  \aleph       ℏ  \hbar        ℓ  \ell         
+    ∁  \complement  ℶ  \beth        ℏ  \hslash      ℘  \wp          
+    ∃  \exists      ℷ  \gimel       ℑ  \Im          ℜ  \Re          
+    Ⅎ  \Finv        ℸ  \daleth      ı  \imath       Ⓡ  \circledR    
+    ⅁  \Game        ∂  \partial     ȷ  \jmath       Ⓢ  \circledS    
+    ℧  \mho         ð  \eth         𝕜  \Bbbk        
 
 Mathematical Alphabets
 ----------------------

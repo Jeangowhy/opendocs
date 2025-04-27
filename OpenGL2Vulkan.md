@@ -302,7 +302,7 @@ GPU 中没有默认的顶点着色器和片段着色器，不可能随意给出�
 - FreeGLUT HelloWorld https://github.com/jimboyeah/spine-sfml-demo/blob/master/examples/opengl.cpp
 - Anton's OpenGL 4 Tutorials https://antongerdelan.net/opengl/
 
-在早期，OpenGL 和 GLSL 的版本发行并不一致，直到 OpenGL 2.0 开始，才对应发行一个版本号。但版本号并不总是一致，直到 OpenGL 3.3 开始才一致。根据对应关系经 GLSL 1.1 对应的是 OpenGL 2.0，GLSL 1.5 对应 OpenGL 3.2：
+在早期，OpenGL 和 GLSL 的版本发行并不一致，OpenGL 2.0 开始，才对应发行一个版本号。但版本号并不总是一致，直到 2010 年的 OpenGL 3.3 开始才一致。历史版本对应关系：GLSL 1.1 对应的是 OpenGL 2.0，GLSL 1.5 对应 OpenGL 3.2：
 
 OpenGL 历史版本更新：
 

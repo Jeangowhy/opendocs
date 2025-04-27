@@ -53,7 +53,7 @@ I. The Basics About the Book
     5. Tables                                                            [ch5]
       - Table Indices                                            [Table-Indices]
       - Table Constructors                                  [Table-Constructors]
-      - Arrays, Lists, and Sequences              [Arrays,-Lists,-and-Sequences]
+      - Arrays, Lists, and Sequences                [Arrays-Lists-and-Sequences]
       - Table Traversal                                        [Table-Traversal]
       - Safe Navigation                                        [Safe-Navigation]
       - The Table Library                                    [The-Table-Library]
@@ -76,7 +76,7 @@ I. The Basics About the Book
          - repeat iv                                                 [repeat-iv]
          - Numerical for                                         [Numerical-for]
          - Generic for                                             [Generic-for]
-      - break, return, and goto                        [break,-return,-and-goto]
+      - break, return, and goto                          [break-return-and-goto]
 
 II. Real Programming
 
@@ -3252,7 +3252,7 @@ second version has a quadratic cost, because both the number of iterations and t
 passed in each iteration grow with the number of arguments.)
 
 ## ⚡ The function table.unpack
-                               [content]  [index]    *The-function-table-unpack*
+                               [content]  [index]    *The-function-table.unpack*
 
 A special function with multiple returns is table.unpack. It takes a list and returns as results all elements from the list:
 
@@ -4056,7 +4056,7 @@ Unlike the numerical for, the generic for can have multiple variables, which are
 to the loop body and you should not change their values inside each iteration.
 
 ### ⛏ break, return, and goto
-                                    [content] [index] *break,-return,-and-goto*
+                                    [content] [index] *break-return-and-goto*
 
 The break and return statements allow us to jump out of a block. The goto statement allows us to jump
 to almost any point in a function.

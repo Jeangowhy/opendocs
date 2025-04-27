@@ -1,0 +1,4521 @@
+:bash: ;pandoc -tasciidoc -rhtml https://latexguide.org/contents/ >> $0; exit
+:icons: font
+:source-highlighter: highlight.js
+:_kroki-server-url: http://localhost:8000
+== LaTeX Beginner's Guide
+
+[.text-center]
+image:https://m.media-amazon.com/images/I/61n+XjXk13L._SL1360_.jpg[width=50%] +
+https://vscode.dev/github.com/PacktPublishing/LaTeX-Beginner-s-Guide-Second-Edition[Sources] +
+https://static.latexstudio.net/wp-content/uploads/2015/03/LaTeX_Beginners_Guide.pdf[PDF 1st Edition] +
+https://vscode.dev/github.com/marcoteran/lst/blob/master/laboratory/introtolatex/resources/StefanKottwitzLaTeXBeginnersGuide.pdf[PDF 2nd Edition]
+
+.Transformer Script
+[source,bash]
+----
+while read -r url
+do
+    pandoc -tasciidoc -rhtml $url >> $0
+done <<EOF
+https://latexguide.org/chapter-01-getting-started-with-latex/
+https://latexguide.org/chapter-02-formatting-text-and-creating-macros/
+https://latexguide.org/chapter-03-designing-pages/
+https://latexguide.org/chapter-04-creating-lists/
+https://latexguide.org/chapter-05-including-images/
+https://latexguide.org/chapter-06-creating-tables/
+https://latexguide.org/chapter-07-using-cross-references/
+https://latexguide.org/chapter-08-listing-contents-and-references/
+https://latexguide.org/chapter-09-writing-math-formulas/
+https://latexguide.org/chapter-10-using-fonts/
+https://latexguide.org/chapter-11-developing-large-documents/
+https://latexguide.org/chapter-12-enhancing-your-documents-further/
+https://latexguide.org/chapter-13-troubleshooting/
+EOF
+exit
+----
+
+• https://latexguide.org/chapter-01-getting-started-with-latex/[Getting started with LaTeX]
+• https://latexguide.org/chapter-02-formatting-text-and-creating-macros/[Formatting Text and Creating Macros]
+• https://latexguide.org/chapter-03-designing-pages/[Designing Pages]
+• https://latexguide.org/chapter-04-creating-lists/[Creating Lists]
+• https://latexguide.org/chapter-05-including-images/[Including Images]
+• https://latexguide.org/chapter-06-creating-tables/[Creating Tables]
+• https://latexguide.org/chapter-07-using-cross-references/[Using Cross-References]
+• https://latexguide.org/chapter-08-listing-contents-and-references/[Listing Contents and References]
+• https://latexguide.org/chapter-09-writing-math-formulas/[Writing Math Formulas]
+• https://latexguide.org/chapter-10-using-fonts/[Using Fonts]
+• https://latexguide.org/chapter-11-developing-large-documents/[Developing Large Documents]
+• https://latexguide.org/chapter-12-enhancing-your-documents-further/[Enhancing Your Documents Further]
+• https://latexguide.org/chapter-13-troubleshooting/[Troubleshooting]
+• Using Online Resources (no code in this chapter)
+
+
+=== What this book covers
+
+_https://latexguide.org/chapter-01[Chapter 1, Getting Started with LaTeX]_,
+introduces LaTeX and explains its benefits. It guides you
+through the download and installation of a comprehensive LaTeX
+distribution and shows you how to create your first LaTeX document. It
+also introduces the use of the online LaTeX software Overleaf.
+Furthermore, you will get familiar with accessing package documentation.
+
+_https://latexguide.org/chapter-02[Chapter 2, Formatting Text and Creating Macros]_,
+explains how to vary font, shape, and text styles. It
+deals with centering and justification of paragraphs and how we can
+improve line breaks and hyphenation. It introduces logical formatting
+and describes how to define macros and how to use environments and
+packages.
+
+_https://latexguide.org/chapter-03[Chapter 3, Designing Pages]_,
+shows how you can adjust the margins and change the line spacing. It
+demonstrates portrait, landscape, and two-column layouts. In this
+chapter, we will create dynamic headers and footers and learn how to
+control page breaking and how to use footnotes. Along the way, you will
+also learn about redefining existing commands and using class options.
+
+_https://latexguide.org/chapter-04[Chapter 4, Creating Lists]_,
+deals with arranging text in bulleted, numbered, and definition lists.
+You will learn how to choose bullets and numbering styles and how to
+design the overall layout of lists.
+
+_https://latexguide.org/chapter-05[Chapter 5, Including Images]_,
+shows you how to include external pictures with captions in your
+documents. You will learn how to benefit from LaTeX’s automated figures
+placement and how to fine-tune it.
+
+_https://latexguide.org/chapter-06[Chapter 6, Creating Tables]_,
+shows you how to create professional-looking tables and goes deep into
+formatting details.
+
+_https://latexguide.org/chapter-07[Chapter 7, Using Cross-References]_,
+introduces intelligent referencing to sections,
+footnotes, tables, figures, and numbered environments in general.
+
+_https://latexguide.org/chapter-08[Chapter 8, Listing Contents and References]_,
+deals with creating and customizing a table of contents
+and lists of figures and tables. Furthermore, it explains how to cite
+books, create bibliographies, and generate an index.
+
+_https://latexguide.org/chapter-09[Chapter 9, Writing Math Formulas]_,
+explains mathematical typesetting in depth. It starts with
+basic formulas and continues with centered and numbered equations. It
+shows how to align multi line equations. In detail, it shows how to
+typeset math symbols such as roots, arrows, Greek letters, and
+operators. Moreover, you will learn to build complex math structures
+such as fractions, stacked expressions, and matrices.
+
+_https://latexguide.org/chapter-10[Chapter 10, Using Fonts]_, takes
+us into the world of fonts and demonstrates various fonts, including
+Roman, sans-serif, and typewriter fonts, in different shapes.
+
+_https://latexguide.org/chapter-11[Chapter 11, Developing Large Documents]_,
+helps in managing large documents by splitting them into
+several files. After reading this chapter, you will be able to create
+complex projects building upon sub-files. Furthermore, we deal with
+front matter and back matter with different page numbering and separate
+title pages. We will work through this by creating an example book. By
+doing this, you will get familiar with using document templates, and
+finally you can write your own thesis, book, or report.
+
+_https://latexguide.org/chapter-12[Chapter 12, Enhancing Your Documents Further]_,
+brings color into your documents. It shows you how
+to modify headings of chapters and all kinds of sections. We will learn
+how to create feature-rich PDF documents with bookmarks, hyperlinks, and
+metadata.
+
+_https://latexguide.org/chapter-13[Chapter 13, Troubleshooting]_,
+provides us with tools for problem-solving. We will learn about
+different kinds of LaTeX errors and warnings and how to deal with them.
+After reading this chapter, you will understand LaTeX’s messages and
+know how to use them to fix errors.
+
+_https://latexguide.org/chapter-14[Chapter 14, Using Online Resources]_,
+guides you through the vast amount of LaTeX information on
+the internet. We will visit an online LaTeX forum and a LaTeX Q&A site.
+This chapter points the way to the huge LaTeX software archives, TeX
+user groups’ homepages, mailing lists, Usenet groups, and LaTeX graphics
+galleries. It tells you where you can download LaTeX-capable editors and
+where you can meet LaTeX friends on blogs and Twitter.
+
+== LaTeX Beginner's Guide Second Edition
+
+LaTeX Beginner's Guide Second Edition, published by Packt
+
+[link=https://www.packtpub.com/product/latex-beginner-s-guides/9781801078658]
+image::https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-Second-Edition/blob/main/cover.png[height=256px]
+
+This is the code repository for [LaTeX-Beginner-s-Guide-Second-Edition]
+https://www.packtpub.com/product/latex-beginner-s-guides/9781801078658,
+published by Packt.
+
+**Create visually appealing texts, articles, and books for business and science using LaTeX**
+
+=== What is this book about?
+
+LaTeX is high-quality open source typesetting software that produces 
+professional prints and PDF files. It's a powerful and complex tool with 
+a multitude of features, so getting started can be intimidating. However, 
+once you become comfortable with LaTeX, its capabilities far outweigh any 
+initial challenges, and this book will help you with just that!
+
+This book covers the following exciting features: 
+
+* Make the most of LaTeX's powerful features to produce professionally designed texts
+* Download, install and set up LaTeX and use additional styles, templates, and tools
+* Typeset math formulas and scientific expressions to the highest standards
+* Understand how to include graphics and work with figures and tables
+* Discover professional fonts and modern PDF features
+
+If you feel this book is for you, get your 
+https://www.amazon.com/dp/1801078653[copy] today!
+
+
+=== Instructions and Navigations
+
+All of the code is organized into folders.
+
+The code will look like the following:
+
+[source,tikz]
+....
+\documentclass{article}
+\begin{document}
+Besides from {\itshape italics}, words can be {\bfseries bold},
+{\slshape slanted}, or typeset in {\scshape Small Caps}.
+\end{document}
+....
+
+**Following is what you need for this book:**
+
+If you are about to write mathematical or scientific papers, seminar 
+handouts, or even plan to write a thesis, this book offers you a 
+fast-paced and practical introduction to LaTeX. School and university 
+students will find this easy-to-follow LaTeX guide helpful, as will 
+mathematicians, physicists, engineers, and humanists. Anybody with high 
+expectations from their software will discover how easy it is to leverage 
+LaTeX's high performance for creating documents.
+
+With the following software and hardware list you can run all code files present 
+in the book (Chapter 1-13).
+
+==== Software and Hardware List
+
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+| Chapter  | Software required | OS required
+
+|  1 - 13  | Install LaTeX     | Mac OS X, Linux, and other systems
+|===
+
+==== Related products <Other books you may enjoy>
+
+* The Official Guide to Mermaid.js 
+  https://www.packtpub.com/product/latex-beginner-s-guides/9781801078023[Packt]
+  https://www.amazon.com/dp/1801078025[Amazon]
+
+* LaTeX Cookbook 
+  https://www.packtpub.com/product/latex-beginner-s-guides/9781784395148[Packt] 
+  https://www.amazon.com/dp/1784395145[Amazon]
+
+=== Get to Know the Author
+
+**Stefan Kottwitz** studied mathematics in Jena and Hamburg. He works as a 
+network and IT security engineer both for Lufthansa Industry Solutions and for 
+Eurowings Aviation.For many years, he has been providing LaTeX support on online 
+forums. He maintains the web forums LaTeX.org and goLaTeX.de and the Q&A sites 
+TeXwelt.de and TeXnique.fr.He runs the TeX graphics gallery sites TeXample.net, 
+TikZ.net, and PGFplots.net, the TeXlive.net online compiler, the TeXdoc.org 
+service, and the CTAN.net software mirror.He is a moderator of the TeX Stack 
+Exchange site and matheplanet.com. He publishesideas and news from the TeX world 
+on his blogs LaTeX.net and TeX.co.Before this book, he authored the first 
+edition of LaTeX Beginner's Guide in 2011, and LaTeX Cookbook in 2015, both 
+published by Packt.
+
+=== Download a free PDF
+
+If you have already purchased a print or Kindle version of this book, you can 
+get a DRM-free PDF version at no cost.<br>Simply click on the link to claim 
+your free PDF.
+
+https://packt.link/free-ebook/9781801078658
+
+
+[[Chapter_01]]
+== Chapter 01 Getting Started with LaTeX
+
+In this chapter, we talked about installing and using LaTeX. So we had
+only one first very basic test example.
+
+[source,tikz]
+....
+%\documentclass{article}
+\documentclass{standalone}
+\begin{document}
+This is our first document.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_1_9.png[figure]
+
+*Figure 1.9*
+
+
+Any question about a code example? Post it on https://latex.org[LaTeX.org], 
+I will answer. As forum admin I read every single question there.
+(https://latex.org/forum/memberlist.php?mode=viewprofile&u=1553[profile link]).
+
+
+[[Chapter_02]]
+== Chapter 02 Formatting Text and Creating Macros
+
+Here are the Code examples of this chapter. You can compile them online
+right on this web page by pressing the *Typeset / Compile* button. You
+can also edit them for testing, and compile again.
+
+For a better view with the online compiler, I sometimes use
+\documentclass[border=10pt]{standalone} instead of
+\documentclass{article}. Instead of having a big letter/A4 page, the
+standalone class crops the paper to see just the visible text without an
+empty rest of a page.
+
+TIP: 使用 standalone 页面类型主要目的是裁剪图形，方便在电子文档中呈现绘图区，而不是呈现
+完整的纸张尺寸。类似地，可以使用 \usepackage[height=65mm]{geometry} 设置页面的几何
+尺寸来实现内容的裁剪，可以在不能使用 standalone 页面类型的条件下裁剪图形。譬如需要给文档
+分章节（\section）时就不能使用 standalone 页面类型，而应该使用 article。
+
+=== Creating a document with title and heading
+
+[source,tikz]
+....
+\documentclass[a4paper,11pt]{article}
+\usepackage[height=65mm]{geometry}
+\title{Example 2}
+\author{My name}
+\date{May 5, 2021}
+\begin{document}
+\maketitle
+\section{What's this?}
+This is our second document. It contains a title and a section with text.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_1.png[figure]
+
+*Figure 2.1*
+
+'''''
+
+=== Printing out special symbols
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\begin{document}
+Statement \#1:
+50\% of \$100 equals \$50.
+
+More special symbols are \&, \_, \{ and \}.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_2.png[figure]
+
+*Figure 2.2*
+
+'''''
+
+=== Adjusting the font shape
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\begin{document}
+Text can be \emph{emphasized}.
+
+Besides from \textit{italics}, words can be \textbf{bold},
+\textsl{slanted}, or typeset in \textsc{Small Caps}.
+
+Such commands can be \textit{\textbf{nested}}.
+
+\emph{See how \emph{emphasizing} looks when nested.}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_3.png[figure]
+
+*Figure 2.3*
+
+'''''
+
+=== Choosing the font family
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\begin{document}
+\textsf{\textbf{Get help on the Internet}}
+
+\texttt{https://latex.org} is a support forum for \LaTeX.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_4.png[figure]
+
+*Figure 2.4*
+
+'''''
+
+=== Using declarations
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\begin{document}
+\sffamily\bfseries Get help on the Internet
+
+\normalfont\ttfamily https://latex.org\normalfont\ is
+a support forum for \LaTeX.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_5.png[figure]
+
+*Figure 2.5*
+
+'''''
+
+=== Font commands
+
+[source,tikz]
+....
+% Used for Figure 2.6: Font commands
+\documentclass[border=10pt]{standalone}
+\usepackage{booktabs}
+\renewcommand*\c{\ttfamily\textbackslash}
+\begin{document}
+\sffamily
+\begin{tabular}{lll}
+\toprule
+\textbf{Command} & \textbf{Declaration} & \textbf{Meaning} \\
+\midrule
+\c textrm\{\ldots\}     & \c rmfamily   & \normalfont\rmfamily roman family      \\
+\c textsf\{\ldots\}     & \c sffamily   & \normalfont\sffamily sans-serif family \\
+\c texttt\{\ldots\}     & \c ttfamily   & \normalfont\ttfamily typewriter family \\
+\c textbf\{\ldots\}     & \c bfseries   & \normalfont\bfseries bold-face         \\
+\c textmd\{\ldots\}     & \c mdseries   & \normalfont\mdseries medium            \\
+\c textit\{\ldots\}     & \c itshape    & \normalfont\itshape  italic shape      \\
+\c textsl\{\ldots\}     & \c slshape    & \normalfont\slshape  slanted shape     \\
+\c textsc\{\ldots\}     & \c scshape    & \normalfont\scshape  Small Caps shape  \\
+\c textup\{\ldots\}     & \c upshape    & \normalfont\upshape  upright shape     \\
+\c textnormal\{\ldots\} & \c normalfont & \normalfont          default font      \\
+\bottomrule
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_6.png[figure]
+
+*Figure 2.6*
+
+'''''
+
+=== Confining the effect of commands by braces
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\begin{document}
+Besides from {\itshape italics}, words can be {\bfseries bold},
+{\slshape slanted}, or typeset in {\scshape Small Caps}.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_7.png[figure]
+
+*Figure 2.7*
+
+'''''
+
+=== Exploring font sizes
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\begin{document}
+\tiny We \scriptsize start \footnotesize very \small small,
+\normalsize get \large big \Large and \LARGE bigger,
+\huge huge, \Huge gigantic!
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_8.png[figure]
+
+*Figure 2.8*
+
+'''''
+
+=== Using macros for simple text
+
+[source,tikz]
+....
+\documentclass{article}
+\usepackage[height=15mm]{geometry}
+\newcommand{\TUG}{\TeX\ Users Group}
+\begin{document}
+\section{The \TUG}
+The \TUG\ is an organization for people who use \TeX\ or \LaTeX.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_9.png[figure]
+
+*Figure 2.9*
+
+'''''
+
+=== Proper spacing after commands
+
+[source,tikz]
+....
+\documentclass{article}
+\usepackage[height=15mm]{geometry}
+\usepackage{xspace}
+\newcommand{\TUG}{\TeX\ Users Group\xspace}
+\begin{document}
+\section{The \TUG}
+The \TUG is an organization for people who use \TeX\ or \LaTeX.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_9.png[figure]
+
+*Figure 2.9 – same output*
+
+'''''
+
+=== Creating a macro with arguments
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\newcommand{\keyword}[1]{\textbf{#1}}
+\begin{document}
+\keyword{Grouping} by curly braces limits the
+\keyword{scope} of \keyword{declarations}.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_10.png[figure]
+
+*Figure 2.10*
+
+'''''
+
+=== Creating a macro with optional arguments
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\newcommand{\keyword}[2][\bfseries]{{#1#2}}
+\begin{document}
+\keyword{Grouping} by curly braces limits the
+\keyword{scope} of \keyword[\itshape]{declarations}.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_11.png[figure]
+
+*Figure 2.11*
+
+'''''
+
+=== Creating a narrow text box
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\begin{document}
+\parbox{3cm}{TUG is an acronym. It means \TeX\ Users Group.}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_12.png[figure]
+
+*Figure 2.12*
+
+'''''
+
+=== Producing common paragraph boxes
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\begin{document}
+Text line
+\quad\parbox[b]{1.8cm}{this parbox is aligned at its bottom line}
+\quad\parbox{1.5cm}{center-aligned parbox}
+\quad\parbox[t]{2cm}{another parbox aligned at its top line}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_13.png[figure]
+
+*Figure 2.13*
+
+'''''
+
+=== Using mini pages
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\begin{document}
+\begin{minipage}{3cm}
+TUG is an acronym. It means \TeX\ Users Group.
+\end{minipage}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_14.png[figure]
+
+*Figure 2.14*
+
+'''''
+
+=== Improving hyphenation
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\hyphenation{acro-nym}
+\begin{document}
+\begin{minipage}{3cm}
+TUG is an acronym. It means \TeX\ Users Group.
+\end{minipage}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_15.png[figure]
+
+*Figure 2.15*
+
+'''''
+
+=== Improving the justification
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\usepackage{microtype}
+\begin{document}
+\begin{minipage}{3cm}
+TUG is an acronym. It means \TeX\ Users Group.
+\end{minipage}
+\end{document}
+....
+
+'''''
+
+=== Breaking lines manually
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\begin{document}
+\noindent\emph{Annabel Lee}\\
+It was many and many a year ago,\\
+In a kingdom by the sea,\\
+That a maiden there lived whom you may know\\
+By the name of Annabel Lee
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_16.png[figure]
+
+*Figure 2.16*
+
+'''''
+
+=== Creating ragged-right text
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\begin{document}
+\parbox{3cm}{\raggedright
+TUG is an acronym. It means \TeX\ Users Group.}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_17.png[figure]
+
+*Figure 2.17*
+
+'''''
+
+=== Creating ragged-left text
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\begin{document}
+\parbox{3cm}{\raggedleft
+TUG is an acronym. It means \TeX\ Users Group.}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_18.png[figure]
+
+*Figure 2.18*
+
+'''''
+
+=== Centering text
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\pagestyle{empty}
+\begin{document}
+{\centering
+\huge\bfseries Centered text \\
+\Large\normalfont written by me \\
+\normalsize\today
+
+}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_19.png[figure]
+
+*Figure 2.19*
+
+'''''
+
+=== Using environments for justification
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\usepackage{url}
+\begin{document}
+\noindent This is the beginning of a poem
+by Edgar Allan Poe:
+\begin{center}
+\emph{Annabel Lee}
+\end{center}
+\begin{center}
+It was many and many a year ago,\\
+In a kingdom by the sea,\\
+That a maiden there lived whom you may know\\
+By the name of Annabel Lee
+\end{center}
+The complete poem can be read on
+\url{http://www.online-literature.com/poe/576/}.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_20.png[figure]
+
+*Figure 2.20*
+
+'''''
+
+=== Displaying quotes
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\begin{document}
+\noindent Niels Bohr said: ``An expert is a person who has made
+all the mistakes that can be made in a very narrow field.''
+Albert Einstein said:
+\begin{quote}
+Anyone who has never made a mistake has never tried anything new.
+\end{quote}
+Errors are inevitable. So, let’s be brave trying something new.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_21.png[figure]
+
+*Figure 2.21*
+
+'''''
+
+=== Quoting longer text
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\usepackage{url}
+\begin{document}
+
+The authors of the CTAN team listed ten good reasons
+for using \TeX. Among them are:
+\begin{quotation}
+\TeX\ has the best output. What you end with,
+the symbols on the page, is as useable, and beautiful,
+as a non-professional can produce.
+
+\TeX\ knows typesetting. As those plain text samples
+show, TeX's has more sophisticated typographical algorithms
+such as those for making paragraphs and for hyphenating.
+
+\TeX\ is fast. On today's machines \TeX\ is very fast.
+It is easy on memory and disk space, too.
+
+\TeX\ is stable. It is in wide use, with a long history.
+It has been tested by millions of users, on demanding input.
+It will never eat your document. Never.
+\end{quotation}
+The original text can be found on
+\url{https://www.ctan.org/what_is_tex.html}.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_22.png[figure]
+
+*Figure 2.22*
+
+'''''
+
+=== Vertical spacing between paragraphs
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\usepackage{parskip}
+\usepackage{url}
+\begin{document}
+The authors of the CTAN team listed ten good reasons
+for using \TeX. Among them are:
+
+\TeX\ has the best output. What you end with,
+the symbols on the page, is as useable, and beautiful,
+as a non-professional can produce\ldots
+
+The original text can be found on
+\url{https://www.ctan.org/what_is_tex.html}.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_2_23.png[figure]
+
+*Figure 2.23*
+
+'''''
+
+This code is available on
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/tree/main/Chapter_02_-_Formatting_Text_and_Creating_Macros[Github].
+It is licensed under the
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/blob/main/LICENSE[MIT
+License], a short and simple permissive license with conditions only
+requiring preservation of copyright and license notices.
+
+
+
+[[Chapter_03]]
+== Chapter 03 Designing Pages
+
+
+=== Creating a book with chapters
+
+[source,tikz]
+....
+\documentclass[a4paper,12pt]{book}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\begin{document}
+\chapter{Exploring the page layout}
+In this chapter we will study the layout of pages.
+\section{Some filler text}
+\blindtext
+\section{A lot more filler text}
+More dummy text will follow.
+\subsection{Plenty of filler text}
+\blindtext[10]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_3_1.png[figure]
+
+*Figure 3.1*
+
+'''''
+
+=== Defining the margins
+
+[source,tikz]
+....
+\documentclass[a4paper,12pt]{book}
+\usepackage[a4paper, inner=1.5cm, outer=3cm, top=2cm, bottom=3cm, bindingoffset=0.5cm]{geometry}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\begin{document}
+\chapter{Exploring the page layout}
+In this chapter we will study the layout of pages.
+\section{Some filler text}
+\blindtext
+\section{A lot more filler text}
+More dummy text will follow.
+\subsection{Plenty of filler text}
+\blindtext[10]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_3_2.png[figure]
+
+*Figure 3.2*
+
+'''''
+
+=== Using class options to configure the document style
+
+[source,tikz]
+....
+\documentclass[a4paper,12pt,landscape,twocolumn]{book}
+\usepackage{geometry}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\begin{document}
+\chapter{Exploring the page layout}
+In this chapter we will study the layout of pages.
+\section{Some filler text}
+\blindtext
+\section{A lot more filler text}
+More dummy text will follow.
+\subsection{Plenty of filler text}
+\blindtext[10]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_3_3.png[figure]
+
+*Figure 3.3: page 2 header*
+
+
+image:https://latexguide.org/img/figure_3_4.png[figure]
+
+*Figure 3.4: page 3 header*
+
+'''''
+
+=== Designing headers and footers
+
+[source,tikz]
+....
+\documentclass[a4paper,12pt]{book}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyhead[LE]{\scshape\nouppercase{\leftmark}}
+\fancyhead[RO]{\nouppercase{\rightmark}}
+\fancyfoot[LE,RO]{\thepage}
+\pagestyle{fancy}
+\begin{document}
+\chapter{Exploring the page layout}
+In this chapter we will study the layout of pages.
+\section{Some filler text}
+\blindtext
+\section{A lot more filler text}
+More dummy text will follow.
+\subsection{Plenty of filler text}
+\blindtext[10]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_3_5.png[figure]
+
+*Figure 3.5: new page 2 header*
+
+
+image:https://latexguide.org/img/figure_3_6.png[figure]
+
+*Figure 3.6: new page 3 header*
+
+'''''
+
+=== Using footnotes
+
+[source,tikz]
+....
+\documentclass[a4paper,12pt]{book}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\begin{document}
+\chapter{Exploring the page layout}
+In this chapter we will study the layout of pages.
+\section{Some filler text}
+\blindtext
+\section{A lot more filler text}
+More dummy text\footnote{serving as a placeholder}
+will follow.
+\subsection{Plenty of filler text}
+\blindtext[10]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_3_7.png[figure]
+
+*Figure 3.7*
+
+'''''
+
+=== Long footnote separation line
+
+[source,tikz]
+....
+\documentclass[a4paper,12pt]{book}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\renewcommand{\footnoterule}
+{\noindent\smash{\rule[3pt]{\textwidth}{0.4pt}}}
+\begin{document}
+\chapter{Exploring the page layout}
+In this chapter we will study the layout of pages.
+\section{Some filler text}
+\blindtext
+\section{A lot more filler text}
+More dummy text\footnote{serving as a placeholder}
+will follow.
+\subsection{Plenty of filler text}
+\blindtext[10]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_3_8.png[figure]
+
+*Figure 3.8*
+
+'''''
+
+=== Breaking pages
+
+[source,tikz]
+....
+\documentclass[a4paper,12pt]{book}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\begin{document}
+\chapter{Exploring the page layout}
+In this chapter we will study the layout of pages.
+\section{Some filler text}
+\blindtext
+\section{A lot more filler text}
+More dummy text will follow.
+\pagebreak
+\subsection{Plenty of filler text}
+\blindtext[10]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_3_9.png[figure]
+
+*Figure 3.9*
+
+'''''
+
+=== Replacing \pagebreak by \newpage
+
+[source,tikz]
+....
+\documentclass[a4paper,12pt]{book}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\begin{document}
+\chapter{Exploring the page layout}
+In this chapter we will study the layout of pages.
+\section{Some filler text}
+\blindtext
+\section{A lot more filler text}
+More dummy text will follow.
+\newpage
+\subsection{Plenty of filler text}
+\blindtext[10]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_3_10.png[figure]
+
+*Figure 3.10*
+
+'''''
+
+=== Enlarging a page
+
+[source,tikz]
+....
+\documentclass[a4paper,11pt]{book}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage[a4paper, inner=1.5cm, outer=3cm, top=2cm,
+bottom=3cm, bindingoffset=1cm]{geometry}
+\begin{document}
+\chapter{Exploring the page layout}
+In this chapter we will study the layout of pages.
+\section{Some filler text}
+\blindtext
+\section{A lot more filler text}
+More dummy text will follow.
+\subsection{Plenty of filler text}
+\blindtext[3]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_3_11.png[figure]
+
+*Figure 3.11*
+
+
+image:https://latexguide.org/img/figure_3_12.png[figure]
+
+*Figure 3.12*
+
+'''''
+
+=== With \enlargethispage
+
+[source,tikz]
+....
+\documentclass[a4paper,11pt]{book}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage[a4paper, inner=1.5cm, outer=3cm, top=2cm,
+bottom=3cm, bindingoffset=1cm]{geometry}
+\begin{document}
+\chapter{Exploring the page layout}
+In this chapter we will study the layout of pages.
+\section{Some filler text}
+\blindtext
+\section{A lot more filler text}
+More dummy text will follow.
+\subsection{Plenty of filler text}
+\enlargethispage{\baselineskip}
+\blindtext[3]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_3_13.png[figure]
+
+*Figure 3.13*
+
+'''''
+
+=== Changing the line spacing
+
+[source,tikz]
+....
+\documentclass[a4paper,11pt]{book}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage[a4paper, inner=1.5cm, outer=3cm, top=2cm,
+bottom=3cm, bindingoffset=1cm]{geometry}
+\usepackage[onehalfspacing]{setspace}
+\begin{document}
+\chapter{Exploring the page layout}
+In this chapter we will study the layout of pages.
+\section{Some filler text}
+\blindtext
+\section{A lot more filler text}
+More dummy text will follow.
+\subsection{Plenty of filler text}
+\enlargethispage{\baselineskip}
+\blindtext[3]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_3_14.png[figure]
+
+*Figure 3.14*
+
+'''''
+
+=== Creating a table of contents
+
+[source,tikz]
+....
+\documentclass[a4paper,12pt]{book}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage[a4paper, inner=1.5cm, outer=3cm, top=2cm,
+bottom=3cm, bindingoffset=1cm]{geometry}
+\begin{document}
+\tableofcontents
+\chapter{Exploring the page layout}
+In this chapter we will study the layout of pages.
+\section{Some filler text}
+\blindtext
+\section{A lot more filler text}
+More dummy text will follow.
+\subsection{Plenty of filler text}
+\blindtext[10]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_3_15.png[figure]
+
+*Figure 3.15*
+
+'''''
+
+=== Shortened table of contents entries
+
+[source,tikz]
+....
+\documentclass[a4paper,12pt]{book}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage[a4paper, inner=1.5cm, outer=3cm, top=2cm,
+bottom=3cm, bindingoffset=1cm]{geometry}
+\begin{document}
+\tableofcontents
+\chapter[Page layout]{Exploring the page layout}
+In this chapter we will study the layout of pages.
+\section[Filler text]{Some filler text}
+\blindtext
+\section[More]{A lot more filler text}
+More dummy text will follow.
+\subsection[Plenty]{Plenty of filler text}
+\blindtext[10]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_3_16.png[figure]
+
+*Figure 3.16*
+
+'''''
+
+This code is available on
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/tree/main/Chapter_03_-_Designing_Pages[Github].
+It is licensed under the
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/blob/main/LICENSE[MIT
+License], a short and simple permissive license with conditions only
+requiring preservation of copyright and license notices.
+
+
+[[Chapter_04]]
+== Chapter 04 Creating Lists
+
+
+=== Creating a bulleted list
+
+[source,tikz]
+....
+\documentclass{article}
+\begin{document}
+\section*{Useful packages}
+LaTeX provides several packages for designing the layout:
+\begin{itemize}
+  \item geometry
+  \item typearea
+  \item fancyhdr
+  \item scrpage-scrlayer
+  \item setspace
+\end{itemize}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_4_1.png[figure]
+
+*Figure 4.1*
+
+'''''
+
+=== A bulleted list with two levels
+
+[source,tikz]
+....
+\documentclass{article}
+\begin{document}
+\section*{Useful packages}
+LaTeX provides several packages for designing the layout:
+\begin{itemize}
+  \item Page layout
+    \begin{itemize}
+      \item geometry
+      \item typearea
+    \end{itemize}
+  \item Headers and footers
+    \begin{itemize}
+      \item fancyhdr
+      \item scrpage-scrlayer
+    \end{itemize}
+  \item Line spacing
+    \begin{itemize}
+      \item setspace
+    \end{itemize}
+\end{itemize}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_4_2.png[figure]
+
+*Figure 4.2*
+
+'''''
+
+=== Building an enumerated list
+
+[source,tikz]
+....
+\documentclass{article}
+\begin{document}
+\begin{enumerate}
+  \item State the paper size by an option to the
+        document class
+  \item Determine the margin dimensions using one
+        of these packages:
+    \begin{itemize}
+      \item geometry
+      \item typearea
+    \end{itemize}
+  \item Customize header and footer by one
+        of these packages:
+    \begin{itemize}
+      \item fancyhdr
+      \item scrpage-scrlayer
+    \end{itemize}
+  \item Adjust the line spacing for the whole document
+    \begin{itemize}
+      \item by using the setspace package
+      \item or by the command
+            \verb|\linespread{factor}|
+  \end{itemize}
+\end{enumerate}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_4_3.png[figure]
+
+*Figure 4.3*
+
+'''''
+
+=== Producing a definition list
+
+[source,tikz]
+....
+\documentclass{article}
+\begin{document}
+\begin{description}
+  \item[paralist] provides compact lists and list
+    versions that can be used within paragraphs,
+    helps to customize labels and layout.
+  \item[enumitem] gives control over labels
+    and lenghts in all kind of lists.
+  \item[mdwlist] is useful to customize description
+    lists, it even allows multi-line labels.
+    It features compact lists and the capability
+    to suspend and resume.
+  \item[desclist] offers more flexibility in
+    definition list.
+  \item[multenum] produces vertical enumeration in
+    multiple columns.
+\end{description}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_4_4.png[figure]
+
+*Figure 4.4*
+
+'''''
+
+=== Getting compact lists
+
+[source,tikz]
+....
+\documentclass{article}
+\usepackage{paralist}
+\begin{document}
+\begin{compactenum}
+  \item State the paper size by an option to
+        the document class
+  \item Determine the margin dimensions using one
+        of these packages:
+  \begin{compactitem}
+    \item geometry
+    \item typearea
+  \end{compactitem}
+  \item Customize header and footer by one
+        of these packages:
+  \begin{compactitem}
+    \item fancyhdr
+    \item scrpage-scrlayer
+  \end{compactitem}
+  \item Adjust the line spacing for the whole document
+  \begin{compactitem}
+    \item by using the setspace package
+    \item or by the command \verb|\linespread{factor}|
+  \end{compactitem}
+\end{compactenum}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_4_5.png[figure]
+
+*Figure 4.5*
+
+'''''
+
+=== A list within a paragraph
+
+[source,tikz]
+....
+\documentclass{article}
+\usepackage{paralist}
+\begin{document}
+\begin{compactenum}
+  \item State the paper size by an option to
+        the document class
+  \item Determine the margin dimensions using one
+        of these packages:
+  \begin{compactitem}
+    \item geometry
+    \item typearea
+  \end{compactitem}
+  \item Customize header and footer by one
+        of these packages:
+  \begin{compactitem}
+    \item fancyhdr
+    \item scrpage-scrlayer
+  \end{compactitem}
+  \item Adjust the line spacing for the whole document
+  \begin{compactitem}
+    \item by using the setspace package and one
+          of its options:
+      \begin{inparaenum}
+        \item singlespacing
+        \item onehalfspacing
+        \item double spacing
+      \end{inparaenum} 
+    \item or by the command \verb|\linespread{factor}|
+  \end{compactitem}
+\end{compactenum}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_4_6.png[figure]
+
+*Figure 4.6*
+
+'''''
+
+=== Choosing bullets and numbering format
+
+[source,tikz]
+....
+\documentclass{article}
+\usepackage{enumitem}
+\setlist{nosep}
+\setitemize[1]{label=---}
+\setenumerate[1]{label=\textcircled{\scriptsize\Alph*},
+    font=\sffamily}
+\begin{document}
+\begin{enumerate}
+  \item State the paper size by an option to the
+        document class
+  \item Determine the margin dimensions using one of
+        these packages:
+    \begin{itemize}
+    \item geometry
+    \item typearea
+  \end{itemize}
+  \item Customize header and footer by one of these
+        packages:
+  \begin{itemize}
+    \item fancyhdr
+    \item scrpage-scrheader
+  \end{itemize}
+  \item Adjust the line spacing for the whole document
+  \begin{itemize}
+    \item by using the setspace package
+    \item or by the command \verb|\linespread{factor}|
+  \end{itemize}
+\end{enumerate}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_4_7.png[figure]
+
+*Figure 4.7*
+
+'''''
+
+=== Resuming a list
+
+[source,tikz]
+....
+\documentclass{article}
+\usepackage{enumitem}
+\setlist{nosep}
+\setitemize[1]{label=---}
+\setenumerate[1]{label=\textcircled{\scriptsize\Alph*},
+    font=\sffamily}
+\begin{document}
+\begin{enumerate}
+  \item State the paper size by an option to the
+        document class
+  \item Determine the margin dimensions using one of
+        these packages:
+    \begin{itemize}
+    \item geometry
+    \item typearea
+  \end{itemize}
+  \item Customize header and footer by one of these
+        packages:
+  \begin{itemize}
+    \item fancyhdr
+    \item scrpage-scrheader
+  \end{itemize}
+\end{enumerate}
+\noindent\textbf{Tweaking the line spacing:}
+\begin{enumerate}[resume*]
+  \item Adjust the line spacing for the whole document
+  \begin{itemize}
+    \item by using the setspace package
+    \item or by the command \verb|\linespread{factor}|
+  \end{itemize}
+\end{enumerate}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_4_8.png[figure]
+
+*Figure 4.8*
+
+'''''
+
+=== Layout of lists
+
+[source,tikz]
+....
+\documentclass[12pt]{article}
+\usepackage{layouts}
+\begin{document}
+\listdiagram
+\end{document}
+....
+
+// image:https://kroki.io/tikz/svg/eNpFyz0OgCAMQOGd2-h1xKGUhjSWn9AyGOLdZTGu38vzseLIVAwFVI9tb3ZO6MYo9Dg_lBrgBYmmwF2H6cJAicv8xgXCapEhdcjOU4l_ewEVASXi[]
+[link=https://latexguide.org/img/figure_4_9.png]
+image:../pictures/latex-listdiagram.svg[figure]
+
+*Figure 4.9*
+
+'''''
+
+This code is available on
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/tree/main/Chapter_04_-_Creating_Lists[Github].
+It is licensed under the
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/blob/main/LICENSE[MIT
+License], a short and simple permissive license with conditions only
+requiring preservation of copyright and license notices.
+
+
+[[Chapter_05]]
+== Chapter 05 Including Images
+
+
+=== Including an image
+
+[source,tikz]
+....
+\documentclass[a5paper]{article}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{graphicx}
+\pagestyle{empty}
+\begin{document}
+\section{Including a picture}
+\blindtext
+\begin{figure}
+  \centering
+  \includegraphics[width=4cm]{example-image}
+  \caption{Test figure}
+\end{figure}
+\blindtext
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_5_1.png[figure]
+
+*Figure 5.1*
+
+'''''
+
+=== Managing floating of images
+
+[source,tikz]
+....
+\documentclass[a5paper]{article}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{graphicx}
+\pagestyle{empty}
+\begin{document}
+\section{Including a picture}
+\blindtext
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=4cm]{example-image}
+  \caption{Test figure}
+\end{figure}
+\blindtext
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_5_2.png[figure]
+
+*Figure 5.2*
+
+'''''
+
+=== An image at the page bottom
+
+[source,tikz]
+....
+\documentclass[a5paper]{article}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{graphicx}
+\pagestyle{empty}
+\begin{document}
+\section{Including a picture}
+\blindtext
+\begin{figure}[!b]
+  \centering
+  \includegraphics[width=4cm]{example-image}
+  \caption{Test figure}
+\end{figure}
+\blindtext
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_5_3.png[figure]
+
+*Figure 5.3*
+
+'''''
+
+=== Letting text flow around images
+
+[source,tikz]
+....
+\documentclass[a5paper]{article}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\pagestyle{empty}
+\begin{document}
+\section*{Text flowing around an image}
+\blindtext
+\begin{wrapfigure}{l}{4cm}
+  \includegraphics[width=4cm]{ example-image}
+  \caption{Test figure}
+\end{wrapfigure}
+\blindtext
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_5_4.png[figure]
+
+*Figure 5.4*
+
+'''''
+
+This code is available on
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/tree/main/Chapter_05_-_Including_Images[Github].
+It is licensed under the
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/blob/main/LICENSE[MIT
+License], a short and simple permissive license with conditions only
+requiring preservation of copyright and license notices.
+
+
+[[Chapter_06]]
+== Chapter 06 Creating Tables
+
+
+=== Using tab stops to write in columns
+
+[source,tikz]
+....
+\documentclass{article}
+\begin{document}
+\begin{tabbing}
+  \emph{Info:} \= Software \= : \= \LaTeX \\
+  \> Author    \> : \> Leslie Lamport \\
+  \> Website   \> : \> www.latex-project.org
+\end{tabbing}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_6_1.png[figure]
+
+*Figure 6.1*
+
+'''''
+
+=== Undesired overlapping aligned text
+
+[source,tikz]
+....
+\documentclass{article} 
+\newcommand{\head}[1]{\textbf{#1}} 
+\begin{document} 
+\begin{tabbing}
+  \= \head{Command} \= \head{Declaration} \= \head{Example}\\
+  \> \verb|\textrm{...}| \> \verb|\rmfamily| \> \rmfamily text\\
+  \> \verb|\textsf{...}| \> \verb|\sffamily| \> \sffamily text\\
+  \> \verb|\texttt{...}| \> \verb|\ttfamily| \> \ttfamily text
+\end{tabbing}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_6_2.png[figure]
+
+*Figure 6.2*
+
+'''''
+
+=== Corrected aligned text
+
+[source,tikz]
+....
+\documentclass{article} 
+\newcommand{\head}[1]{\textbf{#1}} 
+\begin{document} 
+\begin{tabbing}
+  \= \verb|\textrm{...}| \= \head{Declaration} \=
+     \head{Example}\kill
+\> \head{Command} \> \head{Declaration} \> \head{Example}\\
+\> \verb|\textrm{...}| \> \verb|\rmfamily| \> \rmfamily text\\
+\> \verb|\textsf{...}| \> \verb|\sffamily| \> \sffamily text\\
+\> \verb|\texttt{...}| \> \verb|\ttfamily| \> \ttfamily text
+\end{tabbing}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_6_3.png[figure]
+
+*Figure 6.3*
+
+'''''
+
+=== Typesetting tables
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\newcommand{\head}[1]{\textnormal{\textbf{#1}}} 
+\begin{document}
+\begin{tabular}{ccc}  \hline 
+  \head{Command} & \head{Declaration} & \head{Output}\\ 
+  \hline
+  \verb|\textrm| & \verb|\rmfamily| & \rmfamily Example text\\ 
+  \verb|\textsf| & \verb|\sffamily| & \sffamily Example text\\ 
+  \verb|\texttt| & \verb|\ttfamily| & \ttfamily Example text\\ 
+  \hline 
+\end{tabular} 
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_6_4.png[figure]
+
+*Figure 6.4*
+
+'''''
+
+=== Understanding formatting arguments
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone} 
+\newcommand{\head}[1]{\textnormal{\textbf{#1}}} 
+\begin{document}
+\begin{tabular}{|l|c|r|p{1.7cm}|}
+  \hline
+  left & centered & right & a fully justified paragraph cell\\
+  \hline
+  l & c & r & p\\
+  \hline
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_6_5.png[figure]
+
+*Figure 6.5*
+
+'''''
+
+=== A table with different vertical alignments
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone} 
+\usepackage{array}
+\begin{document}
+\begin{tabular}{@{}lp{1.2cm}m{1.2cm}b{1.2cm}@{}}
+  \hline
+  baseline & aligned at the top & aligned at the middle
+  & aligned at the bottom\\
+  \hline
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_6_6.png[figure]
+
+*Figure 6.6*
+
+'''''
+
+=== Increasing the row height
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\usepackage{array}
+\setlength{\extrarowheight}{4pt}
+\begin{document}
+\begin{tabular}{@{}>{\itshape}ll!{:}l<{.}@{}}
+  \hline
+  Info:     & Software & \LaTeX\\
+            & Author   & Leslie Lamport\\
+            & Website  & www.latex-project.org\\
+  \hline
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_6_7.png[figure]
+
+*Figure 6.7*
+
+'''''
+
+=== Beautifying tables
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone} 
+\usepackage{booktabs}
+\newcommand{\head}[1]{\textnormal{\textbf{#1}}} 
+\begin{document}
+\begin{tabular}{ccc}
+  \toprule[1.5pt]
+  \head{Command} & \head{Declaration} & \head{Output}\\
+  \midrule
+  \verb|\textrm| & \verb|\rmfamily| & \rmfamily Example text\\
+  \verb|\textsf| & \verb|\sffamily| & \sffamily Example text\\
+  \verb|\texttt| & \verb|\ttfamily| & \ttfamily Example text\\
+  \bottomrule[1.5pt]
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_6_8.png[figure]
+
+*Figure 6.8*
+
+'''''
+
+=== Spanning entries over multiple columns
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone} 
+\usepackage{booktabs}
+\newcommand{\head}[1]{\textnormal{\textbf{#1}}} 
+\begin{document}
+\begin{tabular}{@{}*{3}l@{}}
+  \toprule[1.5pt]
+  \multicolumn{2}{c}{\head{Input}} &
+  \multicolumn{1}{c}{\head{Output}}\\
+  \head{Command} & \head{Declaration} & \\
+  \cmidrule(r){1-2}\cmidrule(l){3-3}
+  \verb|\textrm| & \verb|\rmfamily| & \rmfamily Example text\\
+  \verb|\textsf| & \verb|\sffamily| & \sffamily Example text\\
+  \verb|\texttt| & \verb|\ttfamily| & \ttfamily Example text\\
+  \bottomrule[1.5pt]
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_6_9.png[figure]
+
+*Figure 6.9*
+
+'''''
+
+=== Inserting code column-wise
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\usepackage{array}
+\usepackage{booktabs}
+\newcommand{\head}[1]{\textnormal{\textbf{#1}}}
+\newcommand{\normal}[1]{\multicolumn{1}{l}{#1}}
+\begin{document}
+\begin{tabular}{@{}l*{2}{>{\ttfamily\textbackslash}l}l%
+  <{Example text}@{}}
+  \toprule[1.5pt]
+  & \multicolumn{2}{c}{\head{Input}} &
+  \multicolumn{1}{c}{\head{Output}}\\
+  & \normal{\head{Command}} & \normal{\head{Declaration}}
+  & \normal{}\\
+  \cmidrule(lr){2-3}\cmidrule(l){4-4}
+  Family & textrm & rmfamily & \rmfamily\\
+         & textsf & sffamily & \sffamily\\
+         & texttt & ttfamily & \ttfamily\\
+  \bottomrule[1.5pt]
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_6_10.png[figure]
+
+*Figure 6.10*
+
+'''''
+
+=== Spanning entries over multiple rows
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\newcommand{\head}[1]{\textnormal{\textbf{#1}}}
+\newcommand{\normal}[1]{\multicolumn{1}{l}{#1}}
+\begin{document}
+\begin{tabular}{@{}l*{2}{>{\textbackslash\ttfamily}l}l%
+  <{Example text}@{}}
+  \toprule[1.5pt]
+  & \multicolumn{2}{c}{\head{Input}} &
+  \multicolumn{1}{c}{\head{Output}}\\
+  & \normal{\head{Command}} & \normal{\head{Declaration}}
+  & \normal{}\\
+  \cmidrule(lr){2-3}\cmidrule(l){4-4}
+  \multirow{3}{*}{Family} & textrm & rmfamily & \rmfamily\\
+                          & textsf & sffamily & \sffamily\\
+                          & texttt & ttfamily & \ttfamily\\
+  \bottomrule[1.5pt]
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_6_11.png[figure]
+
+*Figure 6.11*
+
+'''''
+
+=== Adding captions to tables
+
+[source,tikz]
+....
+\documentclass{article}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\newcommand{\head}[1]{\textnormal{\textbf{#1}}}
+\newcommand{\normal}[1]{\multicolumn{1}{l}{#1}}
+\begin{document}
+\begin{table}
+  \centering
+  \begin{tabular}{@{}l*{2}{>{\textbackslash\ttfamily}l}%
+    l<{Example text}l@{}}
+    \toprule[1.5pt]
+    & \multicolumn{2}{c}{\head{Input}}
+    & \multicolumn{2}{c}{\head{Output}}\\
+    & \normal{\head{Command}}    & \normal{\head{Declaration}}
+    & \normal{\head{Single use}} & \head{Combined}\\
+    \cmidrule(lr){2-3}\cmidrule(l){4-5}
+    \multirow{3}{*}{Family} & textrm & rmfamily & \rmfamily & \\
+                            & textsf & sffamily & \sffamily & \\
+                            & texttt & ttfamily & \ttfamily & \\
+    \cmidrule(lr){2-3}\cmidrule(lr){4-4}
+    \multirow{2}{1.1cm}{Weight} & textbf & bfseries & \bfseries
+    & \multirow{2}{1.8cm}{\sffamily\bfseries Bold and
+      sans-serif}\\
+                            & textmd & mdseries & \mdseries & \\
+    \cmidrule(lr){2-3}\cmidrule(lr){4-4}
+    \multirow{4}{*}{Shape}  & textit & itshape  & \itshape  & \\
+                            & textsl & slshape  & \slshape  &
+    \multirow{2}{1.8cm}{\sffamily\slshape Slanted and
+      sans-serif}\\
+                            & textsc & scshape  & \scshape  & \\
+                            & textup & upshape  & \upshape  & \\
+    \cmidrule(lr){2-3}\cmidrule(lr){4-4}
+    Default & textnormal & normalfont & \normalfont & \\
+    \bottomrule[1.5pt]
+  \end{tabular}
+  \caption{\LaTeX\ font selection}
+\end{table}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_6_12.png[figure]
+
+*Figure 6.12*
+
+'''''
+
+This code is available on
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/tree/main/Chapter_06_-_Creating_Tables[Github].
+It is licensed under the
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/blob/main/LICENSE[MIT
+License], a short and simple permissive license with conditions only
+requiring preservation of copyright and license notices.
+
+
+[[Chapter_07]]
+== Chapter 07 Using Cross-References
+
+
+=== Setting labels and references
+
+[source,tikz]
+....
+\documentclass{book}
+\begin{document}
+\chapter{Statistics}
+\section{Most used packages by LaTeX.org users}
+\label{sec:packages}
+The Top Five packages, used by LaTeX.org
+members\footnote{according to the 2021 survey on
+LaTeX.org\label{fn:project}}:
+\begin{enumerate}
+  \item graphicx\label{item:graphicx}
+  \item babel
+  \item amsmath\label{item:amsmath}
+  \item geometry
+  \item hyperref
+\end{enumerate}
+\chapter{Mathematics}
+\emph{amsmath}, on position \ref{item:amsmath} of the top list
+in section~\ref{sec:packages} on page~\pageref{sec:packages},
+is indispensable to high-quality mathematical typesetting in
+\LaTeX. \emph{graphicx}, on position \ref{item:graphicx},
+is for including images. See also the footnote \ref{fn:project}
+on page~\pageref{fn:project}.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_7_1.png[figure]
+
+*Figure 7.1*
+
+
+image:https://latexguide.org/img/figure_7_2.png[figure]
+
+*Figure 7.2*
+
+
+image:https://latexguide.org/img/figure_7_3.png[figure]
+
+*Figure 7.3*
+
+
+image:https://latexguide.org/img/figure_7_4.png[figure]
+
+*Figure 7.4*
+
+'''''
+
+=== Referring to a page
+
+[source,tikz]
+....
+\documentclass{book}
+\begin{document}
+\chapter{Statistics}
+\section{Introduction}
+\newpage
+\section{Most used packages by LaTeX.org users}
+\label{sec:packages}
+The Top Five packages, used by LaTeX.org
+members\footnote{according to the 2021 survey on
+LaTeX.org\label{fn:project}}:
+\begin{enumerate}
+  \item graphicx\label{item:graphicx}
+  \item babel
+  \item amsmath\label{item:amsmath}
+  \item geometry
+  \item hyperref
+\end{enumerate}
+\chapter{Mathematics}
+\emph{amsmath}, on position \ref{item:amsmath} of the top list
+in section~\ref{sec:packages} on page~\pageref{sec:packages},
+is indispensable to high-quality mathematical typesetting in
+\LaTeX. \emph{graphicx}, on position \ref{item:graphicx},
+is for including images. See also the footnote \ref{fn:project}
+on page~\pageref{fn:project}.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_7_5.png[figure]
+
+*Figure 7.5*
+
+'''''
+
+=== Producing intelligent page references
+
+[source,tikz]
+....
+\documentclass{book}
+\usepackage[nospace]{varioref}
+\begin{document}
+\chapter{Statistics}
+\section{Introduction}
+\newpage
+\section{Most used packages by LaTeX.org users}
+\label{sec:packages}
+The Top Five packages, used by LaTeX.org
+members\footnote{according to the 2021 survey on
+LaTeX.org\label{fn:project}}:
+\begin{enumerate}
+  \item graphicx\label{item:graphicx}
+  \item babel
+  \item amsmath\label{item:amsmath}
+  \item geometry
+  \item hyperref
+\end{enumerate}
+\chapter{Mathematics}
+\emph{amsmath}, on position \vref{item:amsmath}
+of the top list in section~\vref{sec:packages},
+is indispensable to high-quality mathematical
+typesetting in \LaTeX. \emph{graphicx}, on position
+\vref{item:graphicx}, is for including images.
+See also the footnote \vref{fn:project}, that is,
+\vpageref{fn:project}.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_7_6.png[figure]
+
+*Figure 7.6*
+
+'''''
+
+=== varioref with figures
+
+[source,tikz]
+....
+\documentclass{article}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{varioref}
+\usepackage{blindtext}
+\begin{document}
+\section{Figures}
+\begin{figure}
+\includegraphics{example-image}
+\caption{An example figure}
+\label{fig:example}
+\end{figure}
+\blindtext
+\begin{figure}
+\includegraphics{example-image}
+\caption{Another example figure}
+\label{fig:other}
+\end{figure}
+\newpage
+Same reference code, different output:
+\begin{verbatim}
+See the \vpageref[above figure][figure]{fig:other} and
+the \vpageref[above figure][figure]{fig:example}.
+\end{verbatim}
+See the \vpageref[above figure][figure]{fig:other} and
+the \vpageref[above figure][figure]{fig:example}.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_7_8.png[figure]
+
+*Figure showing referencing figures*
+
+'''''
+
+=== varioref with figures and ranges
+
+[source,tikz]
+....
+\documentclass{book}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage[nospace]{varioref}
+\usepackage{xcolor}
+\usepackage{blindtext}
+\begin{document}
+\chapter{Figures}
+\begin{figure}
+\includegraphics{example-image}
+\caption{An example figure}
+\label{fig:example}
+\end{figure}
+\clearpage
+\begin{figure}
+\includegraphics{example-image}
+\caption{Another example figure}
+\label{fig:other}
+\end{figure}
+\clearpage
+\begin{figure}
+\includegraphics{example-image}
+\caption{And another example figure}
+\label{fig:last}
+\end{figure}
+\clearpage
+See the figures \textcolor{red}{\vpagerefrange{fig:example}{fig:last}} and
+figures \textcolor{blue}{\vrefrange{fig:example}{fig:last}}.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_7_9.png[figure]
+
+*Figure showing referencing figures with ranges*
+
+'''''
+
+=== Using automatic reference names
+
+[source,tikz]
+....
+\documentclass{book}
+\usepackage{cleveref}
+\crefname{enumi}{position}{positions}
+\begin{document}
+\chapter{Statistics}
+\label{stats}
+\section{Most used packages by LaTeX.org users}
+\label{packages}
+The Top Five packages, used by LaTeX.org
+members\footnote{according to the 2021 survey on
+LaTeX.org\label{project}}:
+\begin{enumerate}
+  \item graphicx\label{graphicx}
+  \item babel
+  \item amsmath\label{amsmath}
+  \item geometry
+  \item hyperref
+\end{enumerate}
+\chapter{Mathematics}
+\label{maths}
+\emph{amsmath}, on \cref{amsmath} of the top list in 
+\cref{packages} of \cref{stats}, is indispensable to
+high-quality mathematical typesetting in \LaTeX.
+\emph{graphicx}, on \cref{graphicx}, is for including images.
+See also the \cref{project} on \cpageref{project}.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_7_7.png[figure]
+
+*Figure 7.7*
+
+'''''
+
+=== cleveref and ranges
+
+[source,tikz]
+....
+\documentclass{book}
+\usepackage{cleveref}
+\crefname{enumi}{position}{positions}
+\begin{document}
+\chapter{Statistics}
+\label{stats}
+\section{Most used packages by LaTeX.org users}
+\label{packages}
+The Top Five packages, used by LaTeX.org
+members\footnote{according to the 2021 survey on
+LaTeX.org\label{project}}:
+\begin{enumerate}
+  \item graphicx\label{graphicx}
+  \item babel
+  \item amsmath\label{amsmath}
+  \item geometry
+  \item hyperref
+\end{enumerate}
+\chapter{Mathematics}
+\label{maths}
+See \crefrange{graphicx}{amsmath} and \cpagerefrange{stats}{maths}.
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_7_10.png[figure]
+
+*Figure showing automated referencing with ranges*
+
+'''''
+
+This code is available on
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/tree/main/Chapter_07_-_Using_Cross-References[Github].
+It is licensed under the
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/blob/main/LICENSE[MIT
+License], a short and simple permissive license with conditions only
+requiring preservation of copyright and license notices.
+
+
+[[Chapter_08]]
+== Chapter 08 Listing Contents and References
+
+
+=== Customizing the TOC
+
+[source,tikz]
+....
+\documentclass{book}
+\setcounter{tocdepth}{3}
+\begin{document}
+\tableofcontents
+\part{First Part}
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+\chapter{First main chapter}
+\section{A section}
+\section{Another section}
+\subsection{A smaller section}
+\subsubsection[Deeper level]{This section has an even deeper level}
+\chapter{Second main chapter}
+\part{Second part}
+\chapter{Third main chapter}
+\appendix
+\cleardoublepage
+\addtocontents{toc}{\bigskip}
+\addcontentsline{toc}{part}{Appendix}
+\chapter{Glossary}
+\chapter{Symbols}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_8_1.png[figure]
+
+*Figure 8.1*
+
+'''''
+
+=== Creating and customizing lists of figures
+
+[source,tikz]
+....
+\documentclass{book}
+\setcounter{tocdepth}{3}
+\renewcommand{\figurename}{Diagram}
+\renewcommand{\listfigurename}{List of Diagrams}
+\begin{document}
+\tableofcontents
+\listoffigures
+\part{First Part}
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+\chapter{First main chapter}
+\section{A section}
+\begin{figure}
+\centering
+\fbox{Diagram placeholder}
+\caption{Enterprize Organizational Chart}
+\end{figure}
+\section{Another section}
+\subsection{A smaller section}
+\subsubsection[Deeper level]{This section has an even deeper level}
+\chapter{Second main chapter}
+\part{Second part}
+\chapter{Third main chapter}
+\addtocontents{lof}{Network Diagrams:}
+\begin{figure}
+\centering
+\fbox{Diagram placeholder}
+\caption{Network overview}
+\end{figure}
+\begin{figure}
+\centering
+\fbox{Diagram placeholder}
+\caption{WLAN Design}
+\end{figure}
+\appendix
+\cleardoublepage
+\addtocontents{toc}{\bigskip}
+\addcontentsline{toc}{part}{Appendix}
+\chapter{Glossary}
+\chapter{Symbols}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_8_2.png[figure]
+
+*Figure 8.2*
+
+'''''
+
+=== Generating an index
+
+[source,tikz]
+....
+% !TEX makeindex document
+\documentclass{book}
+\usepackage{index}
+\makeindex
+\setcounter{tocdepth}{3}
+\renewcommand{\figurename}{Diagram}
+\renewcommand{\listfigurename}{List of Diagrams}
+\begin{document}
+\tableofcontents
+\listoffigures
+\part{First Part}
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+\chapter{First main chapter}
+\section{A section}
+\begin{figure}
+\centering
+\fbox{Diagram placeholder}
+\caption{\index{enterprise}Enterprise Organizational Chart}
+\end{figure}
+\section{Another section}
+\subsection{A smaller section}
+\subsubsection[Deeper level]{This section has an even deeper
+level}
+\chapter{Second main chapter}
+\part{Second part}
+\chapter{Third main chapter}
+\addtocontents{lof}{Network Diagrams:}
+\index{network}
+\begin{figure}
+\centering
+\fbox{Diagram placeholder}
+\caption{Network overview}
+\end{figure}
+\begin{figure}
+\centering
+\fbox{Diagram placeholder}
+\caption{WLAN Design}
+\end{figure}
+\appendix
+\cleardoublepage
+\addtocontents{toc}{\bigskip}
+\addcontentsline{toc}{part}{Appendix}
+\chapter{Glossary}
+\chapter{Symbols}
+\clearpage
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_8_3.png[figure]
+
+*Figure 8.3*
+
+'''''
+
+=== Extending the index
+
+[source,tikz]
+....
+% !TEX makeindex document
+\documentclass{book}
+\usepackage{index}
+\makeindex
+\setcounter{tocdepth}{3}
+\renewcommand{\figurename}{Diagram}
+\renewcommand{\listfigurename}{List of Diagrams}
+\newcommand{\group}{\TeX\ Users Group}
+\begin{document}
+\tableofcontents
+\listoffigures
+\part{First Part}
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+\chapter{First main chapter}
+\section{A section}
+\begin{figure}
+\centering
+\fbox{Diagram placeholder}
+\caption{\index{enterprise}Enterprise Organizational Chart}
+\end{figure}
+\index{enterprise!organization}
+\index{enterprise!organization!sales}
+\index{enterprise!organization!controlling}
+\index{enterprise!organization!operation}
+\section{Another section}
+\subsection{A smaller section}
+\subsubsection[Deeper level]{This section has an even deeper
+level}
+\chapter{Second main chapter}
+\part{Second part}
+\chapter{Third main chapter}
+\index{network|(}
+\addtocontents{lof}{Network Diagrams:}
+\index{network}
+\index{network!overview}
+\begin{figure}
+\centering
+\fbox{Diagram placeholder}
+\caption{Network overview}
+\end{figure}
+\begin{figure}
+\centering
+\fbox{Diagram placeholder}
+\caption{WLAN Design}
+\end{figure}
+\clearpage
+% index commands for testing
+\index{wireless|see{WLAN}}
+\index{WLAN|emph}
+\index{Gamma@$\Gamma$}
+\index{\group\ sorted wrong}
+\index{TeX@\group\ sorted correctly}
+\index{schon@sch\"{o}n}
+\index{exclamation ("!)!loud}
+End of network chapter.
+\index{network|)}
+\appendix
+\cleardoublepage
+\addtocontents{toc}{\bigskip}
+\addcontentsline{toc}{part}{Appendix}
+\chapter{Glossary}
+\chapter{Symbols}
+\clearpage
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_8_4.png[figure]
+
+*Figure 8.4*
+
+'''''
+
+=== Changing to ISO style
+
+[source,tikz]
+....
+% !TEX makeindex -s iso document
+\documentclass{book}
+\usepackage{index}
+\makeindex
+\setcounter{tocdepth}{3}
+\renewcommand{\figurename}{Diagram}
+\renewcommand{\listfigurename}{List of Diagrams}
+\newcommand{\group}{\TeX\ Users Group}
+\begin{document}
+\tableofcontents
+\listoffigures
+\part{First Part}
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+\chapter{First main chapter}
+\section{A section}
+\begin{figure}
+\centering
+\fbox{Diagram placeholder}
+\caption{\index{enterprise}Enterprise Organizational Chart}
+\end{figure}
+\index{enterprise!organization}
+\index{enterprise!organization!sales}
+\index{enterprise!organization!controlling}
+\index{enterprise!organization!operation}
+\section{Another section}
+\subsection{A smaller section}
+\subsubsection[Deeper level]{This section has an even deeper
+level}
+\chapter{Second main chapter}
+\part{Second part}
+\chapter{Third main chapter}
+\index{network|(}
+\addtocontents{lof}{Network Diagrams:}
+\index{network}
+\index{network!overview}
+\begin{figure}
+\centering
+\fbox{Diagram placeholder}
+\caption{Network overview}
+\end{figure}
+\begin{figure}
+\centering
+\fbox{Diagram placeholder}
+\caption{WLAN Design}
+\end{figure}
+\clearpage
+% index commands for testing
+\index{wireless|see{WLAN}}
+\index{WLAN|emph}
+\index{Gamma@$\Gamma$}
+\index{\group\ sorted wrong}
+\index{TeX@\group\ sorted correctly}
+\index{schon@sch\"{o}n}
+\index{exclamation ("!)!loud}
+End of network chapter.
+\index{network|)}
+\appendix
+\cleardoublepage
+\addtocontents{toc}{\bigskip}
+\addcontentsline{toc}{part}{Appendix}
+\chapter{Glossary}
+\chapter{Symbols}
+\clearpage
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_8_5.png[figure]
+
+*Figure 8.5*
+
+'''''
+
+=== Creating a bibliography
+
+[source,tikz]
+....
+\documentclass{article}
+\begin{document}
+\section*{Recommended texts}
+To study \TeX\ in depth, see \cite{DK86}. For writing math texts,
+see \cite{DK89}.
+\begin{thebibliography}{8}
+\bibitem{DK86} D.E. Knuth, \emph{The {\TeX}book}, 1986
+\bibitem{DK89} D.E. Knuth, \emph{Typesetting Concrete
+Mathematics}, 1989
+\end{thebibliography}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_8_6.png[figure]
+
+*Figure 8.6*
+
+'''''
+
+=== Using labels
+
+[source,tikz]
+....
+\documentclass{article}
+\begin{document}
+\section*{Recommended texts}
+To study \TeX\ in depth, see \cite{DK86}. For writing math texts,
+see \cite{DK89}.
+\begin{thebibliography}{Knuth89}
+\bibitem[Knuth86]{DK86} D.E. Knuth, \emph{The {\TeX}book}, 1986
+\bibitem[Knuth89]{DK89} D.E. Knuth, \emph{Typesetting Concrete
+Mathematics}, 1989
+\end{thebibliography}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_8_7.png[figure]
+
+*Figure 8.7*
+
+'''''
+
+=== Using a bibliography database
+
+here we use the filecontents environment to generate it
+
+[source,tikz]
+....
+\documentclass{article}
+\begin{filecontents}[force]{example.bib}
+@book{DK86,
+author = "D.E. Knuth",
+title = "The {\TeX}book",
+publisher = "Addison Wesley",
+year = 1986
+}
+@article{DK89,
+author = "D.E. Knuth",
+title = "Typesetting Concrete Mathematics",
+journal = "TUGboat",
+volume = 10,
+number = 1,
+pages = "31--36",
+month = apr,
+year = 1989
+}
+\end{filecontents}
+\begin{document}
+\section*{Recommended texts}
+To study \TeX\ in depth, see \cite{DK86}. For writing math texts,
+see \cite{DK89}.
+\bibliographystyle{alpha}
+\bibliography{example}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_8_8.png[figure]
+
+*Figure 8.8*
+
+'''''
+
+This code is available on
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/tree/main/Chapter_08_-_Listing_Contents_and_References[Github].
+It is licensed under the
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/blob/main/LICENSE[MIT License],
+a short and simple permissive license with conditions only
+requiring preservation of copyright and license notices.
+
+
+[[Chapter_09]]
+== Chapter 09 Writing Math Formulas
+
+
+=== Example document
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\begin{document}
+\section*{Quadratic equations}
+The quadratic equation
+\begin{equation}
+  \label{quad}
+  ax^2 + bx + c = 0,
+\end{equation}
+where ( a, b ) and ( c ) are constants and ( a \neq 0 ),
+has two solutions for the variable ( x ):
+\begin{equation}
+  \label{root}
+  x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2a}. 
+\end{equation}
+If the \emph{discriminant} ( \Delta ) with
+\[
+  \Delta = b^2 - 4ac
+\]
+is zero, then the equation (\ref{quad}) has a double solution:
+(\ref{root}) becomes
+\[
+  x = - \frac{b}{2a}.
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_1.png[figure]
+
+*Figure 9.1*
+
+'''''
+
+=== Subscripts and superscripts
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\begin{document}
+\[
+  x_1^2 + x_2^2 = 1, \quad 2^{2^x} = 64
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_2.png[figure]
+
+*Figure 9.2*
+
+'''''
+
+=== Operators
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\begin{document}
+\[
+  \lim_{n=1, 2, \ldots} a_n \qquad \max_{x<X} x
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_3.png[figure]
+
+*Figure 9.3*
+
+'''''
+
+=== Operators within text
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\begin{document}
+Within text, we have ( \lim_{n=1, 2, \ldots} a_n )
+and ( \max_{x<X} x ).
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_4.png[figure]
+
+*Figure 9.4*
+
+'''''
+
+=== Roots
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\begin{document}
+\[
+  \sqrt[64]{x} = \sqrt{\sqrt{\sqrt{\sqrt{\sqrt{\sqrt{x}}}}}}
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_5.png[figure]
+
+*Figure 9.5*
+
+'''''
+
+=== Fractions
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\begin{document}
+\[
+  \frac{n(n+1)}{2} \quad \frac{\frac{\sqrt{x}+1}{2}-x}{y^2} 
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_6.png[figure]
+
+*Figure 9.6*
+
+'''''
+
+=== Greek letters
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\newcommand*\s[1]{$#1$&\texttt{\string#1}}
+\setlength{\tabcolsep}{2ex}
+\begin{document}
+\begin{tabular}{l@{~}ll@{~}ll@{~}ll@{~}ll@{~}l}
+\s\alpha      & \s\zeta   &   \s\lambda  & \s\pi     & \s\phi \\
+\s\beta       & \s\eta    &   \s\mu      & \s\rho    &\s\chi \\
+\s\gamma      & \s\theta  &   \s\nu      & \s\sigma  &\s\psi\\
+\s\delta      & \s\iota   &   \s\xi      & \s\tau    &\s\omega \\
+\s\epsilon    & \s\kappa  &   \s o       & \s\upsilon&
+\end{tabular}
+\end{document}
+....
+
+// α \alpha   ζ \zeta   λ \lambda  π \pi       φ \phi
+// β \beta    η \eta    µ \mu      ρ \rho      χ \chi
+// γ \gamma   θ \theta  ν \nu      σ \sigma    ψ \psi
+// δ \delta   ι \iota   ξ \xi      τ \tau      ω \omega
+// ε\epsilon κ \kappa  o o        υ \upsilon  
+
+
+image:https://latexguide.org/img/figure_9_7.png[figure]
+
+*Figure 9.7*
+
+'''''
+
+=== Variants of Greek letters
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\newcommand*\s[1]{$#1$&\texttt{\string#1}}
+\setlength{\tabcolsep}{2ex}
+\begin{document}
+\begin{tabular}{l@{~}ll@{~}ll@{~}l}
+\s\varepsilon & \s\varpi   & \s\varsigma  \\
+\s\vartheta   & \s\varrho  & \s\varphi
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_8.png[figure]
+
+*Figure 9.8*
+
+'''''
+
+=== Uppercase Greek letters
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\newcommand*\s[1]{$#1$&\texttt{\string#1}}
+\setlength{\tabcolsep}{2ex}
+\begin{document}
+\begin{tabular}{l@{~}ll@{~}ll@{~}ll@{~}l}
+\s\Gamma &\s\Lambda &\s\Sigma   &\s\Psi   \\
+\s\Delta &\s\Xi     &\s\Upsilon &\s\Omega \\
+\s\Theta &\s\Pi     &\s\Phi
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_9.png[figure]
+
+*Figure 9.9*
+
+'''''
+
+=== Upright Greek letters
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\usepackage{upgreek}
+\newcommand*\s[1]{$#1$&\texttt{\string#1}}
+\setlength{\tabcolsep}{2ex}
+\begin{document}
+\thispagestyle{empty}
+\begin{tabular}{l@{~}ll@{~}ll@{~}ll@{~}ll@{~}l}
+\s\upalpha      & \s\upzeta   &   \s\uplambda  & \s\uppi     & \s\upphi \\
+\s\upbeta       & \s\upeta    &   \s\upmu      & \s\uprho    &\s\upchi \\
+\s\upgamma      & \s\uptheta  &   \s\upnu      & \s\upsigma  &\s\uppsi\\
+\s\updelta      & \s\upiota   &   \s\upxi      & \s\uptau    &\s\upomega \\
+\s\upepsilon    & \s\upkappa  &   $\mathrm{o}$&\texttt{\string\mathrm{o\}} & \s\upupsilon&
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_10.png[figure]
+
+*Figure 9.11*
+
+'''''
+
+=== Variants of upright Greek letters
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\usepackage{upgreek}
+\newcommand*\s[1]{$#1$&\texttt{\string#1}}
+\setlength{\tabcolsep}{2ex}
+\begin{document}
+\begin{tabular}{l@{~}ll@{~}ll@{~}l}
+\s\upvarepsilon & \s\upvarpi      & \s\upvarsigma  \\
+\s\upvartheta   &  \s\upvarrho  & \s\upvarphi
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_11.png[figure]
+
+*Figure 9.11*
+
+'''''
+
+=== Script letters
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\begin{document}
+\[
+  \mathcal{A}, \mathcal{B}, \mathcal{C}, \ldots, \mathcal{Z}
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_12.png[figure]
+
+*Figure 9.12*
+
+'''''
+
+=== Ellipsis
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\newcommand*\s[1]{(#1)&\texttt{\string#1}}
+\setlength{\tabcolsep}{1.8ex}
+\begin{document}
+\centering
+\begin{tabular}{*3{c@{~}l}}
+\s\ldots & \s\ddots \\
+\s\cdots & \s\vdots \\
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_13.png[figure]
+
+*Figure 9.13*
+
+'''''
+
+=== Math font styles
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{bbm}
+\usepackage{dsfont}
+\usepackage{eufrak}
+\renewcommand*\c{\textbackslash\ttfamily}
+\begin{document}
+\sffamily
+\begin{tabular}{lll}
+\toprule
+\textbf{Command} & \textbf{Used package} & \textbf{Example} \\
+\midrule
+\c mathrm{\ldots\}     &          & (\mathrm{roman\ 123}) \\
+\c mathit{\ldots\}     &          & (\mathit{italic\ 123}) \\
+\c mathsf{\ldots\}     &          & (\mathsf{sans-serif\ 123}) \\
+\c mathbb{\ldots\}     & amsfonts & (\mathbb{ABC})  \\
+\c mathbbm{\ldots\}    & bbm      & (\mathbbm{C R Q Z 1})  \\
+\c mathds{\ldots\}     & dsfont   &(\mathds{C R Q Z 1})  \\
+\c mathfrak{\ldots\}   & eufrak   & (\mathfrak{A B C \ 1 2 3})  \\
+\c mathnormal{\ldots\} &          & (\mathnormal{normal})  \\
+\bottomrule
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_14.png[figure]
+
+*Figure 9.14*
+
+'''''
+
+=== Math versus text italic
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\begin{document}
+(Definition) and \textit{Definition}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_15.png[figure]
+
+*Figure 9.15*
+
+'''''
+
+=== Typesetting multi-line formulas
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\usepackage{amsmath}
+\begin{document}
+\begin{multline}
+  \sum = a + b + c + d + e \\
+           + f + g + h + i + j \\
+           + k + l + m + n
+\end{multline}
+\begin{gather}
+  x + y + z = 0 \\
+      y - z = 1
+\end{gather}
+\begin{align}
+  x + y + z &= 0 \\
+      y - z &= 1
+\end{align}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_16.png[figure]
+
+*Figure 9.16*
+
+
+image:https://latexguide.org/img/figure_9_17.png[figure]
+
+*Figure 9.17*
+
+
+image:https://latexguide.org/img/figure_9_18.png[figure]
+
+*Figure 9.18*
+
+'''''
+
+=== Customized tagging
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\usepackage{amsmath}
+\begin{document}
+\begin{align}
+  x + y + z &= 0 \tag{$\star$} \\
+  y - z &= 1 \tag{$\star\star$}
+\end{align}
+\end{document}
+....
+
+'''''
+
+=== Binary operation symbols
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\newcommand*\s[1]{(#1)&\texttt{\string#1}}
+\setlength{\tabcolsep}{1ex}
+\usepackage{booktabs}
+\usepackage{latexsym}
+\begin{document}
+\sffamily
+\centering
+\begin{tabular}{*4{c@{~}l}}
+\toprule
+\multicolumn{8}{c}{\bfseries Standard \LaTeX} \\
+\s\amalg           &  \s\circ      & \s\ominus   &   \s\star      \\
+\s\ast             &  \s\cup       & \s\oplus    &   \s\times  \\
+\s\bigcirc         &  \s\dagger    & \s\oslash   &   \s\triangleleft\\
+\s\bigtriangledown &  \s\ddagger   & \s\otimes   &   \s\triangleright \\
+\s\bigtriangleup   &  \s\diamond   & \s\pm       &   \s\uplus   \\
+\s\bullet          &  \s\div       & \s\setminus &   \s\vee     \\
+\s\cap             &  \s\mp        & \s\sqcap    &   \s\wedge   \\
+\s\cdot            &  \s\odot      & \s\sqcup    &   \s\wr      \\
+\midrule
+\multicolumn{8}{c}{\bfseries latexsym }\\
+\s\unlhd & \s\unrhd  & \s\rhd & \s\lhd \\
+\bottomrule
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_19.png[figure]
+
+*Figure 9.19*
+
+'''''
+
+=== Binary relation symbols
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\newcommand*\s[1]{(#1)&\texttt{\string#1}}
+\setlength{\tabcolsep}{1.8ex}
+\usepackage{booktabs}
+\usepackage{latexsym}
+\begin{document}
+\begin{tabular}{*4{c@{~}l}}
+\toprule
+\multicolumn{8}{c}{\bfseries Standard \LaTeX} \\
+\s\approx   & \s\equiv    &  \s\prec   & \s\succ \\
+\s\asymp    & \s\frown    &  \s\preceq & \s\succeq  \\
+\s\bowtie   & \s\mid      &  \s\propto & \s\vdash \\
+\s\cong     & \s\models   &  \s\sim    &   \\
+\s\dashv    & \s\parallel &  \s\simeq      \\
+\s\doteq    & \s\perp     &  \s\smile      \\
+\midrule
+\multicolumn{8}{c}{\bfseries latexsym }\\
+\multicolumn{8}{c}{(\Join) ~ \texttt{\string\Join}} \\
+\bottomrule
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_20.png[figure]
+
+*Figure 9.20*
+
+'''''
+
+=== Inequality relation symbols
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\newcommand*\s[1]{(#1)&\texttt{\string#1}}
+\setlength{\tabcolsep}{1.8ex}
+\usepackage{booktabs}
+\begin{document}
+\sffamily
+\centering
+\begin{tabular}{*5{c@{~}l}}
+\toprule
+\s\geq & \s\gg & \s\leq & \s\ll & \s\neq \\
+\bottomrule
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_21.png[figure]
+
+*Figure 9.21*
+
+'''''
+
+=== Subset and superset symbols
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\newcommand*\s[1]{(#1)&\texttt{\string#1}}
+\setlength{\tabcolsep}{1.8ex}
+\usepackage{booktabs}
+\usepackage{latexsym}
+\begin{document}
+\sffamily
+\centering
+\begin{tabular}{*3{c@{~}l}}
+\toprule
+\multicolumn{6}{c}{\bfseries Standard \LaTeX} \\
+\s\sqsubseteq & \s\subset & \s\supset   \\
+\s\sqsupseteq   &  \s\subseteq  & \s\supseteq \\
+\midrule
+\multicolumn{6}{c}{\bfseries latexsym }\\
+\multicolumn{3}{c}{(\sqsubset) ~ \texttt{\string\sqsubset}}
+& \multicolumn{3}{c}{(\sqsupset) ~ \texttt{\string\sqsupset}}\\
+\bottomrule
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_22.png[figure]
+
+*Figure 9.22*
+
+'''''
+
+=== Arrows
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\newcommand*\s[1]{(#1)&\texttt{\string#1}}
+\setlength{\tabcolsep}{1.8ex}
+\usepackage{booktabs}
+\usepackage{latexsym}
+\begin{document}
+\sffamily
+\centering
+\begin{tabular}{*3{c@{~}l}}
+\toprule
+\multicolumn{6}{c}{\bfseries Standard \LaTeX} \\
+\s\downarrow       &  \s\Longleftarrow      & \s\Rightarrow   \\
+\s\Downarrow       &  \s\longleftrightarrow & \s\searrow   \\
+\s\hookleftarrow   &  \s\Longleftrightarrow & \s\swarrow  \\
+\s\hookrightarrow  &  \s\longmapsto         & \s\uparrow      \\
+\s\leftarrow       &  \s\longrightarrow     & \s\Uparrow  \\
+\s\Leftarrow       &  \s\Longrightarrow     & \s\updownarrow   \\
+\s\leftrightarrow  &  \s\mapsto             & \s\Updownarrow  \\
+\s\Leftrightarrow  &  \s\nwarrow \\
+\s\longleftarrow   &  \s\rightarrow \\
+\midrule
+\multicolumn{6}{c}{\bfseries latexsym }\\
+\multicolumn{6}{c}{(\leadsto) ~ \texttt{\string\leadsto}}\\
+\bottomrule
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_23.png[figure]
+
+*Figure 9.23*
+
+'''''
+
+=== Harpoons
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\newcommand*\s[1]{(#1)&\texttt{\string#1}}
+\setlength{\tabcolsep}{1.8ex}
+\usepackage{booktabs}
+\begin{document}
+\sffamily
+\centering
+\begin{tabular}{*3{c@{~}l}}
+%\toprule
+\s\leftharpoondown & \s\rightharpoondown & \s\rightleftharpoons \\
+\s\leftharpoonup & \s\rightharpoonup \\
+%\bottomrule
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_24.png[figure]
+
+*Figure 9.24*
+
+'''''
+
+=== Symbols dereived from letters
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\newcommand*\s[1]{(#1)&\texttt{\string#1}}
+\setlength{\tabcolsep}{1.8ex}
+\usepackage{booktabs}
+\usepackage{latexsym}
+\begin{document}
+\sffamily
+\centering
+\begin{tabular}{*5{c@{~}l}}
+\toprule
+\multicolumn{10}{c}{\bfseries Standard \LaTeX} \\
+\s\bot & \s\forall & \s\imath & \s\ni  & \s\top \\
+\s\ell & \s\hbar & \s\in  & \s\partial & \s\wp \\
+\s\exists & \s\Im  & \s\jmath & \s\Re \\
+\midrule
+\multicolumn{10}{c}{\bfseries latexsym }\\
+\multicolumn{10}{c}{(\mho) ~ \texttt{\string\mho}}\\
+\bottomrule
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_25.png[figure]
+
+*Figure 9.25*
+
+'''''
+
+=== Misc symbols
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\newcommand*\s[1]{(#1)&\texttt{\string#1}}
+\setlength{\tabcolsep}{1.8ex}
+\usepackage{booktabs}
+\usepackage{latexsym}
+\begin{document}
+\sffamily
+\centering
+\begin{tabular}{*4{c@{~}l}}
+\toprule
+\multicolumn{8}{c}{\bfseries Standard \LaTeX }\\
+\s\aleph      &  \s\emptyset  &  \s\nabla  &  \s\sharp  \\
+\s\angle      &    \s\flat  &\s\natural  & \s\spadesuit  \\
+\s\clubsuit   &  \s\heartsuit & \s\neg   &  \s\surd \\
+\s\diamondsuit & \s\infty  &\s\prime  &  \s\triangle \\
+\midrule
+\multicolumn{8}{c}{\bfseries latexsym}\\
+\multicolumn{4}{c}{(\Box) ~ \texttt{\string\Box}}
+& \multicolumn{4}{c}{(\Diamond) ~ \texttt{\string\Diamond}}\\
+\bottomrule
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_26.png[figure]
+
+*Figure 9.26*
+
+'''''
+
+=== Variable sized operators
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\newcommand*\s[1]{$\displaystyle#1$&\texttt{\string#1}}
+\renewcommand*\arraystretch{1.8}
+\setlength{\arraycolsep}{3ex}
+\begin{document}
+\begin{tabular}{*4{c@{~}l}}
+\s\bigcap    & \s\bigotimes & \s\bigwedge  & \s\prod      \\
+\s\bigcup    & \s\bigsqcup  & \s\coprod    & \s\sum       \\
+\s\bigodot   & \s\biguplus  & \s\int       \\
+\s\bigoplus  & \s\bigvee    & \s\oint      \\
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_29.png[figure]
+
+*Figure 9.29*
+
+'''''
+
+=== Inline text equation
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\usepackage{amsmath}
+\begin{document}
+(
+  \int_a^b \! f(x) \, dx = \lim_{\Delta x \rightarrow 0}
+  \sum_{i=1}^{n} f(x_i) \,\Delta x_i
+)
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_30.png[figure]
+
+*Figure 9.30*
+
+'''''
+
+=== Displayed style equation
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\usepackage{amsmath}
+\begin{document}
+\[
+  \int_a^b \! f(x) \, dx = \lim_{\Delta x \rightarrow 0}
+  \sum_{i=1}^{n} f(x_i) \,\Delta x_i
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_31.png[figure]
+
+*Figure 9.31*
+
+'''''
+
+=== Variable sized delimiters
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\newcommand*\s[1]{$\displaystyle\Big#1$&\texttt{\string#1}}
+\renewcommand*\arraystretch{1.8}
+\setlength{\tabcolsep}{2ex}
+\usepackage{booktabs}
+\begin{document}
+\begin{tabular}{*3{c@{\quad}l}}
+\toprule
+\multicolumn{6}{c}{\bfseries Pairs of braces, brackets  and parentheses} \\
+(\Big(\ \Big)) & \verb|( )| & (\Big{\ \Big\}) & \verb|{ \}| & (\Big\lceil\ \Big\rceil) & \verb|\lceil \rceil|\\
+({\Big[\ \Big]}) & \verb|[ ]|  & (\Big\langle\ \Big\rangle) & \verb|\langle \rangle|& (\Big\lfloor\ \Big\rfloor) & \verb|\lfloor \rfloor| \\
+\midrule
+\multicolumn{6}{c}{\bfseries Delimiting symbols and arrows}\\
+\s/ & \s\downarrow & \s\updownarrow \\
+\s\backslash & \s\Downarrow & \s\Updownarrow\\
+\s| & \s\uparrow \\
+\s\| &  \s\Uparrow \\
+%\s\unlhd & \s\unrhd  & \s\rhd & \s\lhd \\
+\bottomrule
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_32.png[figure]
+
+*Figure 9.32*
+
+'''''
+
+=== Arrays
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\usepackage{amsmath}
+\begin{document}
+\[
+  A = \left(
+    \begin{array}{cc}
+      a_{11} & a_{12} \\
+      a_{21} & a_{22}
+    \end{array}
+  \right)
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_33.png[figure]
+
+*Figure 9.33*
+
+'''''
+
+=== Typesetting matrices
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\usepackage{amsmath}
+\begin{document}
+\[
+  A = \begin{pmatrix}
+    a_{11} & a_{12} \\
+    a_{21} & a_{22}
+  \end{pmatrix}
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_34.png[figure]
+
+*Figure 9.34*
+
+'''''
+
+=== Writing binomial coefficients
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\usepackage{amsmath}
+\begin{document}
+\[
+\binom{n}{k} = \frac{n!}{k!(n-k)!}
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_35.png[figure]
+
+*Figure 9.35*
+
+'''''
+
+=== Underlining and overlining
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\usepackage{amsmath}
+\begin{document}
+\[
+\overline{\Omega}
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_36.png[figure]
+
+*Figure 9.36*
+
+'''''
+
+=== An underbrace below an expression
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\usepackage{amsmath}
+\begin{document}
+\[
+N = \underbrace{1 + 1 + \cdots + 1}_n
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_37.png[figure]
+
+*Figure 9.37*
+
+'''''
+
+=== Accents
+
+[source,tikz]
+....
+\documentclass[border=10pt]{standalone}
+\setlength{\tabcolsep}{1.8ex}
+\usepackage{array}
+\usepackage{booktabs}
+\begin{document}
+\sffamily
+\centering
+\begin{tabular}{*4{>{$}c<{$}@{~}l}}
+\toprule
+\acute{a} & \verb|\acute{a}| &\check{a} & \verb|\check{a}| &\grave{a} & \verb|\grave{a}| &\tilde{a} & \verb|\tilde{a}| \\
+\bar{a} & \verb|\bar{a}|  & \ddot{a} & \verb|\ddot{a}| & \hat{a} & \verb|\hat{a}| & \vec{a} & \verb|\vec{a}|   \\
+\breve{a} & \verb|\breve{a}| & \dot{a} & \verb|\dot{a}| & \mathring{a} & \verb|\mathring{a}| \\
+\midrule
+\multicolumn{8}{c}{\textbf{Extensible}} \\
+\multicolumn{4}{c}{$\widehat{abc}$\,\ \texttt{\string\widehat{abc\}}} & \multicolumn{4}{c}{$\widetilde{abc}$\,\ \texttt{\string\widetilde{abc\}}}\\
+\bottomrule
+\end{tabular}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_38.png[figure]
+
+*Figure 9.38*
+
+'''''
+
+=== Putting a symbol above or below another one
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\usepackage{amsmath}
+\begin{document}
+\[
+  \underset{\circ}{\cap} \neq \overset{\circ}{\cup}
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_39.png[figure]
+
+*Figure 9.39*
+
+'''''
+
+=== Text above a relation symbol
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\usepackage{amsmath}
+\begin{document}
+\[
+ X \stackrel{\text{def}}{=} 0
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_40.png[figure]
+
+*Figure 9.40*
+
+'''''
+
+=== Writing theorems and definitions
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\usepackage{amsmath}
+\newtheorem{thm}{Theorem}
+\newtheorem{dfn}[thm]{Definition}
+\begin{document}
+\begin{dfn}
+  A quadratic equation is an equation of the form
+  \begin{equation}
+    \label{quad}
+    ax^2 + bx + c = 0,
+  \end{equation}
+  where ( a, b ) and ( c ) are constants and ( a \neq 0 ).
+\end{dfn}
+\begin{thm}
+  A quadratic equation (\ref{quad}) has two solutions for the
+  Variable ( x ):
+  \begin{equation}
+    \label{root}
+    x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2a}.
+  \end{equation}
+\end{thm}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_9_41.png[figure]
+
+*Figure 9.41*
+
+'''''
+
+This code is available on
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/tree/main/Chapter_09_-_Writing_Math_Formulas[Github].
+It is licensed under the
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/blob/main/LICENSE[MIT
+License], a short and simple permissive license with conditions only
+requiring preservation of copyright and license notices.
+
+
+[[Chapter_10]]
+== Chapter 10 Using Fonts
+
+
+=== Using comprehensive font bundles
+
+==== Latin Modern – a replacement for the standard font
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\newcommand{\pangram}[1]{{#1 The quick brown fox jumps over
+  the lazy dog. 1234567890\par}}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\begin{document}
+\large
+\pangram{\rmfamily}
+\pangram{\sffamily}
+\pangram{\ttfamily}
+\pangram{\itshape}
+\pangram{\slshape}
+\[
+  \int_a^b \! f(x) \, dx = \lim_{\Delta x \rightarrow 0}
+  \sum_{i=1}^{n} f(x_i) \,\Delta x_i
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_10_1.png[figure]
+
+*Figure 10.1*
+
+'''''
+
+==== Kp-Fonts – another full set of fonts
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\newcommand{\pangram}[1]{{#1 The quick brown fox jumps over
+  the lazy dog. 1234567890\par}}
+\usepackage[T1]{fontenc}
+\usepackage{kpfonts}
+\begin{document}
+\large
+\pangram{\rmfamily}
+\pangram{\sffamily}
+\pangram{\ttfamily}
+\pangram{\itshape}
+\pangram{\slshape}
+\[
+  \int_a^b \! f(x) \, dx = \lim_{\Delta x \rightarrow 0}
+  \sum_{i=1}^{n} f(x_i) \,\Delta x_i
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_10_2.png[figure]
+
+*Figure 10.2*
+
+'''''
+
+==== Kepler font as light version
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\newcommand{\pangram}[1]{{#1 The quick brown fox jumps over
+  the lazy dog. 1234567890\par}}
+\usepackage[T1]{fontenc}
+\usepackage[light]{kpfonts}
+\begin{document}
+\large
+\pangram{\rmfamily}
+\pangram{\sffamily}
+\pangram{\ttfamily}
+\pangram{\itshape}
+\pangram{\slshape}
+\[
+  \int_a^b \! f(x) \, dx = \lim_{\Delta x \rightarrow 0}
+  \sum_{i=1}^{n} f(x_i) \,\Delta x_i
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_10_3.png[figure]
+
+*Figure 10.3*
+
+'''''
+
+==== Times Roman
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\newcommand{\pangram}[1]{{#1 The quick brown fox jumps over
+  the lazy dog. 1234567890\par}}
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+\begin{document}
+\large
+\pangram{\rmfamily}
+\[
+  \int_a^b \! f(x) \, dx = \lim_{\Delta x \rightarrow 0}
+  \sum_{i=1}^{n} f(x_i) \,\Delta x_i
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_10_4.png[figure]
+
+*Figure 10.4*
+
+'''''
+
+==== Palatino
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\newcommand{\pangram}[1]{{#1 The quick brown fox jumps over
+  the lazy dog. 1234567890\par}}
+\usepackage[T1]{fontenc}
+\usepackage{newpxtext}
+\usepackage{newpxmath}
+\begin{document}
+\large
+\pangram{\rmfamily}
+\[
+  \int_a^b \! f(x) \, dx = \lim_{\Delta x \rightarrow 0}
+  \sum_{i=1}^{n} f(x_i) \,\Delta x_i
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_10_5.png[figure]
+
+*Figure 10.5*
+
+'''''
+
+==== Charter
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\newcommand{\pangram}[1]{{#1 The quick brown fox jumps over
+  the lazy dog. 1234567890\par}}
+\usepackage[T1]{fontenc}
+\usepackage[charter]{mathdesign}
+\begin{document}
+\large
+\pangram{\rmfamily}
+\[
+  \int_a^b \! f(x) \, dx = \lim_{\Delta x \rightarrow 0}
+  \sum_{i=1}^{n} f(x_i) \,\Delta x_i
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_10_6.png[figure]
+
+*Figure 10.6*
+
+'''''
+
+==== New Century Schoolbook
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\newcommand{\pangram}[1]{{#1 The quick brown fox jumps over
+  the lazy dog. 1234567890\par}}
+\usepackage[T1]{fontenc}
+\usepackage{newcent}
+\usepackage{fouriernc}
+\begin{document}
+\large
+\pangram{\rmfamily}
+\[
+  \int_a^b \! f(x) \, dx = \lim_{\Delta x \rightarrow 0}
+  \sum_{i=1}^{n} f(x_i) \,\Delta x_i
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_10_7.png[figure]
+
+*Figure 10.7*
+
+'''''
+
+==== Concrete Roman
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\newcommand{\pangram}[1]{{#1 The quick brown fox jumps over
+  the lazy dog. 1234567890\par}}
+\usepackage[T1]{fontenc}
+\usepackage{concrete}
+\usepackage{concmath}
+\begin{document}
+\large
+\pangram{\rmfamily}
+\[
+  \int_a^b \! f(x) \, dx = \lim_{\Delta x \rightarrow 0}
+  \sum_{i=1}^{n} f(x_i) \,\Delta x_i
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_10_8.png[figure]
+
+*Figure 10.8*
+
+'''''
+
+==== Bookman / Kerkis
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\newcommand{\pangram}[1]{{#1 The quick brown fox jumps over
+  the lazy dog. 1234567890\par}}
+\usepackage[T1]{fontenc}
+\usepackage{kmath}
+\usepackage{kerkis}
+\begin{document}
+\large
+\pangram{\rmfamily}
+\[
+  \int_a^b \! f(x) \, dx = \lim_{\Delta x \rightarrow 0}
+  \sum_{i=1}^{n} f(x_i) \,\Delta x_i
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_10_9.png[figure]
+
+*Figure 10.9*
+
+'''''
+
+=== Sans-serif fonts
+
+==== Arev
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\newcommand{\pangram}[1]{{#1 The quick brown fox jumps over
+  the lazy dog. 1234567890\par}}
+\usepackage[T1]{fontenc}
+\usepackage{arev}
+\begin{document}
+\large
+\pangram{\sffamily}
+\[
+  \int_a^b \! f(x) \, dx = \lim_{\Delta x \rightarrow 0}
+  \sum_{i=1}^{n} f(x_i) \,\Delta x_i
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_10_10.png[figure]
+
+*Figure 10.10*
+
+'''''
+
+==== Computer Modern Bright
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\newcommand{\pangram}[1]{{#1 The quick brown fox jumps over
+  the lazy dog. 1234567890\par}}
+\usepackage[T1]{fontenc}
+\usepackage{cmbright}
+\begin{document}
+\large
+\pangram{\sffamily}
+\[
+  \int_a^b \! f(x) \, dx = \lim_{\Delta x \rightarrow 0}
+  \sum_{i=1}^{n} f(x_i) \,\Delta x_i
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_10_11.png[figure]
+
+*Figure 10.11*
+
+'''''
+
+==== Kurier
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\newcommand{\pangram}[1]{{#1 The quick brown fox jumps over
+  the lazy dog. 1234567890\par}}
+\usepackage[T1]{fontenc}
+\usepackage[math]{kurier}
+\begin{document}
+\large
+\pangram{\sffamily}
+\[
+  \int_a^b \! f(x) \, dx = \lim_{\Delta x \rightarrow 0}
+  \sum_{i=1}^{n} f(x_i) \,\Delta x_i
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_10_12.png[figure]
+
+*Figure 10.12*
+
+'''''
+
+==== Helvetica
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\newcommand{\pangram}[1]{{#1 The quick brown fox jumps over
+  the lazy dog. 1234567890\par}}
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.95]{helvet}
+\usepackage{sfmath}
+\begin{document}
+\large
+\pangram{\sffamily}
+\[
+  \int_a^b \! f(x) \, dx = \lim_{\Delta x \rightarrow 0}
+  \sum_{i=1}^{n} f(x_i) \,\Delta x_i
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_10_13.png[figure]
+
+*Figure 10.13*
+
+'''''
+
+=== Typewriter fonts
+
+==== Courier
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\newcommand{\pangram}[1]{{#1 The quick brown fox jumps over
+  the lazy dog. 1234567890\par}}
+\usepackage[T1]{fontenc}
+\usepackage{courier}
+\begin{document}
+\large
+\pangram{\ttfamily}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_10_14.png[figure]
+
+*Figure 10.14*
+
+'''''
+
+==== Inconsolata
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\newcommand{\pangram}[1]{{#1 The quick brown fox jumps over
+  the lazy dog. 1234567890\par}}
+\usepackage[T1]{fontenc}
+\usepackage{inconsolata}
+\begin{document}
+\large
+\pangram{\ttfamily}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_10_15.png[figure]
+
+*Figure 10.15*
+
+'''''
+
+==== Bera Mono
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\newcommand{\pangram}[1]{{#1 The quick brown fox jumps over
+  the lazy dog. 1234567890\par}}
+\usepackage[T1]{fontenc}
+\usepackage{beramono}
+\begin{document}
+\large
+\pangram{\ttfamily}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_10_16.png[figure]
+
+*Figure 10.16*
+
+'''''
+
+=== Calligraphic fonts
+
+==== Calligra
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\newcommand{\pangram}[1]{{#1 The quick brown fox jumps over
+  the lazy dog. 1234567890\par}}
+\usepackage[T1]{fontenc}
+\usepackage{calligra}
+\begin{document}
+\large
+\pangram{\calligra}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_10_17.png[figure]
+
+*Figure 10.17*
+
+'''''
+
+==== Miama Nueva
+
+[source,tikz]
+....
+\documentclass[preview,border=10pt]{standalone}
+\newcommand{\pangram}[1]{{#1 The quick brown fox jumps over
+  the lazy dog. 1234567890\par}}
+\usepackage[T1]{fontenc}
+\usepackage{miama}
+\begin{document}
+\large
+\pangram{\fmmfamily}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_10_18.png[figure]
+
+*Figure 10.18*
+
+'''''
+
+=== Using arbitrary fonts
+
+The remaining examples can run on Windows computers with the fonts
+installed, not here on the web site.
+
+==== Selecting the main font
+
+[source,tikz]
+....
+% !TEX none
+\documentclass{article}
+\usepackage{fontspec}
+\setmainfont{Segoe UI Semilight}
+\begin{document}
+\large
+The quick brown fox jumps over the lazy dog. 1234567890
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_10_20.png[figure]
+
+*Figure 10.20*
+
+'''''
+
+==== Selecting multiple font families
+
+[source,tikz]
+....
+% !TEX none
+\documentclass{article}
+\newcommand{\pangram}[1]{{#1 The quick brown fox jumps over
+  the lazy dog. 1234567890\par}}
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\setmainfont{Cambria}
+\setsansfont{Segoe UI}[Scale=MatchLowercase]
+\setmonofont{Lucida Console}[Scale=MatchLowercase]
+\setmathfont{Cambria Math}[Scale=MatchLowercase]
+
+\begin{document}
+\large
+\pangram{\rmfamily}
+\pangram{\sffamily}
+\pangram{\ttfamily}
+\[
+  \int_a^b \! f(x) \, dx = \lim_{\Delta x \rightarrow 0}
+  \sum_{i=1}^{n} f(x_i) \,\Delta x_i
+\]
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_10_21.png[figure]
+
+*Figure 10.21*
+
+'''''
+
+This code is available on
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/tree/main/Chapter_10_-_Using_Fonts[Github].
+It is licensed under the
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/blob/main/LICENSE[MIT
+License], a short and simple permissive license with conditions only
+requiring preservation of copyright and license notices.
+
+
+[[Chapter_11]]
+== Chapter 11 Developing Large Documents
+
+
+=== Splitting the input
+
+==== Preamble file:
+
+[source,tikz]
+....
+% !TEX none
+\usepackage{lmodern} 
+\usepackage{microtype} 
+\usepackage{natbib} 
+\usepackage{tocbibind} 
+\usepackage{amsmath} 
+\usepackage{amsthm} 
+\newtheorem{thm}{Theorem}[chapter] 
+\newtheorem{lem}[thm]{Lemma} 
+\theoremstyle{definition} 
+\newtheorem{dfn}[thm]{Definition}
+....
+
+Chapter 1::
+
+[source,tikz]
+....
+% !TEX none
+\chapter{Equations}
+\section{Quadratic equations}
+\begin{dfn}
+  A quadratic equation is an equation of the form
+  \begin{equation}
+    \label{quad}
+    ax^2 + bx + c = 0
+  \end{equation}
+  where ( a, b ) and ( c ) are constants and ( a \neq 0 ).
+\end{dfn}
+....
+
+Chapter 2::
+
+[source,tikz]
+....
+% !TEX none
+\chapter{Equation Systems}
+\section{Linear Systems}
+...
+\section{Non-linear Systems}
+...
+....
+
+==== Main document:
+
+[source,tikz]
+....
+\documentclass{book}
+\input{preamble}
+\begin{document}
+\tableofcontents
+\include{chapter1}
+\include{chapter2}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_11_1.png[figure]
+
+*Figure 11.1*
+
+
+=== Creating front and back matter
+
+==== Dedication file:
+
+[source,tikz]
+....
+\chapter{Dedication}
+This book is dedicated to one of the greatest mathematicians of
+all time: Carl Friedrich Gauss. Without him, this book wouldn't
+have been possible.
+....
+
+==== Proofs file:
+
+[source,tikz]
+....
+% !TEX none
+\chapter{Proofs}
+...
+....
+
+==== Main document:
+
+[source,tikz]
+....
+% !TEX bibtex document
+\documentclass{book}
+\input{preamble}
+\input{example}% only here on the website to create the example.bib file
+\begin{document}
+\frontmatter
+\include{dedication}
+\tableofcontents
+\listoftables
+\listoffigures
+\mainmatter
+\include{chapter1}
+\include{chapter2}
+\backmatter
+\include{proofs}
+\nocite{*}
+\bibliographystyle{plainnat}
+\bibliography{example}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_11_3.png[figure]
+
+*Figure 11.3*
+
+
+=== Designing a title page
+
+==== Title file:
+
+[source,tikz]
+....
+% !TEX none
+\begin{titlepage}
+  \raggedleft
+  {\Large The Author\\[1in]}
+  {\large The Big Book of\\}
+  {\Huge\scshape Equations\\[.2in]}
+  {\large Packed with hundreds of examples and solutions\\}
+  \vfill
+  {\itshape 2011, Publishing company}
+\end{titlepage}
+....
+
+==== Main document:
+
+[source,tikz]
+....
+% !TEX bibtex document
+\documentclass{book}
+\usepackage[a5paper]{geometry}% could go to the preamble instead
+\input{preamble}
+\input{example}% only here on the website to create the example.bib file
+\begin{document}
+\frontmatter
+\include{title}
+\include{dedication}
+\tableofcontents
+\listoftables
+\listoffigures
+\mainmatter
+\include{chapter1}
+\include{chapter2}
+\backmatter
+\include{proofs}
+\nocite{*}
+\bibliographystyle{plainnat}
+\bibliography{example}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_11_4.png[figure]
+
+*Figure 11.4*
+
+'''''
+
+==== Working with templates
+
+[source,tikz]
+....
+\documentclass[fontsize=12pt, paper=a4]{scrlttr2}
+\usepackage[utf8]{inputenc}
+\setkomavar{fromname}{My name} % your name
+\setkomavar{fromaddress}{Street, City}
+\setkomavar{signature}{Name} % printed after the \closing
+\setkomavar{subject}{Invoice 1/2021} % subject of the letter
+\setkomavar{place}{Place}
+\setkomavar{date}{January 1, 2021 }
+\begin{document}
+\begin{letter}{Customer Name\\ Street No. X \\ City \\ Zipcode}
+  \opening{To whom it may concern} % eg. Hello
+  Text follows \ldots
+  \bigskip
+  \closing{With kind regards} %eg. Regards
+\end{letter}
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_11_5.png[figure]
+
+*Figure 11.5*
+
+'''''
+
+==== Working with dummy text / blind text
+
+[source,tikz]
+....
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\begin{document}
+\begin{abstract}
+\blindtext
+\end{abstract}
+\Blinddocument
+\end{document}
+....
+
+image:https://latexguide.org/img/figure_11_6.png[figure]
+
+*Figure 11.6*
+
+'''''
+
+This code is available on
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/tree/main/Chapter_11_-_Developing_Large_Documents[Github].
+It is licensed under the
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/blob/main/LICENSE[MIT
+License], a short and simple permissive license with conditions only
+requiring preservation of copyright and license notices.
+
+
+[[Chapter_12]]
+== Chapter 12 Enhancing Your Documents Further
+
+
+=== Combined document from chapter 11, plus hyperref
+
+[source,tikz]
+....
+\documentclass{book}
+%
+% preamble
+\usepackage{lmodern} 
+\usepackage{microtype} 
+\usepackage{natbib} 
+\usepackage{tocbibind} 
+\usepackage{amsmath} 
+\usepackage{amsthm} 
+\newtheorem{thm}{Theorem}[chapter] 
+\newtheorem{lem}[thm]{Lemma} 
+\theoremstyle{definition} 
+\newtheorem{dfn}[thm]{Definition}
+\usepackage{hyperref}
+%
+% document body
+\begin{document}
+\tableofcontents
+%
+% dedication
+\chapter*{Dedication}
+This book is dedicated to one of the greatest mathematicians of
+all time: Carl Friedrich Gauss. Without him, this book wouldn't
+have been possible.
+%
+% chapter 1
+\chapter{Equations}
+\section{Quadratic equations}
+\begin{dfn}
+  A quadratic equation is an equation of the form
+  \begin{equation}
+    \label{quad}
+    ax^2 + bx + c = 0
+  \end{equation}
+  where ( a, b ) and ( c ) are constants and ( a \neq 0 ).
+\end{dfn}
+%
+% chapter 2
+\chapter{Equation Systems}
+\section{Linear Systems}
+...
+\section{Non-linear Systems}
+...
+\end{document}
+....
+
+'''''
+
+=== Using math formulas and special symbols in bookmarks
+
+[source,tikz]
+....
+\documentclass{article}
+\usepackage{bm}
+\usepackage[colorlinks=true,psdextra,unicode]{hyperref}
+\begin{document}
+\pdfbookmark[1]{\contentsname}{toc}
+\tableofcontents
+\pdfbookmark[1]{Abstract}{abstract}
+\begin{abstract}
+\centering
+Sample sections follow.
+\end{abstract}
+\section{The equation \texorpdfstring{$\bm{y=x^2}$}{y=x\texttwosuperior}}
+\section{\texorpdfstring{$\bm{\gamma}$}{\textgamma} radiation}
+\section[\texorpdfstring{Let $\int\sim\sum$ for
+  $n\rightarrow\infty$}
+  {Let \int\sim\sum\ for n\rightarrow\infty}]
+  {Let $\bm{\int\sim\sum}$ for $\bm{n\rightarrow\infty}$}
+\end{document}
+....
+
+'''''
+
+This code is available on
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/tree/main/Chapter_12_-_Enhancing_Your_Documents_Further[Github].
+It is licensed under the
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/blob/main/LICENSE[MIT
+License], a short and simple permissive license with conditions only
+requiring preservation of copyright and license notices.
+
+
+[[Chapter_13]]
+== Chapter 13 Troubleshooting
+
+=== Error testing
+
+[source,tikz]
+....
+\documentclass{article}
+\begin{document}
+% wrong:
+%\Latex\ says: Hello world!
+% correct:
+\LaTeX\ says: Hello world!
+\end{document}
+....
+
+'''''
+
+=== Warning
+
+[source,tikz]
+....
+\documentclass{article}
+\renewcommand{\familydefault}{\sfdefault}
+\begin{document}
+\emph{Hello world!}
+\end{document}
+....
+
+'''''
+
+This code is available on
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/tree/main/Chapter_13_-_Troubleshooting[Github].
+It is licensed under the
+https://github.com/PacktPublishing/LaTeX-Beginner-s-Guide-2nd-Edition-/blob/main/LICENSE[MIT License],
+a short and simple permissive license with conditions only
+requiring preservation of copyright and license notices.

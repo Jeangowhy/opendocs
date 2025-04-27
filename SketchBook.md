@@ -88,7 +88,7 @@ SketchBook 软件界面的画笔库，可以创建新的建画笔或画笔集，
 注意，带透明通道的图案才合适制作不使用图案颜色的笔刷，因为图案非透明区本身作为用来绘画颜色，在不使用图案颜色的情况下，可以由使用者设置颜色。
 
 
-# 🐣 SAI 安装
+# 🐣 SAI 绘画软件
 - Paint Tool SAI 开发办公室 http://www.systemax.jp/ja/sai/devdept.html
 
 
@@ -180,7 +180,7 @@ SAI Ver.2 某叫 saicrack 的旧破解有 bug，它保存的 .sai2 文件不能�
 最简单是在旧破解里另存为 .psd 文件，但这个格式不能保存 SAI 的专有数据，比如你用了钢笔图层之类的，另存为 .psd 文件会使钢笔图层栅格化。但 SAI Ver.2 有文件恢复功能，可以完美解决这个问题。
 
 
-# 🐣 SAI 画笔算法模型
+# 🐣 SAI 画刷算法模型
 - 详解新版SAI2的继承设置和导入笔刷 https://piv.app/import-sai-settings/
 - Intuos Pro 数位板说明书 http://101.wacom.com/userhelp/zh_tw/toc/pth-460.html
 - Intuos Pro 专业数位板规格 https://estore.wacom.com/media/sebwite/productdownloads//i/n/intuos_pro_factsheet_en_weg_36.pdf
@@ -461,7 +461,7 @@ SAI 是绘制漫画常用的轻量工具，绘画非常流畅，笔刷定制容�
 
 
 
-# 🐣 Krita 
+# 🐣 Krita 开源绘图软件
 - https://docs.krita.org/zh_CN/user_manual/getting_started/navigation.html
 - https://docs.krita.org/zh_CN/user_manual/introduction_from_other_software/introduction_from_sai.html
 - [A comic page from A to Z with Krita](https://www.bilibili.com/video/BV1SW41137KE)
@@ -477,25 +477,169 @@ SAI 是绘制漫画常用的轻量工具，绘画非常流畅，笔刷定制容�
 - [David's Krita Keyboard Shortcuts](https://www.bilibili.com/video/BV1Ea4y147s6)
 - [Let's Animate(by Ed Tadeo)](https://www.bilibili.com/video/BV1Rb411n7tP)
 
+Krita 是 KDE 社区开发的一款自由软件。理念是提供一款每一位画师都可使用的优秀创作工具。如果你希望
+支持 Krita 的开发，你也可以在 Windows Store 或者 Steam 上购买支持自动更新的 Krita。Krita
+基于 Qt5 图形框架实现，因此在 Windows 系统上不会出现 Inkscape 那样严重的卡顿问题。
+
+Krita 在 Steam 和 Windows 商店中销售的版本依然是自由开源软件。它们的软件包和你从 krita.org 
+官网下载的版本完全一致。销售产生的回报将全部用于 Krita 开发，让四位全职开发人员能够专心服务该项目。
+没有人在利用这些回报变成有钱人。
+
+    git clone git@invent.kde.org:graphics/krita.git
+    git clone git@invent.kde.org:documentation/docs-krita-org.git
+
+Krita 支持 OpenGL 或 Direct3D 硬件加速渲染，支持迪士尼 SeExpr 程序化纹理脚本，绘画过程更流畅。
+2012 年后的集成或者独立显卡均能支持 Krita 的 GPU 加速。同时支持图形的 3D 变换，Ctrl+T 执行图形
+变换时，再按住 Ctrl 拖动图形。Krita 功能齐全，能胜任从起草、勾线、上色到最终调整的所有动画制作流程。
+
+Krita 5.0 完全重写了软件的资源管理系统，它是软件管理笔刷、渐变、色板、标签等资源的核心部件。新版
+资源管理系统速度更快，内存占用更低，而且运行更加稳定，同时支持中文标签或资源名称。虽然官方强调 Krita
+是绘画软件，但是它完全胜任一些简单的图片处理工作，比如裁剪、抠图、瑕疵修补等。干这种小活的时候，比起
+打开 PS 或者 GIMP 更加高效。
+
+即时预览（Instant Preview）是 Krita 的加速机制，旧称 Level Of Detail/LOD 笔刷，经由 2015
+Kickstarter 发展而来。由于在绘制图像时需要处理大量数据，Krita 在处理非常大的图像时速度会减慢。
+Instant Preview 的工作原理是抽取画布的一个缩小版的数据快速绘制反馈，同时 Krita 在后台中计算
+真实的笔划，并在处理完成后替换预览图。这意味着，如果你有一个 4k 屏幕，并且正在以 100% 的变焦处理
+4k 图像，此功能不会有任何速度的提升。快速预渲染需要显卡支持 OpenGL 3.0 图形接口支持。如果在菜单栏
+设置 ‣ 配置 Krita ‣ 显示 ‣ 视图缩放算法 中不存在高质量缩放选项，你将无法使用此功能。
+
+Krita 的常规设置页面（General）包含了光标配置，可以选择在使用笔刷工具时显示的光标形状以及边缘颜色，
+只要光标移动到画布视图中就会一直显示在笔尖位置。
+
+Krita 支持压感输入设备，如果使用绘板，可以先设置压感曲线：为压感敏感不稳定的力度区间设置更平缓的
+映射曲线。这样的曲线设置可以更准确地控制绘画出线条的深浅变化。Windows 系统中有两种数位板驱动程序：
+
+*   Wintab 是数位板厂商的提供的驱动接口，是一般的外接数位板、数位屏等设备常用接口。
+*   Windows Ink 这是 Windows 8 引入的内置驱动，通常见于类似 Surface 等平板电脑和变形本。
+ 
 Krita 自带了一套庞大的笔刷预设，并且各种参数可以完全自由定制，这套笔刷设计思路是：
 
 - 提供一套无论是对初学者还是高手都足够好用的笔刷。 
 - 为 Krita 的典型用途准备相应的工具，包括：漫画勾线和上色、数字绘画、接景、像素画、3D 纹理等。 
 - 示范各种笔刷引擎的功能，为用户自行定制笔刷提供参考样板。
 
-SAI 提供切换透明色，将透明色当作正常色彩用于绘画。透明色相当橡皮擦，但是笔触更灵活。在 Krita 中相同的功能就是打开画笔的橡皮擦模式，或者使用图层的擦除模式，然后再向下合并到绘画图层上。
+Krita 内建了 9 种基本笔刷引擎，每种引擎的建模都针对某种特定功能，如颜色涂抹、轮廓填色、粒子甚至滤镜
+引擎。每种笔刷引擎带有丰富的定制选项，可以用来打造无数种笔刷预设。笔刷预设可以通过标签来管理和加载。
+
+    Available Engines:
+
+    Bristle Brush Engine        鬃毛笔刷引擎：在笔画路径上模仿鬃毛留下的痕迹。
+    Chalk Brush Engine          粉笔笔刷引擎：4.0 版起移除，使用像素笔刷引擎实现同样效果。
+    Clone Brush Engine          克隆笔刷引擎：绘制某个颜料区域的复制品，适用于修改照片和制作纹理。
+    Color Smudge Brush Engine   颜色涂抹笔刷引擎：通过涂抹和钝化来混合颜色，是一个上色流程的强大工具。
+    Curve Brush Engine          曲线笔刷引擎：通过微小等距曲线构成笔迹。可在没有数位板的条件下压感曲线。
+    Deform Brush Engine         变形笔刷引擎：可以对像素进行推挤和拉扯的笔刷。
+    Dyna Brush Engine           力学笔刷引擎：力学有关的特性，包括重量、拽引，可配合传感器使用。
+                                自 4.0 版本弃用: 工具箱的力学笔刷工具可以实现此引擎的全部功能，
+                                手绘笔刷工具也可以通过防抖选项画出类似的平滑笔画。
+    Filter Brush Engine         滤镜笔刷引擎：“减淡”、“模糊”和“锐化”等特效工具也叫做滤镜。
+    Grid Brush Engine           网格笔刷引擎：在一个网格上绘制形状，可以制作出怀旧的半调效果。
+    Hatching Brush Engine       排线笔刷引擎：画排线的工具，通过其它选项，可以制作出变化多端的效果。
+    MyPaint Brush Engine        MyPaint 笔刷引擎：一款自由开源的免费绘画程序，Krita 从 5.0 版起内建。
+    Particle Brush Engine       粒子轨迹笔刷引擎：按照粒子的流动原理画出粒子的流线轨迹。
+    Pixel Brush Engine          像素笔刷引擎：根据压感笔的压力画出或大或小、或硬或软的笔画。
+    Quick Brush Engine          快速笔刷引擎：像马克笔一样粗大而均匀的高速铺底色的笔刷。
+    Shape Brush Engine          形状笔刷引擎：一个受 Al.chemy 项目启发的笔刷，可以画交织色块。
+    Sketch Brush Engine         草图笔刷引擎：基于 Harmony 笔刷开发的、线条就近粘连的笔刷。
+    Spray Brush Engine          喷雾笔刷引擎：在笔刷范围内喷射粒子。
+    Tangent Normal Brush Engine 切线空间法线笔刷引擎：绘制在切线空间中的法线贴图的笔刷。
+
+切线空间法线贴图用于在 3D 程序和游戏引擎中制作各种光照效果。常见的法线贴图用法包括在没有凹凸细节的
+表面上模仿凹凸效果，还有用来控制变形方向的流向图等。法线贴图是保存有法线矢量信息的图像，这种信息用于
+描述光在物体表面的扭曲情况。由于法线矢量由三个坐标值组成，与颜色恰好一样，所以我们可以把法线矢量信息
+作为颜色来保存和查看。
+
+如果你在数位板上垂直立起压感笔，那么压感笔就在数位板的法线上。因此，如果数位板带有笔身倾斜传感器，
+就可以直接使用它的笔身倾角数据来绘制法线贴图了。这也是这个笔刷引擎的功能——将数位板的笔身倾角传感器
+数据转换为法线数据的颜色，制作可供 3D 程序使用的切线空间法线贴图。法线贴图中的颜色分量会被映射为 3D
+场景中物体表面法向量的切线空间坐标：
+
+    X: from -1 to +1 -> Red: from 0 to 255
+    Y: from -1 to +1 -> Green: from 0 to 255
+    Z: 0 to -1 -> Blue: 128 to 255
+
+切线空间下的向量总是指向 Z 轴，对应法线贴图中的像素蓝色分量取值 128 ~ 255，这也就是为何法线贴图
+看起来总是又蓝又紫。法线贴图作为一种渲染优化技术解决的问题是：在不增加模型面片数量的前提下增加光照
+细节。3D 物体的光照直接和法线相关，每个面片对应有一个法线向量，它决定了光照如何反射、折射。通过引
+入法线贴图，每个像素就是对应一个法向量，这样就可以让模型中的每一个面片拥有任意数据的法线向量，也就
+提升了单位面片的光照细节。法线贴图（normal mapping）有时也会称为凹凸贴图（bump mapping），这
+是使用方式上有细微差别。在视觉上，法线贴图就是用贴图扰动反射光，造成观察者感觉表面有凹凸的错觉。因此，
+法线贴图必须与光照搭配使用，但是凹凸贴图不需要。凹凸贴图、法线贴图、位移贴图、视差贴图者是相似的技术，
+可以一起比较学习。视差贴图（Parallax Mapping）属于位移贴图（Displacement Mapping）技术的一种，
+它根据存储在纹理中的几何信息对顶点进行位移或偏移以产生更真实的视觉层次感，能实现更加真实和强烈的凹凸。
+
+.. figure:: https://sunocean.life/blog/assets/images/210107-shader-opengl-parallax-~bd/20160417190541024.jpg
+    :target: https://sunocean.life/blog/blog/2021/01/07/shader-OpenGL-Parallax-Mapping
+
+由于法线朝向是全方位的，如果直接将各个方向的法线储存在同一张贴图上，可能看到过不只是蓝色的法线贴图，
+这样的法线贴图有个问题：必须保持模型的原始朝向。如果模型运动了就要记录模型的变换矩阵，非常不便。为
+了解决这个自适应问题，就需要引入切线空间（Tangent Space）方案。这个坐标空间里，法线贴图中保存的
+向量总是指向 +Z 方向（面片表面垂直向外），所有的法线向量都相对与这个 +Z 方向进行变换运算。可以为
+任何表面计算出一个这样的矩阵，可以钭切线空间的向量转换为模型空间的法向量。这种矩阵叫做 TBN 矩阵，
+代表 Tangent 切线、 Bitangent 副切线和 Normal，这些向量也是建构这个矩阵所需的向量。
+
+*   [Normal-Mapping - Tangent space](https://learnopengl.com/Advanced-Lighting/Normal-Mapping)
+*   OpenGL SuperBible 7th - Chapter 13. Rendering Techniques - Lighting Models - Normal Mapping
+
+通过添加过滤图层（Filter Layer）就可以将当前图层当作高度贴图，并通过边缘检测再转换为相应的法线贴图，
+Edge Detection > Height to Normal Map。效果演示如下：
+
+![Height to Normal Map](https://activdesign.eu/uploads/2020/07/09/create_normal_map_krita_blender.jpg)
+
+总而言之，这个笔刷引擎绘制的不是真正的颜色，而是不同的表面形状，用于在 3D 程序中制作光照效果。
+
+每种笔刷都可以打开笔刷编辑器（Brush Editor, F5）界面修改参数，例如是否使用压感控制笔刷大小、
+不透明度、流量等等，笔刷参数多达数十种，分为一般（General）、色彩（Color）、纹理（Texture）
+和遮罩（Masked Brush），可以随时恢复修改后的笔刷到初始状态。通过自定义笔尖参数（Brush Tip），
+创建自己的笔刷纹理或者使用内置笔刷纹理（Predifined），用户可以快速创建自己的笔刷。笔刷纹理可
+以通过多种途径导入：图像文件导入（Import）、截取画布图像（Stamp）、粘贴板中的图像（Clipboard）。
+笔刷预置文件保存路径在 `share/krita/paintoppresets/*.kpp`，对应还有笔刷分类标签文件 .tag。
+笔刷包（Resource Bundle）文件保存在 `share/krita/bundles/*.bundle`，旧版本通过打包相关
+资源文件夹来实现笔刷共享（brushes, paintoppresets 和 patterns），新版本可以使用资源打包工具
+Settings ‣ Manage Resources… ‣ Create a Bundle 创建资源包，并可以选择要打包的笔尖纹理、
+笔刷配置等等。
+
+[Loading and Saving Brushes](https://docs.krita.org/en/user_manual/loading_saving_brushes.html)
+
+具有笔尖参数（Brush Tip）的笔刷引擎提供了三种纹理设置方式：
+
+*  自动纹理（Auto）：椭圆、矩形纹理，只提供半径、长宽比、遮罩（Soft 或者 Gaussian）、角度、Spikes 等参数；
+*  预置纹理（Predifined）：主要的笔刷纹理，可以使用任意的纹理图；
+*  字体纹理（Text）：通过字体提供的矢量图形作为笔刷纹理，只提供字号、间距等参数。
+
+每个内置笔刷都有默认配置值，用户修改配置值后，Brush Editor 界面中笔刷标题名称右侧会显示警告图标，
+并且提供一个按钮用于恢复初始值。在绘画过程中，用户可以随时调整笔刷参数，这些修改会临时保存，下载切换
+笔刷时还保持修改值。Brush Editor 界面中，也可以打开最左侧的笔刷预置列表（Presets），点击列表中
+这些笔刷时，会载入默认配置值，通过勾选界面下侧的 Temporarily Save Tweaks To Presets，可以
+保持用户绘画时调整的设置。这种状态下，笔刷图标会叠加显示一个铅笔头的图样以表示此笔刷保持有微调配置。
+每种笔刷都可以切换为橡皮擦模式（E），勾选以下两项以使用橡皮擦模式使用不同的不透明度、笔刷半径设置：
+
+*   Eraser switch opacity 
+*   Eraser switch size 
+
+SAI 提供切换透明色，将透明色当作正常色彩用于绘画。透明色相当橡皮擦，但是笔触更灵活。在 Krita 中相
+同的功能就是打开画笔的橡皮擦模式，或者使用图层的擦除模式，然后再向下合并到绘画图层上。
 
 Krita 提供的四方延续显示，在绘制连续无拼接痕迹的纹理图片时很方便。
 
 Krita 相对于 SAI 的不足：
 
-- 矢量线条的宽度不便调整
+- 矢量功能不够强大，线条的宽度也不便调整
 - 本地选区图层缺少来源选项
 - 动态笔刷硬边 (边缘效果)
-- 没有混色面板
 - 预设无法内置防抖选项
+- 没有混色面板
 - 不能为不同预设指定不同快捷键
 
+Krita 界面还有很大的优化空间，比如工具选项面板中，无论选择什么工具，都会显 Fill Patters 模板图，
+和填充渐变色，但它们并非所有工具通用的功能。比如填充模板图，只适用于以下功能，还可能需要配合 Tool
+Options 面板使用，这个界面操作逻辑上相当混乱：
+
+*   As fill for a vector shape.
+*   As fill-tool color.
+*   As height-map for a brush using the ‘texture’ functionality.
+*   As fill for a generated layer.
 
 画布视图可以旋转显示：
 
@@ -504,15 +648,26 @@ Krita 相对于 SAI 的不足：
 - Shift + Spacebar 或者 Shift + 鼠标中间键或压感笔进行无级旋转。
 - 5 可以重置旋转。
 
+Krita 的所有图层均支持透明度，并默认通过灰白两色的棋盘格图案代表透明区域。你可以在 Settings ->
+Configure Krita -> Display 选项中更改棋盘格图案的相关设置。包含指定画布视图周围背景的颜色。
+Canvas Decorations -> Canvas Border Color。
 
+弹出工具窗口（popup menu）是非常方便的工具，它可以用来旋转或缩放画布、选择笔刷、选择颜色。面板还
+可以调整笔刷参数，包括笔迹粗细、不透明度（opacity）、倾角、流量、叠色间距（Spacing）等等。配合
+画布全屏模式（Tab）可以获得一个可以专注于绘画的用户界面。用户喜欢配置界面中的 Pop-up Palette 
+可以配置显示的笔刷数量，可以设置弹框的大小（Palette Size）、色环类型（Color Selector）、色块
+大小（Selector Size），以及是否要显示颜色历史和旋转操作环（Rotation Ring）。除了使用色环，还
+可以使用 H 快捷键弹出历史颜色列表（Show color history）。
 
+*   https://docs.krita.org/zh_CN/user_manual/getting_started/navigation.html
+*   https://docs.krita.org/zh_CN/reference_manual/preferences/display_settings.html
 
 Keyboard Shortcuts
 
     /   切换上次使用的笔刷
     M   水平反转
     B   画笔
-    RMB 弹出色环工具窗口
+    RMB 弹出色环工具窗口（popup menu）
     Ctrl-LMB 临时切换吸管
     Shift-LMB 调整笔触大小
     MMB 平移画布
@@ -553,8 +708,6 @@ Keyboard Shortcuts
     Ctrl-M  曲线调整
     Ctrl-U  颜色调整
 
-自定义快捷键
-
 - The Selection Outline
 
     ~ 反引号
@@ -585,7 +738,615 @@ Keyboard Shortcuts
 
 - Reload Original Preset
 
+https://imagy.app/wp-content/uploads/2023/01/Krita-Shortcuts-CheatSheet-Document_Final.pdf
 
+
+
+# 🐣 SeExpr 程序化纹理
+
+   *   [Patterns](https://docs.krita.org/en/reference_manual/resource_management/resource_patterns.html)
+   *   [Brush Engines](https://docs.krita.org/en/reference_manual/brushes/brush_engines.html)
+   *   [Krita 4 Preset Bundle](https://docs.krita.org/en/reference_manual/krita_4_preset_bundle.html)
+   *   [Krita with SeExpr](https://docs.krita.org/zh_CN/tutorials/seexpr.html)
+   *   [SeExpr Expression Language](https://www.disneyanimation.com/technology/seexpr-expressions-language/)
+   *   [SeExpr Quick Reference](https://docs.krita.org/en/reference_manual/seexpr.html)
+
+   Krita 在填充图层中提供了使用 SeExpr 脚本来生成程序化纹理。SeExpr 是由迪士尼动画工作室设计开发的
+   一种可嵌入的表达式语言，它让宿主应用程序可以按照脚本定义动态生成图案。皮克斯动画工作室在 RenderMan
+   文档 中将它称作“可通过脚本编程的图案生成器与组合器”。
+
+   SeExpr is an embeddable, arithmetic expression language that enables flexible artistic 
+   control and customization in creating computer graphics images. Example uses include 
+   procedural geometry synthesis, image synthesis, simulation control, crowd animation, 
+   and geometry deformation. https://wdas.github.io/SeExpr
+
+   Major features of SeExpr expressions:
+
+   *   Arithmetic expression of scalar/vector types
+   *   Large library of built-in functions
+   *   Extensible variables and functions (including with DSOs)
+   *   Simple to embed in any program
+   *   High-level UI components to manipulate and visualize expressions:
+      - an expression editor, with auto-completion
+      - a panel for control widgets, eg, sliders, ramp widgets, color widgets
+      - an image previewer
+      - an expression library browser
+
+   [Source code overview](https://github.com/wdas/SeExpr)
+
+    src/
+      SeExpr2/  Library code
+      ui/       User Interface components for editing
+      demos/    Demo Applications
+      tests/    Regression Tests
+      doc/      Doxygen generation
+
+   原代码依赖 Qt5 图形框架，编译之前需要安装它。另外，CMake 构建编译脚本时可能会在检测符号时引用苹果系统
+   引入的 os_signpost API，这是 iOS12 新增的轻量级代码性能分析工具，可以采集数据并可视化，可以配合
+   Instruments 可视化。WWDC 视频 Measuring Performance Using Logging 有介绍。只支持 iOS12
+   及以上系统，Xcode10 及更高版本。
+
+   要理解 SeExpr 的用法，我们首先要知道栅格图像 (raster) 和程序化图像 (procedural) 的区别。
+
+   多数计算机图像都是栅格图像。无论照片、动漫截图还是表情包，这些图像放大后都能看到按照网格排列的颜色
+   方块，叫做“像素”。像素分辨率在保存后将被固定下来，无法通过缩放得到更多细节。如果你要修改栅格图像，
+   你最好找回源图像，使用栅格图像编辑程序，例如 Krita 等进行加工，这才能保证更改后的质量。
+
+   其次，栅格图像保存所需的 二级存储空间 很大，这包括运行内存 (RAM) 和外部存储器 (如硬盘或者 SD 卡等)。
+   它们的文件大小按照 图像像素大小的二次方增长 。例如在 Krita 的 创建新图像 对话框底部显示了将要创建
+   的图像的像素大小、色彩深度和 所需内存 的关系。
+
+    # External variables
+    $u, $v  Pixel position in normalized coordinates.
+    $w, $h  Image’s width and height in pixels.
+
+    # Local Variables
+
+    $a = noise($P);
+    $b = noise($a * 1);
+    pow($a, 0.5) + $b
+
+    # You can also define namespaced variables, e.g.:
+    $A::a = $u * 10;
+
+   SeExpr 是一种 程序化图形 生成器，它和前两者是完全不同的类型。 SeExpr 图像脚本的二次存储体积与矢量
+   图形一样很小，只有几 KB，但和矢量图形不同，这些脚本并非数学公式。你可以对 SeExpr 的脚本进行编程，
+   指定纹理的任意一点的着色方法。SeExpr 生成的图像没有精度限制，可以在任意分辨率下为填充图层输出纹理图。
+
+   前往图层面板，添加一个填充图层（Add Fill Layer），并在对话框中的列表中选择 SeExpr。然后在 Script
+   面板中提供了示范纹理脚本，可以在 Options 面板查看这些 SeExpr 脚本，类似于编写 GPU 顶点着色器程序。
+   比如，自带的 Wolthera's Dotted Field 纹理是一个圆点陈列纹理。通过设置圆形的半径、大小等基本参数，
+   再通过内置的 dot 向量点积函数计算点到圆心的距离场，并且根据这些距离数据填充出圆形和空白区域。输入数据
+   $u 和 $v 对应的是渲染结果中的像素坐标，Krita 会为其它变量（Local Variables），比如 $radius 
+   生成相应的 UI 控件，供用户设置相应的输入值。脚本计算出像素颜色值，并通过 $color 变量返回给渲染程序：
+
+    $vec = [$u, $v, 0];
+    $radius = 0.5;
+    $color1 = [0.5,0.514286,0.447619];
+    $color2 = [1,1,1];
+    $size = 3;
+    $offset = 0.5;
+
+    #tiling part.
+    $tiles = $vec * size;
+    $repeat = boxstep(1 , fmod($tiles[1] , 2.0) ) *offset;
+    $tiles = [$tiles[0] + $repeat, $tiles[1], 0];
+    $tiles -= floor($tiles);
+
+    #circle determining part
+    $dist = $tiles - [0.5, 0.5, 0];
+    $dotproduct = dot(dist, dist) * 4;
+    $fac = smoothstep($radius*0.99, $radius*1.01, $dotproduct);
+
+    #filling the circle, we only want to use color interpolation if we're sure our circle factor is above 0
+    if ($fac>0) {
+      $color = ccurve($fac,0,$color1,4,1,$color2,4);
+    } else {
+      $color = $color2;
+    }
+
+    # Return the color.
+    $color
+
+   利用这个圆形纹理就可以练习手绘圆形的参考物，提高手绘圆形的准确度。如果图像宽高比不等于 1，圆形不是
+   正圆，可以通过图像的宽高比进行修正，如下：
+
+    $ratio = $w / $h;
+    $vec = [$u * $ratio, $v, 0];
+
+   以下是一个 Wolthera's Voronoi cells 细胞纹理生成脚本：
+
+   ```py
+    # Basic usage of the inbuilt seexpr voronoi function.
+    # This just exposes each of the variables in the voronoi function for editing. 
+    # Also adds rotation and scaling.
+
+    # UV vector manipulation
+    # ----------------------
+
+    # Construction of the UV vector. $u and $v are the normalized x and y coordinates 
+    # for the image. This gives non-square results by default, so we calculate the 
+    # ratio and then multiply the relevant dimension with said ratio to get a square 
+    # result from the algorithms.
+    # The zCoordinate can be set manually in many of the inbuilt noise functions, as 
+    # these produce 3d noise, but we have a 2d plane. So allowing people to manipulate 
+    # the last dimension manually allows them to access other slices of the 3d noise.
+
+    $ratio = $h/$w;
+    $zCoord = 0; #0.0, 1.0
+    $uv = [$u, $v*$ratio, zCoord];
+
+    # We multiply the subdivisions with the uv vector to give a sense of zooming out.
+
+    $subdivisions = 10; # 1, 100;
+    $uv *= $subdivisions;
+
+    # We also rotate the uv coordinate around the z-axis, [0,0,1]. 
+
+    $rotation = 0; #0, 359;
+    $uv = rotate($uv, [0,0,1], rad(rotation));
+
+
+    # Voronoi Function
+    # ----------------
+
+    # The type of voronoi algorithm as explain in the manual.
+    $type = 2; #1, 5
+
+    # The jitter, low jitter gives almost grid like appearance, high jitter a
+    $jitter = 1; #0.0, 1.0
+
+    # Some variables for introducing some fractal brownian motion into the voronoi cells.
+
+    # The strength of the FBM effect.
+    $fbmScale = 0;
+
+    # Controls the frequencies.
+    $fbmOctaves = 4; #0, 10
+
+    # Spacing between the frequencies - a value of 2 means each octave is twice the previous frequency.
+    $fbmLacunarity = 2; #0, 10;
+
+    # controls how much each frequency is scaled relative to the previous frequency.
+    $fbmGain = 0.5; #0, 10.0
+
+    # Finally we input all the variables into the function to get a factor.
+    $fac = voronoi($uv, $type, $jitter, $fbmScale, $fbmOctaves, $fbmLacunarity, $fbmGain);
+
+
+    # Color
+    # -----
+    # We put the factor into a gradient to get the color.
+
+    $color = ccurve($fac,0,[0.141,0.059,0.051],4,0.709957,[1,1,0],4,1,[0.976,0.976,0.976],4,0.212121,[0.333333,0,0],4,0.519481,[1,0.333333,0],4);
+
+    # return the color.
+    $color
+   ```
+
+
+# 🐣 SVG 矢量图形
+
+   [Import/Export SVG as Grease Pencil](https://docs.blender.org/manual/en/latest/files/import_export/grease_pencil_svg.html)  
+   [Blender Curves Modeling](https://docs.blender.org/manual/en/latest/modeling/curves/index.html)  
+   [Blender Curves Geometry](https://docs.blender.org/manual/en/latest/modeling/curves/properties/geometry.html)  
+   [Motion Tracking](https://docs.blender.org/manual/en/4.3/movie_clip/tracking/index.html)  
+   [Follow Track Constraint](https://docs.blender.org/manual/en/latest/animation/constraints/motion_tracking/follow_track.html)  
+   [Follow Path Constraint](https://docs.blender.org/manual/en/latest/animation/constraints/relationship/follow_path.html)  
+   [SVG output for Blender Freestyle](https://github.com/hvfrancesco/freestylesvg)  
+   [Extra Curve Objects](https://extensions.blender.org/add-ons/extra-curve-objectes)  
+   [Curve Tools](https://extensions.blender.org/add-ons/curve-tools)  
+   [LoopTools](https://extensions.blender.org/add-ons/looptools)  
+   [Curve Transformation](https://docs.blender.org/manual/en/4.1/modeling/meshes/editing/mesh/transform/index.html)  
+
+   栅格图像的一种替代方案是矢量图形，SVG 格式是较通用的标准。这种图像使用如贝塞尔曲线等数学公式来定义形状，
+   因此无论如何缩放，也不会影响图像的精度。免费的矢量图形制作工具有多种，它们有各自的特性和擅长领域：
+
+   - Inkscape 是较通用的 SVG 矢量图形制作工具，拥有丰富的矢量工具，包括位图生重绘（Trace Bitmap）；
+   - Krita 是偏向位图手绘的工具，尽管它可以处理矢量图层，但是矢量图形能力较弱；
+   - Blender 是三维建模式，但是其矢量图形工具却非常强大，它的曲线、蜡笔等矢量工具兼容 2D/3D 环境；
+   - Draw.io 是矢量流程图制作工具，它擅长于简单平面几何图形处理。虽然提供了 Freehand 绘制功能，但灵活性差、数据冗余。
+
+   Krita 中可以使用矢量工具在矢量图层（Vector Layer）或者 Bitmap 图层绘图，比如 Freehand Path Tool，
+   但是压感无效，默认配置 Tool Options -> Precision -> Curve，这表示使用平滑采样，绘画的线条会修正为
+   平滑曲线。设置原样（Raw）方式，这样可以保留用户绘画时的原始笔迹。也可以设置为 Straight，笔迹会修改为直线。
+   注意，Raw 方式会保留所有采样点，以原样呈现用户绘画笔迹，这种模式配置会导致大量冗余数据。为了在数据简洁与
+   笔迹流畅之间平衡，可以 Curve 模式配合绘画简单线条，这样可以保持矢量文档小巧的同时还有流畅的线条。矢量绘图时，
+   橡皮擦模式失效。注意，矢量绘图工具需要在绘画前设置好是否填充，绘画后无法再使用渐变、填充工具修改，它们只用于
+   修改位图。只能使用选择工具，并且需要在工具选项面板中提供的填充属性中修改。在工具选项（Tool Options）面板
+   提供了有一种填充方式：前景色（Foreground）、背景色（Background）以及只在位图图层中有效的模板（Pattern）。
+   矢量图绘制后，可以使用 Edit Shapes Tool 对矢量路径中的顶点进行修正。
+
+   Krita 的矢量图形修正功能的操作还不十分好用，需要使用 Select Shapes Tool 选择多个矢量路径后，才能
+   使用 Edit Shapes Tool 同时修改多个路径的顶点。不能像 Blender 那样按顶点间的距离合并多条路径，如果
+   需要批量合并则操作十分繁杂。并且锚点类型、线段编辑需要通过工具面板进行操作，或者设置快捷键，不能直接使用
+   鼠标操作。矢量编辑工具面板中锚点编辑、线段编辑分别显示为左、右两栏，功能如下：
+
+   + **Corner Point**：将选中的锚点设为一个角点。角点的两根方向线可以各自指向任意角度，并拉成任意长度。
+   + **Smooth Point**：将选中的锚点设为一个平滑点。平滑点的两根方向线必须在同一直线的相反方向上。
+   + **Symmetric Point**：将选中的锚点设为一个对称点。对称点的两根方向线必须在同一直线的相反方向上，且长度相同。
+   + **Insert Point**：在线段的光标位置插入一个新锚点。
+   + **Remove Point**：删除选中的锚点。
+
+   + **Segment To Line**：设为直线段，将选中的线段设为一条直线段。在线段两端的锚点将不带方向线。
+   + **Segment To Curve**：设为曲线段，将选中的线段设为一条曲线段。在线段两端的锚点将带有方向线。
+   + **Make Line Point**：设为直线点，将选中的锚点设为直线点，该点的方向线将被移除。
+   + **Make Curve Point**：设为曲线点，将选中的锚点设为曲线点，该点将会新增一组方向线。
+   + **Break at Point**：断开此点，在选中的锚点位置断开路径。
+   + **Break Segment**：断开此线段，在选中的线段处断开路径。
+   + **Join with Segment**：用线段连接，用线段将两个锚点连接起来。
+   + **Merge Points**：合并为一点，将两个锚点合并为一个。只在锚点相邻或者两个节点都只有一侧与其他线段相连时可用。
+
+   另外，书法工具（Calligraphy） 绘制的矢量图需要在工具面板中转换为路径才能进行修正。可在图层菜单中将
+   矢量图形导出，可以和 Inkscape 或者 Draw.io 等矢量绘图工具交换使用。Krita 仅支持 SVG 1.1 的特性，
+   外加支持曲线网格渐变。在裁剪画布后，再导出矢量图层是，可能因为 BUG 导致矢量图不能正确显示，需要重新
+   打开裁剪后文档，或者手动修正 SVG 文档，将平移变换属性移除（translate(x,y)) 以及 viewBox 等属性。 
+
+   Blender 用户界面比 Krita 友好很多，操作更加便利，并且支持 Bézier Curve 以及 Grease Pencil 导出为
+   SVG 矢量图形，使用菜单 File -> Export 或者 F3 快捷键执行以下命令：
+
+   + Export Grease Pencil as SVG
+   + Export Curves (.svg) 此功能由 Add Curve: Curve Tools 插件提供。
+
+   Blender 中使用曲线（Curves）或者蜡笔（Grease Pencil）绘制矢量绘图时可以利用摄像机背景功能来设置参考图：
+
+   - 创建默认场景，并选择摄像机，在属性面板中指定参考图像：Data -> Background Image
+   - 将视图切换为摄像机视图，可以使用小键盘的数字 0 键切换，或者点击视图右上角的摄像机图标。
+
+   或者直接在场景中添加图像平面：Add -> Image -> Reference 或者 Background。
+
+   可以设置多张参考背景图，图片陈列方式（Frame Method）有三种：Stretch、Fit、Crop。根据图形的长宽比例，以及
+   需要设置。也可以通过偏移坐标、旋转、缩放等线性变换来放置参考图片。然后，通过鼠标和键盘对视图进行平移（Pan View）
+   和缩放（Zoom View）操作，以免从摄像机视图自动切换为其它视图，因此参考背景只在摄像机视图下呈现。由于 Blender
+   内置的矢量图形较少，蜡笔工具也只提供圆环、矩形、弧线、直线等简单平面几何图形。可以通过安装 Extra Curve Objects
+   插件或者编写扩展来丰富内置矢量图形。另一个方法是自己造轮子，通过各种工具以及 Curve Tools 等插件来处理矢量图形。
+   由于缺少各种箭头符号，所以在制作流程图方面不如 Draw.io 来得方便。
+   
+   Extra Curve Objects 扩展提供了一个乱麻线团制作功能：Curve -> Knots -> Bounce Spline。此命令会根据
+   选中的网格体生成一个填充满其体积的曲线对象，可以通过曲线几何属性面板将其转换为 Mesh 对象：Data -> Geometry。
+
+   利用编辑模式提供的变换工具（Curve -> Transform）来处理曲线的顶点，以参考光标（3D cursor）为中心。：
+
+   - To Sophere 将选中的顶点按分布到球形周围，可以将散乱的顶点移动到圆环轨道上。
+   - To Shear 切向变换。
+   - To Bend 弯曲（Shift+W），此变换可平滑弯曲线段，配置 Alt 对待对称弯曲。
+   - To Push/Pull 推拉，相当于伸缩变换。Push 让选中顶点彼此靠近，Pull 则相互推离。
+   - To Warp 将选择的顶点以参考光标（3D cursor）为中心进行环绕包裹（Warp Angle = 360°）。
+   - To Randomize 对选择的顶点进行随机偏移。
+   - To Radius (Shrink Fatten) 此变换将 vertices/edges/faces 沿其法线方向收缩、膨胀。
+
+   只要顶点分布均匀，就可以快速创建圆环、或者弧线。散点到圆环的变换可以配置封闭曲线（Toggle Cyclic, Alt+C）
+   以及控制点类型设置：Control Points -> Set Handle Type -> Automatic。自动控制点会按曲线的切线方向
+   调整控制点位置。球形化工具（To Sophere）也适用于 Mesh 建模。另外还有 LoopTools 插件提供的 Cycle 方法，
+   在网格体编辑模式下选中顶点并执行：Sidebar -> Edit -> Cycle。
+
+   环绕包裹（Warp）工具不受 Pivot Point 影响，但是当前视图对变换结果有影响。也就是说，在透视视图中执行
+   产生效果会出现近的一侧环绕半径小、远一侧的环绕半径更大。此变换有四个参数：
+
+   - Warp Angle 设置包裹角度，360° 表示环绕包裹，0°，顶点会沿径向（0°+偏移角到 3D cusor 连线）分布。
+   - Offset Angle 设置包裹角度的起始含量量。
+   - Min/Max 最小值、最大值用于过滤指定区间上顶点，超过 [min, max] 这个区间的顶点保持原样进行线性变换。
+
+   一些小技巧：
+
+   - 利用 scale 变换并且约束到某一个轴向，缩小为 0 可以将分散顶点收缩到一条线上或者一个平面上。
+
+   为了更快捷调整顶点状态，可能需要在雕刻模式、编辑模式互相切换，控制点也需要在自动模式、自由模式之间切换。另外，也需要
+   根据曲线应用场合来选择曲线类型：Stoke -> Set Curve Type -> Catmull Rom, Poly, Bezier, NURBS。需要注意，
+   Blender 中的曲线渲染具有压感、平滑等加持特性，如果导出为 SVG 格式，笔迹使用的是类似 `<path>` 这样的路径来模拟，会丢失
+   这些专用特性。为了让曲线保持平滑状态，可能需要在导出 SVG 前进入编辑模式给弯曲的线条增加细分（Stroke -> Subdivide），
+   这样才能保持曲线平滑度，至于直线则不必。蜡笔对象提供了几种基本几何体工具（Box, Cicle, Line, Polyline, Arc, Curve），
+   它们在导出 SVG 时有两种表现形式：如是材质只设置了 Stroke，那么导出使用的是 `<path>` 形式呈现；如果材质启用了 Fill，
+   那么导出 SVG 时使用的就是 `<polygon>` 形式呈现。在使用笔刷时，Strength 会影响导出 SVG 节点的 Opacity 不透明度属性。
+
+   注意，绘画时设置 Strength 会持久作用，即使 Blender 提供了顶点绘制（Vertex Paint）功能，可以使用其特有的笔刷来
+   修改蜡笔路径的 Stroke 和 Fill 颜色，但是不能覆盖原有的不透明度，只能得到混合结果。在导出 SVG 时，只使用最后混合
+   的色彩。但是 Blender 中支持不同顶点设置不同的颜色，这些特性导出时失效，因为 SVG 的节点只不支持顶点色。顶点绘制模式
+   就是将笔触、填充色记录到顶点数据集中，并且只支持这两个色彩属性的混成修正，不能处理蜡笔材质中的纹理。另外，如果材质在使用
+   过之后再启用 Fill 属性，那么对已经绘画好的路径没有作用。由此可以推断，Stroke 和 Fill 两个属性的数据存储机制不一样，
+   Stroke 总是以当前材质的设置为准，Fill 则是有一个专用标记位来指示矢量路径是否启用了此属性。
+
+   多个蜡笔对象或者曲线各自可以进行合并（Object -> Join），但是不能互相进行合并。Blender 4.3.0 可能升级带来 BUG，
+   导致蜡笔与曲线对象不能进行转换。并且曲线与蜡笔对象之间也不能直接进行转换，虽然提供了相应的菜单。新版本中，位图重绘
+   （Convert -> Trace Bitmap to Grease Pencil）功能只在选中图片对象后才会显示（Add -> Image），另外增加了
+   曲线组转换（Object -> Convert -> Curves）。进行位图重绘时，Color Threshold 参数设置过高可能会得到空内容的
+   蜡笔对象，可以在确定参数后再预览、修正（F9）到合适的值。整体 trace 效果远不及 Inkscape 中达到的重绘效果。重绘得
+   到的矢量图形相当于一组 `<polygon>` 填充区，不含未封闭的曲线。自动创建的蜡笔对象中包含两个材质：Stroke 和 Holdout
+   对应轮廓、内部镂空。材质的 Holdout 特性在导出 SVG 图形时无效，会替代为用材质的 Base Color。
+
+   关于曲线中材质分组，每一个路径只能属于其中一个材质，具有排他性。这点与顶点组（Vertex Groups）有区别，每个顶点可以
+   属于不同的顶点组，是一对多关系。其中 Select 和 Deselect 两个按钮就是按其字面含义选中或者取消选择当前材质对应的曲线。
+   但是，Blender 4.3.0 通过材质选取路径的逻辑似乎有问题，Select 会选择所有顶点（也可能是部分），当点击 Deselect
+   就会从选中的顶点过滤掉使用当前材质的顶点。另外，状态栏中对蜡笔对象的顶点数据统计数据（verts）也不准确。可以打开 
+   Viewport Overlays -> Statistics 查看正确统计数据。
+
+   导出蜡笔矢量图形时，可以切换到摄像机视图，并且勾选 Clip Camera 就可以按摄像机的画面导出。通过修改摄像机
+   属性，或者在 3D 视图中，激活侧栏面板的 View -> View Lock -> Camera to View，然后可以手动调整当前
+   摄像机的视图，以得到最合适的导出视角。或者使用视图对齐命令 View -> Align View -> Align Active Camera to View
+   将当前活动摄像机对齐当前视图。
+
+   Grease Pencil 导出 SVG 的插件不能很好处理导入矢量图，即导出场景中通过导入 SVG 创建的蜡笔对象，
+   可能要手动修改 SVG 文档的 viewBox 以及宽高等属性才能显示二次导出的 SVG 图形。另外，因为 Grease Pencil
+   需要使用材质来渲染矢量图形，所以导出 SVG 后再重新导入时，也会因为材质丢失而不能按原样呈现。SVG 中的矢量路径
+   不能表达压感笔迹的粗细变化，只能通过控制填充区来模拟笔触的轻重、粗细变化。旧版本 Blender 2.93 则没有此问题。
+   但新版本导出的 SVG 在大小上有较大优化。通过比较导出 SVG 文档，首次导出的内容使用 `<polyline>`、`<path>`
+   描述图表，导入后再二次导出的 SVG 文档则会使用 `<polyline>`、`<polygon>` 描述图形。较重要的区别还表现在矢量图
+   的分层上，首次导出的 SVG 文档会包含 Fills 和 Lines 图层信息。导入时就已经没有分层，或者说只有一个默认图层。
+
+   ```py
+   bpy.ops.wm.grease_pencil_export_pdf(filepath='//suzanne.pdf')
+   bpy.ops.wm.grease_pencil_export_svg(filepath='//suzanne.svg')
+   ```
+
+   在导出 Bézier Curve 时注意勾选 Viewport protection 选项，以保持当前 Blender 视图的视角、以及大小导出。
+   如果没有保护视图，则会按插件默认值使用 +z 到 -z 轴向作为视角进行处理。通过设置参考单位（Unit）来影响导出图形
+   的尺寸大小。在保护视图模式下，单位设置无效。
+
+   Blender 中提供的曲线是为 3D 建模服务的，所以它不像矢量绘图工具那样可以直接填充曲线。但是可以将曲线转换
+   为曲面或网格体，或者在 Data 属性面板中将曲线设置为 2D 模式，并且设置 Fill 模式（Front、Back、Both）。
+   要封闭一条曲线（路径），需要在曲线编辑模式下选择两个末端顶点，执行 Control Points -> Make Segment，
+   在两个顶点间创建线段进行连接。曲线模式下没有提供顶点合并功能，因此需要通过连接线段来闭合曲线。另外，曲线
+   设置为 2D 模式后，曲线原来分布在不同平面上的点会坍塌到 XY 平面。曲线 2D 建模有一个隐含的约束，同一路径
+   中所有的顶点需要同在一个平面，也就不能连接不同平面上的顶点。如果原曲线所有顶点所在平面与 Z 轴方向对齐，
+   可以先对曲线顶点沿 X 或者 Y 轴旋转 90° 后再转换为 2D 模式，以免顶点坍塌为一个线。
+
+   Blender 中的 Text 对象需要在对象模式下 Object -> Conver -> Curve 转换为曲线才能导出到 SVG 文档。
+   目前，Blender 还不能支持 Draw.io 或者 Krita 这些工具导出的 SVG 的文本导入，所以无法导入它们生成的数学
+   公式等内容。
+
+   曲线建模的优点是：曲线造型非常容易通过控制点进行调整，非常容易进行车削（Lathe），放样（Loft）操作。
+   一个最简单的曲线建模例子就是使用 Screw 修改器，将一条曲线沿曲线 Axis = Z 轴旋转 Angle = 360°，
+   所有交点集合形成的曲面。曲线的 Data 属性面板也可提供了倒角（Bevel）建模面板，有三种方式：
+
+   - Geometry - Extruded 径向挤出，可以配合 Tapper 对象控制锥化效果；
+   - Geometry - Bevel 提供三种倒角造型
+      - Round 使用圆形曲线进行倒角，通过控制挤出、深度和分辨度，剖面可以由扁平到矩形变化；
+      - Object 指定另一条曲线进行倒角建模；
+      - Profile 剖面倒角，默认为圆角四边管体，圆角矩形的放样效果，通过曲线可以控制任意剖面形状；
+
+   Taper Object 锥体控制对象可以让曲线形成的模型呈现从一头到另一头由大到小的锥形化，可以通过移动/缩放/旋转
+   锥形对象的控制点来更改锥形对象中锥形的比例。使用局部 Y 轴进行宽度控制，沿局部 X 轴评估锥度曲线。为了实现
+   这一点，锥形对象只能是另一条开放曲线。注意，编辑 Taper 对象时，需要使用局部坐标，这样才能通过顶点的 XY
+   坐标值直接编辑、控制锥化。
+
+   通过编辑曲线的顶点半径（Radius）也可以修正模型对应位置的切面半径（粗细控制），也可以用作锥形修正。
+   编辑曲线时，侧栏面板 Item - Transforms 包含曲线顶点的几个重要属性：
+
+   - Weight 权重，用于 Blender 权重控制系统；
+   - Radius 半径，可以控制放样；
+   - Tilt 倾斜角，用于专用功能；
+
+   这些数据可以用于不同功能，比如顶点的半径数据就可以用于控制曲线建模时的径向粗细。
+
+   Blender 曲线动画形式：
+
+   +  将曲线或者蜡笔作为 2D 绘图工具，按照传统动画方式逐帧绘制。  
+      Examples: Traditional Animation
+
+      This example shows you how to animate a bouncing ball with a traditional 
+      2D animation technique and Grease Pencil.
+
+      First, go to menu File ‣ New ‣ 2D Animation to start with a new 2D animation 
+      template. The template is ready to quick start your animation with a Grease 
+      Pencil object already created, Onion Skinning activated, Auto Keyframe enabled 
+      and in camera view.
+
+      - Set the range of the animation in the Timeline from 1 to 24.
+      - In the 3D Viewport draw a ball on the upper left corner with the Draw Tool (extreme).
+      - Move to frame 12 and draw a squashed ball in the bottom center (breakdown).
+      - Move to frame 24 and draw a ball in the top right corner of the 3D Viewport (extreme).
+      - Keep drawing all the in-between frames you want using the onion skinning ghost as a reference.
+
+      To test the animation, press Spacebar to play.
+
+   +  将曲线作为其它对象的运动路径，包括骨骼对象。  
+      为动画对象添加 Curve 修改器，设置 Curve Object 为运动路径曲线。按照 Deform Axis 指定的轴向
+      移动对象，就可以沿着曲线移动，配合关键帧就可以创建简单的动画。
+   +  将曲线作为其它对象的运动约束，Follow Path Constraint。  
+      为动画对象添加跟着约束（Follow Path），将曲线设置约束的 Target，然后通过设置 Offset 来确定
+      对象在曲线上的位置。这个偏移值为 0 ~ 1 的范围，0 表示曲线起点，1 表示曲线末端。曲线顶点半径可以
+      用来控制对象的大小，激活 Curve Radius 选项即可以。
+   +  曲线对象作为 Motion Graphic 动画，通过为各种属性设置关键帧进行平移、缩放、旋转等等。属性关键帧
+      插值通过动画函数曲线来表示和控制。在动画相关的视图（Timeline/Dope Sheet/Graph Editor）选定
+      关键帧，快捷键 T 弹出插值函数列表（Interpolation Mode），通过指定不同的函数来实现不同的插帧效果。
+      函数曲线可以通过曲线编辑器 Graphic Editor 查看和修改。曲线的 X 轴对应于时间，而 Y 代表属性的值。
+      关键帧本身定义曲线的控制点，而插值由附加参数控制。设置外推模式可延长动画： Channel -> Extrapolation Mode。
+   +  使用蜡笔对象创建基于骨骼的动画，或在骨骼添加 Spline IK 约束器将曲线当作骨骼控制器，创建尾巴、绳索等软体模型。
+
+   绘画模式或编辑模式下的笔迹插值工具，**Interpolate** ，可以在两个关键帧之间通过插值产生新的分解关键帧。
+   先将游标置于两个关键帧之间时操作，使用插值工具单击并拖动，到指定的插值百分值，将添加一个新的分解关键帧。
+   
+   Grease Pencil 默认有一个关键帧，这个关键帖会选中蜡笔对象后显示在 Timeline 视图上，关键帧有两种创建
+   方式：手动创建关键帧。在对象模式下执行菜单：Object -> Animation -> Insert Keyframe (I) 或者在
+   其它模式下按快捷键。在时间线视图中打开 Auto Keying 后绘画动作自动记录为关键帧。如果将所有关键帧删除，
+   并且关闭时间线视图中的 Auto Keying，再尝试在绘画时就会提示 No Grease Pencil frame to draw on。
+
+   Keying Set 是用户管理关键帧的数据集，内置的关键帧数据集有 Rotation、Location、Scale 等等。这些
+   数据集是 Blender 用于动画数据的管理组织形式。用户也可以通过场景属性面板 Keying Sets 设置自定义数据集。
+
+   在摄像机上使用 Track To 修改器可以让镜头跟踪运动的物体。另外，实景合成中，视频中镜头也可以跟踪，通过
+   Motion Tracking 逆向解算到得拍摄视频时的镜头运动轨迹，然后让场景中的镜头按此轨迹运动，将视频作为其
+   背景显示，设置 Film -> Transparent 渲染模式使场景背景透明以将场景与视频进行合成。Blender 为视频
+   合成提供了三个修改器：Camera Solver、Object Solver、Follow Track。
+
+   曲线编辑（Graph Editor）用来控制、编辑动画插值曲线。关键帧动画之间的补间（In-Between）中所有属性的变化
+   都是通过计算相邻关键帧中记录的属性值得到的，这个计算结果就是插值（Interpolate）。插值类型通常使用函数曲线
+   来表示，不同曲线或者手动调整的曲线用于控制时间线上相应位置的动画帧属性值。除了函数曲线，也可以通过傅里叶快速
+   变换算法（FFT）从音频文件中获取声波信息用于控制动画帧的插件，或者骨骼姿态，这个功能类型于动画中的口型控制。
+   要导入声波，先要选择一个属性轨道，激活曲线编辑状态，然后通过菜单选择音频文件：
+
+   - Blender 2.93: Key -> Bake Sound to F-Curves
+   - Blender 4.3: Channel -> Sound to Samples
+
+
+# 🐣 Blender Amature Animation
+
+   [Animating with Grease Pencil](https://docs.blender.org/manual/en/latest/grease_pencil/animation/introduction.html)  
+   [Animation & Rigging](https://docs.blender.org/manual/en/3.0/animation/introduction.html)  
+   [The Weighting Color Code](https://docs.blender.org/manual/en/3.0/sculpt_paint/weight_paint/introduction.html)  
+   [Pose Library](https://docs.blender.org/manual/en/3.0/animation/armatures/posing/editing/pose_library.html)  
+   [Blender 2D蜡笔动画](https://www.bilibili.com/video/BV1zH4y1n7pC/)  
+   [Spline IK Constraint](https://docs.blender.org/manual/nb/4.1/animation/constraints/tracking/spline_ik.html)  
+   [Action Constraint](https://docs.blender.org/manual/nb/4.1/animation/constraints/relationship/action.html)  
+
+   蜡笔是 Blender 中主要的矢量绘图、建模工具，曲线辅助之用，缺少蜡笔中具有的各种丰富功能，包括顶点简化等功能。
+   目前，Blender 提供的蜡笔矢量路径简化（Stroke -> Simplify）效果还不是很好，不能很好地保留原图形细节。
+   蜡笔还可以像其它 Mesh 模型一样基于骨骼系统制作动画，Blender 这个功能可以实现比 Spine 还要灵活的动画。
+   至于曲线（Curve），它不支持顶点组功能，也不能直接绑定骨骼，只能间接通过 Vertex Hooks 修改器来绑定骨骼。
+   由于曲线上每设置一个 Hook 才能绑定一个骨骼块，需要在曲线编辑模式下将选中的曲线顶点分配给对应 Hook 修改器，
+   所以这种方式操作比较琐碎。
+
+   还有就是给曲线添加 Armature 约束器，是约束器，不是修改器。骨架约束器（类似 Child Of 约束器）可以添加
+   多个骨骼作为形变目标（Target），但是不如 Hook 那样精细控制。另外，就是给骨架对象添加 Spline IK 约束器，
+   注意是在骨架约束器面板（Bone Constraints）中添加，不是对象约束器（Object Constraints）。样条约束器
+   仅用于将骨骼链对齐到曲线，因此给骨骼添加样条约束器时，一般选择骨骼链条最后的骨骼，约束器要设置骨骼链长度值。
+   这个长度（Chain Length）是指当前添加了样条约束器的骨骼往根骨骼方向的父层级数量，包括自身。指定长度的骨骼链
+   就会对齐到曲线路径上。也就是曲线作为骨骼控制器使用，可以是开放曲线、路径，圆环这样的闭合曲线也可以。样条约束
+   主要是利用曲线的易用、灵活性实现美观形状，以及为骨骼提供可预测性以及良好的综合控制，特别适合用于控制绑定到
+   模型中柔软的部位，如尾巴，触手和脊椎，以及绳索等物品。
+
+   骨骼动画是数字动画的一种实现形式，由于调整骨骼姿态是一个非常繁杂的操作过程，通常与动作捕捉（Motion Capture）
+   技术结合使用。Blender 这类软件中的骨架就是对真实动物的骨架结构的抽象概念，骨架（Armature）由骨骼（Bone）构成。
+   场景中的骨骼默认渲染为一个八面体（Octahedral），粗头为起点，尖头为末端。首尾相连形成骨骼链（Chains of Bones），
+   由任意骨骼链组合形成骨架。骨骼两端都可以挤出，但只有在末端挤出的骨骼才会自动设置为相连的子骨骼。也可以通过属性面板
+   设置：Bone -> Relations -> Parent。勾选 Connected 属性，就可以保持两个骨骼连接在一起。注意，骨骼也和网格
+   对象有一样的父子层级：Object -> Relations -> Parent，但是它与骨骼链的层级不同，只是场景内容的组织层级。场景
+   中添加的骨架（Add -> Amature）有两种编辑模式，Edit Mode 用于编辑骨骼链，Pose Mode 用于调整骨架姿态。
+
+   骨架有一个特别的姿态叫静置位置（Rest Position），也就是编辑模式下的姿态。T-Pose 就是类人生物的通用静止姿态。
+   编辑模式下看到的骨架就是处于静置位置。骨骼有默认的形状/位置/旋转/缩放，可以在编辑模式修改。当用户在 Pose Mode
+   调整骨骼的状态，就形成了新的姿态。此时，Object Mode 也会按最新的姿态显示骨骼，除非没有将姿态记录到新的关键帧。
+   由于编辑骨骼会对现有的 Pose 产生影响，所以，一般在完成骨骼链接后不再进行编辑。物体模式和姿态模式下看到的骨架
+   当前的姿态，除非你启用了骨架面板的静置位置按钮，将它恢复到初始姿势：Data -> Pose (Armature) - Rest Position。
+
+   骨架系统目的是为了定义各种 Pose，即记录骨骼的各种线性变换属性数据来控制模型的变形。骨骼在 Edit Mode 完成链接关系
+   的设置后，就可以进姿态调整阶段。骨骼姿态调整就是对整个骨架的进行造型，使用各种线性变换（平移、旋转、缩放等）调整
+   骨骼，得到合适的骨架姿态后，就将这个 Post 保存起来后续重复使用。每个姿态的数据保存在 Pose Library，旧版本保存
+   在骨架属性面板（Data -> Pose Library），Blender 3.1 之后引入了 Asset Browser 来管理骨骼姿态。资源浏览器
+   设置为当前文件（Current File）就可以通过各种动画相关的编辑器的侧栏面板（Create Pose Asset）创建姿态。要再次
+   查看现有的骨骼姿态，就在骨骼姿态模式下双击资源浏览器中的姿态图标。
+
+   现有姿态不能重新编辑，但可以激活姿态后修正后再创建新的姿态。一般使用 Action Editor 编辑姿态或者关键帧动画。比如，
+   给姿态命名，或者编辑现有的关键帧动画。Blender 将物体的动画属性数据保存为动作数据块（Action）。为模型添加关键帧动画
+   就是在创建相应的动作对象（Action）来记录这些数据。对于骨骼动画，默认会创建一个 ArmatureAction，就是它记录了时间线
+   上关键帧数据。当前用户在 Pose Mose 为骨骼当前姿态创建 Pose 资产时，就会将当前选中骨骼的关键帧数据保存为新的 Action，
+   包括关键帧序号。当然，Action 中记录的关键帧序号作用不大，因此最终只是利用其保存的骨骼 Pose 数据。这些将要用于制作
+   动画的数据才是 Pose 的重点，无论游戏开发或者电影制片都非常重要。
+
+   创建好的 Pose 资源就可以在姿态模式下再次重现，并且可以将 Pose 记录的姿态数据以关键帧的形式在时间线编辑器中记录下来，
+   这样就可以将多个 Pose 混合成一个动画。Action Editor 会显示当前选中对象的动画数据，并且在创建新的姿态时，也只会记录
+   当前选中的骨骼的数据。所谓 Pose 对象就是记录在 Action 数据块中、有关于骨骼的平移、旋转、缩放等等属性的数据。还可以
+   给设置了姿态或者关键帧的骨骼添加 Action 约束器来控制动画，在约束器的 Target 指定一个用来作为控制器的骨骼，然后设置
+   Target 对象的什么属性（From Target）可以用来控制当前的骨骼动画，以及控制哪个动画（To Action）。
+
+   使用动作来管理动画关键帧，是为非线性动画编辑（NAL）功能考虑的，将动画的片段就是动作，可以在 NLA 编辑器中以非线性的
+   方式任意组合成动画。Action Editor 标题栏中有两个和 NLA 非线性便器器相关的按钮，压制动作片段（Push Down）和暂存
+   动作（Stash），将当前的动作转换成动作片段后就可以使非线性编辑器来制作动画。暂存按钮（Stash）会将当前动作存放到 NLA
+   编辑器的数据堆栈中，并在 NLA 编辑器中设置一条 [Action Stash] 轨道来临时存放动作关联的片段（Action Strip）。创建
+   NLA 动画片段后，Action Editor 中的动画数据还保持原样，可以再次从 Actions 列表中调取。
+
+   NLA 编辑器中通过 Edit 菜单将 Action Strip 发回 Timelne 视图再细调：
+
+   - Start Tweaking Strip Actions *Tab* ；
+   - Start Editing Stashed Action *Shift-Tab* ;
+
+   非线性动画编辑器（Non-Linear Animation），所谓非线性动画就是动画不同关键帧之间那样，比如位移关键帧动画，物体的
+   位移是连续变化的，也就是线性动画。而非线性动画，则可以将对象的各个动画片段进行组合，而不必受线性关系约束。
+
+   Blender 中的骨骼动画涉及以下内容：
+
+   - **Armatures** - 骨架（Skeleton），由骨骼连接而成的骨骼链组合而成，骨骼间的连接点可以使用约束器进行自由度限制；
+   - **Constraints** - 约束器，这是通用的动画运动约束条件，包括 IK 逆向关节运动。
+   - **Object Modifiers** - 修改器，Mesh 变形主要是通过各种修改器来实现，包括骨骼动画使用的 Armatue 修改器。
+   - **Shape Keys** - 形态键，用于支持模型不同形态的变化，每个形态对应网格体的一个外形状态，形态间可以制作混合过度动画。
+   - **Drivers** - 驱动器，使用自定义属性作为驱动输入，通过 Python 脚本驱动模型、骨骼变换，操作约束和影响修改器等等。
+
+   Spine 动画软件中常用 2D 素材来模拟一些 3D 效果，比如角色头部的小角度运动。由于画面变化较小，只涉及一些小细节的变化，
+   通过形态键（Shape Keys）制作头部在多个角度下的状态，然后就可以混合这些形态键来实现模拟 3D 效果动画。可以将形态键当作
+   简易版本的骨骼 Pose 来使用，或者混合在一起使用。
+
+
+   骨骼动画的基本原理是：通过控制骨骼姿态来控制 Mesh 模型的变形。骨骼就相当以实现像扯线公仔的线一样，控制关
+   受相应骨骼控制的网格来实现动画。至于哪根骨骼可以控制哪些网格，在网格权重绘制模式下给选中的骷髅绘制权重来设置。
+   最基本的骨骼动画是让骨骼与模式在空间上保持一致，这样就可以直接利用骨骼的包络线（即外轮廓）所包裹的网格都受到
+   对应的骨骼控制。
+
+   基于骨骼的动画有几个概念：
+
+   - **Rigging** 绑定，也就是给扯线公子绑线，将骨骼绑定到模型上以控制其变形。
+   - **Skinning** 蒙皮，这也是骨骼绑定的一个工序，也就是将模式包裹今天骨架的操作。
+   - **Retargeting** 重定向，也就是将现有的骨骼动画重新应用到新的骨架上，以控制其它模型。
+
+   骨骼是骨架的基本要素，骨架里的骨头一般可分为两种类型，分别对应是否勾选了骨骼属性面板的选项
+   Bone Properites -> Deform ：
+
+   - *Deforming Bones* 变形骨骼通过直接参与改变与骨骼相关联的顶点组位置来使他们跟随变形骨骼做出类似的变换
+   - *Control Bones* 控制骨骼相当于其它骨骼的控制器，结合约束器使用，可以在 Viveport Display 定制其外观。
+
+   为了避免骨架有位置的偏移，创建骨骼时应该在原点位置，或者使用 Alt+G 将其复位到原点。
+
+   一个快捷的骨骼绑定方式是使用快捷键设置骨骼变形层级（Armature Deform Parenting），先选择所有需要绑定骨骼
+   的模型，最后再选择骨骼对象（armature），然后按快捷键 Ctrl+P 激活层级关系设置面板，从中选择 Armature Deform
+   即可以将骨骼绑定到这些模型对象上。也可以手动设置模型属性，以下是 Set Parent To 执行时自动设置的属性：
+
+   - Object -> Relations -> Parent 设置为骨骼对象；
+   - Modifiers 属性面板中添加一个 Armature Modifier 用于实现骨骼控制的形变；
+
+   以上设置层级关系与添加 Armature 修改器就是绑定骨骼的第一步。Set Parent To 面板中提供了三种快捷设置。
+   这三种选择会对模型的顶组进行不同的修改，用户也可以自行在 Data -> Vertex Groups 设置顶点分组，分组名称
+   要与控制相应分组的骨骼同名：
+
+   - With Empty Groups：使用空顶点组，不向模型添加顶点组；
+   - With Envelope Weights：使用骨骼包络权重，自动给模型添加和骨骼同名的顶点组，按骨骼包络设置关联顶点。
+   - With Automatic Weights：使用自动计算的权重控制，使用 “bone heat” 算法按顶点与骨骼的距离分配顶点到顶点组中；
+
+   完成自动顶点组关联后，可以进入模型的权重绘制模式（Weight Paint）查看顶点分配到相应骨骼的权重值。
+   权重联取值为 [0,1]，对应颜色顺序为“蓝青绿黄橙红”。也就是 “bone heat” 算法的热度图。因为顶点组
+   名称与骨骼同名，所有可以直接看到不同骨骼的权重分布。如果需要手动刷权重数据，那么就需要可以先选择骨架，
+   再按住 Shift 加选网格体，然后进入权重绘制模式。Weight Paint 模式下，按下 Ctrl 单击选择骨骼就会
+   显示相应顶点组权重颜色分布图。然后左键点击绘制权重，即使骨骼被模型覆盖看不见，也不影响右键选择操作。
+   注意，模型必要已经绑定了骨骼修改器才能在网格顶点上给各个骨骼绘画权重。另外，如果 Blender 设置为鼠标
+   右键为选择模式（Keymap -> Select with Mouse Button -> Right），只需要使用右击就可以选择骨骼。
+   使用笔刷绘制权重时，就会自动给模型添加顶点组，并顶点组名称与当前活动的骨骼同名。
+
+   ![The Weighting Color Code](https://docs.blender.org/manual/en/3.0/_images/sculpt-paint_weight-paint_introduction_color-code.png)
+
+   包络控制的形变作为一种通用蒙皮方法（skinning method），适用于所有对象（meshes, lattices, curves, 
+   surfaces, texts)。直接在骨骼属性面板设置，Bone -> Deform，属性说明如下，对每一块骨骼独立设置：
+
+   -  Envelope Distance 设置包络可控制变形的距离，值越大控制到的网格区也越大；
+   -  Envelope Weight 包络权重，用于和其它相邻包络之间的协调。
+   -  Envelope Multiply 包络相乘，激活时包络、顶点权重两种方法控制共同作用。
+   -  Radius Head, Tail 控制骷髅头部、尾部包络的半径大小。
+
+   为了直观看到包络影响到的范围，可以在骨骼属性面板中激活包络显示，注意有多个 Viewport Display 属性面板：
+   Armature Data -> Viewport Display -> Display Ad -> Envelop
+
+   Blender 4.0 引入了骨骼集合（Bone Collections）功能，替代旧版本的骨骼分层（armature layers）
+   或者骨骼分组（bone groups）。骨骼集合的数据保存在 Armature 对象中，在所有模式中有效。而旧版本的
+   骨骼分组则是保存在对象的 Pose 动画数据块，在骨骼的编辑模式下无效。新版本中的骨骼集合按名称分组管理
+   复杂的骨骼，比旧版本界面更直观易用。骨骼与集合或分层、分组是一对多关系，即同一骨骼可以归属到多个分组。
+   操作快捷键依然是 M，保持不变。
+
+   Blender 3.6 以前骨架分层有受保护层（Protected Layers）和一般分层（Layers）共 32 层。通过分层管理，
+   可以只显示选定层中的骨骼，用于管理复杂的骨架。保护层与 Blender 数据块代理（Proxies）有关，用于保护骨骼
+   避免骨骼数据被误改。骨架编辑模式或姿态模式下，选中的骨骼可以分配到指定的层，通过 Pose、Armature 菜单执行：
+
+   - Change Amature Layers 切换要显示指定分层的骨骼。
+   - Change Bone Layers 将选定骨骼分配给指定分层。
+
+   骨架 32 个分层可以通过 Object Data -> Skeleton -> Layers 属性面板查看，要显示哪一层的骨骼，
+   就点击相应的色块，按住 Shift 可以多选。色块有空心圆表示已经分配有骨骼，实心圆表示当前选中的骨髓所在层。
+   在骨架的姿态模式下，还可以将选中的骨骼分配到骨骼组。通过属性面板操作：Object Data -> Bone Groups，
+   点击 + 号按钮添加一个组，点击 Assign 将选中的骨骼分配到选中的组，还可以给骨骼分组设置一个标记色。
+
+   骨骼中的颜色含义：
+
+   - **Gray**: Default.
+   - **Blue wireframe**: in Pose Mode.
+   - **Green**: with Constraint.
+   - **Yellow**: with IK Solver constraint.
+   - **Orange**: with Targetless Solver constraint.
 
 
 
@@ -974,9 +1735,9 @@ System
 
 # 🚩 3D 文件格式
 1. 3D 模型格式全解 https://zhuanlan.zhihu.com/p/547182109
-2. gltf 和 fbx 格式对比  https://zhuanlan.zhihu.com/p/555641352
+2. glTF 和 fbx 格式对比  https://zhuanlan.zhihu.com/p/555641352
 
-目前存储三维实体模型的数据文件格式有诸多类型，传统的有 OBJ 格式，
+目前存储三维实体模型的数据文件格式有诸多类型，传统的有 OBJ、VRML 格式。
 
 | Format |             Desc            |       Publisher        |
 |--------|-----------------------------|------------------------|
@@ -1031,12 +1792,20 @@ glTF 格式是一种开放的 3D 模型和场景格式，旨在高效传输丰�
 
 与 FBX 文件格式一样，glTF 将 3D 几何的主要批量数据存储在二进制文件中。二进制文件的读取由 JSON 描述符文件引导。这意味着与以人类可读文本（如 OBJ 一样）存储大量 3D 几何图形的文件格式相比，glTF 平均小 5 倍，读取速度快 10 倍以上。在游戏引擎的上下文中，glTF 的读取速度甚至比 FBX 还要快，因为它将其网格数据存储在一个统一的拓扑中。这意味着游戏引擎可以将 glTF 中的数据直接读取到 GPU 内存中，然后在屏幕上渲染生成的图形，而无需对 OBJ 网格数据进行中间处理。
 
-与 FBX 相比，glTF 的最大缺点之一是其 3D 模型数据的存储格式更加简单。它不允许位置、UV 和法线数据的不同拓扑。虽然如果您想要直接读取游戏引擎的速度，这是有益的，但这意味着修改 3D 模型可能非常困难。
+与 FBX 相比，glTF 的最大缺点之一是其 3D 模型数据的存储格式过于简单。不允许位置、UV 和法线数据的不同拓扑。虽然如果您想要直接读取游戏引擎的速度，这是有益的，但这意味着修改 3D 模型可能非常困难。
 
-glTF 2.0 Overview
-https://github.com/KhronosGroup/glTF/blob/main/specification/2.0/figures/gltfOverview-2.0.0b.png
+在众多的 3D 资源交换文件格式中，FBX、OBJ (Wavefront) 和 DAE (Collada) 格式仍然是其中最受欢迎的格式，尽管它们都存在阻碍其广泛采用的问题。比如 OBJ 不支持动画，FBX 是属于 Autodesk 的封闭格式，Collada 规范过于复杂，导致大文件难以加载。直到 glFT 格式的出现，才使得 3D 场景资源交换变得更容易，也更利于 Web 平台下使用。
 
-glTF 格式文件虽然是二进制保存，本质上是一个 JSON 文件，文件头以魔术数 gkTF 或者 glTF 作标记。这一文件描述了整个 3D 场景的内容，包含了对场景结构进行描述的场景图：
+glTF™ (GL Transmission Format) 2.0 Overview
+
+*   https://github.com/KhronosGroup/glTF/blob/main/specification/2.0/figures/gltfOverview-2.0.0b.png
+*   https://www.khronos.org/files/gltf20-reference-guide.pdf
+*   https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html
+*   https://github.com/KhronosGroup/gltf/blob/main/specification/2.0/README.md
+*   https://docs.blender.org/manual/en/3.4/addons/import_export/scene_gltf2.html
+*   https://github.com/KhronosGroup/glTF-Blender-IO
+
+glTF 格式文件虽然是二进制保存，基本结构还是一个包含 JSON 数据的文件，文件头以魔术数 gkTF 或者 glTF 作标记。这一文件描述了整个 3D 场景的内容，包含了对场景结构进行描述的场景图：
 
 1. 场景中的 3D 对象通过场景结点引用网格进行定义；
 2. 材质定义了 3D 对象的外观；
@@ -1044,7 +1813,36 @@ glTF 格式文件虽然是二进制保存，本质上是一个 JSON 文件，文
 4. 蒙皮定义了3D对象如何进行骨骼变换；
 5. 相机定义了渲染程序的视锥体设置，等等。
 
-glTF 的 JSON 节点层次结构：
+glTF 的 JSON 节点层次结构如下，所有箭头表示从相应的 JSON 数据集中通过索引号引用节点数据：
+::
+
+    ┌───────────────────────────────────────────────────────────────────┐
+    │                                                                   │
+    │                                 ╭────────────╮                    │
+    │                                 │    scene   │                    │
+    │                                 ╰────────────╯                    │
+    │                                       ↓                           │
+    │                                 ╭────────────╮                    │
+    │                       ╭─────────│    node    │←───────────╮       │
+    │                       │         ╰────────────╯←───╮       │       │
+    │                       ↓               ↓           │       ↓       │
+    │                 ╭───────────╮   ╭────────────╮    │ ╭───────────╮ │
+    │                 │   camera  │ ╭─│    mesh    │  ╭─│─│   skin    │ │
+    │                 ╰───────────╯ │ ╰────────────╯  │ │ ╰───────────╯ │
+    │                       ╭───────╯       ↓         │ ╰───────╮       │
+    │                 ╭─────↓─────╮   ╭────────────╮←─╯   ╭───────────╮ │
+    │                 │  material │   │  accessor  │←─────│ animation │ │
+    │                 ╰───────────╯   ╰────────────╯      ╰───────────╯ │
+    │                       ↓               ↓                           │
+    │                 ╭───────────╮   ╭────────────╮                    │
+    │       ╭─────────│   texture │   │ bufferView │                    │
+    │       │         ╰───────────╯   ╰────────────╯                    │
+    │       ↓               ↓               ↓                           │
+    │ ╭───────────╮   ╭───────────╮   ╭────────────╮                    │
+    │ │  sampler  │   │    image  │   │   buffer   │                    │
+    │ ╰───────────╯   ╰───────────╯   ╰────────────╯                    │
+    │                                                                   │
+    └───────────────────────────────────────────────────────────────────┘
 
 1. *scene*：glTF格式的场景结构描述条目。
 2. *node*：场景树结点。它可以包含一个变换(比如旋转或平移)，引用更多的子结点。它可以引用网格和相机，以及描述网格变换的蒙皮。
@@ -1056,8 +1854,250 @@ glTF 的 JSON 节点层次结构：
 8. *material*：包含了定义 3D 对象外观的参数。它通常引用了用于 3D 对象渲染的 texture 对象。
 9. *texture*：定义了一个 sampler 对象和一个 image 对象。sampler 对象定义了 image 对象在 3D 对象上的张贴方式
 
-glTF 格式以引用方式使用外部二进制数据，比如 3D 对象的几何数据和纹理数据通常不被包含在 JSON 文件中，它们被存储在外部的文件中。JSON 文件中只包含了到这些外部文件的链接。这使得二进制数据可以以非常紧凑的形式进行存储方便互联网传输，并且可以直接被渲染程序使用，无需额外的解码、预处理。
+场景中的节点层级关系通过 children 属性体现，nodes 数组就是所有节点对象的集合：
 
+    "scene": 0,
+    "scenes": [
+        {
+        "nodes": [ 0, 1, 2 ]
+        }
+    ],
+    "nodes": [
+        {
+        "children": [ 3, 4 ],
+        ...
+        },
+        { ... },
+        { ... },
+        { ... },
+        { ... },
+        ...
+    ],
+
+TEXCOORD_0 或者 TEXCOORD_1 这样的属性引用指定的材质，如果网格体设置有多个材质。
+
+glTF 格式以引用方式使用外部 3D 对象的几何数据和纹理数据的二进制文件，也可以通过 URI Base64 数据编码直接写入 JSON 文件中。JSON 文件中只包含这些外部文件的路径地址则可以保持文件体积更小。内嵌数据可以使得完整模型的二进制数据便于进行互联网传输，并且可以直接被渲染程序使用，无需额外的文件读取、预处理。因此 glTF 格式也更适合用于 Web 平台。
+
+    "buffers": [
+        {
+            "uri": "buffer01.bin"
+            "byteLength": 102040,
+        }
+    ],
+    "images": [
+        {
+            "uri": "image01.png"
+        }
+    ],
+
+    Buffer data:
+    "data:application/gltf-buffer;base64,AAABAAIAAgA..."
+
+    Image data (PNG):
+    "data:image/png;base64,iVBORw0K..."
+
+glTF 文件有标准 JSON 格式和二进制格式，Blender 中提供三种导出 glTF 文件的方式：
+
+*   glTF Binary (.glb) 二进制文件格式，将所有数据包含在一个文件中。
+*   glTF Embedded (.glft) 标准 JSON 文件，并且使用 Base64 编码资源内嵌到 JSON 文件。
+*   glTF Separate (.gtft + .bin + textures) 将资源文件保存在独立的文件中。
+
+::
+
+    12-byte header                      Chunk 0 (JSON)                      More Chunks (Binary Buffer)
+    ┌──────────┬──────────┬──────────┬───────────┬─────────────┬───────────┬───────────┐
+    │  magic   │ version  │  length  │ chunkType │ chunkLength │ chunkData │    ...    │
+    │ (uint32) │ (uint32) │ (uint32) │ (uint32)  │ (uint32)    │ (ubyte[]) │    ...    │
+    └──────────┴──────────┴──────────┴───────────┴─────────────┴───────────┴───────────┘
+                                                                buffers[0] or
+                                                                External data
+
+由于二进制 .glb 文件要小得多，因此最好使用这种类型。未压缩的 .gltf 在文本编辑器中很容易阅读，因此它们可能对调试有用。 
+
+[探索three.js - 以glTF格式加载3D模型](https://discoverthreejs.com/zh/book/first-steps/load-models/)
+
+在二进数据的保存机制上，使用了 buffers, bufferViews, accessors 三层对象，可以将 accessors
+和 buffers 和 OpenGL 接口中的 VBO（Vertex Buffer object），VAO （Vertex Array Object）
+或者 EBO（Element Buffer Object）对应起来看。它们的设计逻辑很相似，buffer 对应的是二进制数据，
+bufferView 则是一个观察数据的窗口，accessor 则是指示了二进制数据的组织形式，与 VAO 或者 EBO
+对象的功能极其相似。支持使用多组数据的情况，可以通过 Sparse accessors 来指示需要访问的多组数据。
+
+Buffer 可以是任何数据，可以是 geometry、animation、skins、images 等数据的拼合，最后以 binary
+blob 形式保存，或者以 Base64 编码后内嵌在 JSON 文件。
+
+Buffer views 定义了 buffer 中连续的一段数据，通过 byteOffset 和 byteLength 定义的这些数据
+可以用于表示 images, vertex indices, vertex attributes, 或者 inverse bind matrices，
+但是这些应用只能是同一种类型，比如同一个 buffer view 就不能即作为 vertex indices 又作为 vertex
+attributes 数据使用。
+
+Blender 由于出色的数据结构设计，可以非常容易将某个物体的动画数据应用（Link）到其它物体上。动画数据
+只当作一种数据块存储在 blend 文件中，要将动画数据应用到某个物体，只需要先选择这个物体，再选择包含动画
+数据的物体，再执行菜单: Object → Link/Transfer Data → Link Animation Data 就可以将动画数据
+应用/链接到新的物体上。对于复杂的动画，比如人形物体的动作动画，通常涉及骨骼动画设置，就需要对动画数据
+进行重定向（retargeting），将骨骼对应的动画数据映射到正确的目标骨骼上。
+
+以下是 Blender 导出的一个场景，只包含一个 Cube，并且在 10 ~ 20 Frame 设置了关键帖动画。场景
+中还包含了一个默认的 Camera 和一个 Light。Cube 的动画通过 channels[0] 配置中的 target
+指定动画作用的对象及相应的属性。对象是 nodes[0] 也就是 Cube 对象。动画属性通过路径指定，也就是
+位移属性（translation）。这个动画通过 sampler[0] 配置采样器来设置位移属性的值，采样器分别有
+输入（input）和输出（output)，还有插值方式（interpolation）。输入输出对应的 accessors 访问
+bufferViews 关联的 buffers，也就是说，采样器通过数据访问层最终读取 buffer 中的数据，这些数据
+包括材质中引用的纹理图片。如果使用 glTF Embedded 方式导出，这些数据都会 Base64 编码后保存到默认
+的 buffer 中。纹理图像数据会包含名称，`images` 集合中的图像配置就可以通过 bufferView 指定的
+索引号来引用相应的图像数据。如果使用分离文件方式导出，则是直接在图像配置中使用 URI 路径来记录文件。
+从动画数据可以看到，插值输入数据长度为 44 字节，对应的是 11 帧（10 ~ 20）动画的 11 个浮点数据，
+每个值 4 字节，这些值是动画帧的 timestamps。插值输出数据为对应的 11 帧的三维坐标，每个 (x,y,z) 
+坐标共占用 12 字节，总共 132 字节数据。
+
+    {
+        "asset" : {
+            "generator" : "Khronos glTF Blender I/O v1.6.16",
+            "version" : "2.0"
+        },
+        "scene" : 0,
+        "scenes" : [
+            {
+                "name" : "Scene",
+                "nodes" : [ 0, 1, 2 ]
+            }
+        ],
+        "nodes" : [
+            {
+                "mesh" : 0, "name" : "Cube"
+            },
+            {
+                "name" : "Light", 
+                "rotation" : [ 0.16, 0.75, -0.27, 0.57 ],
+                "translation" : [ 4.07, 5.90, -1.00 ]
+            },
+            {
+                "name" : "Camera",
+                "rotation" : [ 0.48, 0.33, -0.20, 0.78 ],
+                "translation" : [ 7.35, 4.95, 6.92 ]
+            }
+        ],
+        "animations" : [
+            {
+                "channels" : [
+                    {
+                        "sampler" : 0,
+                        "target" : {
+                            "node" : 0,
+                            "path" : "translation"
+                        }
+                    }
+                ],
+                "name" : "CubeAction",
+                "samplers" : [
+                    {
+                        "input" : 4,
+                        "interpolation" : "LINEAR",
+                        "output" : 5
+                    }
+                ]
+            }
+        ],
+        "materials" : [
+            {
+                "doubleSided" : true,
+                "name" : "Material",
+                "pbrMetallicRoughness" : {
+                    "baseColorFactor" : [ 0.80, 0.80, 0.80, 1 ],
+                    "metallicFactor" : 0,
+                    "roughnessFactor" : 0.4000000059604645
+                }
+            }
+        ],
+        "meshes" : [
+            {
+                "name" : "Cube",
+                "primitives" : [
+                    {
+                        "attributes" : {
+                            "POSITION" : 0, "NORMAL" : 1, "TEXCOORD_0" : 2
+                        },
+                        "indices" : 3,
+                        "material" : 0
+                    }
+                ]
+            }
+        ],
+        "accessors" : [
+            {
+                "bufferView" : 0, "componentType" : 5126, "count" : 24,
+                "max" : [ 1, 1, 1 ], "min" : [ -1, -1, -1 ],
+                "type" : "VEC3"
+            },
+            {
+                "bufferView" : 1, "componentType" : 5126, "count" : 24,
+                "type" : "VEC3"
+            },
+            {
+                "bufferView" : 2, "componentType" : 5126, "count" : 24,
+                "type" : "VEC2"
+            },
+            {
+                "bufferView" : 3, "componentType" : 5123, "count" : 36,
+                "type" : "SCALAR"
+            },
+            {
+                "bufferView" : 4, "componentType" : 5126, "count" : 11,
+                "max" : [ 0.83 ], "min" : [ 0.41 ],
+                "type" : "SCALAR"
+            },
+            {
+                "bufferView" : 5, "componentType" : 5126, "count" : 11,
+                "type" : "VEC3"
+            }
+        ],
+        "bufferViews" : [
+            { "buffer" : 0, "byteOffset" : 0,   "byteLength" : 288 },
+            { "buffer" : 0, "byteOffset" : 288, "byteLength" : 288 },
+            { "buffer" : 0, "byteOffset" : 576, "byteLength" : 192 },
+            { "buffer" : 0, "byteOffset" : 768, "byteLength" : 72 },
+            { "buffer" : 0, "byteOffset" : 840, "byteLength" : 44 },
+            { "buffer" : 0, "byteOffset" : 884, "byteLength" : 132 }
+        ],
+        "buffers" : [
+            {
+                "byteLength" : 1016,
+                "uri" : "data:application/octet-stream;base64,AACAPwAAgD8AAIC/AACAPwAAgD8AAIC/AACAPwAAgD8AAIC/AACAPwAAgL8AAIC/AACAPwAAgL8AAIC/AACAPwAAgL8AAIC/AACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AACAPwAAgL8AAIA/AACAPwAAgL8AAIA/AACAPwAAgL8AAIA/AACAvwAAgD8AAIC/AACAvwAAgD8AAIC/AACAvwAAgD8AAIC/AACAvwAAgL8AAIC/AACAvwAAgL8AAIC/AACAvwAAgL8AAIC/AACAvwAAgD8AAIA/AACAvwAAgD8AAIA/AACAvwAAgD8AAIA/AACAvwAAgL8AAIA/AACAvwAAgL8AAIA/AACAvwAAgL8AAIA/AAAAAAAAAAAAAIC/AAAAAAAAgD8AAACAAACAPwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIC/AACAPwAAAAAAAACAAAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAACAPwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIA/AACAPwAAAAAAAACAAACAvwAAAAAAAACAAAAAAAAAAAAAAIC/AAAAAAAAgD8AAACAAACAvwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIC/AACAvwAAAAAAAACAAAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAACAvwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIA/AAAgPwAAAD8AACA/AAAAPwAAID8AAAA/AADAPgAAAD8AAMA+AAAAPwAAwD4AAAA/AAAgPwAAgD4AACA/AACAPgAAID8AAIA+AADAPgAAgD4AAMA+AACAPgAAwD4AAIA+AAAgPwAAQD8AACA/AABAPwAAYD8AAAA/AADAPgAAQD8AAAA+AAAAPwAAwD4AAEA/AAAgPwAAgD8AACA/AAAAAAAAYD8AAIA+AADAPgAAgD8AAAA+AACAPgAAwD4AAAAAAQAOABQAAQAUAAcACgAGABMACgATABcAFQASAAwAFQAMAA8AEAADAAkAEAAJABYABQACAAgABQAIAAsAEQANAAAAEQAAAAQAVVXVPquq6j4AAAA/q6oKP1VVFT8AACA/q6oqP1VVNT8AAEA/q6pKP1VVVT8AAAAAAAAAAAAAAIAAAAAA9M+2PQAAAIAAAAAAGsGpPgAAAIAAAAAAhUgwPwAAAIAAAAAAZKOPPwAAAIAAAAAAFgjMPwAAAIAAAAAAZDYEQAAAAIAAAAAA9PUfQAAAAIAAAAAA8882QAAAAIAAAAAAlFFGQAAAAIAAAAAAFQhMQAAAAIA="
+            }
+        ]
+    }
+
+以下是一个材质与相应纹理图像文件的关系配置参考，第二个图像配置是在 glFT Embedded 方式下的配置，
+图像数据编码到 JSON 文件内部，并且保存在 buffer 集合中，通过 bufferView 中指定的索引来引用：
+
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Material.012",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : { "index" : 0 },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.4000000059604645
+            }
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "apple",
+            "uri" : "apple.jpg"
+        },
+        {
+            "bufferView" : 4,
+            "mimeType" : "image/jpeg",
+            "name" : "apple"
+        }
+    ],
 
 
 # 🐣 Toons History
@@ -1533,7 +2573,8 @@ Johnston和Thomas特别希望避免的一点是“双胞胎”：人物的左右
 关于参考材料，优秀电影中的场景就是十分优质的参考，这些场景都经过导演们精心的安排。或者参考
 建筑时尚概念设计，总之心中积累的造型越多创作时就有越多的可能性。
 
-我也是做了很久的绘画梦，最近才开始认真对待的。因为职业是编程，现在想做独立游戏开发，学了 UE4/UE5，但是绘画成为短板，所以认真对待它，希望它成为梦想的种子，生根发芽！
+我也是做了很久的绘画梦，最近才开始认真对待的。因为职业是编程，现在想做独立游戏开发，学了 UE4/UE5，
+但是绘画成为短板，所以认真对待它，希望它成为梦想的种子，生根发芽！
 
 关于不推荐初学者学习《伯里曼人体结构教学》，如果打开方式不正确会学不到东西，这时死磕反而浪费时间，
 应该找其它基础的书看，补了自己短板再回来看，自然就可以吸收了。需要特别说明的是，这本书的创作背景。
@@ -1925,6 +2966,9 @@ Wacom 提供精确模式，可以将绘板的作画区临时影射到屏幕的�
 悬窗除了可以设置布局模式，还可以设置字体大小和弹窗位置（光标处或指定位置）。多显示器条件下可以
 切换显示映射，独立映射到各个屏幕，或者映射到所有屏幕拼接显示区域。
 
+注意：激活 Wacom 绘板驱动以下功能可能导致 Blender 等软件的面板操作定位错误问题，点击位置会被误判
+为最后收笔位置：笔尖收起辅助 -> 更精确地定位笔尖提起位置；映射 -> 使用 Windows Ink 功能。
+
 Wacom Intuos 系列入门级数位板，相对于专业级产品，主要差别：4,096 级压力感应，不支持倾斜角。
 
 Wacom Intuos Pro 系列专业数位板有三个型号，官方售价非常贵，主要是因为没有实力相当的竞争者。
@@ -2183,14 +3227,20 @@ Anatomy and Physiology 2e
 3. 手部解剖 https://www.bilibili.com/video/BV1mu411U7bk/
 4. 【中国医科大学】 系统解剖学-视器 霍琨 https://www.bilibili.com/video/BV1YQ4y1d7AB/?p=42
 5. 【中国医科大学】 系统解剖学-运动传导通路 霍琨 https://www.bilibili.com/video/BV1YQ4y1d7AB/?p=59
+5. 眼球的解剖与视力调节 by 稀饭煮天下 https://www.bilibili.com/video/BV1b541187vW/
+5. 散光，原来这么来的！ by 铁打的郎中 https://www.bilibili.com/video/BV1Dh411v7F8
 
 绘画是一项十分消耗耐力的活动，由于长期保持单一姿态，可能导致眼睛、肩膀、腰椎出现健康问题。
 这需要在日常注意坐姿，保持腰椎挺直，四肢放松，身躯核心肌群收紧。并且，最好以小时为间隔设置
 休息放松时间，对紧张肌群进行放松性运动。特别是眼睛睫状肌长期疲劳，可能导致视力受损、近视，
 应该及时进行无视放松睫状肌，可以适当远近交替地锻炼睫状肌。
 
-晶状体富有弹性，但随年龄增长，晶状体核逐渐浓缩、增大 弹性逐渐减弱。
-加上睫状肌和悬韧带的功能减退，这就会导致近视或者“老花眼”。平时应该注意用眼和适当的锻炼。
+晶状体富有弹性，但随年龄增长，晶状体核逐渐浓缩、增大 弹性逐渐减弱。加上睫状肌和悬韧带的功能减退，
+这就会导致近视或者“老花眼”。平时应该注意用眼和适当的锻炼。正常眼球应该保持晶状体有较好的聚光效果，
+并且能通过睫状肌的松紧调节能力将焦点落在视网膜上，这样才能在视锥细胞上获得清晰的影像。由于使用现代
+人使用电子产品时间越长，每天都连续好几小时。更严重的是缺少放松，眼睛长时间保持同一个姿态，会影响
+眼球周边肌群的受力变化，严重的会导致原本正确的眼球状态失衡，出现纵轴近视叠加横轴散光的花眼现象。
+眼球在视线轴线上的焦点调节能力下降与近视直接相关，而散光则是眼球周围肌肉受力失衡导致焦点偏光成椭圆，
 
 
 
@@ -2210,7 +3260,10 @@ Anatomy and Physiology 2e
 手眼协调能力，使两者独立互不影响，这样可以画更流畅的线条。盲画还可能发现潜在的握笔姿势问题，
 这些难以发现的错误可能极大地影响入门的线条练习。
 
-由于文化差异，东方人与西方人的作画重心也不同，前者重物体外轮廓，后者重体积。
+书法总结起来就是：笔法、结构、章法。笔法是造字的基础，结构是将文字艺术法，章法是书法中的“排版”。
+书法三要素与绘画中的造型可谓系出同门。
+
+由于文化差异，东方人与西方人的作画重心也不同，前者重写意（轮廓），后者重结构（体积）。
 
 书画同门，美学为本（Aesthetics），可惜我们的教育割裂了它们的联系，太多教育落后地区缺失这重要的一课。
 
@@ -2237,11 +3290,22 @@ Anatomy and Physiology 2e
 
 相反，排线力度不合适，就会造成画面混乱，不能正确表达物体的表面及其结构。明暗层次不足，画面就会糊掉，
 不能清晰表达物体结构。排线不够绵密，或者力度不稳定，画面结构就会混乱。排线一般不使用十字交叉地叠加，
-因为相比其它角度的叠加更难把握。
+因为相比其它角度的叠加更难把握。排线手法一般按同一方向画线，应该避免来回画线，这种情况会更难控制笔迹
+的运动起止，并且会很容易导致末端出来勾线的现象，这都是因为手部运动控制不好，收笔、下笔不准确。
 
 ![丰富的明暗层次](https://picx.zhimg.com/v2-9b6afd3f1a29af570871fc1ea807120e.jpg)
 
-线条作为最基本的作画工具，它可以用来排线以实现物体表面的表达，包括平面和渐变的曲面。
+绘画中准确协调的排线并不是线条的唯一用法，这只是学习用线条表达体面的一种方式，更重要的学习、探索绘画
+工具的使用、手感，掌握绘画工具在不同状态下可以获得什么样式的画面，也就是对工具的把控能力。此探索过程
+非常重要，是任何教学都不能替代的内省活动（introspection）。只有深刻理解、掌握各种工具，才能在绘画
+活动中用好它们。安德斯·佐恩（Anders Zorn）的素描作品中的线条运用就是最好的案列，线条被直接用于造型，
+线条的运用精确无比，这就是锻炼后的成果。
+
+![莫娜 蚀版画 24.8cm×17.5cm 1911年](https://i0.hdslb.com/bfs/article/c72334c92c3212be4c141c7f4ac9d6914a2569eb.jpg)
+![](https://i0.hdslb.com/bfs/article/61e26b77d84aaf39315bfce900e83086545332e4.jpg)
+[感受“线条指挥家”安德斯·佐恩笔下的线条魅力](https://www.bilibili.com/read/cv15549129/)
+
+线条作为最基本的作画工具，它可以用来排线以实现物体表面的表达，包括平面和渐变的曲面，也就是造型。
 只有控笔准确，才能够均匀地排出绵密的线条。在表现层面来看，线条和铅笔、橡皮擦一样都是工具。
 在表现渐变的画面上，排线是常用的手法，但是也有其它的手法，利用炭粉或者纸笔甚至手指涂抹
 也可以快速完成渐变的色块。平涂和厚涂是处理渐变的常用方法，常用于处理表面光滑、柔软质感的物品。
@@ -2507,8 +3571,8 @@ Da Vinci's Vitruvian Man Of Math https://www.bilibili.com/video/BV137411g7vN
     - 籽骨 Sesamoid Bone：位于肌腱的特殊骨头，如髌骨 Patella；
 
 牙齿不是骨头，与骨头是完全不同的一种器官，两者的结构是完全不同的。骨头一般都是由哈佛氏系统，
-也就是骨小梁形成，中间有一个骨细胞的腔，里边容纳骨细胞，分扁骨，长骨，长骨中间还有骨髓腔，
-容纳着骨髓。而牙齿也是一个单独的器官，其是由牙釉质、牙本质和牙髓腔形成牙冠；在牙根部由牙骨质，
+也就是骨小梁形成，中间有一个骨细胞的腔，里边容纳骨细胞，分扁骨，长骨，长骨中间还有骨骼腔，
+容纳着骨骼。而牙齿也是一个单独的器官，其是由牙釉质、牙本质和牙髓腔形成牙冠；在牙根部由牙骨质，
 牙本质和牙髓腔形成，是一个完全特殊的器官，所以牙齿归口腔科来治疗，而骨头问题归骨科来治疗。
 
 中国人可能是进化更超前，只有 204 块骨头。第五趾骨只有2节儿，脚趾末端少了一块，
@@ -2517,7 +3581,7 @@ Da Vinci's Vitruvian Man Of Math https://www.bilibili.com/video/BV137411g7vN
 
 儿童由于部分骨骼未完全闭合，例如尾椎骨，所以比成人有更多的骨块。
 
-骨骼生长十分神奇，有径向、轴向两种生长方式。径向由外表面的成骨细胞增殖扩大骨头半径，骨髓腔内
+骨骼生长十分神奇，有径向、轴向两种生长方式。径向由外表面的成骨细胞增殖扩大骨头半径，骨骼腔内
 有破骨细胞分解骨骼内表面，负责扩大内腔。而骨骼两端存在骺板 (growth plate, epiphysical)，
 是一种薄板波浪状的软骨组织。骺板只存在单向软骨增殖与成骨活动，是生长期骨骼的生长发育部位。
 【中国医科大学】 系统解剖学-骨学总论 霍琨 https://www.bilibili.com/video/BV1YQ4y1d7AB?p=1
@@ -3125,7 +4189,6 @@ Sumi-e is sometimes confused with calligraphy, because the tools used are the sa
 
 To paint with ink requires the use of the Four Treasures. This refers to the must-haves of sumi-e: an ink stone, an ink stick, a brush, and the appropriate kind of paper. The ink stone is a stone with a shallow depression carved into it; it is used to prepare and hold the ink for the painter. The ink stick is a black stick composed of pine soot, bound into a hardened form with resin. It is typically molded in cylinders or rectangles with a lavishly decorated bas relief, such as dragons, on the surface. The reliefs are often painted in gold or other colors, making the utilitarian stick of ink a work of art in itself.
 
-Ad
 The sumi-e painter creates the ink immediately before beginning the painting, by sprinkling a few drops of water on the stone and then holding the ink stick upright, making circles with the stick on the stone. The end of the ink stick releases some of the soot into the water, making the ink. A skilled sumi-e painter knows how much ink to prepare for the painting he or she has in mind and makes enough, but not too much. Ink is not stored to be used later. Making the ink is a form of moving meditation for the painters, during which they prepare themselves mentally for the painting process.
 
 Brushes used in sumi-e are usually wolf-hair in bamboo - 'wolf hair' can actually be horsehair, boar bristle or other animal hair. The brush's ability to hold and retain a point is critical to a sumi-e painter, since one brush is used to create the widest and thinnest of lines.

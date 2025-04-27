@@ -1,0 +1,3131 @@
+:source-highlighter: highlight.js
+:icons: font
+:uri-kroki: https://kroki.io/
+:uri-kroki-docs: https://docs.kroki.io/
+:uri-maven: https://maven.apache.org/
+:actdiag-version: 3.1.0
+:blockdiag-version: 3.1.0
+:bpmn-version: 18.3.1
+:bytefield-version: 1.10.0
+:c4plantuml-version: 1.2025.0
+:d2-version: 0.6.9
+:dbml-version: 1.0.30
+:diagramsnet-version: 16.2.4
+:ditaa-version: 1.0.3
+:erd-version: 0.2.3
+:excalidraw-version: 0.17.6
+:graphviz-version: 9.0.0
+:mermaid-version: 11.4.1
+:nomnoml-version: 1.7.0
+:nwdiag-version: 3.1.0
+:packetdiag-version: 3.1.0
+:pikchr-version: '7269f78c4a'
+:plantuml-version: 1.2025.0
+:rackdiag-version: 3.1.0
+:seqdiag-version: 3.1.0
+:structurizr-version: 3.0.0
+:svgbob-version: 0.7.0
+:symbolator-version: 1.2.2
+:umlet-version: 15.1
+:vega-version: 5.31.0
+:vegalite-version: 5.23.0
+:wavedrom-version: 3.5.0
+:wireviz-version: 0.3.3
+:uri-docker-get-started: https://docs.docker.com/get-started/
+:uri-podman-get-started: https://podman.io/get-started/
+:uri-docker-compose-install: https://docs.docker.com/compose/install/
+:uri-podman-compose-install: https://github.com/containers/podman-compose/
+== README
+
+image:https://kroki.io/assets/logo.svg[Kroki,200,link={uri-kroki}]
+
+ifdef::env-github[]
+image:https://github.com/yuzutech/kroki/workflows/CI/badge.svg?branch=master[GitHub Actions build status, link=https://github.com/yuzutech/kroki/actions]
+image:https://img.shields.io/badge/zulip-join_chat-brightgreen.svg[Zulip chat, link=https://kroki.zulipchat.com/]
+endif::[]
+
+{uri-kroki}[Kroki] provides a unified API with support for BlockDiag (BlockDiag, SeqDiag, ActDiag, NwDiag, PacketDiag, RackDiag), BPMN, Bytefield, C4 (with PlantUML), D2, DBML, Diagrams.net (experimental), Ditaa, Erd, Excalidraw, GraphViz, Mermaid, Nomnoml, Pikchr, PlantUML, SvgBob, Symbolator, UMLet, Vega, Vega-Lite, WaveDrom and WireViz... and more to come!
+
+== Quickstart
+
+This section offers a basic tutorial for evaluating Kroki.
+More comprehensive installation instructions are in the {uri-kroki-docs}[Kroki documentation].
+
+== Usage
+
+Kroki uses a simple algorithm (deflate + base64) to encode your diagram in the URL:
+
+`GET /plantuml/svg/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000`
+
+You can also call Kroki with `POST`:
+
+ POST /
+
+[source,json]
+----
+{
+  "diagram_source": "Bob -> Alice : hello",
+  "diagram_type": "plantuml",
+  "output_format": "svg"
+}
+----
+
+In this case, you don't need to encode your diagram.
+
+It's also possible to send your diagram as plain text using the `Content-Type` header.
+The output format will be specified using the `Accept` header and the diagram source will be sent as the request body:
+
+ POST /plantuml
+
+[source]
+----
+Accept: image/svg+xml
+Content-Type: text/plain
+
+Bob -> Alice : hello
+----
+
+You can also define the output format in the URL if you don't want to add an `Accept` header:
+
+ POST /plantuml/svg
+
+[source]
+----
+Content-Type: text/plain
+
+Bob -> Alice : hello
+----
+
+The same concept applies when sending the diagram as JSON:
+
+ POST /plantuml/svg
+[source,json]
+----
+{
+  "diagram_source": "Bob -> Alice : hello"
+}
+----
+
+== Project layout
+
+Kroki has a modular architecture:
+
+server::
+A Java web server (powered by _Vert.x_) that acts as a gateway.
+Kroki server is built using {uri-maven}[Maven].
+
+umlet::
+A tiny Java API on top of _UMlet_ (mini) to generate diagrams.
+
+nomnoml::
+A Node.js CLI on top of the _Nomnoml_ diagram library.
+
+vega::
+A Node.js CLI on top of the _vega_ diagram library. Also supports Vega-Lite concise grammar.
+
+mermaid::
+A companion web server written in JavaScript (powered by _micro_) that provides _Mermaid_ diagram library.
+
+bpmn::
+A companion web server written in JavaScript (powered by _micro_) that provides _bpmn-js_ diagram library.
+
+bytefield::
+A Node.js CLI on top of the _bytefield-svg_ diagram library.
+
+wavedrom::
+A Node.js CLI on top of the _wavedrom_ diagram library.
+
+excalidraw::
+A companion web server written in JavaScript (powered by _micro_) that provides _Excalidraw_.
+
+diagrams.net::
+A companion web server written in JavaScript (powered by _micro_) that provides _diagrams.net_.
+
+== Build
+
+Install `task` command-line: https://taskfile.dev/installation/
+
+=== Gateway Server
+
+The first step is to build the project using Maven:
+
+ $ task mavenBuild
+
+=== Docker Images
+
+To build all the Docker images, use the following command:
+
+ $ sudo task dockerBuildImages
+
+NOTE: `sudo` might not be needed depending on your distribution and `docker` configuration.
+
+== Run
+
+Once the Docker images are built, you can run Kroki using `docker`:
+
+ $ docker run -d -p 8000:8000 yuzutech/kroki
+
+=== Companion Containers
+
+If you want to use one of the following diagram libraries then you will also need to start the corresponding companion container:
+
+yuzutech/kroki-mermaid::
+Mermaid
+
+yuzutech/kroki-bpmn::
+BPMN
+
+yuzutech/kroki-excalidraw::
+Excalidraw
+
+yuzutech/kroki-diagramsnet (experimental)::
+diagrams.net
+
+You can use `docker-compose` to run multiple containers:
+
+.docker-compose.yml
+[source,yml]
+----
+services:
+  core:
+    image: yuzutech/kroki
+    environment:
+      - KROKI_MERMAID_HOST=mermaid
+      - KROKI_BPMN_HOST=bpmn
+      - KROKI_EXCALIDRAW_HOST=excalidraw
+    ports:
+      - "8000:8000"
+  mermaid:
+    image: yuzutech/kroki-mermaid
+    expose:
+      - "8002"
+  bpmn:
+    image: yuzutech/kroki-bpmn
+    expose:
+      - "8003"
+  excalidraw:
+    image: yuzutech/kroki-excalidraw
+    expose:
+      - "8004"
+  # experimental!
+  diagramsnet:
+    image: yuzutech/kroki-diagramsnet
+    expose:
+      - "8005"
+----
+
+ $ docker-compose up -d
+
+[[index]]
+== Kroki Documentation
+
+:uri-exoscale: https://www.exoscale.com/
+
+[discrete.tagline]
+=== Convert plain text diagrams to images !
+
+Kroki provides a unified HTTP API with support for BlockDiag (BlockDiag, SeqDiag, ActDiag, NwDiag, PacketDiag, RackDiag),
+BPMN, Bytefield, C4 (with PlantUML), Diagrams.net (experimental), Ditaa, Erd, Excalidraw, GraphViz, Mermaid, Nomnoml, PlantUML, Structurizr, SvgBob,
+Symbolator, UMLet, Vega, Vega-Lite, WaveDrom and WireViz... and more to come!
+
+Kroki is available as a Self-Managed instance. +
+We are also _actively_ looking for sponsors to provide Kroki as a free service:
+
+Self-Managed::
+Select this option if you want to download and install Kroki on your own infrastructure or in our public cloud environment. +
+Please refer to the xref:setup:install.adoc[documentation] to install Kroki.
+
+Free service::
+Thanks to {uri-exoscale}[Exoscale], which has kindly offered two servers, we can provide Kroki as a _free service_! +
+However, some parts of the infrastructure are still host on other providers, so *we are still looking for sponsors to cover all the expenses*.
++
+If you are interested, please 👋 mailto:hello@kroki.io[contact us].
++
+NOTE: The public instance of Kroki does not do any remote call for performance and security reasons.
+We also want to keep the API as simple as possible, so it takes a text diagram as input and returns an image.
+
+[[features]]
+== How Kroki Can Help You
+
+Ready to use::
+Diagrams libraries are written in a variety of languages: Haskell, Python, JavaScript, Go, PHP, Java... some also have C bindings. Trust us, you have better things to do than install all the requirements to use them. Get started in no time!
+
+Simple::
+Kroki provides a unified API for all the diagram libraries.
+Learn once convert anything!
+
+Free & Open source::
+All the code is available on GitHub and our goal is to provide Kroki as a free service.
+
+Fast::
+Built using a modern architecture, Kroki offers great performance.
+
+[[diagram-types]]
+== Diagram Types
+
+Here's a non-exhaustive list of diagrams you can create using Kroki.
+
+UML::
+* Block diagram
+* Sequence diagram
+* Activity diagram
+* Network diagram
+* Use case diagram
+* Class diagram
+* State diagram
+* Object diagram
+* Deployment diagram
+* Timing diagram
+* Entity Relationship Diagram
+
+C4::
+* C4 Context diagram
+* C4 Container diagram
+* C4 Component diagram
+* Software Architecture using Structurizr DSL
+** System Landscape diagram
+** System Context diagram
+** Container diagram
+** Component diagram
+** Dynamic diagram
+** Deployment diagram
+
+Diagram::
+* Object Oriented Graph
+* Work Breakdown Structure
+* Mind Map diagram
+* Gantt diagram
+* Ditaa diagram
+* Packet diagram
+* Rack diagram
+* Digital Timing diagram (waveform)
+* BPMN diagram
+* Bytefield diagram
+* HDL Component diagram
+* Excalidraw
+* https://www.diagrams.net/[diagrams.net] (experimental)
+* WireViz
+
+Visualization::
+* Bar charts
+* Line & area charts
+* Circular charts
+* Scatter plots
+* Distributions
+* Geographic maps
+* Tree diagrams
+* Network diagrams
+* Heatmaps
+* Word clouds
+* Beeswarm plots
+
+Looking for inspiration? Visit the https://kroki.io/examples.html[examples] page.
+
+[[architecture]]
+== Architecture
+
+Kroki has a modular architecture and provides multiple components:
+
+Gateway Server::
+This component is the entry point of Kroki.
+The server is using _Vert.x_ and will route the request to different services.
+
+Mermaid::
+A companion web server written in JavaScript (powered by _micro_) that provides _Mermaid_ diagram library.
+
+BPMN::
+A companion web server written in JavaScript (powered by _micro_) that provides _bpmn-js_ to render BPMN diagrams.
+
+Excalidraw::
+A companion web server written in JavaScript (powered by _micro_) that provides https://excalidraw.com/[_Excalidraw_] to render diagrams.
+
+Diagrams.net::
+A companion web server written in JavaScript (powered by _micro_) that provides https://www.diagrams.net/[_diagrams.net_] to render diagrams.
+
+=== Gateway Server
+
+The `yuzutech/kroki` Docker image contains the following diagrams libraries out-of-the-box:
+
+[options="header,autowidth"]
+|===
+|Diagram Type | Version | Binary Programme
+|https://github.com/blockdiag/actdiag[ActDiag]
+|{actdiag-version}    |
+
+|https://github.com/blockdiag/blockdiag[BlockDiag]
+|{blockdiag-version}  |
+
+|https://github.com/Deep-Symmetry/bytefield-svg[Bytefield]
+|{bytefield-version}  |
+
+|https://github.com/RicardoNiepel/C4-PlantUML[C4 with PlantUML]
+|{c4plantuml-version} |Java library (depends on GraphViz)
+
+|http://ditaa.sourceforge.net[Ditaa]
+|{ditaa-version}      |Java library
+
+|https://github.com/BurntSushi/erd[Erd]
+|{erd-version}        |Binary `/usr/bin/erd`
+
+|https://www.graphviz.org/[GraphViz]
+|{graphviz-version}   |Binary `/usr/bin/dot`
+
+|https://github.com/skanaar/nomnoml[Nomnoml]
+|{nomnoml-version}    |Binary `/usr/bin/nomnoml`
+
+|https://github.com/blockdiag/nwdiag[NwDiag]
+|{nwdiag-version}     |
+
+|https://github.com/blockdiag/nwdiag/tree/master/src/packetdiag[PacketDiag]
+|{packetdiag-version} |
+
+|https://github.com/drhsqlite/pikchr[Pikchr]
+|{pikchr-version}     |
+
+|https://github.com/plantuml/plantuml[PlantUML]
+|{plantuml-version}   |Java library (depends on GraphViz)
+
+|https://github.com/blockdiag/nwdiag/tree/master/src/rackdiag[RackDiag]
+|{rackdiag-version}   |
+
+|https://github.com/blockdiag/seqdiag[SeqDiag]
+|{seqdiag-version}    |
+
+|https://github.com/structurizr/dsl[Structurizr]
+|{structurizr-version}|Java library/DSL
+
+|https://github.com/ivanceras/svgbob[Svgbob]
+|{svgbob-version}     |Binary `/usr/bin/svgbob`
+
+|https://hdl.github.io/symbolator/[Symbolator]
+|{symbolator-version} |Binary `/usr/bin/symbolator`
+
+|https://github.com/umlet/umlet[UMlet]
+|{umlet-version}      |Java library
+
+|https://github.com/vega/vega[Vega]
+|{vega-version}       |Binary `/usr/bin/vega`
+
+|https://github.com/vega/vega-lite[Vega-Lite]
+|{vegalite-version}   |Binary `/usr/bin/vega`
+
+|https://github.com/wavedrom/wavedrom[WaveDrom]
+|{wavedrom-version}   |Binary `/usr/bin/wavedrom`
+
+|https://github.com/formatc1702/WireViz[WireViz]
+|{wireviz-version}    |Binary `/usr/bin/wireviz`
+|===
+
+==== Mermaid
+
+The `yuzutech/kroki-mermaid` Docker image contains the following diagrams libraries out-of-the-box:
+
+[options="header",cols="1,1m"]
+|===
+|Diagram Type | Version
+|https://github.com/knsv/mermaid[Mermaid]
+|{mermaid-version}
+|===
+
+==== BPMN
+
+The `yuzutech/kroki-bpmn` Docker image contains the following diagrams libraries out-of-the-box:
+
+[options="header",cols="1,1m"]
+|===
+|Diagram Type | Version
+|https://bpmn.io/toolkit/bpmn-js/[bpmn-js]
+|{bpmn-version}
+|===
+
+==== Excalidraw
+
+The `yuzutech/kroki-excalidraw` Docker image contains the following diagrams libraries out-of-the-box:
+
+[options="header",cols="1,1m"]
+|===
+|Diagram Type | Version
+|https://github.com/excalidraw/excalidraw[Excalidraw]
+|{excalidraw-version}
+|===
+
+==== Diagrams.net (experimental)
+
+The `yuzutech/kroki-diagramsnet` Docker image contains the following diagrams libraries out-of-the-box:
+
+[options="header",cols="1,1m"]
+|===
+|Diagram Type | Version
+|https://www.diagrams.net/[diagrams.net]
+|{diagramsnet-version}
+|===
+
+[[project/get-help]]
+== Getting Help
+
+// URIs
+:uri-repo: https://github.com/yuzutech/kroki
+:uri-issues: {uri-repo}/issues
+:uri-chat-users: https://kroki.zulipchat.com/
+
+We encourage you to report issues, ask questions, share ideas, or discuss other aspects of this project using the communication tools provided below.
+
+=== Issues
+
+*Activity drives progress!*
+To that end, the issue tracker is king.
+
+The preferred means of communicating problems, ideas, and other feedback is through the project issue tracker.
+
+* {uri-issues}[Issue tracker^] (GitHub)
+
+Any significant change or decision about the project is logged there.
+
+=== Chat
+
+If you need to switch to real time input, you may be interested in visiting one of the topics on Zulip:
+
+* {uri-chat-users}[kroki/community^] (Zulip) -- Community support for Kroki users.
+
+The discussion logs for these rooms are archived, but there is no guarantee those logs will be saved indefinitely.
+
+[[usage]]
+== Usage
+
+Kroki provides an HTTP API to convert plain text diagrams to images.
+
+Kroki handles both `GET` and `POST` requests.
+When using `GET` requests, your diagram must be encoded in the URL using a deflate + base64 algorithm.
+
+NOTE: Don't worry, if you're not familiar with deflate or base64 (or if you don't want to use them),
+you can also send your diagram as plain text using <<post-request,`POST` requests>>.
+
+Let's take an example with a _GraphViz_ "Hello World":
+
+.hello.dot
+[source,graphviz]
+----
+digraph G {
+  Hello->World
+}
+----
+
+Here we are using a Python one-liner to encode our diagram using deflate + base64:
+
+[source,cli]
+cat hello.dot | python -c "import sys; import base64; import zlib; print(base64.urlsafe_b64encode(zlib.compress(sys.stdin.read().encode('utf-8'), 9)).decode('ascii'))"
+
+The above command will return `eNpLyUwvSizIUHBXqPZIzcnJ17ULzy_KSanlAgB1EAjQ`.
+We can then copy this value in the URL:
+
+[source,http]
+GET /graphviz/svg/eNpLyUwvSizIUHBXqPZIzcnJ17ULzy_KSanlAgB1EAjQ
+
+And here's the result:
+
+image::https://docs.kroki.io/kroki/setup/_images/graphviz-hello-world.svg[]
+
+[[post-request]]
+You can also call Kroki with `POST`:
+
+[source,http]
+POST /
+
+[source,json]
+----
+{
+  "diagram_source": "digraph G {Hello->World}",
+  "diagram_type": "graphviz",
+  "output_format": "svg"
+}
+----
+
+In this case, you don't need to encode your diagram.
+
+It's also possible to send your diagram as plain text using the `Content-Type` header.
+The output format will be specified using the `Accept` header and the diagram source will be sent as the request body:
+
+[source,http]
+POST /graphviz
+
+[source,request]
+----
+Accept: image/svg+xml
+Content-Type: text/plain
+
+digraph G {
+  Hello->World
+}
+----
+
+You can also define the output format in the URL if you don't want to add an `Accept` header:
+
+[source,http]
+POST /graphviz/svg
+
+[source,request]
+----
+Content-Type: text/plain
+
+digraph G {
+  Hello->World
+}
+----
+
+The same concept applies when sending the diagram as JSON:
+
+[source,http]
+POST /graphviz/svg
+
+[source,json]
+----
+{
+  "diagram_source": "digraph G {Hello->World}"
+}
+----
+
+=== Options
+
+Some diagram libraries relies on options declared outside the diagram definition. +
+To do pass options to the underlying diagram library, you can declare them as query parameters, as attributes in the JSON body or as HTTP headers.
+
+==== Query parameters
+
+For `GET` requests, you can pass diagram options as query parameters:
+
+[source,http]
+----
+GET /graphviz/svg/eNpLyUwvSizIUHBXqPZIzcnJ17ULzy_KSanlAgB1EAjQ?key=value
+----
+
+==== POST requests
+
+When using `POST` you can declare options in the `diagram_options`:
+
+[source,http]
+POST /
+
+[source,json]
+----
+{
+  "diagram_source": "digraph G {Hello->World}",
+  "diagram_type": "graphviz",
+  "output_format": "svg",
+  "diagram_options": {
+    "key": "value"
+  }
+}
+----
+
+==== HTTP headers
+
+Finally, you can pass options using HTTP headers prefixed by `Kroki-Diagram-Options`:
+
+[source,request]
+----
+POST /graphviz
+Accept: image/svg+xml
+Content-Type: text/plain
+Kroki-Diagram-Options-Key: value
+
+digraph G {
+  Hello->World
+}
+----
+
+Kroki defines the precedence order as follows:
+
+1. JSON body
+2. HTTP header
+3. Query parameter
+
+To find out what options are available, please read the xref:diagram-options.adoc[] page.
+
+=== Next
+
+* Install xref:install.adoc[Kroki on your server] for the first time
+* Interact with the Kroki API using:
+** xref:http-clients.adoc[an HTTP client]
+** xref:kroki-cli.adoc[Kroki CLI]
+
+[[encode-diagram]]
+== Encode Diagrams
+
+:uri-gh-pako: https://github.com/nodeca/pako
+:uri-mdn-textencoder: https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder
+:uri-mdn-textencoder-browser-compat: {uri-mdn-textencoder}#Browser_compatibility
+:uri-dia2kroki: https://wiki.tcl-lang.org/page/dia2kroki
+
+When using GET requests, your diagram must be encoded in the URL using a deflate + base64 algorithm.
+On this page you will learn how to encode a diagram using:
+
+- xref:nodejs[]
+- xref:javascript[]
+- xref:python[]
+- xref:java[]
+- xref:kotlin[]
+- xref:go[]
+- xref:php[]
+- xref:tcl[]
+- xref:elixir[]
+- xref:csharp[]
+
+TIP: To _decode_ a diagram (e.g. from Kroki log message) we recommend using link:kroki-cli.adoc#_commands_and_options[Kroki CLI] or one of the decoders listed on the link:third-party-tools.adoc#_decoders[Third Party Tools] page.
+
+[#nodejs]
+=== Node.js
+
+To compress our diagram with deflate algorithm, we are going to use {uri-gh-pako}[pako] -- a high speed zlib port to JavaScript.
+Once `pako` is installed, you can use the `deflate` method:
+
+[source,javascript]
+----
+const pako = require('pako')
+
+const diagramSource = `digraph G {
+  Hello->World
+}`
+
+const data = Buffer.from(diagramSource, 'utf8') // <1>
+const compressed = pako.deflate(data, { level: 9 }) // <2>
+const result = Buffer.from(compressed)
+  .toString('base64') // <3>
+  .replace(/\+/g, '-').replace(/\//g, '_') // <4>
+
+console.log(result)
+----
+<1> Create a `Buffer` from the diagram source using the default UTF-8 encoding
+<2> Compress data with deflate algorithm using a compression level of 9 (best compression).
+<3> Create a `Buffer` from the compressed data and encode to Base64
+<4> Replace `+` and `/` characters to make it "URL safe"
+
+[#javascript]
+=== JavaScript
+
+We recommend encoding your diagram as UTF-8.
+To do so, we can use {uri-mdn-textencoder}[`TextEncoder`]:
+
+[source,javascript]
+----
+new TextEncoder('utf-8').encode(diagramSource)
+----
+
+Unfortunately `TextEncoder` is not yet available on {uri-mdn-textencoder-browser-compat}[all browsers].
+To workaround this issue, we can define a function to encode our diagram:
+
+[source,javascript]
+----
+function textEncode(str) {
+  if (window.TextEncoder) {
+    return new TextEncoder('utf-8').encode(str);
+  }
+  var utf8 = unescape(encodeURIComponent(str));
+  var result = new Uint8Array(utf8.length);
+  for (var i = 0; i < utf8.length; i++) {
+    result[i] = utf8.charCodeAt(i);
+  }
+  return result;
+}
+----
+
+The above code will use `TextEncoder` if it's available and otherwise it will use a fallback implementation.
+
+Now that our diagram is encoded as UTF-8 in a `Uint8Array`, we can use _pako_ to compress it.
+As a reminder, {uri-gh-pako}[pako] is a high speed zlib port to JavaScript:
+
+[source,html]
+----
+<script src="https://unpkg.com/pako@1.0.10/dist/pako_deflate.min.js"></script>
+----
+
+To compress our diagram diagram we are going to use the `deflate` method provided by `pako`:
+
+[source,javascript]
+----
+var diagramSource = 'digraph G { Hello->World }'
+
+var data = textEncode(diagramSource) // <1>
+var compressed = pako.deflate(data, { level: 9, to: 'string' }) // <2>
+var result = btoa(compressed) // <3>
+  .replace(/\+/g, '-').replace(/\//g, '_') // <4>
+
+console.log(result)
+----
+<1> Encode the diagram as UTF8 in a `Uint8Array` (using the `textEncode` function declared above)
+<2> Compress data with deflate algorithm using a compression level of 9 (best compression).
+`pako` is available as a global variable.
+<3> Encode to Base64 using `btoa` global function
+<4> Replace `+` and `/` characters to make it "URL safe"
+
+
+[#python]
+=== Python
+
+<<encode.py>>
+[source,python,subs=normal]
+----
+\include::example$encode.py[]
+----
+
+[#java]
+=== Java
+
+<<Encode.java>>
+[source,java,subs=normal]
+----
+\include::example$Encode.java[]
+----
+
+[#kotlin]
+=== Kotlin
+
+<<Encode.kt>>
+[source,kotlin,subs=normal]
+----
+\include::example$Encode.kt[]
+----
+
+[#go]
+=== Go
+
+<<encode.go>>
+[source,go,subs=normal]
+----
+\include::example$encode.go[]
+----
+
+[#php]
+=== PHP
+
+<<encode.php>>
+[source,php,subs=normal]
+----
+\include::example$encode.php[] 
+----
+
+[#tcl]
+=== Tcl
+
+[source,tcl]
+----
+# assuming the diagram code is stored in the variable named `diagramSource`:
+puts [string map {+ - / _} [binary encode base64 [zlib compress $diagramSource]]]
+----
+
+Also, see the Tcl package {uri-dia2kroki}[dia2kroki] which has procedures to both decode and encode the diagram source code and a GUI to create diagrams with a live preview.
+
+[#elixir]
+=== Elixir
+
+<<encode.ex>>
+[source,elixir,subs=normal]
+----
+\include::example$encode.ex[]
+----
+
+[#csharp]
+=== C#
+
+<<encode.cs>>
+[source,csharp,subs=normal]
+----
+\include::example$encode.cs[]
+----
+
+NOTE: Please note that we cannot use we cannot use https://learn.microsoft.com/fr-fr/dotnet/api/system.io.compression.deflatestream?view=net-7.0[`System.IO.Compression.DeflateStream`] because it does not include ZLIB header/trailer.
+To learn more, please read: https://yal.cc/cs-deflatestream-zlib/#code
+
+[[http-clients]]
+== HTTP Clients
+
+You can interact with _Kroki_ using *any HTTP client*.
+In the following example, we will demonstrate how to send requests using _cURL_ and _HTTPie_.
+
+Using https://curl.haxx.se/[_cURL_] to interact with the API is straightforward, open a terminal and type:
+
+[source,cli]
+curl https://kroki.io/graphviz/svg --data-raw 'digraph G {Hello->World}'
+
+If you are more familiar with https://httpie.org/[_HTTPie_], you can send a JSON request:
+
+[source,cli]
+http https://kroki.io/ diagram_type='graphviz' output_format='svg' diagram_source='digraph G {Hello->World}'
+
+Both _cURL_ and _HTTPie_ can also send a `GET` request with the diagram encoded:
+
+[source,cli]
+curl https://kroki.io/graphviz/svg/eNpLyUwvSizIUHBXqPZIzcnJ17ULzy_KSanlAgB1EAjQ
+
+[source,cli]
+http https://kroki.io/graphviz/svg/eNpLyUwvSizIUHBXqPZIzcnJ17ULzy_KSanlAgB1EAjQ
+
+
+It's also possible to send a file, for instance an Entity Relationship Diagram named [.path]_project.erd_:
+
+[source,erd]
+----
+[Person]
+*name
+height
+weight
++birth_location_id
+
+[Location]
+*id
+city
+state
+country
+
+Person *--1 Location
+----
+
+[source,cli]
+curl https://kroki.io/erd/svg --data-binary '@project.erd'
+
+[source,cli]
+cat project.erd | http https://kroki.io/erd/svg Content-Type:text/plain
+
+[[kroki-cli]]
+== Kroki CLI
+
+:kroki-cli-version: 0.1.0
+:kroki-cli-sha: 4afafe2e51df4d02a21661e1d8838a146b5cba66
+:uri-kroki-cli-doc: https://github.com/yuzutech/kroki-cli/blob/master/README.adoc
+:uri-kroki-cli-gh-releases: https://github.com/yuzutech/kroki-cli/releases/
+
+The easiest way to interact with Kroki is probably to use the _Kroki CLI_.
+This client is available on {uri-kroki-cli-gh-releases}[Linux, macOS, Windows and OpenBSD] and provides a user-friendly Command Line Interface.
+
+Once you've downloaded the archive, extract the `kroki` binary file from the archive to a directory, then open a terminal and type:
+
+[source,cli]
+/path/to/kroki version
+
+If installation was successful, the command should report the version of Kroki CLI:
+
+[literal,subs=attributes]
+....
+kroki {kroki-cli-version} {kroki-cli-sha} [https://kroki.io]
+....
+
+[NOTE]
+=====
+We recommend to add `kroki` to your `PATH` so you can use the command `kroki` without specifying the path:
+
+[source,cli]
+kroki version
+=====
+
+=== Command structure
+
+The `kroki` command accepts user inputs in the form of options, positional arguments, and environment variables.
+
+[source,cli]
+kroki <command> [options] <arguments>
+
+. All functions start with a base call to Kroki (`kroki`).
+. The command tells Kroki what operation to perform.
+. Additional options can be specified after a command.
+. Positional arguments, such as the name of the diagram file, are specified last.
+. Environment variables are read from the terminal's state.
+
+[#_commands_and_options]
+=== Commands and options
+
+.CLI Commands
+[cols="1,2" width=65%]
+|===
+|Command |Purpose
+
+|completion
+|Generate the autocompletion script for the specified shell.
+
+|convert [options] <diagram>
+|Convert the diagram file specified by the <diagram>.
+<<cli-run-ex,See examples>>.
+
+|decode
+|Decode an encoded (deflate + base64) diagram.
+
+|encode
+|Encode text diagram in deflate + base64 format.
+
+|help
+|Help about any command.
+
+|version
+|Print the version of Kroki.
+|===
+
+[#cli-options]
+.CLI Options
+[cols="3,5,2,2"]
+|===
+|Option |Purpose |Format |Default
+
+|-c, --config <file>
+|An alternate config file.
+|String
+|not set
+
+|-f, --format <format>
+|Image output format: _svg_, _jpg_, _png_ or _pdf_.
+|String
+|Infer from output file extension, otherwise _svg_.
+
+|-o, --out-file <file>
+|Output file. Use `-` to output to `STDOUT`.
+|String
+|Infer from input file name.
+
+|-t, --type <type>
+|Diagram type: _actdiag_, _blockdiag_, _c4plantuml_, _ditaa_, _dot_, _erd_, _graphviz_, _nomnoml_, _nwdiag_, _plantuml_, _seqdiag_, _svgbob_, _symbolator_, _umlet_, _vega_, _vegalite_.
+|String
+|Infer from input file extension.
+
+|-v, --version
+|Output the Kroki version information.
+|Built-in
+|n/a
+
+|-h, --help
+|Output the command usage information.
+|Built-in
+|n/a
+|===
+
+=== Get help with the CLI
+
+When you're using the Kroki CLI and need help, type `-h` or `--help` after the command.
+
+.Display help for the kroki command
+[source,cli]
+kroki --help
+
+.Display help for the convert command
+[source,cli]
+kroki convert -h
+
+[#cli-run-ex]
+=== Run the convert command
+
+By default the diagram type will be inferred from the diagram file extension and the default output format will be SVG.
+So to convert a PlantUML diagram named _diagram.puml_ to an SVG image, open a terminal and type:
+
+.Example 1: Short format (implicit)
+[source,cli]
+kroki convert diagram.puml
+
+In Example 1, Kroki converts a PlantUML diagram named _diagram.puml_ to an SVG image named [.path]_diagram.svg_.
+
+.Example 2: Long format (explicit)
+[source,cli]
+kroki convert diagram.puml --type plantuml --format svg --out-file diagram.svg
+
+In Example 2, Kroki will do exactly the same as Example 1.
+
+.Example 3: Run the convert with --out-file option (implicit)
+[source,cli]
+kroki convert simple.er --out-file out.png
+
+In Example 3, Kroki converts en Erd diagram to a PNG image named [.path]_out.png_.
+When the output format is not defined, it will be inferred from the output file.
+
+.Example 4: Run the convert command with - (stdin)
+[source,cli]
+cat hello.dot | kroki convert - -t dot
+
+In Example 4, Kroki reads from stdin and outputs the result to stdout.
+If you want to output to a file you can use `-o`:
+
+.Example 5: Have the convert command reads from stdin and output to file
+[source,cli]
+cat hello.dot | kroki convert - -t dot -o out.png
+
+Similarly, you can also output to stdout when reading from a file using the special value `-` with the `--out-file` option:
+
+.Example 6: Have the convert command reads from a file and output to stdout
+[source,cli]
+kroki convert simple.er --out-file -
+
+=== Configuration
+
+To configure the endpoint, you can use a configuration file.
+The CLI will look for the following locations:
+
+- `/etc/kroki.yml`
+- `$HOME/kroki.yml`
+- `kroki.yml`
+
+You can also specify an alternate config file using the `--config` option:
+
+[source,cli]
+kroki convert hello.dot --config config.yml
+
+The config file should contain the endpoint URL and the HTTP timeout.
+By default Kroki will use the demonstration server: https://demo.kroki.io and a timeout of 20 seconds.
+
+[CAUTION]
+=====
+Please note that the demonstration server usage is restricted to reasonable, non-commercial use-cases. We provide no guarantee regarding uptime or latency.
+=====
+
+==== Example
+
+.kroki.yml
+[source,yml]
+----
+endpoint: 'https://localhost:8000'
+timeout: '30s'
+----
+
+If you don’t want to use a file you can also use the following environment variables:
+
+- `KROKI_ENDPOINT`
+- `KROKI_TIMEOUT`
+
+[source,cli]
+KROKI_ENDPOINT=https://localhost:8000 KROKI_TIMEOUT=1m kroki convert hello.dot
+
+[[diagram-options]]
+== Diagram Options
+
+=== BlockDiag
+
+Applies to `blockdiag`, `seqdiag`, `actdiag`, `nwdiag`, `packetdiag` and `rackdiag`:
+
+[cols="1m,1a,2a",opts="header"]
+|===
+|Name
+|Allowable Values
+|Description
+
+|antialias
+|_flag_ +
+empty string ("")
+|Apply anti-alias filter to diagram image +
+With flag set, option takes effect.
+
+|no-transparency
+|_flag_ +
+empty string ("")
+|Disable transparent background of diagram (PNG only) +
+With flag set, option takes effect.
+
+|size
+|_dimension format \{width}x\{height}_ +
+ex. `320x240`
+|Size of diagram
+
+|no-doctype
+|_flag_ +
+empty string ("")
+|Omit doctype definition tag (SVG only) +
+With flag set, option takes effect.
+|===
+
+=== D2
+
+[cols="1m,1a,2a",opts="header"]
+|===
+|Name
+|Allowable Values
+|Description
+
+|theme
+|
+* `default` (`0`)
+* `neutral-gray` (`1`)
+* `flagship-terrastruct` (`3`)
+* `cool-classics` (`4`)
+* `mixed-berry-blue` (`5`)
+* `grape-soda` (`6`)
+* `aubergine` (`7`)
+* `colorblind-clear` (`8`)
+* `vanilla-nitro-cola` (`100`)
+* `orange-creamsicle` (`101`)
+* `shirley-temple` (`102`)
+* `earth-tones` (`103`)
+* `everglade-green` (`104`)
+* `buttered-toast` (`105`)
+* `dark-mauve` (`200`)
+* `terminal` (`300`)
+* `terminal-grayscale` (`301`)
+
+|See: https://d2lang.com/tour/themes/
+
+|layout
+|
+* `dagre` (default)
+* `elk`
+|Use an alternate layout engine: https://d2lang.com/tour/layouts/
+
+|sketch
+|_flag_ +
+empty string ("")
+|Render diagram with a hand-drawn aesthetic: https://d2lang.com/tour/sketch/
+|===
+
+=== Ditaa
+
+[cols="1m,1a,2a",opts="header"]
+|===
+|Name
+|Allowable Values
+|Description
+
+|no-antialias
+|_any_ +
+|Turns anti-aliasing off
+
+|no-separation
+|_any_ +
+|Prevents the separation of common edges of shapes
+
+|round-corners
+|_any_ +
+|Causes all corners to be rendered as round corners
+
+|scale
+|_double_ +
+*`1.0`*
+|A natural number that determines the size of the rendered image. The units are fractions of the default size (2.5 renders 1.5 times biggerthan the default)
+
+|no-shadows
+|_any_ +
+|Turns off the drop-shadow effect
+
+|tabs
+|_any_ +
+|Tabs are normally interpreted as 8 spaces but it is possible to change that using this option
+|===
+
+=== GraphViz
+
+[cols="1m,1a,2a",opts="header"]
+|===
+|Name
+|Allowable Values
+|Description
+
+|graph-attribute-+{name}+
+|_any_ +
+*`true`*
+|Set a graph attribute: https://graphviz.org/doc/info/command.html#-G
+
+|node-attribute-+{name}+
+|_any_ +
+*`true`*
+|Set a default node attribute: https://graphviz.org/doc/info/command.html#-N
+
+|edge-attribute-+{name}+
+|_any_ +
+*`true`*
+|Set a default edge attribute: https://graphviz.org/doc/info/command.html#-E
+
+|layout
+|_string_ +
+*`dot`* +
+`neato` +
+`fdp` +
+`sfdp` +
+`twopi` +
+`circo`
+|Specifies which default layout algorithm to use, overriding the default from the command name: https://graphviz.org/doc/info/command.html#-K
+
+|scale
+|_double_ +
+*`72.0`*
+|Set input scale to scale.
+If this value is omitted, 72.0 is used.
+This number is used to convert the point coordinate units used in the pos attribute into inches, which is what is expected by neato and fdp: https://graphviz.org/doc/info/command.html#-s
+|===
+
+=== Mermaid
+
+Mermaid naming convention for configuration is camelCase, for instance: `htmlLabels`.
+In addition, Mermaid allows to configure each diagram type using a prefix separated by a dot (`.`).
+For instance, if you want to configure the title top margin in an Entity Relation diagram, the option name is: `er.titleTopMargin`.
+
+Since Kroki must be agnostic (and use consistent naming), you should use kebab-case instead of camelCase and replace `.` by `_` (i.e., snake_case).
+
+If we apply these rules to  `er.titleTopMargin` it becomes `er_title-top-margin`.
+Please note that diagram options in Kroki are case-insensitive, so the following is also valid: `ER_TITLE-TOP-MARGIN` or `ER_Title-Top-Margin`.
+
+[NOTE]
+=====
+For security reasons, the following options are not available:
+
+- `maxTextSize`
+- `securityLevel`
+- `secure`
+- `startOnLoad`
+=====
+
+The complete list of options is available in Mermaid source code at: https://github.com/mermaid-js/mermaid/blob/master/packages/mermaid/src/config.type.ts
+
+=== PlantUML
+
+[cols="1m,1a,2a",opts="header"]
+|===
+|Name
+|Allowable Values
+|Description
+
+|theme
+|_string_
+
+- `amiga`
+- `black-knight`
+- `bluegray`
+- `blueprint`
+- `cerulean-outline`
+- `cerulean`
+- `crt-amber`
+- `crt-green`
+- `cyborg-outline`
+- `cyborg`
+- `hacker`
+- `hacker-hold`
+- `lightgray`
+- `materia-outline`
+- `materia`
+- `metal`
+- `mimeograph`
+- `minty`
+- `plain`
+- `resume-light`
+- `sandstone`
+- `silver`
+- `sketchy-outline`
+- `sketchy`
+- `spacelab`
+- `superhero-outline`
+- `superhero`
+- `united`
+
+|Use a specific theme (it will prepend the `!theme` directive in your diagram)
+
+|no-metadata
+|_flag_ +
+empty string ("")
+|Do not save the diagram's source code in the generated SVG/PNG metadata
+|===
+
+=== Structurizr
+
+[cols="1m,1a,2a",opts="header"]
+|===
+|Name
+|Allowable Values
+|Description
+
+|view-key
+|_string_
+|Key of the view (if the workspace contains more than one view)
+
+|output
+|_string_
+
+- `diagram`
+- `legend`
+|Select the output for the specified view.
+
+|===
+
+=== Svgbob
+
+[cols="1m,1a,2a",opts="header"]
+|===
+|Name
+|Allowable Values
+|Description
+
+|background
+|_any_ +
+*`white`*
+|Backdrop background will be filled with this color
+
+|font-family
+|_any_ +
+*`arial`*
+|Text will be rendered with this font
+
+|font-size
+|_integer_ +
+*`14`*
+|Text will be rendered with this font size
+
+|fill-color
+|_any_ +
+*`black`*
+|Solid shapes will be filled with this color
+
+|scale
+|_any_ +
+*`1`*
+|Scale the entire svg (dimensions, font size, stroke width) by this factor
+
+|stroke-width
+|_any_ +
+*`2`*
+|Stroke width for all lines
+
+|===
+
+
+=== Symbolator
+
+[cols="1m,1a,2a",opts="header"]
+|===
+|Name
+|Allowable Values
+|Description
+
+|component
+|_string_ +
+empty string ("")
+|Select the component that will be rendered +
+If not set, the last component will be rendered
+
+|transparent
+|_flag_ +
+empty string ("")
+|Background will be transparent instead of white +
+With flag set, option takes effect.
+
+|title
+|_string_ +
+empty string ("")
+|This title will be inserted into the diagram
+
+|scale
+|_number_ +
+*`1.0`*
+|Diagram will be scaled by this factor
+
+|no-type
+|_flag_ +
+empty string ("")
+|Omit type information for the ports
+
+|library-name
+|_string_ +
+empty string ("")
+|Add name of a library to the diagram. +
+Only works if title is also set
+
+|===
+
+[[install]]
+== Install Kroki
+
+// Docker Hub URIs of Kroki container images
+:uri-docker-kroki-image: https://hub.docker.com/r/yuzutech/kroki
+:uri-docker-kroki-mermaid-image: https://hub.docker.com/r/yuzutech/kroki-mermaid
+:uri-docker-kroki-bpmn-image: https://hub.docker.com/r/yuzutech/kroki-bpmn
+:uri-docker-kroki-excalidraw-image: https://hub.docker.com/r/yuzutech/kroki-excalidraw
+:uri-docker-kroki-diagramsnet-image: https://hub.docker.com/r/yuzutech/kroki-diagramsnet
+// URIs of diagram generation application sites by diagram name
+:uri-blockdiag: http://blockdiag.com/en/blockdiag/index.html
+:uri-seqdiag: http://blockdiag.com/en/seqdiag/index.html
+:uri-actdiag: http://blockdiag.com/en/actdiag/index.html
+:uri-nwdiag: http://blockdiag.com/en/nwdiag/index.html
+:uri-rackdiag: http://blockdiag.com/en/nwdiag/rackdiag-examples.html
+:uri-packetdiag: http://blockdiag.com/en/nwdiag/packetdiag-examples.html
+:uri-mermaid: https://mermaidjs.github.io/
+:uri-bpmn: https://bpmn.io/toolkit/bpmn-js/
+:uri-excalidraw: https://excalidraw.com/
+:uri-diagramsnet: https://diagrams.net/
+:uri-wireviz: https://github.com/formatc1702/WireViz
+
+This section covers installing Kroki locally.
+
+On this page, you'll learn:
+
+* [x] How to get started
+* [x] The different ways to install Kroki
+* [x] About the Kroki pre-built image containers and the diagrams they provide
+
+=== Get started
+
+Use either xref:#docker-podman[Docker or Podman] as the easiest and fastest method to get started running Kroki locally on a system with Internet access using the pre-built Kroki containers published on Docker Hub.
+
+Start the mandatory <<#yuzutech-kroki,`yuzutech/kroki`>> container only to use a large number of diagram libraries immediately including PlantUML, GraphViz and more.
+Depending on your diagram needs, this may be enough.
+
+For the lists of diagram libraries pre-installed in each container see the <<kroki-container-images,Kroki container images>> section on this page.
+
+NOTE: All the companion containers are _optional_.
+Only the <<yuzutech-kroki,yuzutech-kroki>> container is mandatory.
+
+[#docker-podman]
+=== Docker or Podman
+
+We recommend installing Kroki using containers with either Docker or Podman, especially if you don't want to manually install diagrams libraries.
+
+Read more about choosing between Docker or Podman on the xref:about-docker-podman.adoc[] page.
+
+Find how to install Kroki using Docker or Podman on the xref:use-docker-or-podman.adoc[] page.
+
+=== Kubernetes
+
+Find how to make a Kubernetes installation on the xref:use-kubernetes.adoc[] page.
+
+=== Manual installation
+
+You can also make a customized manual installation that suits your needs.
+
+To do this, you will need to manually install the Kroki gateway server as a _standalone executable jar_, install each diagram library that you want to use, then run the gateway server jar file.
+
+You are responsible for managing diagram library installations on your system.
+
+Find how to make a manual installation on the xref:manual-install.adoc[Manual installation] page.
+
+[#images][[kroki-container-images]]
+
+=== Kroki container images
+
+Kroki container images are published on the https://hub.docker.com/u/yuzutech[Docker Hub] registry and are the:
+
+* Mandatory <<The "kroki" container,"kroki" container>> that provides the gateway server and a large number of diagrams.
+* _Optional_ <<Companion containers,companion containers>> that provide additional diagrams.
+  Please note that you need the gateway server to interact with them.
+
+[[yuzutech-kroki]]
+=== The "kroki" container
+
+The `yuzutech/kroki` container is the only container that must be running for a minimal install.
+
+The {uri-docker-kroki-image}[yuzutech/kroki] image contains the gateway server, and the following diagram libraries out-of-the-box:
+
+* {uri-actdiag}[ActDiag]
+* {uri-blockdiag}[BlockDiag]
+* https://bytefield-svg.deepsymmetry.org/[Bytefield]
+* https://github.com/terrastruct/d2[D2]
+* http://ditaa.sourceforge.net[Ditaa]
+* https://github.com/BurntSushi/erd[Erd]
+* https://www.graphviz.org/[GraphViz]
+* https://github.com/skanaar/nomnoml[Nomnoml]
+* {uri-nwdiag}[NwDiag]
+* {uri-packetdiag}[PacketDiag]
+* https://github.com/drhsqlite/pikchr[Pikchr]
+* https://github.com/plantuml/plantuml[PlantUML] including https://github.com/RicardoNiepel/C4-PlantUML[C4 model]
+* {uri-rackdiag}[RackDiag]
+* {uri-seqdiag}[SeqDiag]
+* https://github.com/structurizr/dsl[Structurizr]
+* https://github.com/ivanceras/svgbob[Svgbob]
+* https://github.com/hdl/symbolator[Symbolator]
+* https://github.com/umlet/umlet[UMlet]
+* https://github.com/vega/vega[Vega]
+* https://github.com/vega/vega-lite[Vega-Lite]
+* https://wavedrom.com[WaveDrom]
+* {uri-wireviz}[WireViz]
+
+In other words, the following endpoints will be available:
+
+[literal]
+....
+/actdiag
+/blockdiag
+/bytefield
+/c4plantuml
+/d2
+/ditaa
+/erd
+/graphviz
+/dot
+/nomnoml
+/nwdiag
+/packetdiag
+/pikchr
+/plantuml
+/rackdiag
+/seqdiag
+/structurizr
+/svgbob
+/symbolator
+/umlet
+/vega
+/vegalite
+/wavedrom
+/wireviz
+....
+
+If you want to use additional diagram libraries (such as _BPMN_, _Excalidraw_ or _Mermaid_), then you will also need to start their companion containers:
+
+=== Companion containers
+
+These optional companion containers provide additional diagrams and require the gateway server
+
+// * <<yuzutech-kroki-bpmn,Kroki bpmn>>
+// * <<yuzutech-kroki-excalidraw,Kroki excalidraw>>
+// * <<yuzutech-kroki-mermaid,Kroki mermaid>>
+
+[#yuzutech-kroki-bpmn]
+{uri-docker-kroki-bpmn-image}[yuzutech/kroki-bpmn^]::
+Provides BPMN diagrams for Kroki using the {uri-bpmn}[bpmn-js^] library.
+
+[#yuzutech-kroki-excalidraw]
+{uri-docker-kroki-excalidraw-image}[yuzutech/kroki-excalidraw^]::
+Provides hand-drawn diagrams for Kroki using the {uri-excalidraw}[Excalidraw^] library.
+
+[#yuzutech-kroki-mermaid]
+{uri-docker-kroki-mermaid-image}[yuzutech/kroki-mermaid^]::
+Provides flowchart, sequence and Gantt diagrams for Kroki using the {uri-mermaid}[Mermaid^] library.
+
+[#yuzutech-kroki-diagramsnet]
+{uri-docker-kroki-diagramsnet-image}[yuzutech/kroki-diagramsnet^]  (experimental)::
+Provides diagrams for Kroki using the {uri-diagramsnet}[diagrams.net^] library.
+
+[[about-docker-podman]]
+== About Docker and Podman for Kroki
+
+In this section you will learn:
+
+* [x] Scenarios for running Kroki with Docker or Podman
+* [x] A high level view of Docker and Podman
+
+[discrete]
+=== Rough considerations when choosing Docker or Podman
+
+Considerations for using Docker:
+
+* You are running Windows and just want to have Kroki running at home on your own machine or server.
+* Docker is already installed on your linux system.
+
+Considerations for using Podman:
+
+* Running containers and pods of containers on Linux
+* Cyber security and security by design
+* Organizational deployments
+* Learning about containers and pods on Linux
+* Testing Kroki before lifting to Kubernetes
+
+[]
+
+About {uri-docker-get-started}[Docker] and {uri-docker-compose-install}[Docker Compose]::
+Docker runs containers using a client server architecture, with a background daemon.
+Docker Compose starts multiple containers together.
+The Docker Compose yaml configuration file is a standard way to describe a set of containers that must be started together.
+
+About {uri-podman-get-started}[Podman]::
+Podman is a drop-in replacement for Docker on Linux systems only and is available for many distributions.
+It is light-weight in not needing a background daemon always running running in the background, and is built with container security in mind being able to be run as a normal user as well as root.
+For enterprise deployments it is a useful step in learning to deploy, run and test pods on containers in a linux environment before lifting your Kroki implementation into a Kubernetes environment.
+Using Docker Compose to support Podman requires Podman 3.
+
+About {uri-podman-compose-install}[Podman-compose]::
+Podman-compose is a scripted implementation of docker-compose with a Podman backend.
+Its objective is to be able to run docker-compose.yml unmodified and rootless.
+It provides a drop-in replacement for docker-compose.
+Using podman-compose requires Podman.
+
+
+[[use-docker-or-podman]]
+== Using Docker or Podman
+
+:uri-docker-container-networking: https://docs.docker.com/config/containers/container-networking/
+:uri-podman-container-networking: https://podman.io/getting-started/network
+:uri-local-kroki-access: http://localhost:8000
+
+This page covers how to install and run Kroki locally using the prebuilt Kroki container images from Docker Hub.
+
+TIP: To get started fast and convert plain text diagrams to images with Kroki,
+you need only to install the gateway server.
+
+We recommend installing and running Kroki locally using containers with either *Docker* or *Podman*, especially if you don't want to manually install diagrams libraries.
+
+On this page, you'll learn:
+
+* [x] How to get started with one container which is the minimum needed to run Kroki
+* [x] How to run Kroki with Docker or Podman using prebuilt Kroki container images from Docker Hub
+* [x] How to run multiple Kroki containers for serving more diagram types.
+
+=== Prerequisites
+
+Container software of choice::
+You will need in your environment Docker or Podman software to run the Kroki containers.
++
+Read more about choosing Docker or Podman at xref:about-docker-podman.adoc[].
+
+Kroki containers::
+You will need access to the xref:install.adoc#images[Kroki container images] that are either:
+
+* On Docker Hub via an internet connection
++
+_This guide uses these images._
+* The above Docker Hub images stored locally
+* Your own built Kroki container images
+
+=== Install the Kroki gateway server
+
+Installing and running the Kroki gateway server by itself gets you started quickly to begin creating diagrams provided by the xref:install.adoc#yuzutech-kroki[`yuzutech/kroki`] image.
+
+Assumptions:
+
+* [x] {uri-docker-get-started}[Docker] or {uri-podman-get-started}[Podman] is installed on your machine.
+
+To start the Kroki gateway server, run the command:
+
+Using docker::
+
+[source,docker-cli]
+docker run yuzutech/kroki
+
+Using podman::
+
+[source,podman-cli]
+podman run yuzutech/kroki
+
+[IMPORTANT]
+=====
+By default, when you start a container, it does not publish any of its ports to the outside world. +
+To make a port available to services outside of Docker or Podman, you need to use the `--publish` or `-p` flag.
+=====
+
+[discrete]
+==== Published port
+
+To map a container port to a port on your Docker host, you need to use the `--publish` or `-p` flag.
+
+Using docker::
+
+[source,docker-cli]
+docker run -p8000:8000 yuzutech/kroki
+
+Using podman::
+
+[source,podman-cli]
+podman run -p8000:8000 yuzutech/kroki
+
+After the above command, the server will be available on your host at: `{uri-local-kroki-access}`
+
+[NOTE]
+=====
+You can also map a different TCP port on the Docker host.
+For instance, if you want to map your host's TCP port 1234 to port 8000 in the Kroki container, use: `-p1234:8000`.
+
+In this case, the server will be available on your host at: `\http://localhost:1234`
+=====
+
+You can read more about {uri-docker-container-networking}[Docker container networking] and {uri-podman-container-networking}[Podman networking] in their documentation.
+
+[discrete]
+==== Detached mode
+
+The previous methods above ran the containers in the foreground, requiring you to press control-c to stop them.
+Starting containers in detached mode runs them in the background, requiring you to use the Docker/Podman `stop` or `kill` command to stop them.
+
+Finally, to start a container in detached mode, you use `-d` option:
+
+Using docker::
+
+[source,docker-cli]
+docker run -p8000:8000 -d yuzutech/kroki
+
+Using podman::
+
+[source,podman-cli]
+podman run -p8000:8000 -d yuzutech/kroki
+
+After the above command, the server will be available on your host at: `{uri-local-kroki-access}`
+
+=== Run multiple Kroki containers together
+
+Running multiple containers allows you to use all the diagram features of Kroki in your environment provided by the xref:install.adoc#images[images].
+The gateway server container provided by the image xref:install.adoc#yuzutech-kroki[`yuzutech/kroki`] image is the minimum requirement.
+
+[discrete]
+==== Example of running them all together
+
+Here's an example where we start all the Kroki containers together as a group (or pod) in detached mode.
+
+The same Kroki `docker-compose.yml` configuration file below is used by all examples of running the different Kroki containers together.
+
+
+.docker-compose.yml<<kroki-docker-compose.yml>>
+[source,yml,subs=normal]
+----
+\include::example$kroki-docker-compose.yml[] 
+----
+
+[discrete]
+==== Use Docker or Podman with Docker Compose
+
+Assumptions:
+
+* [x] {uri-docker-get-started}[Docker] *or* {uri-podman-get-started}[Podman 3] is installed on your machine.
+      Note the mutual exclusivity.
+* [x] {uri-docker-compose-install}[Docker Compose] is installed
+
+Run:
+
+[source,docker-cli]
+docker-compose up -d
+
+[discrete]
+==== Use Podman with podman-compose
+
+Assumptions:
+
+* [x] {uri-podman-get-started}[Podman] is installed on your machine.
+* [x] {uri-podman-compose-install}[Podman-Compose] is installed on your machine.
+
+Run:
+
+[source,podman-cli]
+podman-compose up -d
+
+[discrete]
+==== Testing after starting
+
+After starting the containers the servers will be available.
+
+Test that you see the Kroki services page in your browser on your host at URL: `{uri-local-kroki-access}`
+
+[[use-kubernetes]]
+== Use Kubernetes
+
+:uri-k8s-kroki-examples: https://raw.githubusercontent.com/yuzutech/kroki/refs/heads/main/docs/modules/setup/examples/k8s-multi-pod
+:uri-k8s-docs-publish-service: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
+:uri-helm-charts: https://github.com/cowboysysop/charts/tree/master/charts/kroki
+
+This section describes how to install Kroki on Kubernetes using the `default` namespace.
+
+On this page you will find how to:
+
+* [x] Use `Ingress` to expose the service on port 8000.
+* [x] Download and extract the example Kroki Kubernetes definition files
+* [x] Install the Kubernetes objects as a batch or one by one.
+* [x] Validate the installation
+* [x] Delete the Kroki installation
+* [x] Use Helm Chart to install/uninstall Kroki
+
+.Providing external access to Kroki
+[IMPORTANT]
+=====
+To allow external access to your Kroki internal service,
+you publish the service using `ClusterIP`, `NodePort`, `LoadBalancer` or `ExternalName`.
+
+This example uses `Ingress` to expose the service on port 8000.
+
+Read more about how to publish a service on the {uri-k8s-docs-publish-service}[Kubernetes documentation] website.
+=====
+
+=== Deploy using Kubernetes object definition files
+
+==== Extract the definition files
+
+Prepare the definition files by doing the following:
+
+. Download the example bundle link:{attachmentsdir}/kroki-k8s-multipod.zip[`kroki-k8s-multipod.zip`] that contains all the required `Deployment`, `Service` and `Ingress` definition files to deploy Kroki on Kubernetes.
++
+.Example command with `wget` installed
+[source,cli]
+----
+wget http://docs.kroki.io/kroki/setup/_attachments/kroki-k8s-multipod.zip -O kroki-k8s-multipod.zip
+----
+
+. Extract the contents of the above zip file into a folder named `kroki-k8s`.
++
+.Example command with `unzip` installed
+[source,cli]
+----
+unzip kroki-k8s-multipod.zip -d kroki-k8s
+----
+
+In the next steps you use the `*.yaml` files beneath the directory `kroki-k8s` and apply them in batch or individually, to create the Kubernetes objects.
+
+==== Create objects as a batch
+
+To install (create) all the Kubernetes objects in a batch, do the following:
+
+Use the command `kubectl apply` to create all the required Kubernetes objects,
+replacing _/path/to/kroki-k8s_ with the path to the folder containing the `*.yaml` definition files.
+
+.Example command with `kubectl` installed
+[source,cli,subs=+quotes]
+----
+kubectl apply -f _/path/to/kroki-k8s_
+----
+
+Your next step is to <<Validate that Kroki is running>>.
+
+Read more about working with Kubernetes objects on the https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/[Kubernetes] website.
+
+==== Create objects individually
+
+Alternatively they can be applied individually.
+
+To install them individually from GitHub, open a terminal and type commands indicated for each service:
+
+.Add Mermaid service
+[source,cli,subs=+attributes]
+----
+kubectl apply -f {uri-k8s-kroki-examples}/mermaid-deployment.yaml
+kubectl apply -f {uri-k8s-kroki-examples}/mermaid-service.yaml
+----
+
+.Add BPMN service
+[source,cli,subs=+attributes]
+----
+kubectl apply -f {uri-k8s-kroki-examples}/bpmn-deployment.yaml
+kubectl apply -f {uri-k8s-kroki-examples}/bpmn-service.yaml
+----
+
+.Add Excalidraw service
+[source,cli,subs=+attributes]
+----
+kubectl apply -f {uri-k8s-kroki-examples}/excalidraw-deployment.yaml
+kubectl apply -f {uri-k8s-kroki-examples}/excalidraw-service.yaml
+----
+
+.Add Kroki service
+[source,cli,subs=+attributes]
+----
+kubectl apply -f {uri-k8s-kroki-examples}/kroki-deployment.yaml
+kubectl apply -f {uri-k8s-kroki-examples}/kroki-service.yaml
+----
+
+.Add Ingress
+[source,cli,subs=+attributes]
+kubectl apply -f {uri-k8s-kroki-examples}/kroki-ingress.yaml
+
+Your next step is to <<Validate that Kroki is running>>.
+
+==== Validate that Kroki is running
+
+After installing the Kroki Kubernetes objects you verify that Kroki is running.
+
+To verify that the Kroki service is running, do the following:
+
+. Run the `kubectl get pod` command:
+[source,cli]
+kubectl get pod
++
+If the installation is successful, a list of running pods is shown that includes the following:
++
+....
+NAME                          READY   STATUS    RESTARTS   AGE
+bpmn-6cfccf9bc4-6w4px         1/1     Running   0          24s
+excalidraw-5b84995fcb-dh57t   1/1     Running   0          24s
+kroki-6b49bcb7c4-x2ksc        1/1     Running   0          23s
+mermaid-7bff5c9959-hkrxx      1/1     Running   0          22s
+....
+
+. To make sure that Kroki is working, open a terminal and type:
+[source,cli]
+kubectl port-forward service/kroki 8000:8000
++
+The above command forwards local port 8000 to port 8000 on the `service/kroki` Pod.
+In other words, Kroki is accessible on localhost:8000.
+
+. Open a second terminal and type:
+[source,cli]
+curl http://localhost:8000/seqdiag/svg/eNorTi1MyUxMV6jmUlBIKsovL04tUtC1UyhPTQKyyoCc6JzEpNQcBVsFJXfXEAX9zLyU1Aq9jJLcHKVYayQ9Nrq6CE3WhA0L8A8GmpaUk5-un5yfm5uaVwIxD6EWqDElsSQxKbE4FUmfp1-wa1CIAg49IFfANOFxXS0A68hQUg==
++
+If successful, a diagram is shown.
+
+==== Uninstall Kroki
+
+If you installed Kroki using the downloaded and unpacked `*.yaml` files, Kroki can be deleted using those same files.
+
+To uninstall Kroki, use the command `kubectl delete` as follows:
+
+[source,cli,subs=+quotes]
+kubectl delete -f _/path/to/kroki-k8s_
+
+==== Use a Single Pod Consisting of Multiple Containers
+
+As a much simpler (but less-flexible) configuration, it is possible to run all containers inside of a single Kubernetes pod.
+
+. Download the example bundle link:{attachmentsdir}/kroki-k8s-singlepod.zip[`kroki-k8s-singlepod.zip`] that contains all the required `Deployment`, `Service` and `Ingress` definition files to deploy Kroki on Kubernetes.
++
+.Example command with `wget` installed
+[source,cli]
+----
+wget http://docs.kroki.io/kroki/setup/_attachments/kroki-k8s-singlepod.zip -O kroki-k8s-singlepod.zip
+----
+
+. Extract the contents of the above zip file into a folder named `kroki-k8s`.
++
+.Example command with `unzip` installed
+[source,cli]
+----
+unzip kroki-k8s-singlepod.zip -d kroki-k8s
+----
+
+You can then create the Kubernetes objects as a batch or individually, similar to what was shown previously.
+
+Validation and uninstall/removal of Kubernetes objects can be followed using the exact same commands as shown previously too.
+
+=== Deploy using Helm Charts
+
+You can alternatively deploy Kroki using {uri-helm-charts}[Helm Charts]. It's much easier to deploy Kroki with charts, since all object definition files are managed by Helm.
+
+NOTE: This is an unofficial chart maintained by `cowboysysop`. 
+
+To install Kroki using the name `my-kroki`, use the following command:
+
+.Example command with `helm` installed
+[source,cli]
+----
+helm repo add cowboysysop https://cowboysysop.github.io/charts/
+helm install my-kroki cowboysysop/kroki
+----
+
+Use the following helm command to verify the installation:
+
+.Example command with `helm` installed
+[source,cli]
+----
+helm status my-kroki --show-resources --show-desc
+----
+
+If the installation is successful, the following status is shown:
+
+....
+NAME: my-kroki
+LAST DEPLOYED: Mon Oct  7 17:06:09 2024
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+RESOURCES:
+===> v1/Pod(related)
+NAME                     READY   STATUS        RESTARTS   AGE
+kroki-6db8878b8f-zn8kz   5/5     Running       0          13d
+
+===> v1/ServiceAccount
+NAME    SECRETS   AGE
+kroki   0         14d
+
+===> v1/Service
+NAME    TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+kroki   ClusterIP   10.43.100.80   <none>        8000/TCP   14d
+
+===> v1/Deployment
+NAME    READY   UP-TO-DATE   AVAILABLE   AGE
+kroki   1/1     1            1           14d
+
+
+NOTES:
+1. Get the application URL by running these commands:
+  export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=kroki,app.kubernetes.io/instance=kroki" -o jsonpath="{.items[0].metadata.name}")
+  echo "Visit http://127.0.0.1:8000/ to use your application"
+  kubectl --namespace default port-forward $POD_NAME 8000:8000
+....
+
+You can use the exact same commands as shown in <<Validate that Kroki is running>> to make sure that Kroki is running fine.
+
+To uninstall Kroki, use the command `helm uninstall` as follows:
+
+.Example command with `helm` installed
+[source,cli]
+----
+helm uninstall my-kroki
+----
+[[manual-install]]
+== Manual Install
+
+:uri-gh-releases: https://github.com/yuzutech/kroki/releases
+
+Assumptions:
+
+* [x] You've Linux experience.
+* [x] You've installed Java 11 or greater on your Linux machine.
+
+On this page, you'll learn:
+
+* [x] How to run Kroki
+* [x] How to configure Kroki
+
+=== Download and Run Kroki
+
+You can download the latest _standalone executable jar_ from the GitHub {uri-gh-releases}[releases page].
+
+Once you've downloaded the _jar_ file, open a terminal and type:
+
+[source,java-cli]
+java -jar kroki-server.jar
+
+The above command will start a web server on port `8000`.
+You can change the port using an environment variable, or a Java system property named `KROKI_PORT`.
+
+[IMPORTANT]
+=====
+The Kroki server does _not_ include diagram libraries! +
+You will either need to install them manually on your system or use xref:install.adoc#docker-podman[Docker or Podman].
+
+For instance, you can install GraphViz manually on your system (i.e., `dot` binary) and configure the path using a system property:
+
+[source,java-cli]
+java -DKROKI_DOT_BIN_PATH=/path/to/dot -jar kroki-server.jar
+=====
+
+=== Learn more
+
+- xref:configuration.adoc[Configure Kroki]
+
+[[configuration]]
+== Configuration
+
+:url-k8s-environment-variables: https://kubernetes.io/docs/concepts/services-networking/service/#environment-variables
+
+Kroki can be configured using environment variables or Java system properties.
+
+=== Server Listening
+
+By default, Kroki will bind to all network interfaces (`0.0.0.0`) on port `8000`.
+You can change on which host and port the server will listen for incoming requests using `KROKI_LISTEN`:
+
+[source,java-cli]
+KROKI_LISTEN=127.0.0.1:1234 java -jar kroki-server.jar
+
+[source,java-cli]
+java -DKROKI_LISTEN=127.0.0.1:1234 -jar kroki-server.jar
+
+With the above configuration, the server will bind to `127.0.0.1` (i.e., loopback address) on port 1234.
+
+[NOTE]
+=====
+If the port is unspecified, the server will listen on port `8000`.
+If the host is unspecified, the server will use `[::]` (i.e., bind to all network interfaces and accept connections from both IPv6 or IPv4 hosts)
+
+`KROKI_LISTEN` also accepts IPv6 enclosed within square brackets (`[` and `]`),
+for instance: `KROKI_LISTEN=[2001:db8:1f70::999:de8:7648:6e8]:1234`.
+
+In addition, `KROKI_LISTEN` supports UNIX domain sockets by prefixing `unix://` to a path, for example: `KROKI_LISTEN=unix:///var/run/kroki.sock`.
+=====
+
+
+[IMPORTANT]
+=====
+*`KROKI_PORT` is deprecated and will be removed in the future.*
+
+We are deprecating this option because it conflicts with Kubernetes and Docker built-in environment variables.
+For reference, {url-k8s-environment-variables}[Kubernetes will automatically set the environment variable] `\{SERVICE_NAME}_PORT` to `tcp://1.2.3.4:8000`.
+As you might have guessed, if you use `KROKI` as a service name, there's going to be a problem!
+In fact, Kroki expects the value of `KROKI_PORT` to be an integer value. +
+To workaround this issue, until `KROKI_PORT` is removed, you can explicitly define the environment variable `KROKI_PORT=8000`.
+
+If you were using a custom port (for instance, `KROKI_PORT=1234`), you can replace it by `KROKI_LISTEN=0.0.0.0:1234` (which is strictly equivalent). +
+If you want to bind to IPv4 and IPv6, you can use `KROKI_LISTEN=:1234` or the longer form `KROKI_LISTEN=[::]:1234`.
+
+If you want to learn about this deprecation, you can read: https://github.com/yuzutech/kroki/issues/576
+=====
+
+=== Safe Mode
+
+Kroki provides security levels that restrict access to files on the file system and on the network.
+Each level includes the restrictions enabled in the prior security level:
+
+- `UNSAFE`: disables any security features.
+- `SAFE`: Assume the diagram libraries secure mode request sanitization is sufficient.
+- `SECURE`: prevents attempts to read files from the file system or from the network.
+
+By default, Kroki is running in `SECURE` mode.
+
+[NOTE]
+=====
+Some diagram libraries allow referencing external entities by URL or accessing resources from the filesystem.
+
+For example, PlantUML allows the `!import` directive to pull fragments from the filesystem or a remote URL or the standard library.
+
+It is the responsibility of the upstream codebases to ensure that they can be safely used without risk.
+Because Kroki does not perform code review of these services, our default setting is to be paranoid and block imports unless known safe.
+We encourage anyone running their own Kroki server to review the services security settings and select the security mode appropriate for their use case.
+=====
+
+==== PlantUML
+
+While running in `SECURE` mode, Kroki will prevent PlantUML from including files using the `!include` or `!includeurl` directive.
+
+If you want to enable this feature, you can set the safe mode using the environment variable `KROKI_SAFE_MODE`:
+
+[source,java-cli]
+java -DKROKI_SAFE_MODE=unsafe -jar kroki-server.jar
+
+TIP: The value is case-insensitive, so both `UNSAFE` and `unsafe` will work.
+
+It's also possible to restrict the PlantUML `!include` directive using the following environment variables when running in `SAFE` mode:
+
+KROKI_PLANTUML_INCLUDE_PATH:: The include path to set for PlantUML.
+KROKI_PLANTUML_INCLUDE_WHITELIST:: The name of a file that consists of a list of Java regular expressions for valid includes.
+KROKI_PLANTUML_INCLUDE_WHITELIST_0, KROKI_PLANTUML_INCLUDE_WHITELIST_1, ... KROKI_PLANTUML_INCLUDE_WHITELIST___N__:: One regex to add to the include whitelist per environment variable. Search will stop at the first empty or undefined integer number.
+KROKI_PLANTUML_ALLOW_INCLUDE:: Either `false` (default) or `true`. Determines if PlantUML will fetch `!include` directives that reference external URLs. For example, PlantUML allows the !import directive to pull fragments from the filesystem or a remote URL or the standard library.
+
+==== Structurizr
+
+Structurizr's restricted mode is activated unless Kroki is running in `UNSAFE` mode:
+
+> Run this parser in restricted mode (this stops `!include`, `!docs`, `!adrs` from working).
+
+If you want to enable this feature, you can set the safe mode using the global environment variable `KROKI_SAFE_MODE` or the specific environment variable `KROKI_STRUCTURIZR_SAFE_MODE` (i.e., the safe mode will only apply to Structurizr).
+
+=== Cross-origin resource sharing (CORS)
+
+By default, the following headers are allowed:
+
+- `Access-Control-Allow-Origin`
+- `Origin`
+- `Content-Type`
+- `Accept`
+
+If you need to pass additional headers, you can use `KROKI_CORS_ALLOWED_HEADERS` to allow additional headers.
+For instance, if you need to allow `x-requested-with` and `x-app-version` headers:
+
+[source]
+----
+KROKI_CORS_ALLOWED_HEADERS="x-requested-with,x-app-version"
+----
+
+=== Diagram Binary Paths
+
+Kroki depends on external binaries to generate images.
+By default, Kroki will locate these binaries in the `PATH` environment variable.
+
+In case you've installed a diagram library in a way where the executable is not in the `PATH`,
+you can override its location manually using an environment variable or a Java system property:
+
+`KROKI_BYTEFIELD_BIN_PATH`:: Path to the `bytefield-svg` binary (defaults: `/usr/bin/bytefield`)
+`KROKI_D2_BIN_PATH`:: Path to `d2` binary (defaults: `/usr/bin/d2`)
+`KROKI_DBML_BIN_PATH`:: Path to `dbml` binary (defaults: `/usr/bin/dbml`)
+`KROKI_DITAA_BIN_PATH`:: Path to `ditaa` binary (defaults: `/usr/bin/ditaa`)
+`KROKI_DOT_BIN_PATH`:: Path to `dot` binary (defaults: `/usr/bin/dot`)
+`KROKI_ERD_BIN_PATH`:: Path to `erd` binary (defaults: `/usr/bin/erd`)
+`KROKI_NOMNOML_BIN_PATH`:: Path to `nomnoml` binary (defaults: `/usr/bin/nomnoml`)
+`KROKI_PIKCHR_BIN_PATH`:: Path to `pikchr` binary (defaults: `/usr/bin/pikchr`)
+`KROKI_PLANTUML_BIN_PATH`:: Path to `plantuml` binary (defaults: `/usr/bin/plantuml`)
+`KROKI_SVGBOB_BIN_PATH`:: Path to `svgbob` binary (defaults: `/usr/bin/svgbob`)
+`KROKI_SYMBOLATOR_BIN_PATH`:: Path to `symbolator` binary (defaults: `/usr/bin/symbolator`)
+`KROKI_TIKZ2SVG_BIN_PATH`:: Path to `tikz2svg` binary (defaults: `/usr/bin/tikz2svg`)
+`KROKI_UMLET_BIN_PATH`:: Path to `umlet` binary (defaults: `/usr/bin/umlet`)
+`KROKI_VEGA_BIN_PATH`:: Path to `vega` binary which supports both Vega and Vega-Lite grammar (defaults: `/usr/bin/bytefield`)
+`KROKI_WAVEDROM_BIN_PATH`:: Path to `wavedrom` binary (defaults: `/usr/bin/wavedrom`)
+
+For instance, if `dot` is located at [.path]_/path/to/dot_, you can configure the path using a system property:
+
+[source,java-cli]
+java -DKROKI_DOT_BIN_PATH=/path/to/dot -jar kroki-server.jar
+
+=== Command Timeout
+
+By default, Kroki will wait at most 5 seconds when calling a diagram binary to get a response.
+In most scenarios, 5 seconds is more than enough but, if needed, you can adjust the timeout using the `KROKI_COMMAND_TIMEOUT` environment variable.
+
+The expected format is a duration with a time unit:
+
+[horizontal]
+`d`:: Days
+`h`:: Hours
+`m`:: Minutes
+`s`:: Seconds
+`ms`:: Milliseconds
+`micros`:: Microseconds
+`nanos`:: Nanoseconds
+
+A few examples:
+
+[source]
+----
+KROKI_COMMAND_TIMEOUT=10s # <1>
+KROKI_COMMAND_TIMEOUT=1m # <2>
+KROKI_COMMAND_TIMEOUT=4000ms # <3>
+----
+<1> 10 seconds
+<2> 1 minute
+<3> 4 seconds in milliseconds
+
+=== Convert Timeout
+
+By default, Kroki will wait at most 20 seconds when calling a Java library to convert a diagram.
+In most scenarios, 20 seconds is more than enough but, if needed, you can adjust the timeout using the `KROKI_CONVERT_TIMEOUT` environment variable.
+
+The expected format is a duration with a time unit:
+
+[horizontal]
+`d`:: Days
+`h`:: Hours
+`m`:: Minutes
+`s`:: Seconds
+`ms`:: Milliseconds
+`micros`:: Microseconds
+`nanos`:: Nanoseconds
+
+A few examples:
+
+[source]
+----
+KROKI_CONVERT_TIMEOUT=10s # <1>
+KROKI_CONVERT_TIMEOUT=1m # <2>
+KROKI_CONVERT_TIMEOUT=4000ms # <3>
+----
+<1> 10 seconds
+<2> 1 minute
+<3> 4 seconds in milliseconds
+
+You can also configure a specific timeout for each diagram library.
+Currently, only PlantUML supports this configuration:
+
+- `KROKI_PLANTUML_CONVERT_TIMEOUT`
+
+Please note that this specific configuration will override `KROKI_CONVERT_TIMEOUT`.
+In other words, diagram library timeouts (for instance, `KROKI_PLANTUML_CONVERT_TIMEOUT`) have higher precedence than `KROKI_CONVERT_TIMEOUT`.
+
+=== Companion Container Host and Port
+
+You can configure the host and port on which every companion container will be listening:
+
+KROKI_MERMAID_HOST:: Host of the Mermaid container (default: `127.0.0.1`).
+KROKI_MERMAID_PORT:: Port of the Mermaid container (default: `8002`).
+KROKI_BPMN_HOST:: Host of the BPMN container (default: `127.0.0.1`).
+KROKI_BPMN_PORT:: Port of the BPMN container (default: `8003`).
+KROKI_EXCALIDRAW_HOST:: Host of the Excalidraw container (default: `127.0.0.1`).
+KROKI_EXCALIDRAW_PORT:: Port of the Excalidraw container (default: `8004`).
+
+NOTE: If you are using the default `docker-compose.yaml` file you can rely on the default values.
+
+=== Max URI length
+
+Some diagrams, like Excalidraw, have verbose textual descriptions that will produce long URI.
+If the URI requested by the client is longer than the server is willing to interpret, the server will return a 414 (Request-URI Too Long) response status code.
+The https://netty.io/4.0/api/io/netty/handler/codec/http/HttpRequestDecoder.html#HttpRequestDecoder--[default max URI length] in Vert.x is 4096.
+You can update this default value by setting `KROKI_MAX_URI_LENGTH` environment variable.
+
+TIP: Keep in mind that browsers also have a URI limit on `<img>` tags.
+Most modern browsers https://stackoverflow.com/questions/417142/what-is-the-maximum-length-of-a-url-in-different-browsers/417184#417184[support a URI length greater than 64000] on `<img>` tags but this value is probably a bit excessive.
+We recommend to use a maximum length that's not greater than 8192 and not greater than 5120 if you are supporting IE 11.
+
+=== Max header size
+
+KROKI_MAX_HEADER_SIZE:: The maximum length of all headers. If the sum of the length of each header exceeds this value, 431 (Request Header Fields Too Large) response status code is sent. Defaults to 8192.
+
+=== Max body size
+
+KROKI_MAX_BODY_SIZE:: The maximum size of the http body. If the size of the body exceeds this value, 413 (Content Too Large) response status code is sent. Defaults to `1mb`.
+
+NOTE: These variables are only available on the diagrams.net, excalidraw and mermaid containers.
+
+=== Excalidraw static assets
+
+By default, Excalidraw loads assets from a public CDN (https://unpkg.com).
+
+It's possible to change this behavior by setting the `KROKI_EXCALIDRAW_ASSET_PATH` environment variable, which is empty by default.
+
+More information about Excalidraw' static assets can be found here: https://docs.excalidraw.com/docs/@excalidraw/excalidraw/installation
+
+=== Enabling SSL on the server
+
+By default, SSL/TLS is not enabled on the server but you can enable it by setting `KROKI_SSL` environment variable to `true`.
+
+When SSL is enabled, you must provide the certificate and the private key in one of two ways:
+
+- As strings in PEM format using the `KROKI_SSL_KEY` and `KROKI_SSL_CERT` environment variables, e.g.,:
++
+[source,bash]
+----
+KROKI_SSL_KEY="-----BEGIN RSA PRIVATE KEY-----<PRIVATE_KEY>-----END RSA PRIVATE KEY-----"
+----
+
+- As PEM file paths using the `KROKI_SSL_KEY_PATH` and `KROKI_SSL_CERT_PATH` environment variables.
++
+[source,bash]
+----
+KROKI_SSL_KEY_PATH="/etc/ssl/certs/mydomain/privatekey.pem"
+----
+
+If both methods are used, the values in `KROKI_SSL_KEY` and `KROKI_SSL_CERT` are given priority.
+
+[NOTE]
+=====
+You can generate a self-signed SSL certificate and private key as PEM format using `openssl`:
+
+[source,bash]
+----
+openssl req -nodes -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
+----
+
+The above command will generate two files, `cert.pem` containing the certificate and `key.pem` containing the private key.
+
+You can then write the `KROKI_SSL_CERT` environment variable with the contents of the `cert.pem` file and the `KROKI_SSL_KEY` environment variable with the contents of the `key.pem` to an environment-file:
+
+[source,bash]
+----
+cat cert.pem | tr -d '\n' | sed 's/^/KROKI_SSL_CERT=/' >> .env
+echo >> .env
+cat key.pem | tr -d '\n' | sed 's/^/KROKI_SSL_KEY=/' >> .env
+----
+
+The container can then be started with the environment variables set accordingly:
+
+Using docker::
++
+[source,bash]
+----
+docker run -p8000:8000 -e KROKI_SSL=true --env-file=.env yuzutech/kroki
+----
+
+Using podman::
++
+[source,bash]
+----
+podman run -p8000:8000 -e KROKI_SSL=true --env-file=.env yuzutech/kroki
+----
+
+=====
+
+If SSL is enabled, both `KROKI_SSL_KEY` (or `KROKI_SSL_KEY_PATH`) and `KROKI_SSL_CERT` (or `KROKI_SSL_CERT_PATH`) must be configured.
+
+[[third-party-tools]]
+== Third Party Tools
+
+:url-encoder-decoder: https://kroki.pcbaecker.com/
+:url-encoder-decoder-author: https://www.pcbaecker.com/articles/kroki-encoder-decoder/
+:url-intellij-asciidoc-plugin: https://github.com/asciidoctor/asciidoctor-intellij-plugin
+:url-keenwrite: https://keenwrite.com
+:url-niolesk: https://niolesk.top
+:url-vscode: https://code.visualstudio.com
+:url-vscode-asciidoctor: https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode
+:url-vscode-asciidoc-slides: https://marketplace.visualstudio.com/items?itemName=flobilosaurus.vscode-asciidoc-slides
+:url-vscode-markdown-kroki: https://marketplace.visualstudio.com/items?itemName=pomdtr.markdown-kroki
+:url-gitlab: https://about.gitlab.com
+:url-gitlab-int: https://docs.gitlab.com/ce/administration/integration/kroki.html
+:url-sphinx: https://www.sphinx-doc.org
+:url-sphinx-int: https://github.com/sphinx-contrib/kroki
+:url-julia: https://julialang.org
+:url-julia-documenter: https://juliadocs.github.io/Documenter.jl/stable
+:url-julia-int: https://bauglir.github.io/Kroki.jl/stable
+:url-julia-pluto: https://github.com/fonsp/Pluto.jl
+:url-julia-vscode: https://www.julia-vscode.org
+:url-mkdocs-plugin: https://pypi.org/project/mkdocs-kroki-plugin
+:url-jekyll-kroki: https://rubygems.org/gems/jekyll-kroki
+:url-remark-kroki: https://github.com/nice-move/remark-kroki
+:url-hugomods-kroki: https://kroki.hugomods.com/
+
+A list of third party tools, developed by the community, that rely on Kroki.
+
+[#_decoders]
+=== Decoders
+
+The following tools help with decoding an encoded (deflate + base64) diagram e.g. as found in Kroki log messages.
+
+==== Kroki Encoder / Decoder
+
+{url-encoder-decoder}[JavaScript app for the browser] to decode Kroki URLs back into code {url-encoder-decoder-author}[by Philipp C. Baecker]. No backend required.
+
+=== IntelliJ AsciiDoc Plugin
+
+{url-intellij-asciidoc-plugin}[A plugin for the IntelliJ platform] (IntelliJ IDEA, RubyMine, etc.) that provides support for the AsciiDoc markup language.
+The preview supports rendering diagrams using Kroki.
+
+=== KeenWrite
+
+{url-keenwrite}[A Java-based desktop text editor] with live preview, string interpolation, and formulas.
+
+=== Niolesk
+
+{url-niolesk}[An online editor] for Kroki.
+
+[TIP]
+=====
+Add any Kroki URL after `https://niolesk.top/#` and you'll be able to edit your diagram.
+
+Here's an example: https://niolesk.top/#https://kroki.io/plantuml/svg/eNpTLMlIzU1VyM3MK6nk4nLKT9K1c8zJTE61UvBIzcnJVwQArksKZQ==
+=====
+
+=== Visual Studio Code
+
+The following {url-vscode}[Visual Studio Code] plugins support Kroki:
+
+ * {url-vscode-asciidoctor}[AsciiDoc]
+ * {url-vscode-asciidoc-slides}[AsciiDoc Slides]
+ * {url-vscode-markdown-kroki}[Markdown Kroki]
+
+=== GitLab
+
+{url-gitlab}[GitLab] can {url-gitlab-int}[use Kroki to render images] in Markdown, AsciiDoc, reST and Textile documents.
+
+=== Sphinx Documentation
+
+There is an {url-sphinx-int}[Kroki integration] for the {url-sphinx}[Sphinx documentation generator].
+
+=== Julia
+
+The {url-julia-int}[Kroki.jl] package provides integrations for the {url-julia}[Julia programming language].
+It enables rendering diagrams in environments such as {url-julia-documenter}[Documenter.jl], {url-julia-pluto}[Pluto notebooks] and Julia's {url-julia-vscode}[Visual Studio Code integration].
+
+=== MkDocs
+
+The {url-mkdocs-plugin}[MkDocs Kroki plugin] embeds Kroki diagrams within Markdown files processed by MkDocs.
+
+=== Jekyll
+
+The {url-jekyll-kroki}[Jekyll Kroki plugin] embeds Kroki diagrams within Markdown files processed by Jekyll.
+
+=== Remark
+
+The {url-remark-kroki}[Remark Kroki plugin] embeds Kroki diagrams within Markdown files processed by Remark.
+
+=== HugoMods
+
+The {url-hugomods-kroki}[Hugo Kroki module] embeds Kroki diagrams within Markdown files processed by Hugo.
+
+== Examples
+
+[[antora.yml]]
+=== antora.yml
+
+
+[source,yml]
+----
+name: kroki
+title: Kroki
+version: ~
+asciidoc:
+  attributes:
+    actdiag-version: 3.1.0
+    blockdiag-version: 3.1.0
+    bpmn-version: 18.3.1
+    bytefield-version: 1.10.0
+    c4plantuml-version: 1.2025.0
+    d2-version: 0.6.9
+    dbml-version: 1.0.30
+    diagramsnet-version: 16.2.4
+    ditaa-version: 1.0.3
+    erd-version: 0.2.3
+    excalidraw-version: 0.17.6
+    graphviz-version: 9.0.0
+    mermaid-version: 11.4.1
+    nomnoml-version: 1.7.0
+    nwdiag-version: 3.1.0
+    packetdiag-version: 3.1.0
+    pikchr-version: '7269f78c4a'
+    plantuml-version: 1.2025.0
+    rackdiag-version: 3.1.0
+    seqdiag-version: 3.1.0
+    structurizr-version: 3.0.0
+    svgbob-version: 0.7.0
+    symbolator-version: 1.2.2
+    umlet-version: 15.1
+    vega-version: 5.31.0
+    vegalite-version: 5.23.0
+    wavedrom-version: 3.5.0
+    wireviz-version: 0.3.3
+    uri-docker-get-started: https://docs.docker.com/get-started/
+    uri-podman-get-started: https://podman.io/get-started/
+    uri-docker-compose-install: https://docs.docker.com/compose/install/
+    uri-podman-compose-install: https://github.com/containers/podman-compose/
+nav:
+- modules/ROOT/nav.adoc
+- modules/setup/nav.adoc
+- modules/ROOT/nav-end.adoc
+
+----
+
+[[encode.cs]]
+=== encode.cs
+
+
+[source,cs]
+----
+using System;
+using System.IO;
+using System.IO.Compression;
+using System.Text;
+
+class Program
+{
+    // uses System.IO, System.IO.Compression
+    // Reference: https://yal.cc/cs-deflatestream-zlib/#code
+    static byte[] Deflate(byte[] data, CompressionLevel? level = null)
+    {
+        byte[] newData;
+        using (var memStream = new MemoryStream())
+        {
+            // write header:
+            memStream.WriteByte(0x78);
+            switch (level)
+            {
+                case CompressionLevel.NoCompression:
+                case CompressionLevel.Fastest:
+                    memStream.WriteByte(0x01);
+                    break;
+                case CompressionLevel.Optimal:
+                    memStream.WriteByte(0xDA);
+                    break;
+                default:
+                    memStream.WriteByte(0x9C);
+                    break;
+            }
+
+            // write compressed data (with Deflate headers):
+            using (var dflStream = level.HasValue
+                       ? new DeflateStream(memStream, level.Value)
+                       : new DeflateStream(memStream, CompressionMode.Compress
+                       )) dflStream.Write(data, 0, data.Length);
+            //
+            newData = memStream.ToArray();
+        }
+
+        // compute Adler-32:
+        uint a1 = 1, a2 = 0;
+        foreach (byte b in data)
+        {
+            a1 = (a1 + b) % 65521;
+            a2 = (a2 + a1) % 65521;
+        }
+
+        // append the checksum-trailer:
+        var adlerPos = newData.Length;
+        Array.Resize(ref newData, adlerPos + 4);
+        newData[adlerPos] = (byte)(a2 >> 8);
+        newData[adlerPos + 1] = (byte)a2;
+        newData[adlerPos + 2] = (byte)(a1 >> 8);
+        newData[adlerPos + 3] = (byte)a1;
+        return newData;
+    }
+
+    public static void Main(string[] args)
+    {
+        var compressedBytes = Deflate(Encoding.UTF8.GetBytes("digraph G {Hello->World}"));
+        var encodedOutput = Convert.ToBase64String(compressedBytes).Replace('+', '-').Replace('/', '_');
+        Console.WriteLine($"https://kroki.io/graphviz/svg/{encodedOutput}");
+    }
+}
+
+----
+
+[[encode.ex]]
+=== encode.ex
+
+
+[source,ex]
+----
+:zlib.compress(graph)
+|> Base.url_encode64()
+
+----
+
+[[encode.go]]
+=== encode.go
+
+
+[source,go]
+----
+package main
+
+import (
+	"bytes"
+	"compress/zlib"
+	"encoding/base64"
+
+	"github.com/pkg/errors"
+)
+
+// Encode takes a string and returns an encoded string in deflate + base64 format
+func Encode(input string) (string, error) {
+	var buffer bytes.Buffer
+	writer, err := zlib.NewWriterLevel(&buffer, 9)
+	if err != nil {
+		return "", errors.Wrap(err, "fail to create the writer")
+	}
+	_, err = writer.Write([]byte(input))
+	writer.Close()
+	if err != nil {
+		return "", errors.Wrap(err, "fail to create the payload")
+	}
+	result := base64.URLEncoding.EncodeToString(buffer.Bytes())
+	return result, nil
+}
+
+----
+
+[[Encode.java]]
+=== Encode.java
+
+
+[source,java]
+----
+package main;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.Base64;
+import java.util.zip.Deflater;
+
+public class Encode {
+
+  public static byte[] encode(String decoded) throws IOException {
+    return Base64.getUrlEncoder().encode(compress(decoded.getBytes()));
+  }
+
+  private static byte[] compress(byte[] source) throws IOException {
+    Deflater deflater = new Deflater(Deflater.BEST_COMPRESSION);
+    deflater.setInput(source);
+    deflater.finish();
+
+    byte[] buffer = new byte[2048];
+    int compressedLength = deflater.deflate(buffer);
+    byte[] result = new byte[compressedLength];
+    System.arraycopy(buffer, 0, result, 0, compressedLength);
+    return result;
+  }
+}
+
+----
+
+[[Encode.kt]]
+=== Encode.kt
+
+
+[source,kt]
+----
+package main
+
+import java.util.Base64
+import java.util.zip.Deflater
+
+object Encode {
+
+  fun encode(decoded: String): String =
+    String(Base64.getUrlEncoder().encode(compress(decoded.toByteArray())), Charsets.UTF_8)
+
+  private fun compress(source: ByteArray): ByteArray {
+    val deflater = Deflater()
+    deflater.setInput(source)
+    deflater.finish()
+    val bytesCompressed = ByteArray(Short.MAX_VALUE.toInt())
+    val numberOfBytesAfterCompression = deflater.deflate(bytesCompressed)
+    val returnValues = ByteArray(numberOfBytesAfterCompression)
+    System.arraycopy(bytesCompressed, 0, returnValues, 0, numberOfBytesAfterCompression)
+    return returnValues
+  }
+}
+
+----
+
+[[encode.php]]
+=== encode.php
+
+
+[source,php]
+----
+<?php
+
+function base64url_encode($data) {
+  return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
+}
+
+function encode($data) {
+  return base64url_encode(gzcompress($data));
+}
+
+----
+
+[[encode.py]]
+=== encode.py
+
+
+[source,py]
+----
+import sys;
+import base64;
+import zlib;
+
+print(base64.urlsafe_b64encode(zlib.compress(sys.stdin.read(), 9)))
+
+----
+
+[[bpmn-deployment.yaml]]
+=== bpmn-deployment.yaml
+
+
+[source,yaml]
+----
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app: bpmn
+  name: bpmn
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bpmn
+  template:
+    metadata:
+      labels:
+        app: bpmn
+    spec:
+      containers:
+      - image: yuzutech/kroki-bpmn
+        name: bpmn
+        ports:
+        - containerPort: 8003
+      restartPolicy: Always
+
+----
+
+[[bpmn-service.yaml]]
+=== bpmn-service.yaml
+
+
+[source,yaml]
+----
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+  labels:
+    app: bpmn
+  name: bpmn
+spec:
+  ports:
+  - name: "8003"
+    port: 8003
+    targetPort: 8003
+  selector:
+    app: bpmn
+
+----
+
+[[excalidraw-deployment.yaml]]
+=== excalidraw-deployment.yaml
+
+
+[source,yaml]
+----
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app: excalidraw
+  name: excalidraw
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: excalidraw
+  template:
+    metadata:
+      labels:
+        app: excalidraw
+    spec:
+      containers:
+      - image: yuzutech/kroki-excalidraw
+        name: excalidraw
+        ports:
+        - containerPort: 8004
+      restartPolicy: Always
+
+----
+
+[[excalidraw-service.yaml]]
+=== excalidraw-service.yaml
+
+
+[source,yaml]
+----
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+  labels:
+    app: excalidraw
+  name: excalidraw
+spec:
+  ports:
+  - name: "8004"
+    port: 8004
+    targetPort: 8004
+  selector:
+    app: excalidraw
+
+----
+
+[[kroki-deployment.yaml]]
+=== kroki-deployment.yaml
+
+
+[source,yaml]
+----
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app: kroki
+  name: kroki
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kroki
+  template:
+    metadata:
+      labels:
+        app: kroki
+    spec:
+      containers:
+      - env:
+        - name: KROKI_BPMN_HOST
+          value: bpmn
+        - name: KROKI_EXCALIDRAW_HOST
+          value: excalidraw
+        - name: KROKI_MERMAID_HOST
+          value: mermaid
+        image: yuzutech/kroki
+        name: kroki
+        ports:
+        - containerPort: 8000
+      restartPolicy: Always
+
+----
+
+[[kroki-ingress.yaml]]
+=== kroki-ingress.yaml
+
+
+[source,yaml]
+----
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kroki
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: kroki
+            port:
+              number: 8000
+
+----
+
+[[kroki-service.yaml]]
+=== kroki-service.yaml
+
+
+[source,yaml]
+----
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+  labels:
+    app: kroki
+  name: kroki
+spec:
+  ports:
+  - name: "8000"
+    port: 8000
+    targetPort: 8000
+  selector:
+    app: kroki
+
+----
+
+[[mermaid-deployment.yaml]]
+=== mermaid-deployment.yaml
+
+
+[source,yaml]
+----
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app: mermaid
+  name: mermaid
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mermaid
+  template:
+    metadata:
+      labels:
+        app: mermaid
+    spec:
+      containers:
+      - image: yuzutech/kroki-mermaid
+        name: mermaid
+        ports:
+        - containerPort: 8002
+      restartPolicy: Always
+
+----
+
+[[mermaid-service.yaml]]
+=== mermaid-service.yaml
+
+
+[source,yaml]
+----
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+  labels:
+    app: mermaid
+  name: mermaid
+spec:
+  ports:
+  - name: "8002"
+    port: 8002
+    targetPort: 8002
+  selector:
+    app: mermaid
+
+----
+
+[[kroki-deployment.yaml]]
+=== kroki-deployment.yaml
+
+
+[source,yaml]
+----
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kroki
+  labels:
+    app: kroki
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kroki
+  template:
+    metadata:
+      labels:
+        app: kroki
+    spec:
+      containers:
+      - name: kroki
+        image: docker.io/yuzutech/kroki:latest
+        env:
+        - name: KROKI_MERMAID_HOST
+          value: localhost
+        - name: KROKI_BPMN_HOST
+          value: localhost
+        - name: KROKI_EXCALIDRAW_HOST
+          value: localhost
+        ports:
+        - protocol: TCP
+          containerPort: 8000
+      - name: kroki-mermaid
+        image: docker.io/yuzutech/kroki-mermaid:latest
+        ports:
+        - protocol: TCP
+          containerPort: 8002
+      - name: kroki-bpmn
+        image: docker.io/yuzutech/kroki-bpmn:latest
+        ports:
+        - protocol: TCP
+          containerPort: 8003
+      - name: kroki-excalidraw
+        image: docker.io/yuzutech/kroki-excalidraw:latest
+        ports:
+        - protocol: TCP
+          containerPort: 8004
+
+----
+
+[[kroki-ingress.yaml]]
+=== kroki-ingress.yaml
+
+
+[source,yaml]
+----
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kroki
+
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: kroki
+            port:
+              number: 8000
+
+----
+
+[[kroki-service.yaml]]
+=== kroki-service.yaml
+
+
+[source,yaml]
+----
+apiVersion: v1
+kind: Service
+metadata:
+  name: kroki
+  labels:
+    app: kroki
+
+spec:
+  ports:
+  - name: "8000"
+    port: 8000
+    targetPort: 8000
+  selector:
+    app: kroki
+
+----
+
+[[kroki-docker-compose.yml]]
+=== kroki-docker-compose.yml
+
+
+[source,yml]
+----
+services:
+  kroki:
+    image: yuzutech/kroki
+    depends_on:
+      - mermaid
+      - bpmn
+      - excalidraw
+    environment:
+      - KROKI_MERMAID_HOST=mermaid
+      - KROKI_BPMN_HOST=bpmn
+      - KROKI_EXCALIDRAW_HOST=excalidraw
+    ports:
+      - "8000:8000"
+  mermaid:
+    image: yuzutech/kroki-mermaid
+    expose:
+      - "8002"
+  bpmn:
+    image: yuzutech/kroki-bpmn
+    expose:
+      - "8003"
+  excalidraw:
+    image: yuzutech/kroki-excalidraw
+    expose:
+      - "8004"
+
+----
+

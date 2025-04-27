@@ -1,0 +1,1328 @@
+:icons: font
+:stem:
+
+== On the Translation of Languages from Left to Right
+
+INFORMATION AND CONTROL 8, 607-639 (1965)
+
+[.text-center]
+**************
+**On the Translation of Languages from Left to Right**
+
+**DONALD E. KNUTH**
+**************
+
+Mathematics Department, California Institute of Technology, Pasadena, California
+
+____
+    There has been much recent interest in languages whose grammar
+    is sufficiently simple that an efficient left-to-right parsing algorithm
+    can be mechanically produced from the grammar. In this paper, we
+    define LR(k) grammars, which are perhaps the most general ones
+    of this type, and they provide the basis for understanding all of the
+    special tricks which have been used in the construction of parsing
+    algorithms for languages with simple structure, e.g. algebraic 
+    languages. We give algorithms for deciding if a given grammar satisfies
+    the LR (k) condition, for given k, and also give methods for generating
+    recognizers for LR(k) grammars. It is shown that the problem of
+    whether or not a grammar is LR(k) for some k is undecidable, and the
+    paper concludes by establishing various connections between LR(k)
+    grammars and deterministic languages. In particular, the LR(k) 
+    condition is a natural analogue, for grammars, of the deterministic
+    condition, for languages.
+____
+
+=== I. Inttroduction And Definitions
+
+The word "language" will be used here to denote a set of character
+strings which has been variously called a context free language, a (simple)
+phrase structure language, a constituent-structure language, a definable set,
+a BNF language, a Chomsky type 2 (or type 4) language, a push-down
+automaton language, etc. Such languages have aroused wide interest
+because they serve as approximate models for natural languages and
+computer programming languages, among others. In this paper we single
+out an important class of languages which will be called translatable from
+left to right; this means if we read the characters of a string from left to
+right, and look a given finite number of characters ahead , we are able to
+parse the given string without ever backing up to consider a previous
+decision. Such languages are particularly important in the case of 
+computer programming, since this condition means a parsing algorithm can
+be mechanically constructed which requires an execution time at worst
+proportional to the length of the string being parsed. Special-purpose
+methods for translating computer languages (for example, the well-known 
+precedence algorithm, see Floyd (1963)) are based on the fact
+that the languages being considered have a simple left-to-right structure.
+By considering all languages that are translatable from left to right, we
+are able to study all of these special techniques in their most general
+framework, and to find for a given language and grammar the "best
+possible" way to translate it from left to right. The study of such 
+languages is also of possible interest to those who are investigating human
+parsing behavior, perhaps helping to explain the fact that certain English
+sentences are unintelligible to a listener.
+
+[[p607]] 607
+
+
+[[p608]] 608 KNUTH
+
+Now we proceed to give precise definitions to the concepts discussed
+informally above. The well-known properties of characters and strings
+of characters will be assumed. We are given two disjoint sets of 
+characters, the "intermediates" I and the "terminals" T; we will use upper
+case letters A, B, C,... to stand for intermediates, and lower case
+letters a, b, c, ... to stand for terminals, and the letters X, Y, Z will be
+used to denote either intermediates or terminals. The letter S denotes
+the "principal intermediate character" which has special significance as
+explained below. Strings of characters will be denoted by lower case
+Greek letters α, β, γ •••, and the _empty string_ will be represented by ε.
+The notation stem:[α^n] denotes n-fold concatenation of string a with itself;
+stem:[α^0 = ε], and the _empty string_ . A production is a relation A -> θ 
+where A is in I and θ is a string on pass:[I ∪ T]; a grammar 𝕘 is a set of productions.
+We write stem:[φ -> ψ] (with respect to 𝕘, a grammar which is usually understood) 
+if there exist strings α, θ, ω, A such that φ = αAω, ψ = αθω,
+and A -> θ is a production in 𝕘. The transitive completion of this 
+relation is of principal importance: α => β means there exist strings
+stem:[a_0, a_1, •••, a_n], (with n > 0) for which stem:[a_0 -> a_1 -> ••• -> a_n = β].
+Note that by this definition it is not necessarily true that α => α; we will
+write α => α to mean α = β or α => β. A grammar is said to be circular
+if α => α for some α. (Some of this notation is more complicated than
+we would need for the purposes of the present paper, but it is introduced
+in this way in order to be compatible with that used in related papers.)
+The language defined by 𝕘 is
+
+[stem]
+++++++
+{α | S => α \text{ and α is a string over T}},                  (1)
+++++++
+
+namely, the set of all terminal strings derivable from S by using the
+productions of 𝕘 as substitution rules. A sentential form is any string s
+for which S => α.
+
+TRANSLATION FROM LEFT TO RIGHT 609 [[p609]]
+
+For example, the grammar
+
+    S -> AD, A --> aC, B -> bcd, C -> BE, D -> ε, E -> e        (2)
+
+defines the language consisting of the single string "abcde". Any sen-
+tentiM form in a grammar may be given at least one representation as
+the leaves of a derivation tree or "parse diagram"; for example, there is
+but one derivation tree for the string abcde in the grammar (2), namely,
+
+    b  c  d   e
+     \ | /   /
+       B   E
+        \ /
+    a    C                                                      (3)
+     \  /    /
+       A    D
+        \ /
+         S
+
+(The root of the derivation tree is S, and the branches correspond in
+an obvious manner to applications of productions.) A grammar is said
+to be unambiguous if every sentential form has a unique derivation tree.
+The grammar (2) is clearly unambiguous, even though there are several
+different sequences of derivations possible, e.g.
+
+    S -> AD -> aCD -> aBED -> abcdED -> abcdeD -> abcde         (4)
+    S -> AD -> A -> aC -> aBE -> abe -> abcde                   (5)
+
+In order to avoid the unimportant difference between sequences of
+derivations corresponding to the same tree, we can stipulate a particular
+order, such as insisting that we always substitute for the leftmost 
+intermediate (as done in (4)) or the rightmost one (as in (5)).
+
+In practice, however, we must start with the terminal string abcde and
+try to reconstruct the derivation leading back to S, and that changes our
+outlook somewhat. Let us define the handle of a tree to be the leftmost
+set of adjacent leaves forming a complete branch; in (3) the handle is
+bcd. In other words, if stem:[X_1, X_2, ••• , X_t] are the leaves of the tree 
+(where each stem:[X_i] is an intermediate or terminal character or ε), we look 
+for the smallest k such that the tree has the form
+
+    X_i  X_{i+1} ••• X_k
+     \      |        /
+       \    |     /
+         \  |  /
+            Y
+
+[[p610]] 610 KNUTH
+
+for some j and Y. If we consider going from abcde backwards to reach S,
+we cap_ imagine starting with tree (3), and "pruning off" its handle;
+then prune off the handle ("e") of the resulting tree, and so on until
+only the root S is left. This process of pruning the handle at each step
+corresponds exactly to derivation (5) in reverse. The reader may easily
+verify, in fact, that "handle pruning" always produces, in reverse, the
+derivation obtained by replacing the rightmost intermediate character
+at each step, and this may be regarded as an alternative way to define
+the concept of handle. During the pruning process, all leaves to the right
+of the handle are terminals, if we begin with all terminal leaves.
+We are interested in algorithms for parsing, and thus we want to be
+able to recognize the handle when only the leaves of the tree are given.
+Number the productions of the grammar 1, 2, ... , s in some arbitrary
+fashion. Suppose a = X1 • • " X~ ••• Xt is a sentential form, and suppose
+there is a derivation tree in which the handle is Xr+l ••• X~, obtained
+by application of the pth production. (0 -<_ r =< n -< t, 1 =< p =< s.) We
+will say (n, p) is a handle of a.
+A grammar is said to be translatable from left to right with bound k
+(briefly, an "LR(k) grammar") under the following circumstances.
+Let k > 0, and let " ~" be a new character not in I 0 T. A/~-sentential
+form is a sentential form followed by /c " ~" characters. Let
+a = X1X2 ... XnX~+I ... X~+kY1 ... Y~and¢~ = XIX2 ... X~X~+I ...
+X,,+~Z~ ••• Z~ be k-sentential forms in which u >_- 0, v >= 0 and in which
+none of X.+I, • "", Xn+~ , Y~ , " •, Y~ , Z~ , • .., Z~ is an intermediate
+character. If (n, p) is a handle of a and (m, q) is a handle of ~, we require
+that m = n, p = q. In other words, a grammar is LR(k) if and only if
+any handle is always uniquely determined by the string to its left and
+the k terminal characters to its right.
+This definition is more readily understandable if we take a particular
+value of k, say/c = 1. Suppose we are constructing a derivation sequence
+such as (5) in reverse, and the current string (followed by the delimiter
+-~ for convenience) has the form X1 .'. X~X~+~a ~, where the tail end
+"X~+~a ~ " represents part of the string we have not yet examined; but
+all possible reductions have been made at the left of the string so that
+the right boundary of the handle must be at position Xr for r > n. We
+want to know, by looking at the next character X~+I, if there is in fact
+a handle whose right boundary is at position X~ ; if so, we want this
+handle to correspond to a unique production, so we can reduce the
+string and repeat the process; if not, we know we can move to the right
+
+TRANSLATION FROM LEFT TO RIGHT 611 [[p611]]
+
+and read a new character of the string to be translated. This process
+will work if and only if the following condition ("LR(1)") always holds
+in the grammar: If X1X~ ... X~X~+lo~I is a sentential form followed by
+" -~ " for which all characters of X,+1o~1 are terminals or " -~ ", and if
+this string has a handle (n, p) ending at position n, then all l-sentential
+forms X1X2... X,~X~+lo~ with X~+l~o as above must have the same
+handle (n, p). The definition has been phrased carefully to account for
+the possibility that the handle is the empty string, which if inserted
+between X~ and X~+I is regarded as having right boundary n.
+This definition of an LR(k) grammar coincides with the intuitive
+notion of translation from left to right looking k characters ahead.
+Assume at some stage of translation we have made all possible reductions
+to the left of Xn ; by looking at the next k characters Xn+l ... X~+k,
+we want to know if a reduction on Xr+l ..- X~ is to be made, regardless
+of what follows X,+k. In an LR(k) grammar we are able to decide
+without hesitation whether or not such a reduction should be made. If a
+reduction is called for, we perform it and repeat the process; if none
+should be made, we move one character to the right.
+An LR(/c) grammar is clearly unambiguous, since the definition
+implies every derivation tree must have the same handle, and by indue-
+tion there is only one possible tree. It is interesting to point out further-
+more that nearly every grammar which is known to be unambiguous is
+either an LR(k) grammar, or (dually) is a right-to-left translatable
+grammar, or is some grammar which is translated using "both ends to-
+ward the middle." Thus, the LR ( k ) condition may be regarded as the most
+powerful general test for nonambiguity that is now available.
+When/~ is given, we will show in Section II that it is possible to decide
+if a grammar is LR(/c) or not. The essential reason behind this that the
+possible configurations of a tree below its handle may be represented by a
+regular (finite automaton) language.
+Several related ideas have appeared in previous literature. Lynch
+(1963) considered special eases of LR(1) grammars, which he showed are
+unambiguous. Paul (1962) gave a general method to construct left-to-
+right parsers for certain very simple LR(1) languages. Floyd (1964a)
+and Irons (1964) independently developed the notion of bounded con-
+text grammars, which have the property that one knows whether or not to
+reduce any sentential form aO~o using the production A ~ 0 by examining
+only a finite number of characters immediately to the left and right of 0.
+Eiekel (1964) later developed an algorithm which would construct a
+
+[[p612]] 612 KNUTH
+
+certain form of push-down parsing program from a bounded context
+grammar, and Earley (1964) independently developed a somewhat
+similar method which was applicable to a rather large number of LR (1)
+languages but had several important omissions. Floyd (1964a) also
+introduced the more general notion of a bounded right context grammar;
+in our terminology, this is an LR(k) grammar in which one knows
+whether or not Xr+1 ... X~ is the handle by examining only a given
+finite number of characters immediately to the left of Xr+1, as well as
+knowing Xn+'1 ••• X,,+k. At that time it seemed plausible that a bounded
+right context grammar was the natural way to formalize the intuitive
+notion of a grammar by which one could translate from left to right with-
+out backing up or looking ahead by more than a given distance; but it
+was possible to show that Earley's construction provided a parsing
+method for some grammars which were not of bounded right context,
+although intuitively they, should have been, and this led to the above
+definition of an LR(/c) grammar (in which the entire string to the left of
+X~+I is known).
+It is natural to ask if we can in fact always parse the strings corre-
+sponding to an LR(k) grammar by going from left to right. Since there
+are an infinite number of strings X1 ••• X~+k which must be used to make
+a parsing decision, we might need infinite wisdom to be able to make
+this decision correctly; the definition of LR(k) merely says a correct
+decision exists for each of these infinitely many strings. But it will be
+shown in Section II that only a finite number of essential possibilities
+really exist.
+Now we will present a few examples to illustrate these notions. Con-
+sider the following two grammars:
+S ---* aAc, A ---> bAb, A ---* b. (6)
+S --> aAc, A --~ Abb, A ---* b. (7)
+Both of these are unambiguous and they define the same language,
+{ab~+lc}. Grammar (6) is not LR(/c) for any k, since given the partial
+string ab m there is no information by which we can replace any b by A;
+parsing must wait until the "c" has been read. On the other hand gram-
+mar (7) is LR(0), in fact it is a bounded context language; the sentential
+forms are {aAb2nc} and {ab~+lc}, and to parse we must reduce a substring
+ab to aA, a substring Abb to A, and a substring aAc to S. This example
+shows that LR(k) is definitely a property of the grammar, not of the
+TRANSLATION FRON[ LEFT TO RIGHT ~1~
+language alone. The distinction between grammar and language is ex-
+tremely important when semantics is being considered as well as syntax.
+The grammar
+S ~ aAd, S ~ bAB, A --~ cA, A --~ c, B ---+ d (8)
+has the sentential forms {ac~Ad} U {ac~+~d} U {bc~AB} U {bc~Ad} U
+{bc~+~B} U {bc~+ld}. In the string bc'+ld, d must be replaced by B, while
+in the string ac~+~d, this replacement must not be made; so the decision
+depends on an unbounded number of characters to the left of d, and the
+grammar is not of bounded context (nor is it translatable from right
+to left). On the other hand this grammar is clearly LR(1) and in fact
+it is of bounded right context since the handle is immediately known by
+considering the character to its right and two characters to its left;
+when the character d is considered the sentential form will have been
+reduced to either aAd or bAd.
+The grammar
+S ~ aA, S ~ bB, A --~ cA, A .--> d, B ---> cB, B ~ d (9)
+is not of bounded right context, since the handle in both acid and bc~d
+is "d"; yet this grammar is certainly LR(0). A more interesting ex-
+ample is
+S ~ aAc, S ~ b, A ~ aSc, A --~ b. (10)
+Here the terminal strings are {a~bc~}, and the b must be reduced to S
+or A according as n is even or odd. This is another LR(0) grammar
+which fails to be of bounded right context.
+In Section III we will give further examples and will discuss the
+relevance of these concepts to the grammar for ALGOL 60. Section IV
+contains a proof that the existence of k, such that a given grammar is
+LR(k), is recursively undecidable.
+Ginsburg and Greibach (1965) have defined the notion of a deter-
+ministic language; we show in Section V that these are precisely the
+languages for which there exists an LR(k) grammar, and thereby we
+obtain a number of interesting consequences.
+II. ANALYSIS OF LR(k) GRAMMARS
+Given a grammar ~ and an integer k => 0, we will now give two ways
+to test whether ,q is LR(k) or not. We may assume as usual that ~ does
+
+[[p614]] 614 KNUTH
+
+not contain useless productions, i.e., for any A in I there are terminal
+strings ~, f, ~ such that S -> aA',/~ aft'/.
+The first method of testing is to construct another grammar ~ which
+reflects all possible configurations of a handle and k characters to its
+right. The intermediate symbols of ~ will be [A; a], where a is a k-letter
+string on T U { ~ } ; and also [p], where p is the number of production in
+9. The terminal symbols of ~ will be I U T U { -~}.
+For convenience we define Hk(a) to be the set of all k-letter strings f
+over T U { -~ } such that a -> ¢~-/with respect to @ for some v; this is
+the set of all possible initial strings of length k derivable from a.
+Let the pth production of ~ be
+A~ -~ Xpl " "" Xpnp, 1 5~ p ~-~ 8, T~ ~" O. (11)
+We construct all productions of the following form:
+[A~ ; a] --~ Xpl "" Xp(j_I)[X~ ; f] (12)
+where 1 = j =< n~, X~ is intermediate, and a, ¢~ are k-letter strings over
+T U { -~ } with f in Hk(X~(j+I) -.. X~a). Add also the productions
+[A~ ; ,~] ---, x~ ... X~,~[p] (13)
+It is now easy to see that with respect to ~,
+[S; ~k] ~ X~... X~X,+~... X.+~[p] (14)
+if and only if there exists a k-sentential form X~... X,~X,~+I...
+X,~+~YI"" Y~ with handle (n, p) and with X~+~ ... Y~ not inter-
+mediates. Therefore by definition, ~ will be LR(k) if and only if ~ satis-
+fies the following property:
+[S; _~k] ~ O[p] and [S; _~k] ~ O~[q] implies ¢ = e and p = q. (15)
+But ~ is a regular grammar, and well-known methods exist for testing
+Condition (15) in regular grammars. (Basically one first transforms
+so that all of its productions have the form Q~ ~ aQ], and then if Q0 =
+IS; qk], one can systematically prepare a list of all pairs (i, j) such that
+there exists a string a for which Qo ~ aQ~ and O0 ~ aQj .)
+When k = 2, the grammar ~ corresponding to (2) is
+
+TRANSLATION FROM LEFT TO RIGHT 615 [[p615]]
+
+IS; 4 4] --+[A; q q] [C; 4 41--+[B;e-~]
+[S; q -t] --~ A[D; -q q] [C; 4 41-+ B[E; 4 4]
+[S; 4 41 -'~AD4 4[ 1 ] [C; -~ -7]--+BE 4 414]
+(16)
+[a; < g I -+ ale; 4 g I [B; e 41 -~ be& 4 [31
+[A; 4 -fl-+aC4 412] [E; 4 q]--~e4 4161
+[D; 4 4]--+ 4 415]
+It is, of course, unnecessary to list productions which cannot be reached
+from [S; 4 4]. Condition (15) is immediate; one may see an intimate
+connection between (16) and the tree (3).
+Our second method for testing the LR(.6) condition is related to the
+first butit is perhaps more natural and at the same time it gives a method
+for parsing the grammar @ if it is indeed LR(/c). The parsing method is
+complicated by the appearance of e in the grammar, when it becomes
+necessary to be very careful deciding when to insert an intermediate
+symbol A corresponding to the production A --~ e. To treat this condition
+properly we will define Hk'(¢) to be the same as Hk(¢) except omitting
+all derivations that contain a step of the form
+Ao~ --~ o),
+i.e., when an intermediate as the initial character is replaced by e. This
+means we are avoiding derivation trees whose handle is an empty string
+at the extreme left. For example, in the grammar
+S --~ BC 4 4 4, B --~ Ce, B ---÷ e, C ---÷ D, C ---~ Dc, D ---~ e, D --~ d
+we would have
+Ha(S) = { 4 4 4, c4 4, ceq, cec, ced, d 4 4, dce,
+de4, dec, ded, e 4 4, ec4 ,ed4, edc}
+Ha'( S) = {dce, de4, dec, ded}.
+As before we assume the productions of ~ are written in the form (11).
+We will also change ~ by introducing a new intermediate So and adding
+a "zeroth" production
+So --~ S -t k (16)
+
+[[p616]] 616 KNUTH
+
+and regarding So as the principal intermediate. The sentential forms are
+now identical to the k-sentential forms as defined above, and this is a
+decided convenience.
+Our construction is based on the notion of a "state," which will be
+denoted by [p, j; a]; here p is the number of a production, 0 <= j -<_ np,
+and a is a k-letter string of terminals. Intuitively, we will be in state
+[p, j; ~] if the partial parse so far has the form ~X~I ••• X~, and if
+contains a sentential form ~A~a .-. ; that is, we have found j of the
+characters needed to complete the pth production, and a is a string
+which may legitimately follow the entire production if it is completed.
+At any time during translation we will be in a set $ of states. There
+are of course only a finite number of possible sets of states, although it is
+an enormous number. Hopefully there will not be many sets of states
+which can actually arise during translation. For each of these possible
+sets of states we will give a 1~dle which explains what parsing step to
+perform and what new set of states to enter.
+During the translation process we maintain a stack, denoted by
+SoX1S1X~2 " " X~$~ I Y1 .." Y~. (17)
+The portion to the left of the vertical line consists alternately of state
+sets and characters; this represents the portion of a string which has
+already been translated (with the possible exception of the handle)
+and the state sets $~ we were in just after considering X1 ••• X~. To the
+right of the vertical line appear the k terminal characters I11"'" Yk
+which may be used to govern the translation decision, followed by a
+string o~ which has not yet been examined.
+Initially we are in the state set C0 consisting of the single state
+[0, 0; ~k], the stack to the left of the vertical line in (17) contains only
+C0, and the string to be parsed (followed by -~ k) appears at the right.
+Inductively at a given stage of translation, assume the stack contents
+are given by (17) and that we are in state set 8 = S~.
+Step 1. Compute the "closure" $' of $, which is defined recursively as
+the smallest set satisfying the following equation:
+$' = $ [J {[q, 0; ~] I there exists [p,j; a] in $',j < np,
+(18)
+X~,(s+l) = Aq, and B in Hk(Xi,(~+~.) "" Xp~)}.
+(We thus have added to $ all productions we might begin to work on,
+in addition to those we are already working on.)
+
+TRANSLATION FROM LEFT TO RIGHT 617 [[p617]]
+
+Step 2. Compute the following sets of k-letter strings:
+!
+Z = {~ ] there exists [p, j; a] in 6, j < np,
+(19)
+in Hk' (Xp(j+l) .." Xp,~pa)}
+Zp = {a I[P, np ; a] in $'}, 0 = p < s. (20)
+Z represents all strings Y1 "'" Yk for which the handle does not appear
+on the stack, and Zp represents all for which the pth production should
+be used to reduce the stack. Therefore, Z, Zo , ••• , Z~ must all be disjoint
+sets, or the grammar is not LR(k). These formulas and remarks are
+meaningful even when k = 0. Assuming the Z's are disjoint, Y1 "'" Yk
+must lie in one of them, or else an error has occurred. If Y1 "'" Yk lies
+in Z, shift the entire stack left:
+$0X151 .-- g~Yll Y~ "'" Y~e
+and rename its contents by letting Xn+~ = Y~, Y~ = Y2, " "" :
+80X151 "- S~X~+I I Y1 "'" Y~'
+and go on to Step 3. If Y~ • .- Yk lies in Zp, let r = n - n~ ; the stack
+now contains X~+~ ••• X~, equalling the righthand side of production p.
+Replace the stuck contents (17) by
+goX~S~ . . . X~%Ap ] Y1. . . Yk¢o (21)
+and let n = r, Xn+~ = Ap. (Notice that obvious notational conventions
+have been used here to deal with empty strings; we have 0 ~ r =<_ n.
+If n~ = 0, i.e. if the righthand side of production p is empty, we have
+just increased the stack size by going from (17) to (21), otherwise the
+stack has gotten sm~ller.)
+Step 3. The stack now has the form
+~DX151 "'" XnSnXn..kl [ Y1. . . YkO2. (22)
+Compute &' by Eq. (18) and then compute the new set &~+~ as follows:
+&~+~ = {[p, j q- 1; all [p, j; a] in S,~' and X~+I = X~o.+~)}. (23)
+This is the state set into which we now advance; we insert S~+~ into
+the stack (22) just to the left of the vertical line and return to Step 1,
+with $ = $~+~ and with n increased by one. However, if $ now equals
+[0, 1 ; qr ~] and Y1 ••• Yk = -~ k, the parsing is complete.
+This completes the construction of a parsing method. In order to
+
+[[p618]] 618 KNUTH
+
+properly take care of the most general case, this method is necessarily
+complicated, for all of the relevant information must be saved. The
+structure of this general method should shed some light on the im-
+portant special cases which arise when the LR(k) grammar is of a simpler
+type.
+We will not give a formal proof that this parsing method works, since
+the reader may easily verify that each step preserves the assertions we
+made about the state sets and the stack. The construction of all possible
+state sets that can arise will terminate since there are finitely many of
+these. The grammar will be LR(k) unless the Z sets of Eqs. (19)-(20)
+are not disjoint for some possible state set. The parsing method just
+described will terminate since any string in the language has a finite deri-
+vation, and each execution of Step 2 either finds a step in the derivation
+or reduces the length of string not yet examined.
+III. EXAMPLES
+Now let us give three examples of applications to some nontrivial
+languages. Consider first the grammar
+S ~ ~, S --~ aAbS, S ~ bBaS, (24)
+A --~ ~, 4 ~ aAbA, B ~ e, B ---* bBaB
+whose terminal strings are just the set of all strings on {a, b} having exactly
+the same total number of a's and b's. There is reason to believe (24) is
+the briefest possible unambiguous grammar for this language. We will
+prove it is unambiguous by showing it is LR(1), using the first construe-
+tion in Section II. The grammar ~ will be
+[z; q]
+IS;-~]--->a[A;b], IS; -~]---*aAb[S; ~], IS; -~]---+aAbS-~[2]
+[S; -~]----~b[B;a], [S;-~]---~5Ba[S;-~], IS; -~]---+bBaS-~[3]
+[A; b] --~ 5[4]
+[A ; 5] ~ a[A; b], [A ; b] ~ aAb[A ; b], [A ; b] ~ aAbAb[5]
+[B;a] --~ a[6]
+[B; a] --> b[B; a], [B, a] ~ bBa[B; a], [B; a] --~ bBaBa[7]
+
+TRANSLATION FROM LEFT TO RIGHT 619 [[p619]]
+
+The strings entering into condition (15) are therefore
+(aAb, bBa),~ [1], (aAb, bBa),aAbS~ [2], (aAb, bBa),bBaS~ [3]
+(aAb, bBa),a(a, aAb),b[4], (aAb, bBa),a(a, aAb),aAbAb[5]
+(aAb, bBa)*b(b, bBa),a[6], (aAb, bBa)*b(b, bBa),bBaBa[7].
+Here (a, f~), denotes the set of all strings which can be formed by con-
+catenation of a and ~; dearly condition (15) is met.
+Our second example is quite interesting. Consider first the set of all
+strings obtainable by fully parenthesizing algebraic expressions involving
+the letter a and the binary operation +:
+S ~ a, S--+ (S -~ S) (25)
+where in this grammar "('% "-~ ", and")" denote terminals. Given any
+such string we will perform the following acts of sabotage:
+(i) All plus signs will be erased.
+(ii) All parentheses appearing at the extreme left or extreme right
+will be erased.
+(iii) Both left and right parentheses,will be replaced by the letter b.
+Question: After all these changes, is it still possible to recreate the
+original string? The answer is, surprisingly, yes; it is not hard to see
+that this question is equivalent to being able to parse any terminal string
+of the following grammar unambiguously:
+Production ~ Production Production # Production
+0 S --*Bq
+1 B ----~a 2 B -->LR
+3 L ---~a 4 L ---~LNb
+5 R ---+a 6 R ---~bNR
+7 N --~ a 8 N --* bNNb
+(26)
+Here B, L, R, N denote the sets of strings formed from (25) with altera-
+tions (i) and (iii) performed, and with parentheses removed from
+both ends, the left end, the right end, or neither end, respectively.
+It is not in,mediately obvious that grammar (26) is unambiguous,
+nor is it immediately clear how one could design an efficient parsing
+algorithm for it. The second construction of Section II shows however
+that (26) is an LR(1) granm~ar, and it also gives us a parsing method.
+Table I shows the details, using an abbreviated notation.
+
+[[p620]] 620 KNUTH
+
+In Table I, the symbol 21-~ stands for the state [2, 1; ~ ], and 4lab
+stands for two states [4, 1; a] and [4, 1; b]. "Shift" means "perform the
+shift left operation" mentioned in step 2; "reduce p" means "perform
+the transformation (21) with production p." The first lines of Table I
+TABLE I
+~ARSING METHOD FOR GRAMMAR (26)
+Additional states If X~+I then go to
+State set 8 in $~ If Y1 is then is
+004 10~ 204 30ab 40ab a shift B 014
+a 114 3lab
+L 214 4lab
+01~ 4 stop
+114 3lab 4 reduce 1
+a, b reduce 3
+214 4lab 504 604 70b 80b a, b shift
+224 4 reduce 2
+42ab b shift
+R 224
+N 42ab
+a 514 71b
+b 614 81b
+43ab
+51~ 7lab 4 reduce 5
+a, b reduce 7
+61~ 8lab 70ab 80ab a, b shift N
+a
+b
+614 82ab
+7lab
+8lab
+43ab a, b reduce 4
+624 82ab 504 604 70b 80b a, b shift
+634 4 reduce 6
+84ab a, b reduce 8
+R
+N
+a
+b
+63~
+84ab
+514 71b
+614 81b
+
+TRANSLATION FROM LEFT TO RIGHT 621 [[p621]]
+
+are formed as follows: Given the initial state $ = {004} , we. must form
+S' according to Eq. (18). Since X01 = B and X02 = 4 we must include
+10 4 and 20 4 in $'. Since X21 = L and X~2 = R we must:include 30ab;
+40ab in $'(a and b being the possible initial characters of R 4 ). Since
+X41 = L and X4~ = N we must, similarly, include 30ab and 40ab in 8';
+but these have already been included, and so 8' is completely deter-
+mined. Now Z = {a} in this case, so the only possibility instep 2 is to
+have Yi = a and shift. Step 3 is more interesting; if we ever get to
+Step 3 with $~ = $ (this includes later events when a reduction (21) has
+been performed) there are three possibilities for X,~+i. These are de-
+termined by the seven states in S t, and the righthand column is merely
+an application of Eq. (23).
+An important shortcut has been taken in Table I. Although it is
+possible to go into the state set "514 71b", we have no entry for that
+set; this happens because 51471b is contained in 51471ab. A procedure
+for a given state set must be valid for any of its subsets. (This implies less
+error detection in Step 2, but we will soon justify that.) It is often
+possible to take the union of several state sets for which the parsing
+action does not conflict, thereby considerably shortening the parsing
+algorithm generated by the construction of Section II.
+When only one possibility occurs in Step 2 there is no need to test
+the validity of Yi ••• Yk ; for example in Table I line 1 there is no need
+to make sure Y~ = a. One need do no error detection until an attempt
+to shift Y~ = ~ left of the vertical line occurs. At this point the stack
+will contain "$oS8i[ 4 k'' if and only if the input string was well-
+formed; for we know a well-formed string will be parsed, and (by defini-
+tion!) a malformed string cannot possibly be reduced to "S 4 ~'' by
+applying the productions in reverse. Thus, any or all error detection
+may be saved until the end. (When k = 0, 4 must be appended at the
+right in order to do this delayed error check.)
+One could hardly write a paper about parsing without considering the
+traditional example of arithmetic expressions. The following grammar is
+typical:
+Production /~ Production Production ~ Production
+0 S-.E~ 4 T--~P
+1 E--~-T 5 T--~T.P
+2 E--~T 6 P--~a
+• ~ E-~E -- T 7 P~ (E)
+(27)
+
+[[p622]] 622 KNUTH
+
+This grammar has the terminal alphabet {a, -,., (,), 4 } ; for example,
+the string "a -- ( --a.a - a) 4 " belongs to the language. Table II shows
+how our construction would produce a parsing method. In line 10, the
+notation "4, 5, 6" appearing in the X column means rules 4, 5, and 6
+apply to this state set also. Such "factoring" of rules is another way to
+simplify the parsing routine produced by our construction, and the
+reader will undoubtedly see other ways to simplify Table II.
+By means of our construction it is possible to determine exactly what
+information about the string being parsed is known at any given time.
+Because of this detailed knowledge, it will be possible to study how much
+of the information is not really essential (i.e., how much is redundant)
+and thereby determine the "best possible" parsing method for a gram-
+mar, in some sense. The two simplifications already mentioned (delayed
+error ehecldng, taking unions of compatible state sets) are simplifications
+of this ldnd, and more study is needed to analyze this problem further.
+In many eases it will not be necessary to store the state sets $~ in the
+stack, since the states Sr which are used in the latter part of Step 2 can
+often be determined by examining a few of the X's at the top of the
+stack. Indeed, this will always be true if we have a bounded right con-
+text grammar, as defined in Section I. Both grammars (26) and (27)
+are of bounded context.
+From Table I we can see how to recover the necessary state set in-
+formation without storing it in the stack. We need only consider those
+state sets which have at least one intermediate character in the "X~+I"
+column for otherwise the state set is never used by the parser. Then it is
+immediately clear from Table I that {004} is always at the bottom of
+the stack, {214 , 4lab} is always to the right of L, {614,8lab} is always
+to the right of b, and {624, 82ab} is always to the right of N.
+Grammar (27) is related to the definition of arithmetic expressions in
+the ALGOL 60 language, and it is natural to ask whether ALGOL 60 is
+an LR(k) language. The answer is a little difficult because the definition
+of this language (see Naur (1963)) is not done completely in terms of
+productions; there are "comment conventions" and occasional informal
+explanations. The grammar cannot be LR(k) because it has a number
+of syntactic ambiguities; for example, we have the production
+(open string} --+ (open string} (open string}
+which is always ambiguous. Another type of ambiguity arises in the
+parsing of (identifier) as (actual parameter}. There are eight ways to do
+TABLE II
+]~ARSING METHOD FOR GRAMMAR (2,7)
+State set S Additional states in $ Y~ Step 2 action Rule # X,~ Go to
+00q 71~)-* -(a shift 10~)-- 20q)-- 30~)--
+404)--* 50~)--,
+60q)--, 70q)--,
+01t 72~)--* 314)-- q stop 7
+) -- shift 8
+11~)~ 40q)--, 50~)--, 9
+60q)--, 70~)--,
+21q)-- 514)--* • shift 10 •
+q) -- reduce 2
+32q)-- 40~)--, 50q)--, 11
+60~)--, 70~)--.
+12d)- 51~)-* • shift 12 •
+) - reduce 1
+E .
+2'
+P
+a
+(
+)
+T
+4, 5, 6
+T
+4, 5, 6
+01t 72t)--* 31~) --
+114)--
+21q)- 51q-,
+414)--*
+61q)--*
+71~)--*
+734)-*
+324)-
+12q)- 51~)-,
+52~)-,
+33q)- 51q)-,
+52q)-,
+o
+©
+52~)-* 60~)-* 70q)-* ( a shift 13 P
+5, 6
+53~ ) - •
+33q ) -- 514) -- * * shift 14
+) -- reduce 3
+pn~,X X reduce p
+52q ) - *
+bD
+
+[[p624]] 624 KNUTH
+
+this:
+(actual parameter} --~
+(actual parameter --~
+(actual parameter
+(actual parameter
+(actual parameter
+(actual parameter
+: (actual parameter
+(actual parameter} --*
+(array identifier} --~ (identifier}
+(switch identifier} --~ (identifier)
+--* (procedure identifier} --* (identifier}
+-+ (expression} --~ (designational expression}
+(identifier}
+(expression} --~ (Boolean expression}
+(variable} ~ (identifier}
+--~ (expression} --~ (Boolean expression}
+(function designator) ~ (identifier}
+--~ (expression} --~ (arithmetic expression}
+(variable} ~ (identifier}
+(expression} --+ (arithmetic expression}
+(function designator) ~ (identifier}
+These syntactic ambiguities reflect bona fide semantic ambiguities,
+if the identifier in question is a formal parameter to a procedure, for it is
+then impossible to determine what sort of identifier will be the actual
+arg~lment in the absence of specifications. At the time the ALGOL 60
+report was written, of course, the whole question of syntactic ambiguity
+was just emerging, and the authors of that document naturally made
+little attempt to avoid such ambiguities. In fact, the differentiation
+between array identifiers, switch identifiers, etc. in this example was done
+intentionally, to provide explanation along with the syntax (referring
+to identifiers which have been declared in a certain way). In view of this,
+a ninth alternative
+(actual parameter) --~ (string} --* (formal parameter} --* (identifier)
+might also have been included in the ALGOL 60 syntax (since section
+4.7.5.1 specifically allows formal parameters whose actual parameter is a
+string to be used as actual parameters, and this event is not reflected in
+any of the eight possibilities above). The omission of this ninth alterna-
+tive is significant, since it indicates the philosophy of the ALGOL 60 re-
+TRANSLATION FRCM LEFT TO RIGHT ~5
+port towards formal parameters: they are to be conceptually replaced by
+the actual parameters before rules of syntax are employed.
+At any rate when parsing is considered it is desirable to have an
+unambiguous syntax, and it seems clear that with little trouble one
+could redefine the syntax of ALGOL 60 so that we would have an LR(1)
+grammar for the same language.
+By the "ALGOL 60 language" we mean the set of strings meeting
+the syntax for ALGOL 60, not necessarily satisfying any semantical
+restrictions. For example,
+begin array x[100000: 0]; y :~- z/O end
+would be regarded as a string in the ALGOL 60 language.
+It is interesting to observe that it might be impossible to define
+ALGOL 60 using an RL(k) grammar (where by RL(k) we mean "trans-
+latable from right to left," defined dually to LR(k)). Several features
+of that language make it most suited to a left-to-right reading; for ex-
+ample, going from right to left, note that the basic symbol comment
+radically affects the parsing of the characters to its right. A similar
+language, for which some LR(k) grammars but no RL(k) grammars
+exist, is considered in Section V of this paper; but we also will give an
+example there which makes it appear possible that ALGOL 60 could be
+RL(k).
+IV. AN UNSOLVABLE PROBLEM
+Post (1947) introduced his famous correspondence problem which has
+been used to prove quite a number of linguistic questions undeeidable.
+We will define here a similar unsolvable problem, and apply it to the
+study of LR(k) grammars.
+THE PARTIAL CORRESPONDENCE PROBLEM. Let (al , ~1), (a~ , ~), ... ,
+(an, ~n) be ordered pairs of nonempty strings. Do there exist, for all p > O,
+ordered p-tuples of integers ( il , i~ , ••• , ip) such that the first p characters
+of the string ahai2 ... ai, are respectively equal to the first p characters
+of ~, ~ ... ~.~
+The ordinary correspondence problem asks for the existence of a
+p > 0 for which the entire strings ~h "'" a~, and/~ --./~ are equal.
+A solution to the ordinary correspondence problenl implies an affirmative
+answer to the partial correspondence problem, but the general solvability
+of either problem is not directly related to the solvability of the other.
+There are relations between the partial correspondence problem and
+
+[[p626]] 626 KNUTH
+
+the Tag problem (see Cocke and Minsky (1964)) but no apparent simple
+connection. We can, however, prove that the partial correspondence
+problem is recursively unsolvable, using methods analogous to those
+devised by Floyd (1964b) for dealing with the ordinary correspondence
+problem and using the determinacy of Turing machines.
+For this purpose, let us use the definition and notation for Turing ma-
+c.hines as given in Post (1947) ; we will construct a partial correspondence
+problem for any Turing machine and any initial configuration. The
+characters used in our partial correspondence problem wilt be
+q~SiS~hh, 1 < i <_ R, 0 <= j <-_ m.
+If the initial configuration is
+SilSj~"" Sj~_tq~lSjk'" S~
+the pair of strings
+( ~, ~hSj~...S~_lqi~Sjk... Si~,h) (28)
+will enter into our partial correspondence problem. We also add the
+pairs
+(/~, h), (h,/~), (S~., ~.), (Ss', Sj), (~ , q~), 1 <_- i --- R, 0 ~ j = m. (29)
+Finally, we give pairs determined by the quadruples of the Turing ma-
+chine:
+Form of quadruple Corresponding pairs, 0 < t -< m:
+q~S~Lq~ (hqiS~, h(tzSoSj), ( Stq~S~, q~S~Ss)
+q~S~Rqz (q~Sjh, ,~J(l~Sof~), (q~SjSt, Si~zSt) (30)
+qiSjSkq~ (q~Sj, (lzS~)
+Now it is easy to see that these corresponding pairs will simulate the
+behavior of the Turing machine. Since the pair (28) is the only pair
+having the same initial character, and since the pairs in (30) are the
+only ones involving any q~ in the ]efthand string, the only possible
+strings which can be initial substrings of both a~la~: .-. and
+fl~fl~ ... are initial substrings of
+, ~- aO~la~a~&~a~ "" , (31 )
+where no, m, a~, etc. represent the successive stages of the Turing
+machine's tape (with h's placed at either end, and where ~ is an obvious
+
+TRANSLATION FROM LEFT TO RIGHT 627 [[p627]]
+
+notation signifying the "barring" of each letter of a). For these pairs,
+therefore, the partial correspondence problem has an affirmative answer if
+and only if the Turing machine never halts. And the problem of telling if a
+Turing machine will ever halt is, of course, well known to be recursively
+unsolvable.
+We will apply this result to LR(k) grammars as follows:
+T~EOREM. The problem of deciding, for a given grammar ~, whether or
+not there exists a k ~ 0 such that ~ is LR(k), is recursively unsolvable.
+This theorem is in contrast to the results of Section II, where we
+showed the problem to be solvable when k is also given. To prove this
+theorem we will reduce the partial correspondence problem to the LR(k)
+problem for a particular class of grammars.
+Let (al, ill), "" • , (a,~, ft.) be pairs of strings entering into the partial
+correspondence problem, and let
+X1X2 "" X~ +
+be n + 1 characters distinct from those appearing among the a's and
+3's. Let ~ be the following grammar:
+S--~ A, S---~ B, A -+ Xi + o~i , B-~ XI + fli
+(32)
+A --+ XiAo~i , B --> XiBfli , ] ~- i <~ n.
+The sentential forms are
+{X,,~ ... X,,Aaq ... a,,~} U {X,,~ ... X,xBfl,~ ... fl,,,}
+O {X,m "'" Xil --~ (~il "'" C~im } O {Xim "'" Xi 1 ~- ~,1 "'" ~,m}:
+We will show @ is LR(tc) for some k if and only if the partiM corre-
+spondence problem has a negative answer. If the answer is affirmative,
+for every p we have sentential forms X 9 ... X{, + a~ ... a~, X{. .- •
+Xq + fl~ ••• fl~ in which the first p characters following "+" agree.
+The handle must include the "+" sign, but the p - q characters following
+the handle do not tell us whether the production A --+ Xi, + a~ or
+B --+ X~I + fi~ is to be applied, if q is the maximum length of the
+strings a~, fl~. Hence the grammar is not LR(q). On the other hand, if
+the answer to the partial correspondence problem is negative, there is
+a p for which, knowing (ix, ".- , i,~i~(~.o) and the first p characters
+of aqai~ -" ai, ~ ~ or fli,fl~ "'" flit q ~, we can distinguish whether it
+is a string of a's or a string of fl's, and therefore @ is in fact a bounded
+context grammar.
+
+[[p628]] 628 KNUTH
+
+We have proved slightly more, answering a question posed by Floyd
+(1964a, p. 66):
+T~EOgEM. The problems of deciding whether a given grammar (i) has
+bounded context, or (ii) has bounded right context, are recursively un-
+solvable.
+These theorems could be sharpened in the usual ways to show that we
+can assume the grammar ~ is unambiguous, linear, has at most two
+terminals, and has either a bounded number of productions or a bounded
+length of string in a production, and can still prove the problem to be
+unsolvable.
+V. CONNECTIONS WITH DETERMINISTIC LANGUAGES
+Ginsburg and Greibach (1965) define a deterministic language as one
+which is accepted by a so-cMled deterministic push-down automaton
+(DPDA). The latter is a device which has a finite number of states
+qo, ql, q2, "'" q, ~nd which manipulates strings of characters in two
+alphabets T and I, according to the production rules of the following
+two types:
+Aq~ --) Oqj (33)
+Aq~a --~ Oqi (34)
+Here A and a are single characters in I and T, respectively, and 0 is
+any string over I. When A is the special character ~ we require ~ to be a
+nonempty string whose initial character is ~. For each pair Aq~, where
+A is in I and 0 <= i _< r, we stipulate there is either a unique rule of
+type (33) and none of type (34), or there are no rules of type (33) and
+at most one of type (34) for each a in T. Some of the states are desig-
+nated as "final states", and the terminal string a is accepted by the
+DPDA if and only if ~ q0a --> ~ ~qi for some final state ql and some
+string ~o. Here the relation "~>" is generated from "--~" as in Section I.
+THEORFZ~. If ~ is an LR(k) grammar, and if 9 defines the language L,
+there is a DPDA which accepts the language L ~ ~.
+The Second construction of Section II is in fact closely related to a
+DPDA. The grammar 9 augmented by production (16) defines the
+language L ~ k. To construct such a DPDA we will take as our states, ql,
+terminal k-letter strings [YI"'" Yk], and there will also be various
+auxiliary states. The terminal Mphabet for the DPDA will be T [J { -~/
+and the intermediate alphabet will be {8} U I [J T U { ~}. We want our
+
+TRANSLATION FROM LEFT TO RIGHT 629 [[p629]]
+
+DPDA to arrive at the configuration
+~-$0Xlg, ... X,,g~[Y1 -,. Y~]co (35)
+if and only if the stack in the parsing algorithm of Section II is
+"8oXi~ ".. X,~$,~ I Y* "'" Ykc~" at a corresponding stage of the calcula-
+tion.
+Clearly we can construct productions of form (34) which read the
+first k characters of our input string I/1 "" • Yko0 and get us to the initial
+configuration ~{[0, 0; qk]}[y,... Y~]~o. Now assume the DPDA has
+arrived at the configuration (35); as in steps 1 and 2 of the parsing
+algorithm we can compute the sets Z and Z~. If Y1 "'" Yk is in Z, we
+create instructions of the form (34)
+&[Y, ". Yk]a---+ $~Ylg~+I[Y~ "'" Yka] (36)
+where &+, is determined by X,~+I = !71 (or a if k = 0) in (23). If
+Y~ "'" Yk is in Z~, we let q(0), q(~), ... , q(2,~) be new auxiliary states
+and write
+Sn[Y1 ''' Yk] ~ &q (O)
+oSq(2t) ~ q(2t+l), X (2t-~l) q(2t+2),
+r4,b,_t)q "~ 0 ~ t < n~, all $. (37)
+gq(2,p) --+ $A~$~+I[Y1 --- Yk], all $.
+where &,+~ is determined from 8 by using (23) with g. = g, X.+~ = A~.
+We make one exception to this rule, namely, if Y~ ..- Y~ = _~ k and
+$ = {[0, 0; -{k]}, we change the last instruction to
+gq(2~p) --+ q/
+where q/is the unique final state of our DPDA.
+The rules (36) and (37) for all possible combinations of S~ and
+[Y1 "" Yk], plus the few initial and final ones, give us a DPDA which
+exactly follows the procedure of the parsing algorithm in Section II.
+COROLLAn¥. /f ~ is an LR(k) grammar and if ~ defines the language L,
+there is a DPDA which accepts the language L.
+For Ginsburg and Greibach (1965) have proved, among several other
+interesting theorems, that if L0 is deterministic and R is regular, then
+{a [a/~ in L0 for some fl in R} is deterministic. We take L0 = L _~k and
+.
+We now prove a converse result.
+
+[[p630]] 630 KNUTH
+
+THEOREM. If L is deterministic, there is an LR(1) grammar ~ which
+defines L.
+To prove this theorem, we want to take an arbitrary DPDA with its
+instructions of the forms (33) and (34), and construct a corresponding
+grammar. First it will be necessary to simplify the problem a little, and
+so we will require that all of the instructions of our DPDA are of three
+types:
+type (i) : Aq~a --+ Aqj
+type (ii): Aqi --~ q~ (38)
+type (iii) : Aqi --~ ABqj
+where A, B are intermediates, a is terminal. This involves no loss of
+generality, since a rule (34) can be replaced by Aqia --~ Aq, Aq ---> Oq:
+for some new state q, and we are left with type (i) and rules of the
+form (33). The rule Aq~ --+ Oqj is of type (ii) if 0 is empty, otherwise
+assume0 = A1A~...Atwitht => 1. If A1 ~AwehaveA ~ ~- so we
+can replace (33) by
+Aq~ --~ q, Bq --* BAlq' for all intermediates B, Alq' -+ Oq:
+!
+where q, q are new states. Thus we may assume A -- A1, and hence
+the rule (33) may be replaced by a sequence of t -- 1 rules of type (iii),
+introducing t -- 2 new states, provided t > 1. Finally if t = 1, the rule
+Aq~ -~ Aqj may be replaced by
+Aql --> AAq, Aq --~ q~
+where q is a new state, thereby reducing all rules to the forms (38).
+For any pair Aqi we still have the deterministic property that if more
+than one rule appears with Aq~ on the left, all such rules are of type (i),
+and there is at most one such rule for any particular terminal character a.
+A further assumption is needed about final states. If q:, q/ are final
+states (possibly identical), we want to avoid the situation
+aq: ~ ~q:' (39)
+since this would imply an input string would be "accepted twice" by
+the DPDA. To exclude this possibility, we double the number of states
+in the DPDA, using two states q~, ~ for each original state q~. The
+instructions (38) are then replaced by
+type (i) Aqia ----> Aqj , A~ia ~ Aqj .
+
+TRANSLATION FROM LEFT TO RIGHT 631 [[p631]]
+
+type (ii) Aq~ ~ q~ if qi is not final, Aqi ~ (ti if qi is final, A~ --~ ~..
+type (iii) Aql ~ ABqj if qi is not final, Aq~ --~ AB~j if q~ is final, A~ -*
+A B(l j .
+One easily verifies that (39) cannot occur, and the same set of strings
+is accepted; basically we get into a state ~. if the current string has been
+accepted, and then we do not accept the string again, but return to an
+unbarred state when the next rule of type (i) is used.
+Once the DPDA has been modified to meet these assumptions, let it
+have the states q0, ••• , q, ; we are ready to construct a grammar for
+the language it accepts. We begin by defining the languages L~At for
+0 < i, t < r and for all intermediates A of the DPDA:
+L~At = {a [ Aq~a _t> Aq --+ qt for some q} (40)
+where no step in the derivation represented by "-'>" affects the A appear-
+ing at the left.
+Constl~ct the following productions for all rules (38) of the DPDA:
+Rule
+type (i) Aq~a --~ Aqi
+type (ii) Aql -+ qj
+type (iii) Aqi ---+ ABqj
+Productions for
+LiAr----> aLjAt, 0 = < t = < r.
+LiAr --+ LjB~L~t, 0 < s, t ~ r.
+(41)
+An easy induction based on the length of the derivation "~>" or the
+derivation in ~ establishes the equality of the sets of strings defined in
+(40) and the sets of strings derivable from LiAr using the productions
+(41).
+Another set of languages is also important:
+L~A = {a I Aq~a ~> Ao~q/, some string ~, some final state q/}. (42)
+We construct the following further productions:
+Rule Productions for
+type (i) Aqla ~ Aq] L~A --~ aL~A
+type (ii) Aq~ ~ qj (none) (43)
+type (iii) Aq~ ~ ABq~ Li~ ~ Lj, , Lia --~ LjB~L~ , 0 < s < r.
+ql is final Lia --* e, all A.
+Again, induction establishes the equivalence of (42) and (43). The
+language derivable fi'om Lo~ using ~ is precisely the language L of the
+theorem, by the definition of a DPDA.
+
+[[p632]] 632 KNUTH
+
+Now remove all useless productions from ~, i.e., those which can never
+appear in a derivation of a terminal string starting from L0~. We claim
+the resulting grammar ~ is LR(1). This result could be proved using
+either of the constructions in Section II, where the state sets have a
+rather simple form, but for purposes of exposition we will give here a
+more intuitive explanation which shows the connection between the
+operation of the DPDA and the parsing process.
+Consider any string a-{ where a is accepted by the DPDA, and
+consider the step-by-step behavior of the DPDA as it processes a. At
+the same time we will be building a partial derivation tree which reflects
+all of the information known at a given stage of the parse. The nodes of
+this partial tree will contain symbols [i, A, .] which means that in the
+only possible parsing of the string the intermediate L~at, for some t =
+0, 1, ... , r or t "blank", must fill that position. We will be "at" some
+node [i, A, *] of the tree, meaning this particular node below the handle
+is of interest, and at the same time the DPDA will contain the con-
+figuration .-. Aq~....
+All of this can be clarified by considering an example, so we will con-
+sider the following "random" DPDA:
+Rules of DPDA
+qoa --~ ~ ql
+~-ql ~ ~Aq~
+Aq2a --~ Aql
+Aq~ ~ AAq~
+A q2b --+ A q3
+Aq2c --~ Aq4
+Aq~ ~ q~
+Aq4 --~ q6
+A q6 -'* q2
+~ qsc --+ ~ ql
+ql final
+q3 final
+Productions of ~ (useless ones deleted)
+Lof- --~ aL1F-
+L2at --+ aL1At(t = 2, 5, 6), L2A --~ aLia
+L1~2 ~ Lea6L6A2 , Ll~t "--* L2a2L2.4~
+L2a5 -'~ bL~a~ , L2a -'-+ bL3a
+L~.~6 --~ cL4~
+L3A5 --~ e
+n4a6 -"--> e
+LeA2 ---o e
+Ls~ ~ cL~
+L~a ~ e
+(44)
+Consider the action of the DPDA when given the string aaacb-~.
+We have
+}- qoaaacb -~ -+ [- qlaacb -~ .-.4 ~- A q2aacb ~ --4 }- A qlacb -~ --4 }- A A q2acb -~
+• -} }-AAq~cD -~ ~ }-AAAq2cD -~ --+ }-AAAq4b -~
+
+TRANSLATION FROM LEFT TO RIGHT 633 [[p633]]
+
+Corresponding to these seven transitions we will build the following
+partial tree, one node at a time:
+c [4, A, *]
+\ /
+[2, A, ,]
+\
+a ]1, A, *]
+\ /
+[2, A, *]
+\
+a [1, A, *]
+\ /
+[2, A, ,1
+\
+a [1, [-, *]
+\ /
+[0, ~, ,]
+(45)
+We are now "at" node [4, A, *], signified by the three dots above it. At
+this point the DPDA uses the rule Aq4 --* q6 and we transform the top
+of tree (45) to
+! ~'L i ".
+i C 4a6 i "
+.... %~A6~ ........... zE6, A,,I
+a~ /[1, A,*]
+[~kA,*]
+(46)
+(Thus, two handles are recognized and then removed from the tree.)
+Then the DPDA uses the rule Aq6 --~ q2 and (46) becomes
+i L L6A~ i
+i a... /<L,~ i ".
+[~A,*]
+(47)
+by reducing three more handles. When the rule Aq~b --~ Aq3 is next ap-
+
+[[p634]] 634 KNUTH
+
+plied~ the tree becomes
+b [3, A, *]
+L2~2 [2, A, *]
+\/
+[1, A, ,]
+aN,// (481
+[2, A, *]
+\
+[1, ~, ,]
+a /
+\/
+[o, ~, ,]
+Now q3 is a final state and the next character is " ~ ", so we complete
+the parsing; (48) becomes
+b L3~
+\/
+L2~2 L2~
+\/
+L1A
+a\ // (49)
+L2A
+\
+a LI~
+\/
+Lo~
+Having worked the example, we can consider the general case. Suppose
+the DPDA is in the configuration ..- CAqia ... , and suppose we are
+at node [i, A, .] of the tree. If q~ is a final state and a -= " ~ ", by condi-
+tion (39) we must now complete the parsing, so we proceed to replace
+each [i, A, ,] in the tree by L~u until the root is reached (as in going from
+(48) to (49)). If q~ is not final or a ~ " -~ ", there are three cases de-
+pending on the pair Aq~ :
+Case (i). The DPDA contains a rule of the form Aqia --~ Aqj. Then
+the only possible parse must occur by changing
+
+TRANSLATION FROM LEFT TO RIGHT 635 [[p635]]
+
+from to a [j, A, *]
+[i, A, ,] ~ /
+[i, A, *]
+as we did in changing (47) to (48).
+Case (ii). The DPDA contains a rule of the form Aq~ --+ qj. Then
+our tree must be changed from
+/[ i, A,*]
+X2 [il, A,,.]
+x~ \[~i A2.1
+\
+[i', c,,l
+\
+to i X~\ ?~j
+X2 LqA~j
+X. ~./2A2,
+......... .\/:i .......................... . "c,1
+[i', c,,]
+as we did in changing from (45) to (46) and (46) to (47). Here n _= 0.
+Case (iii). The DPDA contains a rule of the form Aq~ ~ ABqj. Then
+the only possible parse must occur by changing
+from to
+[i, A, .1 [j, B, .]
+\
+[i, A, *]
+as we did while building tree (45).
+Cases (i), (ii), (iii) are mutually exclusive by the definition of DPDA,
+and the arguments are justified by the fact that our tree represents all
+possible productions of the grammar that could conceivably work.
+Notice that in the parsing we actually have almost an LR(0) grammar
+since it was necessary to look at the character following the handle only
+when q~ was a final state, to see if the next character is " ~" or not.
+As a consequence of our two theorems, we find a language can be
+generated by an LR(k) grammar if and only if it is deterministic, if and
+only if it can be generated by an LR(1) grammar.
+The theorem cannot be improved to "LR(0) grammar", since ob-
+
+[[p636]] 636 KNUTH
+
+viously even the simple language { e, a} cannot be given an LR(0) gram-
+mar. However, it is possible to show that the language L ~ can always
+be given an LR(0) grammar; simply take the LR(1) grammar of the
+second theorem, and reapply the first theorem to get another DPDA
+for L 4. This DPDA has only one final state qs, which leads to no
+further states, so the construction of the second theorem applied to this
+new grammar will be LR(0). A deterministic language-in which no
+accepted string is a proper initial substring of any other will likewise
+have an LR(0) grammar.
+Our last theorem shows that "deterministic" is essentially an asym-
+metric property, for there are languages which are translatable from
+right to left but which are not deterministic.
+THEOREM. The following productions constitute an RL(0) grammar for
+which the corresponding language is not deterministic:
+S --* Ac, S --~ B, A -~ aAbb, A --* abb, B ~ aBb, B --~ ab. (50)
+Proof: The terminal strings of this language are either anb~'e or a~b n,
+where n > 0. The grammar is clearly RL(0). On the other hand, suppose
+we could find an LR(k) grammar for the same language. (The problem
+is, of course, the appearance of "c" at the extreme right.) If we consider
+the derivations of the infinitely many strings anb n we must find one in
+which a recursive intermediate appears; thus, there will be an inter-
+mediate C and strings a, ~, ~, ~, w such that S ~ aC~o ~ a~C~o~
+a~o = anb ~ for some n. Now a~t~to~ must be in the language for all
+t >_- 0, and ~ is not empty since the grammar is unambiguous. We see
+therefore that ~ = a ~, ~ = b ~ for some p > 0. This implies that C cannot
+n~2n
+appear in the derivation of any of the strings a o c. For arbitrarily large
+t, the language contains strings a~t+t~+~w = an+P% ~+p~ in which, by
+nonambiguity, the handle must be at least p(t -t- 1) characters from the
+right and must lead to a sentential form a~t+~C~t+~o with p(t -+- 1)
+characters to the right of the handle; yet the language also contains the
+strings a~+P~b2('~+Pt)c which must not have the same handle, so the gram-
+mar cannot be L R(k). By the preceding theorem the language is not
+deterministic in the left-to-right sense.
+When this paper was being prepared, an attempt was made to show
+that the language {a~b~}d U-(a, b)*c cannot be given an LR(k) grammar.
+Although this seemed plausible at first, the following grammar actually
+does work: . . . . . . . . . . .
+
+TRANSLATION FROM LEFT TO RIGHT 637 [[p637]]
+
+S -~ A, S ~ bC, S --~ Bd, S --~ BcC, S --) c
+A ~ Be, A --~ BaC, A --~ aA,
+(51)
+B --+ ab, B ~ aBb,
+C -+ c, C --+ aC, C --+ bC.
+This is an LR(0) grammar.
+Indeed, we can note that a DPDA is able to recognize the complement
+of the strings it accepts, so that if L is a deterministic language not
+involving the character "c," the language L U {acta a string on the
+terminal symbols of L} would actuMly be deterministic, contrary to
+expectations. This weakens the argument that "comment" in Algol 60
+might make it a non-RL language.
+VI. REMARKS AND OPEN QUESTIONS
+The concept of LR(k) grammars sheds much light on the translation
+problem for phrase structure languages, and it suggests several inter-
+esting areas for further investigation.
+Of principal interest would be the study of grammatical transforma-
+tions which preserve the LR(k) condition. Many such transformations
+are well known (for example, the removal of "empty" from a grammar;
+elimination of left-reeursion; reducing to a "normal form" in which all
+productions are of type A -~ BC or A --~ a; the operation of transduction
+which converts a grammar to another grammar for its translation; and
+many special cases of the latter). Which of these grammatical modifica-
+tions take LR(!c) grammars into LR(k) grammars? Similar questions
+apply to bounded context and bounded right context grammars.
+Another important area of research is to develop algorithms that
+accept LR(k) grammars, or special classes of them, and to mechanically
+produce efficient parsing programs. In Section III we indicated three
+ways to simplify the general parsing schemes produced by our construc-
+tion and many more techniques certainly exist. A table such as Table II
+shows essentially all of the information available during the parsing, and
+much of it can be recognized as repetitive or redundant.
+There are also implications for automata theory. We have shown that
+a deterministic push-down automaton accepts precisely those languages
+that. can be given an LR(h) grammar. This result can be strengthened
+to show that in fact such languages can always be given a bounded right
+
+[[p638]] 638 KNUTH
+
+context grammar: We
+changing
+simply modify the construction (41), (43) by
+Li~t -4 a to L~.~t ----> M~a
+L~a -~ a to L~ -~ M~a
+and adding the productions M~ --~ e for all i, A. This has the effect of
+keeping the necessary information in the sentential form that has been
+parsed.
+The question is, however, what type of automaton is capable of accept-
+ing precisely those languages for which a bounded context grammar can
+be given. The bounded context condition is symmetric with respect to
+left and right, and we have shown that the deterministic property is
+not; for example, the mirror reflection of language (50) is a deterministic
+language which cannot be defined by a bounded context grammar.
+The speed of parsing is another area of interest. Although LR(/c)
+grammars can be efficiently parsed with an execution time essentially
+proportional to the length of string, there are more general grammars
+which can be parsed at a linear rate of speed. This may involve, for
+example, backing up a bounded number of times, or scanning back and
+forth from left to right and right to left in combination, etc. For every
+general parsing method known, there are grammars which cause it to
+take an exponential amount of time; yet it has never been proved that
+the parsing problem is necessarily inefficient in general. Are there par-
+ticular grammars for which no conceivable parsing method will be able
+to find one parse of each string in the language with running time at
+worst linearly proportional to the length of string? Are there general
+parsing methods for which a linear parsing time can be guaranteed for
+all grammars? (In these questions, a parsing method means a process of
+constructing a derivation sequence from a terminal string by scanning a
+bounded number of characters at a time.)
+Finally, we might mention another generalization of LR(k) to be ex-
+plored. The "second handle" of a tree may be regarded as the left-most
+complete branch of terminals lying to right of the handle, and similarly
+we can eonsider the r-th handle. A parsing process which always reduces
+one of the first t handles leads to what might be called an LR(k, t)
+grammar. (In our ease, t = 1.) The grammar
+S ~ ACe, S ~ BCd, A --* a, B ~ a, C ~ Cb, C ~ b (52)
+
+TRANSLATION FROM LEFT TO RIGHT 639 [[p639]]
+
+is not LR(k, 1) for any k, since "a" is the handle in both abnc and
+abnd; but it is LR(0, 2). The following reduction rules serve to
+parse (52):
+ab ~ aC, Cb ~ C, aCc ~ ACc, aCd ~ BCd, ACc ---+ S, BCc ~ S.
+One might choose to call this left-to-right translation, although we had
+to back up a finite amount.
+RECEIVED: June 23, 1965
+REFERENCES
+CocK~, J., AND MINSKY, M. (1964), Universality of Tag systems with P = 2.
+J. Assoc. Comput. Mach. 11, 15-20.
+EARLEY, J. (1964), "Generating Productions from BNF" (preliminary report).
+Carnegie Institute of Technology.
+EICKEL, J. (1964), Generation of parsing algorithms for Chomsky type 2 languages.
+Tech. Hoch. M~nchen, Bet. //6401.
+FLoYn, R. W. (1963), Syntactic analysis and operator precedence. J. Assoc. Corn-
+put. Mach. 10, 316-333.
+FLOYD, R. W. (1964a), Bounded context syntactic analysis. Commun. Assoc.
+Comput. Mach. 7, 62-66.
+FLOYD, R. W. (1964b), "Now Proofs of Old Theorems in Logic and Formal Lin-
+guistics." Computer Associates, Inc., Wakefield, Massachusetts.
+GINSBURG, S., AND GREIBACH, S. (1965), "Deterministic Context-Free Languages"
+(preliminary report). Am. Math. Soc. Not. 12, 246, 367.
+IRONS, E. T. (1964), "Structural connections" in formal languages. Commun.
+Assoc. Comput. Mach. 7, 67-71.
+LzNc~, W. C. (1963), "Ambiguities in BNF Languages." Thesis, Univ. of Wis-
+eonsin.
+NAU~, P., ed. (1963), Revised Algol 60 report. Commun. Assoc. Comput. Mach. 6,
+1-17.
+P~us, M. (1962), A general processor for certain formal languages. Proc. Syrup.
+Symbolic Languages in Data Processing, Rome, I962. Gordon and Breach,
+New York.
+POST, E. L. (1947), Beeursive unsolvability of a problem of Thue. J. Symbolic
+Logic 19., 1-11.

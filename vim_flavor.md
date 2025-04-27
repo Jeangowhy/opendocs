@@ -1,11 +1,2580 @@
 
 
+# 🚩 让世界多一份 Vim 教程：Topdown 式入门姿势
+https://vscode.dev/github.com/kxzk/library/blob/master/vim
+
+Vim 是一个开源的自动化文本编辑软件，历久弥新，现在迎来了 Vim 9.0。这是一篇为写作、阅读者
+用好 Vim 这款自动化文本工具而作的教材。内容涉及 Vim 软件基本结构说明，编程与自动化思维应用。
+写作目的是解决当前 Vim 文档以及公开资料中缺少一种系统化视角的教学材料。普遍地以一种盲人摸象
+式的形式组织文字，更多的是过于关注每个琐碎功能细节，而缺少对 Vim 本质的把握。诚然，对于研究
+任何一个大型的系统，开始就是一种自知或者不自知的盲人摸象式的学习过程，因为知识的掌握不可突变。
+但是如果以一个成熟者的心态角度，给起步时的自己献礼，那么这种原原本本呈现自己曾经走过一遍的
+摸象之路的做法，肯定不是最佳的选择。我想的是，应该从起步是的那种朦胧状态态开始，为过去的自己
+重新设计一条更正确的道路。当然，这需要创作者清晰记得自己的走过来的路程，而不是吃上水了就忘记
+打井的人，这种比喻好像不那么贴切。
+
+本文会在一些地方对 Vim 官方文档内容组织上的问题作出批评。但是必需指出，产品文档与本文的写作
+动机完全不同，作品文档旨在全面阐述功能特性，内容组织的逻辑是按产品组成结构来编排的。而不同于
+本文的创作动机，完全是以应用目标为导向，或者说是发挥 Vim 这个编辑软件的特长而进行内容编排。
+
+这里立个愿：有生之年出一本《让世界多一份教程》。汇报一下自己所喜爱的开源软件作品，想必这是给
+开源社区做的最好的工作了。目前在 B 站上已经发布了部分收录在 OpenDocs 电子仓库的内容：
+
+• [《让世界多一份 Graphviz 教程！》](https://www.bilibili.com/opus/1033642025060139017)
+• [《让世界多一份 Inkscape 教程：SVG 漫谈》](https://www.bilibili.com/read/cv34045046/)
+
+回到正题，以下是 Vim 的部分核心功能：
+
+• 开放的软件数据模型：tabpage/window/popup/buffer/register；
+• 多种工作模式（状态，mode），包括最基本的：普通模式、命令模式、编辑模式（insert）等等；
+• Vim Script 专用脚本、Shell 脚本支持，与开放的外部脚本接口，包括 Python、Lua 等等；
+• 可编程命令、键盘按键序列、命令自动化与自定义，程序化响应用户输入，支持命令与按键令映射（map）；
+• 完善的在内置帮助文档，文本格式，带有 tag 标记、支持帮助主题、关键词跳转；
+
+如果以自动机理论的角度来总结 Vim 编辑器，用一句来说就是：有多种模式与用户互动的软件自动机器。
+可以将看作一款即时响应的编程机器，通用编程行业中称为交互式 Read-Eval-Print Loop (REPL)。
+也就是用户输入脚本代码，解析器（Vim）直接给出运算结果或者响应，然后循环整个过程直到用户退出。
+因此，Vim 是一个自带编程功能文本编辑器，它本身就是一个 Vim 脚本引擎！
+
+Vim 项目伴随整个电子计算机发展历史，这使得它继承了非常多的历史遗产，直接使得它的项目变得复杂。
+这一点直接体现在它的脚本编程上，可以直接查询 [Vim 源代码](https://github.com/vim/vim)
+了解细节技术，包括 runtime 目录下的运行时初始化脚本以及各种功能配置脚本。
+
+开始之前先到官方网站下载 [Vim](https://www.vim.org/) 并解压安装到自己的系统中，并且将
+vim 命令所在的目录添加到系统的 PATH 环境变量中，方便执行命令。
+
+但是 Neovim 通过允许插件使用“更通用的语言”在 Lua 中编写插件来超越 Vim 。并不是说 Vim 的内置语言不好，而是如果您想要类似 IDE 的功能，设置会变得很复杂。而且，对于实际的编程语言，这种配置比 Vim 更容易。经过 20 多年的发展，Vim 已经积累了超过 30 多万行 C89 代码，单靠几个人的
+力量维护显然不切实际，应该适时引入外部力量。
+
+作为一个 Vim 分叉项目，[Neovim](https://github.com/neovim/neovim) 也是不错的选择。
+由于 Vim 目前的代码库的管理存在两个问题：Vim 的首席开发人员没有将其培养一个社区友好的项目，Vim 的主要开发和讨论还是在邮件列表上。与 Neovim 相比，Vim 代码库的可维护性较差。NeoVim
+自诞生以来，它就专注于提高自己的扩展性与易用性，例如内置终端、异步执行这两个比较重要的功能、
+弹出窗口（用于显示调试消息和自动完成建议）。浮动弹窗这个功能现在 Vim 也有，但是它是受到强大
+的社区“压力”后才被 Vim 采用。
+
+Neovim 内嵌的可编程 terminal emulator 可以像一般文档一样使用 Vim 功能对其进行编辑，
+只需通过 `:set modifiable` 配置为读写状态。使用 `:terminal` 进入终端执行各种操作，
+使用 `<C-\><C-N>` 键或者鼠标拖选可以让终端进入一般模式或者区块选择模式，然后再通过进入
+插入模式和各种按键 (a A i I 等等) 来继续执行 shell 命令操作。
+
+注意：Windows 系统中，Neovim 默认设置 `shell=cmd.exe`，`shellcmdflag=/s /c`。
+如果两都不匹配，比如 shell 变成 bash，那么就可能出现命令解释错误，应该修改配置：
+
+    " avoid: /usr/bin/bash: /s: No such file or directory
+    if executable('bash')
+      set shell=bash
+      set shellcmdflag=-c
+    endif
+
+Neovim 终端文档： [Terminal](https://neovim.io/doc/user/terminal.html)
+
+
+## First Things First
+
+在正式使用 Vim 程序之前，需要了解一些 Vim 软件结构设计方面的知识。我称之为 Vim Layout：
+Vim 是一个自动机器，是机器就有不同的工作状态，只能通电了才能工具。Vim 也一样，它的“电力”
+就是用户输入，也称用户交互。第一个要掌握的 Vim 技能应该是“开机”和“关机”。首先，执行命令
+打开 Vim 主界面：
+
+```vim
+┌──────────────────────────────────────────────────────────────────────┐
+│                                                                      │
+│~                         VIM - Vi IMproved                           │
+│~                                                                     │
+│~                         version 9.0.2070                            │
+│~                      by Bram Moolenaar et al.                       │
+│~       Vim is open source and freely distributable information       │
+│~                                                                     │
+│~                  Help poor children in Uganda!                      │
+│~         type   :help iccf< Enter>      for information              │
+│~                                                                     │
+│~         type   :q<Enter>               to exit                      │
+│~         type   :help<Enter> or         for on-line help             │
+│~         type   :help version9<Enter>   for version info             │
+│~                                                                     │
+│~                                                                     │
+│~                                                                     │
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+欢迎屏幕只显示了 Vim 版本信息和几个帮助命令，还有一个教用户退出 Vim 的命令 `:<Enter>`。如果
+用户没看清楚，或者误敲按键，那么新手用户就有可能错失首先正确关闭 Vim 的机会。刚进入的 Vim 程序
+此时处于普通模式，也可以称为正常模型（Normal Mode）。可以用状态图来表示 Vim 的工作状态，这里
+就以最基本的 Normal、Insert、Command-line 等状态来说明 Vim 的自动化工作模型。更多的模式
+操作可以参考 intro.txt mode-switching 文档。
+
+• 正常模式：或称编辑、插入模式，Vim 等待用户按键，包括字符键和组合快捷键，以执行各种命令。
+• 插入模式：Vim 接收用户从键盘中键入的字符串，可以使用快捷键执行功能或者 `<Esc>` 返回正常模式。
+• 命令模式：用户在正常模式下输入 `:` 进入命令模式，此时可以在单行文本框中输入 Vim 内部命令。
+• 可视模式（visual mode）：可以通过控制光标选择一段连续（以字或行为单位）的内容。
+• 区块模式（visual block mode）：可以通过控制光标在多行内容上框选一块区域的内容。
+
+特别地，在插入模式下，为了方便临时执行命令而不是切换到命令模式，Vim 提供 `<CTRL-O>` 快捷键。
+为了区别这个专用于插入模式下的组合键，文档中使用带有模式简称前缀的标记 `i_CTRL-O`。这种临时
+方式只能执行一些简单的命令，比如修改、删除、内容并行等等。
+
+这里使用 `<Enter>` 这样的尖括号包裹的内容表示一个键盘上的功能键，并且组合键开头的修饰键可以
+使用 `<C><M><S>` 简写记号（notation），分别表示 Ctrl、Alt/Meta、Shift 按键。这是 Vim
+的键盘记号约定，其它字符则按其字面量表示，在设置键盘按键映射时也使用这样的表达形式。命令中的 
+`:` 对应 Vim 命令模式中的冒号。
+
+                            ┌───────────────┐     ┌───────────────────┐
+                            │  Visual mode  │     │ Visual block mode │
+                            └───────────────┘     └───────────────────┘
+                              │  v/V/gv   │          ^   <Ctrl-v>  │<Esc>
+                              │   gh/gH   │          │  g<Ctrl-h>  │<Esc>
+                              │           │          │  g<Ctrl-H>  │<Esc>
+                              │           └──────────┤             v
+                        <Esc> │                   ┌───────────────────┐
+           ┌──────────────────└──────────────────>│    Normal Mode    │
+           │                                      └───────────────────┘
+    ┌──────────────┐                                      │  ^   
+    │ Command-Line │                 Insert mode commands │  │ <Esc>
+    └──────────────┘                                      │  │ <CTRL-C>
+           │               :start                 ┌───────v───────────┐
+           └─────────────────────────────────────>│    Insert Mode    │
+                                                  └───────────────────┘
+
+其中的 Insert mode commands 代表一组用不同方式插入内容的命令 (inserting)：
+
+    [count]a   Append text after the cursor.
+    [count]A   Append text at the end of the line.
+    [count]i   Insert text before the cursor.
+    [count]I   Insert text before the first non-blank in the line.
+    [count]gI  Insert text in column 1.
+           gi  Insert text in the same position as where in the current buffer.
+    [count]o   Begin a new line below the cursor and insert text.
+    [count]O   Begin a new line above the cursor and insert text.
+
+以上示意图有五个框分别代表 Vim 中的 5 种模式，但是可视模式 Visual mode 和 Visual block
+两种细分模式可以看作一种，因为它们是为内容选择设置的。内容选择有以字符方式延伸的、有以行为单位
+延伸的。还有以块的方式选择，这也就是 block 模式的含义。可以使用以下键盘激活选择模式，后面也称
+这种直接通过按键执行的功能称为命令。与命令行输入的命令其实是等价的，它们都可以在 Vim 脚本中找
+到同样功能的代码实现形式，它们都是以键盘映射的方式建立按键与功能对应关系。从正常模式到选择模式
+转换不仅仅只有一种按键，默认就配置就有 v/V 和 gh/gH 这两对，它们分别为字符选择/行选择模式。
+以及 `<Ctrl-v>` `g<Ctrl-h>` `g<Ctrl-H>` 等按键进入块反选模式。额外还有一个 gv 命令，
+它的作用是重选原来选择的内容，包括字符选项、行选择或者区块选择。
+
+一般在选择模式下选择好内容后，下一步就是要做内容的复制（y）、删除（d）、改动（c）等动作，但现在
+重点不是这些内容，它们将安排到后续 Fly in the Vim World 部分细讲。
+
+Vim 的命令都是可编程的，因为它们本身就是暴露到命令行中的 Vim 脚本环境中的函数，也就是说，
+使用命令就是在调用 Vim 内置函数，只是它们的语言形式不同。Vim 脚本中使用内置的函数时，没有
+省略一说，但是为了方法用户使用，Vim 命令行中使用的命令却有简写形式和完整形式，并且在文档中
+使用方括号包裹可简写的部分。比如内容替换命令 `:s[ubstitute]`，这只是它的名称部分，命令的
+完整形式还包括前缀参数和后缀参数。由于插入命令实在太常用，所以它只提供最简写的形式，命令名称
+前面的 `[count]` 就是一个前缀参数，表示一个数值，用于控制命令执行的重复次数。这是其中一种
+参数类型，还有控制内容行号范围的，比如 `:[range]go[to]` 命令，跳转到文件指定字节数的位置。
+
+举例来说：
+
+• 在当前行末端添加 10 个 x 字符：`:10Ax<Esc>`；
+• 或者添加 10 行空内容：`10A<Enter><Esc>`。
+
+一旦设置好参数 ([count])，Vim 状态机记下此值，从正常模式进入编辑模式，输入的所有内容，直到
+用户按下 `<Esc>` 返回到正常模式前的内容都是会被重复的内容。也可在插入模式使用 `<Ctrl-O>`
+临时执行命令，然后返回编辑状态，而不是切换到命令模式。这个功能方便需要频繁使用命令编辑的情况。
+
+还有 `:[range]gg` 命令，用于跳转到指定行，或者默认跳转到首行。跳转到末行使用 `:G` 命令。
+注意，`gg` 命令是一个使用了全局前缀的命令，即首个 `g` 其实是 Commands starting with 'g'。
+还有很多命令使用 g 作为前缀的。并且这些命令很容易和全局命令 `:g[lobal]` 搞混，这是一个全局
+重复控制命令，用于重复执行其它命令。它的完整形态是 `:[range]g[lobal]/{pattern}/[cmd]`，
+因为和替换命令一样涉及了正则表达式匹配规则，所以将在后面一起说明。
+
+以上是通过键盘常规字符来触发 Vim 命令的常规操作，此外，Vim 还可以设置组合键来执行命令操作，
+而不必在命令模式下输入。比如 `CTRL-W_v` 或者 `CTRL-W_s`，快捷键对应的是以下两条用于窗口
+分割的命令，分别是竖直方向分割和水平方向分割，前缀参数 [N] 指定高/宽度的行列数：
+
+• :[N]vs[plit] [++opt] [+cmd] [file]
+• :[N]sp[lit] [++opt] [+cmd] [file]
+
+除了这么多的执行命令的形式，在按键映射设置文档（map.txt）最后一节，还祭出了用户自定义命令
+这一强大的功能，它被大量应用于插件开发。还有专门一个 autocmd.txt 文档解说的自动化命令，
+看它们的参数就知道有复杂，这也许可以看出来它的功能强大。既有事件处理，又有正则模式匹配，还
+可以根据文件类型来设置要执行的命令。
+
+• :com[mand][!] [{attr}...] {cmd} {repl}
+• :au[tocmd]! [group] {event} {pat} [++once] [++nested] {cmd}
+
+
+好了到这里，已经完成基本的内容编辑功能，现在来保存内容，并可以退出 Vim 了。执行以下命令：
+`w noname.txt | q`，这是两条命令，在命令行中使用 `|` 来分隔多条命令。并且这是使用的
+是 `:[range]w[rite] [++opt] {file}` 和 `:q[uit]` 命令的简写形式。特别地，当命令
+执行时遇到一此条件限制，比如文件存在且设置为只读状态，那么就需要强制执行命令：即在命令名称
+后缀一个感叹号，就像 `:q[uit]!` 这样的形式。
+
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│AAAAAAAAAA                                                            │
+│~                                                                     │
+│~                                                                     │
+│~                                                                     │
+│~                                                                     │
+│~                                                                     │
+│~                                                                     │
+│~                                                                     │
+│~                                                                     │
+│~                                                                     │
+│~                                                                     │
+│~                                                                     │
+│~                                                                     │
+│~                                                                     │
+│~                                                                     │
+│~                                                                     │
+│──────────────────────────────────────────────────────────────────────│
+│:w noname.txt | q                                                     │
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+至此，Vim 已经完成了一个编辑器的基本工作流程，打开-编辑-保存-退出。Vim 提供了自动备份功能，
+默认在 Unix 系统启用（"yes")，其它系统自动（"auto"）。备份文件以 *.swp 或者存在多个备份
+文件（未正常退出导致）时按字母顺序增加，比如 *.swq 或者 *.swr 等等。在下次打开文件时，会
+检测备份文件是否存在，如果有则提示用户做选择。使用 'backupcopy' 选项配置。'backupdir'
+选项设置备份文件的保存目录，默认优先保存在当前目录，其次是临时目录。
+
+除了最基本的普通模式（normal）、插入模式 (insert)、命令模式 (command-line)，Vim 还有多种
+模式，其中一种较特殊的 ex (Ex mode) 精简模式，也可以称之为专家模式。它是古老 ed 编辑器的模拟，
+工作方式有和 sed 也类似，编辑器运行界面以行为单位器的可视模式。可以使用 `vim -e` 命令进入，
+也可以使用 `:vi[sual]` 和 `:Q` (Ex-mode) 两个命令在一般模式、精简模式间切换。精简模式下
+使用一些与常规模式中不同的命令，参考文档 ex-cmd-index。此模式最大的不同就是，缺少即时的响应，
+它几乎总保持在命令模式。比如 `:10<Enter>` 跳转到第十行，直接回车进入下一行。可以使用 `:i`
+命令在当前行插入内容，但需要按 `<C-C>` 来返回到命令行，并且在编辑的过程中有可能你会不知道当前
+所在行。使用 `:1,$p` 命令打印文件所有行内容，使用 `:1,2s/.*/new \0/` 在首两行前插入 new
+这个词。精简模式主要是为了方便做单个文件的处理，并且可以快速切换编辑其它的文件。并且当前只打开
+一个文件进行编辑，`edit` 命令打开新文件时也同时关闭旧文件。
+
+Vim 提供了一个称为 digraph 的功能用于输入 ASCII 字符集不能表示的符号，包括各种制表符号、各种
+语言的字母，数学符号，也包含日语假名。这些符号使用两个可以通过标准键盘输入的 ASCII 字符表示，
+有两种方式在 Vim 插入模式中调出这些特殊符号，`CTRL-K {char1} {char2}`，或者激活选项时，
+启用的方式：`:set digraph` 然后通过 `char1} <BS> {char2}`  键入。可以在键入时打开帮助
+内容中的符号表来参考输入，`:help digraph-table` 或者 `:help digraph-table-mbyte`。
+或者参考组织更有条理的 [RFC-1345 Digraphs](https://sheet.shiar.nl/digraphs)。
+
+用户也只可以创建自己的符号表，使用 `:dig` 命令跟着一或两个 ASCII 字符，再跟着 Unicode 编码。
+注意，使用空格隔开编码，并且要使用 10 进制的值，可以使用 `:exe` 命令执行表达式，间接使用十六
+进制值。这些新添加的符号会自动分配一对 ASCII 编号，可以使用无参数的 `:dig` 命令查询。使用
+Unicode 符号，就需要配置 Vim 使用 UTF-8 编码方案。
+
+```vim
+dig  :(  9785    " ☹  White Frowning Face  Ctrl-k :(
+dig  :)  9786    " ☺  White Smiling Face   Ctrl-k :)
+dig  <3  9829    " ♥  Black Heart Suit     Ctrl-k <3
+
+exe 'digr += ae' .. 0x259F " 9631 ▟ QUADRANT
+```
+
+Vim 还提供缩略词（abbreviations）输入功能，比如，先定义一个缩略词 `:iab latex \LaTeX`，
+然后在插入模式下，输入 `latex<Space>` 就会被替换为 `\LaTeX`，使用非常方便。缩略词功能会
+根据 `:set iskeyword?` 命令查询到的当前关键词范围设置来避免错误的替换。默认的关系词设置
+`iskeyword=@,48-57,_,192-255` 是一个包含 @ _ 符号、数字和大小写字母组成的字符串。因此，
+在输入缩略词时只有按空格后才会被替换，否则它作为一个关键词时会被原样保留。你甚至可以配置缩略
+词来输入特殊符号，比如 `:iabbrev omega Ω`，这种功能类似使用内置的 `:digraph` 命令。
+缩略词可以绑定到缓冲区对象上，限制其作用范围，比如 `:iabbrev <buffer> --- &mdash;`。
+可以配合后面讲解自动命令及脚本来深度定制。
+
+
+Vim 也支持加密数据，主要是使用 Blowfish 对称（解密加密同密钥）、区块加密块算法，由 Bruce 
+Schneider 于 1993 年设计，现已应用在多种加密产品。Blowfish 能保证很好的加密速度，目前为止
+没有发现有效地破解方法。输入 `vim -x new_file.txt` 命令就可以开始加密模式，如果输入的密码
+与原密码不一致，解密得到的是无效信息。并且使用不同的密码进行多层的加密解码，并不能恢复原始数据。
+
+这里有必要区分一下命令与 Vim 脚本函数的差异。首先，bash 命令行执行时也可以指定 Vim 运行
+其内部命令。以下 bash 脚本演示了如何让 Vim 像 sed 这样的命令一样对数据文件进行批处理，
+使用的是 Ex mode 的命令：
+
+```bash
+vim --cmd "echo 'before init'" -c "echo 'Hi batch mode'|quit"
+vim -E -s some.dat < some.vim
+vim -s /dl/abc.vim
+
+vim -E -s some.dat <<EOF
+   :%substitute/home.html/index.html/
+   :update
+   :quit
+EOF
+```
+
+命令行中执行 Vim 命令和脚本的区别主要在特殊符号的处理上。两个环境都可以使用 `"` 双引号作注解，
+Vim9 则以 # 作为脚本中的注解符号，但其本身在命令行中作交替文件名使用，参考 cmdline-special。
+竖线符号是 :bar 命令分隔符号，脚本中映射按键时就需要转义表达 `\|`。它不是 Shell 的管道 pipe。
+命令行与脚本区别除了特殊符号外，一般语法是一致的，比如 `:set shortmess=-S` 可以在脚本中写成
+`set shortmess=-S`，它们的作用一样，都是将 S 标志从选项中移除。
+
+
+## Help on Vim Help
+
+用好 Vim 的第一步应该就是掌握内置的 txt 格式的帮助文档，为了方便阅读，可以按照 help.txt
+这个入口文档中的目录结构将其合并到一个文件。[vim_9.0.doc](vim_9.0.doc) 是已经合并的
+并且排除了体积较大的版本变更相关内容，即不含 version4.txt ~ version9.txt 这些文档。
+为了便于使用，可以在配置脚本中映射快捷键以打开这个合集帮助文档，具体原理在后面的小节说明：
+
+```vim
+"" vim ~/.vimrc
+"" Press Ctrl+H to view Vim 9.0 Documentation all-in-one version
+map <C-H> :edit /c/opendocs/vim_9.0.doc\|set filetype=help
+```
+
+文档可以划分为几个部分：
+
+• 官方自带的多国语言入门教程，可以使用 `vimtutor zh` 这样的命令运行它。
+• 帮助入口（help)，此部分是帮助文档的总目录。
+• 关于帮助命令、文档的使用（helphelp)，说明 help 命令的使用。
+** `:h[elp] {subject}` 打开指定证明 {subject} 的帮助文档；
+** `:helpc[lose]` 关闭现有的帮助文档窗口；
+** `:helpg[rep] {pattern}[@xx]` 在主题模糊的情况下，搜索所有 txt 帮助文档；
+• 用户手册（user-manual)，罗列了完整的 Vim 命令，主要用于查阅。
+** 入门基础，喜好配置，Getting Started, `usr_01.txt` - `usr_12.txt`
+** 探索完整的界面功能，Editing Effectively, `usr_20.txt` - `usr_32.txt`
+** 命令定义、界面调整、语法高亮，Tuning Vim, `usr_40.txt` - `usr_45.txt` 
+** 插件开发，Writing Vim scripts, `usr_50.txt` - `usr_52.txt`
+** Making Vim Run, `usr_90.txt`
+• 参考手册（reference_toc)，此部分给入门级用户阅读，基囊了基本的 Vim 知识点。
+** 基本参考，`intro.txt`
+** 命令索引，`index.txt`
+** 标记索引，`help-tags.txt`
+** 常用功能，`howto.txt`
+** 以及其它基础高级参考内容，Basic editing & Advanced editing
+• 快速参考（quickref)，此部分给半生不熟的用户用来快速查阅各种命令。
+
+你阅读的第一个完整的 Vim 脚本可能是 `vimtutor` 命令（脚本）中调用的 `tutor.vim`，它的
+目的是拷贝教程源文件到临时目录中。其中参数 `-u NONE` 表示不加载默认的 `~/.vimrc` 配置，
+它本身也是 Vim 脚本文件。Vim 将文件路径记录在 % 这个寄存器中，在命令模式中按键查看这个
+临时文件的路径：`<Esc>:%<Enter>`。这里并不是在命令行中直接通过寄存器名称符号来读取其内容，
+而是因为 % 是 Vim 脚本环境中的一个特殊命令符号（cmdline-special）。
+
+```sh
+:use_vim
+:: The script tutor.vim tells Vim which file to copy
+call vim -u NONE -c "so $VIMRUNTIME/tutor/tutor.vim"
+IF ERRORLEVEL 1 GOTO no_executable
+
+:: Start vim without any .vimrc, set 'nocompatible'
+call vim -u NONE -c "set nocp" %TUTORCOPY%
+```
+
+Vim 受上世纪 90 年代的 Amiga 个人计算机系统上的 Manx's Aztec C compiler 编译工具影响，
+实现了一个称为 quickfix 的基于“错误信息列表”的功能。这个古老编译器通过收集错误信息列表，并且
+使用 vim 的跳转到指定代码位置，然后修复错误，以实现 edit-compile-edit cycle 工作流程。
+这个功能也被用于 Vim 的帮助文档的全局搜索、以及目录搜索功能中。Vim 提供两组命令分别收集文件
+内容的定位信息列表 (location list)，命令带有 l 前缀。与之相对的是 quickfix list 的命令。
+这两种列表都有对应的只读 changedtick 变量来记录列表变更的总次数。分别使用 `ll` 和 `cc`
+命令来查看/定位到指定 nr （number row）位置上的内容：
+
+    :lvimgrep   :lgrep   :lhelpgrep   :lmake    :[nr]ll[!]  :lli[st] 
+     :vimgrep    :grep    :helpgrep    :make    :[nr]cc[!]  :cl
+
+其它相关命令可以查阅快速参考文档 Quickfix commands。
+
+Vim 帮助文档自带 tag 标记，也就是文本中使用 * 星号包裹的、由字母和连字符号组成的字符串标记，
+帮助命令可以直接通过它定位。同时，帮助命令也可以通过文档名称来定位，比如 `:help map.txt`。
+用户也可以编写含有 tag 标记的文档导入到 Vim，使用 `:helptags path/to/doc/` 命令给指定
+目录下的文档生成标记索引文件，并保存在同目录中的 tags 文件中。然后就可以通过 `:help` 命令
+查看导入的帮助文档。注意，Vim 只将 'runtimepath' 目录列表中的 doc 子目录作文档目录。
+
+在输入命令时，或者命令选项（有空格与命令隔开），可以使用 `<Ctrl-D>` 或者 `<Tab>` 按键激活
+备选内容列表，列表内容包括相似名称的命令、相似名称的参数、可用参数等等。比如，`:syntax` 命令
+用于打开语法高亮功能，可以使用，`:syntax <Ctrl-D>` 查看可能的选项，包括 *on* 和 *off*
+两个基本项。又比如，`:color` 命令用于打开主题配置方案，可以使用，`:color <Ctrl-D>` 查看
+内置配色方案。也可以使用 `:color<Ctrl-C>` 查询到这个命令的完整形式是 `:colorscheme`。
+
+Vim 提供 `Ctrl-]` 快捷键跳转当前光标下的 tag 所指向内容，`CTRL-T` 和 `CTRL-O` 返回。
+
+此外，帮助文档提供了多种标记来定位：
+
+• 文档标记：比如文档名 `editing.txt` 或者章节标记 `edit-intro`。
+• 命令标记：比如 `:display` 或者简写形式 `:di`。
+• 函数标记：比如 `execute()` 函数无简写形式。
+• 快捷键标记：`<C-W>` 或者 `CTRL-W_CTRL-N`，`_<C-R>_<C-W>`。
+• 带有模式缀的标记：比如插入模式专用快捷键 `i_CTRL-O`。
+• 特性功能标记：`+feature-list`，`+syntax`，``。
+• 选项标记（options.txt）：`'hlsearch'`，`'hls'`。
+
+注意，键盘标记使用连字符 - 表示组合键，下划线 _ 表示连续的分组按键。`<Ctrl>` 按键还使用
+`^` 符号表示，比如 `:h ^6` 查看用于切换编辑文件的命令默认绑定的快捷键。用户设置的按键映射，
+可以直接使用不带参数的 `:map` 等命令进行查询，不同的映射命令查询不同模式下的映射规则。
+
+要批评一下 Vim 的一点是，用于控制搜索时的高亮显示的 `hlsearch` 是使用 `:set hlsearch`
+命令设置的选项，但是你不能用同样的方式来禁止它。而是通过另一个命令 `:nohlsearch` 来控制
+临时关闭高亮显示，以及使用 `:set nohlsearch` 完全关闭高亮显示。当然，也可以通过“非法”
+的正则语言来实现，比如 `$^` 这是一个永远不会有匹配的规则，没有内容会是“行尾在行首”。
+
+注意，设置变量和设置选项分别使用 `:set` 命令和 `:let` 命令。
+
+帮助内容或主题的跳转，这些将在下一节统一说明，这些功能逻辑上和编辑文档时的光标移动定位是一致的，
+应该在一个主题中进行学习。
+
+Vim 提供了两个非常便利的执行外部命令（External commands）的命令，还有一个正常模式下的
+功能键 `K` 用于执行外部的帮助信息供应程序，关键字为光标下的标识字符串。
+
+可以设置 `set keywordprg=man\ -s` 这样的选项指定辅助命令，Vim 会连带关键词与此值拼接
+调用外部命令。默认使用的是 Linux 系统自带的 `man` 命令：
+
+    :sh[ell]        start a shell
+    :!{command}     execute {command} with a shell
+       K            lookup keyword under the cursor with
+                    'keywordprg' program (default: "man")
+
+Vim 并不是万能的，有些功能也不一定比起 VS Code 这此新式的编辑工具先进，比如基于正则的
+多选功能、块操作。但是它还是变化，并且存活足够长的时间，这足以证明它的优秀。并且它足够开放，
+允许让用户进行功能上的扩展，以使它更灵活，更能满足个人定制需求。
+
+除了执行外部命令，Vim 也提供插入外部文件或命令输出内容到编辑区（Special inserts），默认
+插入内容到光标下，可以在 [range] 指定插入位置。有了这个功能就可以和外部程序建立密切联系，
+比如向文档插入当前时间 `:r!date`，或者利用 bash 的脚本能力，`:r!echo {A..Z}` 快速生成
+26 个字母表。又或者通过 curl 或者 sed、pandoc 这类工具获取网络信息并且加以处理再导入到
+文档中。通过这种能力，可以将 Vim 命令行的内容插入到文档中。当然，这也不是什么特异功能。
+VS Code 这类新式编辑器也能实现这的功能，包括将当前选择的文本内容作为 bash 脚本发送到当前
+活动的终端中执行：
+
+    :{range}r[ead] [++opt] [name]
+    :[range]r[ead] [++opt] !{cmd}
+
+Vim 实现的方法是将 `:r!` 后面的命令字符串提出出来，然后以 bash 命令解析它并将结果重定向
+到临时文件，命令执行完成后，Vim 再读取输出内容并修改文档的 buffer 数据对象完成内容的插入。
+这个过程可以在命令编写格式不正确，导致运行出错时给出的报告信息分析得出：
+
+```vim
+    :r!curl https://www.vim.org/ | pandoc -tasciidoc -rhtml
+    
+    " bash -c `(cmd)>/tmp/file`
+```
+
+这里需要注意，Vim 命令行环境不同 bash 中的命令行环境，这里设置有 Vim 专用的各种符号，比如
+% 代表的是 Vim 当前编辑的文件名称，还可以使用 #n 指定编号的文件名，参考 cmdline-special。
+使用 `:new` 等命令新创建的窗口自动产生 buffer 对象，并且是处于无文件名状态，不能使用这些
+特殊符号来获取其名称。可以使用 `:file name` 命令来命名。特殊符号或者环境变量可以通过以下
+扩展方法来获取相应的值，注意它与 `extend()` 扩充方法非常像：
+
+    expand({string} [, {nosuf} [, {list}]])
+
+Vim 中提供的可读写的寄存器数据也可以实现命令行内容的读取。插入模式下使用 `<Ctrl-R>` 快捷键
+并在引号提示后输入指定的寄存器名称，比如 * 星号代表系统剪贴板（clipboard），: 冒号代表命令行
+最后的输入。使用 `<Ctrl-R>` 快捷键就是在调用寄存器读取命令，更准确地说是 Vim 命令也在调用
+内置的函数。这个方法同样可以用于命令行，因为命令行本身就是一个用于输入文本的对话框，只不过它
+专用于输入简单的命令，而不是用于编辑长篇内容。寄存器内容可以在 Vim 关闭时保存，Vim 再次启动
+还可以继续使用。除了其中用于保存临时内容的无名寄存器（unnamed register），它使用双引号命名。
+因为 Vim 寄存器使用双引号作为命名前缀，所以这个无名寄存器在文档中表示为一对双引号。这也是使用
+最频繁的寄存器，编辑使用的 d, c, s, x 等会删除内容的命令，以及复制命令（yank）都会修改其值。
+
+There are ten types of registers:
+
+    1. The unnamed register             ""
+    2. 10 numbered registers            "0 to "9
+    3. The small delete register        "-
+    4. 26 named registers               "a to "z or "A to "Z
+    5. Three read-only registers        ":, "., "%
+    6. Alternate buffer register        "#
+    7. The expression register          "=
+    8. The selection and drop registers "*, "+ and "~ 
+    9. The black hole register          "_
+    10. Last search pattern register    "/
+
+Special registers:
+
+    '"' the unnamed register, containing the text of the last delete or yank
+    '%' the current file name
+    '#' the alternate file name
+    '*' the clipboard contents (X11: primary selection)
+    '+' the clipboard contents
+    '/' the last search pattern
+    ':' the last command-line
+    '-' the last small (less than a line) delete
+    '.' the last inserted text *c_CTRL-R_=*
+    '=' the expression register: you are prompted to
+        enter an expression (see |expression|)
+        (doesn't work at the expression prompt; some
+        things such as changing the buffer or current
+        window are not allowed to avoid side effects)
+        When the result is a |List| the items are used
+        as lines.  They can have line breaks inside too.
+
+## Fly in The Vim World
+
+这小节的内容标题为 Fly in the Vim World，目的是让读者掌握 Vim 最精要的法术：光标的飞行。
+这种能力可以用于文件编辑是定位要修改的内容位置，可以在阅读时快速定位到所关注的内容位置。主要
+内容分为两部分，一是文档内的内容定位，以及 Vim 的标签、窗口、文件的切换。另一个方面是内容
+编辑部分，包括常规编辑功能和基本正则的替换功能。并且，正则工具作为 Vim 最强大的特性之一，
+它几乎全面覆盖了光标运动与内容编辑的功能。可以说，没有基于正则语言的搜索与替换功能的 Vim
+就是没有了灵魂。在内容排列上，将以“基本光标运动-内容编辑-正则语言-标签窗口系统”的形式组织。
+这些将覆盖官方文档的大量内容，并且完全不同于官方文档的组合形式，因为本文并非要替换官方文档，
+而是提供一个更容易掌握官方文档所涉及内容的新视角。
+
+### Cursor Fly
+
+按照常规的 Vim 入门学习套路，一般是先学习从键盘的方向键控制光标的思维转换到 hijk 按键控制，
+这是两种思维模式，掌握这种新的思维固然很重要，但是一般教程却忽略了这种模式变化背后的关键点：
+命令式（Imperative） 和声明式（ Declarative）。前者是相对落后或者低级的思维模式，后者
+相对高级，表现在：Vim 中执行一个操作前需要精心的计划。就以最基本光标在屏幕上的移动来说，
+命令式的思维流程是：按键、按键、按键···，还没到位置，再继续按键。而声明式的思维流程：我要
+移动光标；到哪？有多远？几行？几个词？几个字符？然后将这些因此考虑在内，编写出一个 `10j`
+这样的命令，下移光标 10 行。换句话说就是，要多用脑子。
+
+Vim 编辑环境中从键盘的方向键 (←, ↓, ↑, →) 转换为字母键还有另外一个隐含目的，方向键本身
+属于不可显示的控制字符，在硬件终端时代，就用于控制光标移动。但是在 Vim 开始设计时，已经是
+设定了向可编程的方向，这种不可见的控制字符不利于在脚本表达，必需找到可以在脚本中方便表达的
+字符来替代它们。恰巧，键盘的人为设计使得打字时的手势将右手放在了 hjkl 等键盘上，这就让它
+们成为光标控制命令字符的最佳选择。
+
+可以在 motion.txt 手册中找到 left-right-motions 描述的光标控制键已经将 hjkl 影射到
+相应的方向键，也包含了额外的快捷键。无论是哪种按键方式，无一例外，它们都是在调用一个称为光标
+的函数 `cursor()`，这也就是这些按键能控制光标的关键：
+
+            h       <Left>      CTRL-H      <BS>   
+            l       <Right>     <Space> 
+            k       <Up>        CTRL-P  
+            j       <Down>      CTRL-J      <NL>    CTRL-N  
+
+    cursor({list})
+    cursor({lnum}, {col} [, {off}])         *cursor()*
+    col({expr} [, {winid}])                 *col()*
+    line({expr} [, {winid}])                *line()*
+
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│Line░1░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│"# some.vim                       │
+│Line 2                      │      │syntax on                         │
+│Line 3                      │      │set cursor line                   │
+│Line 4                      │      │cursor(line(".")+10, 9)           │
+│Line 5              ┌─────────────────┐                               │
+│Line 6              │ from Line 1     │                               │
+│Line 7              │ (current line)  │                               │
+│Line 8              │ move to Line 11 │                               │
+│Line 9              └─────────────────┘                               │
+│Line 11                     │      │~                                 │
+│Line 10 <───────────────────┘      │~                                 │
+│~                                  │~                                 │
+│~                                  │~                                 │
+│~                                  │~                                 │
+│~                                  │~                                 │
+│~                                  │~                                 │
+│──────────────────────────────────────────────────────────────────────│
+│:call cursor(line(".")+10, 9)                                         │
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+在使用 Vim 命令时，有一个非常频繁使用到的可选参数 [range]，它用于指定或限制命令操作的行范围。
+命令行中使用 . 句点表示当前行号（the current line）。脚本编程中称 Range of Operation,
+或者 Line Addressing and Marks，可以在快速参考文档 quickref.txt (Q_ra) 找到各种范围
+设置方式或格式。比如说，光标下移 10 行的操作 `10j` 或者 `10<Ctrl-j>` 等价于脚本中调用函数
+`cursor(line(".")+10, 1)` 或者命令行中执行 `:call cursor(line(".")+10, 1)`。这些
+都是内置函数，可以通过 builtin.txt 文档快速查询到函数原型。所以，无一例外，这四种基于编程
+提供的运动形式（字母键、组合键、命令、脚本），最终都统一在 Vim 的软件原型设计上：一切可编程，
+让编辑器跟上你的思维。这也引出了本文写作的动力：自动化编辑。
+
+在文字的渲染程序中，控制光标的位置，就是控制数据编辑点的位置，也就是 buffer 对象当前的编辑点。
+渲染（render）一词本身用于计算机图形学上的术语，指的是图形从数学模型（坐标点描述的几何对象）
+通过 GPU 渲染流水线处理最终以平面图像的形式呈现的过程。用在这里，指的是文字从字符编码（数值）
+到字体符号映射再显示（绘制）到屏幕上的过程。形式上，它们都是在转化数据为图像，只是涉及不同原理。
+用户看到在屏幕上的光标，其实是编辑点的外显，它的根在数据上，也就是状态机当前记录的 buffer 中
+的编辑点。这个编辑点在运动，屏幕上的光标跟着动，显示器存在的目的是用图形语言的方式告诉用户，
+机器当前内部的状态的变化过程。但是一般的文字材料并不谈及这一点，一是因为对于专业的人来说这是基本
+认识，二是因为都觉得向非专业的人士讲述这些深层的东西不经济。但是我在 COVID-19 疫情几年的时间
+里接触到的大量英文原著教材都在说一件事：用心地通过文字与读者交流是一件高尚的事。这和软件开源有
+一些重要的相同点：真诚和奉献。
+
+Vim 集成了多种编程脚本接口，包括 Python、Lua、Ruby 等等。当前行号和内容对应的是以下两个属性，
+以导出到 Ruby 脚本语言的编程接口为例（ruby-vim）：
+
+    line = Vim::Buffer.current.line       # gets the current line
+    num = Vim::Buffer.current.line_number # gets the current line number
+
+以下使用经典的十字坐标来呈现 Vim 这种基于编程能力提供的强大“飞标术”，称之为 fly cursor。
+制图基本原则：越远离坐标轴的功能键飞行能力越高，纵轴表示飞行级别为行（rows），横轴为行内。
+纵轴上、下对应表示往屏幕上、下方运动，横轴左、右方向对应表示向行左侧、右侧运动。文档中称这
+些功能为文本目标运动（Text object motions）。
+
+```vim
+│                                   Previous                                  │
+│                                       ↑                                     │
+│                                  first line                                 │
+│                                       │                                     │
+│                                   gg  │ goto (first) line                   │
+│                                   G   │ goto (last) line                    │
+│                                   H   │ top of screen (home)                │
+│         ?                     #   N   │ find pattern/word and repeat        │
+│             C-b  C-u                  │ half/whole screen (page)            │
+│                      {   (            │ sentence/paragraph                  │
+│                              ┌────────┼─────────┐                           │
+│                              │        k  <Up>   │                           │
+│ Back       ,       B   gE    │        │         │    E   W        ; Forward │
+│←───0───^───F───T───b───ge────│────h───·───l─────│────e───w────t───f────$───→│
+│  line  │ find  │   │   │     │ <Left> │ <Right> │    │   │    │  find  line │
+│  head  │ char  │   │  goto   │        │         │   word │    │  char  end  │
+│       line    find │  word   │        j <Down>  │   end  │   find           │
+│       begin   tail │  end    └────────┼─────────┘   or   │   tail           │
+│               char │  or delimeted    │        delimited │   char           │
+│                  word begin           │                 word                │
+│                  word delimited       │                 begin/delimited     │
+│                                       │                                     │
+│                      }   )            │ sentence/paragraph                  │
+│             C-f  C-d                  │ half/whole screen (page)            │
+│         /                     *   n   │ find pattern/word and repeat        │
+│                                       │                                     │
+│                                   G   │ goto last line                      │
+│                                       │                                     │
+│                                   last line                                 │
+│                                       ↓                                     │
+│                                      Next                                   │
+```
+
+VS Code 与 Sublime Text 等现代编辑器都提供有光标位置历史记录。Vim 同样的功能命令是：
+`Ctrl-o` (go back) 以及 `Ctrl-i` (go forward)，最后编辑点还可以使用 `'.` 书签
+形式（包括反引号使用书签的方式）。在帮助文档 motion.txt 中还可以找到一堆的跳转用途的命令。
+可以通过 `:help jumplist` 或者 `:help jump-motions` 命令查询帮助信息，
+
+除了以上光标运动控制，Vim 帮助文档中还可以使用 CTRL-T 以及 CTRL-O 来往跳转浏览过的内容。
+
+文档 usr_29.txt Moving through programs 中还介绍了一组用于程序匹配符号间的跳转命令。
+使用 `CTRL-]` 进入光标下的标签指向内容，查询 *Q_ta*  Using tags 获取其它跳转命令信息。
+使用 `[I` 列表与光标所位置相同的符号列表，使用 `[i` 和 `]i` 还有 `[<Tab>` 和 `]<Tab>`
+前后跳到相同符号。
+
+这个十字坐标上分配的符号非常对称，基本上每一种功能都两个方向上对应的按键。有两个特别的位置使用的
+前缀 g 按键的命令，这是因为键盘上的按键数量有限，不能每种功能都使用具有同源含义名称的按键，就像
+单词的开头和结尾分别用 b/B、w/W 和 e/E 表示，但是移动往左向（Back）的单词结尾就不能再使用 e
+键了，只能借助经常用到的 g 这个命令前缀专用键。包括移动往上方（Previous）的行号跳转功能键 gg，
+与之相同的还有 G 命令，它们都是号跳转命令，只不过默认的跳转的行号不同，分别是首行、末行位置
+
+有了灵活的光标控制能力后，接着就可以结合能进行数据修改的操作：复制、粘贴、大小写、移动、拼接等等。
+这些都是现代编辑工具所必备功能，Vim 还提供了将外部文件賖插入到编辑区的功能。另外，复制、粘贴
+功能基于 Vim 设计的寄存器机制（registers），可以通过命令进行读取和写入（相当于粘贴、剪切）。
+在命令行输入的命令也会记录到专用寄存器中，在编辑文件时的删除（delete）、复制（yank）操作也会
+将内容写入专用寄存器。因此，Vim 的删除就是剪切。
+
+以下表格从 change.txt 文档整理出一组常用编辑功能，其中 [N] 和 {motion} 分别表示重复次数、
+控制光标运动的命令：
+
+    Commands                            Editing functions            
+    ---------------------------------------------------------------
+
+    :edit %                             Reload current file
+    :file name                          Rename current file
+
+    Undo/Redo commands
+
+    [N]u                                undo last N changes
+    [N]CTRL-R                           redo last N undone changes
+       U                             restore last changed line
+
+    Deleting text
+
+    [N]x            delete N characters under and after the cursor
+    [N]<Del>        delete N characters under and after the cursor
+    [N]X            delete N characters before the cursor
+    [N]d{motion}    delete the text that is moved over with {motion}
+    [N]dd           delete N lines
+    [N]D            delete to the end of the line (and N-1 more lines)
+    [N]J            join N-1 lines (delete <EOL>s)
+    [N]gJ           like "J", but without inserting spaces
+    :[range]d [x]   delete [range] lines [into register x]
+
+    Copying and moving text
+
+    "{char}       use register {char} for the next delete, yank, or put
+    :reg          show the contents of all registers
+    :reg {arg}    show the contents of registers mentioned in {arg}
+    [N]y{motion}  yank the text moved over with {motion} into a register
+    {visual}y  yank the highlighted text into a register
+    [N]yy         yank N lines into a register
+    [N]Y          yank N lines into a register
+    [N]p          put a register after the cursor position (N times)
+    [N]P          put a register before the cursor position (N times)
+    [N]]p         like p, but adjust indent to current line
+    [N][p         like P, but adjust indent to current line
+    [N]gp         like p, but leave cursor after the new text
+    [N]gP         like P, but leave cursor after the new text
+
+    Inserting text
+
+    [N]a   append text after the cursor (N times)
+    [N]A   append text at the end of the line (N times)
+    [N]i   insert text before the cursor (N times) (also: <Insert>)
+    [N]I   insert text before the first non-blank in the line (N times)
+    [N]gI  insert text in column 1 (N times)
+    [N]o   open a new line below the current line, append text (N times)
+    [N]O   open a new line above the current line, append text (N times)
+
+    in Visual block mode:
+    I    insert the same text in front of all the selected lines
+    A    append the same text after all the selected lines
+
+    [g]~{motion}                        Switch case of {motion} text.
+     gu~{motion}                        Switch to lowercase of {motion} text.
+     gU{motion}                         Make {motion} text uppercase.
+     guu                                Make current line lowercase.
+     g~~                                Switch case of current line.
+
+    <<              Shift [count] lines one 'shiftwidth' leftwards.
+    >>              Shift [count] lines one 'shiftwidth' rightwards.
+
+    CTRL-A          Add [count] to the number or alphabetic character
+    CTRL-X          Subtract [count] from the number or alphabetic
+
+    CTRL-N		    Find next keyword.                      *i_CTRL-N*
+    CTRL-P		    Find previous keyword.                  *i_CTRL-P*
+
+    <NL> or CTRL-J	Begin new line.                *i_CTRL-J* *i_<NL>*
+    <CR> or CTRL-M	Begin new line.                *i_CTRL-M* *i_<CR>*
+
+    CTRL-K {char1} [char2]  Enter digraph (see |digraphs|). *i_CTRL-K*
+
+    CTRL-R {register}   Insert the contents of a register.  *i_CTRL-R*
+    CTRL-W      Delete the word before the cursor.          *i_CTRL-W*
+    CTRL-U      Delete all characters before the cursor.    *i_CTRL-U*
+
+通过前面的学习，可以了解到 Vim 执行某个功能有有二种形式：用户按键触发的功能、通过命令行输入。
+命令行输入又分为调用命令（通过内置  `:commad` 定义命令），直接通过 `:call` 调用函数。
+使用 `:execute` 命令或者 `execute()` 函数执行表达式求值以字符串形式提供的 Vim 命令。
+另外，通过 `:autocmd` 命令设置的自动化命令也算是一种。可以使用 `:normal` 命令以正常模式
+执行一系列命令。这几个命令（有相应的函数）组合在一起可以实现非常多的功能。
+
+    execute({command} [, {silent}]) 
+    call({func}, {arglist} [, {dict}])
+
+    :exe[cute] {expr1} .. 
+    :norm[al][!] {commands}
+
+    :com[mand][!] [{attr}...] {cmd} {repl}
+    :delc[ommand] -buffer {cmd}	
+
+    :au[tocmd] [group] {event} {aupat} [++once] [++nested] {cmd}
+
+    :[range]cal[l] {name}([arguments])
+
+以下通过编程构造出一些常用但 Vim 未内置提供的编辑功能：
+
+    :onoremap in( :<c-u>normal! f(vi(<cr>      通过查找、选择编辑括号中的内容
+    :onoremap in( :<c-u>normal! f(vi(<cr>      通过查找、选择编辑前一对括号中的内容
+
+    :onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"<cr>
+
+    :[range]j[oin][!] {count} [flags]   Join lines
+
+
+### Search/Substiutte with Regular Language
+
+Vim 提供全面的行、句、词、字级别的光标行动、光标历史位置间的移动，这些是现代编辑器的基本功能。
+前面使用了一个十字坐标系统来建立这些基础操作的认识。抛开这些 Vim 常规操作，还有一个强大的基于
+正则语言的替换命令 `:substitute`，这是一个极度有用且会频繁使用的功能，所以基本上不会使用
+它的全名称。且是使用 `:s` 简写。另外一个就是专用的文档内搜索功能 `/` 以及反向搜索 `?`。
+对于一个编辑器而言，基于正则语言的搜索命令和替换命令实在是太强大了，在编译器领域上，正则语言
+还用于描述通用编程语言的文法。Vim 中也使用了整个 patterns.txt 文档来解释什么是正则语言的
+匹配模式。替换命令和搜索功能（search-commands），这里没有称之为命令，它本身是替换命令的
+一个功能。与之相关的还有用于脚本中的 `substitute()` 和  `search()` 函数。
+
+正则语言有两大功用：作为实现其它通用语言的基础工具，以及作为字符串处理工具。作为一门计算机
+语言，它在复杂度上远不如通用语言。但是在实践中，因为它涉及的规非常散乱，因此掌握它并用它好
+确实有点难度，但是会值得，因为用计算机的场合基本上都会有它的影子。
+
+从计算机语言的角度出发，通俗点说，正则语言可以定义为只有两种数据的字符串处理专用语言：一是
+字符字面量 (literal character)，二是特殊功能符号 (special character)。可以用正规式
+（regular expression）表达的语言字符就是正规集（regular sets）。举例来说，“一个字母”、
+“一串字母”、“一个数字或一个字母”、“任意个字符”、“零个或一个字符”这些都属于是正规式。正规式
+是定义正规集的数学工具，用于描述程序语言单词的表达式，与非确定性有限自动机（NFA）联系紧密。
+
+这里不打算完整教学正则语言的点点滴滴，只将重心放到一组实用功能或者概念上来。正则语言在形式语言
+理论中，归属于上下文无关语言的一个子集，即语言的表达上，后面的内容与前面的内容无关。简单来说，
+就是用一组正规规则（正则语言句子）去描述与之相匹配的字符串（被正则语言所描述）。Vim 正常模式
+下输入 `/app.*<Enter>` 就表示用一段正则语言 `app.*` 描述与之相匹配的字符串内容。那么这段
+正则语言的含义是：app 开头的一串内容（到行尾）。
+
+有一些适用于内容搜索或替换的选项。语法高亮功能可以让光标更位置更容易视觉定位，`:syntax on`
+功能开启后，然后可以启用光标所在行高亮特性，`set cursorline`。搜索结果的高亮显示选项使用
+`:set hlsearch` 命令开启，`:nohlsearch` 命令临时关闭高亮显示（下次搜索时恢复），使用
+`:set nohlsearch` 完全关闭高亮显示。还有 `set incsearch` 会在输入匹配模式时高亮首个
+匹配的内容。在搜索过程中，如果在大块的文件中卡住，那么可以使用 `Ctrl-C` 来结束搜索。高亮
+显示的其它模式还可以通过专用的 'highlight' 选项进行设置。通过显示搜索计数器信息可以让用户
+随时了解当前光标位于哪个匹配位置，search count message 默认禁用，`:set shortmess=-S`
+命令可将标志 S 移除以显示计数器。参考 option-summary 文档。
+
+TIP: Vim 秉承一题多解的理论，提供了多种设置方式，在脚本中或者命令行中使用更快捷的选项“反转”，
+比如 `:set hlsearch!` 这种表达式表示的是设置 'hlsearch' 选项，并反转 true、false 值。
+
+支持正则语言模式匹配的搜索命令与文本替换命令的一般语法格式如下：
+
+    [count]/{pattern}[/]<CR>                |exclusive|
+    [count]/{pattern}/{offset}<CR>          |linewise|
+    [count]/<CR>
+    [count]//{offset}<CR>
+
+    [count]?{pattern}[?]<CR>                |exclusive|
+    [count]?{pattern}?{offset}<CR>          |linewise|
+    [count]??{offset}<CR>
+
+    :[range]s[ubstitute]/{pattern}/{string}/[flags] [count]
+    :[range]&[&][flags] [count]
+    :[range]~[&][flags] [count]
+    :[range]sno[magic] ...  Same as `:substitute`, but always use 'nomagic'.
+    :[range]sm[agic] ...    Same as `:substitute`, but always use 'magic'.
+
+其它与搜索、替换命令搭配使用的命令：
+
+    [count]n               (forward) Repeat |last-pattern|
+    [count]N    (opposite direction) Repeat |last-pattern| 
+
+    [count]*               (forward) Search keyword nearest to the  cursor. 
+    [count]#        Same as "*", but search backward. 
+    [count]g*       Like "*", but partial matches，no "\<" and "\>" around the word.
+    [count]g#       Like "#", but partial matches，no "\<" and "\>" around the word.
+          gd        goto local declaration of identifier under the cursor
+          gD        goto global declaration of identifier under the cursor
+          1gd       Like "gd", but ignore matches inside a {} block that
+                            ends before the cursor position.
+          1gD       Like "gD", but ignore matches inside a {} block that
+                            ends before the cursor position.
+
+Vim 还集成了 `:grep` 命令，它调用同名 shell 命令，用于搜索文件中与正则表达式匹配的内容。
+类似的还有用于自动化构建项目的 `:make` 命令，它们都通过相应的选项 ('grepprg', 'makeprg')
+指定外部程序，以及使用 'grepformat' 或者'errorformat' 属性指定错误消息格式。
+
+在阅读 Bash 编程书籍或资料的过程中，接触到一个 *useless cat* 的说法。意思是无效或胡乱使用
+cat 这个日常必备命令。正因为它太常见了，所以很多情况下用户不关心是否真的的需要它，只要是在
+文件读取的位置都用上它。这种情况就是 useless cat，比如，错误地将它与 sed 命令一起使用。
+因为 sed 命令本身就支持文件的读取，根本不需要它。这里的问题是，多执行一个命令，看似无大碍。
+但是在一些需要循环处理的脚本中，多一个命令就是多万千上万个命令的执行时间消耗，就是向操作系统
+做额外的成千上万次进程申请、销毁流程，这是相当严重的性能杀手。进而，我的关注往另一个方向发展，
+useless plugin，这是使用一些带有插件扩展接口的程序经常遇到的问题。由于宿主程序开放了插件
+API，所有开发者都可编写插件，质量也就良莠并存。即使是 Vim 社区上被人捧上天的 EasyMotion，
+在我看来，它也不过是一个 useless plugin。验证它的最好办法就是精通 Vim 的搜索与替换命令。
+尽早认清 useless plugin 问题可有助于避免掉进一个陷阱，它会让用户远离一个好用且简洁的 Vim。
+只有掌握最本质的 Vim 才能让它为自己服务，并且能使 Vim 作为一个集成了脚本引擎的文本编辑器
+发挥出它本身具有的强大潜能。而不是陷入无休止的 useless plugin 安装、配置、卸载的重复过程。
+
+专用于文档内搜索功能包含正向搜索 `/` 以及反向搜索 `?`，而替换命令 `:s` 则是正向搜索，并且默认
+搜索当前行的内容、替换首个匹配内容。替换命令还有 `:&` 和 `:~` 两个附加命令，用于重复执行同样的
+模式匹配，但是不同参数的替换。替换命令分别通过 [range] 和 [flags] 设置搜索范围和替换方式。
+
+正则匹配模式是这两类命令的核心，而命令的其它参数是配角，并且相对容易掌握，放在前面集中说明。由于
+正则语言本身具有一定的复杂度，并且它的规则非常细碎，因此后面将以指南加符号手册的形式来组织内容，
+这种方式也是我最喜欢的技术写作方法。一方面它具有非常友好的教学文字，另一方面它又可以当作小手册。
+综合起来，使得本文在小篇幅的限制下，囊括了 Vim 的核心功能与文档内容。
+
+Vim 会记录用户最后选择内容的位置，在可视模式或者块模式下选择内容后，如果转换到命令行模式，Vim
+就会自动在命令行前面设置 `'<,`>`，这是命令前缀参数 [range]，用于限制命令的作用范围。它是一个
+区间表达式，分别使用带有单引号前缀的左、右尖括号表示左右区间。可以在任何具有 [range] 前缀参数
+的命令中使用它，包括替换命令。这个区间参数等价于在匹配模式中使用 `\%V` 这个特殊符号，它的含义
+是匹配可视选区（Match inside the Visual area），使用 `:help \%V` 命令获取帮助，或者直接
+查询 pattern-overview 文档或者 Ordinary atoms (pattern-atoms) 罗列的规则。
+
+    :'<,'>s/old/new/    # (Replace pattern in selected area)
+    :s/\%Vabc/xyz/      # (Same as above, and you can try gv) 
+
+Vim 在发展过程中继承 ed 编辑器和 Perl 脚本语言的正则表达式遗产，这导致 Vim 现有两种正则模式：
+magic 和 nomagic 模式，官方文档也按这两种模式来编写，以及 very magic 模式。这些模式差别可能
+导致用户的困惑，但是它们只在处理正则规则符号表达上的差异，主要是转义字符的不同。Vim 正则表达式
+默认使用 \m（magic）模式，但许多元字符需要转义才能生效，比如 +、|、()，导致正则表达式冗长且
+难以阅读。因此设置 “very magic” 模式可以帮助减少转义字符，使正则表达式更简洁。可以设置选项
+`:set magic` 或者 `:set nomagic` 来改变正则模式。或者在模式中使用符号来指定模式。但量，
+very magic 模式只能在匹配模式中使用 \v 来启用：
+
+    magic   nomagic   matches ~
+      \m      \m      'magic' on for the following chars in the pattern
+      \M      \M      'magic' off for the following chars in the pattern
+      \v      \v      the following chars in the pattern are "very magic"
+      \V      \V      the following chars in the pattern are "very nomagic"
+      \%#=1   \%#=1   select regexp engine |/zero-width|
+
+标志位参数 s_flags 说明：
+
+• g - 修改一行内的所有匹配，而不仅仅是第一处匹配；
+• c - Confirm each substitution，让用户确认或拒绝每一处修改；
+• n - Report the number of matches，不执行替换操作，而只是统计和显示匹配的数量；
+• e - 专门用于屏蔽错误提示；
+• i - Ignore case for the pattern，大小写不敏感，可以通过 `ic` 选项设置；
+• I - Don't ignore case for the pattern. 大小写敏感；
+• & - 需要在首位，用于指示 Vim 重用上一次 substitute 命令所用过的标志位。
+
+比如 `:%s/ABC/xyz/g` 对全文替换 ABC 为 xyz。替换命令可以兼有搜索的功能，注意，`:s/pattern`
+或者 `:s/pattern/` 这种省略备选字符串的方式等价于 `:s/pattern//`。执行替换命令后，Vim 就
+保存正式匹配模式，就可以像使用搜索命令一样使用其它配合命令进一步搜索文档中的其它位置。当然，如果
+执行了全文替换，就不会再出现匹配的匹配的内容了，除非替换成相同内容。利用撤消 u 和重复 `<C-r>`
+可以快速恢复替换之前的状态以后重做替换命令。
+
+大小写敏感模式切换是正则语言的基本功能，比如 VS Code 中可以在搜索框中的图形界面设置，如果使用 
+JavaScript 脚本，就可以通过后缀选项 (/pattern/i) 设置，它们都保持了比较一致的组织逻辑。但是，
+Vim 中的设置大小写敏感模式设置还可以在 pattern 中使用 `\c` 或者 `\C` 设置不敏感、敏感模式，
+并且不一定要求在模式规则的开头。这种处理方式在逻辑上是会令人困扰的，它一方面提供 [flags] 来设置
+行内容的全局替换（/g），另一方面又在 pattern 中设置大小写敏感模式，这种分散的功能组织不仅会增加
+学习者的负担，也会增加其文档编写的复杂度，这也进一步导致 Vim 官方文档的散乱程度。由于 Vim 继承
+原始的行编辑器 ed，对于行编辑器而言，全局的范围就是一行，这就是 g 标志位命令的由来。Vim 设计上
+也和 Perl 一样，为一个问题提供多种解决办法。
+
+Note that 'ignorecase', "\c" and "\C" are not used for the character classes.
+
+Vim 默认采用大小写敏感的查找，为了方便我们常常将其配置为大小写不敏感，或者每次搜索时在模式规则
+中指定 \c 或者 \C 进行手动切换。按照 Ignoring case in a pattern 文档所述，设置为智能方式
+'smartcase' 会在遇到大写字母字面量时，自动切换到大小写敏感模式模式。
+
+    set ignorecase
+    set smartcase 
+
+搜索命令对持前缀 [count] 和后缀 search-offset 参数，表示跳过行号的计数和行号偏移。但是注意，
+[count] 参数不能在输入搜索命令时设置，而应该在执行搜索前先按相应的数字键设置。文档中也没有将此
+参数标记在搜索命令的前缀位置，而是标注在解释内容中。行号偏移的参数格式参考如下：
+
+    [num]       [num] lines downwards, in column 1
+    +[num]      [num] lines downwards, in column 1
+    -[num]      [num] lines upwards, in column 1
+    e[+num]     [num] characters to the right of the end of the match
+    e[-num]     [num] characters to the left of the end of the match
+    s[+num]     [num] characters to the right of the start of the match
+    s[-num]     [num] characters to the left of the start of the match
+    b[+num]     [num] identical to s[+num] above (mnemonic: begin)
+    b[-num]     [num] identical to s[-num] above (mnemonic: begin)
+    ;{search-command}   execute {search-command} next
+
+搜索命令虽然不支持使用前缀 [range] 参数来限制搜索范围，但是可以通过多种正则规则来限制，甚至
+变通方法，可以先跳转到指定行或者书签位置再开始搜索。注意书签定义使用 m 命令，调出书签可以使用
+反引号或单引号加书签，但是在模式匹配中只能使用单引号方式：
+
+    /\%123l         what to search in line 123
+    /\%V            what to search in visual selection area
+    /\%>'a\%<'b     what to search in between mark a and b
+    /\%>199l\%<300l what to search is limit between search-range
+
+Vim 提供了一个强大的模糊搜索功能 (fuzzy-matching)，这是对人类大脑非常友好的信息提取技术。
+对于一些记忆不是很清晰的关键字，通常不能直接搜索到内容关键位置，或者需要花很多时间去翻查。但是
+模糊查找使用一个评分机制，将用户提供的模糊关键字与匹配内容进行一个评分排行，并根据排行榜顺序
+提供给用户作参考。此功能基于 `matchfuzzy()` 和 `matchfuzzypos()` 两个函数实现，可以通过
+`:vimgrep` 命令调用，只需要传入 f 标志即可 ：
+
+- The number of sequentially matching characters.
+- The number of characters (distance) between two consecutive matching characters.
+- Matches at the beginning of a word
+- Matches at a camel case character (e.g. Case in CamelCase)
+- Matches after a path separator or a hyphen.
+- The number of unmatched characters in a string.
+
+Vim 命令一般都是前缀 [range] 来指定命令在文档的作用行区间范围 (cmdline-ranges)，搜索与替换
+命令也一样。替换命令还多了一个后缀的 [count] 参数，看其名称可知是一个用户计数的参数，其含义是指
+在达到这个计数（行数量）时停止执行。但是这个计数的起点有点怪，因为它是从 [range] 的右边界开始的，
+也就是说 [range] 和 [count] 参数要搭配使用，比如 `:%s/ABC/xyz/g1` 就表示只替换最后一行的
+ABC 为 xyz。
+
+行号区间地址（range address）的格式是一个或者使用逗号或者分号分隔的一对区间符号，符号含义如下。
+比如使用相对偏移的命令 `:1,2+2print` 打印文件的首三行内容，行区间为 `1,4` 不含区间的右边界。
+Vim 支持行区间折叠功能，比如 `:3,4fold`，或者打开 `:3,4foldopen`，当行区间的右边界在折叠的
+行内，则折叠区会当作一行计算。可以看到行间距也支持正则表达，但是不能用在替换或者查找命令中。可以
+用在其它编辑命令中，比如 `:1,/\d/d` 表示从第一行删除直到遇到含有数字的行为止（包含这行）。
+
+        +/-             :range-offset
+        {number}        an absolute line number
+        .               the current line
+        $               the last line in the file
+        %               equal to 1,$ (the entire file)
+        't              position of mark t (lowercase)
+        'T              position of mark T (uppercase)
+        \/              the next line where the previously used search pattern matches
+        \?              the previous line where the previously used search pattern matches
+        \&              the next line where the previously used substitute pattern matches
+        /{pattern}[/]   the next line where {pattern} matches
+        ?{pattern}[?]   the previous line where {pattern} matches
+
+接下来讲一下替换命令中的 /string/ 部分，它也就是替换后的。因为正则语言支持分组，并且支持分组引用。
+分组的语法格式是使用 \(\) 包裹其它正则规则，每组对应一个数字编号 \0 表示整个正则规则匹配的内容，
+\1 ... \9 依次对应括号包裹的分组匹配内容。比如，`:%s/\(A\)\(B\)\(C\)/\3\2\1/` 则会替换
+交文本中的 ABC 为 CBA。还有几种形式 (sub-replace-special)，使用反斜杠转义为普通字符，其中
+`<CR>` 这样的热键可以使用 `CTRL-V <Enter>` 输入 ：
+
+    &       与 \0 等价；
+    ~       使用上一次调用 substitute 命令时提供的 string 内容；
+
+    \u      next character made uppercase
+    \U      following characters made uppercase, until \E
+    \l      next character made lowercase
+    \L      following characters made lowercase, until \E
+    \e      end of \u, \U, \l and \L (NOTE: not <Esc>!)
+    \E      end of \u, \U, \l and \L
+    <CR>    split line in two at this point
+    \r      idem
+    \<CR>   insert a carriage-return (CTRL-M)
+    \n      insert a <NL> (<NUL> in the file) (does NOT break the line)
+    \b      insert a <BS>
+    \t      insert a <Tab>
+    \\      insert a single backslash
+    \x      where x is any character not mentioned above:
+            Reserved for future expansion
+
+Vim 提供 sub-replace-expression 用法，用脚本来生成替换文本，语法格式为 \={vim script}。
+用于在替换时执行 vim script 并将脚本返回内容作为 string。使用 `submatch()` 内置函数处理，
+调用此函数时，传入一个序号，那么此函数返回匹配规则中对应分组的内容。比如 `submatch(0)` 等价
+\0 或者 &。用法演示如下，分别是使用 Unicode 字符替换 E 字符；使用内置函数测量 sys 开头的
+单词长度并替换原单词；使用 `expand()` 函数扩展环境变量 $HOME，并将此变量的值替换到文本换行
+符号前。注意，替换命令使用斜杠作为各种参数的分隔符号，用户可以在特殊情况下变更分隔符号。Vim 会
+根据 `:s` 命令名称后的字符来确认分隔符号。提示：在输入替换规则时，可以使用 `<Ctrl-R>` 读取
+Vim 寄存器的内容。
+
+    :s/E/\="\<Char-0x20ac>"/g
+
+    :s/sys\w*/\=strlen(submatch(0))/gei
+
+    :s@\n@\="\r" .. expand("$HOME") .. "\r"@
+
+Vim 内置两个正则解析引擎，旧式但功能全面的无限回溯式正则引擎 (backtracking engine)，以及更
+快速的新式的 NFA (非确定性自动机)。可以通过 'regexpengine' 选项来改变正则引擎。0、1、2 分别
+表示自动选择、回溯引擎、新式 NFA 引擎。
+
+Vim 正则匹配模式有分支概念 (branch)，也是多个匹配模式其中一个匹配成功就返回结果。每个分支由
+分片连接在一起，然后再细分为原子，原子对应的是正则模式规则中的符号表达，这部分后面给出参考列表。
+这是一个循环结构，就是无限回溯的正则语言。可以在 pattern-overview 文档中快速了解模式规则。
+
+    pattern ::=      branch
+                 or  branch \| branch
+                 or  branch \| branch \| branch
+                 etc.
+
+    branch ::=       concat
+                 or  concat \& concat
+                 or  concat \& concat \& concat
+                 etc.
+
+    concat  ::=      piece
+                 or  piece piece
+                 or  piece piece piece
+                 etc.
+
+    piece   ::=      atom
+                 or  atom  multi
+
+    atom    ::=      ordinary-atom
+                 or  \( pattern \)
+                 or  \%( pattern \)
+                 or  \z( pattern \)
+
+接下来是正则语言的本体，涉及非常多规则细节，主要就是用于控制匹配的内容：数值、字符、符号、断行，
+以及空白符号，重复控制等等。首先，规则中的一般字母数字都按其字面量匹配文本，而正则规则符号有其
+特殊含义，说明如下：默认正则模式使用魔术符号 magic 对应的符号，只有设置 `:set nomaigc` 
+模式后才使用 nomagic 一列对应的符号表达。转义符号为反斜杠，对特殊符号转义后，其匹配的是除去
+反斜杠的余下部分符号的字面量。以下是一组最基本的正则语言符号释义：
+
+    |pattern|           Special characters in search patterns
+
+                                     meaning  magic   nomagic
+                matches any single character    .       \.
+                       matches start of line    ^       ^
+                               matches <EOL>    $       $
+                       matches start of word    \<      \<
+                         matches end of word    \>      \>
+        matches a single char from the range    [a-z]   \[a-z]
+      matches a single char not in the range    [^a-z]  \[^a-z]
+                  matches an identifier char    \i      \i
+                   idem but excluding digits    \I      \I
+                 matches a keyword character    \k      \k
+                   idem but excluding digits    \K      \K
+               matches a file name character    \f      \f
+                   idem but excluding digits    \F      \F
+               matches a printable character    \p      \p
+                   idem but excluding digits    \P      \P
+             matches a white space character    \s      \s
+         matches a non-white space character    \S      \S
+                      matches an end-of-line    \n      \n
+
+                group a pattern into an atom    \(\)    \(\)
+
+以下内容摘抄自官方正则模式文档中的 5. Multi items （pattern-multi-items）
+
+    'magic'  'nomagic'  matches of the preceding atom ~
+    -------  -------- --------------------------------------
+    *        \*       0 or more       as many as possible
+    \+       \+       1 or more       as many as possible
+    \=       \=       0 or 1          as many as possible
+    \?       \?       0 or 1          as many as possible
+    \{n,m}   \{n,m}   n to m          as many as possible
+    \{n}     \{n}     n               exactly
+    \{n,}    \{n,}    at least n      as many as possible
+    \{,m}    \{,m}    0 to m          as many as possible
+    \{}      \{}      0 or more       as many as possible (same as *)
+    \{-n,m}  \{-n,m}  n to m          as few as possible
+    \{-n}    \{-n}    n               exactly
+    \{-n,}   \{-n,}   at least n      as few as possible
+    \{-,m}   \{-,m}   0 to m          as few as possible
+    \{-}     \{-}     0 or more       as few as possible
+
+    \@=      \@=      preceding, requires a match         |/zero-width|
+    \@!      \@!      preceding, requires NO match        |/zero-width|
+    \@<=     \@<=     behind, requires a match            |/zero-width|
+    \@<!     \@<!     behind, requires NO match           |/zero-width|
+
+    \@123<=
+        Like "\@<=" but only look back 123 bytes. This avoids trying lots
+        of matches that are known to fail and make executing the pattern very
+        slow.  Example, check if there is a "<" just before "span":
+                /<\@1<=span
+        This will try matching "<" only one byte before "span", which is the
+        only place that works anyway.
+
+    \@123<!
+        Like "\@<!" but only look back 123 bytes. This avoids trying lots of
+        matches that are known to fail and make executing the pattern very
+        slow.
+
+    \@>
+        Matches the preceding atom like matching a whole pattern.
+        Like "(?>pattern)" in Perl.
+        Example         matches ~
+        \(a*\)\@>a      nothing (the "a*" takes all the "a"'s, there can't be
+                        another one following)
+
+用例子来说明，这些正则符号的使用。比如，* 星号表示匹配前一个/组字符的任意多个（0 或多个），那么
+在为搜索或替换命令编写正则规则时，就需要使用 `:s/x*/X/g` 或者 nomagic 模式下的 `:s/x\*/X/g`，
+它们是等价的表达，就是将一连串的的 x 字符替换为一个大写的 X。那么怎么理解正则语言中的这个 0 到
+任意多个的语义呢？假设输入的文本是 “xyz”，那么这条规则就会出现二个匹配点，“•xy•z”，用黑点标记。
+第一个匹配点在开头，即使开头的不是 “x” 这个字符，也存在这个 0 宽度的匹配，因为它连着后面的 “x”
+直到 y（不匹配）结束，然后下面进行新的测试，发现只能匹配 0 宽度，因为 z 不匹配。所以替换后结果
+就是 “XyXz”。像星号 * 这种尽量多匹配字符的规则，在正则语言中称为贪婪模式（greedy），与之对应
+的就有懒惰模式（lazy）。使用时，需要根据具体场合来选择 * 贪婪匹配还是 \{-} 懒惰匹配。
+
+零宽匹配或者零宽断言（Zero-Width Assertions）是一组非常有用的高级正则语言规则。它们的用途
+是匹配但不消耗输入的字符串内容的前提下找到匹配位置，这也是其名字“零宽”（zero-width）的含义。
+就像前面例子中第二个匹配位置那样，它匹配到了位置，但没有消耗其中的字符。根据其设置的正则解析
+程序扫描方向的不同、匹配情况，两两组合得到四种表达形式。并且可以将零宽断言部分放置在匹配规则
+主体的左边或者右边，形成复杂的正则规则。
+
+两种扫描方式分别称为向前扫描 (lookahead) 和向后扫描 (lookbehind)，或简称前行、后行。语义
+解释对应的是，解释程序扫描输入字符串流时，是从前往后（从左到右）扫描还是从后往前（从右左往左）。
+而断言则是对应就匹配、不匹配两种情况。下表将它们的格式与 perl-patterns 风格作个对比。Perl
+语言与 JavaScript 中的零宽匹配规则相似，都按照同样的圆括号包裹的 `(assertiion)` 格式书写，
+Vim 则是 `(assertion)\@...` 格式。
+
+    |      |   Match   Direction
+    |------|---------------------
+    | @=   |   正匹配    正则规则前行
+    | @!   |   负匹配    正则规则前行
+    | @<=  |   正匹配    正则规则后行
+    | @<!  |   负匹配    正则规则后行
+
+    Capability                      in Vimspeak     in Perlspeak ~
+    ----------------------------------------------------------------
+    force case insensitivity        \c              (?i)
+    force case sensitivity          \C              (?-i)
+    backref-less grouping           \%(atom\)       (?:atom)
+    conservative quantifiers        \{-n,m}         *?, +?, ??, {}?
+    0-width match                   atom\@=         (?=atom)
+    0-width non-match               atom\@!         (?!atom)
+    0-width preceding match         atom\@<=        (?<=atom)
+    0-width preceding non-match     atom\@<!        (?<!atom)
+    match without retry             atom\@>         (?>atom)
+
+还是使用例子来说明它们的用法。上表中使用 atom 表达用于断言的正则规则，可以使用圆括号包裹的
+分组规则，否则只能设置一个字符宽度的零宽断言。假设输入字符串为 “sensitivity”，那以下规则
+对应的匹配位置或内容如下，使用圆括号标记。这里为了简化起见，只使用一个零宽断言作为演示。实际
+使用中，可能存在需要多个零宽断言的情况：
+
+    Vim Commands     Matchs          Notes
+    ---------------  -------------  ---------------------------------
+    /\w\+\(it\)\@=   (sensitiv)ity  ➊ 前行查找字符串，断言它后面必需跟着 "it" 字符；
+    /\w\+\(it\)\@!   (sensitivity)  ➋ 前行查找字符串，断言它后面不能跟着 "it" 字符；
+    /\w\+\(it\)\@<=  (sensitivit)y  ➌ 后行查找字符串，断言它后面必需跟着 "it" 字符；
+    /\w\+\(it\)\@<!  (sensitivity)  ➍ 后行查找字符串，断言它后面不能跟着 "it" 字符；
+
+为了加深对扫描方向的理解，可以考虑这样一个使用 Perl 风格表达的规则，`(?<!\d)\d{5}(?!\d)`，
+它用来匹配一组连续的 5 个数字，如果有少于或多于 5 个的情况就不算。如果交换其中两个零宽断言，
+前行与后行的规则位置交换，这会导致左则为前行扫描。因为是零宽的缘故，解析程序就会扫描到 `\d{5}
+这部分的位置，这与它本身是数字符号就冲突。另一侧的问题也一样，所以永远不会有这样的匹配字符串。
+它的错误与 `$^` 这种正则表达式样，都是属于逻辑悖论。
+
+还有一个潜在的问题是：如果在零宽断言中确定主体规则匹配的字符边界。可以将断言匹配的区间称为 R，w
+因为零宽本身不消耗输入字符，所以边界问题取决于正则主体的内容是否能与 R 区间内容相匹配：如果不能
+与这匹配，则可以从断言 R 的边界处开始；如果可以匹配（完全或部分），则从匹配的边界处开始。
+
+理解正则表达式中的零宽断言是还相当难度的，一个难度是教材的缺失，另一个是正则语言应用规则繁琐。
+作为一个非重度正则语言使用者，我曾经相当长的时间也对正则的零宽规则有误解，混淆了它的前后、正反，
+以及零宽断言在匹配模式中使用的位置问题。正则语言作为一种语言，它属于领域专用语言，与通常语言
+在功能上当然有差别。它不能像通用语言那样做一切能在计算器中做的事。正则语言的强项是描述文本，p
+这也是它作为一种文本处理专用语言的长处。比如说，有这样的一条规则 `(\d\{4}) - \d{7}`，对于
+使用过电话座机的人来说，这条规则很明显就等于是正则语言说：“这是一个带有区号的座机电话号。”
+
+因为正则语言本身比通用语言的结构简单，常年作为其它语言实现过程中的一种基础技术。一般商业书籍
+不以它为中心。比如 JavaScript: The Definitive Guide, 7th Edition 或者 
+Concepts of Programming Languages 10th Edition 这类大块头教材，基本上只是提了一嘴，
+并没有深入去探究正则语言这回事。Teach Yourself Regular Expressions In 10 Minutes
+这种 200 页的“超长教程”则是不痛不痒讲了些相对实用的知识，并不能直达正则语言的本质。还不如教案
+[Lecture Notes](https://www.cl.cam.ac.uk/teaching/1011/RLFA/LectureNotes.pdf)
+on Regular Languages and Finite Automata for Part IA of the Computer Science Tripos。
+
+相对专业一点的教材有：Mastering Regular Expressions,
+Powerful Techniques for Perl and Other Tools  y Jeffrey E. F. Friedl 
+[3rd edition](https://vscode.dev/github.com/pengbo-learn/books)
+[2nd edition](https://docstore.mik.ua/orelly/perl4/mre/mre.pdf)
+
+正则语言其实是一个相当有用的工具语言，它的一大作用是用在构建通用语言的解释程序中，而用它作为
+字符串处理工具则是第二大用途。对于一个面向文本的工作人员，学习正则语言也是回报相当大的一种投入。
+大量的基础工具和文本处理工具都会配备正则工具，诸如 grep/sed/awk/jq，当然也包括 Vim。
+
+正则语言可以溯源到 1956 年，Stephen Kleene (以他的名字命名了克林闭包) 发表了一篇标题为
+《神经网络事件表示法和有穷自动机》的论文，描述了一种叫做“正则集合（Regular Sets）”的符号。
+随后，Unix 之父 Ken Thompson 于 1968 年发表了文章《正则表达式搜索算法》，并且将正则引入
+自己开发的编辑器 qed，以及之后的 ed 编辑器，然后又移植到 grep 文本搜索工具中。自此，正则语言
+被广泛应用于 Unix 类系统的各种工具中。
+
+在正则语言技术发展的过程中，由于当时缺少标准化管理，也没有人管理。于是，1986 年诞生 POSIX
+标准化。POSIX 作为一系列规范，定义了 Unix 操作系统各种支持的功能，包括正则表达式的规范。
+因此，Unix 类系统上的大部分工具，如 grep、sed、awk 等，均遵循该标准。1987 年 12 月，
+Larry Wall 发布 Perl 语言第一版，因其功能强大一票走红，所引入的正则表达式功能大放异彩。
+之后 Perl 语言中的正则表达式不断改进，影响越来越大。在此基础上，又于 1997 年诞生了 Perl
+兼容正则表达式（Perl Compatible Regular Expressions）。
+
+目前主流正则引擎有 3 类，基于确定有穷状态机 (DFA, Deterministic Finite Automaton) 
+和不确定有穷状态机 (DFA, Nondeterministic Finite Automaton)。乔姆斯基形式语言理论中，
+它们都适用于处理上下文无关文法文语言的子集：正则语言。这些引擎简要说明如下：
+
+• DFA 正则引擎，线性扫描永不回溯，不能捕捉分组，不支持反向引用；
+• 传统型 NFA 引擎，“贪婪”匹配无尽回溯算法，魂捕捉分组、反向引用，但是性能差；
+• POSIX NFA 引擎，提供 longest-leftmost 匹配，以及环视和非贪婪模式；
+
+NFA 自动机实现的正则引擎最重要的部分是：回溯（backtracking）。回溯就像是在道路的每个分岔口
+留下一小堆面包屑 (breadcrumb)。如果走到尽头，就可以照原路返回，直到遇见面包屑标示的尚未尝试
+过的道路。如果那条路也走不通，你可以继续返回，找到下一堆面包屑，如此重复，直到找到出路，或者
+走完所有没有尝试过的路。
+
+POSIX NFA 引擎与传统的 NFA 引擎类似，不同的一点在于：在确保已找到可能的最长的匹配之前，
+将继续回溯。因此，POSIX NFA 引擎的速度慢于传统的 NFA 引擎；并且在使用 POSIX NFA 时，
+恐怕不会愿意在更改回溯搜索的顺序的情况下来支持较短的匹配搜索，而非较长的匹配搜索。
+
+可以使用类似以下的方式来测试不同的正则引擎：
+
+    echo =XX========================================= | egrep 'X(.+)+X'
+
+一些软件会混合使用 DFA/NFA 双引擎：GNU awk, GNU grep。一种简单但有效的策略是：尽可能
+多使用 DFA，只在需要反向引用的时候，才切换到 NFA。
+
+    Table 4-1: Some Tools and Their Regex Engines
+
+    Engine type         Programs
+    ------------------  --------------------------------------------
+    DFA                 awk (most versions), egrep (most versions), 
+                        flex, lex, MySQL, Procmail
+    Traditional NFA     GNU Emacs, Java, grep (most versions), less, 
+                        more, .NET languages, PCRE library, Perl, 
+                        PHP (pcr e routines), Python, Ruby,
+                        sed (most versions), vi
+    POSIX NFA           mawk, Mortice Kern Systems’ utilities, 
+                        GNU Emacs (when requested)
+    Hybrid NFA/DFA      GNU awk, GNU grep /egrep, Tcl
+
+
+
+### Ordinary Pattern atoms
+
+以下为 pattern.txt 文档中的 6. Ordinary atoms (pattern-atoms) 罗列的规则，
+仅作为参考手册使用：
+
+    An ordinary atom can be:
+
+    ^       At beginning of pattern or after "\|", "\(", "\%(" or "\n": matches
+            start-of-line; at other positions, matches literal '^'. |/zero-width|
+            Example         matches ~
+            ^beep(          the start of the C function "beep" (probably).
+
+    \^      Matches literal '^'.  Can be used at any position in the pattern, but
+            not inside [].
+
+    \_^     Matches start-of-line. |/zero-width|  Can be used at any position in
+            the pattern, but not inside [].
+            Example         matches ~
+            \_s*\_^foo      white space and blank lines and then "foo" at
+                            start-of-line
+
+    $       At end of pattern or in front of "\|", "\)" or "\n" ('magic' on):
+            matches end-of-line <EOL>; at other positions, matches literal '$'.
+            |/zero-width|
+
+    \$      Matches literal '$'.  Can be used at any position in the pattern, but
+            not inside [].
+
+    \_$     Matches end-of-line. |/zero-width|  Can be used at any position in the
+            pattern, but not inside [].  Note that "a\_$b" never matches, since
+            "b" cannot match an end-of-line.  Use "a\nb" instead |/\n|.
+            Example         matches ~
+            foo\_$\_s*      "foo" at end-of-line and following white space and
+                            blank lines
+
+    .       (with 'nomagic': \.)                            */.* */\.*
+            Matches any single character, but not an end-of-line.
+
+    \_.     Matches any single character or end-of-line.
+            Careful: "\_.*" matches all text to the end of the buffer!
+
+    \<      Matches the beginning of a word: The next char is the first char of a
+            word.  The 'iskeyword' option specifies what is a word character.
+            |/zero-width|
+
+    \>      Matches the end of a word: The previous char is the last char of a
+            word.  The 'iskeyword' option specifies what is a word character.
+            |/zero-width|
+
+    \zs     Matches at any position, but not inside [], and sets the start of the
+            match there: The next char is the first char of the whole match.
+            |/zero-width|
+            Example: >
+                    /^\s*\zsif
+    <       matches an "if" at the start of a line, ignoring white space.
+            Can be used multiple times, the last one encountered in a matching
+            branch is used.  Example: >
+                    /\(.\{-}\zsFab\)\{3}
+    <       Finds the third occurrence of "Fab".
+            This cannot be followed by a multi. *E888*
+            {not available when compiled without the |+syntax| feature}
+    \ze     Matches at any position, but not inside [], and sets the end of the
+            match there: The previous char is the last char of the whole match.
+            |/zero-width|
+            Can be used multiple times, the last one encountered in a matching
+            branch is used.
+            Example: "end\ze\(if\|for\)" matches the "end" in "endif" and
+            "endfor".
+            This cannot be followed by a multi. |E888|
+            {not available when compiled without the |+syntax| feature}
+
+    \%^     Matches start of the file.  When matching with a string, matches the
+            start of the string.
+            For example, to find the first "VIM" in a file: >
+                    /\%^\_.\{-}\zsVIM
+
+    \%$     Matches end of the file.  When matching with a string, matches the
+            end of the string.
+            Note that this does NOT find the last "VIM" in a file: >
+                    /VIM\_.\{-}\%$
+
+    \%V     Match inside the Visual area.  When Visual mode has already been
+            stopped match in the area that |gv| would reselect.
+            This is a |/zero-width| match.  To make sure the whole pattern is
+            inside the Visual area put it at the start and just before the end of
+            the pattern, e.g.: >
+                    /\%Vfoo.*ba\%Vr
+
+    \%#     Matches with the cursor position.  Only works when matching in a
+            buffer displayed in a window.
+            WARNING: When the cursor is moved after the pattern was used, the
+            result becomes invalid.  Vim doesn't automatically update the matches.
+
+    \%'m    Matches with the position of mark m.
+    \%<'m   Matches before the position of mark m.
+    \%>'m   Matches after the position of mark m.
+            Example, to highlight the text from mark 's to 'e: >
+                    /.\%>'s.*\%<'e..
+
+    \%23l   Matches in a specific line.
+    \%<23l  Matches above a specific line (lower line number).
+    \%>23l  Matches below a specific line (higher line number).
+    \%.l    Matches at the cursor line.
+    \%<.l   Matches above the cursor line.
+    \%>.l   Matches below the cursor line.
+
+    \%23c   Matches in a specific column.
+    \%<23c  Matches before a specific column.
+    \%>23c  Matches after a specific column.
+    \%.c    Matches at the cursor column.
+    \%<.c   Matches before the cursor column.
+    \%>.c   Matches after the cursor column.
+
+    \%23v   Matches in a specific virtual column.
+    \%<23v  Matches before a specific virtual column.
+    \%>23v  Matches after a specific virtual column.
+    \%.v    Matches at the current virtual column.
+    \%<.v   Matches before the current virtual column.
+    \%>.v   Matches after the current virtual column.
+
+    Character classes:
+    \i      identifier character (see 'isident' option)     */\i*
+    \I      like "\i", but excluding digits                 */\I*
+    \k      keyword character (see 'iskeyword' option)      */\k*
+    \K      like "\k", but excluding digits                 */\K*
+    \f      file name character (see 'isfname' option)      */\f*
+    \F      like "\f", but excluding digits                 */\F*
+    \p      printable character (see 'isprint' option)      */\p*
+    \P      like "\p", but excluding digits                 */\P*
+
+        NOTE: the above also work for multibyte characters.  The ones below only
+        match ASCII characters, as indicated by the range.
+
+    \s      whitespace character: <Space> and <Tab>
+    \S      non-whitespace character; opposite of \s
+    \d      digit:                          [0-9]
+    \D      non-digit:                      [^0-9]
+    \x      hex digit:                      [0-9A-Fa-f]
+    \X      non-hex digit:                  [^0-9A-Fa-f]
+    \o      octal digit:                    [0-7]
+    \O      non-octal digit:                [^0-7]
+    \w      word character:                 [0-9A-Za-z_]
+    \W      non-word character:             [^0-9A-Za-z_]
+    \h      head of word character:         [A-Za-z_]
+    \H      non-head of word character:     [^A-Za-z_]
+    \a      alphabetic character:           [A-Za-z]
+    \A      non-alphabetic character:       [^A-Za-z]
+    \l      lowercase character:            [a-z]
+    \L      non-lowercase character:        [^a-z]
+    \u      uppercase character:            [A-Z]
+    \U      non-uppercase character:        [^A-Z]
+
+        NOTE: Using the atom is faster than the [] form.
+
+        NOTE: 'ignorecase', "\c" and "\C" are not used by character classes.
+
+    \e      matches <Esc>
+    \t      matches <Tab>
+    \r      matches <CR>
+    \b      matches <BS>
+    \n      matches an end-of-line
+
+    ~       matches the last given substitute string
+
+    \(\)    A pattern enclosed by escaped parentheses.
+            E.g., "\(^a\)" matches 'a' at the start of a line.
+            There can only be nine of these.  You can use "\%(" to add more, but
+            not counting it as a sub-expression.
+
+    \1      Matches the same string that was matched by
+            the first sub-expression in \( and \).
+       ...
+    \9      Like "\1", but uses ninth sub-expression.
+            Example: "\([a-z]\).\1" matches "ata", "ehe", "tot", etc.
+            Note: The numbering of groups is done based on which "\(" comes first
+            in the pattern (going left to right), NOT based on what is matched
+            first.
+
+    \%(\)   A pattern enclosed by escaped parentheses.
+            Just like \(\), but without counting it as a sub-expression.  This
+            allows using more groups and it's a little bit faster.
+
+    x       A single character, with no special meaning, matches itself
+    \x      A backslash followed by a single character, with no special meaning,
+            is reserved for future expansions
+
+    []      (with 'nomagic': \[])
+    \_[]
+            A collection.  This is a sequence of characters enclosed in square
+            brackets.  It matches any single character in the collection.
+            Example         matches ~
+            [xyz            any literal '[xyz'
+            [xyz]           any 'x', 'y' or 'z'
+            [abc\n]         any 'a', 'b', 'c', and end-of-line
+            [^abc\n]        NOT any 'a', 'b', 'c', and end-of-line
+            [a-zA-Z]$       any alphabetic character at the end of a line
+            \c[a-z]$        same
+            [А-яЁё]         Russian alphabet (with utf-8 and cp1251)
+
+        The following character classes are supported:
+            Name        Func            Contents ~
+            [:alnum:]   isalnum         ASCII letters and digits
+            [:alpha:]   isalpha         ASCII letters
+            [:blank:]                   space and tab
+            [:cntrl:]   iscntrl         ASCII control characters
+            [:digit:]                   decimal digits '0' to '9'
+            [:graph:]   isgraph         ASCII printable characters excluding
+                                        space
+            [:lower:]   islower         lowercase letters (all letters when
+                        ASCII only     'ignorecase' is used)
+            [:print:]   builtin rules   printable characters including space
+            [:punct:]   ispunct         ASCII punctuation characters
+            [:space:]                   whitespace characters: space, tab, CR,
+                                        NL, vertical tab, form feed
+            [:upper:]   isupper         uppercase letters (all letters when
+                        ASCII only    'ignorecase' is used)
+            [:xdigit:]                  hexadecimal digits: 0-9, a-f, A-F
+            [:return:]                  the <CR> character
+            [:tab:]                     the <Tab> character
+            [:escape:]                  the <Esc> character
+            [:backspace:]               the <BS> character
+            [:ident:]                   identifier character (same as "\i")
+            [:keyword:]                 keyword character (same as "\k")
+            [:fname:]                   file name character (same as "\f")
+
+        - The following translations are accepted when the 'l' flag is not
+          included in 'cpoptions':
+                \e      <Esc>
+                \t      <Tab>
+                \r      <CR>    (NOT end-of-line!)
+                \b      <BS>
+                \n      line break, see above |/[\n]|
+                \d123   decimal number of character
+                \o40    octal number of character up to 0o377
+                \x20    hexadecimal number of character up to 0xff
+                \u20AC  hex. number of multibyte character up to 0xffff
+                \U1234  hex. number of multibyte character up to 0xffffffff
+          NOTE: The other backslash codes mentioned above do not work inside []!
+
+    \%[]    A sequence of optionally matched atoms.  This always matches.
+            It matches as much of the list of atoms it contains as possible.  
+            Thus it stops at the first atom that doesn't match.  For example:
+                    /r\%[ead]
+            matches "r", "re", "rea" or "read".  The longest that matches is used.
+            To match the Ex command "function", where "fu" is required and
+            "nction" is optional, this would work: >
+
+    \%d123  Matches the character specified with a decimal number.  Must be
+            followed by a non-digit.
+    \%o40   Matches the character specified with an octal number up to 0o377.
+            Numbers below 0o40 must be followed by a non-octal digit or a
+            non-digit.
+    \%x2a   Matches the character specified with up to two hexadecimal characters.
+    \%u20AC Matches the character specified with up to four hexadecimal
+            characters.
+    \%U1234abcd     Matches the character specified with up to eight hexadecimal
+            characters, up to 0x7fffffff
+
+
+### Tabpage/Window
+
+熟练使用 Vim 的一个表现就是熟悉 tabpage, window, buffer, 以及 register 等基本对象，
+可以随意控制光标在整个文档的游走、控制 tabpage, window 对象的切换、开启、关闭、分割等操作，
+以及控制 register 寄存器内容的读写（剪切与粘贴）。这些对象是紧密联系的，官方文档对它们的内在
+联系的并没有以最好的形式组织文档内容，反而只有 windows.txt 和 tabpage.txt 两个主题参考。
+这种 button-up 的文档组织，很容易给新手造成理解困扰，这也就是这个 tom-down 视角下编写的
+教程意义之所在。
+
+手册中 intro.txt definitions 先是定义了 buffer, screen, window 的概念，然后隔了
+N+1 个主题后，又在 window.txt 中增加了 buffer, window 和 tab page 之间的关系说明。
+
+•  A buffer is the in-memory text of a file.
+•  A window is a viewport on a buffer.
+•  A tab page is a collection of windows.
+• *buffer*  Contains lines of text, usually read from a file.
+• *screen*  The whole area that Vim uses to work in.  This can be
+            a terminal emulator window.  Also called "the Vim window".
+• *window*  A view on a buffer.  There can be multiple windows for one buffer.
+
+综合起来，就是一个 Vim 程序在操作系统提供的终端环境中运行（非图形界面版本），这个环境就是
+终端模拟器（软终端）提供的控制台窗口，然后 Vim 作为应用软件运行于终端，即用户所看到的软件
+界面，暂且称之为 Vim 主界面。这个主界面的结构就如以下示意图所展示的那样。
+
+假设，使用 `vim -p3` 运行 Vim 或者使用内置命令 `:tabnew "tab page 1"` 创建多个
+标签页面 (tab-page)，并且使用 `:new window 1` 这样的命令创建新多个窗口，那么 Vim 
+主界面就会和以下这示意图相似。这也是 Vim 界面的较完整的形态，当然还有菜单并没呈现。但这
+个基本结构已经足够用来说明 Vim 的软件基本结构了。
+
+但是以上内容显然还是不能全面地分解一个 Vim 程序结构。作为一个编辑器，它最重要的部分除了
+功能特性之外，应该就是数据的存储与管理，这部分正好对应 buffer 和 register 两类对象。
+
+┌──────────────────────────────────────────────────────────────────────┐
+│ tab page 1 │ tab page 2 │ tab page 3 │ ...                           │
+┌────────────┘────────────┘────────────┘───────────────────────────────┐
+│                             │                                        │
+│~                            │~                                       │
+│~                            │~                                       │
+│~           window 1         │~               window 2                │
+│~                            │~                                       │
+│~                            │~                                       │
+│~                            │~                                       │
+│==== status line =============== status line =========================│
+│                                                                      │
+│~                                                                     │
+│~                                                                     │
+│~                                                                     │
+│~                            window 3                                 │
+│~                                                                     │
+│~                                                                     │
+│~                                                                     │
+│==== status line =====================================================│
+│:new window 4 | split | vsplit                                        │
+└──────────────────────────────────────────────────────────────────────┘
+
+    ┌───────────────────────────┐   ┌───────────────────────────┐
+    │ More goto and marks:      │   │ Windows navigation:       │
+    │                           │   │                           │
+    │ #G  goto # line           │   │ C-W_w  circle switch      │
+    │ %   goto matching bracket │   │ C-W_h  to left window     │
+    │ m{a-zA-Z}  mark location  │   │ C-W_j  to window below    │
+    │ `{a-zA-Z}  jump to mark   │   │ C-W_k  to window above    │
+    │ '{a-zA-Z}  jump to mark   │   │ C-W_l  to right window    │
+    │ ``  toggle mark location  │   │ C-W_=  equalize windows   │
+    │ ''  last location         │   │ C-W__  maximize window    │
+    │ ''  last location         │   │ C-W_t  move window to top │
+    │ '.  last edit position    │   │ C-W_b  move window to bot │
+    └───────────────────────────┘   │ C-W_s  horizontal split   │
+    ┌───────────────────────────┐   │ C-W_v  vertical split     │
+    │ Tabpage and buffer:       │   │ C-W_c  close window       │
+    │                           │   │ C-W_q  quit window/Vim    │
+    │ ZZ      save and quit     │   └───────────────────────────┘
+    │ ZQ :x   quit window       │   ┌───────────────────────────┐
+    │ :qa[ll] Exit Vim unsaved  │   │ Windows Scrolling         │
+    │ :edit! reload             │   │                           │
+    │ :b  #  edit # buffer      │   │ zz  focus on current line │
+    │ :bd #  delete # buffer    │   │ zh or zH  scroll to left  │
+    │ :ls    list buffers       │   │ zl or zL  scroll to right │
+    │ :ls!   show all unlisted  │   │ C-u   half page upwards   │
+    └───────────────────────────┘   │ C-d   half page downwards │
+                                    │ C-f   pages forwards      │
+                                    │ C-b   pages backwards     │
+                                    └───────────────────────────┘
+
+Vim 手册中对命令的注解也比较零乱，缺少应有的条理，有可能是文档历史遗留下来的问题。比如说，
+`!` 后缀符号在语义上强制执行命令，但是文档中，将 `q[uit]` 和 `q[uit]!` 当作两个命令
+分开给出参考内容。另外，像 `:hide` 这样的命令，其本意就不是 hide a window，而是关闭。
+当然，这种问题的根源不在于文档，而在于代码设计者。
+
+以下几个涉及 tabpage 和 window 对象创建（分割）的操作是必需技术。这些命令都配置有默认
+快捷键操作它们，并且使用快捷键操作也依然可以先行为命令设定前缀参数。比如新建 window 的
+宽高数值 [N]，或者创建 tabpage 时指定标签页数量 [N]：
+
+    :[count]tabe[dit] [++opt] [+cmd] {file}
+    :[count]tabnew    [++opt] [+cmd] {file}
+
+    :[N]new      [++opt] [+cmd] {file}      CTRL-W_n
+    :[N]sp[lit]  [++opt] [+cmd] {file}      CTRL-W_s
+    :[N]vs[plit] [++opt] [+cmd] [file]      CTRL-W_v
+
+    :{count}q[uit][!]                       CTRL-W_q
+    :{count}clo[se][!]                      CTRL-W_c
+
+通过以上命令自动创建相应的缓冲区对象。Vim 没有提供命令直接创建 buffer 对象，但是提供了丰富的
+缓冲区相关的操作命令。这使得 Vim 的操作思维不像其它软件，就像 Chrome 浏览器中的网页标那样可以
+随意拖曳位置。Vim 的用户思维是：tabpage 是相对固定的，window 也是相对固定的，但是它们的装载
+的数据对象（buffer）是可变的，它们的外观尺寸是可调整的。一般，用户的 Vim 工作区一旦设置好，
+几本上是不会频繁的去调整的。
+
+Vim 提供了用于控制光标在 tabpage 中的窗口间游走的快捷键：Ctrl-W_h/j/k/l 这和 Vim 默认的
+光标移动方向键一致。另外还有 Ctrl-W_t/b/p/P 作用对应 top/bottom/previous/Preview。
+Vim 当然也提供了 window-moving 操作，可以调换窗口的位置，但这并不是常用功能。只需按常规的
+Vim 光标控制和上下左右语义所对应的大写字母去理解快捷键：Ctrl-W_H/J/K/L/r/R/x/T，其中的
+x 和 T 分别表示交互（exchange）和 移到标签页(tabpage)，字母 r 或 R 自然是两个旋转方向。
+
+Vim 运行中支持 `CTRL-Z` 来执行后台挂起，以运行其它 shell 命令，然后再通过 bash 提供的
+`fg` 命令恢复运行。参考 usr_21.txt Go away and come back 文档介绍。
+
+Vim 提供了一个会话机制，可以将当前的界面布局数据保存到会话文件，它也是一个 Vim 脚本。在启动
+Vim 时使用 `vim -S session.vim` 来加载指定的会话脚本，等价于 `:source session.vim`，
+就是通过脚本控制、调整窗口 布局，免去重复的手动操作。会话脚本会记录记录当前 Vim 用户设置的
+环境配置值，包括选项配置与键盘映射等。可以在使用 Vim 过程随时通过 `:mksession` 命令将会话
+状态写入指定文件。默认会话脚本为 `~/Session.vim`。
+
+        :mksession ~/Session.vim
+        :source ~/Session.vim
+
+        vim -S ~/Session.vim
+
+The windows that were open are restored, with the same position and size as
+before.  Mappings and option values are like before.
+   What exactly is restored depends on the 'sessionoptions' option.  The
+default value is:
+"blank,buffers,curdir,folds,help,options,tabpages,winsize,terminal".
+
+        blank           keep empty windows
+        buffers         all buffers, not only the ones in a window
+        curdir          the current directory
+        folds           folds, also manually created ones
+        help            the help window
+        options         all options and mappings
+        tabpages        all tab pages
+        winsize         window sizes
+        terminal        include terminal windows
+
+Change this to your liking.  To also restore the size of the Vim window, for
+example, use: >
+
+        :set sessionoptions+=resize
+
+
+    state       displayed   loaded      ":buffers"  ~
+                in window                shows       ~
+    active        yes        yes          'a'
+    hidden        no         yes          'h'
+    inactive      no         no           ' '
+
+:files[!] [flags]                               *:files*
+:buffers[!] [flags]                             *:buffers* *:ls*
+:ls[!] [flags]
+                Show all buffers.  Example:
+
+                        1 #h   "/test/text"             line 1 ~
+                        2u     "asdf"                   line 0 ~
+                        3 %a + "version.c"              line 1 ~
+
+                When the [!] is included the list will show unlisted buffers
+                (the term "unlisted" is a bit confusing then...).
+
+                Each buffer has a unique number.  That number will not change,
+                thus you can always go to a specific buffer with ":buffer N"
+                or "N CTRL-^", where N is the buffer number.
+
+                For the file name these special values are used:
+                        [Prompt]        |prompt-buffer|
+                        [Popup]         buffer of a |popup-window|
+                        [Scratch]       'buftype' is "nofile"
+                        [No Name]       no file name specified
+                For a |terminal-window| buffer the status is used.
+
+                Indicators (chars in the same column are mutually exclusive):
+                u       an unlisted buffer (only displayed when [!] is used)
+                           |unlisted-buffer|
+                 %      the buffer in the current window
+                 #      the alternate buffer for ":e #" and CTRL-^
+                  a     an active buffer: it is loaded and visible
+                  h     a hidden buffer: It is loaded, but currently not
+                           displayed in a window |hidden-buffer|
+                   -    a buffer with 'modifiable' off
+                   =    a readonly buffer
+                   R    a terminal buffer with a running job
+                   F    a terminal buffer with a finished job
+                   ?    a terminal buffer without a job: `:terminal NONE`
+                    +   a modified buffer
+                    x   a buffer with read errors
+
+                [flags] can be a combination of the following characters,
+                which restrict the buffers to be listed:
+                     +   modified buffers
+                     -   buffers with 'modifiable' off
+                     =   readonly buffers
+                     a   active buffers
+                     u   unlisted buffers (overrides the "!")
+                     h   hidden buffers
+                     x   buffers with a read error
+                     %   current buffer
+                     #   alternate buffer
+                     R   terminal buffers with a running job
+                     F   terminal buffers with a finished job
+                     ?   terminal buffers without a job: `:terminal NONE`
+                     t   show time last used and sort buffers
+                Combining flags means they are "and"ed together, e.g.:
+                     h+   hidden buffers which are modified
+                     a+   active buffers which are modified
+
+                When using |:filter| the pattern is matched against the
+                displayed buffer name, e.g.: >
+                        filter /\.vim/ ls
+
+## Powerful Commands
+
+如果要罗列 Vim 的命令，那真的是太多了。这些命令提供了丰富的可编程特性，而用好这此功能需要有
+一些 Vim 脚本编程的基本知识。因为 Vim 脚本有些古怪，不必要求精通，知道基本的脚本使用即可。
+以下是几个重要的功能：
+
+• `:substitute` 兼有内容搜索查找、替换编辑、光标跳转功能，参考 Fly in the Vim World；
+• `:autocmd` 文档事件自动化处理命令，给各种文件及不同事件设置自动命令，将命令功能自动化；
+
+Vim 编程文档主要在 vim9.txt、vim9class.txt 和 eval.txt (兼容旧版本)。Vim 为脚本设计
+了多种变量作用域，通过不同的前缀来指定 (variable-scope, vim9-scopes)。变量没有任何作用
+域前缀修饰时，有三种情形：函数内的无前缀变量为函数作用域，脚本文件级别中编写的变量会作为全局
+作用域（旧版）、脚本局部作用域（Vim9 默认作用域）。参考 eval.txt 3. Internal variable。
+
+    There are several name spaces for variables.  Which one is to be used is
+    specified by what is prepended:
+
+                    (nothing) In a function: local to the function;
+                              in a legacy script: global;
+                              in a |Vim9|  script: local to the script
+    |buffer-variable|    b:   Local to the current buffer.
+    |window-variable|    w:   Local to the current window.
+    |tabpage-variable|   t:   Local to the current tab page.
+    |global-variable|    g:   Global.
+    |local-variable|     l:   Local to a function (only in a legacy function)
+    |script-variable|    s:   Local to a |:source|'ed Vim script.
+    |function-argument|  a:   Function argument (only in a legacy function).
+    |vim-variable|       v:   Global, predefined by Vim.
+
+要使用 Vim9 script 语法，可以按照以下方式设置：
+
+- a function defined with the `:def` command
+- a script file where the first command is `vim9script`
+- an autocommand defined in the context of the above
+- a command prefixed with the `vim9cmd` command modifier
+
+可以混用旧版或 Vim9 脚本，通过前缀修饰符来限制命令：
+
+    :vim9[cmd] {cmd}
+    :leg[acy] {cmd}
+
+        " comments may go here
+        if !has('vim9script')
+           " legacy script commands go here
+           finish
+        endif
+        vim9script
+        # Vim9 script commands go here
+
+新版本引入 `import`  和 `export` 关键词用于导入其它脚本导出的函数。可以导入自动加载脚本，
+即那些保存在 Vim 运行时搜索路径 'runtimepath' 列表中的 autoload 目录下的脚本。只需使用
+`import autoload ...` 语法。假设自动加载脚本为 autoload/for/myplugin.vim，那么它导出
+的函数或者符号都会添加 "for#myplugin#" 这个前缀，注意前缀中包括子目录和脚本名。
+
+旧版本脚本中的函数名必需大写字母开头作为全局函数（因此多个脚本中的同名函数可能冲突），或者使用 `s:` 前缀，将函数定义为脚本局部函数。使用 Vim9 脚本解析时，不使用 # 号连接前缀名称，而是使用
+`export` 关系词，或者使用 `g:` 前缀定义全局函数，名称一样需要大写字母开头。但不能使用 `s:`
+前缀，因为默认就是脚本局部函数。
+
+编写自动加载脚本时，自动加载函数的定义有两种基本形式，一是使用带有 # 为分隔符的前缀形式，或者
+Vim9 中使用 `export` 导出的形式，它们必需定义为全局函数，这样才是可以自动加载的函数，常用
+于插件开发。脚本中的局部函数不会被自动加载，即使是在自动加载脚本中。自动加载机制的工作原理是：
+在 Vim 解析器解析到用户在调用带有 # 前缀或者导出的函数时自动加载并解析。也就是说，自动加载
+并非在 Vim 启动时加载自动脚本。因此在自动脚本中定义的全局函数在用户调用自动加载函数之前并没有
+被加载。只有先调用可自动加载的函数，此时才会执行自动加载脚本，并且，脚本顶级代码只初始执行一次，
+后续不再执行。比如，脚本 myplugin.vim (自动加载目录下) 编写以下测试函数，然后启动 Vim，就
+可以通过 `:call` 命令调用它，此时脚本会被自动加载。但不能先调用 `:1,8call Comment()`，
+因为它不是自动加载函数，不会触发自动加载机制。注意：Vim 不支持循环引用，在脚本中出现循环引用
+将导致错误，无法正确解析脚本中的函数。
+
+    function myplugin#test(...)
+        echo printf("argc: %s, = %s", a:[0], a:["000"])
+    endfunction
+    " :call myplugin#test("T","V")
+    " {0: 2, 000: [T, V], 2: V, 1: T, firstline: 26, lastline: 26}
+
+    :function Comment() range
+    :  execute (a:firstline + 1) .. "," .. a:lastline .. 's/^/" '
+    :endfunction
+    " :4,8call Comment()
+
+Vim9 脚本中可以直接调用函数而不必通过 `:call`，可以使用前缀冒号或者 `:exe @a` 语法执行
+寄存器中的命令。赋值不使用 `:let` 命令，也不能使用 `:unlet` 解除非全局变量，但可以解除全局
+变量定义或者 List 与 Dictionary 对象变量。明确了赋值号 = 两边需要空格。局部变量用 `:var` 
+声明，局部常量使用`:final` 或者 `:const` 声明。具体差异参考 vim9-differences 文档
+
+    vim9script
+    export def g:GlobalFunc(): string
+        var local = 'this is a function local variable'
+        return local
+    enddef
+    echo g:GlobalFunc()
+    g:global = 'this is a global variable'
+    var scriptva = 'this is a script variable'
+    # var s:var = 'E1016: Cannot declare a script variable'
+    # var w:var = 'E1016: Cannot declare a window variable'
+    # var b:var = 'E1016: Cannot declare a buffer variable'
+    # var t:var = 'E1016: Cannot declare a tab variab'
+    echo  g:global
+    echo  scriptva
+    unlet g:global
+    # unlet scriptva # E1081: Cannot unlet script variable
+
+接下来认识一下 Vim 脚本中变量的 10 种数据类型，其中数值有整数和浮点数两种：
+
+    Number      A 32 or 64 bit signed number.  |expr-number|
+    Float       A floating point number. |floating-point-format|
+    String      A NUL terminated string of 8-bit unsigned characters (bytes).
+    List        An ordered sequence of items, see |List| for details.
+    Dictionary  An associative, unordered array.
+    Funcref     A reference to a function |Funcref|.
+    Special     |v:false|, |v:true|, |v:none| and |v:null|.
+    Job         Used for a job, see |job_start()|. 
+    Channel     Used for a channel, see |ch_open()|.
+    Blob        Binary Large Object. Stores any sequence of bytes.
+
+Job 就是 `system()` 函数或者 `:!cmd` 命令形式的补充，它不需要像这两种执行 shel 命令的
+方式，不需要同步等待 shell 命令的操作完成，Job 对象可以用于异步调用 shell 命令。
+
+上表中的 Job 和 Channel 属于进程间通信技术中的对象，属于管道通信实现方式。参考文档
+chnnnel.txt Inter-process communication。Vim 主要的基于 socket 或者 pipe 实现了
+四种 Job 形式。支持 5 种数据传输格式，对应 5 种通信模式。应用于开发插件，比如基于 LSP 协议
+的智能提示功能的插件：
+
+1. [socket] A daemon, serving several Vim instances.
+2. [socket, pipes] One job working with one Vim instance, asynchronously.
+3. [socket, pipes] A job performing some work for a short time, asynchronously.
+4. [pipes] Running a filter, synchronously.
+
+    RAW    nothing known, Vim cannot tell where a message ends
+    NL     every message ends in a NL (newline) character
+    JSON   JSON encoding |json_encode()|
+    JS     JavaScript style JSON-like encoding |js_encode()|
+    LSP    Language Server Protocol encoding |language-server-protocol|
+
+Vim 支持常用的 + - * / 和求模 % 等数值运算符号，其中 + - 两个符号也是一元符号表示正负数。
+Vim 比较两个值时，其中一个为数值，那么就会将另一个转换数值再做比较，使用数值运算符号时也一样。
+在开发插件时使用的 `<SID>` 自动序列号也是数值。字符串连接使用句点 (concatenation) 表示。
+布尔值 v:true 和 v:false、v:null、v:none、[] 在数值转换时分别等价于数值 1 和 0。注意，
+与字符串做算术时，浮点数不会自动转换为字符串。Vim9 增加了类型判断表达式 `<type>expr9`。
+
+    :echom "hello"   + 10   "  0 + 10 =  10
+    :echom "10hello" + 10   " 10 + 10 =  20
+    :echom "hello10" + 10   "  0 + 10 =  10
+    :echom "0b10"    - 10   "  2 - 10 =  -8
+    :echom "0x10"    * 10   " 16 * 10 = 160
+    :echom "0100"    / 10   " 64 / 10 =  7
+    :echom "0100"    / 10   " 64 / 10 =  7
+    :echom "1.0e2"   + 0    "  1 +  0 =  1
+    :echom 1.0e2     + 0    " 1.0e2 + 0 = 100
+
+Vim 支持按位移位运算，以及与、或、非逻辑运算，但未见文档提示有异或（XOR）：
+
+    expr6 << expr6          bitwise left shift
+    expr6 >> expr6          bitwise right shift
+    expr3 || expr3 ...      logical OR
+    expr4 && expr4 ...      logical AND
+    ! expr9                 logical NOT
+
+Vim 除了提供一般语言中由 = ! < > 等符号组合起来的比较运算符号之外，还提供 =~ 和 !~ 用于正则
+表达式匹配比较，以及 ==? (ignoring case) 和 ==# (match case) 限制大小写敏感模式的比较。
+对于 List/Dictionary/Blob 对象实例的判断，使用专用的 is 和 isnot 比较运算符。
+
+Vim 表达式语法中，最具特色的莫过选项（变量）、寄存器（变量）、环境变量的求值赋值，分别使用前缀
+& @ $ 三个符号。这三种变量中的选项变量配有专用的命令 `:set` 来设置其值，或后缀 ? 问号查询值，
+后缀 ! 感叹号进行布尔值取反再赋值，或者使用 += -= 组合运算符号修改标志位值的选项中的 flags。
+其它变量与一般的脚本变量语法一致，使用 `:let` 命令或者语句赋值。另外，Vim 还给选项提供语义上
+的专用值，比如大小写比较模式选项 'ignorecase' 可以通过 `:set noignorecase` 设置不敏感，
+等价于 `:set ignorecase=0` 或 `:set ignorecase=v:false`。
+
+    For buffer-local and window-local options:
+        Command              global value    local value 
+    ======================= ==============  =============    
+          :set option=value      set             set
+     :setlocal option=value       -              set
+    :setglobal option=value      set              -
+          :set option?            -            display
+     :setlocal option?            -            display
+    :setglobal option?          display           -
+
+
+需要注意，Vim 继承了历史遗产，这也时导致其脚本规则变得复杂的原因。比如 # 符号在 vi 命令中作
+显示当前行内容并添加行号前缀。但是 Vim9 引入 # 作为新的注解符号，而原有的功能使用 `:number`
+命令替代。而这个单词也作为“行号显示”状态的选项使用，`:number` 与 `:set number` 完全具有
+不同含义。所以，如果不注意符号的使用，可以出现意外的作用。
+
+参考文档 eval.txt Expression syntax (expression-syntax)。
+
+    number                  number constant
+    "string"                string constant, backslash is special
+    'string'                string constant, ' is doubled
+    [expr1, ...]            |List|
+    {expr1: expr1, ...}     |Dictionary|
+    #{key: expr1, ...}      legacy |Dictionary|
+    &option                 option value
+    (expr1)                 nested expression
+    variable                internal variable
+    va{ria}ble              internal variable with curly braces
+    $VAR                    environment variable
+    @r                      contents of register 'r'
+    function(expr1, ...)    function call
+    func{ti}on(expr1, ...)  function call with curly braces
+    {args -> expr1}         legacy lambda expression
+    (args) => expr1         Vim9 lambda expression
+
+条件分支 if-else 语句结构中不使用括号包裹条件，在并行表达时使用 | 连接语句，而不是分号。
+Vim 默认区分大小写，但是用户可以改变设置。如果编写通用的插件代码，就不应该出现这种受环境
+变化而改变运行逻辑的代码，包括映射键盘时使用 `:map` 这样的命令。插件开发应该使用防御性
+编程 (defensive programming)。
+
+:if "foo" == "FOO"
+:    echom "foo is FOO if ignorecase"
+:elseif "nope!"
+:    echom "elseif"
+:else
+:    echom "finally!"
+:endif
+
+    :autocmd BufNewFile * :write
+             ^          ^ ^
+             |          | |
+             |          | The command to run.
+             |          |
+             |          A "pattern" to filter the event.
+             |
+             The "event" to watch for.
+
+    :autocmd BufWritePre,BufRead *.html :normal gg=G
+    :autocmd FileType python     :iabbrev <buffer> iff if:<left>
+    :autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
+
+    :augroup testgroup
+    :    autocmd! " Claar augroup
+    :    autocmd BufWrite * :echom "Foo"
+    :    autocmd BufWrite * :echom "Bar"
+    :augroup END
+
+Skim `+:help autocmd-events+` to see a list of all the events you can
+bind autocommands to. You don't need to memorize each one right now.
+Just try to get a feel for the kinds of things you can do.
+
+
+* Starting to edit a file that doesn't already exist.
+* Reading a file, whether it exists or not.
+* Switching a buffer's `+filetype+` setting.
+* Not pressing a key on your keyboard for a certain amount of time.
+* Entering insert mode.
+* Exiting insert mode.
+
+Vim 自己默认加载一系列常规功能插件，可以用 `:scriptnames` 查看所有加载的插件脚本文件。
+
+
+1. Multiple repeats                                     *multi-repeat*
+
+*:g* *:global* *E148*
+:[range]g[lobal]/{pattern}/[cmd]
+                        Execute the Ex command [cmd] (default ":p") on the
+                        lines within [range] where {pattern} matches.
+
+:[range]g[lobal]!/{pattern}/[cmd]
+                        Execute the Ex command [cmd] (default ":p") on the
+                        lines within [range] where {pattern} does NOT match.
+
+*:v* *:vglobal*
+:[range]v[global]/{pattern}/[cmd]
+                        Same as :g!.
+
+
+根据 usr_51.txt Write plugins 文档描述的两种插件脚本的编写方式，完全取于映射的作用空间：
+
+•   global plugins: For all types of files.
+• filetype plugins: Only for files of a specific type.
+
+
+全局插件涉及的特殊参数 (plugin-special) 或者方法：
+
+var name                Variable local to the script.
+
+<SID>                   Script-ID, used for mappings and functions local to
+                        the script.
+
+hasmapto()              Function to test if the user already defined a mapping
+                        for functionality the script offers.
+
+<Leader>                Value of "mapleader", which the user defines as the
+                        keys that plugin mappings start with.
+
+map <unique>            Give a warning if a mapping already exists.
+
+noremap <script>        Use only mappings local to the script, not global
+                        mappings.
+
+exists(":Cmd")          Check if a user command already exists.
+
+局部插件（文件类型相关的插件，ftplugin-special）涉及到的特殊参数与函数：
+
+<LocalLeader>           Value of "maplocalleader", which the user defines as
+                        the keys that filetype plugin mappings start with.
+
+map <buffer>            Define a mapping local to the buffer.
+
+noremap <script>        Only remap mappings defined in this script that start
+                        with <SID>.
+
+setlocal                Set an option for the current buffer only.
+
+command -buffer         Define a user command local to the buffer.
+
+exists("*s:Func")       Check if a function was already defined.
+
+Also see |plugin-special|, the special things used for all plugins.
+
+
+
+## Keyboar Mapping
+
+按键影射 (key_map) 确实是个技术问题。键盘从击键到串口输入控制中心，再到操作系统，以及软件终端，
+这里经过层层盘剥，早已不是原来的面目。一方面，系统图形软件需要用一些按键来实现快捷控制，主要有
+用于菜单的加速键 （Accelerator）和热键（HotKey）。这些已经有功能的按键将会被过滤掉，并不会
+传递给终端应用程序。
+
+从键盘硬件产生的信号根源来看，这涉及到早期的硬件终端的信号传递约定。
+
+ANSI 转义序列（ANSI Escape Sequences）的部分序列约定：
+
+• ESC - 以 ESC（\x1B） 开头的序列，对应 ASCII 字符 `[`
+• SGR (Select Graphic Rendition) 是一组用于控制光标和字体的控制代码
+• CSI (Control Sequence Introducer)：以 `ESC [` 或 CSI（\x9B）开头的序列
+• DCS (Device Control String)：以 `ESC P` 或 DCS （\x90）开头的序列
+• OSC (Operating System Command)：以 `ESC ]` 或 OSC（\x9D）开头的序列
+
+早期的硬终端使用的控制代码 (ANSI/VT100) 用来控制终端的特殊命令，它可以改变颜色和光标的位置，
+实现那些无法被程序本身完成的操作。如果控制代码是可被终端解析（不可显示）的代码，则会直接执行硬件
+操作，比如设置字体或背景颜色，而不是打印到屏幕。可以使用 echo 命令来测试终端支持什么控制代码。
+
+```bash
+echo -e '\033[?47h'  # save screen and create new screen
+echo -e '\033[?47l'1 # restore screen that saved
+printf '%b\n' 'It is\033[31m not \033[39mintelligent to use\033[32m hardcoded ANSI\033[39m codes!'
+```
+
+有些终端为了避免用户粘贴的内容被当作控制码解释，会使用 bracketed paste mode，也就是前缀 
+“^[[200~” 这样的控制代码，将粘贴的内容完全当作是字符串处理。
+
+这里很有必要澄清一个概念：终端是运行程序的控制台“窗口”，Bash 和 Vim 是“窗口里运行的应用程序”。
+当技术进化到现在，只有软件模拟的终端的时代，因为 terminal 一词主要指的就是软件实现的具有硬件
+终端功能的程序。也因传统使得约定，软件中本来可以很方法的实现的功能，却因为历史包袱，需要以控制码
+的方式来控制。一些软件也使用这些控制代码。可以在 less、vim、top、screen 等应用程序中看到屏幕
+保存/恢复操作，这些程序可能会提供参数 禁能 此操作。如，less 命令可以使会用 -X 参数禁能此操作。
+当然，Vim 这种继承历史包袱的一大回报就是：它可以在现有任何可以支持 shell 的环境中运行，也包括
+远程终端连接，这是最接近历史上硬件终端工作方式的使用场景。
+
+• https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
+• [XTerm Control Sequences by Edward Moy](https://invisible-island.net/xterm/ctlseqs/ctlseqs.html)
+
+在终端下使用 vim/neovim, emacs, nano 都会碰到使用 ALT 键的情况（终端下叫做 meta 键），
+由于历史原因，大部分终端软件的默认设置都无法正确使用 ALT 键。正确使用 ALT 键最简单的做法是：
+将终端软件的 “Use Alt as Meta key” 功能打开，意思是在终端下按下 ALT+X 时就将其转换为
+`<ESC>x` 两个字节发送给应用程序，对应字节码为：0x27, 0x78。注意 ESC 后面是小写 x，如果
+是大写字母 X 就变成 ALT+SHIFT+X，其它字母也如此。
+
+```vim
+"" Map Alt-x by ANSI Escape Sequences
+:map <Esc>x :echo "Escaped Alt"
+
+"" Map Alt-x by Vim default
+noremap <M-x> :echo "ALT-X pressed"<cr>
+
+exec "set <M-x>=\ex"
+set ttimeout ttimeoutlen=100
+```
+
+在终端里同时按下 ALT-X 和先按 ESC 键再按 X 键其实是没有区别的，但是软件中有一个时间检测窗口，
+只要是在这个窗口内发生的按键都认为是组合键。一般设置成 50ms ~ 100ms，尽量不要低于 25ms，
+否则在网络远程操作的终端上就可能有高概率会判断错误。远程主机一般靠超时来区别到底是不是 ALT-X，
+还是先按 ESC 再按 X 键，这就会识别成两个次按键动作。Vim/NeoVim 通过 ttimeoutlen 来设置
+功能键超时检测。
+
+早年的终端，处理 ALT 组合键时，将单个字符的最高位设置成 1，按照 map-alt-keys 文档说明，
+这也是 Vim 的默认处理方式。只是现在支持这种处理方式的终端较少，其优点是避免了 ESC+x 这种
+模式的额外处理过程，可以直接识别，不需要计算按两个键之间的超时。如果你的 Vim 设置 `<M-x>`
+按键不能正常工作，那么很大可能就是运行 Vim 的终端并不是这种方式处理 Alt 组合按键。这种情况，
+你就应该在 Vim 配置中使用 ANSI Escape Sequences 这种方式设置映射键。
+
+使用 showkey 这类键盘码扫描检测工具来检测设置是否正确，看看软件接收到终端发来的是什么数据。
+
+Vim 内部的按键映射处理机制与延时机制稍有不同，但也有延时机制的参与。Vim 按键输入为连续的序列，
+用户在设定时间内连续的按键，就作为一个序列解释，这里有几种种情况：
+
+• 单一按键：如果按键已经映射到命令（各种模式），那么立即执行映射的命令；
+• 多个按键，并且在超时时间范围内：按键将按照现有的按键序列映射执行相应的命令；
+• 多个按键，超时：按键序列将作为普通按键输入；
+
+使用演示，以下映射了一个插入模式下的按键序列，在插入模式中连续按下 jk 两键，那么它们（这个序列）
+将解释一个返回正常模式的命令 `<Esc>`，而非在文本区输入字符，因为此时已经消耗了输入序列中的符号。
+
+    "" Press jk to escape to normal mode from insert mode
+    inoremap jk <Esc>
+
+因此，Vim 与用户对话的过程，用户键盘的输入就是一组编程过的字符序列，具体功能取决于映射的功能，
+可以是 Vim 内置的映射，也可以是用户自定义的映射，甚至是覆盖内置的映射。Vim 提供多个命令用于
+映射不同模式下的按键序列，或者使用 `:map` 映射所有模式中通用的按键序列。映射函数有两种工作
+模式，一种是名称中带有 [nore] 部分的非递归映射（no recusive），另外的对应是递归映射。一般
+推荐先使用非递归映射，只有在需要将按键序列层层嵌套映射的情况下才使用递归映射。比如说映射再个全局
+序列，`:map abc ABC` 以及 `:map ABC :echo "ABC"<CR>` 那么按下 abc 按键时，对应序列
+将递归地替换为 ABC，也就是执行命令打印出 "ABC"。递归与非递归的的差别就在于递归替换的过程，
+在递归映射模式下，有此序列可能会因为 Vim 内置映射的存在而失效。并且，插件模式下这些递归影射
+可能完全无效，因为被当作文本字符输入，只能使用插件模式专用的映射，`:imap` 或者 `:inoremap`。
+并且插件模式下的映射的目标序列（映射命令的右值）会当作字符插入到文本区，除非切换到正常模式，
+或者使用非字符形式的功能键、组合键。
+
+在选择或者设置按键序列时，应该以哈夫曼前缀编码（Prefix code ）为基本原则，也就是尽量不在
+多个映射规则中的序列中使用相同的前缀，因为 Vim 在处理按键序列时，只要匹配到一条规则，就会
+执行相应的目标命令、或其它嵌套映射，虽然会按最长有效序列优先行。但是用户在输入时如果有停顿，
+那么就有可能误触意外操作。比如映射了 `ab` 和 `abc` 两个序列，那么用户连续输入 abc 按键时
+会先触发 `abc` 这个映射，而不是 `ab`，但是如果用户停顿后再输入 c 则触发 `ab` 这条规则。
+
+对于现有的按键映射规则，可以直接使用 `:map` 这样不带参数的命令来查询（listing mappings）。
+映射命令对应有两组解除映射命令，分别是带有 clear 后缀的批量清除映射命令，以及其它用于清除
+单独映射规则命令。此外，还可以使用映射命令与 `<nop>` 无操作记号来禁用旧旧映射规则，比如
+`:inoremap <esc> <nop>`。
+
+Vim 脚本的自动加载功能为用户提供编写插件脚本的机制。因此，就可以存在不同的用户插件使用的同样的
+自定义命令名称，或者因注册相同名称的键盘映射而导致 Vim 程序运行出错。为了尽量避免命令、按键冲突，
+Vim 为映射方法提供了多个选项来限制按键的作用范围：
+
+• `<SID>` script ID：可直接前缀于（插件脚本内的）命令名前面，映射限制在脚本内部空间；
+• `<Plug>` 插件名：不与任何按键序列匹配，也用于将映射限制在脚本内部空间；
+• `<unique>` 唯一性：确保映射不会重复（覆盖），否则就会弹出警告信息；
+• `<expr>` 作为首个参数，映射命令右值将作为表达式进行解释，表达式动态求值结果作为映射的目标；
+• `<buffer>` 绑定缓冲区：确保映射不会应用到其它文件中；
+• `<Leader>` 前导键：所映射的按键只在 `mapleader` 全局变量所设置的按键敲击后生效；
+• `<LocalLeader>` 局部前导键：映射只在 `maplocalleader` 局部变量所设置的按键敲击后生效。
+
+以下是一个插件中用于映射内部函数的映射命令完整形式，参数细节参考 `:map-arguments` 文档。
+
+    :map <script> <silent> <nowait> <buffer> <Leader><F1> :call <SID>Help()<CR>
+
+Vim 在执行映射时，会自动将 `<SID>` 替换为一个唯一的序列号前缀，使用 `<SNR>` 表示，以实现与
+其它插件映射的区分。在内部使用 `<SNR>123_` 的格式表示，数字部分代表脚本编号。
+
+前导键 `<LocalLeader>` 和 `<Leader>` 类似，只不过局部前导键它只作用于某种文件类型。如果
+需要设置某种文件类型专用命令，那么使用局部前导键是正确的用法。这里的“局部”一词的含义一般与
+某个 buffer 或者某种文件相关。
+
+设置 `mapleader` 和 `maplocalleader` 时最好区分开，不要出现冲突。前导键的设置在映射时
+生效，完成映射后再修改前导键变量时，不会影响已经完成映射的按键。等价于直接在映射命令的按键序列
+中硬编码对应的按键。在未设置 `g:mapleader` 全局变量的情况下，使用反斜杠作为默认的的前导键。
+因此，下面两组按键映射等价：
+
+```vim
+    map <Leader>A  oanother line<Esc>
+    map \A         oanother line<Esc>
+
+    " But after (legacy script): >
+    let mapleader = "\\"
+    " Or (Vim9 script): >
+    g:mapleader = "\\"
+    map \A  oanother line<Esc>
+```
+
+以下脚本片段来自官方 write-plugin 文档中的插件 Demo，演示了限制按键映射作用在脚本内部：
+
+```vim
+if !hasmapto('<Plug>TypecorrAdd;')
+ map <unique> <Leader>a  <Plug>TypecorrAdd;
+endif
+noremap <unique> <script> <Plug>TypecorrAdd;  <SID>Add
+
+noremenu <script> Plugin.Add\ Correction      <SID>Add
+
+noremap <SID>Add  :call <SID>Add(expand("<cword>"), 1)<CR>
+
+function s:Add(from, correct)
+ let to = input("type the correction for " .. a:from .. ": ")
+ exe ":iabbrev " .. a:from .. " " .. to
+ if a:correct | exe "normal viws\<C-R>\" \b\e" | endif
+ let s:count = s:count + 1
+ echo s:count .. " corrections now"
+endfunction
+```
+
+TIP: 面包屑导航 (Breadcrumb Navigation) 这个概念来自童话故事"汉赛尔和格莱特"，当汉赛尔
+和格莱特穿过森林时，不小心迷路了，但是他们发现在沿途走过的地方都撒下了面包屑，让这些面包屑来
+帮助他们找到回家的路。
+
+以下数据表结合文档给出的详细 Vim 模式与映射命令的关联表，整合文档内容包含 usr_40.txt
+Make new commands 以及 map.txt 1. Key mapping 等文档资料，map-table，map-listing，
+：
+
+    When listing mappings the characters in the first two columns are:
+
+      CHAR      MODE    ~
+     <Space>    Normal, Visual, Select and Operator-pending
+        n       Normal
+        v       Visual and Select
+        s       Select
+        x       Visual
+        o       Operator-pending
+        !       Insert and Command-line
+        i       Insert
+        l       ":lmap" mappings for Insert, Command-line and Lang-Arg
+        c       Command-line
+        t       Terminal-Job
+
+    Just before the {rhs} a special character can appear:
+    *   indicates that it is not remappable
+        &       indicates that only script-local mappings are remappable
+        @       indicates a buffer-local mapping
+
+                            Mode   | n | i | c | v | s | o | t | l | ~
+    Map Command / Unmapping        +---+---+---+---+---+---+---+---+ ~
+     [nore]map  unmap  mapc[lear]  | Y | - | - | Y | Y | Y | - | - |
+    n[nore]map nunmap nmapc[lear]  | Y | - | - | - | - | - | - | - |
+     [nore]map! unmap! mapc[lear]! | - | Y | Y | - | - | - | - | - |
+    i[nore]map iunmap imapc[lear]  | - | Y | - | - | - | - | - | - |
+    c[nore]map cunmap cmapc[lear]  | - | - | Y | - | - | - | - | - |
+    v[nore]map vunmap vmapc[lear]  | - | - | - | Y | Y | - | - | - |
+    x[nore]map xunmap xmapc[lear]  | - | - | - | Y | - | - | - | - |
+    s[nore]map sunmap smapc[lear]  | - | - | - | - | Y | - | - | - |
+    o[nore]map ounmap omapc[lear]  | - | - | - | - | - | Y | - | - |
+    t[nore]map tunmap tmapc[lear]  | - | - | - | - | - | - | Y | - |
+    l[nore]map lunmap lmapc[lear]  | - | Y | Y | - | - | - | - | Y |
+
+
+*key-notation* *key-codes* *keycodes*
+These names for keys are used in the documentation.  They can also be used
+with the ":map" command (insert the key name by pressing CTRL-K and then the
+key you want the name for).
+
+    notation        meaning             equivalent  decimal value(s)        ~
+    -----------------------------------------------------------------------
+    <Nul>           zero                    CTRL-@    0 (stored as 10) *<Nul>*
+    <BS>            backspace               CTRL-H    8     *backspace*
+    <Tab>           tab                     CTRL-I    9     *tab* *Tab*
+    *linefeed*
+    <NL>            linefeed                CTRL-J   10 (used for <Nul>)
+    <CR>            carriage return         CTRL-M   13     *carriage-return*
+    <Return>        same as <CR>                            *<Return>*
+    <Enter>         same as <CR>                            *<Enter>*
+    <Esc>           escape                  CTRL-[   27     *escape* *<Esc>*
+    <Space>         space                            32     *space*
+    <lt>            less-than               <        60     *<lt>*
+    <Bslash>        backslash               \        92     *backslash* *<Bslash>*
+    <Bar>           vertical bar            |       124     *<Bar>*
+    <Del>           delete                          127
+    <CSI>           command sequence intro  ALT-Esc 155     *<CSI>*
+    <xCSI>          CSI when typed in the GUI               *<xCSI>*
+
+    <EOL>           end-of-line (can be <CR>, <NL> or <CR><NL>,
+                    depends on system and 'fileformat')     *<EOL>*
+
+    <Up>            cursor-up                       *cursor-up* *cursor_up*
+    <Down>          cursor-down                     *cursor-down* *cursor_down*
+    <Left>          cursor-left                     *cursor-left* *cursor_left*
+    <Right>         cursor-right                    *cursor-right* *cursor_right*
+    <S-Up>          shift-cursor-up
+    <S-Down>        shift-cursor-down
+    <S-Left>        shift-cursor-left
+    <S-Right>       shift-cursor-right
+    <C-Left>        control-cursor-left
+    <C-Right>       control-cursor-right
+    <F1> - <F12>    function keys 1 to 12           *function_key* *function-key*
+    <S-F1> - <S-F12> shift-function keys 1 to 12    *<S-F1>*
+    <Help>          help key
+    <Undo>          undo key
+    <Insert>        insert key
+    <Home>          home                            *home*
+    <End>           end                             *end*
+    <PageUp>        page-up                         *page_up* *page-up*
+    <PageDown>      page-down                       *page_down* *page-down*
+    <kHome>         keypad home (upper left)        *keypad-home*
+    <kEnd>          keypad end (lower left)         *keypad-end*
+    <kPageUp>       keypad page-up (upper right)    *keypad-page-up*
+    <kPageDown>     keypad page-down (lower right)  *keypad-page-down*
+    <kPlus>         keypad +                        *keypad-plus*
+    <kMinus>        keypad -                        *keypad-minus*
+    <kMultiply>     keypad *                        *keypad-multiply*
+    <kDivide>       keypad /                        *keypad-divide*
+    <kEnter>        keypad Enter                    *keypad-enter*
+    <kPoint>        keypad Decimal point            *keypad-point*
+    <k0> - <k9>     keypad 0 to 9                   *keypad-0* *keypad-9*
+    <S-...>         shift-key                       *shift* *<S-*
+    <C-...>         control-key                     *control* *ctrl* *<C-*
+    <M-...>         alt-key or meta-key             *meta* *alt* *<M-*
+    <A-...>         same as <M-...>                 *<A-*
+    <D-...>         command-key (Macintosh only)    *<D-*
+    <t_xx>          key with "xx" entry in termcap
+    -----------------------------------------------------------------------
+
+## .vimrc coniguration
+
+以下为 .vimrc 配置参考，提供常用功能及快捷键配置，以及插件手动安装支持和管理器（vim-plug）。
+配置中通过插件管理器配置安装 vim-lsp，此插件为语言服务工具，功能简洁易用，需要安装三套脚本
+以提供完整的 LSP 语言服务：
+
+•  [vim-lsp 语言服务插件](https://github.com/prabirshrestha/vim-lsp[])
+•  [vim-lsp 默认配置预置](https://github.com/mattn/vim-lsp-settings)
+•  [vim-lsp 自动完成功能支持](https://github.com/prabirshrestha/asyncomplete.vim)
+
+因为 Vim 插件没有形成统一的规范，官方虽然有默认的插件目录结构，但是第三方插件管理工具可能使用
+各自的目录结构。比如 vim-plug 默认使用 ~/vimfiles/plugged 目录作为插件安装目录，它会被
+添加到 'runtimepath` 路径列表中。可以使用 `plug#begin(path)` 命令初始化时指定一个目录。
+
+以下配置脚本中定义了手动安装 vim-plug 插件的功能，只需要按 `<Leader>plug` 键进行安装，默认
+的 `<Leader>` 键为 `\`，因此就是依次按下 `\plug` 激活安装命令。依次按键的时间间隔设置为
+`timeoutlen=450`，要在 450ms 时间内按一个键。安装后插件管理器后，配置好的 `<Leader>l`
+以及 `<Leader>so` 快捷键可以分别用来加载 .vimrc 脚本和 source 当前脚本，使新安装的插件
+配置生效。然后就可以使用 vim-plug 插件提供的 `:PlugInstall` 命令来安装由插件管理器管理的
+插件列表中的一切插件，这种安装方式比起手动安装方便。有新的插件只需要在插件列表中添加插件信息，
+再运行安装命令即可。
+
+提示：服务器程序安装路径在用户本地数据目录：AppData\Local\vim-lsp-settings。
+
+完成 vim-lsp 插件安装后，就可以执行 `:LspInstallServer` 命令为当前编辑的 C/C++ 或者
+Python 等代码文件安装 LSP 服务器，然后重新打开 Vim 即可以在编辑代码文件时激活相应的 LSP
+服务程序，通过 `:LspStatus` 命令查看当前运行中的服务器。根据需要给各功能绑定快捷键，比如
+悬停信息 `:LspHover` 显示鼠标或光标当前位置的对象信息。此命令可能会在初始后脚本执行完后
+才生效，因此配置脚本中可能检测不到它，但依然可以先绑定自动命令，假设它后续生效。参考 vim-lsp
+文档提供的快捷键配置，比如错误信息跳转、Hover 信息面板内容滚动操作。因此环境是动态变化的，
+需要通过自动命令在 LSP 服务生效的文档中绑定。以下包含了配置一个 Python LSP 服务以及快捷键
+绑定的脚本示范：
+
+```vim
+if executable('pylsp')
+    " pip install python-lsp-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pylsp',
+        \ 'cmd': {server_info->['pylsp']},
+        \ 'allowlist': ['python'],
+        \ })
+endif
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gs <plug>(lsp-document-symbol-search)
+    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+    nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
+    nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
+
+    let g:lsp_format_sync_timeout = 1000
+    autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+    
+    " refer to doc to add more commands
+endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+```
+
+配置文件中，Alt 组合键有两组，`<Esc>` 打头的对应使用 ANSI Escape 键盘序列，使用 `<M-x>`
+则是对应终端统一用 8-bit 数据传递 Alt+x 组合键的场合。这两种配置可以分别适应命令行模式 Vim
+以及图形模式的 gvim。
+
+```vim
+"" :source $VIM/.vimrc
+"" "Config load from Home ~/.vimrc"
+
+set mouse=a
+set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1 
+set enc=utf8 
+set fencs=utf8,gbk,gb2312,gb18030
+set encoding=utf-8
+set backspace=2
+set autoread
+autocmd CursorHold,CursorHoldI   * checktime
+"autocmd CursorMoved,CursorMovedI * echo printf("cursor (%s,%s)",line("."),col("."))
+colorscheme slate
+colorscheme shine
+syntax on
+set incsearch
+set shortmess-=S
+set guifont=FiraMono\ Nerd\ Font
+"" Vim keys sequence and ANISI Escape codes timeout setting
+set ttimeout timeoutlen=450
+"" Press <Shift-K> to open Vim help at keywod location
+setlocal keywordprg=:help
+"" let mapleader = "\\"  "" The default map leader
+"" Press <Leader>so to save and source current vim script
+map <Leader>so :w \| so %<CR>
+"" Press <Leader>ss/sl to save/load session
+map <Leader>ss :mksession 
+map <Leader>sl :so ~/Session.vim
+"" Press <Leader>s to toggle status line
+map <Leader>s :call <SID>cycle_toggle('laststatus', [0,1,2])<CR>
+set statusline=#%n:%F\ =>%P/%L(%c,%o)\ [0x%B]
+"" Press <Leader>n to toggle line number (<C-g> can be ok)
+map <Leader>ln :set number!<CR>
+map <Leader>rn :set relativenumber!<CR>
+map <Leader>cl :set cursorline!<CR>
+map <Leader>cc :set cursorcolumn!<CR>
+"" Press <Leader>o/p to perform Copy/Paste for Winodws
+map <Leader>o "*y
+map <Leader>o "*y
+map <Leader>O "*Y
+map <Leader>p "*p
+inoremap <Leader>P <C-O>"*P
+inoremap <Leader>O <C-O>"*Y
+inoremap <Leader>p <C-O>"*p
+inoremap <Leader>P <C-O>"*P
+"" Press Ctrl+C or Alt+C (ANSI Escape) to enter command mode
+map <Esc>c       :
+imap <C-C>  <Esc>:
+"" Press jk to escape to normal mode from insert mode
+inoremap jk <Esc>
+"" Press Space it is equal to Ctrl+F (PageDown) in normal mode
+nmap <Space> <C-f>
+"" Prese Meta or Alt + 1/2/3 to switch tabpage
+nnoremap <M-`> :tabnew<CR>
+nnoremap <M-1> :tabn 1<CR>
+nnoremap <M-2> :tabn 2<CR>
+nnoremap <M-3> :tabn 3<CR>
+nnoremap <Esc>` :tabnew<CR>
+nnoremap <Esc>1 :tabn 1<CR>
+nnoremap <Esc>2 :tabn 2<CR>
+nnoremap <Esc>3 :tabn 3<CR>
+"" Press \t to toggle tabeline (default mapleader is \)
+nmap <silent> <Leader>t	:call <SID>cycle_toggle('showtabline', [0,1,2])<CR>
+"" Press \/ to toggle search highlight
+map <leader>/ :set hlsearch!<CR>
+"" Press Meta or Alt+Z (by ANSI Escape) to toggle line wrap
+map <M-z>  :set wrap!<CR>
+map <Esc>z :set nowrap!<CR>
+"" Press Ctrl+L to edit ~/.vimrc
+map <C-L> :edit ~/.vimrc<Enter>
+"" Press Ctrl+H to view Vim 9.0 Documentation all-in-one version
+nmap <C-H> :edit /c/opendocs/vim_9.0.doc\|set filetype=help
+"" Press Alt+0 (By ANSI Escape) to download Vim 9.0 doc all-in-one versiion
+map <Esc>0 :!curl -L "https://github.com/Jeangowhy/opendocs/blob/main/vim_9.0.doc?raw=true"
+
+function! s:cycle_toggle(option, values)
+  if len(a:values) == 0
+    echoerr "cycle_toggle received an empty value list"
+    return
+  endif
+
+  execute 'let l:current = &' . a:option
+  let l:sid = expand('<SID>')
+  let l:default = l:sid
+
+  for it in a:values
+    if it == l:current | break | endif
+    let l:default = it
+  endfor
+  let l:default = string(l:default) == string(l:sid)? a:values[-1] : l:default
+
+  execute 'set '.a:option.'='.escape(l:default, ' \')
+  echo printf('cycle toggle %s: %s => %s', a:option, l:current, l:default)
+endfunction
+
+function! s:pluginstall(url)
+  exec "!curl -L -o ~/.vim/download.cache "..a:url
+  if v:shell_error
+    echow "Fail to download plugin."
+    return
+  endif
+
+  cd ~/.vim
+  let s:ret = system('tar -xf ~/.vim/download.cache.zip')
+  if v:shell_error
+      let s:ret = system('unzip -xoq ~/.vim/download.cache')
+  endif
+  if v:shell_error 
+      :echow "Can't extract file by tar/unzip, plug install fail. #"..v:shell_error
+  else
+      :echow "Plugin was installed under ~/.vim, "
+\         .."and you need to source it from ~/.vimrc."
+  endif
+  cd -
+"  tar -xf ~/.vim/download.cache #> /dev/null
+"  if ! [[ $? == 0 ]]; then
+"      unzip -xoq ~/.vim/download.cache #> /dev/null
+"  fi
+"  if [[ $? != 0 ]]; then
+"      echo "Can't extract file by tar/unzip, plug install fail."
+"  else
+"      echo "Done."
+"  fi
+endfunction
+
+function! s:soplugin(path)
+  if ! empty(glob(a:path))
+    exec "source "..a:path
+  endif
+endfunction
+
+"" Install and configure plugins manually
+let PLUGGED = '~/.vim/plugged'
+"" Update tags file of plugin doc manually
+noremap <Leader>ud :helptags ~/.vim/doc/<CR>
+"" https://www.vim.org/scripts/script.php?script_id=42
+nnoremap <Leader>bufe :call <SID>pluginstall("https://www.vim.org/scripts/download_script.php?src_id=28905")
+call <SID>soplugin("~/.vim/plugin/bufexplorer.vim")
+nnoremap <Leader>seoul :call <SID>pluginstall("https://github.com/junegunn/seoul256.vim/archive/refs/heads/master.zip")
+call <SID>soplugin("~/.vim/seoul256.vim-master/colors/seoul256.vim")
+call <SID>soplugin("~/.vim/seoul256.vim-master/colors/seoul256-light.vim")
+
+"" Use plugin manager: vim-plug
+nnoremap <Leader>plug :call <SID>pluginstall("https://github.com/junegunn/vim-plug/archive/refs/heads/master.zip")
+call <SID>soplugin("~/.vim/vim-plug-master/plug.vim")
+if exists("*plug#begin") 
+  call plug#begin(PLUGGED)
+  if exists(":Plug")
+    ":echo "Listing enabled plugins for vim-plug..."
+    :Plug 'prabirshrestha/vim-lsp'
+    :Plug 'mattn/vim-lsp-settings'
+    :Plug 'prabirshrestha/asyncomplete.vim'
+    :Plug 'preservim/nerdtree'
+    :Plug 'tpope/vim-sensible'
+  endif
+  call plug#end()
+endif
+
+"" Hover information when cursor move to a new place 
+if !exists(":LspHover")
+  :echo ":LspHover not available yet. But assume it will enable late."
+endif
+noremap <Leader><Leader>             :LspHover<CR>
+autocmd CursorHold,CursorHoldI *     :LspHover
+"autocmd  CursorMoved,CursorMovedI * :LspHover<CR>
+```
+
+
 # 🚩 Vim 哲学
 - 大家來學 VIM（一個歷久彌新的編輯器） http://www.study-area.org/tips/vim/
 - Learn VIM while playing a game - VIM Adventures https://vim-adventures.com
 - [Vim 中文手册](https://github.com/yianwillis/vimcdoc)
 - [Vim documentation](https://vimguide.readthedocs.io/en/latest/vim.html)
 - [multiselect](https://www.vim.org/scripts/script.php?script_id=953)
+- https://vscode.dev/github/dmcbane/vim_cheatsheet_wallpaper/blob/master/vim-cheatsheet.svg
+- https://weibeld.net/vim/assets/beautiful-vim-cheatsheet.png
 
 Vim 是一种独特的软件思维：输入设备要么处于命令状态、要么处于内容输入状态，通过将这些零散的功能重新组合，就可以得到一种全新的富有创造性的工具！
 
@@ -77,13 +2646,13 @@ Vim 是一种独特的软件思维：输入设备要么处于命令状态、要�
     nine
     ten
 
-    0. Esc   进入 Normal mode
-    1. 2G    跳转第 2 行
-    2. <C-v> 打开 Visual block 模式 (Windows <C+q>)
-    3. 8j    往下选 8 行
-    4. I,Esc 插入逗号
-    5. 1G    跳转第 1 行
-    6. 10J   拼接后续 10 行内容
+    1. Esc   进入 Normal mode
+    2. 2G    跳转第 2 行
+    3. <C-v> 打开 Visual block 模式 (Windows <C+q>)
+    4. 8j    往下选 8 行
+    5. I,Esc 插入逗号
+    6. 1G    跳转第 1 行
+    7. 10J   拼接后续 10 行内容
 
     one ,two ,three ,four ,five ,six ,seven ,eight ,nine ,ten
 
@@ -456,7 +3025,7 @@ screen, the screen is scrolled to show the cursor (see also 'scrolljump' and
 - `^` - Line begin 行首，包括打头的空间字符也算行内容
 - `{/}` - Start/end of paragraph 段落开头、结尾
 - `/ab` - Search 查找 ab 字符串
-- `ma` - Mark position 标记当前位置为 a，返回标记位置使用反引号，即 &#96; 键。
+- `ma` - Mark position 标记当前位置为 a，返回标记位置使用反引号 `，即 &#96; 键。
 - `^b` - Page backward 往回翻页
 - `^f` - Page forward 往前翻页
 
@@ -809,677 +3378,6 @@ Vim 提供一个函数机制用来给 *tselect* 这些命令成标签列表，�
 ```
 
 
-## ==⚡ Regex Substitution 查找与替换
-- [Patterns and search commands](doc/pattern.txt)
-- [Search commands and patterns](doc/usr_27.txt)
-- [Vim Reference Manual - 4.2 Substitute](doc/chage.txt)
-- [Vim Regular Expressions 101](http://www.vimregex.com/)
-- [Cursor motions](vim81/doc/motion.txt)
-
-因为 Vim 的正则表达式比较怪异，可以使用 NeoVim 提供的 GUI 可视化操作，会将匹配内存用不同颜色显示，更加直观。
-
-在 normal 模式下按下：
-
-- / 即可进入正向查找模式，输入要查找的字符串并按下回车。
-- ? 即可进入反向查找模式，输入要查找的字符串并按下回车。
-
-Vim 会跳转到第一个匹配，按下 `n` 查找下一个，按下 `N` 查找上一个。
-
-直接使用 * 和 # 跳转到其它与当前光标位置的符号相匹配的符号。
-
-Vim 查找支持正则表达式，例如 /vim$ 匹配行尾的 vim。 需要查找特殊字符需要转义，例如 /vim\$ 匹配 "vim$"。
-
-Normal mode 模式下按键 * 可查找光标所在单词，要求每次出现的前后为空白字符或标点符号。例如，当前光标所在内容为 foo，可以匹配 foo bar 中的 foo，但不可匹配 foobar 中的 foo。 这在查找函数名、变量名时非常有用。
-
-按下 g* 即可查找光标所在单词的字符序列，每次出现前后字符无要求。 即 foo bar 和 foobar 中的 foo 均可被匹配到。
-
-大小写敏感查找使用 `\C`，不敏感查找使用 `\c`，例如以下会匹配 foo, FOO, Foo 等字符串：
-
-      /foo\c
-
-Vim 默认采用大小写敏感的查找，为了方便我们常常将其配置为大小写不敏感：
-
-    set ignorecase
-    set smartcase 
-
-smartcase 会在遇到有一个大写字母时，切换到大小写敏感查找。将上述配置写入 `~/.vimrc`，重新打开 Vim 即可生效。
-
-内容替换可以使用的命令有多种语法，如下：
-
-    :[range]s[ubstitute]/{pattern}/{string}/[flags] [count]
-                For each line in [range] replace a match of {pattern}
-                with {string}.
-
-    :[range]s[ubstitute] [flags] [count]
-    :[range]&[&][flags] [count]                 *:&*
-                Repeat last :substitute with same search pattern and
-                substitute string, but without the same flags.  You
-                may add [flags], see |:s_flags|.
-                Note that after `:substitute` the '&' flag can't be
-                used, it's recognized as a pattern separator.
-                The space between `:substitute` and the 'c', 'g',
-                'i', 'I' and 'r' flags isn't required, but in scripts
-                it's a good idea to keep it to avoid confusion.
-
-
-    :[range]~[&][flags] [count]                 *:~*
-                Repeat last substitute with same substitute string
-                but with last used search pattern.  This is like
-                `:&r`.  See |:s_flags| for [flags].
-
-
-    :[range]sno[magic] ...  Same as `:substitute`, but always use 'nomagic'.
-
-    :[range]sm[agic] ...    Same as `:substitute`, but always use 'magic'.
-
-替换命令的各种形式：
-
-- substitute 正则替换
-- snomagic 非魔术正则替换
-- smagic 魔术正则替换
-
-根据 Vim 正则结构定义，表达式具有以下结构：
-
-- `\|`  branch \| branch \| branch ...
-- `\&`  concat \| concat \| concat ...
-- branch ⋺ concat ⋺ piece ⋺ atom 是包含关系
-
-Range 指定作用范围指定：
-
-    :range s[ubstitute]/pattern/string/cgiI
-
-- %     指定为全文件作用范围，默认为当前行；
-- 1,5   指定 1 ~ 5 行，可以指定选区，例如 `:5,12s/foo/bar/g`；
-- '<,'> 指定选区，在 Visual 模式下选择区域后输入 : 号即可自动补全作用范围；
-- .,+2  表示当前行 . 与接下来两行 +2：
-
-规范指定有以下这些相关的符号，Range of Operation, Line Addressing and Marks
-
-行范围由一个或多个行说明符组成，用逗号或分号分隔。还可以在文本输入 ml 标记当前位置，其中“l”可以是任何字母，然后使用它定义行地址。
-
-    Specifier      | Description
-    ----------------------------------------
-    number         | an absolute line number
-    .              | the current line
-    $              | the last line in the file
-    %              | the whole file. The same as 1,$
-    't             | position of mark "t"
-    /pattern[/]    | the next line where text "pattern" matches.
-    ?pattern[?]    | the previous line where text "pattern" matches
-    \/             | the next line where the previously used search pattern matches
-    \?             | the previous line where the previously used search pattern matches
-    \&             | the next line where the previously used substitute pattern matches
-
-
-Flags 标志设置：
-
-- 不指定替换标志表示只替换从光标位置开始，目标的第一次出现。
-- g 标志表示全局 global 替换，即对整行内容进行替换。
-- i 标志表示大小写不敏感查找，I 表示大小写敏感，等效于搜索模式中的 \c 和 \C。
-
-        :%s/foo\c/bar
-
-- c 标志表示需要确认才进行替换，例如，全局查找 foo 替换为 bar 并且需要确认，回车后 Vim 会将光标移动到匹配位置，并提示：
-
-        replace with bar (y/n/a/q/l/^E/^Y)?
-
-    - y yes 替换
-    - N no 不替换
-    - A all 替换所有
-    - Q quit 退出替换
-    - L last 替换最后一个，并把光标移动到行首。
-    - ^E ctrl+E 向下滚屏
-    - ^Y ctrl+Y 向上滚屏!
-
-例如，在全局范围 % 查找 foo 并替换为 bar，指定 g 标志表示所有匹配都会被替换：
-
-    %s/foo/bar/g
-
- 以下
-
-    :s/foo/bar/g
-    :%s/foo/bar/g
-
-Vim 的正则使用各种 magic 模式，各种符号需要根据不同的模式进行编写，例如，以下：
-
-    :%s/=\(.\+\)/=prefix_\1
-
-使用分组 \(\) 匹配全文，所有行的第一个 = 号右侧的内容，并给替换内容增加前缀，\1 表示返向引用匹配到的第一个圆括号分组的内容。
-
-例如，以下正则替换规则将多级目录的文本转换为 MD 的标题格式，可以使用 [vim guide](https://vimguide.readthedocs.io/en/latest/vim.html) 上面的内容：
-
-    :%s/^\d\+\.\(\d\+\.\)\+/\r*\0*\r\r## \0
-
-
-### ===🗝 Zero-with
-
-Perl 使用的正则表达式的先行断言 lookahead 和后行断言 lookbehind 一共有 4 种形式：
-
-正则表达式的前行断言 lookahead 和后行断言 lookbehind 一共有 4 种形式：
-
-    (?=pattern)  零宽正向前行断言 zero-width positive lookahead assertion
-    (?!pattern)  零宽负向前行断言 zero-width negative lookahead assertion
-    (?<=pattern) 零宽正向后行断言 zero-width positive lookbehind assertion
-    (?<!pattern) 零宽负向后行断言 zero-width negative lookbehind assertion
-
-这里面的 pattern 是一个正则表达式，涉及三个基本概念：
-
-`零宽` zero with 表示这此匹配模式都不消耗字符串，也就是说，符合零宽部分的匹配规则的内容不会出现在 $1 $2 ... 等等反向引用变量中，并且还可以继续被其它匹配模式使用。
-
-`负向`和`正向` negative & positive 这里的“向”不是指方向，而是取向。区别就在于该位置之后的字符能否匹配括号中的表达式，禁止匹配称之为负，允许匹配称之为正。
-
-`后行`和`前行` lookbehind & lookahead 的区别就在于，满足自身匹配规则后，该 zero width 位置的左侧、右侧的字符序列能否匹配。
-
-整个零宽匹配规则始终代表字符串中的一个位置，或是匹配的 positive，或是禁匹配的 negative，但是不获取匹配的内容，也不消耗字串，其中的圆括号不是匹配分组，不会获取内容供 $1 $2 ... 等反向引用变量使用。
-
-通常正则表达式引擎在匹配字符串和表达式时，是从前向后逐个扫描字符串中的字符，并判断是否与表达式符合。当在表达式中遇到`后行断言`，正则表达式引擎需要往字符串前端检测已扫描过的字符，相对于扫描方向是向后的。
-
-如同 ^ 代表开头，$ 代表结尾，\b 代表单词边界一样，前行断言和后行断言也有类似的作用，它们只匹配某些位置，在匹配过程中，不占用字符，所以被称为零宽。所谓位置，是指字符串中(每行)第一个字符的左边、最后一个字符的右边以及相邻字符的中间（假设文字方向是头左尾右）。
-
-使用以下“示范字符串”来演示四种 zero width 匹配规则的使用：
-
-    regex represents regular expression 
-
-⛏   (?=pattern) 
-
-要想匹配示范字符串 regular 中的 re，但不能匹配 expression 中的 re，可以用 `re(?=gular)`。该表达式限定了 re 右边的位置，这个位置之后是 gular，但并不消耗 gular 这些字符，替换时反向引用 $0 包含 re，而其它如 $1 $2 ... 等等不包含分组匹配内容，尽管 zero with 使用了圆括号，这也就是零宽 zero width 的含义。
-
-将表达式改为 `re(?=gular).` ，将会匹配 reg，元字符 `.` 匹配了g，括号这一砣匹配了 e 和 g 之间的位置。
-
-⛏   (?!pattern)
-
-要想匹配示范字符串中除 regex 和 regular 之外的 re，可以用 re(?!g) ，该表达式限定了 re 右边的位置，这个位置后面不能是字符 g。
-
-
-⛏   (?<=pattern) 
-
-示范字符串有 4 个单词，要想匹配单词内部的 re，但不匹配单词开头的 re，可以用 (?<=\w)re ，单词内部的 re，在 re 前面应该是一个文字字符。
-
-正向后行与正向前行的表现不同在于，前者要满足自身的 pattern 规则匹配同时，其右侧的字符序列也同时匹配。而后者则是满足自身 pattern 规则匹配同时，左侧的字符序列也要匹配，这样整个 zero width 匹配正则才成立。所以，使用 (?=\w)re 这种不正确的形式做匹配，会匹配到单词开头 re 字符，因为 lookahead 规则只要求其左侧字序匹配，而不像 lookbehind 要求其右侧字串匹配。
-
-如果用 RA 表示前行断言 lookahead，用 RB 表示后行断言 lookbehind，用 pattern 表示其它字符模式序列，用竖线表示判断点，那么它们的使用习惯如下：
-
-         RA | pattern
-    pattern | RB
-
-
-⛏   (?<!pattern) 
-
-要想匹配示范字符串中单词开头的 re，可以用 (?<!\w)re 。单词开头的re，在本例中，也就是指不在单词内部的re，即re前面不是单词字符。当然也可以用 \bre 来匹配。
-
-
-Vim 正则表达式与其它语言环境中的表达差异如下，zero width 还可以指定字节数：
-
-    \@= Matches the preceding atom with zero width.
-        Like "(?=pattern)" in Perl.
-    \@! Matches with zero width if the preceding atom does NOT match at the
-        current position. |/zero-width|
-        Like "(?!pattern)" in Perl.
-    \@<=    Matches with zero width if the preceding atom matches just before what
-        follows. |/zero-width|
-
-    \@123<=
-        Like "\@<=" but only look back 123 bytes. This avoids trying lots
-        of matches that are known to fail and make executing the pattern very
-        slow.
-    \@<!    Matches with zero width if the preceding atom does NOT match just
-        before what follows.  Thus this matches if there is no position in the
-        current or previous line where the atom matches such that it ends just
-        before what follows.  |/zero-width|
-
-    \@123<!
-        Like "\@<!" but only look back 123 bytes. This avoids trying lots of
-        matches that are known to fail and make executing the pattern very
-        slow.
-
-    \@> Matches the preceding atom like matching a whole pattern.
-        Like "(?>pattern)" in Perl.
-
-- `*`   任意次匹配，Greedy 模式，尽可能多地匹配，(use \* when 'magic' is not set)
-- `\+`  至少一次匹配，尽可能多地匹配，如 ^.\+$ 尽量匹配多的非空行
-- `\=`  至多一次匹配，尽可能多地匹配，如 books\= 可以匹配 book 和 books
-- `\?`  Just like \=.  Cannot be used when searching backwards with the "?" command.
-
-例如，输入内容为 title，以下零宽前行匹配规则与对应的替换内容如下：
-
-    :%s/i\@=/==/gc          ==> 将会在单词中 i 的位置前面插入 == 符号
-    :%s/\(i\)\@=/==/gc      ==> 同上
-    :%s/\(i\)\@=i/==/gc     ==> 将 i 替换为 == 符号
-
-
-在使用 `substitute()` 方法时，\= 还有其它用途：
-
-    When {sub} starts with "\=", the remainder is interpreted as
-                    an expression. See |sub-replace-expression|.  Example: >
-                       :echo substitute(s, '%\(\x\x\)',
-                               \ '\=nr2char("0x" . submatch(1))', 'g')
-
-Matching a line break 多行内容匹配很容易引起性能问题，使用 `\_` 这个特殊符号，也可以使用 \n 匹配一个换行符，但前者可以匹配任意多换行直到文件结束，`\_s` 表示：
-
-    /one\ntwo
-
-    /one\_stwo
-
-    /one\_s\+two
-
-
-    "\_.*" matches everything until the end of the file.  Be careful with
-    this, it can make a search command very slow.
-
-例如，匹配一整行内容，包括换行符号，注意星在 magic 模式下不用写作 \*：
-
-    /\(.*\n\)     whole line also empty line
-    /\(.*\n\)\+   multilines include empty line
-    /\(.\+\n\)    whole line but not empty line
-    \(.\+\n\)\+   multilines and not include empty line
-
-以下可以用于匹配 HTML 脚本块，包括单行脚本块、多行含空行脚本块，第二行则可以同时算是脚本块和样式块。最后一个，如果在替换操作中，因为没有使用 /g 进行全局替换，所以每一行只有第一个匹配内容被换：
-
-    <script\(.*\n\)\{-}.*script>
-
-    <\(script\|style\)\(.*\n\)\{-}.*\(style\|script\)>
-
-    <\([^>]*\)>
-
-### ===🗝 Regex Overview
-
-Vim 正式结构定义：
-
-    ==============================================================================
-    2. The definition of a pattern      *search-pattern* *pattern* *[pattern]*
-                        *regular-expression* *regexp* *Pattern*
-                        *E76* *E383* *E476*
-
-       pattern ::=      branch
-            or  branch \| branch
-            or  branch \| branch \| branch
-            etc.
-
-                            */branch* */\&*
-    2. A branch is one or more concats, separated by "\&".  It matches the last
-       concat, but only if all the preceding concats also match at the same
-       position.  Examples:
-        "foobeep\&..." matches "foo" in "foobeep".
-        ".*Peter\&.*Bob" matches in a line containing both "Peter" and "Bob"
-
-       branch ::=       concat
-            or  concat \& concat
-            or  concat \& concat \& concat
-            etc.
-
-                            */concat*
-    3. A concat is one or more pieces, concatenated.  It matches a match for the
-       first piece, followed by a match for the second piece, etc.  Example:
-       "f[0-9]b", first matches "f", then a digit and then "b".
-
-       concat  ::=      piece
-            or  piece piece
-            or  piece piece piece
-            etc.
-
-                            */piece*
-    4. A piece is an atom, possibly followed by a multi, an indication of how many
-       times the atom can be matched.  Example: "a*" matches any sequence of "a"
-       characters: "", "a", "aa", etc.  See |/multi|.
-
-       piece   ::=      atom
-            or  atom  multi
-
-                            */atom*
-    5. An atom can be one of a long list of items.  Many atoms match one character
-       in the text.  It is often an ordinary character or a character class.
-       Braces can be used to make a pattern into an atom.  The "\z(\)" construct
-       is only for syntax highlighting.
-
-       atom    ::=      ordinary-atom       |/ordinary-atom|
-            or  \( pattern \)       |/\(|
-            or  \%( pattern \)      |/\%(|
-            or  \z( pattern \)      |/\z(|
-
-
-==============================================================================
-4. Overview of pattern items                *pattern-overview*
-                        *E865* *E866* *E867* *E869*
-
-    Overview of multi items.                */multi* *E61* *E62*
-    More explanation and examples below, follow the links.      *E64* *E871*
-
-                 multi ~
-            'magic'     'nomagic'   matches of the preceding atom ~
-    |/star|  *          \*          0 or more   as many as possible
-    |/\+|    \+         \+          1 or more   as many as possible
-    |/\=|    \=         \=          0 or 1      as many as possible
-    |/\?|    \?         \?          0 or 1      as many as possible
-
-    |/\{|   \{n,m}      \{n,m}      n to m      as many as possible
-            \{n}        \{n}        n           exactly
-            \{n,}       \{n,}       at least n  as many as possible
-            \{,m}       \{,m}       0 to m      as many as possible
-            \{}         \{}         0 or more   as many as possible (same as *)
-
-    |/\{-|  \{-n,m}     \{-n,m}     n to m      as few as possible
-            \{-n}       \{-n}       n           exactly
-            \{-n,}      \{-n,}      at least n  as few as possible
-            \{-,m}      \{-,m}      0 to m      as few as possible
-            \{-}        \{-}        0 or more   as few as possible
-
-                                                                *E59*
-    |/\@>|  \@>         \@>         1, like matching a whole pattern
-    |/\@=|  \@=         \@=         nothing, requires a match |/zero-width|
-    |/\@!|  \@!         \@!         nothing, requires NO match |/zero-width|
-    |/\@<=| \@<=        \@<=        nothing, requires a match behind |/zero-width|
-    |/\@<!| \@<!        \@<!        nothing, requires NO match behind |/zero-width|
-
-
-    Overview of ordinary atoms.             */ordinary-atom*
-    More explanation and examples below, follow the links.
-
-          ordinary atom ~
-          magic   nomagic   matches ~
-    |/^|    ^       ^       start-of-line (at start of pattern) |/zero-width|
-    |/\^|   \^      \^      literal '^'
-    |/\_^|  \_^     \_^     start-of-line (used anywhere) |/zero-width|
-    |/$|    $       $       end-of-line (at end of pattern) |/zero-width|
-    |/\$|   \$      \$      literal '$'
-    |/\_$|  \_$     \_$     end-of-line (used anywhere) |/zero-width|
-    |/.|    .       \.      any single character (not an end-of-line)
-    |/\_.|  \_.     \_.     any single character or end-of-line
-    |/\<|   \<      \<      beginning of a word |/zero-width|
-    |/\>|   \>      \>      end of a word |/zero-width|
-    |/\zs|  \zs     \zs     anything, sets start of match
-    |/\ze|  \ze     \ze     anything, sets end of match
-    |/\%^|  \%^     \%^     beginning of file |/zero-width|     *E71*
-    |/\%$|  \%$     \%$     end of file |/zero-width|
-    |/\%V|  \%V     \%V     inside Visual area |/zero-width|
-    |/\%#|  \%#     \%#     cursor position |/zero-width|
-    |/\%'m| \%'m    \%'m    mark m position |/zero-width|
-    |/\%l|  \%23l   \%23l   in line 23 |/zero-width|
-    |/\%c|  \%23c   \%23c   in column 23 |/zero-width|
-    |/\%v|  \%23v   \%23v   in virtual column 23 |/zero-width|
-
-    Character classes:                  */character-classes*
-          magic   nomagic   matches ~
-    |/\i|   \i      \i      identifier character (see 'isident' option)
-    |/\I|   \I      \I      like "\i", but excluding digits
-    |/\k|   \k      \k      keyword character (see 'iskeyword' option)
-    |/\K|   \K      \K      like "\k", but excluding digits
-    |/\f|   \f      \f      file name character (see 'isfname' option)
-    |/\F|   \F      \F      like "\f", but excluding digits
-    |/\p|   \p      \p      printable character (see 'isprint' option)
-    |/\P|   \P      \P      like "\p", but excluding digits
-    |/\s|   \s      \s      whitespace character: <Space> and <Tab>
-    |/\S|   \S      \S      non-whitespace character; opposite of \s
-    |/\d|   \d      \d      digit:                      [0-9]
-    |/\D|   \D      \D      non-digit:                  [^0-9]
-    |/\x|   \x      \x      hex digit:                  [0-9A-Fa-f]
-    |/\X|   \X      \X      non-hex digit:              [^0-9A-Fa-f]
-    |/\o|   \o      \o      octal digit:                [0-7]
-    |/\O|   \O      \O      non-octal digit:            [^0-7]
-    |/\w|   \w      \w      word character:             [0-9A-Za-z_]
-    |/\W|   \W      \W      non-word character:         [^0-9A-Za-z_]
-    |/\h|   \h      \h      head of word character:     [A-Za-z_]
-    |/\H|   \H      \H      non-head of word character: [^A-Za-z_]
-    |/\a|   \a      \a      alphabetic character:       [A-Za-z]
-    |/\A|   \A      \A      non-alphabetic character:   [^A-Za-z]
-    |/\l|   \l      \l      lowercase character:        [a-z]
-    |/\L|   \L      \L      non-lowercase character:    [^a-z]
-    |/\u|   \u      \u      uppercase character:        [A-Z]
-    |/\U|   \U      \U      non-uppercase character     [^A-Z]
-    |/\_|   \_x     \_x     where x is any of the characters above: character
-                            class with end-of-line included
-    (end of character classes)
-
-          magic   nomagic   matches ~
-    |/\e|   \e      \e      <Esc>
-    |/\t|   \t      \t      <Tab>
-    |/\r|   \r      \r      <CR>
-    |/\b|   \b      \b      <BS>
-    |/\n|   \n      \n      end-of-line
-    |/~|    ~       \~      last given substitute string
-    |/\1|   \1      \1      same string as matched by first \(\)
-    |/\2|   \2      \2      Like "\1", but uses second \(\)
-           ...
-    |/\9|   \9      \9      Like "\1", but uses ninth \(\)
-                                    *E68*
-    |/\z1|  \z1     \z1     only for syntax highlighting, see |:syn-ext-match|
-           ...
-    |/\z1|  \z9     \z9     only for syntax highlighting, see |:syn-ext-match|
-
-            x       x       a character with no special meaning matches itself
-
-    |/[]|   []      \[]     any character specified inside the []
-    |/\%[]| \%[]    \%[]    a sequence of optionally matched atoms
-
-    |/\c|   \c      \c      ignore case, do not use the 'ignorecase' option
-    |/\C|   \C      \C      match case, do not use the 'ignorecase' option
-    |/\Z|   \Z      \Z      ignore differences in Unicode "combining characters".
-                            Useful when searching voweled Hebrew or Arabic text.
-
-          magic   nomagic   matches ~
-    |/\m|   \m      \m      'magic' on for the following chars in the pattern
-    |/\M|   \M      \M      'magic' off for the following chars in the pattern
-    |/\v|   \v      \v      the following chars in the pattern are "very magic"
-    |/\V|   \V      \V      the following chars in the pattern are "very nomagic"
-    |/\%#=| \%#=1   \%#=1   select regexp engine |/zero-width|
-
-    |/\%d|  \%d     \%d     match specified decimal character (eg \%d123)
-    |/\%x|  \%x     \%x     match specified hex character (eg \%x2a)
-    |/\%o|  \%o     \%o     match specified octal character (eg \%o040)
-    |/\%u|  \%u     \%u     match specified multibyte character (eg \%u20ac)
-    |/\%U|  \%U     \%U     match specified large multibyte character (eg
-                            \%U12345678)
-    |/\%C|  \%C     \%C     match any composing characters
-
-    Example         matches ~
-    \<\I\i*     or
-    \<\h\w*
-    \<[a-zA-Z_][a-zA-Z0-9_]*
-                            An identifier (e.g., in a C program).
-
-    \(\.$\|\. \)            A period followed by <EOL> or a space.
-
-    [.!?][])"']*\($\|[ ]\)  A search pattern that finds the end of a sentence,
-                            with almost the same definition as the ")" command.
-
-    cat\Z                   Both "cat" and "càt" ("a" followed by 0x0300)
-                            Does not match "càt" (character 0x00e0), even
-                            though it may look the same.
-
-
-Replacement Part of :substitute
-
-    #           Meaning                    #                  Meaning
- 
-    &    the whole matched pattern         \L   the following characters are made lowercase
-    \0   the whole matched pattern         \U   the following characters are made uppercase
-    \1   match of the first pair of \(\)   \E   end of \U and \L
-    \2   match of the second pair of \(\)  \e   end of \U and \L
-    ...  ...                               \r   split line in two at this point
-    \9   match of the ninth pair of \(\)   \l   next character made lowercase
-    ~    the previous substitute string    \u   next character made uppercase
-
-各种转义符号与 ranges 表达关系：
-
-    item    matches          equivalent ~
-    \d  digit                [0-9]
-    \D  non-digit            [^0-9]
-    \x  hex digit            [0-9a-fA-F]
-    \X  non-hex digit        [^0-9a-fA-F]
-    \s  white space          [   ]     (<Tab> and <Space>)
-    \S  non-white characters [^  ]     (not <Tab> and <Space>)
-    \l  lowercase alpha      [a-z]
-    \L  non-lowercase alpha  [^a-z]
-    \u  uppercase alpha      [A-Z]
-    \U  non-uppercase alpha  [^A-Z]
-
-"Escaped" characters or metacharacters
-
-    #             Matching                    #              Matching 
-
-    .   any character except new line         \H  non-head of word character
-    \s  whitespace character                  \p  printable character 
-    \S  non-whitespace character              \P  like \p, but excluding digits
-    \d  digit                                 \w  word character  
-    \D  non-digit                             \W  non-word character
-    \x  hex digit                             \a  alphabetic character    
-    \X  non-hex digit                         \A  non-alphabetic character
-    \o  octal digit                           \l  lowercase character 
-    \O  non-octal digit                       \L  non-lowercase character
-    \h  head of word character                \u  uppercase character 
-        (a,b,c...z,A,B,C...Z and _)           \U  non-uppercase character
-
-
-Character classes
-
-    item    matches                 option ~
-    \i  identifier characters       'isident'
-    \I  like \i, excluding digits
-    \k  keyword characters          'iskeyword'
-    \K  like \k, excluding digits
-    \p  printable characters        'isprint'
-    \P  like \p, excluding digits
-    \f  file name characters        'isfname'
-    \F  like \f, excluding digits
-
-Matching multiple times Examples:
-
-    pattern     match count ~
-
-    /\(ab\)*    "" "ab" "abab" ...
-    /ab\+       "ab" "abb" ...
-    /folders\=  "folder" "folders"
-    /ab\{3,5}   "abbb", "abbbb" and "abbbbb".
-
-    \{,4}        0, 1, 2, 3 or 4
-    \{3,}        3, 4, 5, etc.
-    \{0,1}       0 or 1, same as \=
-    \{0,}        0 or more, same as *
-    \{1,}        1 or more, same as \+
-    \{3}         3
-    \{-}         matches 0 or more of the preceding atom, non-greedy
-    \{-n,m}      matches 1 or more of the preceding characters...
-    \{-n,}       matches at lease or more of the preceding characters...
-    \{-,m}       matches 1 or more of the preceding characters...
-                 where n and m are positive integers (>0)
-
-
-允许出现一个负值，或者只有使得负号代替数值，`\{-n,m}` 等价 `\{n,m}`，这表示“厌恶匹配”模式，会尽量取最小匹配长度的内容：
-
-    pattern     input       match count
-    /ab\{-1,3}  "abbb"      "ab"
-    /a.\{-}b    "axbxb"     "axb" 
-    /a.*b       "axbxb"     "axb" 
-
-而相对的是贪婪匹配，Greedy `.*`，会尽量取出最长的匹配内容。
-
-
-Alternatives 关联匹配模式，以下前一种规则匹配 endif endwhile endfor 这几种组合。第二项则多次匹配 foo 或者 bar 两者其中之一。而第三是是相关项匹配规则，\&... 这分部表示只取 3 个符号，这三个字符来自左侧的 forever 中的前三个字母，即匹配到 forever 这个单词后，才会成功完成最终的 for 这三个字母的匹配：
-
-    /end\(if\|while\|for\)
-
-    /\(foo\|bar\)\+
-
-    /forever\&...
-
-Character ranges
-
-    /[a-z]
-    /[0123456789abcdef]
-    /[0-9a-f]
-
-非魔术正则、魔术正则的行为差异：
-
-    magic   nomagic   action    ~
-      &   \&      replaced with the whole matched pattern        *s/\&*
-     \&    &      replaced with &
-          \0      replaced with the whole matched pattern      *\0* *s/\0*
-          \1      replaced with the matched pattern in the first
-              pair of ()                         *s/\1*
-          \2      replaced with the matched pattern in the second
-              pair of ()                         *s/\2*
-          ..      ..                             *s/\3*
-          \9      replaced with the matched pattern in the ninth
-              pair of ()                         *s/\9*
-      ~   \~      replaced with the {string} of the previous
-              substitute                         *s~*
-     \~    ~      replaced with ~                    *s/\~*
-          \u      next character made uppercase              *s/\u*
-          \U      following characters made uppercase, until \E      *s/\U*
-          \l      next character made lowercase              *s/\l*
-          \L      following characters made lowercase, until \E      *s/\L*
-          \e      end of \u, \U, \l and \L (NOTE: not <Esc>!)        *s/\e*
-          \E      end of \u, \U, \l and \L               *s/\E*
-          <CR>    split line in two at this point
-              (Type the <CR> as CTRL-V <Enter>)          *s<CR>*
-          \r      idem                           *s/\r*
-          \<CR>   insert a carriage-return (CTRL-M)
-              (Type the <CR> as CTRL-V <Enter>)          *s/\<CR>*
-          \n      insert a <NL> (<NUL> in the file)
-              (does NOT break the line)              *s/\n*
-          \b      insert a <BS>                      *s/\b*
-          \t      insert a <Tab>                     *s/\t*
-          \\      insert a single backslash              *s/\\*
-          \x      where x is any character not mentioned above:
-              Reserved for future expansion
-
-Examples:
-
-    :s/a\|b/xxx\0xxx/g       modifies "a b"      to "xxxaxxx xxxbxxx"
-    :s/\([abc]\)\([efg]\)/\2\1/g     modifies "af fa bg" to "fa fa gb"
-    :s/abcde/abc^Mde/        modifies "abcde"    to "abc", "de" (two lines)
-    :s/$/\^M/            modifies "abcde"    to "abcde^M"
-    :s/\w\+/\u\0/g       modifies "bla bla"  to "Bla Bla"
-    :s/\w\+/\L\u\0/g         modifies "BLA bla"  to "Bla Bla"
-
-
-
-Use of "\m" makes the pattern after it be interpreted as if 'magic' is set,
-ignoring the actual value of the 'magic' option.
-
-Use of "\M" makes the pattern after it be interpreted as if 'nomagic' is used.
-
-Use of "\v" means that after it, all ASCII characters except '0'-'9', 'a'-'z',
-'A'-'Z' and _ have special meaning: "very magic"
-
-Use of "\V" means that after it, only a backslash and terminating character
-(usually / or ?) have special meaning: "very nomagic"
-
-    after:\v       \m       \M       \V         matches ~
-                'magic' 'nomagic'
-          $        $        $        \$         matches end-of-line
-          .        .        \.       \.         matches any character
-          *        *        \*       \*         any number of the previous atom
-          ~        ~        \~       \~         latest substitute string
-          ()       \(\)     \(\)     \(\)       grouping into an atom
-          |        \|       \|       \|         separating alternatives
-          \a       \a       \a       \a         alphabetic character
-          \\       \\       \\       \\         literal backslash
-          \.       \.       .        .          literal dot
-          \{       {        {        {          literal '{'
-          a        a        a        a          literal 'a'
-
-
-         'magic' 'nomagic'  matches of the preceding atom ~
-    |/star| *       \*      0 or more       as many as possible
-    |/\+|   \+      \+      1 or more       as many as possible
-    |/\=|   \=      \=      0 or 1          as many as possible
-    |/\?|   \?      \?      0 or 1          as many as possible
-
-    |/\{|   \{n,m}  \{n,m}  n to m          as many as possible
-            \{n}    \{n}    n               exactly
-            \{n,}   \{n,}   at least n      as many as possible
-            \{,m}   \{,m}   0 to m          as many as possible
-            \{}     \{}     0 or more       as many as possible (same as *)
-
-    |/\{-|  \{-n,m} \{-n,m} n to m          as few as possible
-            \{-n}   \{-n}   n               exactly
-            \{-n,}  \{-n,}  at least n      as few as possible
-            \{-,m}  \{-,m}  0 to m          as few as possible
-            \{-}    \{-}    0 or more       as few as possible
-
-
-
-
 ## ==⚡ Windows & Buffers 多窗口
 - [Terminal information](doc/term.txt)
 - [Terminal window support](doc/terminal.txt)
@@ -1646,7 +3544,7 @@ Text files
     Ctrl+w n        New Window 打开一个新窗口（空文件）
     Ctrl+w o        Keep Current Only 关闭出当前窗口之外的所有窗口
 
-切换窗口的快捷键也使用了方向键 hjkl：
+移动光标/切换窗口的快捷键也使用了小写的方向键 hjkl：
 
     Ctrl+w h        切换到左边窗口
     Ctrl+w j        切换到下边窗口
@@ -1654,7 +3552,7 @@ Text files
     Ctrl+w l        切换到右边窗口
     Ctrl+w w        遍历切换窗口
 
-移动当前窗口，注意使用大小的方向键：
+移动当前窗口，注意使用大写的方向键：
 
     Ctrl+w H        向左移动当前窗口
     Ctrl+w J        向下移动当前窗口
@@ -1672,6 +3570,20 @@ Text files
 ## ==⚡ Tabs Panel 多文件编辑与标签页
 - [Editing with windows in multiple tab pages](doc/tabpage.txt)
 - [Vim 多文件编辑：标签页](https://harttle.land/2015/11/12/vim-tabpage.html)
+
+标签页是窗口（Window）容器，每个 Vim 程序实例可以创建任意的 Tabs，每个 Tab 可以分割成
+多个窗口，每个窗口打开/编辑一个 Buffer（对应一个文件的读取到内存中的数据内容）。这些窗口
+可以在 Tab 页面中进行移动 （`<C,w>`,H/I/J/K）。利用缓冲区对象，可以将窗口（编辑的文件）
+移动到 Vim 到其它标签页面中的窗口中进行编辑。例如，以下使用 `buffers` 命令查看当前打开
+的文件缓冲区，并使用 `buffer 2` 在当前标签页面的窗口中打开它：
+
+```vim
+:buffers
+  1 #a   "index.txt"                    line 1
+  2 %a   "builtin.txt"                  line 1
+:buffer 2
+```
+使用 `<C>+w,-/+/</>` 可以调整窗口的大小，Window resize。
 
 打开与关闭
 
@@ -2375,9 +4287,11 @@ name).  This is included for backwards compatibility with version 3.0, the
     <cfile><    idem, without extension
 
 
-通过学习 Vim 寄存器，就可以解锁新姿势：往命令行粘贴内容的技能。
-
-往命令输入行粘贴内容对应的操作是，Ctrl-R " 读取默认寄存器内存并粘贴到文件中，可以注意到按下 Ctrl-R 时自动插入一个双引号，只需要再输入一个符号就可以指定一个寄存器，获取帮助 `:help <C-R>`。
+通过学习 Vim 寄存器，就可以解锁新姿势：往命令行粘贴内容的技能。无论是在命令行输入还编辑文档
+插入模块，它们都具有相同的程序状态：等待用户输入。所以它们都可以使用寄存器的读取动作（粘贴）。
+粘贴内容对应的操作是，Ctrl-R " 读取默认寄存器内存并粘贴到文件中。注意，按下 Ctrl-R 快捷键
+时自动插入一个双引号，它表示默认的 unnamed register，只需要再输入一个符号就可以指定其它
+寄存器，比如 * 号表示系统剪贴板，获取帮助 `:help <C-R>` 或者 `:help c_<C-R>`。
 
 例如，在 Normal mode 执行 "yY 命令，将当前行、或选中内容保存到 "y 寄存器中。
 
@@ -2387,13 +4301,32 @@ name).  This is included for backwards compatibility with version 3.0, the
     :exe "normal I:exe '!chcp Bad'.' Apple!'"
     :normal I:exe '!chcp Bad'.' Apple!'
 
-执行命令 :execute 是脚本提供一个脚本执行方法，而通过命令 :normal I 则是进入 Normal mode 执行 Insert 命令，从而完成将命令行内容输入到文件中的需求。
+执行命令 :execute 就是执行内置函数（`execute({command})`），传入命令脚本并返回执行结果。而通过命令 :normal I 则是进入 Normal mode 执行 Insert 命令，从而完成将命令行内容输入到文件中的需求。可以在 Vim 脚本中直接调用内置函数，或者在命令模式下使用，只是不不能直接执行函数而不处理其返回值，可以像这样 `:echo system("pwd")`。或者 `:silent let f = system('ls *.vim')` 这样。注意 `system` 函数与 `exeute` 的返回值差异，前者才是返回外部命令的输出内容,。因此，以下第二条命令才会向文档中插件外部命令返回的结果：
+
+    :exe "normal I:execute Output:".execute("!ls")
+
+    :exe "normal I:system Output:".system("!ls")
+
+    :execute Output:
+    1  a   "index.txt"                    line 1
+    2 #a   "builtin.txt"                  line 1
+    3 %a + "[No Name]"                    line 14
+
+    :system Output:arabic.txt
+    autocmd.txt
+    builtin.txt
+    change.txt
+    channel.txt
+    cmdline.txt
+    debug.txt
 
 执行 :normal I 命令直接插入字符串内容到文件，如果引其它变量，那么再套一层 :exe 命令去生成结果再执行插入：
 
 另外，Vim 虽然支持 json 编码，但不支持 json 格式化，需要利用 PowerShell、Python 等工具的辅助。
 
-在命令行中传递字符串非常定容易出错，可以写入文件再处理。
+在命令行中传递字符串非常定容易出错，可以写入文件再处理。Vim 提供 shell 调用，可以在命令模式下使用 `!cmd` 格式调用外部命令，也可以使用 `system({expr} [, {input}])` 函数来调用外部命令。
+
+:exe "normal I:exec BBB".execute("!ls")
 
 以下脚本可以将 global 作用域的信息转化为格式化后的字符串，如果提示 *E499* 可能是因为当前 buffer 是新创建的没有相应文件名，使用 :file name 设置一下：
 
@@ -2777,13 +4710,19 @@ Vim 有四个与编码有关的选项：
 
 假设没有特别的理由，请始终将 encoding 设置为 utf-8 以支持全球码。为了避免在非 UTF-8 的系统如 Windows 下，菜单和系统提示出现乱码，可同一时候做这几项设置：
 
-    set encoding=utf-8
-    set langmenu=zh_CN.UTF-8
-    language message zh_CN.UTF-8
+    set encoding=utf-8           | 文件编码方案
+    set langmenu=zh_CN.UTF-8     | 菜单内容语言方案
+    language message zh_CN.UTF-8 | 界面语言类型
 
 下面是推荐的 fileencodings 设置：
 
     set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+
+设置了编码方案，还需要合适的字体文件支持。Unicode 是全球通用的符号编码方案，它涉及的字符量极大，没有字体可以支持所有字符。对于编程使用的等宽字体，可以考虑使用 [Fira Code](https://github.com/tonsky/FiraCode) 字体。
+
+Windows 系统中可以尝试通过修改注册表 `HKEY_CURRENT_USER\Console` 中的条目，找到相应的程序名对应的条目，并添加或者修改现有的名为“FaceName”的字符串值，输入类型 FiraMono Nerd Font 这样的字体名称。
+
+Vim 在插件模式下可以通过 `<C,v>` 输入 Unicode 字符编码来输入相应的字符，比如 For 中间点(\cdot, ·) 对应的输入 `<C-v>u00b7` 或者 `<C-v>ub7` 再加回车或者 Esc 完成输入。
 
 当中，ucs-bom 是一种很严格的编码，非该编码的文件没有可能被误判为 ucs-bom，因此放在第一位。
 
@@ -2827,7 +4766,7 @@ Vim 启动时会依据 .vimrc 中设置的 encoding 的值来设置 buffer、菜
     :set fenc=utf-8
     :set enc=GB2312
 
-这样在编辑器里输入中文，保存的文件是UTF-8。
+这样在编辑器里输入中文，保存的文件是 UTF-8。
 
 （4）方法四：一个推荐的 `~/.vimrc` 文件配置：
 
@@ -2899,7 +4838,6 @@ Switching from mode to mode
        the cursor, without keeping the Shift key pressed.
     *6 Go from Select mode to Insert mode by typing a printable character.  The
        selection is deleted and the character is inserted.
-
 
 
 # 🚩 Vim Scripting 
@@ -4209,10 +6147,12 @@ To see what version of Python is being used: >
                     *:pyxfile* *python_x-special-comments*
 The `:pyxfile` command works similar to `:pyfile`.  However you can add one of
 these comments to force Vim using `:pyfile` or `:py3file`: >
-  #!/any string/python2     " Shebang. Must be the first line of the file.
-  #!/any string/python3     " Shebang. Must be the first line of the file.
-  # requires python 2.x     " Maximum lines depend on 'modelines'.
-  # requires python 3.x     " Maximum lines depend on 'modelines'.
+
+    #!/any string/python2     " Shebang. Must be the first line of the file.
+    #!/any string/python3     " Shebang. Must be the first line of the file.
+    # requires python 2.x     " Maximum lines depend on 'modelines'.
+    # requires python 3.x     " Maximum lines depend on 'modelines'.
+
 Unlike normal modelines, the bottom of the file is not checked.
 If none of them are found, the 'pyxversion' setting is used.
                             *W20* *W21*
@@ -5356,9 +7296,6 @@ Vim Script 使用 0 表示 False，其余数值均表示 True，分别对应 v:f
 参考 2. Expression syntax                    *expression-syntax*
 
 
-                            *expr9*
-number
-------
 number          number constant         *expr-number*
                 *hex-number* *octal-number* *binary-number*
 
@@ -5472,8 +7409,6 @@ function.  Example: >
 :echo 'No newline \n'
 ```
 
-string                  *string* *String* *expr-string* *E114*
-------
 "string"        string constant     *expr-quote*
 
 Note that double quotes are used.
@@ -6089,7 +8024,6 @@ Here "self" will be "myDict", because it was bound explicitly.
 参考 2. Expression syntax                    *expression-syntax*
 
 lambda expression               *expr-lambda* *lambda*
------------------
 {args -> expr1}     lambda expression
 
 A lambda expression creates a new unnamed function which returns the result of
@@ -10047,7 +11981,7 @@ call lib#
 ```
 
 
-以下是官方文档插件 Demo，要点：
+以下是官方 write-plugin 文档中的插件 Demo，要点：
 
 - 通过 g:loaded_typecorr 全局变量来检测是否已经进行了第一轮加载；
 - 使用 finish 命令停止重复执行，Stop sourcing a script；
@@ -11650,6 +13584,7 @@ Plug 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts=1
 set guifont=Space\ Mono\ for\ Powerline:h7.5:w4.5
 "" # set guifont=Inconsolata\ for\ Powerline:h7.5:w4.5
+"" # set guifont=Fira\ Code:h7.5:w4.5
 "" # set guifont=Cascadia\ Mono\ PL:h7.5:w4.5
 "" # set guifont=Arimo\ for\ Powerline:h7.5:w4.5
 "" # set guifont=Arimo\ Italic\ for\ Powerline:h7.5:w4.5
@@ -12726,6 +14661,74 @@ moment, but with competition, some of these projects may thrive.
 
 
 
+# 🚩 $HOME/.vimrc Minimal
+- https://github.com/wsdjeg/vim-galore-zh_cn/blob/master/contents/minimal-vimrc.vim
+
+```vim
+"
+" A (not so) minimal vimrc.
+"
+
+" You want Vim, not vi. When Vim finds a vimrc, 'nocompatible' is set anyway.
+" We set it explicitely to make our position clear!
+set nocompatible
+
+filetype plugin indent on  " Load plugins according to detected filetype.
+syntax on                  " Enable syntax highlighting.
+
+set autoindent             " Indent according to previous line.
+set expandtab              " Use spaces instead of tabs.
+set softtabstop =4         " Tab key indents by 4 spaces.
+set shiftwidth  =4         " >> indents by 4 spaces.
+set shiftround             " >> indents to next multiple of 'shiftwidth'.
+
+set backspace   =indent,eol,start  " Make backspace work as you would expect.
+set hidden                 " Switch between buffers without having to save first.
+set laststatus  =2         " Always show statusline.
+set display     =lastline  " Show as much as possible of the last line.
+
+set showmode               " Show current mode in command-line.
+set showcmd                " Show already typed keys when more are expected.
+
+set incsearch              " Highlight while searching with / or ?.
+set hlsearch               " Keep matches highlighted.
+
+set ttyfast                " Faster redrawing.
+set lazyredraw             " Only redraw when necessary.
+
+set splitbelow             " Open new windows below the current window.
+set splitright             " Open new windows right of the current window.
+
+set cursorline             " Find the current line quickly.
+set wrapscan               " Searches wrap around end-of-file.
+set report      =0         " Always report changed lines.
+set synmaxcol   =200       " Only highlight the first 200 columns.
+
+set list                   " Show non-printable characters.
+if has('multi_byte') && &encoding ==# 'utf-8'
+  let &listchars = 'tab:▸ ,extends:❯,precedes:❮,nbsp:±'
+else
+  let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
+endif
+
+" The fish shell is not very compatible to other shells and unexpectedly
+" breaks things that use 'shell'.
+if &shell =~# 'fish$'
+  set shell=/bin/bash
+endif
+
+" Put all temporary files under the same directory.
+" https://github.com/mhinz/vim-galore#handling-backup-swap-undo-and-viminfo-files
+set backup
+set backupdir   =$HOME/.vim/files/backup//
+set backupext   =-vimbackup
+set backupskip  =
+set directory   =$HOME/.vim/files/swap//
+set updatecount =100
+set undofile
+set undodir     =$HOME/.vim/files/undo//
+set viminfo     ='100,n$HOME/.vim/files/info/viminfo
+```
 
 # 🚩 $HOME/.vimrc 用户配置脚本
 - https://github.com/DamZiobro/vim-ide/blob/master/vimrc
@@ -12781,6 +14784,8 @@ set showcmd
 set nowrap
 set expandtab
 ```
+
+Vim 窗口宽度会根据用户调试控制台窗口的大小而改变，也可以使用 `set colomns` 命令设置。
 
 ⛏ Tab 宽度与空格替换
 

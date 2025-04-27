@@ -1,0 +1,437 @@
+:icons: font
+
+== _CSS current work_ & how to participate
+
+[TIP]
+--
+CSS 4 规范文档的组织相当复杂，相比功能简单的 CSS1，现代的级联样式表规范涉及更复杂的脚本功能，
+可以设置表达式、变量。同时规范文件也按照不同的功能细分为多个部分。比如新的 Grid Layout 或者
+Flexible Box Layout 布局也各自细分为一个规范文档。因此需要根据自己的需要来阅读相应的文档，
+零基础，可以先阅读样式表基础语法规范开始（CSS Syntax Level 3），再深入其它细分功能的文档。
+其中 CSS Snapshot 表示样式表文档快速，表示当时的最新内容（草稿）。W3C Process 状态码表示
+文档处理进程的不同状态：
+
+- Working Draft (WD)
+- Candidate Recommendation (CR)
+- Recommendation (REC)
+
+**Style sheet** 样式表就是一组规则，用于控制 XML、HTML 等文档内容的呈现。规范文档中，
+编写规则方称为作者（Author），将样式规则呈现（渲染内容）给用户的部分称为用户代理（User Agent），
+比如浏览器页面渲染引擎。
+
+**Cascading Style Sheets (CSS)** 级联样式表是编写样式表的脚本语言，使用样式脚本描述
+XML、HTML 等文档文件结构。CSS 用于描述源文档的表示（或称呈现、渲染），通常不会改变文档本身
+语言所表达的底层语义。
+
+比如，HTML 文档中存在 `<div>hello</div>` 这样的标签结构，那么定义样式 `div {color:red}`
+就可以控制其文字内容呈现为红色。样式中花括号中的内容称为样式，前面的部分称为规划名称，也称为选择器
+（selector）。这里对应使用的是标签（`<div>`）选择器。也就是说，此规则适用于某种标签。还可以有
+ID 选择器、类选择器等等，与标签的 `id="xxx"` 或者 `class="xxx"` 属性值进行匹配选择。样式
+规则可以级联表达，以选择与之级联规则路径相匹配的标签，比如 `div > img {border:1px solid red}`，
+就表示给 `<div>` 标签包裹的图像标签加边框，这也就是级联样式表的名称来由。样式表的基本级联方式有：
+串联 `a > b {...}` 以及并联 `a, b {...}`，后者表示并联的所有标签都使用同一组样式。样式规则
+定义非常灵活，不局限于两种基本形式。相比教程，规范文档是更接近编译器实现的文档资料，需要有一定的
+形式语言与自动机理论基础才能更好地掌握 CSS 这种领域特定脚本语言（DSL）的规范文档。
+--
+
+[link=https://www.w3.org/TR/css-color-5/]
+image::https://www.w3.org/TR/css-color-5/images/macbeth-roundtrip.svg[Macbeth Roundtrip]
+
+[[intro]]
+=== CSS spec­i­fi­ca­tions
+
+This page contains a list of all completed specifications and drafts by
+the link:members[CSS WG] (formerly link:https://www.w3.org/Style/Activity#cssfp[‘CSS & FP
+WG’]). If you want to follow the development of CSS, this is the place
+to start. You have ideas? Contributions? See link:#contribute[‘If you
+want to help’] on this page.
+
+_A specification is not a manual._ There is no excuse for badly written
+drafts and please complain if you find one. But specs do target a
+specific audience. See
+http://fantasai.inkedblade.net/contact[fantasai]'s
+- link:read[Understanding the CSS Specifications.]. http://catcode.com/[J.
+David Eisenberg] has written another useful
+http://www.alistapart.com/articles/readspec/[How to read W3C specs.] Or
+you can read about link:https://www.w3.org/Style/2011/CSS-process[‘modules,’ ‘levels,’
+‘snapshots’ and the CSS process.]
+
+[[latest]]
+=== What's new?
+
+* **2025-02-07** Updated Working Draft:
+- link:https://www.w3.org/TR/2025/WD-css-grid-3-20250207/[CSS Grid Layout Level 3].
+
+* **2024-12-19** New Working Draft:
+- link:https://www.w3.org/TR/2024/WD-css-display-4-20241219/[CSS Display Level 4]. 
+New Working Draft: 
+- link:https://www.w3.org/TR/2024/WD-css-multicol-2-20241219/[CSS Multi-column Layout Level 2].
+
+* **2024-12-17** New Working Draft:
+- link:https://www.w3.org/TR/2024/WD-css-overflow-5-20241217/[CSS Overflow Level 5].
+New Working Draft: 
+- link:https://www.w3.org/TR/2024/WD-css-color-hdr-1-20241217/[CSS Color HDR Level 1].
+
+* **2024-11-13** Updated Working Draft:
+- link:https://www.w3.org/TR/2024/WD-css-view-transitions-2-20241113/[CSS View Transitions Level 2].
+
+* **2024-11-11** Updated Working Draft:
+- link:https://www.w3.org/TR/2024/WD-css-values-5-20241111/[CSS Values and Units Level 5].
+
+
+[[roadmap]]
+=== Ta­ble of spec­i­fi­ca­tions
+
+Ordered from most to least stable:
+
+- link:https://www.w3.org/TR/css-2023/[CSS Snapshot 2023]
+- link:https://www.w3.org/TR/CSS[Latest stable CSS]
+- link:https://www.w3.org/TR/css-2022/[CSS Snapshot 2022]
+- link:https://www.w3.org/TR/css-2021[CSS Snapshot 2021]
+- link:https://www.w3.org/TR/css-2020[CSS Snapshot 2020]
+- link:https://www.w3.org/TR/css-2018[CSS Snapshot 2018]
+- link:https://www.w3.org/TR/css-2017[CSS Snapshot 2017]
+- link:https://www.w3.org/TR/css-2015[CSS Snapshot 2015]
+- link:https://www.w3.org/TR/css-2010/[CSS Snapshot 2010]
+- link:https://www.w3.org/TR/css-beijing/[CSS Snapshot 2007]
+- link:https://www.w3.org/TR/css-color-3/[CSS Color Level 3]
+- link:https://www.w3.org/TR/css-namespaces/[CSS Namespaces]
+- link:https://www.w3.org/TR/selectors-3/[Selectors Level 3]
+- link:https://www.w3.org/TR/CSS2/[CSS Level 2 Revision 1]
+- link:https://www.w3.org/TR/mediaqueries-3/[Media Queries Level 3]
+- link:https://www.w3.org/TR/css-style-attr/[CSS Style Attributes]
+- link:https://www.w3.org/TR/css-cascade-3/[CSS Cascading and Inheritance Level 3]
+- link:https://www.w3.org/TR/css-fonts-3/[CSS Fonts Level 3]
+- link:https://www.w3.org/TR/css-writing-modes-3[CSS Writing Modes Level 3]
+- link:https://www.w3.org/TR/css-ui-3[CSS Basic User Interface Level 3]
+- link:https://www.w3.org/TR/css-box-3[CSS Box Model Level 3]
+- link:https://www.w3.org/TR/css-contain-1/[CSS Containment Level 1]
+
+- link:https://www.w3.org/TR/css-backgrounds-3/[CSS Backgrounds and Borders Level 3]
+- link:https://www.w3.org/TR/css-conditional-3/[CSS Conditional Rules Level 3]
+- link:https://www.w3.org/TR/css-multicol-1/[CSS Multi-column Layout Level 1]
+- link:https://www.w3.org/TR/css-values-3/[CSS Values and Units Level 3]
+- link:https://www.w3.org/TR/css-flexbox-1/[CSS Flexible Box Layout Level 1]
+- link:https://www.w3.org/TR/css-counter-styles-3/[CSS Counter Styles Level 3]
+
+=== Testing
+
+- link:https://www.w3.org/TR/css3-images[CSS Images Level 3]
+- link:https://www.w3.org/TR/css-speech-1/[CSS Speech Level 1]
+- link:https://www.w3.org/TR/css-text-decor-3/[CSS Text Decoration Level 3]
+- link:https://www.w3.org/TR/css-shapes-1/[CSS Shapes Level 1]
+- link:https://www.w3.org/TR/css-masking-1/[CSS Masking Level 1]
+- link:https://www.w3.org/TR/css-text-3[CSS Text Level 3]
+- link:https://www.w3.org/TR/css-break-3[CSS Fragmentation Level 3]
+- link:https://www.w3.org/TR/css-transforms-1[CSS Transforms Level 1]
+- link:https://www.w3.org/TR/css-variables-1/[CSS Custom Properties for Cascading Variables Level 1]
+- link:https://www.w3.org/TR/compositing-1/[Compositing and Blending Level 1]
+- link:https://www.w3.org/TR/css-syntax-3/[CSS Syntax Level 3]
+- link:https://www.w3.org/TR/css-grid-1/[CSS Grid Layout Level 1]
+- link:https://www.w3.org/TR/css-display-3/[CSS Display Level 3]
+- link:https://www.w3.org/TR/css-will-change-1/[CSS Will Change Level 1]
+- link:https://www.w3.org/TR/mediaqueries-4/[Media Queries Level 4]
+- link:https://www.w3.org/TR/geometry-1[Geometry Interfaces Level 1]
+- link:https://www.w3.org/TR/css-cascade-4/[CSS Cascading and Inheritance Level 4]
+- link:https://www.w3.org/TR/css-scroll-snap-1/[CSS Scroll Snap Level 1]
+- link:https://www.w3.org/TR/css-paint-api-1/[CSS Painting API Level 1]
+- link:https://www.w3.org/TR/css-color-4/[CSS Color Level 4]
+- link:https://www.w3.org/TR/css-easing-1/[CSS Easing Functions Level 1]
+- link:https://www.w3.org/TR/css-writing-modes-4/[CSS Writing Modes Level 4]
+- link:https://www.w3.org/TR/css-grid-2/[CSS Grid Layout Level 2]
+- link:https://www.w3.org/TR/css-scrollbars-1/[CSS Scrollbars Styling Level 1]
+- link:https://www.w3.org/TR/css-color-adjust-1/[CSS Color Adjustment Level 1]
+- link:https://www.w3.org/TR/css-conditional-4/[CSS Conditional Rules Level 4]
+- link:https://www.w3.org/TR/css-cascade-5/[CSS Cascading and Inheritance Level 5]
+- link:https://www.w3.org/TR/css-view-transitions-1/[CSS View Transitions Level 1]
+
+== Refining
+
+- link:https://www.w3.org/TR/css-animations-1/[CSS Animations Level 1]
+- link:https://www.w3.org/TR/web-animations-1/[Web Animations]
+- link:https://www.w3.org/TR/css-transitions-1/[CSS Transitions]
+- link:https://www.w3.org/TR/css-align-3/[CSS Box Alignment Level 3]
+- link:https://www.w3.org/TR/selectors-4/[Selectors Level 4]
+- link:https://www.w3.org/TR/css-sizing-3/[CSS Box Sizing Level 3]
+- link:https://www.w3.org/TR/css-lists-3/[CSS Lists and Counters Level 3]
+- link:https://www.w3.org/TR/css-position-3/[CSS Positioned Layout Level 3]
+- link:https://www.w3.org/TR/motion-1/[Motion Path Level 1]
+- link:https://www.w3.org/TR/css-fonts-4/[CSS Fonts Level 4]
+- link:https://www.w3.org/TR/css-logical-1/[CSS Logical Properties and Values Level 1]
+- link:https://www.w3.org/TR/css-values-4/[CSS Values and Units Level 4]
+- link:https://www.w3.org/TR/css-contain-2/[CSS Containment Level 2]
+
+== Revising
+
+- link:https://www.w3.org/TR/css3-page[CSS Paged Media Level 3]
+- link:https://www.w3.org/TR/cssom-view/[CSSOM View]
+- link:https://www.w3.org/TR/css-ruby-1/[CSS Ruby Annotation Layout Level 1]
+- link:https://www.w3.org/TR/cssom/[CSS Object Model (CSSOM)]
+- link:https://www.w3.org/TR/css-overflow-3/[CSS Overflow Level 3]
+- link:https://www.w3.org/TR/css-font-loading-3/[CSS Font Loading Level 3]
+- link:https://www.w3.org/TR/css-scoping-1/[CSS Scoping Level 1]
+- link:https://www.w3.org/TR/css-pseudo-4/[CSS Pseudo-Elements Level 4]
+- link:https://www.w3.org/TR/css-images-4/[CSS Image Values and Replaced Content Level 4]
+- link:https://www.w3.org/TR/css-overflow-4/[CSS Overflow Level 4]
+- link:https://www.w3.org/TR/css-text-decor-4/[CSS Text Decoration Level 4]
+- link:https://www.w3.org/TR/resize-observer-1/[Resize Observer]
+- link:https://www.w3.org/TR/mediaqueries-5[Media Queries Level 5]
+- link:https://www.w3.org/TR/css-sizing-4/[CSS Box Sizing Level 4]
+
+== Exploring
+
+- CSS Backgrounds and Borders Level 4
+- link:https://www.w3.org/TR/css-viewport-1/[CSS Viewport Level 1]
+- link:https://www.w3.org/TR/css3-exclusions/[CSS Exclusions]
+- link:https://www.w3.org/TR/filter-effects-1/[Filter Effects Level 1]
+- link:https://www.w3.org/TR/css-gcpm-3/[CSS Generated Content for Paged Media]
+- link:https://www.w3.org/TR/css-page-floats-3/[CSS Page Floats]
+- link:https://www.w3.org/TR/css-template-3/[CSS Template Layout]
+- link:https://www.w3.org/TR/css-line-grid-1/[CSS Line Grid]
+- link:https://www.w3.org/TR/css-regions-1/[CSS Regions]
+- link:https://www.w3.org/TR/css-tables-3/[CSS Table Level 3]
+- link:https://www.w3.org/TR/css-inline-3/[CSS Inline Layout Level 3]
+- link:https://www.w3.org/TR/css-round-display-1/[CSS Round Display Level 1]
+- link:https://www.w3.org/TR/css-ui-4/[CSS Basic User Interface Level 4]
+- link:https://www.w3.org/TR/css-text-4/[CSS Text Level 4]
+- link:https://www.w3.org/TR/css-properties-values-api-1/[CSS Properties and Values API Level 1]
+- link:https://www.w3.org/TR/css-typed-om-1/[CSS Typed OM Level 1]
+- link:https://www.w3.org/TR/css-rhythm-1/[CSS Rhythmic Sizing Level 1]
+- link:https://www.w3.org/TR/fill-stroke-3/[CSS Fill and Stroke Level 3]
+- link:https://www.w3.org/TR/css-layout-api-1/[CSS Layout API Level 1]
+- link:https://www.w3.org/TR/css-shadow-parts-1/[CSS Shadow Parts]
+- link:https://www.w3.org/TR/css-break-4/[CSS Fragmentation Level 4]
+- link:https://www.w3.org/TR/css-nav-1/[CSS Spatial Navigation Level 1]
+- link:https://www.w3.org/TR/css-overscroll-1/[CSS Overscroll Behavior Level 1]
+- link:https://www.w3.org/TR/css-animation-worklet-1/[CSS Animation Worklet API]
+- link:https://www.w3.org/TR/css-scroll-anchoring-1/[CSS Scroll Anchoring Level 1]
+- link:https://www.w3.org/TR/css-color-5/[CSS Color Level 5]
+- link:https://www.w3.org/TR/css-transforms-2[CSS Transforms Level 2]
+- link:https://www.w3.org/TR/css-box-4[CSS Box Model Level 4]
+- link:https://www.w3.org/TR/css-highlight-api-1/[CSS Custom Highlight API Level 1]
+- link:https://www.w3.org/TR/css-fonts-5/[CSS Fonts Level 5]
+- link:https://www.w3.org/TR/css-nesting-1/[CSS Nesting]
+- link:https://www.w3.org/TR/css-cascade-6[CSS Cascading and Inheritance Level 6]
+- link:https://www.w3.org/TR/css-conditional-5[CSS Conditional Rules Level 5]
+- link:https://www.w3.org/TR/css-contain-3/[CSS Containment Level 3]
+- link:https://www.w3.org/TR/scroll-animations-1/[Scroll-driven Animations]
+- link:https://www.w3.org/TR/css-animations-2/[CSS Animations Level 2]
+- link:https://www.w3.org/TR/web-animations-2/[Web Animations Level 2]
+- link:https://www.w3.org/TR/css-transitions-2/[CSS Transitions Level 2]
+- link:https://www.w3.org/TR/css-anchor-position-1/[CSS Anchor Positioning]
+- link:https://www.w3.org/TR/css-view-transitions-2/[CSS View Transitions Level 2]
+- link:https://www.w3.org/TR/css-scroll-snap-2/[CSS Scroll Snap Level 2]
+- link:https://www.w3.org/TR/css-easing-2/[CSS Easing Functions Level 2]
+- link:https://www.w3.org/TR/css-values-5/[CSS Values and Units Level 5]
+- link:https://www.w3.org/TR/css-grid-3/[CSS Grid Layout Level 3]
+- link:https://www.w3.org/TR/css-color-hdr-1/[CSS Color HDR Level 1]
+- link:https://www.w3.org/TR/css-overflow-5/[CSS Overflow Level 5]
+- link:https://www.w3.org/TR/css-display-4/[CSS Display Level 4]
+- link:https://www.w3.org/TR/css-multicol-2/[CSS Multi-column Layout Level 2]
+
+== Rewriting
+
+- link:https://www.w3.org/TR/css-content-3/[CSS Generated Content Level 3]
+
+== Abandoned
+
+- link:https://www.w3.org/TR/CSS1[CSS Level 1]
+- link:https://www.w3.org/TR/css-print/[CSS Print Profile]
+- link:https://www.w3.org/TR/css-mobile[CSS Mobile Profile 2.0]
+- link:https://www.w3.org/TR/selectors-nonelement-1/[Non-element Selectors]
+- link:https://www.w3.org/TR/css3-reader/[The CSS 'Reader' Media Type]
+- link:https://www.w3.org/TR/css3-preslev[CSS Presentation Levels]
+- link:https://www.w3.org/TR/css-tv/[CSS TV Profile 1.0]
+- link:https://www.w3.org/TR/css3-marquee[CSS Marquee]
+- link:https://www.w3.org/TR/becss[Behavioral Extensions to CSS]
+- link:https://www.w3.org/TR/css3-hyperlinks[CSS Hyperlink Presentation]
+- link:https://www.w3.org/TR/fullscreen[Fullscreen]
+- link:https://www.w3.org/TR/CSS22/[Preview of CSS Level 2]
+- link:https://www.w3.org/TR/worklets-1/[Worklets Level 1]
+
+Some related specifications by other Working Groups:
+
+- link:https://www.w3.org/TR/predefined-counter-styles/[Predefined Counter Styles]
+- link:https://www.w3.org/International/core/[I18N WG]
+- link:https://www.w3.org/TR/WCAG10-CSS-TECHS/[CSS Techniques for Web Content Accessibility Guidelines 1.0]
+- link:https://www.w3.org/WAI/GL/[WCAG WG]
+- link:https://www.w3.org/TR/xml-stylesheet/[Associating Style Sheets with XML documents 1.0 (Second Edition)]
+- link:https://www.w3.org/TR/xml-stylesheet/[REC]
+- link:https://www.w3.org/XML/Core/[XML Core WG]
+- link:https://www.w3.org/TR/appmanifest/[Web App Manifest]
+- link:https://www.w3.org/2019/webapps/[Web Applications WG]
+- link:https://www.w3.org/TR/selectors-api/[Selectors API Level 1]
+- link:https://www.w3.org/TR/selectors-api/[REC]
+- link:https://www.w3.org/2008/webapps/[Web Applications WG]
+- link:https://www.w3.org/TR/dom[DOM]
+- link:https://whatwg.org/[WHAT WG]
+
+Two old specifications by the 
+link:https://www.w3.org/2008/webapps/[Web Applications WG], 
+link:https://www.w3.org/TR/view-mode/[The 'view-mode' Media Feature] and
+link:https://www.w3.org/TR/selectors-api2/[Selectors API Level 2], have been replaced by
+link:https://www.w3.org/TR/appmanifest/[Web App Manifest] and 
+link:https://www.w3.org/TR/dom[DOM], respectively.
+
+[[indexes]]
+=== Indexes of properties & descriptors
+
+The CSS Snapshot includes an link:https://www.w3.org/TR/css/#properties[index of standard
+and stable properties], along with
+link:https://www.w3.org/TR/css/#selectors[pseudo-classes & pseudo-elements] and
+link:https://www.w3.org/TR/css/#at-rules[@-rules].
+
+The CSS WG provides an
+https://drafts.csswg.org/indexes/#properties[alphabetical list of all
+properties & descriptors in editors' drafts].
+
+People who are reviewing CSS drafts might also be interested in these
+indexes that include both official and editors' drafts:
+link:https://www.w3.org/Style/CSS/all-properties[properties [HTML]] 
+link:https://www.w3.org/Style/CSS/all-properties.en.tab[[TSV]]
+link:https://www.w3.org/Style/CSS/all-properties.en.xml[[XML]] 
+link:https://www.w3.org/Style/CSS/all-properties.en.json[[JSON]]
+and link:https://www.w3.org/Style/CSS/all-descriptors[descriptors [HTML]]
+link:https://www.w3.org/Style/CSS/all-descriptors.en.tab[[TSV]] 
+link:https://www.w3.org/Style/CSS/all-descriptors.en.xml[[XML]]
+link:https://www.w3.org/Style/CSS/all-descriptors.en.json[[JSON]].
+
+[[legend]]
+=== Ex­pla­na­tion of col­ors & status codes
+
+W3C indicates the maturity of specifications by a status code. The CSS
+working group uses the following, from _least_ to _most stable:_
+
+- link:https://www.w3.org/2020/Process-20200915/#fpwd[First Public Working Draft]
+- link:https://www.w3.org/2020/Process-20200915/#RecsWD[Working Draft]
+- link:https://www.w3.org/2020/Process-20200915/#RecsCR[Candidate Recommendation]
+- link:https://www.w3.org/2020/Process-20200915/#RecsCR[Candidate Recommendation Draft]
+- link:https://www.w3.org/2020/Process-20200915/#RecsPR[Proposed Recommendation]
+- link:https://www.w3.org/2020/Process-20200915/#RecsW3C[Recommendation]
+- link:https://www.w3.org/2020/Process-20200915/#RecsObs[Superseded Recommendation]
+
+The following code indicates a document that is not intended to become a
+standard:
+
+- link:https://www.w3.org/2020/Process-20200915/#WGNote[Working Group Note]
+
+The names are defined in
+link:https://www.w3.org/2020/Process-20200915/#rec-advance[section 6] of the W3C
+process document. A REC is what is normally referred to as a ‘standard.’
+W3C encourages everyday use starting from CR.
+
+The informal stability levels used to group the specs are defined in
+link:https://www.w3.org/blog/CSS/2007/11/01/css_recommendation_track/[this 2007
+description of CSS stability levels].
+
+[[contribute]]
+=== If you want to help
+
+_Everybody_ can take part in the discussions on the
+http://lists.w3.org/Archives/Public/www-style/[archived mailing list
+*www-style@w3.org*]. You can link:https://www.w3.org/Mail/Request[subscribe]
+yourself. This is the preferred place for discussions, because the
+members of the working group will see them. Please, don't use this list
+for questions of the type _How do I…_ Use
+link:news:comp.infosystems.www.authoring.stylesheets[comp. infosystems.
+www. authoring. stylesheets] ("ciwas") or see link:learning[‘Learning
+CSS’].
+
+On the mailing list, you will be talking to many people, many very busy
+people. Before you post, please, search the
+http://lists.w3.org/Archives/Public/www-style/[archive] to see if your
+great idea has maybe already been discussed. Follow the usual
+http://tools.ietf.org/html/rfc1855[netiquette] and
+link:https://www.w3.org/Mail/[W3C's policies on spam, attachments, etc.]
+
+If you are sending comments on a specific CSS module, please prefix the
+subject of your message with the appropriate spec code (given in the
+‘Status of this document’ section) in brackets, e.g. ‘[css3-flexbox]
+error in margin calculations’. This will help the editors find and track
+your comments.
+
+http://www.grauw.nl/about.php[Laurens Holst (a.k.a. ‘Grauw’)] maintains
+an http://www.grauw.nl/articles/css-faq.php[FAQ for www-style.] (For
+additions, please, contact Laurens directly. Laurens is not associated
+with W3C.)
+
+You can also raise issues via *GitHub.* Github contains copies of the
+editors' drafts of the https://github.com/w3c/csswg-drafts[CSS
+specifications] and https://github.com/w3c/css-houdini-drafts[‘Houdini’
+APIs.]
+
+_If you work for a link:https://www.w3.org/Consortium/Member/List[W3C member
+organization,]_ you can also join the link:members[*CSS working
+group*] and come to its meetings. To participate, you need to commit to
+(on average) 1 day per week. Contact mailto:bert@w3.org[me (Bert Bos)]
+or your organization's W3C contact person. The group's minutes are
+public and posted on the link:https://www.w3.org/blog/CSS[CSS WG blog.]
+
+_There are many ways to keep up to date_ with new publications by the
+CSS WG. The link:#latest[‘What's new?’] section above shows the most
+recent drafts and it also has an
+link:current-work.atom[image:w3c-2010/feed[w3c-2010/feed,title="New publications"]
+Atom feed.] Publications are announced on the link:https://www.w3.org/blog/CSS/[CSS
+WG's blog] and its
+link:https://www.w3.org/blog/CSS/feed/atom/[image:w3c-2010/feed[w3c-2010/feed,title="New blog posts"]
+Atom feed,] and the group's
+https://social.csswg.org/@csswg[image:images/mastodon-simple.svg[images/mastodon-simple,title="CSS WG on Mastodon"]
+Mastodon] account. _First_ drafts from all W3C working groups appear on
+the
+https://lists.w3.org/Archives/Public/public-review-announce/[public-review-announce
+mailing list] and its
+https://lists.w3.org/Archives/Public/public-review-announce/feed.rss[image:w3c-2010/feed[w3c-2010/feed,title="Public review requests"]
+RSS feed.] The latest publications from all W3C working groups are at
+the top of the link:https://www.w3.org/TR/tr-status-all#recent[Technical Reports]
+page, which also has an
+link:https://www.w3.org/TR/tr.xml[image:w3c-2010/feed[w3c-2010/feed,title="New W3C publications"]
+RSS feed.]
+
+[[test]]
+=== About the test suites
+
+The CSS working group intends to spend a lot of time on developing the
+link:Test/[CSS test suites] along with the CSS specifications. By
+providing a test suite for each module as soon as the module is
+published, we hope not only that CSS implementations will conform to the
+specification much earlier, but also that people will have an easier
+time understanding the formal text of the spec.
+
+The test suites have their own
+http://lists.w3.org/Archives/Public/public-css-testsuite/[archived]
+mailing list
+http://lists.w3.org/Archives/Public/#public-css-testsuite[*public-css-testsuite@w3.org*].
+Please send error reports, test case submissions, and any other
+questions and comments about the CSS test suites there. Elika Etemad
+maintains the http://csswg.org/test[CSS Testing Wiki] with more info for
+contributors.
+
+Raising issues via *GitHub* is also possible: see the
+https://github.com/w3c/web-platform-tests[Web-platform tests
+repository.]
+
+[[common]]
+=== Mark-up con­ven­tions
+
+The source mark-up of the specifications follows certain
+link:https://www.w3.org/Style/spec-mark-up[conventions] (which is useful for automatic
+processing).
+
+[[banner]]
+=== Site navigation
+
+* link:https://www.w3.org/[W3C]
+* link:https://www.w3.org/Style/CSS/[CSS home]
+* link:https://www.w3.org/Style/CSS/learning[Learn & use]
+* link:https://www.w3.org/Style/CSS/software[Soft­ware]
+* link:current-work[Par­tic­i­pate / drafts]
+
+
+link:https://www.w3.org/People/Bos/[Bert Bos], 
+link:https://www.w3.org/Consortium/Legal/ipr-notice#Copyright[Copyright] © 1994–2025 
+link:https://www.w3.org/[W3C^®^]
+link:https://www.w3.org/Consortium/Legal/ipr-notice[Privacy policy]
+
+Last updated Sun 16 Feb 2025 05:40:08 AM UTC
+
+link:https://www.w3.org/Style/CSS/translating[About the translations]

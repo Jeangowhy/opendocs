@@ -1749,9 +1749,12 @@
 
   很有必要对以上这些常量出现进行辨析，通常概念上常量是通过 const 或 define 定义的值不可修改的符号。在编译器的角度上看赋值过程，就是将等号右侧的值赋给左侧的变量符号，即 lvalue = rvalue，即左值与右值的基本概念。
 
+  左值、右值这两个称谓是在程序语句表达式使用习惯上形成的，在一个语句中 = 号的左侧，通常是一个值，这个值
+  在编译前是不能确定其地址的，也没有变量符号来登记它的内存地址占位，因此不能给它赋值，这是左值的基本含义。
+
   变量可以作为可修改的左值，而常量则不可以，比如 `3.14 = 3.14`，在数学邻域上讲这是个等式，是成立的。而在计算机的领域中，这是赋值，而左值 3.14 是个字面常量，不可修改不可赋值。从语法上讲是错误的，从编译器实现上讲，这是在为难编译器，要实现这样的逻辑就要打破编译器规则。
 
-  利用左值为常量不可修改这一点，有经验的开发者会按以下方式编写条件语句，这样做的好处是：
+  利用左值为常量不可修改这一点，有经验的开发者会按以下方式编写条件语句，这样做的好处是避免意外的赋值：
 
   ```c
   if (100 == abc) {
@@ -5726,6 +5729,103 @@
   - 8-8. 编写 bfree(p,n) 实现释放任意块到 free 列表，p 指针为 n 个字符的块地址，用户通过它可以随时将静态或外部数组添加到空闲列表中。
 
 
+# =🚩 C language Keywords
+
+  [C language Keywords ](https://en.cppreference.com/w/c/keyword)
+
+  This is a list of reserved keywords in C. Since they are used by the language, 
+  these keywords are not available for re-definition. As an exception, they are 
+  not considered reserved in attribute-tokens (since C23)
+
+    alignas   (C23)     extern            sizeof                  _Alignas       (C11)
+    alignof   (C23)     false    (C23)    static                  _Alignof       (C11)
+    auto                float             static_assert (C23)     _Atomic        (C11)
+    bool      (C23)     for               struct                  _BitInt        (C23)
+    break               goto              switch                  _Bool          (C99)
+    case                if                thread_local  (C23)     _Complex       (C99)
+    char                inline   (C99)    true          (C23)     _Decimal128    (C23)
+    const               int               typedef                 _Decimal32     (C23)
+    constexpr (C23)     long              typeof        (C23)     _Decimal64     (C23)
+    continue            nullptr  (C23)    typeof_unqual (C23)     _Generic       (C11)
+    default             register          union                   _Imaginary     (C99)
+    do                  restrict (C99)    unsigned                _Noreturn      (C11)
+    double              return            void                    _Static_assert (C11)
+    else                short             volatile                _Thread_local  (C11)
+    enum                signed            while                   
+
+The most common keywords that begin with an underscore are generally used through 
+their convenience macros:
+
+    keyword	              used as	                        defined in
+    _Alignas       (C11)	alignas 	    (removed in C23)  stdalign.h
+    _Alignof       (C11)	alignof 	    (removed in C23)  stdalign.h
+    _Atomic        (C11)	atomic_bool, atomic_int, ...	  stdatomic.h
+    _BitInt        (C23)	(no macro)	
+    _Bool          (C99)	bool 	        (removed in C23)  stdbool.h
+    _Complex       (C99)	complex	                        complex.h
+    _Decimal128    (C23)	(no macro)	
+    _Decimal32     (C23)	(no macro)	
+    _Decimal64     (C23)	(no macro)	
+    _Generic       (C11)	(no macro)	
+    _Imaginary     (C99)	imaginary	                      complex.h
+    _Noreturn      (C11)	noreturn	                      stdnoreturn.h
+    _Static_assert (C11)	static_assert (removed in C23)	assert.h
+    _Thread_local  (C11)	thread_local  (removed in C23)	threads.h
+
+Also, each name that begins with a double underscore __ or an underscore _ followed 
+by an uppercase letter is reserved: see identifier for details.
+
+Note that digraphs <%, %>, <:, :>, %:, and %:%: provide an alternative way to 
+represent standard tokens.
+
+The following tokens are recognized by the preprocessor when they are used within 
+the context of a preprocessor directive:
+
+    if            ifdef               include          defined
+    elif          ifndef              embed   (C23)    __has_include     (C23)
+    else          elifdef  (C23)      line             __has_embed       (C23)
+    endif         elifndef (C23)      error            __has_c_attribute (C23)
+                  define              warning (C23)
+                  undef               pragma
+
+The following tokens are recognized by the preprocessor when they are used outside 
+the context of a preprocessor directive:
+
+  * [_Pragma (C99)](https://en.cppreference.com/w/c/preprocessor/impl)
+
+The following additional keywords are classified as extensions and conditionally-supported:
+
+  * [asm](https://en.cppreference.com/w/c/language/asm)
+  * [fortran](https://en.cppreference.com/w/c/keyword/fortran)
+
+References
+
+  * C23 standard (ISO/IEC 9899:2024):
+    6.4.1 Keywords (p: TBD)
+    J.5.9 The fortran keyword (p: TBD)
+    J.5.10 The asm keyword (p: TBD)
+
+  * C17 standard (ISO/IEC 9899:2018):
+    6.4.1 Keywords (p: 42-43)
+    J.5.9 The fortran keyword (p: 422)
+    J.5.10 The asm keyword (p: 422)
+
+  * C11 standard (ISO/IEC 9899:2011):
+    6.4.1 Keywords (p: 58-59)
+    J.5.9 The fortran keyword (p: 580)
+    J.5.10 The asm keyword (p: 580)
+
+  * C99 standard (ISO/IEC 9899:1999):
+    6.4.1 Keywords (p: 50)
+    J.5.9 The fortran keyword (p: 514)
+    J.5.10 The asm keyword (p: 514)
+
+  * C89/C90 standard (ISO/IEC 9899:1990):
+    3.1.1 Keywords
+    G.5.9 The fortran keyword
+    G.5.10 The asm keyword
+
+
 [](#P51){id=P51}
 
 # =🚩 ASCII Chart
@@ -5789,23 +5889,22 @@
   |  30 |  36 | 1e  | RS  |  62 |  76 | 3e  | >  |  94 | 136 | 5e  | ^  | 126 | 176 | 7e  | ~    |
   |  31 |  37 | 1f  | US  |  63 |  77 | 3f  | ?  |  95 | 137 | 5f  | _  | 127 | 177 | 7f  | DEL  |
 
-      NUL (null)                 DLE (data link escape)        PIPE  |
-      SOH (start of header)        DC1 (device control 1)        DEL (delete) 
-      STX (start of text)         DC2 (device control 2)        SP (space)
-      ETX (end of text)          DC3 (device control 3)        BQ (backquote/backtick)
-      EOT (end of transmission)     DC4 (device control 4)        
-      ENQ (enquiry)              NAK (negative acknowledge)    
-      ACK (acknowledge)           SYN (synchronous idle)        
-      BEL (bell)                 ETB (end of transmission block) 
-      BS (backspace)              CAN (cancel)               
-      HT (horizontal tab)           EM (end of medium)         
-      LF (line feed - new line)    SUB (substitute)             
-      VT (vertical tab)             ESC (escape)                
-      FF (form feed - new page)   FS (file separator)           
-      CR (carriage return)          GS (group separator)          
-      SO (shift out)              RS (record separator)         
-      SI (shift in)               US (unit separator)           
-
+      NUL (null)                    DLE (data link escape)          PIPE  |
+      SOH (start of header)         DC1 (device control 1)          DEL (delete) 
+      STX (start of text)           DC2 (device control 2)          SP (space)
+      ETX (end of text)             DC3 (device control 3)          BQ (backquote/backtick)
+      EOT (end of transmission)     DC4 (device control 4)
+      ENQ (enquiry)                 NAK (negative acknowledge)
+      ACK (acknowledge)             SYN (synchronous idle)
+      BEL (bell)                    ETB (end of transmission block)
+      BS (backspace)                CAN (cancel)
+      HT (horizontal tab)           EM (end of medium)
+      LF (line feed - new line)     SUB (substitute)
+      VT (vertical tab)             ESC (escape)
+      FF (form feed - new page)     FS (file separator)
+      CR (carriage return)          GS (group separator)
+      SO (shift out)                RS (record separator)
+      SI (shift in)                 US (unit separator)
 
 
 [](#P52){id=P52}

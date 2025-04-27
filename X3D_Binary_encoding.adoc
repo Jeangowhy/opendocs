@@ -1,0 +1,3282 @@
+
+[[B19776_3]]
+== Part03: Compressed Binary Binding (19776-3)
+
+Extensible 3D (X3D) encodings +
+ISO/IEC 19776-3:2015
+
+Part 3:  Compressed binary encoding
+
+This document is Part 3 of ISO/IEC 19776, Extensible 3D (X3D) encodings.
+The full title of this part of the International Standard is:
+_Information technology — Computer graphics, image processing and
+environmental data representation — Extensible (X3D) encodings — Part 3:
+Compressed binary encoding_.
+
+• <<foreword, Foreword>>
+• <<introduction, Introduction>>
+• 1 <<scope, Scope>>
+• 2 <<references, Normative references>>
+• 3 <<definitions, Definitions, acronyms, and abbreviations>>
+• 4 <<concepts, Concepts>>
+• 5 <<EncodingOfFields, Encoding of fields>> 
+• 6 <<conformance, Conformance>>
+• A <<tables, Fast infoset tables>>
+• B <<nodecompressors, Node compressor registry>>
+• C <<examples, Examples>>
+• <<bibliography, Bibliography>>
+
+The *_Foreword_* provides background on the standards process for X3D
+encodings. The *_Introduction_* describes the purpose, design criteria,
+and characteristics of X3D encodings. The following clauses define this
+part of ISO/IEC 19776:
+
+. *_Scope_* defines the problem area that the Compressed binary encoding
+of X3D addresses.
+. *_Normative references_* lists the normative standards referenced in
+this part of ISO/IEC 19776.
+. *_Definitions_* contains the glossary of terminology used in this part
+of ISO/IEC 19776.
+. *_Concepts_* describes various fundamentals of the Compressed binary
+encoding of X3D.
+. *_Encoding of fields_* specifies the Compressed binary encoding of
+data types used by X3D nodes.
+. *_Conformance_* describes the conformance requirements for
+implementations of the Compressed binary encoding.
+
+There are several annexes included in the specification:
+
+[upperalpha]
+. *_Fast infoset tables_* specifies the initial table values for each
+syntactic element.
+. *_Node compressor registry_* contains the listing of all registered
+node compressors.
+. *_Examples_* includes a variety of examples encoded in the X3D
+Compressed binary encoding.
+
+*_Bibliography_* lists references which may have more information.
+
+
+[[foreword]]
+== Foreword
+
+http://www.iso.org/[ISO] (the International Organization for
+Standardization) and http://www.iec.ch/[IEC] (the International
+Electrotechnical Commission) form a specialized system for worldwide
+standardization. National bodies that are members of ISO or IEC
+participate in the development of International Standards through
+technical committees established by the respective organization to deal
+with particular fields of technical activity. ISO and IEC technical
+committees collaborate in fields of mutual interest. Other international
+organizations, governmental and non-governmental, in liaison with ISO
+and IEC, also take part in the work. In the field of information
+technology, ISO and IEC have established a joint technical committee,
+http://www.jtc1.org/[ISO/IEC JTC 1].
+
+International Standards are drafted in accordance with the rules given
+in the ISO/IEC Directives, Part 2.
+
+The main task of the joint technical committee is to prepare
+International Standards. Draft International Standards adopted by the
+joint technical committee are circulated to national bodies for voting.
+Publication as an International Standard requires approval by at least
+75 % of the national bodies casting a vote.
+
+Attention is drawn to the possibility that some of the elements of this
+document may be the subject of patent rights. ISO and IEC shall not be
+held responsible for identifying any or all such patent rights.
+
+International Standard ISO/IEC 19776 was prepared by Joint Technical
+Committee ISO/IEC JTC 1, _Information technology_, Subcommittee 24,
+_Computer graphics, image processing and environmental data
+representation_, in collaboration with http://www.web3d.org/[Web3D
+Consortium, Inc.]
+
+ISO/IEC 19776 consists of the following parts, under the general title
+_Information technology — Computer graphics, image processing and
+environmental data representation — Extensible 3D (X3D) encodings:_
+
+....
+Part 1: Extensible Markup Language (XML) encoding
+Part 2: Classic VRML encoding
+Part 3: Compressed binary encoding (this part)
+....
+
+[[introduction]]
+== Introduction
+
+=== Purpose
+
+Extensible 3D (X3D) is a system for describing interactive 3D objects
+and worlds as defined in ISO/IEC 19775. ISO/IEC 19776 specifies the X3D
+encodings of the functionality defined in ISO/IEC 19775. This part of
+ISO/IEC 19776 specifies the Compressed binary encoding of X3D files.
+
+[[scope]]
+== 1 Scope
+
+ISO/IEC 19775, Extensible 3D (X3D), defines a system that integrates 3D
+graphics and multimedia. Conceptually, each X3D file is a 3D time-based
+space that contains graphic and aural objects that can be dynamically
+modified through a variety of mechanisms. This part of ISO/IEC 19776
+defines a mapping of the abstract objects in X3D to a specific X3D
+encoding written out in a compact binary form.
+
+Each X3D file encoded using the Compressed binary encoding:
+
+[loweralpha]
+. supports all of the purposes of X3D files defined in the X3D abstract
+specification ISO/IEC 19775;
+. encodes X3D constructs in a compressed binary format, taking advantage
+of geometric and information-theoretic compression techniques.
+
+X3D files encoded using the Compressed binary encoding may be referenced
+from files using other X3D encodings, and may itself reference other X3D
+files encoded using other X3D encodings. Sets of X3D files that use
+multiple encodings can only be processed by browsers that support all of
+the utilized X3D encodings.
+
+[[references]]
+== 2 Normative references
+
+The following documents, in whole or in part, are normatively referenced
+in this document and are indispensable for its application. For dated
+references, only the edition cited applies. For undated references, the
+latest edition of the referenced document (including any amendments)
+applies.
+
+Bibliographic entries for unofficial standards or documents are
+referenced in the <<bibliography, Bibliography>>.
+
+[cols=",",options="header",]
+|===
+|Identifier |Reference
+|[[I10646]]*I10646* |http://www.iso.org/[ISO/IEC] 10646 _Information
+technology — Universal Coded Character Set (UCS)._
+
+|[[I19775_1]]*I19775-1* |http://www.iso.org/[ISO/IEC] 19775-1:2013
+_Information technology — Computer graphics, image processing and
+environmental data representation — Extensible 3D (X3D) — Part 1:
+Architecture and base components._
+
+|[[I19776_1]]*I19776-1* |http://www.iso.org/[ISO/IEC] 19776-1:2015
+_Information technology — Computer graphics, image processing and
+environmental data representation — Extensible 3D (X3D) encodings — Part
+1: XML encoding._
+
+|[[I19776_2]]*I19776-2* |http://www.iso.org/[ISO/IEC] 19776-2:2015
+_Information technology — Computer graphics, image processing and
+environmental data representation — Extensible 3D (X3D) encodings — Part
+2: Classic VRML encoding._
+
+|[[I24824_1]]*I24824-1* |http://www.iso.org/[ISO/IEC] 24824-1:2007
+_Information Technology — Generic Applications Of ASN.1 — Fast infoset_.
+
+|[[IEC60559]]*IEC60559* |http://www.iso.org/[ISO/IEC/IEEE]
+60559:2011, _Information Technology — Microprocessor systems —
+Floating-Point arithmetic_.
+
+|[[RFC1738]]*RFC1738*
+|http://www.ietf.org/rfc/rfc1738.txt?number=1738[IETF RFC 1738],
+_Uniform Resource Locators (URL)._
+
+|[[RFC1950]]*RFC1950*
+|http://www.ietf.org/rfc/rfc1950.txt?number=1950[IETF RFC 1950], _ZLIB
+Compressed Data Format Specification version 3.3._
+
+|[[RFC1952]]*RFC1952*
+|http://www.ietf.org/rfc/rfc1952.txt?number=1952[IETF RFC 1952], _GZIP
+file format specification version 4.3._
+
+|[[RFC2077]]*RFC2077*
+|http://www.ietf.org/rfc/rfc2077.txt?number=2077[IETF RFC 2077], _The
+Model Primary Content Type for Multipurpose Internet Mail Extensions._
+
+|[[XML]]*XML* |_Extensible Markup Language (XML) 1.0 (Fifth Edition)_,
+editors Tim Bray, Jean Paoli, C. M. Sperberg-McQueen, Eve Maler,
+François Yergeau, W3C Recommendation, World Wide Web Consortium (W3C),
+Cambridge Massachusetts, 26 November 2008. http://www.w3.org/TR/xml/
+
+|[[XML-Canonicalization]]*XML-Canonicalization* |_Canonical XML Version
+1.1_, W3C Recommendation, World Wide Web Consortium (W3C), Cambridge
+Massachusetts, 2 May 2008. http://www.w3.org/TR/xml-c14n11/
+
+|[[XML-Encryption]]*XML-Encryption* |_XML Encryption Syntax and
+Processing Version 1.1_, W3C Recommendation, World Wide Web Consortium
+(W3C), Cambridge Massachusetts, 11 April 2013.
+http://www.w3.org/TR/xmlenc-core1/
+
+|[[XML-Signature]]*XML-Signature* |_XML Signature Syntax and
+Processing_ _Version 1.1_, W3C Recommendation, World Wide Web Consortium
+(W3C), Cambridge Massachusetts, 11 April 2013.
+http://www.w3.org/TR/xmldsig-core1/
+|===
+
+[[definitions]]
+== 3 Definitions, acronyms, and abbreviations
+
+For the purposes of this part of ISO/IEC 19776, the definitions,
+acronyms, and abbreviations in <<I19775, ISO/IEC 19775>> and the
+following apply.
+
+=== 3.1 Definitions
+
+[[attribute]]
+==== 3.1.1 attribute
+
+value associated with an XML <<element, element>>
+
+[[canonicalization]]
+==== 3.1.2 canonicalization
+
+the process of applying a set of rules that convert a document into a
+canonical form
+
+[[containerField]]
+==== 3.1.3 container field
+
+field name for contained SFNode/MFNode content
+
+[[contentModel]]
+==== 3.1.4 content model
+
+specification of elements allowed as child elements for a given parent
+element
+
+NOTE:  Adapted from <<XML, 2. XML>>.
+
+[[document]]
+==== 3.1.5 document
+
+<<WellFormed, well-formed>> XML data object
+
+[[DTD]]
+==== 3.1.6 Document Type Definition (DTD)
+
+specification of a grammar for a class of <<XML, XML>> documents
+
+[[element]]
+==== 3.1.7 element
+
+primary data construct in an <<XML, XML>> document
+
+[[FileExtension]]
+==== 3.1.8 file extension
+
+sequence of characters following the file name that specifies the type
+of file
+
+[[FileName]]
+==== 3.1.9 file name
+
+identifier of a file
+
+[[ID]]
+==== 3.1.10 ID
+
+<<XML, XML>> datatype that defines a unique identification label for
+an <<element, element>> in an XML document
+
+[[IDREF]]
+==== 3.1.11 IDREF
+
+datatype that refers to a unique identification label defined for
+another <<element, element>> in an XML document
+
+NOTE:  Adapted from <<XML, 2. XML>>.
+
+[[MIME]]
+==== 3.1.12 MIME
+
+Multipurpose Internet Mail Extension
+
+NOTE:  Used to specify file typing rules for Internet applications,
+including browsers.
+
+[[namespace]]
+==== 3.1.13 namespace
+
+colon-separated prefix used to qualify element and attribute names in
+<<XMLDocument, XML documents>> by associating them with different XML
+<<tagset, tagsets>>
+
+[[NMTOKEN]]
+==== 3.1.14 NMTOKEN
+
+datatype that refers to any mixture of allowed XML name characters
+
+NOTE:  Adapted from <<XML, 2. XML>>.
+
+[[schema]]
+==== 3.1.15 schema
+
+specification of a grammar for a class of <<XML, XML>> documents
+
+[[tagset]]
+==== 3.1.16 tagset
+
+set of validatable elements and attributes defined by an XML grammar
+such as an <<XML, XML>>
+ <<DTD, DTD>> or <<schema, schema>>
+
+[[valid]]
+==== 3.1.17 valid
+
+condition of an XML document that is <<WellFormed, well formed>> and
+also meets the tagset-specific production constraints
+
+[[WellFormed]]
+==== 3.1.18 well-formed
+
+condition of an <<XMLDocument, XML document>> when it meets the
+general construction requirements and production constraints specified
+in <<XML, 2. XML>>
+
+[[XMLDocument]]
+==== 3.1.19 XML document
+
+class of data objects that also partially describes the behaviour of
+computer programs that process instances of this class
+
+NOTE:  Adapted from <<XML, 2. XML>>.
+
+[[AcronymsAndAbbreviations]]
+=== 3.2 Acronyms and abbreviations
+
+<<t-AbbreviatedTerms, Table 3.1>> lists the abbreviated terms used in
+this part of ISO/IEC 19776. In the specification of an abbreviation, the
+letters in the abbreviated term used to form the abbreviation are
+presented in upper-case and other letters are presented in lower-case
+with one exception. When the abbreviated term includes another
+abbreviation that is used to form the abbreviation for that term, all
+the letters of the included abbreviation are presented in upper-case
+even if all of the letters are not used in the formed abbreviation.
+
+[[t-AbbreviatedTerms]]Table 3.1 — Abbreviated terms
+
+[cols=",",options="header",]
+|===
+|Abbreviation |Abbreviated term
+|DTD          |Document Type Definition (see <<XML, 2. XML>>)
+|URL          |Universal Resource Locator (see <<RFC1738, 2. RFC1738>>)
+|XML          |Extensible Markup Language (see <<XML, 2. XML>>)
+|===
+
+
+
+[[concepts]]
+== 4 Concepts
+
+[[IntroductionAndTopics]]
+=== 4.1 Introduction and topics
+
+[[Introduction]]
+==== 4.1.1 Introduction
+
+This clause describes key concepts in this part of ISO/IEC 19776. This
+includes how the X3D constructs defined in <<I19775_1, ISO/IEC 19775-1>>
+are encoded as a compressed binary file.
+
+[[Topics]]
+==== 4.1.2 Topics
+
+<<t-TopicsInThisClause, Table 4.1>> lists the topics is this clause.
+
+[[t-TopicsInThisClause]]Table 4.1 — Topics in this clause
+
+*<<IntroductionAndTopics, 4.1 Introduction and topics>>*
+  
+<<Introduction, 4.1.1 Introduction>> +
+<<Topics, 4.1.2 Topics>> +
+<<ConventionsUsed, 4.1.3 Conventions used>>
+
+*<<Overview, 4.2 Overview>>*
+
+<<OverviewIntroduction, 4.2.1 Introduction>> +
+<<StructureOfX3DFile, 4.2.2 The structure of an X3D file>> +
+<<X3DCanonicalForm, 4.2.3 X3D canonical form>> +
+<<Header, 4.2.4 Header>> +
+<<PrototypeRepresentations, 4.2.5 Prototype representations>>
+
+*<<CompressingX3DBinaryFiles, 4.3 Compressing X3D binary files>>*
+  
+<<NodeCompresors, 4.3.1 Node compressors>> +
+<<ProcessOverview, 4.3.1.1 Process overview>> +
+<<Compression, 4.3.1.2 Compression>> +
+<<Preservation, 4.3.1.3 Preservation>> +
+<<UserSpecifiedParameters, 4.3.1.4 User-specified parameters>> +
+<<AdditionalFieldCompression, 4.3.2 Additional field compression>> +
+<<Fast-Infoset, 4.3.3 XML binary compression using Fast infoset>>
+
+*<<DecompressingX3DBinaryFiles, 4.4 Decompressing X3D binary files>>*
+  
+<<XMLBinaryDecompressionUsingFastInfoSet, 4.4.1 XML binary decompression using Fast infoset>> +
+<<FieldDecompression, 4.4.2 Field decompression>> +
+<<NodeDecompressors, 4.4.3 Node decompressors>> +
+<<ProcessOverviewDecompression, 4.4.3.1 Process overview>> +
+<<Decompression, 4.4.3.2 Decompression>> +
+<<PreservationDecompression, 4.4.3.3 Preservation>>
+
+*<<X3DFilesAndTheWorldWideWeb, 4.5 X3D files and the World Wide Web>>*
+  
+<<gzipCompression, 4.5.1 gzip compression>>　＋
+<<FileExtensionsAndMIMETypes, 4.5.2 File extensions and MIME types>>
+
+
+[[ConventionsUsed]]
+==== 4.1.3 Conventions used
+
+The following conventions are used throughout this part of ISO/IEC
+19776.
+
+_Italics_ are used for event and field names and are also used when new
+terms are introduced and equation variables are referenced.
+
+A `+fixed-space+` font is used for URL addresses and source code
+examples. ISO/IEC 19776 Classic VRML encoding (see
+<<I19776_2, ISO/IEC 19776-2>>) examples appear in *`+bold,+`
+`+fixed-space+`* font.
+
+Node type names are appropriately capitalized (_e.g._, “The Billboard
+node is a grouping node...”). However, the concept of the node is often
+referred to in lower case in order to refer to the semantics of the
+node, not the node itself (_e.g._, “To rotate the billboard...”).
+
+The form "0xhh" expresses a byte as a hexadecimal number representing
+the bit configuration for that byte.
+
+Throughout this part of ISO/IEC 19776, references are denoted using the
+“x.[ABCD]” notation, where "x" denotes which clause or annex the
+reference is described in and “[ABCD]” is an abbreviation of the
+reference title. An exception to this convention is that International
+Standards are referenced by the number of the standard.
+
+EXAMPLE 2.[ABCD] refers to a reference described in Clause 2 and C.[ABCD] 
+refers to a reference described in Annex C.
+
+[[Overview]]
+=== 4.2 Overview
+
+[[OverviewIntroduction]]
+==== 4.2.1 Introduction
+
+This X3D encoding provides a compact transmission format that minimizes
+delivery size and maximizes parsing speed while following the precepts
+of XML (see <<XML, 2. XML>>). Privacy and ownership protections are
+optionally provided using XML security mechanisms.
+
+There is an essential one-to-one match between the nodes and fields of
+the abstract X3D scene graph and corresponding constructs in the
+Compressed binary encoding. This section describes the design patterns
+that govern the correspondence.
+
+The following compression steps (as depicted in
+<<X3DCompressionDataFlow, Figure 4.1>>) are performed as part of the
+Compressed binary encoding. The actual processing order and methods of
+accomplishment may vary between applications. An implementation may skip
+any step so long as the resultant compressed binary file is the same as
+if these steps were followed.
+
+[loweralpha]
+. Optional compression of nodes and their children.
+. Conversion of X3D scene into .x3d XML encoding as specified in
+<<I19776_1, ISO/IEC 19776-1>>, either as a file or alternatively as an
+XML-based memory representation
+. Normalizing XML structures by applying X3D canonicalization (see
+<<X3DCanonicalForm, 4.2.3 X3D canonical form>>) as an alternate
+formulation for XML canonicalization (see
+<<XML-Canonicalization, 2. XML-Canonicalization>>).
+. Optional encryption and/or digital authentication of scene fragments
+using XML encryption (see <<XML-Encryption, 2. XML-Encryption>>) and
+XML signature (see <<XML-Signature, 2. XML-Signature>>).
+. XML-based compression using Fast infoset algorithms as specified in
+<<I24824_1, ISO/IEC 24824-1>>.
+. Optional gzip compression of entire compressed scene as specified in
+<<gzipCompression, 4.5.1 gzip compression>>.
+
+[[X3DCompressionDataFlow]]
+image:https://www.web3d.org/documents/specifications/19776-3/V3.3/Images/X3DCompressionDataFlow.png[Compression Data Flow]
+
+Figure 4.1 — Compression data flow/production chain
+
+The following decompression steps (as depicted in
+<<X3DDecompressionDataFlow, Figure 4.2>>) are performed as part of the
+Compressed binary encoding. The actual processing order and methods of
+accomplishment may vary between applications. An implementation may skip
+any step so long as the resultant .X3D encoded file is the same as if
+these steps were followed.
+
+[start=7]
+. Optional gzip decompression of entire compressed scene as specified in
+<<gzipCompression, 4.5.1 gzip compression>>.
+. XML-based decompression using Fast infoset algorithms as specified in
+<<I24824_1, ISO/IEC 24824-1>>.
+. Optional decryption and/or digital authentication of scene fragments
+using XML encryption (see <<XML-Encryption, 2. XML-Encryption>>) and
+XML signature (see <<XML-Signature, 2. XML-Signature>>).
+. Optional renormalizing XML structures by applying X3D canonicalization
+(see <<X3DCanonicalForm, 4.2.3 X3D canonical form>>) as an alternate
+formulation for XML canonicalization (see
+<<XML-Canonicalization, 2. XML-Canonicalization>>).
+. Conversion of X3D scene into .x3d XML encoding as specified in
+<<I19776_1, ISO/IEC 19776-1>>, either as a file or alternatively as an
+XML-based memory representation.
+. Optional decompression of nodes and their children.
+
+[[X3DDecompressionDataFlow]]
+image:https://www.web3d.org/documents/specifications/19776-3/V3.3/Images/X3DDecompressionDataFlow.png[Deompression Data Flow]
+
+Figure 4.2 — Decompression data flow/production chain
+
+A registry of node compression methods is maintained under, and using
+the established procedures of, the
+http://www.iso.ch/iso/standards_development/maintenance_agencies.htm[ISO
+International Registration Authority for
+Items]^<<RegistryOfGraphicalItems, 1>>^. A file conforming to this
+part of ISO/IEC 19776 includes only compressors that have been
+standardized or have been approved for inclusion in the registry. See
+<<nodecompressors, Annex B Node compressor registry>> for more
+information on registered node compressors.
+
+<<I24824_1, ISO/IEC 24824-1>> specifies the technique used to encode a
+binary stream representing an X3D scene graph. This technique has the
+name of _Fast infoset_. Conceptually, an XML-encoded canonical X3D
+document (possibly further modified by node compressors) is passed to a
+Fast infoset processor to write the binary stream.
+
+^[[RegistryOfGraphicalItems]]1^Contact information for the
+ISO-designated Registration Authority for Items registered under the
+ISO/IEC 9973 procedures is available at the ISO Maintenance Agencies and
+Registration Authorities web site: 
+http://www.iso.ch/iso/standards_development/maintenance_agencies.htm.
+
+[[StructureOfX3DFile]]
+==== 4.2.2 The structure of an X3D file
+
+An _X3D file_ is structured as specified in <<I19775_1, ISO/IEC 19775-1>>.
+
+[[X3DCanonicalForm]]
+==== 4.2.3 X3D canonical form
+
+Conceptually, the X3D scene input to the <<I24824, Fast infoset>>
+encoder is an XML-encoded document with certain restrictions. X3D
+canonical form eliminates file ambiguities that have no impact on the 3D
+content but which otherwise would negatively impact security issues,
+compression or parsing performance.
+
+X3D canonical form is based on Canonical XML (see
+<<XML-Canonicalization, 2. XML-Canonicalization>>) which specifically
+allows modification to the default XML canonicalization rules. This
+provides the ability to establish equivalence between differently
+formatted (but functionally identical) XML documents. This capability is
+required for the application of XML Encryption (see
+<<XML-Encryption, 2. XML-Encryption>>) or XML Signature (see
+<<XML-Signature, 2. XML-Signature>>) syntax and processing
+techniques.
+
+The following X3D canonicalization restrictions are applied to an X3D
+scene (or scene fragment) prior to encryption, signature or compression:
+
+[loweralpha]
+. Whitespace rules:
+.. Whitespace is defined as carriage-return, line-feed, space, tab, and
+comma characters. Whitespace separates all MF-type array values,
+including individual element values within MFString arrays.
+.. All whitespace characters are converted to a normalized
+(single-occurrence) blank character with no leading or trailing
+whitespace.
+.. All literal characters within an SFString value are retained
+verbatim.
+.. All literal characters within MFString array values are retained
+verbatim.
+. Double-quote and single-quote characters:
+[arabic]
+.. Individual MFString array values are bounded by "double-quote"
+characters, each separated by a single space.
+.. The overall MFString attribute is contained within 'single-quote'
+characters.
++
+....
+    EXAMPLE 1  <NavigationInfo type='"WALK" "EXAMINE" "ANY"'/>
+....
+[arabic, start=3]
+.. Single-quote characters within an MFString value are replaced by the
+`+&#8242;+` character entity.
+.. Double-quote characters within an MFString value are replaced by the
+`+&#34;+` character entity (and escaped by a leading backslash
+"\" character).
+.. XML &quot; character references that delimit individual strings in an
+MFString array are converted to double-quote characters.
++
+EXAMPLE 1 
++
+....
+<Text string=' "\&quot;Hello, quotation marks\&quot;" "Line 2 has no quotation marks" '/>
+....
+displays the following two lines:
++
+    “Hello, quotation marks”     Line 2 has no quotation marks
+
+. A default or substitute DTD as specified in Annex A of
+<<I19776_1, ISO/IEC 19776-1>> is included following the
+`+<?xml version="1.0" encoding="UTF-8"?>+` header in canonical form.
++
+NOTE:  The default DTD is not included in the final Compressed binary
+encoding, only substitute DTD values are compressed.
+. Default or substitute X3D schema (see Annex B of
+<<I19776_1, ISO/IEC 19776-1>>) attributes are included in the root
+`+<X3D>+` element.
++
+NOTE:  The default X3D Schema attributes are not included in the final
+Compressed binary encoding, only substitute X3D schema attribute values
+are compressed.
+. Floating point and double precision.
+[arabic]
+.. Floating point values are not converted to or from scientific
+notation; instead they retain their original form.
+.. Numeric values using scientific notation use a lower-case 'e'
+character.
+.. Leading plus signs are omitted, both for mantissa and exponent.
++
+....
+        EXAMPLE 2  2.004e3 (equal to 2004.0).
+....
+[arabic, start=4]
+.. Decompressed values shall be numerically equal to, but need not
+necessarily match the form of, the original values.
+.. Excess leading zeros, tens place or higher, are omitted.
+.. Trailing zeros are omitted in the mantissa.
+.. If there are no digits following the decimal point, the decimal point
+shall be omitted.
+. Attributes with empty values are eliminated. Attributes with default
+values are eliminated in order to reduce encoded file size. Default
+values can be determined from the X3D DTD (see Annex A of
+<<I19776_1, ISO/IEC 19776-1>>) or X3D schema (see Annex B of
+<<I19776_1, ISO/IEC 19776-1>>). This rule supersedes the XML
+canonicalization rule that all attribute values are provided.
+. Attribute-value pairs for `+DEF+`, `+USE+` and (non-default)
+`+containerField+` shall appear before other attributes, which then
+follow in alphabetic order. This ordering typically provides higher
+parsing performance during subsequent decoding. This step supersedes the
+XML canonicalization rule that all attribute values are provided in
+alphabetic order.
+. All MFNode content for a child field shall be provided in a contiguous
+block with no intermixed containerField usage.
++
+EXAMPLE 3  The following code exhibits X3D not in this form:
++
+....
+      <Collision>
+         <Shape containerField="children" />
+         <Shape containerField="proxy" />
+         <Shape containerField="children" />
+      </Collision>
+....
++
+[.normal]#The proper child-element grouping for canonical form is:#
++
+....
+      <Collision>
+         <Shape containerField="proxy" />
+         <Shape containerField="children" />
+         <Shape containerField="children" />
+      </Collision>
+....
+. Comments are always preserved. Since default values for the Compressed
+binary encoding are lossless, comments are retained by default.
+. SFImage data is written in hexadecimal form separated by normalized
+whitespace.
+. SF/MFInt32 values will be converted to decimal form if in hexadecimal
+form.
+. Empty tag pairs consisting solely of a start-tag element and an
+end-tag element are replaced with a single empty-element tag.
++
+EXAMPLE 4  The construct:
++
+....
+        <Group DEF="someDEF" class="someClass"></Group>
+....
++
+`+is converted to:+`
++
+....
+        <Group DEF="someDEF" class="someClass"/>
+....
+. CDATA sections (typically, ECMAScript or shader source code) are not
+converted into character entities. This step supersedes the XML
+canonicalization rule that CDATA sections are replaced with their
+character content.
+. Except where specifically overridden by the preceding rules, apply the
+rules of XML canonicalization, summarized here:
+[arabic]
+.. comments may optionally be included
+.. normalize line feeds
+.. normalize attribute values
+.. resolve character and parsed entity references
+.. sort attributes lexicographically
+. X3D scenes in canonical form shall be well-formed, validated XML. This
+property is a prerequisite to subsequent XML-based compression
+techniques.
+
+[[Header]]
+==== 4.2.4 Header
+
+The header follows the Fast infoset rules for header declaration as
+defined in 12.3 of <<I24824_1, ISO/IEC 24824-1>>. A valid Compressed
+binary encoded file shall contain either an XML file declaration (see
+<<XML, 2. XML>>) followed by the Fast infoset header bits
+'11100000000000000000000000000000000' or just the Fast infoset header
+bits.
+
+EXAMPLE 1  <?xml encoding='finf'?>'11100000000000000000000000000000000'
+
+EXAMPLE 2  <?xml version='1.0' encoding='finf' standalone='yes'>
+'11100000000000000000000000000000000'
+
+Other XML header elements like the DTD or schema definition are encoded
+using standard Fast infoset mechanisms.
+
+Two additional fields are appended to the X3D tag to denote Compressed
+binary version information. These attributes are:
+
+....
+<X3D
+    binaryVersion="3.3"                       SFString    [initializeOnly]
+    serializerVersion="Fast infoset 2004"     SFString    [initializeOnly]
+    >
+
+    </X3D>    
+....
+
+
+[[PrototypeRepresentations]]
+==== 4.2.5 Prototype representations
+
+All Prototype-related elements are treated in a manner consistent with
+the representations of the X3D XML encoding. Thus, Prototype instances
+are treated as PrototypeInstance constructions in XML.
+
+EXAMPLE
+
+....
+  <ProtoDeclare name="ExampleSensor">
+   <ProtoInterface>
+     <field accessType="initializeOnly" name="enabled" type="SFBool" value="true"/>
+   </ProtoInterface>
+   <ProtoBody>
+     <TouchSensor description="touch to activate">
+      <IS>
+       <connect nodeField="enabled" protoField="enabled"/>
+      </IS>
+     </TouchSensor>
+    </ProtoBody>
+   </ProtoDeclare>
+   <ProtoInstance name="ExampleSensor">
+    <fieldValue name="enabled" value="false"/>
+   </ProtoInstance>
+....
+
+The following "native-tag" representation is not legal and shall not be
+used within the Compressed binary encoding:
+
+....
+   <ExampleSensor enabled="false"/>
+....
+
+[[CompressingX3DBinaryFiles]]
+=== 4.3 Compressing X3D binary files
+
+[[NodeCompresors]]
+==== 4.3.1 Node compressors
+
+[[ProcessOverview]]
+===== 4.3.1.1 Process overview
+
+Node compressors are responsible for compressing a node and all its
+children. Typically, this compressor has domain-specific knowledge about
+how to compress a node's data.
+
+EXAMPLE  Geometric compression techniques may be used to store an
+IndexedFaceSet more compactly.
+
+The compressor shall restore the exact same scenegraph structure as was
+compressed, including any ProtoInstance usage. In addition, no
+reordering of data is allowed; _i.e._, vertex values in a Coordinate
+node point array shall not change ordinal position.
+
+A compressor shall only be assigned to handle a single node and all its
+children. Other constructs, like Prototypes and Routes, may not be
+compressed using node compressors. Furthermore, nodes that implement the
+X3DScriptNode or X3DProgrammableShaderObject shall not be assigned a
+node compressor. A node compressor can be used to compress the child
+nodes of these node types.
+
+Node compressors shall not be nested. A provided node compressor shall
+handle all of the children nodes for that node type. A compressor may
+leave a node or field unaltered in the compressed stream.
+
+[[Compression]]
+===== 4.3.1.2 Compression
+
+A node compressor transforms a scenegraph fragment using the following
+steps:
+
+[loweralpha]
+. Create a MetadataSet named ".x3db" with a default reference of
+"Web3D". This value may be omitted to further reduce size.
+. Move user specified-metadata (if any) to become the first child of the
+created MetadataSet. This step is ignored if no user-specified metadata
+is provided.
+. Add a MetadataInteger entry for the encoding, named "encoding" with an
+integral value attribute. This must be an encoder specified in
+<<nodecompressors, Annex B Node compressors>>. It is suggested that the
+value for the _reference_ field of the MetadataInteger node be a URI,
+pointing to further information for that encoder.
+. Add a MetadataInteger entry for the resulting compressed data, named
+"payload".
+. Remove fields from the original scene graph handled by the encoder.
+Leave all remaining scene graph structure intact.
+. Add Encoder-specific metadata. Only one MetadataSet node is allowed at
+this level and it shall be named "Encoder Metadata".
+
+EXAMPLE  The following illustrates compressing an IndexedFaceSet
+
+An IndexedFaceSet containing a MetadataString and a Coordinate node are
+to be compressed using a geometric compression algorithm (encoding 1).
+The input scene graph looks like this:
+
+....
+<IndexedFaceSet coordIndex="0, 1, 2, 3, 4, 5, -1">
+    
+      <MetadataString name="myData" value="myValue"> 
+      <Coordinate DEF="COORD" point="1.0 2.0 3.0, 4.0 5.0 6.0"> 
+    </IndexedFaceSet>
+....
+
+The geometric encoder compresses and encodes the coordIndex and point
+fields into the payload section. The resulting form sent to Fast infoset
+looks like this:
+
+....
+<IndexedFaceSet>
+  <MetadataSet name=".x3db" reference="Web3D">
+    <MetadataString name="myData" value="myValue"/>
+    <MetadataInteger name="encoding" value="1">
+    <MetadataInteger name="payload" value=" the compressed and encoded coordIndex and point fields ">
+    <MetadataSet name="Encoder Metadata">
+          <MetadataSet name="MyEncoderMetadata">
+              <MetadataString name="rate" value="12:1"/>
+          </MetadataSet>
+    </MetadataSet>
+  </MetadataSet>
+  <Coordinate DEF="COORD" point="1.0 2.0 3.0 4.0 5.0 6.0">
+</IndexedFaceSet>
+....
+
+
+Then the final form parsed by a decoder engine of X3D files encoded in
+the Compressed binary encoding is:
+
+....
+<IndexedFaceSet coordIndex="0, 1, 2, 3, 4, 5, -1">
+      <MetadataString name="myData" value="myValue"/>
+      <Coordinate DEF="COORD" point="1.0 2.0 3.0, 4.0 5.0 6.0">
+    </IndexedFaceSet>
+....
+
+[[Preservation]]
+===== 4.3.1.3 Preservation
+
+An optional MetadataString may be specified before the encoding
+MetadataInteger name using the keyword "preserved". If the corresponding
+"preserved" keyword is specified, the decompressed form shall retain all
+".x3db" MetadataSet data including the payload in addition to the
+uncompressed values in the original node. The user's metadata is
+retained but will not be returned to its original location.
+
+EXAMPLE  The following example illustrates compressing an IndexedFaceSet
+with preserved parameters
+
+An IndexedFaceSet containing a MetadataString and a Coordinate node is
+to be compressed using a geometric-compression algorithm (encoding 1).
+The input scene graph looks like this:
+
+....
+<IndexedFaceSet coordIndex="...">
+  <MetadataSet name=".x3db" reference="Web3D">
+    <MetadataString name="myData" value="myValue"/>
+    <MetadataInteger name="preserved" value="true">
+    <MetadataInteger name="encoding" value="1"/>
+    <MetadataSet name="Encoder Metadata">
+        <MetadataString name="lossy" value="true"/>
+        <MetadataString name="coordinateBits" value="15"/>
+        <MetadataString name="normalBits" value="6"/>
+        <MetadataString name="colorBits" value="9"/>
+        <MetadataString name="textureBits" value="9"/>
+    </MetadataSet>
+  </MetadataSet>
+  <Coordinate DEF="COORD" point="...">
+</IndexedFaceSet>
+....
+
+The compressed X3D canonical form sent to Fast infoset looks like this:
+
+....
+<IndexedFaceSet>
+  <MetadataSet name=".x3db" reference="Web3D">
+    <MetadataString name="myData" value="myValue"/>
+    <MetadataInteger name="encoding" value="1">
+    <MetadataInteger name="payload" value="the compressed and encoded coordIndex and point fields">
+    <MetadataSet name="Encoder Metadata">
+      <MetadataSet name="MyEncoderMetadata">
+              <MetadataString name="lossy" value="true"/>
+                <MetadataString name="coordinateBits" value="15"/>
+                <MetadataString name="normalBits" value="6"/>
+                <MetadataString name="colorBits" value="9"/>
+                <MetadataString name="textureBits" value="9"/>
+      </MetadataSet>
+    </MetadataSet>
+  </MetadataSet>
+  <Coordinate DEF="COORD" point="...">
+</IndexedFaceSet>
+....
+
+The final form parsed by the X3D engine is:
+
+....
+<IndexedFaceSet coordIndex="0, 1, 2, 3, 4, 5, -1">
+  <MetadataSet name=".x3db" reference="Web3D">
+    <MetadataString name="myData" value="myValue"/>
+    <MetadataInteger name="encoding" value="1">
+    <MetadataSet name="Encoder Metadata">
+      <MetadataSet name="MyEncoderMetadata">
+            <MetadataString name="lossy" value="true"/>
+                <MetadataString name="coordinateBits" value="15"/>
+                <MetadataString name="normalBits" value="6"/>
+                <MetadataString name="colorBits" value="9"/>
+                <MetadataString name="textureBits" value="9"/>
+      </MetadataSet>
+    </MetadataSet>
+  </MetadataSet>
+  <Coordinate DEF="COORD" point="1.0 2.0 3.0 4.0 5.0 6.0"/>
+</IndexedFaceSet>
+....
+
+[[UserSpecifiedParams]]
+===== 4.3.1.4 User-specified parameters
+
+An X3D Compressed binary processor compressing a node that already
+contains a MetadataSet with the name ".x3db" and reference "Web3D" shall
+generate the payload block using the specified encoder and Encoder
+Metadata parameters. Any unknown or incorrect values may be ignored for
+compression purposes.
+
+[[AdditionalFieldCompression]]
+==== 4.3.2 Additional field compression
+
+Further type-specific field compression is specified in
+<<EncodingOfFields, 5 Encoding of fields>>.
+<<AttributeValueTable, Table A.2.5>> specifies the indices to use for
+each algorithm.
+
+[[Fast-Infoset]]
+==== 4.3.3 XML binary compression using Fast infoset
+
+This part of ISO/IEC 19776 uses Fast infoset to serialize and compress
+an X3D document. It uses several techniques that reduce the size of an
+X3D document and that increase the speed of creating and processing such
+documents. These techniques are based on the use of vocabulary tables
+that allow small (typically) integer values (vocabulary table indexes)
+to be used instead of character strings.
+
+EXAMPLE 1  Character strings that form the names of nodes or fields in
+an X3D document.
+
+The tables that apply to this part of ISO/IEC 19776 are specified in
+<<tables, Annex A Fast infoset tables>>.
+
+A further optimization uses the encoding algorithm vocabulary table.
+This table identifies specialized encodings that can be employed for
+commonly occurring strings, again with a number of built-in algorithms.
+
+EXAMPLE 2  If there is a string that looks like the decimal
+representation of an integer in the range -32768 to 32767, that string
+can be encoded by identifying that this vocabulary table is being used,
+giving the vocabulary table index, and then encoding the integer as a
+two-octet signed integer. Floating-point numbers and arrays of such
+numbers can be supported in the same way.
+
+This part of ISO/IEC 19776 defines several unique encoders for X3D that
+utilize type-aware knowledge to further compress data. Details are
+specified in <<EncodingOfFields, 5 Encoding of fields>>.
+
+Use of XML Signature and XML Encryption is documented within the context
+of examples in <<examples, Annex C Examples>>.
+
+[[DecompressingX3DBinaryFiles]]
+=== 4.4 Decompressing X3D binary files
+
+[[XMLBinaryDecompressionUsingFastInfoSet]]
+==== 4.4.1 XML binary decompression using Fast infoset
+
+This part of ISO/IEC 19776 uses Fast infoset to deserialize and
+uncompress an X3D document. The tables that apply to this part of
+ISO/IEC 19776 are specified in <<tables, Annex A Fast infoset tables>>.
+
+The encoding algorithm vocabulary table is used to reference built-in
+algorithms to decompress field values.
+
+This part of ISO/IEC 19776 defines several unique encoders for X3D that
+utilize type-aware knowledge to further compress data. Details are
+specified in <<EncodingOfFields, 5 Encoding of fields>>.
+
+[[FieldDecompression]]
+==== 4.4.2 Field decompression
+
+Type-specific field decompression is handled by the registered field
+encoders specified in <<EncodingOfFields, 5 Encoding of fields>>.
+
+[[NodeDecompressors]]
+==== 4.4.3 Node decompressors
+
+Type-specific field decompression is handled by the registered field
+encoders specified in <<EncodingOfFields, 5 Encoding of fields>>.
+
+[[ProcessOverviewDecompression]]
+===== 4.4.3.1 Process overview
+
+Node compressors are responsible for decompressing a node and all its
+children. Typically, this decompressor has domain-specific knowledge
+about how to decompress a node's data.
+
+The decompressor shall restore the exact same scenegraph structure as
+was compressed, including any ProtoInstance usage. In addition, no
+reordering of data is allowed; _e.g._, vertex values in a Coordinate
+node point array shall not change ordinal position.
+
+A decompressor shall only be assigned to handle a single node and all
+its children. Other constructs, like Prototypes and Routes, may not be
+compressed using node compressors. Furthermore, nodes that implement the
+X3DScriptNode or X3DProgrammableShaderObject shall not be assigned a
+node compressor. A node decompressor can be used to decompress the child
+nodes of these node types.
+
+Node decompressors shall not be nested. A provided node decompressor
+shall handle all of the children nodes for that node type.
+
+[[Decompression]]
+===== 4.4.3.2 Decompression
+
+A node decompressor transforms a compressed scenegraph fragment using
+the following steps:
+
+[loweralpha]
+. Read encoder-specific metadata. This metadata does not go into the
+decompressed stream.
+. If ".x3db" MetadataSet preservation was not specified, move
+user-specified metadata back to its original position as immediate child
+of the parent node and remove MetadataSet node.
+. If ".x3db" MetadataSet preservation was specified, retain MetadataSet
+as specified in compressed form. User metadata will have moved
+locations.
+. Restore the exact original scenegraph structure using the payload data
+and the unprocessed nodes and fields.
+
+If MetadataSet preservation was specified, see
+<<PreservationDecompression, 4.4.3.3 Preservation>>.
+
+Example  The following illustrates decompressing an IndexedFaceSet:
+
+An IndexedFaceSet node containing a MetadataString node and a
+Coordinate node are to be compressed using a geometric compression
+algorithm (encoding 1). The input scenegraph from FastInfoSet looks like
+this:
+
+    <IndexedFaceSet>
+      <MetadataSet name=".x3db" reference="Web3D">    
+      <MetadataString name="myData" value ="myValue">
+        <MetadataInteger name="encoding" value="1">
+        <MetadataInteger name="payload"
+        value="_the compressed and encoded coordIndex and point fields as a binary payload block_">
+        <MetadataSet name="Encoder Metadata">
+        <MetadataSet name="MyEncoderMetadata">
+          <MetadataString name="rate" value="12:1">
+        </MetadataSet>
+      </MetadataSet>  
+    </MetadataSet>
+    <Coordinate DEF="COORD">
+    </IndexedFaceSet>
+
+The .x3db MetadataSet is removed and the user's metadata placed back in
+its original position. Then the final form parsed by a decoder engine of
+X3D files encoded in the Compressed binary encoding is:
+
+    <IndexedFaceSet coordIndex="0, 1, 2, 3, 4, 5, -1">
+      <MetadataString name="myData" value="myValue">
+      <Coordinate DEF="COORD" point="1.0 2.0 3.0, 4.0 5.0 6.0">
+    </IndexedFaceSet>
+
+[[PreservationDecompression]]
+===== 4.4.3.3 Preservation
+
+If the preserved keyword was used when encoding, the .x3db MetadataSet
+node will be retained in the decompressed stream. The user's metadata
+will be retained but will not be returned to its original position.
+
+EXAMPLE  The decompressed X3D form returned from Fast infoset looks like
+this:
+
+    <IndexedFaceSet>
+      <MetadataSet name=".x3db" reference="Web3D">    
+        <MetadataString name="myData" value ="myValue">
+        <MetadataInteger name="encoding" value="1">
+        <MetadataInteger name="payload" value="_the compressed and encoded coordIndex and point fields as a binary payload block_">
+        <MetadataSet name="Encoder Metadata">
+          <MetadataSet name="Binary Params">
+            <MetadataString name="lossy" value="true">
+            <MetadataString name="coordinateBits" value="15">
+            <MetadataString name="normalBits" value="6">
+            <MetadataString name="colorBits" value="9">
+            <MetadataString name="textureBits" value="9">
+          </MetadataSet>
+        </MetadataSet>  
+    </MetadataSet>
+      <Coordinate DEF="COORD" point="...">
+    </IndexedFaceSet>
+
+After the geometry decompressor converts the payload into X3D, the final
+form parsed by the X3D engine is:
+
+    <IndexedFaceSet coordIndex="...">
+      <MetadataSet name=".x3db" reference="Web3D">
+        <MetadataString name="myData" value ="myValue">
+        <MetadataInteger name="encoding" value="1">
+        <MetadataSet name="Encoder Metadata">
+          <MetadataSet name="Binary Params">
+            <MetadataString name="lossy" value="true">
+            <MetadataString name="coordinateBits" value="15">
+            <MetadataString name="normalBits" value="6">
+            <MetadataString name="colorBits" value="9">
+            <MetadataString name="textureBits" value="9">
+          </MetadataSet>
+        </MetadataSet>
+      </MetadataSet>  
+    <Coordinate DEF="COORD" point="...">
+    </IndexedFaceSet>
+
+The original user metadata is retained but now resides as a child of the
+MetadataSet with the name ".x3db".
+
+[[X3DFilesAndTheWorldWideWeb]]
+=== 4.5 X3D files and the World Wide Web
+
+[[gzipCompression]]
+==== 4.5.1 gzip compression
+
+An optional final step is gzip compression of the entire compressed
+scene as specified in <<RFC1952, 2. RFC1952>>. This step supports
+global compression, while the other compression techniques described in
+this part of ISO/IEC 19776 are localized to individual chunks of data.
+
+NOTE:  gzip compression of compressed binary encoded scenes may have a
+negative impact on parser processing performance during decompression.
+
+[[FileExtensionsAndMIMETypes]]
+==== 4.5.2 File extensions and MIME types
+
+Compressed binary encoded files shall use the file extension “.x3db”.
+The MIME-type associated with that binary compressed X3D encoded file is
+“model/x3d+binary”.
+
+Compressed binary encoded files that have been “gzipped” shall use a
+file extension of “.x3db.gz”. The MIME type is “model/x3d+binary”. The
+content-encoding value is “gzip”.
+
+The concept of MIME types is defined in <<RFC2077, 2. RFC2077>>.
+
+[[EncodingOfFields]]
+== 5 Encoding of fields
+
+[[Introduction]]
+=== 5.1 Introduction
+
+[[Topics]]
+==== 5.1.1 Topics
+
+<<t-Topics, Table 5.1>> lists the topics in this clause.
+
+[[t-Topics]]Table 5.1 — Topics
+
+*<<Introduction, 5.1 Introduction>>* +
+<<Topics, 5.1.1 Topics>> +
+<<Description, 5.1.2 Description>> +
+
+*<<FieldEncoderForFastInfoSetUsage, 5.2 Field encoder for Fast infoset usage>>* +
+<<FieldEncoderIntroduction, 5.2.1 Introduction>>   +
+<<BooleanEncoder, 5.2.2 Boolean encoder>> +
+<<CDATAEncoder, 5.2.3 CDATA encoder>> +
+<<DoubleEncoder, 5.2.4 Double encoder>>   +
+<<FloatEncoder, 5.2.5 Float encoder>> +
+<<IntegerEncoder, 5.2.6 Integer encoder>> +
+
+*<<CompressionTechniques, 5.3 Compression techniques>>* +
+
+*<<X3DSpecificFloatingPointEncoders, 5.4 X3D-specific floating point encoders>>* +
+<<QuantizedFloatArrayEncoder, 5.4.1 Quantized float array encoder>> +
+<<zlibFloatArrayEncoder, 5.4.2 zlib float array encoder>> +
+<<QuantizedzlibFloatArrayEncoder, 5.4.3 Quantized zlib float array encoder>> +
+<<QuantizedDoubleArrayEncoder, 5.4.4 Quantized double array encoder>> +
+<<ZlibDoubleArrayEncoder, 5.4.5 zlib double array encoder>> +
+<<QuantizedZlibDoubleArrayEncoder, 5.4.6 Quantized zlib double array encoder>> +
+
+*<<X3DSpecificIntegerEncoders, 5.5 X3D-specific integer encoders>>*   +
+<<RangeIntegerArrayEncoder, 5.5.1 Range integer array encoder>>   +
+<<DeltazlibIntegerArrayEncoder, 5.5.2 Delta zLib integer array encoder>> +
+
+*<<EncodingOfX3DFields, 5.6 Encoding of X3D fields>>*   +
+<<SFBoolAndMFBool, 5.6.1 SFBool and MFBool>>   +
+<<SFColorAndMFColor, 5.6.2 SFColorAndMFColor>>   +
+<<SFColorRGBAAndMFColorRGBA, 5.6.3 SFColorRGBA and MFColorRGBA>>   +
+<<SFDoubleAndMFDouble, 5.6.4 SFDouble and MFDouble>>   +
+<<SFFloatAndMFFlloat, 5.6.5 SFFloat and MFFloat>>   +
+<<SFImageAndMFImage, 5.6.6 SFImage and MFImage>>   +
+<<SFInt32AndMFInt32, 5.6.7 SFInt32 and MFInt32>>   +
+<<SFMatrix3dAndMFMatrix3d, 5.6.8 SFMatrix3d and MFMatrix3d>>   +
+<<SFMatrix3fAndMFMatrix3, 5.6.9 SFMatrix3f and MFMatrix3f>>   +
+<<SFMatrix4dAndMFMatrix4d, 5.6.10 SFMatrix4d and MFMatrix4d>>   +
+<<SFMatrix4fAndMFMatrix4f, 5.6.11 SFMatrix4f and MFMatrix4f>>   +
+<<SFNodeAndMFNode, 5.6.12 SFNode and MFNode>>   +
+<<SFRotationAndMFRotation, 5.6.13 SFRotation and MFRotation>>   +
+<<SFStringAndMFString, 5.6.14 SFString and MFString>>   +
+<<SFTimeAndMFTime, 5.6.15 SFTime and MFTime>>   +
+<<SFVec2dAndMFVec2d, 5.6.16 SFVec2d and MFVec2d>>   +
+<<SFVec2fAndMFVec2f, 5.6.17 SFVec2f and MFVec2f>>   +
+<<SFVec3dAndMFVec3d, 5.6.18 SFVec3d and MFVec3d>>   +
+<<SFVec3fAndMFVec3f, 5.6.19 SFVec3f and MFVec3f>>   +
+<<SFVec4dAndMFVec4d, 5.6.20 SFVec4d and MFVec4d>>   +
+<<SFVec4fAndMFVec4f, 5.6.21 SFVec4f and MFVec4f>> +
+
+
+[[Description]]
+==== 5.1.2 Description
+
+This clause specifies the syntax of _field_ data type values.
+
+Field values follow the syntax for fields defined in 5 Encoding of
+Fields of <<I19776_1, ISO/IEC 19776-1>>. These field values are then
+encoded using Fast infoset rules as defined in <<I24824_1, ISO/IEC
+24824-1>>. Specific rules for each field type follow. In general, SFNode
+and MFNode are encoded using Element rules as specified in 7.3.1 of
+<<I24824_1, ISO/IEC 24824-1>>. Other field types are encoded using the
+Attribute rules specified in 7.4 of <<I24824_1, ISO/IEC 24824-1>>.
+
+Each field specifies what method it has used to write its values. This
+allows the Compressed binary encoding to use type-specific knowledge to
+further compress a field. Encoders are expected to pick the right
+methods to meet the users expectations for parsing speed versus file
+size.
+
+The usage of encoding algorithms not specified in this part of ISO/IEC
+19776 or in <<I24824_1, ISO/IEC 24824-1>> is invalid. A conformant
+implementation need only support these algorithms to parse a Compressed
+binary encoded file.
+
+All field values shall end on a byte boundary.
+
+[[FieldEncoderForFastInfoSetUsage]]
+=== 5.2 Field encoder for Fast infoset usage
+
+[[FieldEncoderIntroduction]]
+==== 5.2.1 Introduction
+
+By default all field values are written in String form.
+<<I24824_1, ISO/IEC 24824-1>> allows the specification of encoders to
+write values in a compact binary form. This subclause defines the
+encoders available for compressing X3D content. Only encoders defined in
+this clause or in <<I24824_1, ISO/IEC 24824-1>> may be used for
+compressing X3D content. All X3D encoders defined in this document
+provide a unique URI to be used in the Encoding Algorithms table of the
+document serialization as required by <<I24824_1, ISO/IEC 24824-1>>.
+If an encoder is used, this URI shall be added to the Encoding Algorithm
+Table described in 8.3 of <<I24824_1, ISO/IEC 24824-1>>.
+
+[[BooleanArrayEncoder]]
+
+Fast infoset defines a set of native encoders to help speed parsing and
+decrease file size for commonly used constructs. When possible, these
+encoders are used for handling X3D field types. This subclause specifies
+the encoders used along with a brief description of their function. See
+<<I24824_1, ISO/IEC 24824-1>> for a detailed discussion of each
+encoder, including the exact definition of what is written to a stream.
+
+All encoders defined by <<I24824_1, ISO/IEC 24824-1>> are lossless.
+
+[[BooleanEncoder]]
+==== 5.2.2 Boolean encoder
+
+This encoder handles boolean values. It can handle single values or a
+list of booleans separated by spaces. This encoder is named "boolean"
+and is defined in 10.7 of <<I24824_1, ISO/IEC 24824-1>>.
+
+[[CDATAEncoder]]
+==== 5.2.3 CDATA encoder
+
+This encoder handles blocks of character data. This encoder is named
+"cdata" and is defined in 10.11 of <<I24824_1, ISO/IEC 24824-1>>.
+
+[[DoubleEncoder]]
+==== 5.2.4 Double encoder
+
+This encoder handles double values. It can handle single values or a
+list of doubles separated by spaces. This encoder is named "double"
+and is defined in 10.9 of <<I24824_1, ISO/IEC 24824-1>>.
+
+[[FloatEncoder]]
+==== 5.2.5 Float encoder
+
+This encoder handles float values. It can handle single values or a list
+of floats separated by spaces. This encoder is named "float" and is
+defined in 10.8 of <<I24824_1, ISO/IEC 24824-1>>.
+
+[[IntegerEncoder]]
+==== 5.2.6 Integer encoder
+
+This encoder handles integer values. It can handle single values or a
+list of integers separated by spaces. This encoder is named "int" and is
+defined in 10.5 of <<I24824_1, ISO/IEC 24824-1>>.
+
+[[CompressionTechniques]]
+=== 5.3 Compression techniques
+
+zlib compression is used for several encoders. zlib works by detecting
+common patterns in a stream and outputing short-hand tags for these
+patterns.
+
+Implementations should reuse or reimplement the zlib library specified
+in <<RFC1950, 2. RFC1950>>.
+
+[[X3DSpecificFloatingPointEncoders]]
+=== 5.4 X3D-specific floating point encoders
+
+[[QuantizedFloatArrayEncoder]]
+==== 5.4.1 Quantized float array encoder
+
+This encoder takes an array of float values and encodes them as a
+quantized form of the single-precision floating point numbers specified
+in <<IEC60559, IEC 60559>>. A custom value is selected for the
+exponent, mantissa and sign bits typically used to encode floats. The
+bias of 127 is still used. These values are written to the stream first
+before the data. The exponent is encoded using three bits, giving a
+range of 1-8. Zero exponent bits cannot be used. The number of mantissa
+bits is encoded using five bits. One bit is used for the sign bit. When
+a number uses zero sign bits, it is assumed to be positive. The
+remaining bits are used for data. Data follows the float description
+using the extra seven bits of the second byte for storage. Extra bits
+needed to byte align the data array are padded with bits of value 0.
+
+The number of floats written can be determined by:
+
+....
+    NumFloats = floor((numBytes × 8 - 9) / (exponent + mantissa + sign));
+....
+
+The "9" in the above formula represents the number of header bits.
+
+This technique is a lossy encoder.
+
+The URI for identifying this encoder is:
+
+....
+    "encoder://web3d.org/QuantizedFloatArrayEncoder"
+....
+
+EXAMPLE
+
+....
+    value to encode: "0.42 -1 0.1972"  parameters: exponent = 4 bits, mantissa = 4 bits, sign = 1 bits
+....
+
+resultant bits:
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|byte |Octet(s)   |Description
+|1    |100 00100  |Exponent(4) written in 3 bits, Mantissa(4) 5 bits
+|2    |1 0110101  |Sign(0) 1 bit. Start of 0.42
+|3    |10 100000  |End of 0.42, start of -1
+|4    |000 01011  |End of -1, start of 0.1972
+|5    |0010 0000  |End of 0.1972, 4 bits of padding
+|===
+
+[[zlibFloatArrayEncoder]]
+==== 5.4.2 zlib float array encoder
+
+This encoder uses the zlib library (see <<RFC1950, 2. RFC1950>>) to
+find patterns in float values.
+
+The array of floats is sent to the zlib library unmodified.
+
+This technique is a lossless encoder.
+
+The URI for identifying this encoder is:
+
+....
+    "encoder://web3d.org/zlibFloatArrayEncoder"
+....
+
+[[QuantizedzlibFloatArrayEncoder]]
+==== 5.4.3 Quantized zlib float array encoder
+
+This encoder takes an array of float values and encodes them as a
+quantized form of the single precision floating point numbers defined in
+<<IEC60559, IEC 60559>>. A custom value is selected for the exponent,
+mantissa and sign bits typically used to encode floats. The bias of 127
+is still used. These values are written to the stream first before the
+data. The number of exponent bits is encoded using three bits, giving a
+range of 1-8, zero exponent bits cannot be used. The number of mantissa
+bits is encoded using five bits. One bit is used for the sign bit. When
+a number uses zero sign bits, it is assumed to be positive. The seven
+remaining bits are padded with '0000000' (padding) are appended to the
+bit stream.
+
+The number of float values in the field is appended to the stream using
+four bytes. The float values themselves are then encoded using the zlib
+library (see <<RFC1950, 2. RFC1950>>) and appended to the stream.
+
+This technique is a lossy encoder.
+
+The URI for identifying this encoder is:
+
+....
+    "encoder://web3d.org/QuantizedzlibFloatArrayEncoder"
+....
+
+[[QuantizedDoubleArrayEncoder]]
+==== 5.4.4 Quantized double array encoder
+
+This encoder takes an array of double values and encodes them as a
+quantized form of the double precision floating point numbers defined in
+<<IEC60559, IEC 60559>>. A custom value is selected for the exponent,
+mantissa and sign bits typically used to encode floats. The bias of 1023
+is still used. These values are written to the stream first before the
+data. The number of exponent bits is encoded using four bits, giving a
+range of 0-15. The number of mantissa bits is encoded using six bits.
+One bit is used for the sign bit. When a number uses zero sign bits it
+is assumed to be positive. The remaining bits are used for data. Data
+follows the float description using the extra seven bits of the second
+byte for storage. Extra bits needed to byte align the data are padded
+with bits of value 0.
+
+The number of doubles written can be determined by:
+
+....
+    NumDoubles = floor((numBytes × 8 - 11) / (exponent + mantissa + sign));
+....
+
+The "11" in the above formula represents the number of header bits.
+
+This technique is a lossy encoder.
+
+The URI for identifying this encoder is:
+
+....
+    "encoder://web3d.org/QuantizedDoubleArrayEncoder"
+....
+
+[[ZlibDoubleArrayEncoder]]
+==== 5.4.5 zlib double array encoder
+
+This encoder use the zlib algorithm to find patterns in double values
+(see <<RFC1950, 2. RFC1950>>).
+
+This technique is a lossless encoder.
+
+The URI for identifying this encoder is:
+
+....
+    "encoder://web3d.org/zlibDoubleArrayEncoder"
+....
+
+[[QuantizedZlibDoubleArrayEncoder]]
+==== 5.4.6 Quantized zlib double array encoderencoder
+
+This encoder takes an array of double values and encodes them as a
+quantized form of the double precision floating point numbers defined in
+<<IEC60559, IEC 60559>>. A custom value is selected for the exponent,
+mantissa and sign bits typically used to encode floats. The bias of 1023
+is still used. These values are written to the stream first before the
+data. The number of exponent bits is encoded using four bits, giving a
+range of 0-15. The number of mantissa bits is encoded using six bits.
+One bit is used for the sign bit. When a number uses zero sign bits, it
+is assumed to be positive. The remaining bits are used for data. Data
+follows the float description using the extra seven bits of the second
+byte for storage. Extra bits needed to byte align the data are padded
+with bits of value 0.
+
+These values are then encoded using the zlib library (see
+<<RFC1950, 2. RFC1950>>).
+
+This technique is a lossy encoder.
+
+The URI for identifying this encoder is:
+
+....
+    "encoder://web3d.org/QuantizedzlibDoubleArrayEncoder"
+....
+
+[[X3DSpecificIntegerEncoders]]
+=== 5.5 X3D-specific integer encoders
+
+[[RangeIntegerArrayEncoder]]
+==== 5.5.1 Range integer array encoder
+
+This encoder takes an array of integer values and encodes them in the
+least number of bits required to express the range of integers encoded.
+This is accomplished by determining the range of the integers present.
+All values are then shifted to a positive value (called _shift_). Each
+integer is written using the number of bits required to encode the range
+of integer values present.
+
+The _shift_ value can be determined by:
+
+....
+    shift = -minValue;  // sets minimum value in 
+    range of integers to zero
+....
+
+The number of bits (_numBits_) used to represent each integer is
+determined by:
+
+....
+    numBits = ceiling(log2(maxValue - minValue));
+....
+
+The number of integers written can be determined by:
+
+....
+    length / numBits per Integer 
+....
+
+The _numBits_ value is written out as an 8-bit byte immediately followed
+by the _shift_ value as a 32-bit integer.
+
+Unused bits following the last value of the integer array are set to 0
+to restore the overall encoded length to a byte boundary.
+
+This technique is a lossless encoder.
+
+The URI for identifying this encoder is:
+
+....
+    "encoder://web3d.org/RangeIntArrayEncoder"
+....
+
+[[DeltazlibIntegerArrayEncoder]]
+==== 5.5.2 Delta zlib integer array encoder
+
+This encoder takes an array of integer values, calculates delta values
+and then encodes them using the zlib library (see
+<<RFC1950, 2. RFC1950>>). _Span_ is how many values to skip between
+deltas. The range for _Span_ is 0-255. The first _Span_ values are the
+original values, the rest are deltas.
+
+EXAMPLE  The following array: 0,1,2,-1,3,4,5,-1,6,9,8,-1 with a span of
+4 generates the following deltas: 0,1,2,-1,3,3,3,0,3,5,3,0.
+
+The span is written using eight bits. The number of integer values of
+the field is appended to the stream using four bytes. The array of
+deltas is then compressed using the zlib library and appended to the
+stream.
+
+This technique is a lossless encoder.
+
+The URI for identifying this encoder is:
+
+....
+    "encoder://web3d.org/DeltazlibIntArrayEncoder"
+....
+
+[[EncodingOfX3DFields]]
+=== 5.6 Encoding of X3D fields
+
+[[SFBoolAndMFBool]]
+==== 5.6.1 SFBool and MFBool
+
+SFBool and MFBool values are encoded using the "boolean" algorithm as
+defined in 10.7 of <<I24824_1, ISO/IEC 24824-1>>.
+
+[[SFColorAndMFColor]]
+==== 5.6.2 SFColor and MFColor
+
+The SFColor field specifies one RGB (red-green-blue) colour triple.
+MFColor specifies zero or more RGB triples.
+
+EXAMPLE
+
+....
+<ColorNode color='"1 0 0", 
+    "0 1 0", "0 0 1"'/>
+....
+
+is an MFColor field, _color_, containing the three primary colours red,
+green, and blue.
+
+SFColor and MFColor fields can be encoded using lossy and lossless
+techniques.
+
+Values can be losslessly encoded using these encoders:
+
+[loweralpha]
+. <<FloatEncoder, 5.2.5 Float encoder>>, or
+. <<zlibFloatArrayEncoder, 5.4.2 zlib float array encoder>>.
+
+Values can be lossy encoded using these encoders:
+
+[loweralpha]
+. <<QuantizedFloatArrayEncoder, 5.4.1 Quantized float array encoder>>, or
+. <<QuantizedzlibFloatArrayEncoder, 5.4.3 Quantized zlib float array encoder>>.
+
+[[SFColorRGBAAndMFColorRGBA]]
+==== 5.6.3 SFColorRGBA and MFColorRGBA
+
+The SFColorRGBA field specifies one RGBA (red-green-blue-alpha) colour
+4-tuple. MFColorRGBA specifies zero or more RGBA 4-tuples.
+
+EXAMPLE
+
+....
+<ColorRGBANode color='"1 0 0 0.5", "0 1 0 0.5", 
+    "0 0 1 0.5"'/>
+....
+
+is an MFColorRGBA field, _color_, containing the three partially
+transparent primary colours red, green, blue.
+
+SFColorRGBA and MFColorRGBA fields can be encoded using lossy and
+lossless techniques.
+
+Values can be losslessly encoded using these encoders:
+
+[loweralpha]
+. <<FloatEncoder, 5.2.5 Float encoder>>, or
+. <<zlibFloatArrayEncoder, 5.4.2 zlib float array encoder>>.
+
+Values can be lossy encoded using these encoders:
+
+[loweralpha]
+. <<QuantizedFloatArrayEncoder, 5.4.1 Quantized float array encoder>>, or
+. <<QuantizedzlibFloatArrayEncoder, 5.4.3 Quantized zlib float array encoder>>.
+
+[[SFDoubleAndMFDouble]]
+==== 5.6.4 SFDouble and MFDouble
+
+The SFDouble field specifies one double-precision floating point number.
+MFDouble specifies zero or more double-precision floating point numbers.
+
+EXAMPLE
+
+....
+<NurbsCurve knot="1000.123456789, 200.123456789, 300.123456789"/>
+....
+
+is an MFDouble field, _knot_, containing three double-precision floating
+point values.
+
+SFDouble and MFDouble fields can be encoded using lossy and lossless
+techniques.
+
+Values can be losslessly encoded using these encoders:
+
+[loweralpha]
+. <<DoubleEncoder, 5.2.4 Double encoder>>, or
+. <<zlibDoubleArrayEncoder, 5.4.5 zlib double array encoder>>.
+
+Values can be lossy encoded using these encoders:
+
+[loweralpha]
+. <<QuantizedDoubleArrayEncoder, 5.4.4 Quantized double array
+encoder>>,
+. <<QuantizedzlibDoubleArrayEncoder, 5.4.5 Quantized zlib double
+array>>
+
+[[SFFloatAndMFFlloat]]
+==== 5.6.5 SFFloat and MFFloat
+
+The SFFloat field specifies one single-precision floating point number.
+MFFloat specifies zero or more single-precision floating point numbers.
+
+EXAMPLE
+
+....
+<ElevationGrid creaseAngle="0.785"/>
+....
+
+is an SFFloat field, _creaseAngle_, containing a single floating point
+value.
+
+SFFloat and MFFloat fields can be encoded using lossy and lossless
+techniques.
+
+Values can be losslessly encoded using these encoders:
+
+[loweralpha]
+. <<FloatEncoder, 5.2.5 Float encoder>>, or
+. <<zlibFloatArrayEncoder, 5.4.2 zlib float array encoder>>.
+
+Values can be lossy encoded using these encoders:
+
+[loweralpha]
+. <<QuantizedFloatArrayEncoder, 5.4.1 Quantized float array encoder>>, or
+. <<QuantizedzlibFloatArrayEncoder, 5.4.3 Quantized zlib float array encoder>>.
+
+[[SFImageAndMFImage]]
+==== 5.6.6 SFImage and MFImage
+
+The SFImage field specifies a single uncompressed two-dimensional pixel
+image. The MFImage field specifies zero or more SFImage fields. SFImage
+fields are encoded as three integers representing the width, height and
+number of components in the image, followed by width × height
+hexadecimal or integer values representing the pixels in the image,
+separated by whitespace.
+
+SFImage values can be losslessly encoded using these encoders:
+
+[loweralpha]
+. <<RangeIntegerArrayEncoder, 5.5.1 Range integer array encoder>>, or
+. <<DeltazlibIntegerArrayEncoder, 5.5.2 Delta zlib integer array
+encoder>>.
+
+[[SFInt32AndMFInt32]]
+==== 5.6.7 SFInt32 and MFInt32
+
+The SFInt32 field specifies one 32-bit integer. The MFInt32 field
+specifies zero or more 32-bit integers. SFInt32 and MFInt32 fields are
+encoded as an integer in decimal or hexadecimal (beginning with '0x')
+format.
+
+EXAMPLE
+
+....
+<IndexedLineSet coordIndex="0 1 -1">
+        <Coordinate point="1 2 3, 3 2 1"/>
+    </IndexedLineSet>
+....
+
+The IndexedLineSet in this example contains an MFInt32 field,
+_coordIndex_, containing three integer values.
+
+SFInt32 fields shall be encoded using the encoder specified in
+<<IntegerEncoder, 5.2.6 Integer encoder>>.
+
+MFInt32 fields can only be encoded using lossless techniques.
+
+MFInt32 values can be losslessly encoded using any of these encoders:
+
+[loweralpha]
+. <<IntegerEncoder, 5.2.6 Integer encoder>>,
+. <<RangeIntegerArrayEncoder, 5.5.1 Range integer array encoder>>, or
+. <<DeltazlibIntegerArrayEncoder, 5.5.2 Delta zlib integer array encoder>>.
+
+[[SFMatrix3dAndMFMatrix3d]]
+==== 5.6.8 SFMatrix3d and MFMatrix3d
+
+The SFMatrix3d field specifies a 3×3 matrix containing nine
+double-precision floating point numbers. An MFMatrix3d field specifies
+zero or more SFMatrix3d fields.
+
+EXAMPLE
+
+....
+<field name="two identities"
+       type="MFMatrix3d"
+       value='"1 0 0 0 1 0 0 0 1" "1 0 0 0 1 0 0 0 
+    1"'/>
+....
+
+SFMatrix3d and MFMatrix3d fields can be encoded using lossy and lossless
+techniques.
+
+Values can be losslessly encoded using these encoders:
+
+[loweralpha]
+. <<DoubleEncoder, 5.2.4 Double encoder>>, or
+. <<zlibDoubleArrayEncoder, 5.4.5 zlib double array encoder>>.
+
+Values can be lossy encoded using these encoders:
+
+[loweralpha]
+. <<QuantizedDoubleArrayEncoder, 5.4.4 Quantized double array encoder>>,
+. <<QuantizedzlibDoubleArrayEncoder, 5.4.5 Quantized zlib double array>>
+
+[[SFMatrix3fAndMFMatrix3]]
+==== 5.6.9 SFMatrix3f and MFMatrix3f
+
+The SFMatrix3f field specifies a 3×3 matrix containing nine
+single-precision floating point numbers. An MFMatrix3f field specifies
+zero or more SFMatrix3f fields.
+
+EXAMPLE
+
+....
+<field name="two identities"
+       type="MFMatrix3f"
+       value='"1 0 0 0 1 0 0 0 1" "1 0 0 0 1 0 0 0 
+    1"'/>
+....
+
+SFMatrix3f and MFMatrix3f fields can be encoded using lossy and lossless
+techniques.
+
+Values can be losslessly encoded using these encoders:
+
+[loweralpha]
+. <<FloatEncoder, 5.2.5 Float encoder>>, or
+. <<zlibFloatArrayEncoder, 5.4.2 zlib float array encoder>>.
+
+Values can be lossy encoded using these encoders:
+
+[loweralpha]
+. <<QuantizedFloatArrayEncoder, 5.4.1 Quantized float array encoder>>, or
+. <<QuantizedzlibFloatArrayEncoder, 5.4.3 Quantized zlib float array encoder>>.
+
+[[SFMatrix4dAndMFMatrix4d]]
+==== 5.6.10 SFMatrix4d and MFMatrix4d
+
+The SFMatrix4d field specifies a 4×4 matrix containing sixteen
+double-precision floating point numbers. An MFMatrix4d field specifies
+zero or more SFMatrix4d fields.
+
+EXAMPLE
+
+....
+<field name="two identities"
+       type="MFMatrix4d"
+       value='"1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" 
+    "1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"'/>
+....
+
+SFMatrix4d and MFMatrix4d fields can be encoded using lossy and lossless
+techniques.
+
+Values can be losslessly encoded using these encoders:
+
+[loweralpha]
+. <<DoubleEncoder, 5.2.4 Double encoder>>, or
+. <<zlibDoubleArrayEncoder, 5.4.5 zlib double array encoder>>.
+
+Values can be lossy encoded using these encoders:
+
+[loweralpha]
+. <<QuantizedDoubleArrayEncoder, 5.4.4 Quantized double array
+encoder>>,
+. <<QuantizedzlibDoubleArrayEncoder, 5.4.5 Quantized zlib double
+array>>
+
+[[SFMatrix4fAndMFMatrix4f]]
+==== 5.6.11 SFMatrix4f and MFMatrix4f
+
+The SFMatrix4f field specifies a 4×4 matrix containing sixteen
+single-precision floating point numbers. An MFMatrix4f field specifies
+zero or more SFMatrix4f fields.
+
+EXAMPLE
+
+....
+<field name="two identities"
+       type="MFMatrix4f"
+       value='"1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" "1 
+    0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"'/>
+....
+
+SFMatrix4f and MFMatrix4f fields can be encoded using lossy and lossless
+techniques.
+
+Values can be losslessly encoded using these encoders:
+
+[loweralpha]
+. <<FloatEncoder, 5.2.5 Float encoder>>, or
+. <<zlibFloatArrayEncoder, 5.4.2 zlib float array encoder>>.
+
+Values can be lossy encoded using these encoders:
+
+[loweralpha]
+. <<QuantizedFloatArrayEncoder, 5.4.1 Quantized float array encoder>>, or
+. <<QuantizedzlibFloatArrayEncoder, 5.4.3 Quantized zlib float array encoder>>.
+
+[[SFNodeAndMFNode]]
+==== 5.6.12 SFNode and MFNode
+
+The SFNode field specifies a single X3D node. The MFNode field specifies
+an array of zero or more nodes.
+
+EXAMPLE 1  The following illustrates initialization of a user-defined
+prototype field, named _PositioningNodes_, having type MFNode:
+
+....
+<fieldValue name="PositioningNodes">
+    <Transform USE="someTransformInstance"/>
+    <GeoLocation DEF="defaultGeoLocationInstance"/>
+    <ESPDUTransform USE="someEspduTransformInstance"/>
+</fieldValue>
+....
+
+Nodes are handled by the generic Fast infoset rules for dealing with
+Elements as specified in 7.3 of <<I24824_1, ISO/IEC 24824-1>>. No
+special encoders are defined.
+
+[[SFRotationAndMFRotation]]
+==== 5.6.13 SFRotation and MFRotation
+
+The SFRotation field specifies one arbitrary rotation. The MFRotation
+field specifies zero or more arbitrary rotations.
+
+EXAMPLE  An SFRotation containing a π/4 radians rotation of a Box about
+the Y axis is:
+
+....
+<Transform rotation='"0.0 1.0 0.0 0.785"'>
+  <Shape>
+    <Box/>
+  </Shape>
+</Transform>
+....
+
+SFRotation and MFRotation fields can be encoded using lossy and lossless
+techniques.
+
+Values can be losslessly encoded using these encoders:
+
+[loweralpha]
+. <<FloatEncoder, 5.2.5 Float encoder>>, or
+. <<zlibFloatArrayEncoder, 5.4.2 zlib float array encoder>>.
+
+Values can be lossy encoded using these encoders:
+
+[loweralpha]
+. <<QuantizedFloatArrayEncoder, 5.4.1 Quantized float array encoder>>, or
+. <<QuantizedzlibFloatArrayEncoder, 5.4.3 Quantized zlib float array encoder>>.
+
+[[SFStringAndMFString]]
+==== 5.6.14 SFString and MFString
+
+The SFString and MFString fields contain strings formatted with the
+UTF-8 universal character set (see <<I10646, ISO/IEC 10646>>).
+SFString specifies a single string encoded as a sequence of UTF-8 octets
+enclosed in double-quote characters (_e.g._, `+"string"+`).  The
+MFString specifies zero or more SFStrings enclosed in single-quote
+characters (_e.g._, '"string1" "string2"').
+
+NOTE:  The construct
+
+....
+    "string3"
+....
+
+is not a valid instance of an MFString. Such an MFString is properly
+specified as
+
+....
+    '"string3"'
+....
+
+EXAMPLE 1  A node with an MFString:
+
+....
+  <NavigationInfo type='"WALK" "ANY"' />
+....
+
+Any characters (including linefeeds and ‘#’) may appear within the
+quotation marks. Special characters as defined by XML (_e.g._,
+single-quote and double-quote characters) are specified using the XML
+character entity encodings (see <<XML, 2. XML>>).
+
+EXAMPLE 2  Two instances of the double-quote character are contained in
+the following SFString field _string_:
+
+....
+<Text string='"He said, &quot;Immel did it!&quot;"' />
+....
+
+SFString values are encoded directly as a string as specified in
+<<I24824_1, ISO/IEC 24824-1>>. No encoders are used.
+
+MFString values are encoded directly as a string using the canonical
+form for MFStrings. No encoders are used.
+
+[[SFTimeAndMFTime]]
+==== 5.6.15 SFTime and MFTime
+
+The SFTime field specifies a single time value. The MFTime field
+specifies zero or more time values.
+
+EXAMPLE
+
+....
+<TimeSensor cycleInterval="5.0"/>
+....
+
+is an SFTime field, _cycleInterval_, representing a time of 5.0 seconds
+for the interval of the TimeSensor node.
+
+SFTime and MFTime fields shall be encoded using the encoder specified in
+<<DoubleEncoder, 5.2.4 Double encoder>>.
+
+Lossy encoders are not allowed due to the sensitive nature of time
+values to the simulation model.
+
+[[SFVec2dAndMFVec2d]]
+==== 5.6.16 SFVec2d and MFVec2d
+
+The SFVec2d field specifies a two-dimensional (2D) double-precision
+vector. An MFVec2d field specifies zero or more 2D double-precision
+vectors.
+
+EXAMPLE
+
+....
+<field name="corners"
+       type="MFVec2d"
+       value='"42.89978899 666.000123", "84.97778978 933.70941"'/>
+....
+
+SFVec2d and MFVec2d fields can be encoded using lossy and lossless
+techniques.
+
+Values can be losslessly encoded using these encoders:
+
+[loweralpha]
+. <<DoubleEncoder, 5.2.4 Double encoder>>, or
+. <<zlibDoubleArrayEncoder, 5.4.5 zlib double array encoder>>.
+
+Values can be lossy encoded using these encoders:
+
+[loweralpha]
+. <<QuantizedDoubleArrayEncoder, 5.4.4 Quantized double array encoder>>,
+. <<QuantizedzlibDoubleArrayEncoder, 5.4.5 Quantized zlib double array>>
+
+[[SFVec2fAndMFVec2f]]
+==== 5.6.17 SFVec2f and MFVec2f
+
+The SFVec2f field specifies a two-dimensional (2D) single-precision
+vector. An MFVec2f field specifies zero or more 2D single-precision
+vectors.
+
+EXAMPLE
+
+....
+<TextureCoordinate point='"0.25 0.25", 
+    "0.8 0.8"'/>
+....
+
+SFVec2f and MFVec2f fields can be encoded using lossy and lossless
+techniques.
+
+Values can be losslessly encoded using these encoders:
+
+[loweralpha]
+. <<FloatEncoder, 5.2.5 Float encoder>>, or
+. <<zlibFloatArrayEncoder, 5.4.2 zlib float array encoder>>.
+
+Values can be lossy encoded using these encoders:
+
+[loweralpha]
+. <<QuantizedFloatArrayEncoder, 5.4.1 Quantized float array encoder>>, or
+. <<QuantizedzlibFloatArrayEncoder, 5.4.3 Quantized zlib float array encoder>>.
+
+[[SFVec3dAndMFVec3d]]
+==== 5.6.18 SFVec3d and MFVec3d
+
+The SFVec3d field specifies a three-dimensional (3D) double-precision
+vector. An MFVec3d field specifies zero or more 3D double-precision
+vectors.
+
+EXAMPLE
+
+....
+<GeoOrigin geoCoords='"1000.123456789 
+    100.123456789 100.123456789"'/>
+....
+
+is an SFVec3d field, _geoCoords_, defining a high-precision vector
+value.
+
+SFVec3d and MFVec3d fields can be encoded using lossy and lossless
+techniques.
+
+Values can be losslessly encoded using these encoders:
+
+[loweralpha]
+. <<DoubleEncoder, 5.2.4 Double encoder>>, or
+. <<zlibDoubleArrayEncoder, 5.4.5 zlib double array encoder>>.
+
+Values can be lossy encoded using these encoders:
+
+[loweralpha]
+. <<QuantizedDoubleArrayEncoder, 5.4.4 Quantized double array encoder>>,
+. <<QuantizedzlibDoubleArrayEncoder, 5.4.5 Quantized zlib double array>>
+
+[[SFVec3fAndMFVec3f]]
+==== 5.6.19 SFVec3f and MFVec3f
+
+The SFVec3f field specifies a three-dimensional (3D) single-precision
+vector. An MFVec3f field specifies zero or more 3D single-precision
+vectors.
+
+EXAMPLE
+
+....
+<Coordinate point='"1 2.24 3.4", 
+    "3 2 1", "4.5 1.2 5.745"'/>
+....
+
+is an SFVec3f field, _point_, defining three 3D vectors.
+
+SFVec3f and MFVec3f fields can be encoded using lossy and lossless
+techniques.
+
+Values can be losslessly encoded using these encoders:
+
+[loweralpha]
+. <<FloatEncoder, 5.2.5 Float encoder>>, or
+. <<zlibFloatArrayEncoder, 5.4.2 zlib float array encoder>>.
+
+Values can be lossy encoded using these encoders:
+
+[loweralpha]
+. <<QuantizedFloatArrayEncoder, 5.4.1 Quantized float array encoder>>, or
+. <<QuantizedzlibFloatArrayEncoder, 5.4.3 Quantized zlib float array encoder>>.
+
+[[SFVec4dAndMFVec4d]]
+==== 5.6.20 SFVec4d and MFVec4d
+
+The SFVec4d field specifies a four-dimensional (4D) double-precision
+vector. An MFVec4d field specifies zero or more 4D double-precision
+vectors.
+
+EXAMPLE
+
+....
+<MyCoordinate point='"1 
+    0.75 0.5 0", "0.35 0.6 0.35 1.0", "0.125 0.875 0.375 0.625"'/>
+....
+
+is an SFVec4d field, _point_, defining three 4D vectors.
+
+SFVec4d and MFVec4d fields can be encoded using lossy and lossless
+techniques.
+
+Values can be losslessly encoded using these encoders:
+
+[loweralpha]
+. <<DoubleEncoder, 5.2.4 Double encoder>>, or
+. <<zlibDoubleArrayEncoder, 5.4.5 zlib double array encoder>>.
+
+Values can be lossy encoded using these encoders:
+
+[loweralpha]
+. <<QuantizedDoubleArrayEncoder, 5.4.4 Quantized double array encoder>>,
+. <<QuantizedzlibDoubleArrayEncoder, 5.4.5 Quantized zlib double array>>
+
+[[SFVec4fAndMFVec4f]]
+==== 5.6.21 SFVec4f and MFVec4f
+
+The SFVec4f field specifies a four-dimensional (4D) single-precision
+vector. An MFVec4f field specifies zero or more 4D single precision
+vectors.
+
+EXAMPLE
+
+....
+<TextureCoordinate point='"1.0 
+    0.75 0.5, 0", "0.35 0.6 0.35, 1.0", "0.125 0.875 0.375 0.625"'/>
+....
+
+is an SFVec4f field, _point_, defining three 4D vectors.
+
+SFVec4f and MFVec4f fields can be encoded using lossy and lossless
+techniques.
+
+Values can be losslessly encoded using these encoders:
+
+[loweralpha]
+. <<FloatEncoder, 5.2.5 Float encoder>>, or
+. <<zlibFloatArrayEncoder, 5.4.2 zlib float array encoder>>.
+
+Values can be lossy encoded using these encoders:
+
+[loweralpha]
+. <<QuantizedFloatArrayEncoder, 5.4.1 Quantized float array encoder>>, or
+. <<QuantizedzlibFloatArrayEncoder, 5.4.3 Quantized zlib float array encoder>>.
+
+ 
+
+[[conformance]]
+== 6 Conformance
+
+[[Introduction]]
+=== 6.1 Introduction
+
+[[Topics]]
+==== 6.1.1 Topics
+
+<<t-Topics, Table 6.1>> lists the topics of this clause.
+
+[[t-Topics]]Table 6.1 — Topics
+
+
+*<<Introduction, 6.1 Introduction>>* +
+<<Topics, 6.1.1 Topics>> +
+<<Objectives, 6.1.2 Objectives>> +
+<<Scope, 6.1.3 Scope>> +
+
+*<<Conformance, 6.2 Conformance>>* +
+<<ConformanceOfX3DBinaryEncodedFiles, 6.2.1 Conformance of Compressed binary encoded files>> +
+<<ConformanceOfX3DBinaryEncodingGenerators, 6.2.2 Conformance of Compressed binary encoding generators>> +
+<<ConformanceOfX3DBinaryEncodingBrowsers, 6.2.3 Conformance of Compressed binary encoding browsers>> +
+
+
+[[Objectives]]
+==== 6.1.2 Objectives
+
+This clause addresses conformance of Compressed binary encoded files and
+conformance of X3D generators and X3D browsers that support the
+Compressed binary encoding.
+
+The primary objectives of the specifications in this clause are:
+
+[loweralpha]
+. to promote interoperability by eliminating arbitrary subsets of, or
+extensions to, <<I19775_1, ISO/IEC 19775-1>>;
+. to promote uniformity in the development of conformance tests;
+. to promote consistent results across X3D browsers;
+. to facilitate automated test generation.
+
+[[Scope]]
+==== 6.1.3 Scope
+
+Conformance is defined for files encoded using the Compressed binary
+encoding and for X3D browsers that support Compressed binary encoded
+files. For X3D generators, conformance guidelines are presented for
+enhancing the likelihood of successful interoperability.
+
+A concept of conformance to an X3D profile is introduced along with the
+rules which apply to this encoding.
+
+This clause addresses the X3D data stream and implementation
+requirements. Implementation requirements include the latitude allowed
+for X3D generators and X3D browsers. This clause does not directly
+address the environmental, performance, or resource requirements of the
+generator or browser.
+
+This clause does not define the application requirements or dictate
+application functional content within an X3D file.
+
+The scope of this clause is limited to rules for the open interchange of
+X3D content using the Compressed binary encoding.
+
+[[Conformance]]
+=== 6.2 Conformance
+
+[[ConformanceOfX3DBinaryEncodedFiles]]
+==== 6.2.1 Conformance of Compressed binary encoded filesbinary encoded filesencoded files
+
+An X3D file is _syntactically correct_ according to
+<<I19775_1, ISO/IEC 19775-1>> if the following conditions are met:
+
+[loweralpha]
+. The X3D file contains as its first element an X3D header comment (see
+<<Header, 4.2.4 Header>>).
+. All entities contained therein match the functional specification of
+the corresponding entities of ISO/IEC 19775-1. The X3D file shall obey
+the relationships defined in the formal grammar and all other syntactic
+requirements.
+. The sequence of entities in the Compressed binary encoded file obeys
+the relationships specified in ISO/IEC 19775-1 producing the structure
+specified in ISO/IEC 19775-1.
+. All field values in the Compressed binary encoded file obey the
+relationships specified in ISO/IEC 19775-1 producing the structure
+specified in ISO/IEC 19775-1.
+. No nodes appear in the X3D file other than those allowed by ISO/IEC
+19775-1 unless required for the encoding technique or those defined by
+the PROTO or EXTERNPROTO entities.
+. The X3D file is encoded according to the rules of
+<<I19776_1, ISO/IEC 19776-1>>.
+. It does not contain behaviour described as undefined elsewhere in this
+specification.
+
+A Compressed binary encoded file conforms to the __ profile specified in
+its header statement if:
+
+[loweralpha]
+. It is syntactically correct.
+. It meets the restrictions of the profile as defined for that profile
+in ISO/IEC 19775-1.
+
+A Compressed binary encoded file conforms to a component level specified
+in a component statement contained in the file or the support level for
+that component as required by the applicable profile if:
+
+[loweralpha]
+. It is syntactically correct.
+. It meets the support requirements for that level of the component as
+defined  in ISO/IEC 19775-1.
+
+[[ConformanceOfX3DBinaryEncodingGenerators]]
+==== 6.2.2 Conformance of Compressed binary encoding generators
+
+A Compressed binary encoding generator conforms to this part of ISO/IEC
+19776 if all X3D files that are generated are syntactically correct.
+
+A Compressed binary encoding generator conforms to a particular profile
+if it can be configured such that all X3D files generated conform to
+that particular profile.
+
+A Compressed binary encoding generator conforms to a particular
+component and support level if it can be configured such that all X3D
+files generated conform to that particular component if the component is
+included in the applicable profile and/or is separately specified in a
+Component statement.
+
+[[ConformanceOfX3DBinaryEncodingBrowsers]]
+==== 6.2.3 Conformance of Compressed binary encoding browsers
+
+An X3D browser that supports the Compressed binary encoding conforms to
+a particular profile if:
+
+[loweralpha]
+. It is able to read any Compressed binary encoded file that conforms to
+that particular profile.
+. It presents the graphical and audio characteristics of the X3D nodes
+in any Compressed binary encoded file that conforms to that particular
+profile, within the latitude defined in the specification for that
+particular profile.
+. It correctly handles user interaction and generation of events as
+specified in ISO/IEC 19775-1, within the latitude defined in the
+specification for that particular profile.
+. It satisfies the requirements of that particular profile in regard to
+minimum support requirements as defined in the specification for that
+particular profile.
+. It satisfies the general conformance requirements for browsers as
+stated in 6 Conformance of <<I19775_1, ISO/IEC 19775-1>>.
+
+An X3D browser that supports the Compressed binary encoding conforms to
+a particular component at a particular support level if it is able to
+read any Compressed binary encoded file that conforms to that particular
+component.
+
+[[tables]]
+== Annex A Fast infoSet tables
+
+[[IntroductionAndTopics]]
+=== A.1 Introduction and topics
+
+[[Introduction]]
+==== A.1.1 Introduction
+
+This annex specifies the initial table values for each syntactic element
+in this part of ISO/IEC 19776.
+
+[[Topics]]
+==== A.1.2 Topics
+
+<<t-TOC, Table A.1>> lists the topics in this annex:
+
+[[t-TOC]]Table A.1 — Topics in this annex
+
+*<<IntroductionAndTopics, A.1 Introduction and topics>>* +
+<<Introduction, A.1.1 Introduction>> +
+<<Topics, A.1.2 Topics>> +
+
+*<<Description, A.2 Description>>* +
+<<Overview, A.2.1 Overview>> +
+<<ElementNameTable, A.2.2 Element name table>> +
+<<AttributeNameTable, A.2.3 Attribute name table>> +
+<<AttributeValueTable, A.2.4 Attribute value table>> +
+<<EncodingAlgorithmURITable, A.2.5 Encoding algorithm table>> +
+
+[[Description]]
+=== A.2 Description
+
+[[Overview]]
+==== A.2.1 Overview
+
+<<I24824_1, ISO/IEC 24824-1>> allows the predeclaration of a
+vocabulary for Element and Attributes names. It also allows string
+tables to have predefined entries. This annex specifies the initial
+values for all tables needed to encode an X3D document. The X3D-specific
+external Fast infoset vocabulary may be identified by:
+
+urn:web3d:x3d:fi-vocabulary-3.3
+
+[[ElementNameTable]]
+==== A.2.2 Element name table
+
+The element name table as defined in 8.5 of <<I24824_1, ISO/IEC 24824-1>>
+uses the values specified in <<t-ElementNameTableInitialValues, Table A.2>>. 
+The optional value prefix and namespace attributes are blank.
+
+[[t-ElementNameTableInitialValues]]Table A.2 — Element name table
+initial values
+
+[opts=autowidth,frame=ends,grid=rows]
+|===
+|Node                            |ID  |Node                            |ID  
+|Shape                           |1   |Appearance                      |2  
+|Material                        |3   |IndexedFaceSet                  |4  
+|ProtoInstance                   |5   |Transform                       |6  
+|ImageTexture                    |7   |TextureTransform                |8  
+|Coordinate                      |9   |Normal                          |10 
+|Color                           |11  |ColorRGBA                       |12 
+|TextureCoordinate               |13  |ROUTE                           |14 
+|fieldValue                      |15  |Group                           |16 
+|LOD                             |17  |Switch                          |18 
+|Script                          |19  |IndexedTriangleFanSet           |20 
+|IndexedTriangleSet              |21  |IndexedTriangleStripSet         |22 
+|MultiTexture                    |23  |MultiTextureCoordinate          |24 
+|MultiTextureTransform           |25  |IndexedLineSet                  |26 
+|PointSet                        |27  |StaticGroup                     |28 
+|Sphere                          |29  |Box                             |30 
+|Cone                            |31  |Anchor                          |32 
+|Arc2D                           |33  |ArcClose2D                      |34 
+|AudioClip                       |35  |Background                      |36 
+|Billboard                       |37  |BooleanFilter                   |38 
+|BooleanSequencer                |39  |BooleanToggle                   |40 
+|BooleanTrigger                  |41  |Circle2D                        |42 
+|Collision                       |43  |ColorInterpolator               |44 
+|Contour2D                       |45  |ContourPolyline2D               |46 
+|CoordinateDouble                |47  |CoordinateInterpolator          |48 
+|CoordinateInterpolator2D        |49  |Cylinder                        |50 
+|CylinderSensor                  |51  |DirectionalLight                |52 
+|Disk2D                          |53  |EXPORT                          |54 
+|ElevationGrid                   |55  |EspduTransform                  |56 
+|ExternProtoDeclare              |57  |Extrusion                       |58 
+|FillProperties                  |59  |Fog                             |60 
+|FontStyle                       |61  |GeoCoordinate                   |62 
+|GeoElevationGrid                |63  |GeoLOD                          |64 
+|GeoLocation                     |65  |GeoMetadata                     |66 
+|GeoOrigin                       |67  |GeoPositionInterpolator         |68 
+|GeoTouchSensor                  |69  |GeoViewpoint                    |70 
+|HAnimDisplacer                  |71  |HAnimHumanoid                   |72 
+|HAnimJoint                      |73  |HAnimSegment                    |74 
+|HAnimSite                       |75  |IMPORT                          |76 
+|IS                              |77  |Inline                          |78 
+|IntegerSequencer                |79  |IntegerTrigger                  |80 
+|KeySensor                       |81  |LineProperties                  |82 
+|LineSet                         |83  |LoadSensor                      |84 
+|MetadataDouble                  |85  |MetadataFloat                   |86 
+|MetadataInteger                 |87  |MetadataSet                     |88 
+|MetadataString                  |89  |MovieTexture                    |90 
+|NavigationInfo                  |91  |NormalInterpolator              |92 
+|NurbsCurve                      |93  |NurbsCurve2D                    |94 
+|NurbsOrientationInterpolator    |95  |NurbsPatchSurface               |96 
+|NurbsPositionInterpolator       |97  |NurbsSet                        |98 
+|NurbsSurfaceInterpolator        |99  |NurbsSweptSurface               |100
+|NurbsSwungSurface               |101 |NurbsTextureCoordinate          |102
+|NurbsTrimmedSurface             |103 |OrientationInterpolator         |104
+|PixelTexture                    |105 |PlaneSensor                     |106
+|PointLight                      |107 |Polyline2D                      |108
+|Polypoint2D                     |109 |PositionInterpolator            |110
+|PositionInterpolator2D          |111 |ProtoBody                       |112
+|ProtoDeclare                    |113 |ProtoInterface                  |114
+|ProximitySensor                 |115 |ReceiverPdu                     |116
+|Rectangle2D                     |117 |ScalarInterpolator              |118
+|Scene                           |119 |SignalPdu                       |120
+|Sound                           |121 |SphereSensor                    |122
+|SpotLight                       |123 |StringSensor                    |124
+|Text                            |125 |TextureBackground               |126
+|TextureCoordinateGenerator      |127 |TimeSensor                      |128
+|TimeTrigger                     |129 |TouchSensor                     |130
+|TransmitterPdu                  |131 |TriangleFanSet                  |132
+|TriangleSet                     |133 |TriangleSet2D                   |134
+|TriangleStripSet                |135 |Viewpoint                       |136
+|VisibilitySensor                |137 |WorldInfo                       |138
+|X3D                             |139 |component                       |140
+|connect                         |141 |field                           |142
+|head                            |143 |humanoidBodyType                |144
+|meta                            |145 |CADAssembly                     |146
+|CADFace                         |147 |CADLayer                        |148
+|CADPart                         |149 |ComposedCubeMapTexture          |150
+|ComposedShader                  |151 |ComposedTexture3D               |152
+|FloatVertexAttribute            |153 |FogCoordinate                   |154
+|GeneratedCubeMapTexture         |155 |ImageCubeMapTexture             |156
+|ImageTexture3D                  |157 |IndexedQuadSet                  |158
+|LocalFog                        |159 |Matrix3VertexAttribute          |160
+|Matrix4VertexAttribute          |161 |PackagedShader                  |162
+|PixelTexture3D                  |163 |ProgramShader                   |164
+|QuadSet                         |165 |ShaderPart                      |166
+|ShaderProgram                   |167 |TextureCoordinate3D             |168
+|TextureCoordinate4D             |169 |TextureTransform3D              |170
+|TextureTransformMatrix3D        |171 |BallJoint                       |172
+|BoundedPhysicsModel             |173 |ClipPlane                       |174
+|CollidableOffset                |175 |CollidableShape                 |176
+|CollisionCollection             |177 |CollisionSensor                 |178
+|CollisionSpace                  |179 |ColorDamper                     |180
+|ConeEmitter                     |181 |Contact                         |182
+|CoordinateDamper                |183 |DISEntityManager                |184
+|DISEntityTypeMapping            |185 |DoubleAxisHingeJoint            |186
+|EaseInEaseOut                   |187 |ExplosionEmitter                |188
+|ForcePhysicsModel               |189 |GeoProximitySensor              |190
+|GeoTransform                    |191 |Layer                           |192
+|LayerSet                        |193 |Layout                          |194
+|LayoutGroup                     |195 |LayoutLayer                     |196
+|LinePickSensor                  |197 |MotorJoint                      |198
+|OrientationChaser               |199 |OrientationDamper               |200
+|OrthoViewpoint                  |201 |ParticleSystem                  |202
+|PickableGroup                   |203 |PointEmitter                    |204
+|PointPickSensor                 |205 |PolylineEmitter                 |206
+|PositionChaser                  |207 |PositionChaser2D                |208
+|PositionDamper                  |209 |PositionDamper2D                |210
+|PrimitivePickSensor             |211 |RigidBody                       |212
+|RigidBodyCollection             |213 |ScalarChaser                    |214
+|ScreenFontStyle                 |215 |ScreenGroup                     |216
+|SingleAxisHingeJoint            |217 |SliderJoint                     |218
+|SplinePositionInterpolator      |219 |SplinePositionInterpolator2D    |220
+|SplineScalarInterpolator        |221 |SquadOrientationInterpolator    |222
+|SurfaceEmitter                  |223 |TexCoordDamper2D                |224
+|TextureProperties               |225 |TransformSensor                 |226
+|TwoSidedMaterial                |227 |UniversalJoint                  |228
+|ViewpointGroup                  |229 |Viewport                        |230
+|VolumeEmitter                   |231 |VolumePickSensor                |232
+|WindPhysicsModel                |233 |BlendedVolumeStyle              |234
+|BoundaryEnhancementVolumeStyle  |235 |CartoonVolumeStyle              |236
+|ComposedVolumeStyle             |237 |EdgeEnhancementVolumeStyle      |238
+|IsoSurfaceVolumeData            |239 |MetadataBoolean                 |240
+|OpacityMapVolumeStyle           |241 |ProjectionVolumeStyle           |242
+|SegmentedVolumeData             |243 |ShadedVolumeStyle               |244
+|SilhouetteEnhancementVolumeStyle|245 |ToneMappedVolumeStyle           |246
+|VolumeData                      |247 |ColorChaser                     |248
+|CoordinateChaser                |249 |ScalarDamper                    |250
+|TexCoordChaser2D                |251 |unit                            |252
+|===
+
+[[AttributeNameTable]]
+==== A.2.3 Attribute name table
+
+The attribute name table as defined in 8.5 of <<I24824_1, ISO/IEC
+24824-1>> is preloaded with the values described in
+<<t-AttributeNameTableInitialValues, Table A.3>>. The optional value
+prefix and namespace attributes are blank.
+
+[[t-AttributeNameTableInitialValues]]Table A.3 — Attribute name table
+initial values
+
+[opts=autowidth,frame=ends,grid=rows]
+|===
+|Field                        |ID  |Field                     |ID
+|DEF                          |1   |USE                       |2
+|containerField               |3   |fromNode                  |4
+|fromField                    |5   |toNode                    |6
+|toField                      |7   |name                      |8
+|value                        |9   |color                     |10
+|colorIndex                   |11  |coordIndex                |12
+|texCoordIndex                |13  |normalIndex               |14
+|colorPerVertex               |15  |normalPerVertex           |16
+|rotation                     |17  |scale                     |18
+|center                       |19  |scaleOrientation          |20
+|translation                  |21  |url                       |22
+|repeatS                      |23  |repeatT                   |24
+|point                        |25  |vector                    |26
+|range                        |27  |ambientIntensity          |28
+|diffuseColor                 |29  |emissiveColor             |30
+|shininess                    |31  |specularColor             |32
+|transparency                 |33  |whichChoice               |34
+|index                        |35  |mode                      |36
+|source                       |37  |function                  |38
+|alpha                        |39  |vertexCount               |40
+|radius                       |41  |size                      |42
+|height                       |43  |solid                     |44
+|ccw                          |45  |key                       |46
+|keyValue                     |47  |enabled                   |48
+|direction                    |49  |position                  |50
+|orientation                  |51  |bboxCenter                |52
+|bboxSize                     |53  |AS                        |54
+|InlineDEF                    |55  |accessType                |56
+|actionKeyPress               |57  |actionKeyRelease          |58
+|address                      |59  |altKey                    |60
+|antennaLocation              |61  |antennaPatternLength      |62
+|antennaPatternType           |63  |applicationID             |64
+|articulationParameterArray   |65  |articulationParameterChangeIndicatorArray　|66
+|articulationParameterCount   |67  |articulationParameterDesignatorArray　|68
+|articulationParameterIdPartAttachedArray　|69 |articulationParameterTypeArray |70
+|attenuation                  |71  |autoOffset                |72
+|avatarSize                   |73  |axisOfRotation            |74
+|backUrl                      |75  |beamWidth                 |76
+|beginCap                     |77  |bindTime                  |78
+|bottom                       |79  |bottomRadius              |80
+|bottomUrl                    |81  |centerOfMass              |82
+|centerOfRotation             |83  |child1Url                 |84
+|child2Url                    |85  |child3Url                 |86
+|child4Url                    |87  |class                     |88
+|closureType                  |89  |collideTime               |90
+|content                      |91  |controlKey                |92
+|controlPoint                 |93  |convex                    |94
+|coordinateSystem             |95  |copyright                 |96
+|creaseAngle                  |97  |crossSection              |98
+|cryptoKeyID                  |99  |cryptoSystem              |100
+|cutOffAngle                  |101 |cycleInterval             |102
+|cycleTime                    |103 |data                      |104
+|dataFormat                   |105 |dataLength                |106
+|dataUrl                      |107 |date                      |108
+|deadReckoning                |109 |deletionAllowed           |110
+|description                  |111 |detonateTime              |112
+|dir                          |113 |directOutput              |114
+|diskAngle                    |115 |displacements             |116
+|documentation                |117 |elapsedTime               |118
+|ellipsoid                    |119 |encodingScheme            |120
+|endAngle                     |121 |endCap                    |122
+|enterTime                    |123 |enteredText               |124
+|entityCategory               |125 |entityCountry             |126
+|entityDomain                 |127 |entityExtra               |128
+|entityID                     |129 |entityKind                |130
+|entitySpecific               |131 |entitySubCategory         |132
+|exitTime                     |133 |extent                    |134
+|family                       |135 |fanCount                  |136
+|fieldOfView                  |137 |filled                    |138
+|finalText                    |139 |fireMissionIndex          |140
+|fired1                       |141 |fired2                    |142
+|firedTime                    |143 |firingRange               |144
+|firingRate                   |145 |fogType                   |146
+|forceID                      |147 |frequency                 |148
+|frontUrl                     |149 |fuse                      |150
+|geoCoords                    |151 |geoGridOrigin             |152
+|geoSystem                    |153 |groundAngle               |154
+|groundColor                  |155 |hatchColor                |156
+|hatchStyle                   |157 |hatched                   |158
+|headlight                    |159 |horizontal                |160
+|horizontalDatum              |161 |http-equiv                |162
+|image                        |163 |importedDEF               |164
+|info                         |165 |innerRadius               |166
+|inputFalse                   |167 |inputNegate               |168
+|inputSource                  |169 |inputTrue                 |170
+|integerKey                   |171 |intensity                 |172
+|jump                         |173 |justify                   |174
+|keyPress                     |175 |keyRelease                |176
+|knot                         |177 |lang                      |178
+|language                     |179 |leftToRight               |180
+|leftUrl                      |181 |length                    |182
+|lengthOfModulationParameters |183 |level                     |184
+|limitOrientation             |185 |lineSegments              |186
+|linearAcceleration           |187 |linearVelocity            |188
+|linetype                     |189 |linewidthScaleFactor      |190
+|llimit                       |191 |load                      |192
+|loadTime                     |193 |localDEF                  |194
+|location                     |195 |loop                      |196
+|marking                      |197 |mass                      |198
+|maxAngle                     |199 |maxBack                   |200
+|maxExtent                    |201 |maxFront                  |202
+|maxPosition                  |203 |metadataFormat            |204
+|minAngle                     |205 |minBack                   |206
+|minFront                     |207 |minPosition               |208
+|modulationTypeDetail         |209 |modulationTypeMajor       |210
+|modulationTypeSpreadSpectrum |211 |modulationTypeSystem      |212
+|momentsOfInertia             |213 |multicastRelayHost        |214
+|multicastRelayPort           |215 |munitionApplicationID     |216
+|munitionEndPoint             |217 |munitionEntityID          |218
+|munitionQuantity             |219 |munitionSiteID            |220
+|munitionStartPoint           |221 |mustEvaluate              |222
+|navType                      |223 |networkMode               |224
+|next                         |225 |nodeField                 |226
+|offset                       |227 |on                        |228
+|order                        |229 |originator                |230
+|outerRadius                  |231 |parameter                 |232
+|pauseTime                    |233 |pitch                     |234
+|points                       |235 |port                      |236
+|power                        |237 |previous                  |238
+|priority                     |239 |profile                   |240
+|progress                     |241 |protoField                |242
+|radioEntityTypeCategory      |243 |radioEntityTypeCountry    |244
+|radioEntityTypeDomain        |245 |radioEntityTypeKind       |246
+|radioEntityTypeNomenclature  |247 |radioEntityTypeNomenclatureVersion　|248
+|radioID                      |249 |readInterval              |250
+|receivedPower                |251 |receiverState             |252
+|reference                    |253 |relativeAntennaLocation   |254
+|resolution                   |255 |resumeTime                |256
+|rightUrl                     |257 |rootUrl                   |258
+|rotateYUp                    |259 |rtpHeaderExpected         |260
+|sampleRate                   |261 |samples                   |262
+|shiftKey                     |263 |side                      |264
+|siteID                       |265 |skinCoordIndex            |266
+|skinCoordWeight              |267 |skyAngle                  |268
+|skyColor                     |269 |spacing                   |270
+|spatialize                   |271 |speed                     |272
+|speedFactor                  |273 |spine                     |274
+|startAngle                   |275 |startTime                 |276
+|stiffness                    |277 |stopTime                  |278
+|string                       |279 |stripCount                |280
+|style                        |281 |summary                   |282
+|tdlType                      |283 |tessellation              |284
+|tessellationScale            |285 |time                      |286
+|timeOut                      |287 |timestamp                 |288
+|title                        |289 |toggle                    |290
+|top                          |291 |topToBottom               |292
+|topUrl                       |293 |touchTime                 |294
+|transmitFrequencyBandwidth   |295 |transmitState             |296
+|transmitterApplicationID     |297 |transmitterEntityID       |298
+|transmitterRadioID           |299 |transmitterSiteID         |300
+|transparent                  |301 |triggerTime               |302
+|triggerTrue                  |303 |triggerValue              |304
+|type                         |305 |uDimension                |306
+|uKnot                        |307 |uOrder                    |308
+|uTessellation                |309 |ulimit                    |310
+|vDimension                   |311 |vKnot                     |312
+|vOrder                       |313 |vTessellation             |314
+|version                      |315 |verticalDatum             |316
+|vertices                     |317 |visibilityLimit           |318
+|visibilityRange              |319 |warhead                   |320
+|weight                       |321 |whichGeometry             |322
+|writeInterval                |323 |xDimension                |324
+|xSpacing                     |325 |yScale                    |326
+|zDimension                   |327 |zSpacing                  |328
+|visible                      |329 |repeatR                   |330
+|texture                      |331 |back                      |332
+|front                        |333 |left                      |334
+|right                        |335 |parts                     |336
+|isSelected                   |337 |isValid                   |338
+|numComponents                |339 |depth                     |340
+|update                       |341 |fogCoord                  |342
+|texCoord                     |343 |activate                  |344
+|programs                     |345 |matrix                    |346
+|anchorPoint                  |347 |body1                     |348
+|body2                        |349 |forceOutput               |350
+|body1AnchorPoint             |351 |body2AnchorPoint          |352
+|plane                        |353 |appliedParameters         |354
+|bounce                       |355 |frictionCoefficients      |356
+|minBounceSpeed               |357 |slipFactors               |358
+|softnessConstantForceMix     |359 |softnessErrorCorrection   |360
+|surfaceSpeed                 |361 |isActive                  |362
+|useGeometry                  |363 |set_destination           |364
+|set_value                    |365 |tau                       |366
+|tolerance                    |367 |value_changed             |368
+|initialDestination           |369 |initialValue              |370
+|angle                        |371 |variation                 |372
+|surfaceArea                  |373 |frictionDirection         |374
+|slipCoefficients             |375 |category                  |376
+|country                      |377 |domain                    |378
+|extra                        |379 |kind                      |380
+|specific                     |381 |subcategory               |382
+|axis1                        |383 |axis2                     |384
+|desiredAngularVelocity1      |385 |desiredAngularVelocity2   |386
+|maxAngle1                    |387 |maxTorque1                |388
+|maxTorque2                   |389 |minAngle1                 |390
+|stopBounce1                  |391 |stopConstantForceMix1     |392
+|stopErrorCorrection1         |393 |suspensionErrorCorrection |394
+|suspensionForce              |395 |body1Axis                 |396
+|body2Axis                    |397 |hinge1Angle               |398
+|hinge1AngleRate              |399 |hinge2Angle               |400
+|hinge2AngleRate              |401 |set_fraction              |402
+|easeInEaseOut                |403 |modifiedFraction_changed  |404
+|force                        |405 |geoCenter                 |406
+|centerOfRotation_changed     |407 |geoCoord_changed          |408
+|orientation_changed          |409 |position_changed          |410
+|isPickable                   |411 |viewport                  |412
+|activeLayer                  |413 |align                     |414
+|offsetUnits                  |415 |scaleMode                 |416
+|sizeUnits                    |417 |layout                    |418
+|objectType                   |419 |pickedNormal              |420
+|pickedPoint                  |421 |pickedTextureCoordinate   |422
+|intersectionType             |423 |sortOrder                 |424
+|axis1Angle                   |425 |axis1Torque               |426
+|axis2Angle                   |427 |axis2Torque               |428
+|axis3Angle                   |429 |axis3Torque               |430
+|enabledAxies                 |431 |motor1Axis                |432
+|motor2Axis                   |433 |motor3Axis                |434
+|stop1Bounce                  |435 |stop1ErrorCorrection      |436
+|stop2Bounce                  |437 |stop2ErrorCorrection      |438
+|stop3Bounce                  |439 |stop3ErrorCorrection      |440
+|motor1Angle                  |441 |motor1AngleRate           |442
+|motor2Angle                  |443 |motor2AngleRate           |444
+|motor3Angle                  |445 |motor3AngleRate           |446
+|autoCalc                     |447 |duration                  |448
+|retainUserOffsets            |449 |isBound                   |450
+|appearance                   |451 |createParticles           |452
+|lifetimeVariation            |453 |maxParticles              |454
+|particleLifetime             |455 |particleSize              |456
+|colorKey                     |457 |geometryType              |458
+|texCoordKey                  |459 |pickable                  |460
+|angularDampingFactor         |461 |angularVelocity           |462
+|autoDamp                     |463 |autoDisable               |464
+|disableAngularSpeed          |465 |disableLinearSpeed        |466
+|disableTime                  |467 |finiteRotationAxis        |468
+|fixed                        |469 |forces                    |470
+|inertia                      |471 |linearDampingFactor       |472
+|torques                      |473 |useFiniteRotation         |474
+|useGlobalForce               |475 |constantForceMix          |476
+|constantSurfaceThickness     |477 |errorCorrection           |478
+|iterations                   |479 |maxCorrectionSpeed        |480
+|preferAccuracy               |481 |pointSize                 |482
+|stopBounce                   |483 |stopErrorCorrection       |484
+|angleRate                    |485 |maxSeparation             |486
+|minSeparation                |487 |separation                |488
+|separationRate               |489 |closed                    |490
+|keyVelocity                  |491 |normalizeVelocity         |492
+|surface                      |493 |anisotropicDegree         |494
+|borderColor                  |495 |borderWidth               |496
+|boundaryModeS                |497 |boundaryModeT             |498
+|boundaryModeR                |499 |magnificationFilter       |500
+|minificationFilter           |501 |textureCompression        |502
+|texturePriority              |503 |generateMipMaps           |504
+|targetObject                 |505 |backAmbientIntensity      |506
+|backDiffuseColor             |507 |backEmissiveColor         |508
+|backShininess                |509 |backSpecularColor         |510
+|separateBackColor            |511 |displayed                 |512
+|clipBoundary                 |513 |internal                  |514
+|gustiness                    |515 |turbulence                |516
+|unitCategory                 |517 |unitName                  |518
+|unitConversionFactor         |519 |weightConstant1           |520
+|weightConstant2              |521 |weightFunction1           |522
+|weightFunction2              |523 |boundaryOpacity           |524
+|opacityFactor                |525 |retainedOpacity           |526
+|colorSteps                   |527 |orthogonalColor           |528
+|parallelColor                |529 |ordered                   |530
+|edgeColor                    |531 |gradientThreshold         |532
+|contourStepSize              |533 |dimensions                |534
+|surfaceTolerance             |535 |surfaceValues             |536
+|intensityThreshold           |537 |segmentEnabled            |538
+|lighting                     |539 |shadows                   |540
+|phaseFunction                |541 |silhouetteBoundaryOpacity |542
+|silhouetteRetainedOpacity    |543 |silhouetteSharpness       |544
+|coolColor                    |545 |warmColor                 |546
+|===
+
+
+[[AttributeValueTable]]
+==== A.2.4 Attribute value table
+
+The attribute value table as defined in 8.4 of <<I24824_1, ISO/IEC
+24824-1>> is preloaded with the values described in
+<<t-AttributeValueTableInitialValues, Table A.4>>.
+
+[[t-AttributeValueTableInitialValues]]Table A.4 — Attribute value
+table initial values
+
+[opts=autowidth,frame=ends,grid=rows]
+|===
+|Value |ID
+|false |1
+|true  |2
+|===
+
+
+[[EncodingAlgorithmURITable]]
+==== A.2.5 Encoding algorithm table
+
+The X3D-specific encoding algorithm table as defined in 8.4 of
+<<I24824_1, ISO/IEC 24824-1>> is preloaded with the values described
+in <<t-EncodingAlgorithmURI, Table A.5>>.
+
+[[t-EncodingAlgorithmURI]]Table A.5 — Encoding algorithm URI table
+initial values
+
+[opts=autowidth,frame=ends,grid=rows]
+|===
+|Index |Encoding algorithm URI
+|32    |encoder://web3d.org/QuantizedFloatArrayEncoder
+|33    |encoder://web3d.org/DeltazlibIntArrayEncoder
+|34    |encoder://web3d.org/QuantizedzlibFloatArrayEncoder
+|35    |encoder://web3d.org/zlibFloatArrayEncoder
+|36    |encoder://web3d.org/QuantizedDoubleArrayEncoder
+|37    |encoder://web3d.org/zlibDoubleArrayEncoder
+|38    |encoder://web3d.org/QuantizedzlibDoubleArrayEncoder
+|39    |encoder://web3d.org/RangeIntArrayEncoder
+|===
+
+
+[[nodecompressors]]
+== Annex B Node compressor registry
+
+[[Introduction]]
+=== B.1 Topics and introduction
+
+[[C.1.1]]
+==== B.1.1 Topics in this annex
+
+This annex provides a registry of node compressors and their detailed
+element definitions in this part of ISO/IEC 19776. <<t-topics, Table B.1>>
+lists the topics in this annex:
+
+[[Table_B.1]]Table B.1 — Topics in this annex
+
+<<TopicsAndIntroduction, B.1 Topics and introduction>> +
+<<TopicsInThisAnnex, B.1.1 Topics in this annex>> +
+<<Introduction, B.1.2 Introduction>> +
+
+
+[[B.1.2]]
+===== B.1.2 Introduction
+
+Domain-specific compressors can be assigned on a per-node basis. This
+registry defines the mapping of node and encoding values to specific
+techniques. Negative encoding values are reserved for private
+compressors. The interpretation of such compressors is implementation
+dependent.
+
+The node compressor mappings specified by this part of ISO/IEC 19776 are
+listed in <<t-NodeCompressorMappings, Table B.2>>:
+
+[[Table_B.2]]Table B.2 — Node compressor mappings
+
+[opts=autowidth,frame=ends,grid=rows]
+|===
+|Node name |Encoding |Version        |Description
+|All nodes |0        |3.1 and higher |No compression performed
+|All nodes |1        |3.1 and higher |Java3D geometric compression (reserved)
+|===
+
+[[examples]]
+== Annex C Examples
+
+[[Topics]]
+=== C.1 Topics
+
+This annex provides a variety of X3D examples using the XML encoding. A
+link is provided to the equivalent Compressed binary encoding.
+<<t-Topics, Table C.1>> lists the topics in this annex:
+
+[[t-Topics]]Table C.1 — Topics in this annex
+
+<<Topics, C.1 Topics>> +
+<<SimpleExample, C.2 Simple example>> +
+<<Instancing, C.3 Instancing (sharing)>> +
+<<PrototypeExample, C.4 Prototype example>> +
+<<ScriptingExample, C.5 Scripting example>> +
+
+
+[[SimpleExample]]
+=== C.2 Simple example
+
+This example contains a simple scene defining a view of a red sphere and
+a blue box, lit by a directional light as shown in
+<<f-SimpleExample, Figure C.1>>:
+
+image:https://www.web3d.org/documents/specifications/19776-3/V3.3/Images/rsmbb.jpg[Red sphere meets blue box,width=353,height=203]
+
+[[f-SimpleExample]]Figure C.1 — Red sphere and blue box
+
+The input textural encoding is:
+
+[source,listing]
+----
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<X3D version='3.0' profile='Interchange'>
+  <head>
+    <meta name='filename' content='RedSphereBlueBox.x3d'/>
+  </head>
+  <Scene>
+    <Transform>
+      <NavigationInfo headlight='false'
+        avatarSize='0.25 1.6 0.75' type='"EXAMINE"'/>
+      <DirectionalLight/>
+      <Transform translation='3.0 0.0 1.0'>
+        <Shape>
+          <Sphere radius='2.3'/>
+          <Appearance>
+            <Material diffuseColor='1.0 0.0 0.0'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+      <Transform translation='-2.4 0.2 1.0' rotation='0.0 0.707 0.707 0.9'>
+        <Shape>
+          <Box/>
+          <Appearance>
+            <Material diffuseColor='0.0 0.0 1.0'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+    </Transform>
+  </Scene>
+</X3D>
+----
+
+This file is encoded with all native Fast Infoset encoders without any
+X3D-specific compression.
+
+The Compressed binary encoded result is available here: 
+<<https://www.web3d.org/documents/specifications/19776-3/V3.3/Part03/Examples/RedSphereBlueBox.x3db, RedSphereBlueBox.x3db>>
+
+<<https://www.web3d.org/documents/specifications/19776-3/V3.3/Part03/Examples/RedSphereBlueBox.x3db, Click here>> to view this example in
+a 3D scene window.
+
+[[Instancing]]
+=== C.3 Instancing (sharing)
+
+Reading the following file results in three spheres being drawn. The
+first sphere defines a unit sphere at the origin. The second sphere,
+named "Joe", defines a smaller sphere translated along the +x axis, the
+third sphere is a reference to the second sphere and is translated along
+the -x axis. If any changes occur to the second sphere (_e.g.,_ radius
+changes), the third sphere will change to the picture shown in
+<<f-Instancing, Figure C.2>>:
+
+image:https://www.web3d.org/documents/specifications/19776-3/V3.3/Images/instancing.jpg[Instancing,width=353,height=203]
+
+[[f-Instancing]]Figure C.2 — Instancing
+
+The Input Textural Encoding is:
+
+[source,listing]
+----
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<X3D version='3.0' profile='Interchange'>
+  <head>
+    <meta name='filename' content='Instancing.x3d'/>
+  </head>
+  <Scene>
+    <Transform>
+      <Shape>
+        <Sphere/>
+      </Shape>
+      <Transform translation='2.0 0.0 0.0'>
+        <Shape DEF='Joe'>
+          <Sphere radius='0.2'/>
+        </Shape>
+      </Transform>
+      <Transform translation='-2.0 0.0 0.0'>
+        <Shape USE='Joe'/>
+      </Transform>
+    </Transform>
+  </Scene>
+</X3D>
+----
+
+This file is encoded with all native Fast Infoset encoders without any
+X3D-specific compression.
+
+The Compressed binary encoded result is available here:
+<<https://www.web3d.org/documents/specifications/19776-3/V3.3/Part03/Examples/Instancing.x3db, Instancing.x3db>>
+
+<<https://www.web3d.org/documents/specifications/19776-3/V3.3/Part03/Examples/Instancing.x3db, Click here>> to view this example in a 3D
+scene window.
+
+(Note that the spheres are unlit because no appearance was specified.)
+
+[[PrototypeExample]]
+=== C.4 Prototype example
+
+A simple table with variable colours for the legs and top might be
+prototyped as shown in <<f-PrototypeExample, Figure C.3>>:
+
+image:https://www.web3d.org/documents/specifications/19776-3/V3.3/Images/proto.jpg[Prototype example,width=289,height=252]
+
+[[f-PrototypeExample]]Figure C.3 — Prototype
+
+The input textural encoding is:
+
+[source,listing]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<X3D version='3.0' profile='Immersive'>
+  <head>
+    <meta name='filename' content='Prototype.x3d'/>
+  </head>
+  <Scene>
+    <ProtoDeclare name='TwoColorTable'>
+      <ProtoInterface>
+        <field name='legColor' type='SFColor' value='.8 .4 .7'
+               accessType='initializeOnly'/>
+        <field name='topColor' type='SFColor' value='.6 .6 .1'
+               accessType='initializeOnly'/>
+      </ProtoInterface>
+      <ProtoBody>
+        <Transform>
+          <Transform translation='0.0 0.6 0.0'>
+           <!-- table top -->
+            <Shape>
+              <Appearance>
+                <Material DEF='TableTopMaterial'>
+                  <IS>
+                    <connect nodeField='diffuseColor' protoField='topColor'/>
+                  </IS>
+                </Material>
+              </Appearance>
+              <Box size='1.2 0.2 1.2'/>
+            </Shape>
+          </Transform>
+          <Transform translation='-0.5 0.0 -0.5'>
+           <!-- first table leg -->
+             <Shape DEF='Leg'>
+               <Appearance>
+                 <Material DEF='LegMaterial' diffuseColor='1.0 0.0 0.0'>
+                   <IS>
+                     <connect nodeField='diffuseColor' protoField='legColor'/>
+                   </IS>
+                 </Material>
+              </Appearance>
+              <Cylinder height='1.0' radius='0.1'/>
+            </Shape>
+          </Transform>
+          <Transform translation='0.5 0.0 -0.5'>
+           <!-- another table leg -->
+            <Shape USE='Leg'/>
+          </Transform>
+          <Transform translation='-0.5 0.0 0.5'>
+            <Shape USE='Leg'/>
+               <!-- another table leg -->
+          </Transform>
+          <Transform translation='0.5 0.0 0.5'>
+            <Shape USE='Leg'/>
+                <!--another table leg -->
+          </Transform>
+            <!-- End of root Transform's children -->
+        </Transform>
+            <!-- End of root Transform -->
+      </ProtoBody>
+    </ProtoDeclare>
+     <!-- End of prototype -->
+          <!-- The prototype is now defined. Although it contains a
+          number of nodes, only the legColor and topColor fields
+          are public.
+          Instead of using the default legColor and topColor, this
+          instance of the table has red legs and a green top: -->
+    <ProtoInstance name='TwoColorTable'>
+      <fieldValue name='legColor' value='1 0 0'/>
+      <fieldValue name='topColor' value='0 1 0'/>
+    </ProtoInstance>
+    <NavigationInfo type='"EXAMINE"'/>
+      <!--Use the Examine viewer-->
+  </Scene>
+</X3D>
+
+----
+
+This file is encoded with all native Fast Infoset encoders without any
+X3D-specific compression.
+
+The Compressed binary encoded result is available here:
+<<https://www.web3d.org/documents/specifications/19776-3/V3.3/Part03/Examples/Prototype.x3db, Prototype.x3db>>
+
+<<https://www.web3d.org/documents/specifications/19776-3/V3.3/Part03/Examples/Prototype.x3db, Click here>> to view this example in a 3D
+scene window.
+
+[[ScriptingExample]]
+=== C.5 Scripting example
+
+This Script node decides whether or not to open a bank vault given
+openVault and combinationEntered messages. To do this, it remembers
+whether or not the correct combination has been entered. The Script node
+is combined with a Sphere, a TouchSensor and a Sound node to show how
+scripting works. When the pointing device is over the sphere, the
+_combinationEntered_ inputOnly field of the Script is sent. Then, when
+the Sphere is touched (typically when the mouse button is pressed) the
+Script is sent the _openVault_ inputOnly field. This generates the
+_vaultUnlocked_ outputOnly field which starts a ‘click’ sound. Here is
+the example:
+
+The input textural encoding is:
+
+[source,listing]
+----
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+  "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<X3D version='3.0' profile='Immersive'>
+  <head>
+    <meta name='filename' content='Scripting.x3d'/>
+  </head>
+  <Scene>
+    <Script DEF='OpenVault'>
+      <field name='openVault' type='SFTime'
+             accessType='inputOnly'/>
+      <field name='combinationEntered' type='SFBool'
+             accessType='inputOnly'/>
+      <field name='vaultUnlocked' type='SFTime'
+             accessType='outputOnly'/>
+      <field name='unlocked' type='SFBool' value='false'
+             accessType='initializeOnly' />
+      <![CDATA[
+      ecmascript:
+      function combinationEntered (value) {
+        unlocked = value;
+      }
+      function openVault(value) {
+      if (unlocked) vaultUnlocked = value;
+      }
+      ]]>
+    </Script>
+    <Shape>
+      <Appearance>
+        <Material diffuseColor='1 0 0'/>
+      </Appearance>
+      <Sphere/>
+    </Shape>
+    <Sound maxBack='1000' maxFront='1000' minBack='1000' minFront='1000'>
+      <AudioClip DEF='Click' stopTime='1'
+        description='clicking sound' url='"click.wav"'/>
+    </Sound>
+    <TouchSensor DEF='TS'/>
+    <ROUTE fromNode='TS' fromField='isOver'
+           toNode='OpenVault' toField='combinationEntered'/>
+    <ROUTE fromNode='TS' fromField='touchTime'
+           toNode='OpenVault' toField='openVault'/>
+    <ROUTE fromNode='OpenVault' fromField='vaultUnlocked'
+           toNode='Click' toField='startTime'/>
+  </Scene>
+</X3D>
+----
+
+NOTE:  The _openVault_ inputOnly field and the _vaultUnlocked_ outputOnly
+field are of type SFTime, which allows them to be wired directly to a
+TouchSensor or TimeSensor.
+
+This file is encoded with all native Fast infoset encoders without any
+X3D-specific compression.
+
+The Compressed binary encoded result is available here:
+<<https://www.web3d.org/documents/specifications/19776-3/V3.3/Part03/Examples/Scripting.x3db, Scripting.x3db>>
+
+<<https://www.web3d.org/documents/specifications/19776-3/V3.3/Part03/Examples/Scripting.x3db, Click here>> to view this example in a 3D
+scene window.
+
+[[bibliography]]
+== Bibliography
+
+This annex contains the informative references in this part of ISO/IEC
+19776. Normative references are in <<references, 2 Normative
+references>>.
+
+[cols=",",]
+|===
+|Identifier |Reference
+
+|*[[CSS]][CSS]* |_Cascading Style Sheets Level 2 Revision 1 (CSS2.1)
+Specification_, W3C Recommendation, World Wide Web Consortium (W3C),
+Cambridge Massachusetts, 7 June 2011. http://www.w3.org/TR/CSS2
+
+|[[XML-Infoset]]*XML-Infoset* |_XML Information Set (Second Edition)_,
+W3C Recommendation, World Wide Web Consortium (W3C), Cambridge
+Massachusetts, 4 February 2004. http://www.w3.org/TR/xml-infoset
+
+|*[[Java3DAPI]]Java3DAPI* |_Java 3D API Specification_, Version
+1.1.2, Sun Microsystems, Inc., June, 1999.
+http://docs.oracle.com/cd/E17802_01/j2se/javase/technologies/desktop/java3d/forDevelopers/j3dguide/j3dTOC.doc.html[http://docs.oracle.com/cd/E17802_01/j2se/javase/technologies/-desktop/java3d/forDevelopers/j3dguide/j3dTOC.doc.html]
+
+|*[[NAMESPACES]][NAMESPACES]* |_Namespaces in XML 1.0 (Third Edition)_,
+W3C Recommendation, World Wide Web Consortium (W3C), Cambridge
+Massachusetts, 8 December 2009. http://www.w3.org/TR/REC-xml-names
+
+|*[[SCHEMA0]][SCHEMA0]* |_XML Schema Part 0: Primer_, W3C
+Recommendation, World Wide Web Consortium (W3C), Cambridge
+Massachusetts,  28 October 2004. http://www.w3.org/TR/xmlschema-0
+
+|*[[SVG]][SVG]* |_Scalable Vector Graphics (SVG) 1.1 (2nd Edition)_,
+W3C Recommendation, World Wide Web Consortium (W3C), Cambridge
+Massachusetts, 16 August 2011. http://www.w3.org/TR/SVG11
+
+|*[[SVGMOBILE]][SVGMOBILE]* |_Mobile SVG Profiles: SVG Tiny and SVG
+Basic_, W3C Recommendation, World Wide Web Consortium (W3C), Cambridge
+Massachusetts, 14 January 2003, edited in place _15 June 2009_.
+http://www.w3.org/TR/SVGMobile
+
+|*[[XML10]][XML10]* |"_XML in 10 Points_" by Bert Bos, World Wide Web
+Consortium (W3C), Cambridge Massachusetts, 1999-2002.
+http://www.w3.org/XML/1999/XML-in-10-points
+|===

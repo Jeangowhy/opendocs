@@ -1,0 +1,5752 @@
+:source-highlighter: highlight.js
+:stem: latexmath
+:experimental:
+:icons: font
+
+[source,bash]
+----
+#pandoc -tasciidoc -rhtml https://www.learnlatex.org/en/help |vim -; exit
+
+while read -r url
+do
+#curl "$url" >> $0
+pandoc -tasciidoc -rhtml $url >> $0
+done <<EOF
+https://www.learnlatex.org/en/more-01
+https://www.learnlatex.org/en/more-02
+https://www.learnlatex.org/en/more-03
+https://www.learnlatex.org/en/more-04
+https://www.learnlatex.org/en/more-05
+https://www.learnlatex.org/en/more-06
+https://www.learnlatex.org/en/more-07
+https://www.learnlatex.org/en/more-08
+https://www.learnlatex.org/en/more-09
+https://www.learnlatex.org/en/more-10
+https://www.learnlatex.org/en/more-11
+https://www.learnlatex.org/en/more-12
+https://www.learnlatex.org/en/more-13
+https://www.learnlatex.org/en/more-14
+https://www.learnlatex.org/en/more-15
+https://www.learnlatex.org/en/more-16
+EOF
+exit
+----
+
+
+[[top]]
+== Learn LaTeX
+https://www.learnlatex.org/en/[online] |
+https://github.com/learnlatex/learnlatex.github.io[markdown source] |
+https://www.learnlatex.org/zh-hans/[学习LaTeX] |
+https://www.learnlatex.org/zh-hant/[學習LaTeX]
+
+TIP: 使用 VS Code + AsciiDoc 扩展，只需要启用 Kroki 服务，就只可以在文档中
+通过 `[tikz]` 代码块来编写、渲染 LaTeX 文档，此功能主要服务于 PFG/TiKZ 这个
+专业绘图库，使用 pdftex 编译器，与标准文档的环境有所差别，比如不支持分页。为了避免
+渲染整个页面，可以使用 `\documentclass{standalone}` 文档类型，此类型无自动换行、
+并且只截取内容边界内的区域。
+
+Take your first steps with LaTeX, a document preparation system designed 
+to produce high-quality typeset output.
+
+=== Introduction
+
+LaTeX can be scary for new users as it is _not_ a word processor, and
+because it is not a single program. Our aim is to help you get started
+with LaTeX: the basics, installation, writing code, without trying to
+show you _everything_ in one go. <<mission, More on our mission …>>
+
+=== How it works
+
+We have taken the most important things you will need to know, and made
+them into _16 short lessons_, which should not take long to cover. In
+each lesson, we give lots of examples of what you would write. You can
+edit and run the examples in this website. <<examples, More on examples …>>
+
+[[toc]]
+=== Lessons
+
+We have included a *More on this topic* page for each lesson. This extra
+information is there to support you when you need the detail, but should
+not get in your way if you don't.
+
+•  <<les_01, 1  LaTeX basics>> What LaTeX is and how it works.
+•  <<les_02, 2  Working with LaTeX>> TeX systems and LaTeX text editors.
+•  <<les_03, 3  Document structure>> The basic structure of a document.
+•  <<les_04, 4  Logical structure>> Structure and visual presentation.
+•  <<les_05, 5  Document classes>> Setting the general document layout.
+•  <<les_06, 6  Extending LaTeX>> Using packages and definitions.
+•  <<les_07, 7  Using graphics>> Appearance and positioning of graphics.
+•  <<les_08, 8  LaTeX tables>> Fundamentals of working with tables.
+•  <<les_09, 9  Cross-referencing>> Refering to figures, tables, etc.
+•  <<les_10, 10 Mathematics>> Math mode and mathematical notation.
+•  <<les_11, 11 Fonts & spacing>> Text formatting for visual presentation.
+•  <<les_12, 12 Citations & references>> Working with reference databases.
+•  <<les_13, 13 Structuring sources>> Spliting up sources in a controlled way.
+•  <<les_14, 14 Fonts & Unicode engines>> Selecting fonts and file encoding.
+•  <<les_15, 15 Error handling>> Dealing with unexpected behaviors.
+•  <<les_16, 16 Help & documentation>> Accessing help and documentation.
+
+=== Additional lessons
+
+•  <<lan_01, English Language-specifics>> Typesetting with LaTeX in English.
+•  <<ext_01, LaTeX Showcase>> Examples for further study.
+
+[[mission]]
+=== Learn LaTeX Mission
+
+本网站旨在帮助你迈出使用 LaTeX 的第一步。LaTeX 是一个专为生成高质量排版输出而设计的文档制作
+系统。对于新用户来说，LaTeX 可能会令人生畏，因为它不是一个文字处理器，而且它不是一个单一的程序。
+我们的目标是帮助你开始使用，而不是试图一次性展示所有内容。
+
+为此，我们精选了大约16个最重要的需要了解的内容，并将它们制作成简短的”课程”。每个课程都非常专注，
+所以不会花太长时间来学习。在每个课程中，我们都提供了你需要编写的内容示例，这些示例都可以在线尝试。
+在帮助部分了解更多关于示例是如何工作的。
+
+
+This website aims to help you take the first steps with LaTeX, a document 
+preparation system designed to produce high-quality typeset output. LaTeX 
+can be scary for new users as it is not a word processor, and because it 
+is not a single program. Our aim here is to help you get started without 
+trying to show you everything in one go.
+
+To do that, we have taken around 16 of the most important things you’ll 
+need to know, and made them into short ‘lessons’. Each lesson is very 
+focused, so they should not take too long to cover. In each lesson, we’ve 
+given examples of what you’d write, and they are available so you can try 
+them out online. Learn more about how examples work in the help section.
+
+
+=== Going further
+
+Getting a book about LaTeX is the best way to learn the details. We
+cover getting more information, along with book recommendations, in the
+<<les_16, last lesson>>.
+
+
+[[help]]
+== Help
+
+=== Navigating the site
+
+The course consists of 16 core lessons that can be reached from the
+<<toc, table of contents>> on the start page.
+
+Each lesson has a link to one associated lesson on the same subject that
+goes into greater depth. It should be possible to work through all 16
+lessons _without_ reading the additional lessons.
+
+At the end of the course there are one or more lessons specific to the
+language being used for the lessons, and finally a gallery of examples
+of packages demonstrating LaTeX use not covered by this course.
+
+'''''
+
+[[examples]]
+=== Examples
+
+==== Running the examples
+
+Each example consists of a complete small LaTeX document shown within
+the page like this:
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+Example text.
+\end{document}
+----
+
+[tikz,role="yellow-background"]
+----
+\documentclass{standalone}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+Example text.
+\end{document}
+----
+
+Each example is complete. However you may wish to edit it to make small
+changes, perhaps as part of an Exercise set at the end of the lesson.
+
+The editor being used is https://ace.c9.io/[ACE].
+
+You may customise the theme used in the editor (for example using a dark
+theme with light text on a dark background) on the Site Settings page. 
+A convenient way to experiment with different themes is to to use 
+kbd:[Ctrl+,] (kbd:[⌘+,] on Mac) while on any example in the site. 
+This displays a panel (JavaScript `acesettings()`) which allows you 
+to change all the ACE settings.
+
+The ACE repository has a useful page of editor keyboard shortcuts
+https://github.com/ajaxorg/ace/wiki/Default-Keyboard-Shortcuts[⨝].
+
+==== Three ways to run the example
+
+* Use the Overleaf service
+* Use the TeXLive.net service
+* Use a locally installed TeX system
+
+===== Use the Overleaf service
+
+Overleaf is one of the most popular online LaTeX editing services. The
+Open in Overleaf button, below the example, will submit the code to
+https://www.overleaf.com/about[Overleaf].
+
+If you do not have an account, or the account details are not already
+cached in your browser, then you will be redirected to a login page
+where you may login or register with Overleaf. This is a free service
+but does require you to give some details and agree to terms and
+conditions.
+
+If your Overleaf account is already cached in your browser, then
+Overleaf will be opened in a new tab, with a new project with the code.
+You may then edit it in Overleaf which will simultaneously run LaTeX on
+your code showing the resulting output or error log.
+
+Unlike documents processed at TeXLive.net, you may save your project in
+your Overleaf account and return to it later.
+
+[[use-the-texlivenet-service]]
+===== Use the TeXLive.net service
+
+The Run at TeXLive.net button, below the example, will submit the code
+to the https://texlive.net[TeXLive.net] service^<<fn:1[1]>>^.
+
+[[fn:1]]
+Note that during development of the site we have also used
+https://latexonline.cc/[LaTeX.Online] and
+https://github.com/YtoTech/latex-on-http[LaTeX-on-HTTP] and we thank the
+developers of those services for making updates to enable the examples
+on this site to be available at an early stage.
+
+The TeXLive.net service was developed specifically to support this site,
+and in particular makes use of https://mozilla.github.io/pdf.js/[PDF.js]
+to enable display of PDF on mobile and other browsers without built in
+PDF readers.
+
+The resulting PDF document (or section of the error log) will be shown
+inline immediately below the example. A Delete Output button will be
+provided so that you may remove this output (or you may leave it in
+place and continue the rest of the lesson below).
+
+Note that *TeXLive.net* requires no login or signup of any sort so it is
+very convenient for small examples, but this site provides no mechanism
+to save your document. Any changes that you make to the example are lost
+if you move off the page.
+
+===== Locally installed TeX system
+
+If you have a TeX system installed locally, then you may copy the
+example code off the page, either explicitly selecting it, or by using
+select all keyboard shortcuts in the editor (kbd:[Ctrl+A]
+kbd:[Ctrl+C] in windows for example). This will place the
+code in your operating system clipboard so you can start a blank
+document using your local editor, and paste in the text.
+
+==== Troubleshooting
+
+Our examples are based around using an up-to-date LaTeX installation.
+They all work with both of our online demonstration systems, so if you
+get errors with the examples we provide, you might want to check if your
+LaTeX system is up-to-date.
+
+'''''
+
+=== Choosing the TeX engine
+
+When submitting example documents, by default the `pdflatex` engine
+will be used.
+
+You can force the choice of `latex`, `pdflatex`, `xelatex`,
+`lualatex`, `platex` or `uplatex` by using a comment of the form:
+
+`% !TEX` _any text_ `lualatex`
+
+where the white space at the start is optional and case is ignored as is
+_any text_ between the first and last word.
+
+This allows the form `% !TEX program=pdflatex` used by some TeX
+editors but does not require the `program=` and is currently
+restricted to specifying just one of the engines that are supported on
+the online systems being used.
+
+You can see an example of a comment being used to specify LuaLaTeX in
+<<ml14, some of the examples on this site>>.
+
+If `platex` or `uplatex` is specified; then the `dvipdfmx` program
+is also used to produce the PDF result from the DVI file that these
+variants generate. Similarly `dvips` and `ps2pdf` are used if
+`latex` is specified.
+
+If the engine is not specified in a `% !TeX` comment, then
+`pdflatex` will be used unless you have specified a default TeX engine
+on the link:https://www.learnlatex.org/en/settings[Site Settings] page.
+
+'''''
+
+=== Choosing how to display the output
+
+If you use the TeXLive.net system, then the PDF output from running an
+example is shown using https://mozilla.github.io/pdf.js/[PDF.js] by
+default. This provides consistent behavior over the widest range of
+browsers.
+
+If you would prefer to use your browser’s default PDF reader (either its
+built in one, or an external application that you have configured) then
+add a comment of the form:
+
+`% !TEX ` _any text_ `pdf`
+
+The default behavior can be explicitly specified by using `pdfjs` as
+the final token. For debugging you may sometimes want the log file
+returned, even if the document produces a PDF with no errors. This can
+be specified by using `log` as the final token in the comment.
+
+As an alternative to using a `% !TeX` comment, you may specify the
+site default return parameter on the Site Settings page.
+The Settings are specific to each browser, so for example you may choose
+to use the default `pdfjs` setting on your mobile device, but use
+`pdf` on your desktop browser to use its default PDF rendering.
+
+'''''
+
+=== HTML output (make4ht, LaTeXML, lwarp)
+
+If using the TeXLive.net system, then additional return options,
+`make4ht`, `LaTeXML` or `lwarp` may be specified. These return one
+or more HTML pages in the frame within the page. It may be specified at
+the same time as `xelatex` or `lualatex` as well as the default
+`pdflatex` processing.
+
+To enable this output, add a comment of the form:
+
+[source,noedit]
+----
+% !TeX make4ht
+----
+
+Replacing `make4ht` by `LaTeXML` or `lwarp` to specify those
+systems.
+
+Alternatively you may specify `make4ht`, `LaTeXML` or `lwarp` as
+the default return option on the Site Settings page.
+
+If using a locally installed TeX system, the same output as the
+`make4ht` option may be obtained by executing
+
+[source,noedit]
+----
+make4ht  document.tex "learnlatex4ht,2,mathml,mathjax,svg"
+----
+
+with the addional option `-x` or `-l` if XeLaTeX or LuaLaTeX are
+specified.
+
+When running locally, other configurations would be possible. See the
+https://texdoc.org/pkg/make4ht[make4ht manual].
+
+For `LaTeXML` to run locally, you would need to install LaTeXML (it is
+not part of TeX Live or MiKTeX) and use
+
+[source,noedit]
+----
+latexml document.tex > document.xml
+latexmlpost --format=html5 \
+   --javascript='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js' \
+   --destination=document.html" document.tex
+----
+
+Many other LaTeXML configurations are possible,
+https://dlmf.nist.gov/LaTeXML/manual/[as described in the manual].
+
+The `lwarp` configuration is not documented here, it is somewhat
+experimental and subject to change. The current version can be seen at the 
+https://github.com/davidcarlisle/latexcgi/blob/main/lwarp/latexcgilwarp[source repository].
+
+'''''
+
+
+[[latex-basics]]
+[[les_01]]
+
+== Lesson 01 LaTeX basics
+
+This lesson explains the basics of what LaTeX is and how it works in
+contrast to common word processors such as Microsoft Word or LibreOffice
+Writer.
+
+Unlike common word processors such as Microsoft Word or LibreOffice
+Writer, LaTeX usually does not provide WYSIWYG (‘What You See Is What
+You Get’). With LaTeX one takes plain text and enriches it with markup.
+This markup tells LaTeX about the logical meaning of certain elements of
+the text, similar to the way HTML does.
+
+Take for example the element `<h2>` indicating a new section in an
+HTML document. LaTeX also has a command for this; here one would use the
+`\section` command.
+
+=== The LaTeX workflow
+
+Because LaTeX files are not the document itself but rather instructions
+on what each part of the document should be, you don’t normally give
+other people your LaTeX file itself. Instead, after writing your LaTeX
+_source_, you run LaTeX on the file (normally using a program called
+`pdflatex`) to create a PDF file. This PDF is then what you send to
+others.
+
+Different people use different ways to describe this process. As using
+LaTeX is a bit like programming, it’s often called ‘compiling’ your
+document, although ‘typesetting’ is more accurate.
+
+=== Multiple LaTeX runs
+
+For simple files, you only need to typeset your file once to get the
+completed PDF. But once you start adding more complicated things, like
+cross-references, citations, figures, and tables of contents, you might
+need to run LaTeX more than once. We’ll tell you when that’s the case.
+
+[[latex-or-pdflatex-or-]]
+=== LaTeX or pdfLaTeX or …
+
+In the <<les_02, next lesson>>, we are going to see that LaTeX is
+not a single program. To keep things simple, we are going to focus on
+one particular LaTeX Program, pdfLaTeX, for creating your PDFs. We will
+look at some other programs, and why you might want to use them, later
+in the course.
+
+
+[[working-with-latex]]
+[[les_02]]
+
+== Lesson 02 Working with LaTeX
+
+This lesson explains what a TeX system is and which are the most common
+ones, it lists some of the text editors usually used with LaTeX, and the
+online systems which have integrated editors.
+
+Unlike many computer programs, LaTeX is not a single application
+containing ‘everything’ in one. Instead, there are separate programs
+that work together. We can divide those up into two things you actually
+need:
+
+* A _TeX system_
+* A text editor (often a LaTeX-specific one)
+
+=== LaTeX systems
+
+The core of working with LaTeX is having a TeX system available. A TeX
+system is a set of ‘behind the scenes’ programs and files that are
+needed to make LaTeX work, but most of the time you don’t directly ‘run’
+this.
+
+There are two major TeX systems available today,
+https://miktex.org/[MiKTeX] and https://tug.org/texlive[TeX Live]. Both
+are available for Windows, macOS and Linux. MiKTeX has a strong
+background on Windows; on macOS, TeX Live is bundled into a larger
+collection called http://www.tug.org/mactex/[MacTeX]. There are
+https://tex.stackexchange.com/questions/20036[advantages to each system], 
+and you might want to look at some more advice from
+https://www.latex-project.org/get/[the LaTeX Project].
+
+As TeX Live is available on all common platforms, and as it has some
+performance advantages, we recommend that if you are unsure which system
+to install, you choose TeX Live.
+
+=== Editors
+
+LaTeX files are simply plain text, so they can be edited with any text
+editor. However, it’s most convenient to have an editor that is designed
+to work with LaTeX, as they provide features like one-click compilation
+of your files, built-in PDF viewers, and syntax highlighting. A really
+useful feature in all modern LaTeX editors is SyncTeX: the ability to
+click on your source and go straight to your PDF, or back the other way.
+
+There are many more LaTeX editors than we can hope to list here: there
+is a comprehensive list on 
+https://tex.stackexchange.com/questions/339/latex-editors-ides[StackExchange]. 
+A basic editor, https://tug.org/texworks[TeXworks], 
+is included in TeX Live and MiKTeX on Windows and Linux, and
+https://pages.uoregon.edu/koch/texshop/[TeXShop] is included in MacTeX.
+
+Whichever editor you pick, we recommend you install it _after_ your TeX
+system, so that the editor can 'find' the TeX system and set itself up
+correctly.
+
+=== Working online
+
+There are several powerful online sites that allow you to avoid the need
+to install a TeX system and LaTeX editor at all. These websites work by
+letting you edit your files in the webpage, then they run LaTeX behind
+the scenes, and display the PDF that is produced.
+
+Some of these sites combine LaTeX with features similar to a word
+processor, whereas others are more focused on letting you see the LaTeX
+code and so are closer to having a local installation.
+
+There are systems that let you run LaTeX without needing to be logged
+in, and we are using one of those, https://texlive.net[TeXLive.net], to
+let you edit and test the examples we give. For more complete work, the
+best online systems require that you register before you use them. That
+lets you save your work but also helps the sites not get overloaded. We
+have set up links so you can edit our examples using
+https://www.overleaf.com[Overleaf], one of the major websites for LaTeX
+online. There are of course others: https://papeeria.com/[Papeeria] is
+an example.
+
+=== Working with others
+
+If you are planning to send your LaTeX sources to destinations which
+process them, such as publishers, conference organisers or pre-print
+servers (e.g. arXiv), you should check what restrictions they impose.
+
+=== Exercise
+
+Get yourself set up with a local LaTeX installation _or_ an account with
+an online LaTeX service. If you are using a local installation, you’ll
+need to pick an editor too: we recommend starting with either TeXworks
+or TeX Shop (see above), then looking at other editors later once you
+know how _you_ work best with LaTeX.
+
+You’ll be able to run all of our other exercises in your
+browser, but we want to help you get working with real documents, so
+now is a great time to get yourself ready.
+
+
+
+[[les_03]]
+== Lesson 03 LaTeX document structure
+
+This lesson shows the basic structure of a LaTeX document, and how to
+build it into a PDF file, as well as the main special characters used to
+control LaTeX.
+
+Your first LaTeX document is going to be very simple: the idea is to
+show you how a document looks and how to typeset it successfully. It is
+also your first chance to see <<help, how to use the examples>> here on
+`learnlatex.org`.
+
+If you are using a local LaTeX installation, in your editor create a new
+file called `first.tex`, and either copy–paste the text below or type
+it in.
+
+If you are using the online system, you can just click on the ‘Run at
+TeXLive.net’ or ‘Open in Overleaf’ buttons in the example to try it out!
+
+We suggest you try out the online options even if you have set up LaTeX
+locally; this is a good chance to see how the different options work.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+Hey world!
+
+This is a first document.
+\end{document}
+....
+
+
+[tikz,role="aqua-background"]
+----
+\documentclass{standalone}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+Hey world!
+
+This is a first document.
+\end{document}
+----
+
+
+Save the file and typeset it to a PDF document; if you are using a local
+LaTeX installation, the exact button to press will depend on the editor
+you have picked. You should get a PDF file that contains the text above
+_plus_ a page number; LaTeX adds that automatically.
+
+View the output `first.pdf` with whatever program you prefer for PDF
+viewing. Looks great; congratulations!
+
+If you want to get HTML rather than PDF output, take a look at the
+<<help>> for how you can do that.
+
+=== Handling errors
+
+Errors happen. Check that you have entered each line in the text file
+exactly as written above. Sometimes seemingly small input changes give
+large changes in the result, including causing a document to not work.
+If you are stuck, try erasing the document and copying it fresh from the
+lines above.
+
+If your LaTeX typesetting run ends with a question mark then you can get
+out by typing `x` and `<Enter>`.
+
+LaTeX’s error messages try to be helpful, but they are not the same as
+messages in word processors. Some editors also make it hard to see the
+‘full’ text of an error, which can hide key details. LaTeX always
+creates a log of what it is doing; this is a text file ending in
+`.log`. You can always see the full error messages there, and if you
+have a problem, expert LaTeX users will often ask for a copy of your log
+file.
+
+We cover more about dealing with errors in <<les_15, lesson 15>>.
+
+=== What you’ve got
+
+The first document shows the basics. LaTeX documents are a mixture of
+text and commands. The commands start with a backslash and sometimes
+have arguments in curly braces (or sometimes optional arguments in
+square brackets). Then you get an output PDF by telling LaTeX to typeset
+your file.
+
+Every LaTeX document has a `\begin{document}` and a matching
+`\end{document}`. Between these two is the _document body_, where your
+content goes. Here the body has two paragraphs (in LaTeX you separate
+paragraphs with one or more blank lines). Before `\begin{document}` is
+the _document preamble_, which has code to set up the document layout.
+The `\usepackage` command is described in a <<les_06, later lesson>>
+it is used in most examples on this site to set up the font  encoding.
+
+LaTeX has other `\begin{...}` and `\end{...}` pairs; these are
+called _environments_. You must match them so that for every
+`\begin{x}` there has to be an `\end{x}`. If you nest them, then you
+must have `\end{y} ... \end{x}` to match `\begin{x} ... \begin{y}`,
+i.e. the `\begin` and `\end` statements matching in order.
+
+We can add comments to a LaTeX file by starting them with `%`; let’s
+use that to show the structure:
+
+[source,latex]
+....
+\documentclass[a4paper,12pt]{article} % The document class with options
+\usepackage[T1]{fontenc}
+% A comment in the preamble
+\begin{document}
+% This is a comment
+This is   a simple
+document\footnote{with a footnote}.
+
+This is a new paragraph.
+\end{document}
+....
+
+You can see above that we’ve got two paragraphs: notice the use of a
+blank line to do that. Also notice that multiple spaces are treated as a
+single space.
+
+You might also sometimes want a ‘hard’ space that does not break over
+lines: in LaTeX we can create that using `~`, ‘tying’ two pieces of
+text together. That’s particularly useful when we start creating
+cross-references later in the course.
+
+=== Special characters
+
+You’ve probably spotted that `\`, `{` and `}` have a special
+meaning to LaTeX. A `\` starts an instruction to LaTeX: a ‘command’.
+The curly brace characters `{` and `}` are used to show _mandatory
+arguments_: information that commands require.
+
+There are some other characters with special meaning; we’ve just seen
+that `~` is a ‘hard’ space, for example. Almost all of these
+characters are _very_ uncommon in normal text, which is why they were
+chosen for special meanings. If you do need to show one of these special
+characters, we’ve put some information in <<ml03, the further details page>>.
+
+[[exercise03]]
+=== Exercise
+
+Experiment with the online editing and typesetting system; click the
+button to typeset the content, then edit it in the webpage and
+re-typeset it.
+
+Try adding text to your first document, typesetting and seeing the
+changes in your PDF. Make some different paragraphs and add variable
+spaces. Explore how your editor works; click on your source and find how
+to go to the same line in your PDF. Try adding some hard spaces and see
+how they influence line-breaking.
+
+
+
+
+[[logical-structure]]
+[[les_04]]
+
+== Lesson 04 Logical structure
+
+This lesson shows some basic formatting commands, and compares them with
+semantic formatting with sectioning commands and lists.
+
+LaTeX provides ways to concentrate on the logical structure of your
+document, as well as the ability to directly set the appearance. Most of
+the time, it’s much better to use methods that focus on structure, as
+that makes it easy to reuse or alter appearance when you have to.
+
+=== Structure and visual presentation
+
+We’ll start with an example contrasting one of the most common logical
+markup commands in LaTeX, `\emph`, with simply making something
+italic. (In print, that’s usually how things are emphasized.)
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\begin{document}
+Some text with \emph{emphasis and \emph{nested} content}.
+
+Some text in \textit{italic and \textit{nested} content}.
+\end{document}
+....
+
+[tikz,role="yellow-background"]
+----
+\documentclass{standalone}
+\usepackage[T1]{fontenc}
+\begin{document}
+Some text with \emph{emphasis and \emph{nested} content}.
+
+Some text in \textit{italic and \textit{nested} content}.
+\end{document}
+----
+
+You can probably guess that `\textit` is a command to make text
+italic, but it _always_ makes things italic, so it doesn’t work for
+nested material. See how `\emph` _does_ know about nesting. There are
+also places where the emphasis isn’t the same as italic; for example, in
+presentations color is usually a better option. With logical markup, we
+don’t have to worry about that detail in the body of the document.
+
+We will look at <<les_11, manual formatting later>>, but for the
+moment we’ll add `\textbf` to commands we know: it makes text bold.
+
+=== Sectioning commands
+
+You probably have used a word processor, where to start a section most
+people enter the title text then simply make it bigger and bold, and
+follow it with a new line. In LaTeX, using logical markup is actually
+_easier_ than doing the formatting by hand; we can use the `\section`
+command. This handles the font changes, vertical space, etc., and keeps
+the output uniform throughout the document.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\begin{document}
+Hey world!
+
+This is a first document.
+
+\section{Title of the first section}
+
+Text of material in the first section
+
+Second paragraph.
+
+\subsection{Subsection of the first section}
+
+Text of material in the subsection.
+
+\section{Second section}
+
+Text of the second section.
+
+\end{document}
+....
+
+
+Using the standard `article` setup, LaTeX numbers the sections and
+subsections and includes the titles in boldface. We’ll think a bit about
+changing design <<les_05, in the next lesson>>.
+
+LaTeX can divide up documents into quite a few levels
+
+* `\chapter` (but we need `\documentclass{book}` or
+`\documentclass{report}` for this)
+* `\section`
+* `\subsection`
+* `\subsubsection`
+
+We can go further: the next one ‘down’ is `\paragraph`, but almost
+always that’s too much ‘detail’ in sections. (Yes, `\paragraph` is a
+section command, _not_ a way to start a new paragraph!)
+
+You might wonder about the title of a document. There are some special
+commands for that, but not all documents use them, so we’ve
+<<ml04, covered that in the parallel extra lesson>>.
+
+=== Lists
+
+The other very common place you’ll want logical markup is writing lists.
+There are two common types of list built in to LaTeX.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\begin{document}
+
+Ordered
+\begin{enumerate}
+  \item An entry
+  \item Another One
+  \item Wow! Three entries
+\end{enumerate}
+
+Unordered
+\begin{itemize}
+  \item An entry
+  \item Another One
+  \item Wow! Three entries
+\end{itemize}
+
+\end{document}
+....
+
+
+Notice that we use `\item` to start each entry, and that the marker
+used for each type of list is added automatically.
+
+=== Exercises
+
+Experiment with different sectioning levels. Try using
+`\documentclass{report}` instead of `\documentclass{article}` and
+adding `\chapter` commands. How do they look? Try out `\paragraph`
+and (even) `\subparagraph` to see they work: by default, they _don’t_
+add numbers.
+
+Make some lists, and nest one list inside another. How does the format
+of the numbers or markers change? You can only go to four levels with
+standard LaTeX, but more than four nested lists tends to be a bad sign
+anyway!
+
+
+
+
+[[document-classes]]
+[[les_05]]
+
+== Lesson 05 Document classes
+
+This lesson explains what a document class is and how it can influence a
+document layout and design. It lists the main classes you can find in a
+TeX distribution.
+
+You might have noticed that all of the LaTeX documents we have created
+so far have started with a `\documentclass` line, and that
+`\documentclass{article}` has been the far most common choice. (We
+needed `\documentclass{report}` in <<les_04, the previous lesson>>
+to try out the `\chapter` command.) This line is required in all LaTeX
+documents, and is (almost) always the first command you should have.
+
+=== What a document class does
+
+The document class sets up the general layout of the document, for
+example
+
+* design: margins, fonts, spacing, etc.
+* whether chapters are available
+* if the title should be on a separate page
+
+Document classes can also add new commands more generally; that’s
+particularly true for specialist cases like creating presentation
+slides.
+
+The document class line can also set _global options_: things that apply
+to the document as a whole. These are given in square brackets:
+`\documentclass[<options>]{<name>}`. This syntax, with optional
+information given first in square brackets, is used in many LaTeX
+commands.
+
+=== The base classes
+
+LaTeX is supplied with a set of standard classes, all of which look
+similar but with some variations:
+
+* `article` +
+    short documents without chapters
+* `report` +
+    longer documents with chapters, single-sided printing
+* `book` +
+    longer documents with chapters, double-sided printing, with front- and
+    back-matter (for example an index)
+* `letter` +
+    correspondence with no sections
+* `slides` +
+    for presentations (but see below)
+
+The `article`, `report` and `book` classes have very similar
+commands available, as we’ve already seen. When writing a `letter`,
+the commands available are a bit different
+
+[source,latex]
+....
+\documentclass{letter}
+\usepackage[T1]{fontenc}
+\begin{document}
+
+\begin{letter}{Some Address\\Some Street\\Some City}
+
+\opening{Dear Sir or Madam,}
+
+The text goes Here
+\closing{Yours,}
+
+\end{letter}
+
+\end{document}
+....
+
+
+[tikz,role="yellow-background"]
+----
+\documentclass[a4paper,120pt]{letter}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,top=20mm,bottom=25mm,left=25mm,right=25mm]{geometry}
+\begin{document}
+\begin{letter}{Some Address\\Some Street\\Some City}
+
+\opening{Dear Sir or Madam,}
+
+The text goes Here
+
+\closing{Yours,}
+
+\end{letter}
+\end{document}
+----
+
+See how `\\` is used to separate lines of the address; we’ll look at
+line breaking <<les_11, a bit later>>. Also see how the `letter`
+class creates a new environment for each letter and has specialized
+commands.
+
+The standard `article`, `report` and `book` classes take the
+options `10pt`, `11pt` and `12pt` to change font size, and
+`twocolumn` to make a two-column document.
+
+=== Function-rich classes
+
+The core classes are very stable, but that means they are also quite
+conservative in both design and the range of commands available. Over
+time, a number of more powerful classes have been written, that let you
+alter the design without having to do things manually (which we’ll
+mention <<les_11, a bit later>>).
+
+The American Mathematical Society provide variants of the standard
+classes (`amsart`, `amsbook`) with a more traditional design closer
+to that used in mathematics journal publications.
+
+The two largest and most popular ‘extended’ classes are the KOMA-Script
+bundle and the memoir class. KOMA-Script offers a set of classes which
+‘parallel’ the standard ones: `scrartcl`, `scrreprt`, `scrbook`,
+and `scrlttr2`, while there is a single `memoir` class that is most
+like an extension of `book`.
+
+These extended classes have lots of customisation hooks, which we’ll
+explore a bit in an exercise. You might wonder how we can know about the
+hooks they provide; we will cover that <<les_16, in a later lesson>>, 
+but you can always jump ahead!
+
+=== Presentations
+
+The `slides` class was developed for making physical slides in the
+mid-1980s, so doesn’t have any features for creating interactive
+PDF-based presentations. There are modern classes that do exactly that:
+they are somewhat specialist compared to general LaTeX documents, so
+we’ve <<ml05, covered them in the additional information>>.
+
+[[exercises05]]
+=== Exercises
+
+Explore how changing the document class between the standard ones, the
+KOMA bundle and `memoir` affects the appearance of the document.
+
+[source,latex]
+....
+\documentclass{article} % Change the class here
+\usepackage[T1]{fontenc}
+
+\begin{document}
+
+\section{Introduction}
+
+This is a sample document with some dummy
+text\footnote{and a footnote}. This paragraph is quite
+long as we might want to see the effect of making the
+document have two columns.
+
+\end{document}
+....
+
+Add the class option `twocolumn` and see how the layout changes.
+
+[tikz,role="yellow-background"]
+----
+\documentclass[twocolumn]{article}
+\usepackage[bottom=21.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lipsum}
+
+\begin{document}
+
+\section{Introduction}
+
+This is a sample document with some dummy
+text\footnote{and a footnote}. This paragraph is quite
+long as we might want to see the effect of making the
+document have two columns.
+
+\lipsum{1 - 3}
+\end{document}
+----
+
+Change the `\section` above to `\chapter` and find out what effect
+the following class options have when using the `scrreprt` class.
+
+* `chapterprefix`
+* `headings=small`
+* `headings=big`
+* `numbers=enddot`
+
+
+
+
+[[extending-latex]]
+[[les_06]]
+
+== Lesson 06 Extending LaTeX
+
+This lesson shows how you can extend LaTeX to your needs and change its
+layout further by using packages and definitions. It also shows how you
+can define your own commands.
+
+After having declared a class, in the preamble you can modify
+functionality in LaTeX by adding one or more _packages_. These can
+
+* Change how some parts of LaTeX work
+* Add new commands to LaTeX
+* Change document design
+
+=== Changing how LaTeX works
+
+The LaTeX ‘kernel’ (the core of LaTeX) is rather limited in user
+customisation, and so some add-on packages deal with very common ideas.
+The first is to change how LaTeX deals with language-specific
+typesetting (hyphenation, punctuation, quotations, localisation, etc.).
+Different languages have different rules, so it’s important to tell
+LaTeX which one to use. This is handled by the `babel` package.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+%\usepackage[french]{babel}
+
+\usepackage[width = 6cm]{geometry} % To force hyphenation here
+
+\begin{document}
+
+This is a lot of filler which is going to demonstrate how LaTeX hyphenates
+material, and which will be able to give us at least one hyphenation point.
+This is a lot of filler which is going to demonstrate how LaTeX hyphenates
+material, and which will be able to give us at least one hyphenation point.
+
+\end{document}
+....
+
+Try un-commenting the (clearly misleading) line to load `babel` and
+see the effect. (The standard hyphenation rules are US English.)
+
+The `babel` package does a lot more than hyphenation, depending on the
+language involved; we’ve given <<ml06, some more details>> if you
+need them.
+
+=== Changing design
+
+It’s useful to be able to adjust some aspects of design independent of
+the document class. The most obvious one are the page margins. We’ve
+just used the `geometry` package in the example above, but let’s now
+have an example specifically about margins.
+
+[source,latex]
+....
+\documentclass{book}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+Hey world!
+
+This is a first document.
+
+
+% ================
+\chapter{Chapter One}
+Introduction to the first chapter.
+
+
+\section{Title of the first section}
+Text of material in the first section
+
+Second paragraph.
+
+\subsection{Subsection of the first section}
+
+Text of material in the subsection.
+
+
+% ================
+\section{Second section}
+
+Text of the second section.
+
+\end{document}
+....
+
+You should see the effect here compared to not loading `geometry`.
+
+=== Adding new functionality
+
+One of LaTeX’s strengths is that you can choose from thousands of
+packages, including ones for writing mathematical text, for
+hyperlinking, for sophisticated capabilities with color, etc. We will
+see some more common packages in later lessons.
+
+=== Defining commands
+
+Sometimes you need a command specific to your document, either some
+functionality not found in the available packages or simply a command to
+enter a common expression that is used multiple times.
+
+The following example shows a command to produce keywords with a
+specific style applied.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\newcommand\kw[1]{\textbf{\itshape #1}}
+
+\begin{document}
+
+Something about \kw{apples} and \kw{oranges}.
+
+\end{document}
+....
+
+In the definition `[1]` denotes the number of arguments (here one) and
+`+#1+` denotes the first argument that is supplied (`apples` or
+`oranges` in this example). You may have up to nine arguments, but it
+is usually best to have just one argument, or sometimes none at all.
+
+Defining commands does not just reduce the typing required to produce a
+document. It helps to separate out the styling information. If it is
+decided to use a different style for keywords, rather than having to
+edit the entire document, you simply need to use a different definition.
+Here we load the `xcolor` package to provide colors, and use blue in
+place of bold in the formatting.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{xcolor}
+
+\newcommand\kw[1]{\textcolor{blue}{\itshape #1}}
+
+\begin{document}
+
+Something about \kw{apples} and \kw{oranges}.
+
+\end{document}
+....
+
+Beware that defining too many commands or defining commands with
+multiple arguments may make the document source harder to understand as
+it is using an unfamiliar syntax. The ability to define
+document-specific commands should be used with care.
+
+[[exercises06]]
+=== Exercises
+
+Try out writing some text in other European languages and see how
+`babel` affects hyphenation: you can probably find some text on the
+internet, and guess the right options.
+
+Try altering the margins in the `geometry` example. You can set the
+individual `top`, `bottom`, `left` and `right` margins
+separately using a comma-separated list.
+
+Try loading the `lipsum` package and then add the command `\lipsum`
+to your document. Can you guess why this package is useful for making
+examples?
+
+Try altering the definition of `\kw` to achieve a different style.
+
+
+
+[[les_07]]
+== Lesson 07 Including Graphics and positioning
+
+This lesson shows how you can include external graphics files into your
+document, how to change their appearance, and how to position or float
+them automatically.
+
+To bring in graphics from outside LaTeX, use the `graphicx` package,
+which adds the command `\includegraphics` to LaTeX.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+
+\begin{document}
+This picture
+\begin{center}
+  \includegraphics[height=2cm]{example-image}
+\end{center}
+is an imported PDF.
+\end{document}
+....
+
+You can include EPS, PNG, JPG, and PDF files. If you have more than one
+version of a graphic then you can write, for instance,
+`example-image.png`. (The `graphicx` package will try to guess the
+extension if you do not give one.)
+
+You’ll notice we’ve used a new environment here, `center`, to place
+the image horizontally centered on the page. <<les_11，A bit later>>, 
+we’ll talk more about spacing and positioning.
+
+=== Altering graphic appearance
+
+The `\includegraphics` command has many options to control the size
+and shape of the included images and to trim down material. Some of
+these are used a lot, so they are worth being aware of.
+
+The most obvious thing to set is the `width` or the `height` of an
+image, which are often given relative to the `\textwidth` or
+`\linewidth` and `\textheight`. The difference between
+`\textwidth` and `\linewidth` is subtle and often the result is the
+same. `\textwidth` is the width of the text block on the physical
+page, whereas `\linewidth` is the _current_ width, which might locally
+be different (the difference is most obvious with the class option
+`twocolumn`). LaTeX will automatically scale the image so that the
+aspect ratio stays correct.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+
+\begin{document}
+\begin{center}
+  \includegraphics[height = 0.5\textheight]{example-image}
+\end{center}
+Some text
+\begin{center}
+  \includegraphics[width = 0.5\textwidth]{example-image}
+\end{center}
+\end{document}
+....
+
+You can also `scale` images, or rotate them by an `angle`. The other
+thing you might want to do is to `clip` and `trim` an image.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+
+\begin{document}
+\begin{center}
+  \includegraphics[clip, trim = 0 0 50 50]{example-image}
+\end{center}
+\end{document}
+....
+
+=== Making images float
+
+Traditionally in typesetting, particularly with technical documents,
+graphics may move to another spot in the document. This is called a
+_float_. Images are normally included as floats so they do not leave
+large gaps in the page.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{lipsum}  % produce dummy text as filler
+
+\begin{document}
+\lipsum[1-4] % Just a few filler paragraphs
+
+Test location.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.5\textwidth]{example-image-a.png}
+  \caption{An example image}
+\end{figure}
+
+\lipsum[6-10] % Just a few filler paragraphs
+\end{document}
+....
+
+Here LaTeX moves the graphic and the caption away from the
+`Test location` text to the top of the second page, because there
+isn’t room for it on the bottom of the first page. The `ht` influences
+where LaTeX can place the float; these two letters mean that it can go
+where it is in the source (next to `Test location`) or to the top of a
+page. You can use up to four position specifiers
+
+* `h` ‘Here’ (if possible)
+* `t` Top of the page
+* `b` Bottom of the page
+* `p` A dedicated page only for floats
+
+<<les_09, Later>>, we will see how to cross-reference floats so you
+can point to them from your text.
+
+You’ll probably spot that we’ve centered the image here using
+`\centering` rather than the `center` environment. Inside a float,
+you should use `\centering` if you want to horizontally center
+content; this avoids both the float and `center` environment adding
+extra vertical space.
+
+[[exercises07]]
+=== Exercises
+
+Try including an image you have created, replacing the ‘standard’ ones
+we have used in the demonstration.
+
+Explore what you can do using the `height`, `width`, `angle` and
+`scale` keys.
+
+Use the `width` key to set the size of a graphic relative to
+`\textwidth` and another graphic relative to `\linewidth`. Try out
+how they behave with or without the `twocolumn` option.
+
+Use `lipsum` to make a reasonably long demonstration, then try out
+placing floats using the different position specifiers. How do different
+specifiers interact?
+
+
+
+[[les_08]]
+== Lesson 08 Tables
+
+This lesson shows how you can build tables in LaTeX, influence the
+alignment of the cells, add rules to the table, and merge cells.
+
+Tables in LaTeX are set using the `tabular` environment. This lesson
+will assume you load the `array` package, which adds more
+functionality to LaTeX tables, and which is not built into the LaTeX
+kernel only for historic reasons. So put the following in your preamble
+and we’re good to go:
+
+[source,latex]
+....
+\usepackage{array}
+....
+
+In order to typeset a `tabular` we have to tell LaTeX how many columns
+will be needed and how they should be aligned. This is done in a
+mandatory argument – often referred to as the table preamble – to the
+`tabular` environment, in which you specify the columns by using
+single-letter names, called preamble-tokens. The available column types
+are:
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|type              |description
+|`l`               |left aligned column
+|`c`               |centered column
+|`r`               |right aligned column
+|`p{width}`        |a column with fixed width `width`; the text will be 
+                    automatically line wrapped and fully justified
+|`m{width}`        |like `p`, but vertically centered compared to the rest of the row
+|`b{width}`        |like `p`, but bottom aligned
+|`w{align}{width}` |prints the contents with a fixed `width`, silently 
+                    overprinting if things get larger. You can choose 
+                    the horizontal alignment using `l`, `c`, or `r`.
+|`W{align}{width}` |like `w`, but this will issue an overfull box warning if things get too wide.
+|===
+
+In addition, a few other preamble-tokens are available which don’t
+define a column but might be useful as well:
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|type             |description
+|`*{num}{string}` |repeats `string` for `num` times in the preamble. 
+                   With this you can define multiple identical columns.
+|`>{decl}`        |this will put `decl` before the contents of every cell 
+                   in the following column (this is useful, e.g., 
+                   to set a different font for this column)
+|`<{decl}`        |this will put `decl` after the contents of each cell in the previous column
+|`\|`             |add a vertical rule
+|`@{decl}`        |replace the space between two columns with `decl`
+|`!{decl}`        |add `decl` in the center of the existing space
+|===
+
+These two tables list all the available column types from LaTeX and the
+`array` package. A few additional column types, from different
+packages, are presented in the <<ml08, further details page>> for
+this lesson.
+
+The columns `l`, `c`, and `r` will have the natural width of the
+widest cell. Each column has to be declared, so if you want three
+centered columns, you’d use `ccc` in the table preamble. Spaces are
+ignored, so `c c c` is the same.
+
+In a table body columns are separated using an ampersand `&` and a new
+row is started using `\\`.
+
+We have everything we need for our first table. In the following code
+the `&` and `\\` are aligned. This isn’t necessary in LaTeX, but
+helps reading the source.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+
+\begin{document}
+\begin{tabular}{lll}
+  Animal & Food  & Size   \\
+  dog    & meat  & medium \\
+  horse  & hay   & large  \\
+  frog   & flies & small  \\
+\end{tabular}
+\end{document}
+....
+
+
+[tikz,role="yellow-background"]
+----
+\documentclass{article}
+\usepackage[height=2.0cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+
+\begin{document}
+\begin{tabular}{lll}
+  Animal & Food  & Size   \\
+  dog    & meat  & medium \\
+  horse  & hay   & large  \\
+  frog   & flies & small  \\
+\end{tabular}
+\end{document}
+----
+
+If a table column contains a lot of text you will have issues to get
+that right with only `l`, `c`, and `r`. See what happens in the
+following example:
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+
+\begin{document}
+\begin{tabular}{cl}
+  Animal & Description \\
+  dog    & The dog is a member of the genus Canis, which forms part of the
+           wolf-like canids, and is the most widely abundant terrestrial
+           carnivore. \\
+  cat    & The cat is a domestic species of small carnivorous mammal. It is the
+           only domesticated species in the family Felidae and is often referred
+           to as the domestic cat to distinguish it from the wild members of the
+           family. \\
+\end{tabular}
+\end{document}
+....
+
+The issue is that the `l` type column typesets its contents in a
+single row at its natural width, even if there is a page border in the
+way. To overcome this you can use the `p` column. This typesets its
+contents as paragraphs with the width you specify as an argument and
+vertically aligns them at the top – which you’ll want most of the time.
+Compare the above outcome to the following:
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+
+\begin{document}
+\begin{tabular}{cp{9cm}}
+  Animal & Description \\
+  dog    & The dog is a member of the genus Canis, which forms part of the
+           wolf-like canids, and is the most widely abundant terrestrial
+           carnivore. \\
+  cat    & The cat is a domestic species of small carnivorous mammal. It is the
+           only domesticated species in the family Felidae and is often referred
+           to as the domestic cat to distinguish it from the wild members of the
+           family. \\
+\end{tabular}
+\end{document}
+....
+
+If your table has many columns of the same type it is cumbersome to put
+that many column definitions in the preamble. You can make things easier
+by using `*{num}{string}`, which repeats the `string` `num` times.
+So `*{6}{c}` is equivalent to `cccccc`. To show you that it works
+here is the first table of this lesson with the newly learned syntax:
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+
+\begin{document}
+\begin{tabular}{*{3}{l}}
+  Animal & Food  & Size   \\
+  dog    & meat  & medium \\
+  horse  & hay   & large  \\
+  frog   & flies & small  \\
+\end{tabular}
+\end{document}
+....
+
+=== Adding rules (lines)
+
+A word of advice prior to introducing rules; lines should be used really
+sparsely in tables, and normally vertical ones look unprofessional. In
+fact, for professional tables you shouldn’t use any of the standard
+lines; instead you should get familiar with the facilities of the
+`booktabs` package, which is why it is covered here first. For the
+sake of completeness the standard lines are shown in the
+<<ml08, more-info>> page.
+
+`booktabs` provides four different types of lines. Each of those
+commands has to be used as the first thing in a row or following another
+rule. Three of the rule commands are: `\toprule`, `\midrule`, and
+`\bottomrule`. From their names the intended place of use should be
+clear:
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs}
+
+
+\begin{document}
+\begin{tabular}{lll}
+  \toprule
+  Animal & Food  & Size   \\
+  \midrule
+  dog    & meat  & medium \\
+  horse  & hay   & large  \\
+  frog   & flies & small  \\
+  \bottomrule
+\end{tabular}
+\end{document}
+....
+
+The fourth rule command provided by `booktabs` is `\cmidrule`. It
+can be used to draw a rule that doesn’t span the entire width of the
+table but only a specified column range. A column range is entered as a
+number span: `{`_number_`-`_number_`}`. Even if you only want to
+draw the rule for a single column you need to specify that as a range
+(with both numbers matching).
+
+[ti]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs}
+
+\begin{document}
+\begin{tabular}{lll}
+  \toprule
+  Animal & Food  & Size   \\
+  \midrule
+  dog    & meat  & medium \\
+  \cmidrule{1-2}
+  horse  & hay   & large  \\
+  \cmidrule{1-1}
+  \cmidrule{3-3}
+  frog   & flies & small  \\
+  \bottomrule
+\end{tabular}
+\end{document}
+....
+
+
+[tikz,role="yellow-background"]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs}
+
+\begin{document}
+\begin{tabular}{lll}
+  \toprule
+  Animal & Food  & Size   \\
+  \midrule
+  dog    & meat  & medium \\
+  \cmidrule{1-2}
+  horse  & hay   & large  \\
+  \cmidrule{1-1}
+  \cmidrule{3-3}
+  frog   & flies & small  \\
+  \bottomrule
+\end{tabular}
+\end{document}
+----
+
+There is another useful feature of `\cmidrule`. You can shorten it on
+either end with an optional argument enclosed in parentheses:
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs}
+
+\begin{document}
+\begin{tabular}{lll}
+  \toprule
+  Animal & Food  & Size   \\
+  \midrule
+  dog    & meat  & medium \\
+  \cmidrule{1-2}
+  horse  & hay   & large  \\
+  \cmidrule(r){1-1}
+  \cmidrule(rl){2-2}
+  \cmidrule(l){3-3}
+  frog   & flies & small  \\
+  \bottomrule
+\end{tabular}
+\end{document}
+....
+
+You may have guessed that `r` and `l` mean the rule is shortened on
+its **r**ight and **l**eft end, respectively.
+
+Sometimes a rule would be too much of a separation for two rows but to
+get across the meaning more clearly you want to separate them by some
+means. In this case you can use `\addlinespace` to insert a small
+skip.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs}
+
+\begin{document}
+\begin{tabular}{cp{9cm}}
+  \toprule
+  Animal & Description \\
+  \midrule
+  dog    & The dog is a member of the genus Canis, which forms part of the
+           wolf-like canids, and is the most widely abundant terrestrial
+           carnivore. \\
+  \addlinespace
+  cat    & The cat is a domestic species of small carnivorous mammal. It is the
+           only domesticated species in the family Felidae and is often referred
+           to as the domestic cat to distinguish it from the wild members of the
+           family. \\
+  \bottomrule
+\end{tabular}
+\end{document}
+....
+
+=== Merging cells
+
+In LaTeX you can merge cells horizontally by using the `\multicolumn`
+command. It has to be used as the first thing in a cell.
+`\multicolumn` takes three arguments:
+
+. The number of cells which should be merged
+. The alignment of the merged cell
+. The contents of the merged cell
+
+The alignment can contain anything legal in a `tabular`’s preamble,
+but _only a single column type_.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs}
+
+
+\begin{document}
+\begin{tabular}{lll}
+  \toprule
+  Animal & Food  & Size   \\
+  \midrule
+  dog    & meat  & medium \\
+  horse  & hay   & large  \\
+  frog   & flies & small  \\
+  fuath  & \multicolumn{2}{c}{unknown} \\
+  \bottomrule
+\end{tabular}
+\end{document}
+....
+
+You can also use `\multicolumn` on a single cell to prevent the
+application of whatever you defined in the table preamble for the
+current column. The following uses this method to center the table’s
+head row:
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs}
+
+
+\begin{document}
+\begin{tabular}{lll}
+  \toprule
+  \multicolumn{1}{c}{Animal} & \multicolumn{1}{c}{Food} & \multicolumn{1}{c}{Size} \\
+  \midrule
+  dog    & meat  & medium \\
+  horse  & hay   & large  \\
+  frog   & flies & small  \\
+  fuath  & \multicolumn{2}{c}{unknown} \\
+  \bottomrule
+\end{tabular}
+\end{document}
+....
+
+Merging cells vertically isn’t supported by LaTeX. Usually it suffices
+to leave cells empty to give the reader the correct idea of what was
+meant without explicitly making cells span rows.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs}
+
+
+\begin{document}
+\begin{tabular}{lll}
+  \toprule
+  Group     & Animal & Size   \\
+  \midrule
+  herbivore & horse  & large  \\
+            & deer   & medium \\
+            & rabbit & small  \\
+  \addlinespace
+  carnivore & dog    & medium \\
+            & cat    & small  \\
+            & lion   & large  \\
+  \addlinespace
+  omnivore  & crow   & small  \\
+            & bear   & large  \\
+            & pig    & medium \\
+  \bottomrule
+\end{tabular}
+\end{document}
+....
+
+[[exercises08]]
+=== Exercises
+
+Use the simple table example to start experimenting with tables. Try out
+different alignments using the `l`, `c` and `r` column types. What
+happens if you have too few items in a table row? How about too many?
+Experiment with the `\multicolumn` command to span across columns.
+
+
+
+
+[[cross-referencing]]
+[[les_09]]
+
+== Lesson 09 Cross-referencing
+
+This lesson shows how to refer to numbered elements in a document, like
+figures, tables and sections.
+
+When you are writing a document of any length, you’ll want to refer to
+numbered items such as figures, tables or equations. Luckily, LaTeX can
+automatically add the right numbers; we just have to set things up.
+
+=== The `\label` and `\ref` mechanism
+
+To have LaTeX remember a spot in your document you have to label it, and
+then in other places, you refer to it.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+Hey world!
+
+This is a first document.
+
+\section{Title of the first section}
+
+Text of material for the first section.
+
+
+\subsection{Subsection of the first section}
+\label{subsec:labelone}
+
+Text of material for the first subsection.
+\begin{equation}
+  e^{i\pi}+1 = 0
+\label{eq:labeltwo}
+\end{equation}
+
+In subsection~\ref{subsec:labelone} is equation~\ref{eq:labeltwo}.
+\end{document}
+....
+
+There are two `\label{...}` commands, one after the subsection and one
+inside the equation environment. They are associated with the last
+sentence’s `\ref{...}` commands. When you run LaTeX, it saves
+information about the labels to an auxiliary file. For
+`\label{subsec:labelone}`, LaTeX knows that it is now in a subsection
+and so it saves the subsection’s number. For `\label{eq:labeltwo}`,
+LaTeX knows that the most recent environment of interest is an equation
+so it saves the information for that equation. When you ask for the
+reference, LaTeX gets it from the auxiliary file.
+
+The `subsec:` and `eq:` aren’t used by LaTeX; rather, it just keeps
+track of what it has most recently processed. But when you are writing
+these help you remember what the label is about.
+
+You may see references that show in an output PDF as boldface double
+question marks, *??*. The explanation is that because of this auxiliary
+file work, the first time that you compile a document the label has not
+yet been saved. Run LaTeX one more time and you’ll be all set. (Usually
+while writing you will run LaTeX several times anyway, so in practice
+this is not a bother.)
+
+Notice the tilde (`~`) characters before the references. You don’t
+want a line break between `subsection` and its number, or between
+`equation` and its number. Putting in a tilde means LaTeX won’t break
+the line there.
+
+=== Where to put `\label`
+
+The `\label` command always refers to the previous numbered entity: a
+section, an equation, a float, etc. That means that `\label` always
+has to come _after_ the thing you want to refer to. In particular, when
+you create floats, the `\label` has to come _after_ (or better, in),
+the `\caption` command, but within the float environment.
+
+[[exercises09]]
+=== Exercises
+
+Try adding new numbered parts (sections, subsections, enumerated lists)
+to the test document and finding out how many runs are needed to make
+`\label` commands work.
+
+Add some floats and see what happens when you put `\label` _before_
+the `\caption` instead of after; can you predict the result?
+
+What happens if you put a `\label` for an equation _after_ the
+`\end{equation}`?
+
+
+
+
+[[mathematics]]
+[[les_10]]
+
+== Lesson 10 Mathematics
+
+This lesson presents LaTeX’s math mode and how you can type inline and
+display formulas, the extensions provided by the `amsmath` package,
+and how to change fonts in math.
+
+Typesetting complex mathematics is one of the greatest strengths of
+LaTeX. You can mark up mathematics in a logical way in what is known as
+‘math mode’.
+
+=== Math mode
+
+In math mode, spaces are ignored and the correct spacing between
+characters is (almost always) applied.
+
+There are two forms of math mode:
+
+* inline
+* display
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\begin{document}
+A sentence with inline mathematics: $y = mx + c$.
+A second sentence with inline mathematics: $5^{2}=3^{2}+4^{2}$.
+
+
+A second paragraph containing display math.
+\[
+  y = mx + c
+\]
+See how the paragraph continues after the display.
+\end{document}
+....
+
+You may see ‘LaTeX-like’ mathematical input in other places, for example
+the MathJax system for placing equations in web pages. These systems
+often accept slight variations on LaTeX’s syntax as they do not actually
+use LaTeX ‘behind the scenes’.
+
+Our examples are all _correct_ LaTeX. If you see something different in
+another context, it might be because the example is not really using
+LaTeX.
+
+==== Inline math mode and mathematical notation
+
+As you can see above, inline math mode is marked using a pair of dollar
+symbols (`$...$`). It is also possible to use the notation
+`\( ... \)`. Simple expressions are entered without any special
+markup, and you’ll see that the math is spaced out nicely and has
+letters in italic.
+
+Inline math mode restricts vertical size of the expression so that as
+far as possible the formula does not disturb the linespacing of the
+paragraph.
+
+Note that _all_ mathematics should be marked up as math, even if it is a
+single character use `... $2$ ...` not `... 2 ...` otherwise, for
+example, when you need a negative number and need math to get a minus
+sign the `... $-2$ ...` may use math digits which may not be the same
+font as the text digits (depending on the document class). Conversely
+beware of math mode constructs appearing in plain text copied from
+elsewhere such as monetary values using `$` or filenames using `_`
+(which may be marked up as `\$` and `\_` respectively).
+
+We can easily add superscripts and subscripts; these are marked using
+`^` and `_`, respectively.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\begin{document}
+Superscripts $a^{b}$ and subscripts $a_{b}$.
+\end{document}
+....
+
+(You might see examples where simple super- and subscripts are entered
+without braces, but that is not the official syntax and can go wrong;
+always use braces.)
+
+There are a _lot_ of specialist math mode commands. Some of them are
+quite easy, for example `\sin` and `\log` for sine and logarithm or
+`\theta` for the Greek letter.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\begin{document}
+Some mathematics: $y = 2 \sin \theta^{2}$.
+\end{document}
+....
+
+We cannot cover all the standard LaTeX math mode commands here, but
+there are many online resources listing the standard set. You can look
+up commands for math mode symbols using the
+https://detexify.kirelabs.org/classify.html[Detexify] tool.
+
+==== Display mathematics
+
+You can use exactly the same commands for display math mode as for
+inline work. Display math mode is set centered by default and is meant
+for larger equations that are ‘part of a paragraph’. Note that display
+math environments do not allow a paragraph to end within the
+mathematics, so you may not have blank lines within the source of the
+display.
+
+The paragraph should always be started _before_ the display so do not
+leave a blank line before the display math environment. If you need
+several lines of mathematics, do not use consecutive display math
+environments (this produces inconsistent spacing); use one of the
+multi-line display environments such as `align` from the `amsmath`
+package described later.
+
+It’s particularly useful for integrations, for example:
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\begin{document}
+A paragraph about a larger equation
+\[
+\int_{-\infty}^{+\infty} e^{-x^2} \, dx
+\]
+\end{document}
+....
+
+Notice here how sub-/superscript notation is used to set the limits on
+the integration.
+
+We’ve added one piece of manual spacing here: `\,` makes a thin space
+before the `dx`. Formatting of the differential operator varies: some
+publishers use an upright ‘d’ whilst others use an italic ‘_d_’. One way
+to write your source to allow you to handle either is to create a
+command `\diff` that you can adjust as required,
+http://www.tug.org/TUGboat/tb41-1/tb127gregorio-math.pdf[for example]
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\newcommand{\diff}{\mathop{}\!d}            % For italic
+% \newcommand{\diff}{\mathop{}\!\mathrm{d}} % For upright
+\begin{document}
+A paragraph about a larger equation
+\[
+\int_{-\infty}^{+\infty} e^{-x^2} \diff x
+\]
+\end{document}
+....
+
+You often want a numbered equation, which is created using the
+`equation` environment. Let’s try the same example again:
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\begin{document}
+A paragraph about a larger equation
+\begin{equation}
+\int_{-\infty}^{+\infty} e^{-x^2} \, dx
+\end{equation}
+\end{document}
+....
+
+The equation number is incremented automatically and may be a simple
+number as in this example or may be prefixed by a section number, so
+(2.5) for the 5th equation in section 2. The details of the formatting
+are set up by the document class and not described here.
+
+=== The `amsmath` package
+
+Mathematical notation is very rich, and this means that the tools built
+into the LaTeX kernel can’t cover everything. The `amsmath` package
+extends the core support to cover a lot more ideas. The
+http://texdoc.org/pkg/amsmath[`amsmath` User Guide] contains many more
+examples than we can show in this lesson.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+
+\begin{document}
+Solve the following recurrence for $ n,k\geq 0 $:
+\begin{align*}
+  Q_{n,0} &= 1   \quad Q_{0,k} = [k=0];  \\
+  Q_{n,k} &= Q_{n-1,k}+Q_{n-1,k-1}+\binom{n}{k}, \quad\text{for $n$, $k>0$.}
+\end{align*}
+\end{document}
+....
+
+[tikz]
+....
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+
+\begin{document}
+Solve the following recurrence for $ n,k\geq 0 $:
+\begin{align*}
+  Q_{n,0} &= 1   \quad Q_{0,k} = [k=0];  \\
+  Q_{n,k} &= Q_{n-1,k}+Q_{n-1,k-1}+\binom{n}{k}, \quad\text{for $n$, $k>0$.}
+\end{align*}
+\end{document}
+....
+
+The `align*` environment makes the equations line up on the
+ampersands, the `&` symbols, just like a table. Notice how we’ve used
+`\quad` to insert a bit of space, and `\text` to put some normal
+text inside math mode. We’ve also used another math mode command,
+`\binom`, for a binomial.
+
+Notice that here we used `align*`, and the equation didn’t come out
+numbered. Most math environments number the equations by default, and
+the starred variant (with a `*`) disables numbering.
+
+The package also has several other convenient environments, for example
+for matrices.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[height=2.5cm]{geometry}
+\usepackage{amsmath}
+\begin{document}
+AMS matrices.
+\[
+\begin{matrix}
+a & b & c \\
+d & e & f
+\end{matrix}
+\quad
+\begin{pmatrix}
+a & b & c \\
+d & e & f
+\end{pmatrix}
+\quad
+\begin{bmatrix}
+a & b & c \\
+d & e & f
+\end{bmatrix}
+\]
+\end{document}
+....
+
+=== Fonts in math mode
+
+Unlike normal text, font changes in math mode often convey very specific
+meaning. They are therefore often written explicitly. There are a set of
+commands you need here:
+
+* `\mathrm`: roman (upright)
+* `\mathit`: italic spaced as ‘text’
+* `\mathbf`: boldface
+* `\mathsf`: sans serif
+* `\mathtt`: monospaced (typewriter)
+* `\mathbb`: double-struck (blackboard bold) (provided by the
+`amsfonts` package)
+
+Each of these takes Latin letters as an argument, so for example we
+might write a matrix as
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\begin{document}
+The matrix $\mathbf{M}$.
+\end{document}
+....
+
+Note that the default math italic separates letters so that they may be
+used to denote a product of variables. Use `\mathit` to make a word
+italic.
+
+The `\math..` font commands use fonts specified for math use.
+Sometimes you need to embed a word that is part of the outer sentence
+structure and needs the current text font, for that you can use
+`\text{...}` (which is provided by the `amsmath` package) or
+specific font styles such as `\textrm{..}`.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\begin{document}
+
+$\text{bad use } size  \neq \mathit{size} \neq \mathrm{size} $
+
+\textit{$\text{bad use } size \neq \mathit{size} \neq \mathrm{size} $}
+
+\end{document}
+....
+
+If you need to make other symbols bold, <<ml10, see the extra details>>.
+
+[[exercises10]]
+=== Exercises
+
+Try out some basic math mode work: take the examples and switch between
+inline and display math modes. Can you see what effect this has.
+
+Try adding other Greek letters, both lower- and uppercase. You should be
+able to guess the names.
+
+Experiment with the font changing commands: what happens when you try to
+nest them?
+
+Displayed math is centered by default; try adding the document class
+option `[fleqn]` (flush left equation) option to some of the above
+examples to see a different layout. Similarly equation numbers are
+usually on the right. Experiment with adding the `[leqno]` (left
+equation numbers) document class option.
+
+
+
+[[les_11]]
+== Lesson 11 Formatting: fonts and spacing
+
+This lesson shows how to change the spacing elements in a document and
+how to add explicit formatting instructions to the LaTeX source.
+
+We have already seen that a blank line in your input will generate a new
+paragraph in LaTeX. This shows up as the paragraph will start with an
+indent.
+
+=== Paragraph spacing
+
+One common style is to have no indents for paragraphs, but instead to
+have a ‘blank line’ between them. We can achieve that using the
+`parskip` package.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[parfill]{parskip}
+\usepackage{lipsum} % Just for some filler text
+\begin{document}
+\lipsum
+\end{document}
+....
+
+=== Forcing a new line
+
+Most of the time, you should not force a new line in LaTeX: you almost
+certainly want a new paragraph or to use `parskip`, as we’ve just
+seen, to put a ‘blank line’ between paragraphs.
+
+There are a _few_ places where you use `\\` to start a new line
+without starting a new paragraph:
+
+* At the end of table rows
+* Inside the `center` environment
+* In poetry (the `verse` environment)
+
+Almost always, if you are not in one of those special places, you should
+_not_ use `\\`.
+
+=== Adding explicit space
+
+We can insert a thin space (about half the normal thickness) using
+`\,`. In math mode, there are also other commands: `\.`, `\:` and
+`\;`, and one for a negative space: `\!`.
+
+Very rarely, for example when creating a title page, you might need to
+add explicit horizontal or vertical space. We can use `\hspace` and
+`\vspace` for that.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\begin{document}
+Some text \hspace{1cm} more text.
+
+\vspace{10cm}
+
+Even more text.
+\end{document}
+....
+
+=== Explicit text formatting
+
+We wrote <<les_03, in lesson 3>> that most of the time logical
+structure is preferable. But sometimes you want to make text bold, or
+italic, or monospaced, etc. There are two types of command for this:
+ones for short pieces of text, and ones for ‘running’ material.
+
+For short bits of text, we use `\textbf`, `\textit`, `\textrm`,
+`\textsf`, `\texttt` and `\textsc`.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\begin{document}
+Let's have some font fun: \textbf{bold}, \textit{italic}, \textrm{roman},
+\textsf{sans serif}, \texttt{monospaced} and \textsc{small caps}.
+\end{document}
+....
+
+For running text, we use commands that alter the font setup; the
+commands here are for example `\bfseries` and `\itshape`. Because
+these don’t ‘stop’, we need to place them in a _group_ if we want to
+prevent them from applying to the whole document. LaTeX environments are
+groups, as are table cells, or we can use `{...}` to make an explicit
+group.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\begin{document}
+Normal text.
+
+{\itshape
+
+This text is italic.
+
+So it this: the effect is not limited to a paragraph.
+
+}
+\end{document}
+....
+
+We can set font size in a similar way; these commands all work on an
+ongoing basis. The sizes we set are relative: `\huge`, `\large`,
+`\normalsize`, `\small` and `\footnotesize` are common. It’s
+important to finish a paragraph _before_ changing the font size back;
+see how we add an explicit `\par` (paragraph break) here.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\begin{document}
+Normal text.
+
+\begin{center}
+{\itshape\large Some text\par}
+Normal text
+{\bfseries\small Much smaller text\par}
+\end{center}
+
+\end{document}
+....
+
+[[exercises11]]
+=== Exercises
+
+Experiment with manual formatting: create a `titlepage` environment
+and try inserting different spaces and font changes. What happens when
+we combine font changes? How does this compare to math mode?
+
+What happens if you change the font size of a large paragraph (try with
+`\tiny` then with `\huge`) but don’t issue a final `\par` before
+closing the group?
+
+
+
+[[les_12]]
+== Lesson 12 Citations and references
+
+This lesson show the basics of reference databases. Learn how to build
+your own databases and how to use them in documents using the two major
+workflows available.
+
+For bibliographic citations, while you can include reference sources
+directly in your document, usually you will get that information from
+one or more external files. Such a file is a database of references,
+containing the information in a processing-friendly format. Using one or
+more reference databases lets you re-use information and avoid manual
+formatting.
+
+=== Reference databases
+
+Reference databases are normally referred to as ‘BibTeX files’ and have
+the extension `.bib`. They contain one or more entries, one for each
+reference, and within each entry there are a series of fields. Let us
+look at an example.
+
+[source,latex]
+....
+@article{Thomas2008,
+  author  = {Thomas, Christine M. and Liu, Tianbiao and Hall, Michael B.
+             and Darensbourg, Marcetta Y.},
+  title   = {Series of Mixed Valent {Fe(II)Fe(I)} Complexes That Model the
+             {H(OX)} State of [{FeFe}]Hydrogenase: Redox Properties,
+             Density-Functional Theory Investigation, and Reactivity with
+             Extrinsic {CO}},
+  journal = {Inorg. Chem.},
+  year    = {2008},
+  volume  = {47},
+  number  = {15},
+  pages   = {7009-7024},
+  doi     = {10.1021/ic800654a},
+}
+@book{Graham1995,
+  author    = {Ronald L. Graham and Donald E. Knuth and Oren Patashnik},
+  title     = {Concrete Mathematics},
+  publisher = {Addison-Wesley},
+  year      = {1995},
+}
+....
+
+This is an entry for an article and another for a book; these are by far
+the most common types. Each database entry type starts with `@`, as
+shown, and all of the information then sits within a brace pair.
+
+The various fields we need are given in key-value format, apart from
+what is known as the ‘key’: the ‘name’ of the citation. You can use
+whatever you like, as it’s just a label, but above we’ve chosen to use
+the name of an author plus the year: this is a common approach.
+
+Exactly which fields you need to give depends on the type of entry, but
+most of these are quite obvious. You might notice that in the `author`
+field, each entry is separated by `and`. This is _essential_: the
+format of the _output_ needs to know which author is which. You might
+also notice that in the article title, some entries are in an extra set
+of braces; these are there to prevent any case-changing being applied.
+
+Editing `.bib` files by hand is rather tedious, so most people use a
+dedicated editor. https://www.jabref.org[JabRef] is widely used and
+cross-platform, but there are several other interfaces available. If the
+reference contains a DOI (Digital Object Identifier), you may want to
+try https://doi2bib.org[doi2bib] to easily get the BibTeX entry. But
+make sure to check if the entry is correct!
+
+TIP: https://www.fosshub.com/JabRef.html[JabRef] +
+    JabRef is the real open source bibliography reference manager. 
+    It uses BibTeX as its native format. It is an excellent editor 
+    for BibTeX files allowing you to perform several actions when 
+    dealing with such data.
+
+Here, we will use the short example database above for our
+demonstrations: we have ‘saved’ it as `learnlatex.bib`.
+
+=== Transferring information from the database
+
+To get the information into your document there are three steps. First,
+use LaTeX to compile your document, which creates a file with a list of
+the references that your document cites. Second, run a program that
+takes information from the database of references, picks out the ones
+that you use, and puts them in order. Finally, compile your document
+again so that LaTeX can use that information to resolve your citations.
+Usually it will require at least two compilations to resolve all the
+references.
+
+For the second step, there are two systems in wide use: BibTeX and
+Biber. Biber is only ever used with a LaTeX package called `biblatex`,
+whereas BibTeX is used with either no packages at all or with
+`natbib`.
+
+Running a second tool as well as LaTeX is handled in different ways by
+different editors. For our online examples, there are some ‘behind the
+scenes’ scripts that do everything in one go. Your editor might have a
+single ‘do stuff’ button or you might have to choose to run BibTeX or
+Biber manually between LaTeX runs.
+
+The format of citations and references is independent of your BibTeX
+database, and is set by what is known as a ‘style’. We will see that
+these work slightly differently in the BibTeX workflow and `biblatex`,
+but the general idea remains: we can choose how citations appear.
+
+=== The BibTeX workflow with `natbib`
+
+Whilst it is possible to insert citations into a LaTeX document without
+any packages loaded, this is rather limited. Instead, we will use the
+`natbib` package, which allows us to create different types of
+citation and has a lot of styles available.
+
+The basic structure of our input is as shown in this example.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{natbib}
+
+\begin{document}
+The mathematics showcase is from \citet{Graham1995}, whereas
+there is some chemistry in \citet{Thomas2008}.
+
+Some parenthetical citations: \citep{Graham1995}
+and then \citep[p.~56]{Thomas2008}.
+
+\citep[See][pp.~45--48]{Graham1995}
+
+Together \citep{Graham1995,Thomas2008}
+
+\bibliographystyle{plainnat}
+\bibliography{learnlatex}
+\end{document}
+....
+
+You can see that we can cite different entries in the database by giving
+their key. The `natbib` package offers both textual and parenthetical
+citation styles, `\citet` and `\citep`, respectively. The reference
+style is selected by the `\bibliographystyle` line; here we’ve used
+the `plainnat` style. The bibliography is actually inserted by the
+`\bibliography` line, which also picks the database(s) to use; this is
+a comma-separated list of names.
+
+Page references can be added to the citation with an optional argument.
+If two optional arguments are given, the first goes in front of the
+citation label for a short note and the second after the label for a
+page reference.
+
+The setup above uses author-year style, but we can make use of numeric
+citations. That is done by adding the `numbers` option to the
+`natbib` line.
+
+=== The `biblatex` workflow
+
+The `biblatex` package works slightly differently to `natbib`, as we
+select the databases in the preamble but print it in the document body.
+There are some new commands for this.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[style=authoryear]{biblatex}
+\addbibresource{learnlatex.bib} % file of reference info
+
+\begin{document}
+The mathematics showcase is from \autocite{Graham1995}.
+
+Some more complex citations: \parencite{Graham1995} or
+\textcite{Thomas2008} or possibly \citetitle{Graham1995}.
+
+\autocite[56]{Thomas2008}
+
+\autocite[See][45-48]{Graham1995}
+
+Together \autocite{Thomas2008,Graham1995}
+
+\printbibliography
+\end{document}
+....
+
+Notice that `\addbibresource` _requires_ the full database filename,
+whereas we omitted the `.bib` for `\bibliography` with `natbib`.
+Also notice that `biblatex` uses rather longer names for its citation
+commands, but these are all quite easy to guess.
+
+Again, short text before and after the citation can be inserted with the
+optional arguments. Note that the page numbers need not be prefixed with
+`p.~` or `pp.~` here, `biblatex` can automatically add the
+appropriate prefix.
+
+In `biblatex`, the reference style is picked when we load the package.
+Here, we’ve used `authoryear`, but there is a `numeric` style and
+many others are also available.
+
+=== Choosing between the BibTeX workflow and `biblatex`
+
+Even though both the BibTeX workflow and `biblatex` get their input
+via BibTeX files and can produce structurally similar output in the
+document, they use completely different ways to produce this result.
+That means that there are some differences between the two approaches
+that may help you choose which one works best for you.
+
+In the BibTeX workflow the bibliography style is ultimately decided by a
+`.bst` file which you select with the `\bibliographystyle` command.
+`biblatex` does not use `.bst` files and uses a different system. If
+you are using a template that comes with a `.bst` file or are given a
+`.bst` file for your project, you must use the BibTeX workflow and
+cannot use `biblatex`.
+
+The different approach `biblatex` takes implies that you can modify
+the output of the bibliography and citation commands directly from your
+document preamble using LaTeX-based commands. Modifications of BibTeX
+`.bst` styles on the other hand usually require working with these
+external files and need knowledge of the BibTeX programming language.
+Generally speaking, `biblatex` is said to be easier to customize than
+the BibTeX workflow.
+
+In `biblatex` it is generally easier to implement more elaborate
+citation styles with a wider array of different citation commands. It
+also offers more context-dependent features. Roughly speaking this is
+less interesting for the styles common in many STEM subjects, but
+becomes relevant for some more complex styles in some areas of the
+humanities.
+
+BibTeX can only sort US-ASCII characters correctly and relies on
+workarounds to provide US-ASCII-based sorting for non-US-ASCII
+characters. With Biber `biblatex` offers full Unicode sorting
+capabilities. Thus `biblatex` is usually a better choice if you want
+to sort your bibliography in a non-ASCII/non-English order.
+
+Having been around for much longer than `biblatex`, the BibTeX
+workflow is more established than `biblatex`, meaning that many
+publishers and journals expect bibliographies generated via the BibTeX
+workflow. Those publishers cannot or generally do not accept submissions
+using `biblatex`.
+
+The bottom line is: Check the author/submission guidelines if you are
+submitting to a journal or publisher. If you are given a `.bst` file,
+you must use the BibTeX workflow. If you want a relatively simple
+bibliography and citation style and only need English US-ASCII-based
+sorting, the BibTeX workflow should suffice. If you need a more complex
+citation style, non-English sorting or want easier access to citation
+and bibliography style customisation features, you will want to look
+into using `biblatex`.
+
+[[exercises12]]
+=== Exercises
+
+Try out both the `natbib` and `biblatex` examples. For `natbib`,
+you’ll need to run LaTeX, BibTeX, LaTeX, LaTeX; for `biblatex`, it’s
+LaTeX, Biber, LaTeX. Find out how to do that in your editor, or try the
+Overleaf and TeXLive.net automation.
+
+See what happens when you create new database entries and new citations.
+Add a citation that’s not in the database and see how it appears.
+Experiment with `natbib`’s `numeric` and `biblatex`’s
+`style=numeric` option.
+
+
+
+[[les_13]]
+== Lesson 13 Structuring longer documents
+
+This lesson shows how LaTeX allows you to split your sources into
+smaller, more manageable files, and how this can make building a long
+document easier and faster.
+
+When you are writing a longer document, you’ll likely want to split up
+the source into multiple files. For example, it’s very common to have
+one ‘main’/’root’ file, then one source file per chapter (for a book or
+thesis), or per significant section (for a long article).
+
+=== Structuring your sources
+
+LaTeX allows us to split up sources in a controlled way. There are two
+important commands here, `\input` and `\include`. We can use
+`\input` to make a file work ‘as though it was typed in here’, so it
+can be used for (essentially) any material. The `\include` command
+works for chapters only: it starts a new page and makes some internal
+adjustments. But it has a big advantage: it allows us to be selective in
+which chapters to include, so you can work on part of your document
+rather than the whole thing.
+
+A longer document might therefore look something like the following:
+
+[source,latex]
+....
+\documentclass{book}
+\usepackage[T1]{fontenc}
+\usepackage{biblatex}
+\addbibresource{biblatex-examples.bib}
+
+\title{A Sample Book}
+\author{John Doe \and Joe Bloggs}
+
+\IfFileExists{\jobname.run.xml}
+{
+\includeonly{
+  front,
+%  chap1,
+  chap2,
+%  append
+  }
+}
+{
+% Do a full document initially to generate
+% all the aux files
+}
+
+\begin{document}
+\frontmatter
+\include{front}
+
+% =========================
+\mainmatter
+\include{chap1}
+\include{chap2}
+\appendix
+\include{append}
+
+% ========================
+\backmatter
+\printbibliography
+\newpage
+\input{backcover}
+\end{document}
+....
+
+We’ll look at the various aspects of this file below. (The various
+support files are at the end of this page.)
+
+=== Using `\input`
+
+The `\input` command is good for parts of a long file that are _not_
+separate chapters. In the example, we have used it to separate out the
+front- and backcovers, keeping the main file short and clear, and also
+meaning we could re-use the covers in another document. We’ve also used
+it for the ‘non-chapter’ sections at the start of our ‘book’: things
+like the preface. Again, this is to help keep the main file clear.
+
+=== Using `\include` and `\includeonly`
+
+The `\include` command is good for chapters, so we have used it for
+each full chapter; it always starts a new page. We have selected which
+chapters will actually be typeset using `\includeonly`, which as you
+can see takes a comma-separated list of file names. When you use
+`\includeonly`, you can shorten how long your typesetting takes and
+produce a ‘selective’ PDF for proofreading. In addition, the key
+advantage of `\includeonly` is that LaTeX will use all of the cross
+reference information from the `.aux` files of other included files.
+
+=== Creating a table of contents
+
+The `\tableofcontents` command uses the information from sectioning
+commands to populate the table of contents. It has its own auxiliary
+file, with extension `.toc`, so you may need to run LaTeX twice to
+resolve the information. The table is generated automatically from the
+section titles. There are similar commands for `\listoffigures` and
+`\listoftables`, which work from the float environment captions, and
+use files with extension `.lof` and `.lot` respectively.
+
+=== Splitting the document into parts
+
+The `\frontmatter`, `\mainmatter`, and `\backmatter` commands
+affect the formatting. For instance, `\frontmatter` changes the page
+numbering to Roman numbers. The `\appendix` command changes the
+numbering to `A`, `B`, etc., so for instance in the first chapter
+after `\appendix`, the header says `Appendix A`.
+
+[[exercises13]]
+=== Exercises
+
+Experiment with the basic structure of the demonstration document, try
+adding and removing entries for `\includeonly` and see the effect.
+
+Add some floats and produce a list of figures and tables. If using a
+locally installed LaTeX, do you see how many LaTeX runs are required?
+(The online systems re-run LaTeX “behind the scenes” so the additional
+required runs are not so obvious.)
+
+'''''
+
+[cols=3,subs=normal,opts="autowidth",frame=ends,grid=rows]
+|====
+
+a|[[fronttex]] *front.tex*
+
+[source,latex]
+....
+\input{frontcover}
+\maketitle
+\input{dedication}
+\input{copyright}
+\tableofcontents
+\input{pref}
+....
+
+a|[[preftex]] *pref.tex*
+
+[source,latex]
+....
+\chapter{Preface}
+The preface text. See \cite{doody}.
+....
+
+a|[[chap1tex]] *chap1.tex*
+
+[source,latex]
+....
+\chapter{Introduction}
+The first chapter text.
+....
+
+a|[[chap2tex]] *chap2.tex*
+
+[source,latex]
+....
+\chapter{Something}
+The second chapter text.
+....
+
+a|[[appendtex]] *append.tex*
+
+[source,latex]
+....
+\chapter*{Appendix}
+The first appendix text.
+....
+
+a|[[frontcovertex]] *frontcover.tex*
+
+[source,latex]
+....
+\begin{center}
+The front cover
+\end{center}
+....
+
+a|[[dedicationtex]] *dedication.tex*
+
+[source,latex]
+....
+\begin{center}
+\large
+For \ldots
+\end{center}
+....
+
+a|[[copyrighttex]] *copyright.tex*
+
+[source,latex]
+....
+\begin{center}
+Copyright 2020 learnlatex.
+\end{center}
+....
+
+a|[[backcovertex]] *backcover.tex*
+
+[source,latex]
+....
+\begin{center}
+The back cover
+\end{center}
+....
+
+|====
+
+'''''
+
+
+
+[[les_14]]
+== Lesson 14 Fonts and Unicode engines
+
+This lesson gives context on how LaTeX interprets Unicode input and how
+that affects what you type and the fonts you use. Learn about Unicode
+and OpenType fonts support.
+
+When TeX and LaTeX first started being widely used they largely only
+handled European languages out of the box, although there was some
+capability for using other alphabets such as Greek and Russian.
+
+=== Accents and accented letters
+
+Originally, accents and accented letters were typed using control
+sequences or macros such as `\c{c}` for ‘ç’ and `\'e` for ‘é’. While
+some people continue to use these input methods because they can be
+easier to type, others wanted to be able to use the keys on their
+keyboards to input such symbols directly.
+
+Before Unicode, LaTeX provided support for many types of _file encoding_
+that allowed text to be written in various languages natively — for
+example, using the `latin1` encoding French users could write
+‘`déjà vu`’ and LaTeX would internally translate the accented letters
+into TeX commands to produce the correct output.
+
+This approach is still in use in modern LaTeX when using the
+`pdflatex` engine. By default all files are assumed to be Unicode
+(UTF-8 encoded) unless otherwise specified. Although this engine is
+limited to 8-bit fonts, most European languages can be supported.
+
+=== Font selection
+
+Font selection with `pdflatex` uses the robust LaTeX font selection
+scheme, and nowadays there are many fonts ready-to-use in a standard
+LaTeX distribution. For example, the TeX Gyre fonts are a suite of
+high-quality fonts based on common fonts that most people are familiar
+with such as Times, Helvetica, Palatino, and others. To load these
+fonts, it is as simple as loading a package with the appropriate name.
+For a Times lookalike, the TeX Gyre name is Termes:
+
+[source,latex]
+....
+\usepackage{tgtermes}
+....
+
+For `pdflatex`, most fonts are accessible through packages. You can have 
+a look at https://www.tug.org/FontCatalogue/[The LaTeX Font Catalogue] or 
+the https://www.ctan.org/topic/font[CTAN page on the ‘Font’ topic] to see 
+some options. You can also search on the Internet for the font you want, 
+and look for a `pdflatex`-compatible package version. If you want to use 
+a proprietary font, you can search for a suitable clone, which for most 
+applications is similar enough to the original.
+
+=== The Unicode era
+
+As `pdflatex` is limited to 8-bit file encodings and 8-bit fonts, it
+cannot natively use modern OpenType fonts and easily switch between
+multiple languages that use different alphabets (or scripts, to use the
+technical term). There are two replacements for pdfTeX that natively use
+Unicode input and modern fonts: XeTeX and LuaTeX. For LaTeX, these are
+typically invoked in your editor using the engines `xelatex` and
+`lualatex` respectively.
+
+In these engines, font selection is performed by the `fontspec`
+package, and for simple documents can look as easy as:
+
+[source,latex]
+....
+\usepackage{fontspec}
+\setmainfont{texgyretermes-regular.otf}
+....
+
+This selects the TeX Gyre Termes font, as in the `pdflatex` example
+above. Notably, this approach works for _any_ OpenType font. Some fonts
+available for `pdflatex` are also available to `xelatex` and
+`lualatex` through their respective packages as well, or by loading
+any font you have installed on your computer by using `fontspec` as
+shown above.
+
+https://www.tug.org/FontCatalogue/[The LaTeX Font Catalogue] also shows
+fonts with OpenType formats available, so you can use that as a resource
+for looking up fonts, as well as the
+https://www.ctan.org/topic/font[CTAN page] mentioned earlier.
+
+Having selected a font, input can now be typed directly in plain Unicode
+into a source document. Here is an example showing some Latin and Greek
+letters as well as some CJK ideographs:
+
+[source,latex]
+....
+% !TEX xelatex
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{texgyretermes-regular.otf}
+\newfontfamily\cjkfont{FandolSong-Regular.otf}
+\begin{document}
+
+ABC → αβγ → {\cjkfont 你好}
+
+\end{document}
+....
+
+When switching between languages it is usually important to also change
+things like hyphenation patterns and so on, and the `babel` and
+`polyglossia` packages both provide robust features to do this.
+
+
+
+[[les_15]]
+== Lesson 15 Dealing with errors
+
+This lesson shows some common errors in LaTeX documents, what they mean,
+and how to work around them.
+
+Unlike a typical word processing system, LaTeX has an Edit/Run/View
+cycle closer to working with programming language compilers, and as in
+programming users may make errors in their input and so need to deal
+with error messages reported by the system.
+
+=== Common errors
+
+This page gives examples of several common errors. Each error example
+has some discussion about the form of the error message.
+
+It may be instructive to try the examples but also use the edit features
+to try to fix the documents and test that you can resolve the errors.
+
+==== pdflatex not found
+
+A common first error that people see when starting is:
+
+[source,latex]
+....
+'pdflatex' is not recognized as an internal or external command,
+operable program or batch file.
+....
+
+on Windows or
+
+[source,latex]
+....
+bash: pdflatex: command not found
+....
+
+on Linux.
+
+This is not a TeX error but an operating system error saying that TeX is
+not installed or not found. A common mistake is to install an _editor_
+such as TeXworks or TeXShop but without installing a TeX system such as
+TeX Live or MiKTeX.
+
+==== Anatomy of a TeX error message
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+
+\newcommand\mycommand{\textbold{hmmm}}
+
+\begin{document}
+
+My command is used here \mycommand.
+
+\end{document}
+....
+
+This produces a multi-line message in the log file.
+
+[source,latex]
+....
+! Undefined control sequence.
+\mycommand ->\textbold 
+                       {hmmm}
+l.8 My command is used here \mycommand
+                                      .
+? 
+....
+
+•   The first line, marked with `!`, gives the general nature of the
+    error (undefined command in this case).
+
+•   The second pair of lines show the line that TeX was processing, with a
+    line break marking the point that TeX had reached. The undefined command
+    is the last token read so the last word before the line break,
+    `\textbold` here. After the line break are the remaining tokens
+    `{hmmm}` that have possibly been read as an argument but have not yet
+    been executed by TeX.
+
+•   There may in general be some additional lines at this point, showing
+    more context of the error message,
+
+•   The final line starts with `l.` followed by a line number, and then
+    the line in the source file where the error is detected.
+
+•   The final line is a `?`. If using TeX interactively it is possible
+    to enter instructions to TeX at this point, but most editors and online
+    systems run TeX in a mode that does not stop at errors but will scroll
+    past this and try to process the rest of the document. Typing `s` to
+    the prompt will instruct TeX to carry on in this mode if you are working
+    interactively.
+
+Note here that TeX does not see the error at the point that the
+definition is made; and in fact if `\mycommand` is defined but not
+used, no error would be raised. So although the error is reported on
+line 8, the “real” error is in the definition on line 4, so it is
+important to see the whole error message.
+
+Beware that some editors show one line “summaries” of the error log.
+This can be particularly misleading if shown as
+
+`line 8: undefined command: ...\mycommand`
+
+as it makes it appear that `\mycommand` is not defined.
+
+==== Mismatched braces
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+
+\usepackage[leqno}{amsmath}
+
+\begin{document}
+
+\end{document}
+....
+
+Here the error is a mismatched `}` used to end the optional argument.
+The closing brace causes LaTeX’s option parsing to fail and you get an
+internal and not that helpful error:
+
+[source,latex]
+....
+! Argument of \@fileswith@ptions has an extra }.
+....
+
+While the error description is unhelpful; the following two lines do
+accurately display the location of the error by the use of the linebreak
+showing how far TeX had read:
+
+[source,latex]
+....
+l.4 \usepackage[leqno}
+                      {amsmath}
+....
+
+==== Missing files
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmathz}
+
+\begin{document}
+
+\end{document}
+....
+
+This produces the error
+
+[source,latex]
+....
+! LaTeX Error: File `amsmathz.sty' not found.
+....
+
+Note: the same error may be caused by two different causes; a simple
+typo as here, which may be corrected by fixing the package name, or that
+the file really is missing and needs to be installed on the current
+system.
+
+==== Blank lines in display math
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+
+Some text
+\begin{equation}
+
+  1=2
+
+\end{equation}
+
+\end{document}
+....
+
+Produces the slightly mysterious error
+
+[source,latex]
+....
+! Missing $ inserted.
+....
+
+But the fix is simple, blank lines are not allowed in math environments
+and should be deleted.
+
+[[exercise15]]
+=== Exercise
+
+Attempt to fix the errors in the supplied examples.
+
+Produce small documents with different errors and note the form of the
+error messages.
+
+
+
+[[les_16]]
+== Lesson 16 Documentation and getting help
+
+This lesson shows the main sources of documentation for LaTeX-related
+software and packages, and how to seek help when you are in trouble.
+
+There are several ways to access the documentation of a package or
+class.
+
+=== texdoc
+
+If you’ve installed a TeX distribution (_e.g._, TeX Live or MiKTeX) and
+included the documentation when you installed it you can access the
+locally saved documentation using the `texdoc` command line tool.
+Using:
+
+`texdoc` < _pkg_ >
+
+will open the documentation of package `<pkg>`. The utility will
+search the available documentation and open what it thinks is the
+closest match to your search term. You can list and choose from among
+all the viable results it finds using:
+
+`texdoc -l` < _pkg_ >
+
+[[texdocorg]]
+=== texdoc.org
+
+This is a https://texdoc.org/[website] which works similarly to the
+`texdoc` utility. You can search for documentation they have available
+just like you would do with `texdoc -l` and then choose from among the
+results.
+
+=== CTAN
+
+https://www.ctan.org[CTAN] is the Comprehensive TeX Archive Network.
+Most LaTeX packages are published there. You can search the site for a
+package to access its documentation. Usually the packages are saved in
+`ctan.org/pkg/<pkg-name>` and you can access the README and
+documentation of the packages stored on CTAN there.
+
+=== Books on LaTeX
+
+There are several books available that can help you learn more about
+LaTeX. As a beginner, you will gain a lot from a structured beginners
+guide, as those can give a lot more detail than we’ve covered here. You
+might also want access to a reference with more detail and
+recommendations.
+
+:BK838: https://www.informit.com/store/latex-a-document-preparation-system-9780201529838
+:BK489: https://www.informit.com/store/latex-companion-parts-i-ii-3rd-edition-9780138166489
+
+The LaTeX team have https://www.latex-project.org/help/books/[a list of books]
+largely written by members. The most notable are link:{BK838}[Lamport’s official guide] 
+and the comprehensive link:{BK489}[LaTeX Companion 3rd edition].
+
+Other books aimed at learning LaTeX include
+
+* https://www.informit.com/store/guide-to-latex-9780132651714[_Guide to LaTeX_]
+  by Helmut Kopka and Patrick Daly: available as an e-book
+* https://www.dickimaw-books.com/latex/novices/[_LaTeX for Complete Novices_]
+  by Nicola Talbot: available as a free e-book or low-cost printed edition
+* https://www.dickimaw-books.com/latex/thesis/[_Using LaTeX to write a PhD thesis_]
+  by Nicola Talbot: available as a free e-book or low-cost printed edition
+* https://www.packtpub.com/gb/hardware-and-creative/latex-beginners-guide[_LaTeX Beginner’s Guide_]
+  by Stefan Kottwitz: available as an e-book and in print
+* https://www.springer.com/gp/book/9783642238154[_LaTeX and Friends_] 
+  by Marc van Dongen: available as an e-book and in print
+
+=== Getting help
+
+There are various online forums for asking LaTeX questions; perhaps the most 
+popular today is https://tex.stackexchange.com[TeX - LaTeX StackExchange].
+Whenever you ask a question, it’s best to first get your
+example clear: what is normally known as a ‘minimal working example’
+(MWE). This doesn’t mean the code works (as you wouldn’t be asking
+otherwise!), but rather it means you’ve done your best to make it clear,
+self-contained and minimal. The latter means having only enough content
+to show the issue.
+
+==== How to provide a minimal working example (MWE)
+
+How do you construct a MWE? Normally easiest is to start from
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\begin{document}
+Text
+\end{document}
+....
+
+and add lines one at a time until you show the issue. You can try to
+‘cut down’ your real file, but that can be a long process.
+
+If you need more text to show page breaking and other effects, then
+packages such as `lipsum` may be used to generate nonsense paragaraphs
+of text while keeping your test file small.
+
+==== Log file
+
+One thing you will want available is your log file; this is created by
+LaTeX every time you run it, and has the same name as your input but
+ending `.log`.
+
+Depending on your desktop interface, you might need to 'show extensions'
+to work out which file it is.
+
+In the log file, you can always see the full error messages. LaTeX’s
+error messages try to be helpful, but they are not the same as messages
+in word processors.
+
+Some editors also make it hard to see the 'full' text of an error, which
+can hide key details.
+
+If you have a problem, expert LaTeX users will often ask for a copy of
+your log file.
+
+[[going-further]]
+==== Going further
+
+Finally we offer a <<ext_01, gallery of small examples>> showing a
+range of different subject areas not covered in this introduction, and
+different LaTeX packages in those areas.
+
+[[lan_01]]
+== Language-specifics for English
+
+This lesson shows language-specific details for typesetting with LaTeX
+in English with a focus on hyphenation, where UK and US traditions are
+different.
+
+=== Hyphenation
+
+LaTeX was written for use with English, and so there are very few
+language-specific issues facing authors in English. The main one is
+hyphenation: UK and US traditions are different. LaTeX starts out using
+US English patterns, but you can switch to UK ones using `babel`.
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[UKenglish]{babel}
+\begin{document}
+Some text
+\end{document}
+....
+
+
+[[ext_01]]
+== Extra Showcase
+
+This lesson shows assorted examples of other popular LaTeX packages that
+were not covered in the main lessons.
+
+This course has given an overview of the core features of LaTeX. LaTeX
+has vast array of extension packages and is used in many subject areas.
+We give here some examples, with no explanation here but links to the
+package documentation at https://texdoc.org[texdoc.org]. The examples
+are taken from the package documentation unless otherwise noted.
+
+Note that inclusion here is not intended as an endorsement of the
+package over other similar packages, we just aim for a small sample
+showing a range of areas not otherwise covered in this course.
+
+=== Chemistry
+
+Package: https://texdoc.org/pkg/mhchem[`mhchem`]
+
+[tikz]
+....
+\documentclass{standalone}
+\usepackage[T1]{fontenc}
+\usepackage{mhchem}
+\begin{document}
+\ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-}
+\end{document}
+....
+
+=== Linguistics
+
+Package: https://texdoc.org/pkg/forest[`forest`]
+
+[tikz]
+....
+\documentclass{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[linguistics]{forest}
+\begin{document}
+\begin{forest}
+[VP
+  [DP\\John ]
+  [V’
+    [V\\sent ]
+    [DP\\Mary ]
+    [DP[D\\a][NP\\letter]]
+  ]
+]
+\end{forest}
+\end{document}
+....
+
+=== Chess
+
+Package: https://texdoc.org/pkg/xskak[`xskak`]
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{xskak}
+\begin{document}
+\newchessgame
+\mainline{1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6}
+
+\xskakset{moveid=2w}%
+\chessboard[setfen=\xskakget{nextfen}]\\[1ex]
+Position after 2.\,\xskakget{lan}
+\end{document}
+....
+
+=== Poetry
+
+Class: https://texdoc.org/pkg/memoir[`memoir`]
+
+[tikz]
+....
+\documentclass{memoir}
+\usepackage[T1]{fontenc}
+\begin{document}
+\settowidth{\versewidth}{Nay, nay, I leave thee not,
+                                       thou goest too}
+\begin{verse}[\versewidth]
+\ldots \\*
+His judgement rendered, he dissolved the Thing. \\*
+\flagverse{Ingeborg} And your decision? \\*
+\flagverse{Fridthjof} \vinphantom{And your decision?}
+
+                                   Have I ought to choose? \\*
+Is not mine honour bound by his decree? \\*
+And that I will redeem through Angantyr \\*
+His paltry gold doth hide in Nastrand’s flood. \\*
+Today will I depart. \\*
+\flagverse{Ingeborg} \vinphantom{Today will I depart.}
+
+                                 And Ingeborg leave? \\*
+\flagverse{Fridthjof} Nay, nay, I leave thee not,
+
+                                   thou goest too. \\*
+\flagverse{Ingeborg} Impossible! \\*
+\flagverse{Fridthjof} \vinphantom{Impossible!}
+
+                                   O! hear me, ere thou answerest.
+\end{verse}
+\end{document}
+....
+
+=== Drawing
+
+Package: https://texdoc.org/pkg/tikz[`tikz`]
+
+[tikz]
+....
+\documentclass{standalone}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usetikzlibrary{perspective}
+
+\begin{document}
+
+\newcommand\simplecuboid[3]{%
+\fill[gray!80!white] (tpp cs:x=0,y=0,z=#3)
+-- (tpp cs:x=0,y=#2,z=#3)
+-- (tpp cs:x=#1,y=#2,z=#3)
+-- (tpp cs:x=#1,y=0,z=#3) -- cycle;
+\fill[gray] (tpp cs:x=0,y=0,z=0)
+-- (tpp cs:x=0,y=0,z=#3)
+-- (tpp cs:x=0,y=#2,z=#3)
+-- (tpp cs:x=0,y=#2,z=0) -- cycle;
+\fill[gray!50!white] (tpp cs:x=0,y=0,z=0)
+-- (tpp cs:x=0,y=0,z=#3)
+-- (tpp cs:x=#1,y=0,z=#3)
+-- (tpp cs:x=#1,y=0,z=0) -- cycle;}
+\newcommand{\simpleaxes}[3]{%
+\draw[->] (-0.5,0,0) -- (#1,0,0) node[pos=1.1]{$x$};
+\draw[->] (0,-0.5,0) -- (0,#2,0) node[pos=1.1]{$y$};
+\draw[->] (0,0,-0.5) -- (0,0,#3) node[pos=1.1]{$z$};}
+\begin{tikzpicture}[3d view]
+   \simplecuboid{2}{2}{2}
+   \simpleaxes{2}{2}{2}
+\end{tikzpicture}
+\end{document}
+....
+
+=== Function plotting
+
+Package: https://texdoc.org/pkg/pgfplots[`pgfplots`]
+
+[tikz]
+....
+\documentclass{standalone}
+\usepackage[T1]{fontenc}
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm,compat=1.17}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[]
+      % density of Normal distribution:
+      \addplot [
+            red,
+            domain=-3e-3:3e-3,
+            samples=201,
+      ]
+            {exp(-x^2 / (2e-3^2)) / (1e-3 * sqrt(2*pi))};
+\end{axis}
+\end{tikzpicture}
+
+\end{document}
+....
+
+=== Music
+
+Package: https://texdoc.org/pkg/musixtex[`musixtex`]
+
+[source,latex]
+....
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{musixtex}
+
+\begin{document}
+
+\begin{music}
+\parindent10mm
+\instrumentnumber{1}
+% a single instrument
+\setname1{Piano}
+% whose name is Piano
+\setstaffs1{2}
+% with two staffs
+\generalmeter{\meterfrac44}
+% 4/4 meter chosen
+\startextract
+% starting real score
+\Notes\ibu0f0\qb0{cge}\tbu0\qb0g|\hl j\en
+\Notes\ibu0f0\qb0{cge}\tbu0\qb0g|\ql l\sk\ql n\en
+\bar
+\Notes\ibu0f0\qb0{dgf}|\qlp i\en
+\notes\tbu0\qb0g|\ibbl1j3\qb1j\tbl1\qb1k\en
+\Notes\ibu0f0\qb0{cge}\tbu0\qb0g|\hl j\en
+\zendextract
+% terminate excerpt
+\end{music}
+
+\end{document}
+....
+
+
+
+[[ml01]]
+== More Lesson 1
+
+
+The word ‘LaTeX’ actually consists of two components, ‘La’ and ‘TeX’. In
+the following we will briefly describe where they come from.
+
+TeX was originally invented by Stanford professor Donald Knuth. Knuth is
+well known for a series of books called _The Art of Computer Programming_ 
+(known as TAOCP). In 1973 a new edition of the books was to
+be made; this was the time when the typesetting industry switched from
+traditional typesetting with lead to photo-based typesetting. Donald
+Knuth did not like the quality of the print and therefore decided to
+implement his own typesetting system.
+
+In May 1977 the development of TeX started.
+
+The original TeX was rather complicated to use, even Donald Knuth used
+various macros to edit his books. Leslie Lamport, who works for
+Microsoft nowadays, also developed a set of macros that simplify the use
+of TeX and called this macro set “LaTeX”.
+
+Today LaTeX is the most common way to interact with TeX. Another
+alternative is https://www.contextgarden.net/[ConTeXt].
+
+[[ml02]]
+== More Lesson 2 Formats and engines
+
+
+For most of our examples, we don’t use a program called `latex` but
+instead one called `pdflatex`. This is one of a family of related
+programs, all of which are ‘descendants’ of `latex`. We have chosen
+`pdflatex` because it is perhaps the most widely-used system and
+directly produces PDF files.
+
+
+Formats and enginesAs described <<ml01, earlier>>, LaTeX is built on a system called
+TeX. We call LaTeX a ‘format’: a collection of macros (instructions and
+commands) that TeX understands. When you run `pdflatex`, you are
+_actually_ starting a program called ‘pdfTeX’ with a pre-loaded ‘LaTeX
+format’. We normally call pdfTeX an _engine_: a program that understands
+TeX instructions.
+
+There are three engines in common use today:
+
+* pdfTeX
+* XeTeX
+* LuaTeX
+
+We will cover <<les_14, XeTeX and LuaTeX later>>: the main thing we
+need to know now is that they are capable of loading operating system
+fonts, whereas pdfTeX can’t do that.
+
+If you are in Japan, or writing lots of Japanese, you might also come
+across pTeX and upTeX. These are specialized engines for vertical
+typesetting. LuaTeX can also do a lot of this, but at the moment upTeX,
+in particular, is still the most popular system for Japanese.
+
+[[ml03]]
+== More Lesson 3 Running LaTeX
+
+As <<les_02, detailed earlier>>, LaTeX documents are simply plain
+text. To see this, try opening your first document in a simple text
+editor, for example on Windows using Notepad. You should see the same
+text as in a dedicated LaTeX editor, but without any highlight of
+keywords.
+
+You can also convert to PDF without your editor; this means using the
+Command Prompt/Terminal, so don’t worry if you are not familiar with
+this. If you _are_, you can navigate to the directory containing your
+`.tex` source file and run
+
+`pdflatex first`
+
+or
+
+`pdflatex first.tex`
+
+to typeset your PDF. Notice that the `.tex` extension is optional:
+LaTeX will assume files end with `.tex` unless you specify otherwise.
+
+=== Special characters
+
+If you need to type in a special character, most of the time you can
+simply use a backslash in front of it, so for example `\{` is used to
+print a literal `{`. There are a few cases where you need to use a
+longer command instead:
+
+[cols=3,opts="header,autowidth",grid=rows,frame=ends,role="big"]
+|===
+|Symbol  |Short Command +
+         [.small]#(math and text)#  |Long Command +
+                                    [.small]#(for text only)#
+|`{`    |`\{`     |`\textbraceleft`
+|`}`    |`\}`     |`\textbraceright`
+|`$`    |`\$`     |`\textdollar`
+|`%`    |`\%`     | 
+|`&`    |`\&`     | 
+|`+#+`  |`+\#+`   | 
+|`_`    |`\_`     |`\textunderscore`
+|`\`    |         |`\textbackslash`
+|`^`    |         |`\textasciicircum`
+|`~`    |         |`\textasciitilde`
+|===
+
+For the last three symbols there are no short commands available,
+because `\\` is used to indicate a linebreak and `\~` and `\^` are
+used to produce tilde and circumflex accents when using only ASCII
+characters as input.
+
+[[ml04]]
+== More Lesson 4 Document titles
+
+LaTeX offers some logical markup for the title of documents: three
+commands to set up ‘meta-data’ and one to use it.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\begin{document}
+\author{A.~N.~Other \and D.~Nobacon}
+\title{Some things I did}
+\date{1st April 2020}
+\maketitle
+
+Some normal text.
+\end{document}
+----
+
+
+[tikz]
+----
+\documentclass{article}
+\usepackage[height=5.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\begin{document}
+\author{A.~N.~Other \and D.~Nobacon}
+\title{Some things I did}
+\date{1st April 2020}
+\maketitle
+
+Some normal text for test. A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+\end{document}
+----
+
+As you can see, the commands `\author`, `\title` and `\date` save
+information, and `\maketitle` uses it. You can also separate multiple
+authors with `\and`. The commands `\author`, `\title` and
+`\date` need to come before `\maketitle`. Here, we’ve given them in
+the document body: they can also be used in the preamble, but if you use
+`babel` shortcuts they won’t be active there.
+
+The design provided by `\maketitle` depends on the document class (see
+<<les_05, lesson 5>>). There is a `titlepage` environment for when
+you want to do custom design, but this is out of the scope of this
+introduction. If you want to do your own document designs you can either
+use a customisable class, such as `memoir`, or start with one of
+LaTeX’s base classes, like `book` and use it as a starting point.
+
+=== Descriptive lists
+
+In addition to the “ordered” and “unordered” types of lists, LaTeX
+provides another one, less common: the “descriptive lists”.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\begin{document}
+
+\begin{description}
+\item[Dog:] member of the genus Canis, which forms part of the wolf-like canids,
+  and is the most widely abundant terrestrial carnivore.
+\item[Cat:] domestic species of small carnivorous mammal. It is the only
+  domesticated species in the family Felidae and is often referred to as the
+  domestic cat to distinguish it from the wild members of the family.
+\end{description}
+
+\end{document}
+----
+
+[tikz]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\begin{document}
+
+\begin{description}
+\item[Dog:] member of the genus Canis, which forms part of the wolf-like canids,
+  and is the most widely abundant terrestrial carnivore.
+\item[Cat:] domestic species of small carnivorous mammal. It is the only
+  domesticated species in the family Felidae and is often referred to as the
+  domestic cat to distinguish it from the wild members of the family.
+\end{description}
+
+\end{document}
+----
+
+=== Exercises
+
+Try setting up different `\author`, `\title` and `\date`
+information to test out `\maketitle`. Which of them do you _have_ to
+give? Do the commands have to have an author, a title and a date in
+them?
+
+Make some descriptive lists, and nest some of them inside another ones
+(ordered, unordered or descriptive).
+
+[[ml05]]
+== More Lesson 5 Journal-specific classes
+
+Many academic journals provide LaTeX classes for submissions. These
+typically set up the layout to be similar to the final journal, although
+that does depend on font usage, etc. If there is a class available, it
+is normally provided directly by the editorial office, who should give
+appropriate detail on what features it has. Many of these are also
+available on https://ctan.org[CTAN] and in standard TeX distributions.
+
+=== Classes for presentations
+
+One area that needs a lot of special treatment is creating
+presentations. The `slides` class was written for making ‘classical’
+printed slides, and it does not have any special support for on-screen
+presentations. Two classes have been developed to do just that, and that
+are widely used: `beamer` and `powerdot`. As `beamer` is probably
+the more common one, we will give you an example of how it works:
+
+[source,latex]
+----
+\documentclass{beamer}
+\usepackage[T1]{fontenc}
+\begin{document}
+
+\begin{frame}
+  \frametitle{A first frame}
+  Some text
+\end{frame}
+
+\begin{frame}
+  \frametitle{A second frame}
+  Different text
+  \begin{itemize}
+    \item<1-> First item
+    \item<2-> Second item
+  \end{itemize}
+\end{frame}
+
+\end{document}
+----
+
+[tikz]
+----
+\documentclass{beamer}
+\usepackage[T1]{fontenc}
+\begin{document}
+
+\begin{frame}
+  \frametitle{A first frame}
+  Some text
+\end{frame}
+
+\begin{frame}
+  \frametitle{A second frame}
+  Different text
+  \begin{itemize}
+    \item<1-> First item
+    \item<2-> Second item
+  \end{itemize}
+\end{frame}
+
+\end{document}
+----
+
+This shows two important ideas. First, `beamer` divides a document
+into frames, each of which can make more than one slide (page). Second,
+`beamer` adds to the normal LaTeX syntax to allow parts of the source
+to appear ‘a bit at a time’. This is powerful but more complicated than
+we can cover here: take a look at this blog entry for more.
+https://www.texdev.net/2014/01/17/the-beamer-slide-overlay-concept/[🕸]
+
+=== A class for images
+
+There are occasions when you need to make an image (which might be
+text-heavy) using LaTeX. Often, you do not want anything other than the
+content itself on the ‘page’. That is easiest to do using the
+https://ctan.org/pkg/standalone[`standalone`] class. It automatically
+sets the size of the page to surround the printed content.
+
+[source,latex]
+----
+\documentclass{standalone}
+\usepackage[T1]{fontenc}
+\begin{document}
+A simple document: this will be a very small box!
+\end{document}
+----
+
+[tikz]
+----
+\documentclass{standalone}
+\usepackage[T1]{fontenc}
+\begin{document}
+A simple document: this will be a very small box!
+\end{document}
+----
+
+[[ml06]]
+== More Lesson 6 Loading multiple packages
+
+The `\usepackage` command takes a comma-separated list of packages, so
+you can load several in one go: `\usepackage{color,graphicx}` for
+example. If you are passing options to a package, they will apply to
+each of the packages in the list. It’s also easier to comment out
+packages if they are loaded separately. So we will stick to loading each
+package on a separate line.
+
+=== The `babel` package
+
+We showed the `babel` package <<les_06, in the main lesson>> as a
+way to choose different hyphenation patterns. It does a lot more than
+that, depending on the language(s) being used. For example, in German,
+it provides some shorthands for creating ‘soft’ hyphens, and also a way
+to quickly type umlauts without needing a German keyboard. Note also how
+the section heading _Table of Contents_ normally generated by
+`\tableofcontents` is changed to the German Inhaltsverzeichnis.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+
+\usepackage[ngerman]{babel} % Notice that the option name is 'ngerman'
+
+\begin{document}
+
+\tableofcontents
+
+\section{"Uber "Apfel und Birnen}
+
+\subsection{Äpfel}
+Äpfel sind rot.
+
+\subsection{Birnen}
+Birnen sind gelb.
+
+
+\end{document}
+----
+
+Other language settings make design changes: for example, in traditional
+French typography, there is a space before some punctuation signs, like
+`:`, and this is added automatically if you load `babel` with the
+option `french`.
+
+=== Global options
+
+Sometimes, you want an option to be available to all of the packages
+you’ve loaded. That is done by giving it on the `\documentclass` line:
+every package can ‘see’ this list. So to pass the language of a document
+to all packages, we might use:
+
+[source,latex]
+----
+\documentclass[ngerman]{article} % Notice that the option name is 'ngerman'
+\usepackage[T1]{fontenc}
+
+\usepackage{babel}
+
+\begin{document}
+
+\tableofcontents
+
+\section{"Uber "Apfel und Birnen}
+
+\subsection{Äpfel}
+Äpfel sind rot.
+
+\subsection{Birnen}
+Birnen sind gelb.
+
+\end{document}
+----
+
+=== More definitions
+
+`\newcommand` allows commands with up to nine arguments, the first of
+which may be optional.
+
+If we take the example from the main lesson, we could make the color
+optional, defaulting to blue.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+
+\usepackage{xcolor}
+
+\newcommand\kw[2][blue]{\textcolor{#1}{\itshape #2}}
+
+\begin{document}
+
+Something about \kw{apples} and \kw[red]{oranges}.
+
+\end{document}
+----
+
+Optional arguments are delimited with `[]` and if omitted, the default
+value specified in the definition is used.
+
+=== `\NewDocumentCommand`
+
+From the October 2020 LaTeX release, an extended definition system is
+available. In older LaTeX releases this was available via the `xparse`
+package which we use here for compatibility.
+
+We can repeat the above example but using `\NewDocumentCommand`
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+
+\usepackage{xparse} % Only needed for older LaTeX releases
+\usepackage{xcolor}
+
+\NewDocumentCommand\kw{O{blue} m}{\textcolor{#1}{\itshape #2}}
+
+\begin{document}
+
+Something about \kw{apples} and \kw[red]{oranges}.
+
+\end{document}
+----
+
+Just as with `\newcommand`, `\NewDocumentCommand` takes the command
+being defined (`\kw` here) and the definition body, using `+#1+` to
+`+#9+` for the arguments, however the difference is in how the arguments
+are specified.
+
+Unlike `\newcommand` where just the number of arguments is given,
+optionally supplying a default for the first, with
+`\NewDocumentCommand` each argument is specified by a letter so a two
+argument command would be specified by `{mm}` rather than `[2]`.
+This is slightly more verbose but allows many more forms of commands to
+be defined. Here we just give this simple example where the first
+argument is optional, defaulting to blue (`O{blue}`) and the second
+argument is mandatory (`m`).
+
+[[ml07]]
+== More Lesson 7 Naming graphics files
+
+LaTeX works on many computer platforms so file names deserve some
+thought. Safest is to name your graphics simply, in particular without
+spaces. For example, if you want to organize your files by keeping all
+graphics in a subdirectory, then something like
+`\includegraphics[width=30pt]{pix/mom.png}` is portable and
+future-proof.
+
+Spaces in file names are traditionally somewhat problematic, but are now
+generally supported. However, if you have spaces in the name, and you
+have issues, you may wish to try removing the spaces as the first step.
+
+Accented character support is somewhat variable; there are issues with
+some systems, particularly on Windows. If you find issues with accented
+characters in file names, try using only ASCII characters for a test.
+
+=== Storing graphics in a subdirectory
+
+A common way to lay out source files is to put all graphics into a
+subdirectory. You can then include the relative path, as is shown above;
+notice that the `/` character is used to separate parts of the path
+_even on Windows_.
+
+If you have a lot of graphics, you might want to set up the subdirectory
+in advance. That can be done using `\graphicspath`, which needs a
+braced entry for each subdirectory. For example, to include both
+`figs` and `pics` subdirectories, we would have:
+
+[source,latex]
+----
+\graphicspath{{figs/}{pics/}}
+----
+
+Notice in particular the trailing `/` in these.
+
+
+
+=== Producing graphics
+
+As discussed, LaTeX easily uses graphics from most sources, including
+plots from scientific software. When you do that, you probably want to
+save as a PDF if you can, as this is a scalable format. If you do need
+to create a bitmap, aim for high resolution. You can make mouse-created
+graphics that include LaTeX snippets with
+https://inkscape.org/[Inkscape]. An alternative that in addition extends
+those drawing techniques to three dimensions is
+https://www.ctan.org/pkg/asymptote[Asymptote]. These two produce their
+output as files that you include in your document.
+
+You can also create graphics such as drawings that are especially suited
+to LaTeX, with very high precision as well as equations and labels that
+match your document. You can draw graphics directly inside your
+document, which is convenient although at the cost of more complex
+documents with larger requirements, by using
+https://ctan.org/pkg/pgf[Ti__k__Z]. An alternative is
+https://ctan.org/pkg/pstricks-base[PSTricks].
+
+=== Placing floats
+
+LaTeX’s float placement is complex. The most common request is to have
+the figure placed in the output exactly where it lies in the input. The
+`float` package will do that.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{lipsum}  % dummy text for filler
+\usepackage{float}
+
+\begin{document}
+\lipsum[1-7]
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{example-image}
+  \caption{An example image}
+\end{figure}
+\lipsum[8-15]
+\end{document}
+----
+
+Note the `H` option, which puts the figure ‘absolutely Here’. However
+it is often not recommended to use `H`, because it may create large
+portions of white space in your document.
+
+=== Other types of float
+
+We will <<les_08, see soon>> that we can put tables in floats; they
+will go into a `table` environment. However, we don’t _have_ to put
+graphics in the `figure` environment or tables in the `table`
+environment; this is just convention.
+
+You might want to have other types of floating environment; each type is
+inserted independently. You can do that using the
+https://ctan.org/pkg/trivfloat[`trivfloat`] package. This provides a
+single command, `\trivfloat`, to make new types of float.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{lipsum}  % dummy text for filler
+\usepackage{trivfloat}
+\trivfloat{image}
+
+\begin{document}
+\begin{image}
+  \centering
+  \includegraphics[width=0.5\textwidth]{example-image}
+  \caption{An example image}
+\end{image}
+\end{document}
+----
+
+[[ml08]]
+== More Lesson 8 The other preamble contents
+
+As the lesson didn’t cover all the available preamble-tokens, a few
+others are explained with examples here. You might want to revisit the
+tables at the start of the lesson to get an overview of the things
+available. The short descriptions provided there should suffice to
+understand what the different column types `m`, `b`, `w`, and
+`W` do after you understood `l`, `c`, `r`, and `p`. If not you
+might want to experiment a bit with them. What’s still missing are the
+handy other preamble-tokens `>`, `<`, `@`, `!`, and `|`.
+
+=== Styling a column
+
+Since `>` and `<` can be used to put things before and after the
+cell contents of a column, you can use these to add commands which
+affect the look of a column. For instance, if you want to italicize the
+first column and put a colon after it, you can do the following:
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs}
+
+\begin{document}
+\begin{tabular}{>{\itshape}l<{:} *{2}{l}}
+  \toprule
+  Animal & Food  & Size   \\
+  \midrule
+  dog    & meat  & medium \\
+  horse  & hay   & large  \\
+  frog   & flies & small  \\
+  \bottomrule
+\end{tabular}
+\end{document}
+----
+
+[tikz]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs}
+
+\begin{document}
+\begin{tabular}{>{\itshape}l<{:} *{2}{l}}
+  \toprule
+  Animal & Food  & Size   \\
+  \midrule
+  dog    & meat  & medium \\
+  horse  & hay   & large  \\
+  frog   & flies & small  \\
+  \bottomrule
+\end{tabular}
+\end{document}
+----
+
+`\itshape` makes all the following text italic, but its effect is
+‘contained’ by the table cell. We will look at manual font formatting
+<<les_11, in a few lessons time>>.
+
+You may want the first cell not to be affected because it is the table
+head. Here `\multicolumn` may be used. Remember that it can be used to
+change a single cell’s alignment as shown below.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs}
+
+\begin{document}
+\begin{tabular}{>{\itshape}l<{:} *{2}{l}}
+  \toprule
+  \multicolumn{1}{l}{Animal} & Food  & Size   \\
+  \midrule
+  dog    & meat  & medium \\
+  horse  & hay   & large  \\
+  frog   & flies & small  \\
+  \bottomrule
+\end{tabular}
+\end{document}
+----
+
+[tikz]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs}
+
+\begin{document}
+\begin{tabular}{>{\itshape}l<{:} *{2}{l}}
+  \toprule
+  \multicolumn{1}{l}{Animal} & Food  & Size   \\
+  \midrule
+  dog    & meat  & medium \\
+  horse  & hay   & large  \\
+  frog   & flies & small  \\
+  \bottomrule
+\end{tabular}
+\end{document}
+----
+
+==== Manipulating the space between columns
+
+Usually LaTeX pads each column by some space on both sides to give a
+balanced look and separate them. This space is defined with the length
+`\tabcolsep`. Due to the fact that each column is padded on both sides
+you get one `\tabcolsep` on either end of the table, and
+`2\tabcolsep` between two columns – one from each column. You can
+adjust this space to any length using `\setlength`:
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+
+\setlength\tabcolsep{1cm}
+
+\begin{document}
+\begin{tabular}{lll}
+  Animal & Food  & Size   \\
+  dog    & meat  & medium \\
+  horse  & hay   & large  \\
+  frog   & flies & small  \\
+\end{tabular}
+\end{document}
+----
+
+[tikz]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+
+\setlength\tabcolsep{1cm}
+
+\begin{document}
+\begin{tabular}{lll}
+  Animal & Food  & Size   \\
+  dog    & meat  & medium \\
+  horse  & hay   & large  \\
+  frog   & flies & small  \\
+\end{tabular}
+\end{document}
+----
+
+
+You can change this space to something arbitrary using `@`. This will
+remove the padding between two columns or on either end, and instead put
+anything in between the columns you specify as an argument:
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+
+\begin{document}
+\begin{tabular}{l@{ : }l@{\hspace{2cm}}l}
+  Animal & Food  & Size   \\
+  dog    & meat  & medium \\
+  horse  & hay   & large  \\
+  frog   & flies & small  \\
+\end{tabular}
+\end{document}
+----
+
+(We’ll see `\hspace` <<les_11, again shortly>>; you might guess
+that it adds a horizontal space.)
+
+The `!` preamble token does something pretty similar. The difference
+is, that it _adds_ its argument in center of the space between two
+columns.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+
+\begin{document}
+\begin{tabular}{l!{:}ll}
+  Animal & Food  & Size   \\
+  dog    & meat  & medium \\
+  horse  & hay   & large  \\
+  frog   & flies & small  \\
+\end{tabular}
+\end{document}
+----
+
+==== Vertical rules
+
+Sometimes you have to use vertical rules.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+
+\begin{document}
+\begin{tabular}{l|ll}
+  Animal & Food  & Size   \\[2pt]
+  dog    & meat  & medium \\
+  horse  & hay   & large  \\
+  frog   & flies & small  \\
+\end{tabular}
+\end{document}
+----
+
+[tikz]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+
+\begin{document}
+\begin{tabular}{l|ll}
+  Animal & Food  & Size   \\[2pt]
+  dog    & meat  & medium \\
+  horse  & hay   & large  \\
+  frog   & flies & small  \\
+\end{tabular}
+\end{document}
+----
+
+You might notice that the behavior of `|` is pretty similar to
+`!{decl}`; it adds the vertical rule between two columns leaving the
+padding as it is. There is a huge downside to this though; vertical
+rules don’t work with the horizontal rules provided by `booktabs`. You
+can use the horizontal rules provided by LaTeX; those are `\hline`
+(corresponding to `\toprule`, `\midrule`, and `\bottomrule`) and
+`\cline` (which behaves like `\cmidrule`). As shown above, vertical
+rules will span any space specified in the optional argument to `\\`.
+
+=== Customizing booktabs rules
+
+All the `booktabs` rules and also `\addlinespace` support an
+optional argument in brackets with which you can specify the rule’s
+thickness. In addition the trimming provided by `\cmidrule` can be
+customized by specifying a length in braces after `r` or `l`.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs}
+
+\begin{document}
+\begin{tabular}{@{} lll@{}} \toprule[2pt]
+  Animal & Food  & Size   \\ \midrule[1pt]
+  dog    & meat  & medium \\
+  \cmidrule[0.5pt](r{1pt}l{1cm}){1-2}
+  horse  & hay   & large  \\
+  frog   & flies & small  \\ \bottomrule[2pt]
+\end{tabular}
+\end{document}
+----
+
+[tikz]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs}
+
+\begin{document}
+\begin{tabular}{@{} lll@{}} \toprule[2pt]
+  Animal & Food  & Size   \\ \midrule[1pt]
+  dog    & meat  & medium \\
+  \cmidrule[0.5pt](r{1pt}l{1cm}){1-2}
+  horse  & hay   & large  \\
+  frog   & flies & small  \\ \bottomrule[2pt]
+\end{tabular}
+\end{document}
+----
+
+=== Numeric alignment in columns
+
+The alignment of numbers in tables can be handled by the column type
+`S` that is provided by the `siunitx` package.
+
+A simple example with two aligned numeric columns would be:
+
+
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\begin{document}
+\begin{tabular}{SS}
+\toprule
+{Values} &  {More Values} \\
+\midrule
+1        &   2.3456 \\
+1.2      &   34.2345 \\
+-2.3     &   90.473 \\
+40       &   5642.5 \\
+5.3      &   1.2e3 \\
+0.2      &    1e4 \\
+\bottomrule
+\end{tabular}
+\end{document}
+----
+
+[tikz]
+----
+\documentclass{article}
+\usepackage[height=3.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\begin{document}
+\begin{tabular}{SS}
+\toprule
+{Values} &  {More Values} \\
+\midrule
+1        &   2.3456 \\
+1.2      &   34.2345 \\
+-2.3     &   90.473 \\
+40       &   5642.5 \\
+5.3      &   1.2e3 \\
+0.2      &    1e4 \\
+\bottomrule
+\end{tabular}
+\end{document}
+----
+
+Note that any non-numeric cell must be “protected” by enclosing it in
+braces.
+
+The `siunitx` package provides many possibilities for formatting the
+numbers in different ways; see the
+https://texdoc.org/pkg/siunitx[package documentation].
+
+=== Specifying the total table width
+
+The width of a `tabular` environment is automatically determined based
+on the contents of the table. There are two commonly used mechanisms to
+specify a different total width.
+
+Note that it is almost always preferable to format the table to a
+specified width as below (perhaps using a font size such as `\small`
+if necessary) rather than scaling a table with `\resizebox` and
+similar commands which will produce inconsistent font sizes and rule
+widths.
+
+==== tabular*
+
+The `tabular*` environment takes an additional _width_ argument that
+specifies the total width of the table. Stretchy space must be added to
+the table using the `\extracolsep` command. This space is added
+between all columns from that point in the preamble. It is almost always
+used with `\fill`, a special space that stretches to be as large as
+necessary.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\begin{document}
+
+\begin{center}
+\begin{tabular}{cc}
+\hline
+A & B\\
+C & D\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}  
+\begin{tabular*}{.5\textwidth}{@{\extracolsep{\fill}}cc@{}}
+\hline
+A & B\\
+C & D\\
+\hline
+\end{tabular*}
+\end{center}
+
+\begin{center}  
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}cc@{}}
+\hline
+A & B\\
+C & D\\
+\hline
+\end{tabular*}
+\end{center}
+
+\end{document}
+----
+
+[tikz]
+----
+\documentclass{article}
+\usepackage[height=3.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\begin{document}
+
+\begin{center}
+\begin{tabular}{cc}
+\hline
+A & B\\
+C & D\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}  
+\begin{tabular*}{.5\textwidth}{@{\extracolsep{\fill}}cc@{}}
+\hline
+A & B\\
+C & D\\
+\hline
+\end{tabular*}
+\end{center}
+
+\begin{center}  
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}cc@{}}
+\hline
+A & B\\
+C & D\\
+\hline
+\end{tabular*}
+\end{center}
+
+\end{document}
+----
+
+==== tabularx
+
+The `tabularx` environment, provided by the package of the same name,
+has a similar syntax to `tabular*` but instead of adjusting the
+inter-column space, adjusts the widths of columns specified by a new
+column type, `X`. This is equivalent to a specification of `p{...}`
+for an automatically determined width.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx}
+\begin{document}
+
+\begin{center}
+\begin{tabular}{lp{2cm}}
+\hline
+A & B B B B B B B B B B B B B B B B B B B B B B B B\\
+C & D D D D D D D\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}  
+\begin{tabularx}{.5\textwidth}{lX}
+\hline
+A & B B B B B B B B B B B B B B B B B B B B B B B B\\
+C & D D D D D D D\\
+\hline
+\end{tabularx}
+\end{center}
+
+\begin{center}  
+\begin{tabularx}{\textwidth}{lX}
+\hline
+A & B B B B B B B B B B B B B B B B B B B B B B B B\\
+C & D D D D D D D\\
+\hline
+\end{tabularx}
+\end{center}
+
+\end{document}
+----
+
+[tikz]
+----
+\documentclass{article}
+\usepackage[height=5.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx}
+\begin{document}
+
+\begin{center}
+\begin{tabular}{lp{2cm}}
+\hline
+A & B B B B B B B B B B B B B B B B B B B B B B B B\\
+C & D D D D D D D\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}  
+\begin{tabularx}{.5\textwidth}{lX}
+\hline
+A & B B B B B B B B B B B B B B B B B B B B B B B B\\
+C & D D D D D D D\\
+\hline
+\end{tabularx}
+\end{center}
+
+\begin{center}  
+\begin{tabularx}{\textwidth}{lX}
+\hline
+A & B B B B B B B B B B B B B B B B B B B B B B B B\\
+C & D D D D D D D\\
+\hline
+\end{tabularx}
+\end{center}
+
+\end{document}
+----
+
+Unlike the other forms discussed in these lessons, `tabularx` needs to
+typeset the table several times with trial widths to determine the final
+setting. This means that there are several restrictions on the use of
+the environment; see the https://texdoc.org/pkg/tabularx[package
+documentation].
+
+=== Multi-page tables
+
+A `tabular` forms an unbreakable box so it must be small enough to fit
+on one page, and is often placed in a floating `table` environment.
+
+Several packages provide variants with similar syntax that do allow page
+breaking. Here we show the `longtable` package:
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[paperheight=8cm,paperwidth=8cm]{geometry}
+\usepackage{array}
+\usepackage{longtable}
+\begin{document}
+\begin{longtable}{cc}
+\multicolumn{2}{c}{A Long Table}\\
+Left Side & Right Side\\
+\hline
+\endhead
+\hline
+\endfoot
+aa & bb\\  
+Entry & b\\  
+a & b\\  
+a & b\\  
+a & b\\  
+a & b\\  
+a & bbb\\  
+a & b\\  
+a & b\\  
+a & b\\  
+a & b\\  
+a & b\\  
+a & b\\  
+a & b b b b b b\\  
+a & b b b b b\\  
+a & b b\\  
+A Wider Entry & b\\  
+\end{longtable}
+
+\end{document}
+----
+
+`longtable` is notable in that it preserves the column widths over all
+pages of the table; however in order to achieve this it may take several
+runs of LaTeX so that wide entries encountered later in the table can
+affect the column widths in earlier pages.
+
+=== Table notes
+
+It is quite common to need footnote-like marks in a table referring to
+notes under the table. The `threeparttable` package simplifies the
+markup for such tables, arranging that the notes are set in a block the
+same width as the table. Refer to the
+https://texdoc.org/pkg/threeparttable[package documentation] for full
+details, but we show a simple example here.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{threeparttable}
+\begin{document}
+
+\begin{table}
+\begin{threeparttable}
+   \caption{An Example}
+   \begin{tabular}{ll}
+    An entry & 42\tnote{1}\\
+    Another entry & 24\tnote{2}\\
+   \end{tabular}
+   \begin{tablenotes}
+   \item [1] the first note.
+   \item [2] the second note.
+   \end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\end{document}
+----
+
+=== Typesetting in narrow columns
+
+The default line breaking settings assume relatively long lines to give
+some flexibility in choosing line breaks. The following example shows
+some possible approaches. The first table shows interword spacing
+stretched and TeX warns about Underfull lines. Using `\raggedright`
+usually avoids this problem but may leave some lines ‘too ragged’. The
+`\RaggedRight` command from the `ragged2e` package is a compromise;
+it allows some raggedness in the line lengths, but will also hyphenate
+where necessary, as shown in the third table.
+
+Note the use of `\arraybackslash` here, which resets the definition of
+`\\` so that it ends the table row.
+
+An alternative technique, as shown in the fourth table, is to use a
+smaller font so that the columns are not so narrow relative to the text
+size.
+
+[source,latex]
+----
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{ragged2e}
+\begin{document}
+
+\begin{table}
+
+\begin{tabular}[t]{lp{3cm}}
+One & A long text set in a narrow paragraph, with some more example text.\\
+Two & A different long text set in a narrow paragraph, with some more  hard to hyphenate words.
+\end{tabular}%
+\begin{tabular}[t]{l>{\raggedright\arraybackslash}p{3cm}}
+One & A long text set in a narrow paragraph, with some more example text.\\
+Two & A different long text set in a narrow paragraph, with some more  hard to hyphenate words.
+\end{tabular}%
+\begin{tabular}[t]{l>{\RaggedRight}p{3cm}}
+One & A long text set in a narrow paragraph, with some more example text.\\
+Two & A different long text set in a narrow paragraph, with some more  hard to hyphenate words.
+\end{tabular}
+
+\footnotesize
+\begin{tabular}[t]{lp{3cm}}
+One & A long text set in a narrow paragraph, with some more example text.\\
+Two & A different long text set in a narrow paragraph, with some more  hard to hyphenate words.
+\end{tabular}
+
+\end{table}
+
+\end{document}
+----
+
+[tikz]
+----
+\documentclass[a4paper]{article}
+\usepackage[height=5.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{ragged2e}
+\begin{document}
+
+\begin{table}
+
+\begin{tabular}[t]{lp{3cm}}
+One & A long text set in a narrow paragraph, with some more example text.\\
+Two & A different long text set in a narrow paragraph, with some more  hard to hyphenate words.
+\end{tabular}%
+\begin{tabular}[t]{l>{\raggedright\arraybackslash}p{3cm}}
+One & A long text set in a narrow paragraph, with some more example text.\\
+Two & A different long text set in a narrow paragraph, with some more  hard to hyphenate words.
+\end{tabular}%
+\begin{tabular}[t]{l>{\RaggedRight}p{3cm}}
+One & A long text set in a narrow paragraph, with some more example text.\\
+Two & A different long text set in a narrow paragraph, with some more  hard to hyphenate words.
+\end{tabular}
+
+\footnotesize
+\begin{tabular}[t]{lp{3cm}}
+One & A long text set in a narrow paragraph, with some more example text.\\
+Two & A different long text set in a narrow paragraph, with some more  hard to hyphenate words.
+\end{tabular}
+
+\end{table}
+
+\end{document}
+----
+
+=== Defining new column types
+
+As demonstrated in the <<les_08, main lesson>>, the `array`
+package allows constructs such as `>{\bfseries}c` to denote a bold
+centered column. It is often convenient to define a new column type to
+encapsulate such use, for example
+
+[source,latex]
+----
+\newcolumntype{B}{>{\bfseries}c}
+----
+
+would allow the use of `B` in table preambles to specify a bold
+centered column.
+
+=== Vertical tricks
+
+Often, rather than making a cell span multiple rows it is better to
+instead have a single row in which some cells are split vertically by
+the use of nested `tabular` environments.
+
+TIP: 通过 "rather than... instead..." 结构，清晰区分两种方案并强调后者更优。
+     原句中同时使用 "rather than" 和 "instead"，可能略显冗余。
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs}
+
+\begin{document}
+\begin{tabular}{lcc}
+  \toprule
+  Test & \begin{tabular}{@{}c@{}}A\\a\end{tabular} & \begin{tabular}{@{}c@{}}B\\b\end{tabular} \\
+  \midrule
+  Content & is & here \\
+  Content & is & here \\
+  Content & is & here \\
+  \bottomrule
+\end{tabular}
+\end{document}
+----
+
+[tikz]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs}
+
+\begin{document}
+\begin{tabular}{lcc}
+  \toprule
+  Test & \begin{tabular}{@{}c@{}}A\\a\end{tabular} & \begin{tabular}{@{}c@{}}B\\b\end{tabular} \\
+  \midrule
+  Content & is & here \\
+  Content & is & here \\
+  Content & is & here \\
+  \bottomrule
+\end{tabular}
+\end{document}
+----
+
+Note that you can control vertical alignment by an optional argument to
+the `tabular`; it supports the usage of `t`, `c`, or `b` for
+top, centered, or bottom aligned respectively and is used like this:
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs}
+
+\begin{document}
+\begin{tabular}{lcc}
+  \toprule
+  Test & \begin{tabular}[b]{@{}c@{}}A\\a\end{tabular} & \begin{tabular}[t]{@{}c@{}}B\\b\end{tabular} \\
+  \midrule
+  Content & is & here \\
+  Content & is & here \\
+  Content & is & here \\
+  \bottomrule
+\end{tabular}
+\end{document}
+----
+
+[tikz]
+----
+\documentclass{article}
+\usepackage[height=3.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{booktabs}
+
+\begin{document}
+\begin{tabular}{lcc}
+  \toprule
+  Test & \begin{tabular}[b]{@{}c@{}}A\\a\end{tabular} & \begin{tabular}[t]{@{}c@{}}B\\b\end{tabular} \\
+  \midrule
+  Content & is & here \\
+  Content & is & here \\
+  Content & is & here \\
+  \bottomrule
+\end{tabular}
+\end{document}
+----
+
+=== Line spacing in tables
+
+In the main lesson we demonstrated `\addlinespace` from the
+`booktabs` package, which is useful for adding extra space between
+specific lines.
+
+There are two general parameters that control line spacing,
+`\arraystretch` and `\extrarowheight` (the latter from the `array`
+package).
+
+[source,latex]
+----
+\renewcommand\arraystretch{1.5}
+----
+
+will increase the baseline spacing by 50%.
+
+Often, especially when using `\hline`, it is better just to increase
+the height of rows, without increasing their depth below the baseline.
+The following example demonstrates the `\extrarowheight` parameter.
+
+[source,latex]
+----
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\begin{document}
+
+
+\begin{center}
+\begin{tabular}{cc}
+\hline
+Square& $x^2$\\
+\hline
+Cube& $x^3$\\
+\hline
+\end{tabular}
+\end{center}
+
+
+\begin{center}
+\setlength\extrarowheight{2pt}
+\begin{tabular}{cc}
+\hline
+Square& $x^2$\\
+\hline
+Cube& $x^3$\\
+\hline
+\end{tabular}
+\end{center}
+\end{document}
+----
+
+[[ml09]]
+== More Lesson 9 Making cross-references into links
+
+You can make your cross-references into hyperlinks using the
+`hyperref` package. In most cases, `hyperref` should be loaded after
+any other packages specified in the document preamble.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\begin{document}
+
+\section{Introduction}
+Some exciting text with a reference~\ref{sec:next}.
+
+\section{Next thing}
+\label{sec:next}
+
+More text here.
+\end{document}
+----
+
+[tikz]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\begin{document}
+
+\section{Introduction}
+Some exciting text with a reference~\ref{sec:next}.
+
+\section{Next thing}
+\label{sec:next}
+
+More text here.
+\end{document}
+----
+
+We have chosen to make the links the same color as the normal text; try
+removing `hidelinks` to see why!
+
+[[ml10]]
+== More Lesson 10 Further amsmath alignments
+
+In addition to the `align*` environment shown in the main lesson,
+`amsmath` has several other display math constructs, notably
+`gather` for multi-line displays that do not need alignment, and
+`multline` for splitting a larger single expression over multiple
+lines, aligning the first line to the left, and the last to the right.
+In all cases the `*` form omits the equation numbers by default.
+
+[source,latex]
+----
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath}
+
+\begin{document}
+
+Gather
+\begin{gather}
+  P(x)=ax^{5}+bx^{4}+cx^{3}+dx^{2}+ex +f\\
+  x^2+x=10
+\end{gather}
+
+Multline
+\begin{multline*}
+   (a+b+c+d)x^{5}+(b+c+d+e)x^{4} \\
+    +(c+d+e+f)x^{3}+(d+e+f+a)x^{2}+(e+f+a+b)x\\
+    + (f+a+b+c)
+\end{multline*}
+\end{document}
+----
+
+[tikz]
+----
+\documentclass[a4paper]{article}
+\usepackage[height=3.5cm]{geometry}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath}
+
+\begin{document}
+
+Gather
+\begin{gather}
+  P(x)=ax^{5}+bx^{4}+cx^{3}+dx^{2}+ex +f\\
+  x^2+x=10
+\end{gather}
+
+Multline
+\begin{multline*}
+   (a+b+c+d)x^{5}+(b+c+d+e)x^{4} \\
+    +(c+d+e+f)x^{3}+(d+e+f+a)x^{2}+(e+f+a+b)x\\
+    + (f+a+b+c)
+\end{multline*}
+\end{document}
+----
+
+=== Columns in math alignments
+
+The `amsmath` alignment environments are designed to take pairs of
+columns with the first column of each pair aligned to the right and the
+second aligned to the left. This allows multiple equations to be shown,
+each aligned towards its relation symbol.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\begin{document}
+Aligned equations
+\begin{align*}
+a &= b+1   &  c &= d+2  &  e &= f+3   \\
+r &= s^{2} &  t &=u^{3} &  v &= w^{4}
+\end{align*}
+
+\end{document}
+----
+
+[tikz]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\begin{document}
+Aligned equations
+\begin{align*}
+a &= b+1   &  c &= d+2  &  e &= f+3   \\
+r &= s^{2} &  t &=u^{3} &  v &= w^{4}
+\end{align*}
+
+\end{document}
+----
+
+In addition there are variants of the display environments ending in
+`ed` that make a subterm inside a larger display. For example,
+`aligned` and `gathered` are variants of `align` and `gather`
+respectively.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\begin{document}
+Aligned:
+\[
+\left.\begin{aligned}
+a&=b\\
+c&=d
+\end{aligned}\right\}
+\Longrightarrow
+\left\{\begin{aligned}
+b&=a\\
+d&=c
+\end{aligned}\right.
+\]
+\end{document}
+----
+
+[tikz]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\begin{document}
+Aligned:
+\[
+\left.\begin{aligned}
+a&=b\\
+c&=d
+\end{aligned}\right\}
+\Longrightarrow
+\left\{\begin{aligned}
+b&=a\\
+d&=c
+\end{aligned}\right.
+\]
+\end{document}
+----
+
+`aligned` takes a positional optional argument similar to `tabular`.
+This is often useful to align an inline math formula on its top row;
+compare the items in the list in the following example.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\begin{document}
+\begin{itemize}
+\item 
+$\begin{aligned}[t]
+a&=b\\
+c&=d
+\end{aligned}$
+\item 
+$\begin{aligned}
+a&=b\\
+c&=d
+\end{aligned}$
+\end{itemize}
+\end{document}
+----
+
+[tikz]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\begin{document}
+\begin{itemize}
+\item 
+$\begin{aligned}[t]
+a&=b\\
+c&=d
+\end{aligned}$
+\item 
+$\begin{aligned}
+a&=b\\
+c&=d
+\end{aligned}$
+\end{itemize}
+\end{document}
+----
+
+=== Bold Math
+
+Standard LaTeX has two methods to give bold symbols in math. To make an
+entire expression bold, use `\boldmath` before entering the
+expression. The command `\mathbf` is also available to set individual
+letters or words in upright bold roman.
+
+[source,latex]
+----
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+
+
+$(x+y)(x-y)=x^{2}-y^{2}$
+
+{\boldmath $(x+y)(x-y)=x^{2}-y^{2}$ $\pi r^2$}
+
+$(x+\mathbf{y})(x-\mathbf{y})=x^{2}-{\mathbf{y}}^{2}$
+$\mathbf{\pi} r^2$ % bad use of \mathbf
+\end{document}
+----
+
+[tikz]
+----
+\documentclass[a4paper]{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+
+
+$(x+y)(x-y)=x^{2}-y^{2}$
+
+{\boldmath $(x+y)(x-y)=x^{2}-y^{2}$ $\pi r^2$}
+
+$(x+\mathbf{y})(x-\mathbf{y})=x^{2}-{\mathbf{y}}^{2}$
+$\mathbf{\pi} r^2$ % bad use of \mathbf
+\end{document}
+----
+
+If you want to access bold symbols (as would be used by `\boldmath`)
+within an otherwise normal weight expression, then you can use the
+command `\bm` from the `bm` package. Note that `\bm` also works
+with symbols such as `=` and Greek letters. (Note that `\mathbf` has
+no effect on `\pi` in the example above.)
+
+[source,latex]
+----
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{bm}
+
+\begin{document}
+
+$(x+\mathbf{y})(x-\mathbf{y})=x^{2}-{\mathbf{y}}^{2}$
+
+$(x+\bm{y})(x-\bm{y}) \bm{=} x^{2}-{\bm{y}}^{2}$
+
+$\alpha + \bm{\alpha} < \beta + \bm{\beta}$
+
+\end{document}
+----
+
+[tikz]
+----
+\documentclass[a4paper]{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{bm}
+
+\begin{document}
+
+$(x+\mathbf{y})(x-\mathbf{y})=x^{2}-{\mathbf{y}}^{2}$
+
+$(x+\bm{y})(x-\bm{y}) \bm{=} x^{2}-{\bm{y}}^{2}$
+
+$\alpha + \bm{\alpha} < \beta + \bm{\beta}$
+
+\end{document}
+----
+
+=== Mathtools
+
+The package `mathtools` loads `amsmath` and adds several additional
+features, such as variants of the `amsmath` matrix environments that
+allow the column alignment to be specified.
+
+[source,latex]
+----
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{mathtools}
+
+\begin{document}
+
+\[
+\begin{pmatrix*}[r]
+  10&11\\
+   1&2\\
+  -5&-6
+\end{pmatrix*}
+\]
+
+\end{document}
+----
+
+[tikz]
+----
+\documentclass[a4paper]{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{mathtools}
+
+\begin{document}
+
+\[
+\begin{pmatrix*}[r]
+  10&11\\
+   1&2\\
+  -5&-6
+\end{pmatrix*}
+\]
+
+\end{document}
+----
+
+=== Unicode Math
+
+As will be seen in <<les_14, Lesson 14>>, there are variant TeX
+engines that use OpenType fonts. By default, these engines still use
+classic TeX math fonts but you may use the `unicode-math` package to
+use OpenType Math fonts. The details of this package are beyond this
+course and we refer you to the
+https://texdoc.org/pkg/unicode-math[package documentation]. However, we
+give a small example here.
+
+[source,latex]
+----
+% !TEX lualatex
+\documentclass[a4paper]{article}
+\usepackage{unicode-math}
+\setmainfont{TeX Gyre Pagella}
+\setmathfont{TeX Gyre Pagella Math}
+
+\begin{document}
+
+One two three
+\[
+\log \alpha + \log \beta = \log(\alpha\beta)
+\]
+
+Unicode Math Alphanumerics
+\[A + \symfrak{A}+\symbf{A}+ \symcal{A} + \symscr{A}+ \symbb{A}\]
+
+\end{document}
+----
+
+[[ml11]]
+== More Lesson 11 Suppressing the indent for one paragraph
+
+If you want to suppress indentation for a single paragraph, you can use
+`\noindent`. This should be _very_ rarely used; most of the time, you
+should let LaTeX handle this automatically.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\begin{document}
+One small paragraph, which we have filled out a little to make sure you can
+see the effect here!
+
+One small paragraph, which we have filled out a little to make sure you can
+see the effect here!
+
+\noindent  One small paragraph, which we have filled out a little to make sure
+you can see the effect here!
+\end{document}
+----
+
+[tikz]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\begin{document}
+One small paragraph, which we have filled out a little to make sure you can
+see the effect here!
+
+One small paragraph, which we have filled out a little to make sure you can
+see the effect here!
+
+\noindent  One small paragraph, which we have filled out a little to make sure
+you can see the effect here!
+\end{document}
+----
+
+[[ml12]]
+== More Lesson 12 Dealing with non-English sorting
+
+The BibTeX program was written primarily to deal with references in
+English. It is very limited in handling accented characters, and even
+more limited with non-Latin letters. In contrast, the Biber program was
+written from the start to handle a mix of scripts properly.
+
+This means that if you are sorting your bibliography, and you need to
+sort in anything other than English order, you really should be using
+`biblatex` and Biber, rather than `natbib` and BibTeX.
+
+=== Hyperlinks
+
+If you load the `hyperref` package (as covered <<ml09, earlier>>),
+it will automatically make some content in your bibliography into links.
+This is particularly useful for URLs and DOIs.
+
+=== Differences in best practice for BibTeX input between styles
+
+While the overall syntax of the BibTeX files is the same whether you use
+the BibTeX workflow or `biblatex`, the set of fields that is supported
+(used by the style) and their exact meaning may not only vary between
+the BibTeX workflow and `biblatex`, but also between different BibTeX
+styles. A large ‘core set’ of entry types and fields is the same for
+almost all styles, but there are differences in some fields.
+
+A common example is the URL. Some older BibTeX `.bst` styles (most
+notably the ‘standard BibTeX styles’, e.g. `plain.bst`, `unsrt.bst`,
+…) predate the invention of the URL and have no dedicated field for the
+URL of an online resource. Many newer styles _do_ have a dedicated
+`url` field. The workaround to show the URL in the older styles is
+usually to use the `howpublished` field, but with the newer styles it
+is of course preferable to use the dedicated `url` field.
+
+In order to be able to make use of the full potential of your used style
+you will have to find out the set of fields it supports and their
+semantic.
+
+
+[[ml13]]
+== More Lesson 13 Making an index
+
+Depending on the type of document you are writing, you might want to
+include an index. This is a bit like making a bibliography, as it uses
+auxiliary files. Luckily, this is all automated by the `imakeidx`
+package. We need three instructions to LaTeX:
+
+* The `\makeindex` command, which enables creation of an index
+* The `\index` command, which marks up index entries
+* The `\printindex` command, which prints the index
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{imakeidx}
+\makeindex
+\begin{document}
+Some text about Foo\index{foo}.
+More text\index{baz!bar}.
+Even more text\index{alpha@$\alpha$}.
+More text about a different part of baz\index{baz!wibble}.
+
+\clearpage
+Some text about Foo\index{foo} again, on a different page.
+Even more text\index{beta@$\beta$}.
+Even more text\index{gamma@$\gamma$}.
+\printindex
+\end{document}
+----
+
+[tikz]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{imakeidx}
+\makeindex
+\begin{document}
+Some text about Foo\index{foo}.
+More text\index{baz!bar}.
+Even more text\index{alpha@$\alpha$}.
+More text about a different part of baz\index{baz!wibble}.
+
+\clearpage
+Some text about Foo\index{foo} again, on a different page.
+Even more text\index{beta@$\beta$}.
+Even more text\index{gamma@$\gamma$}.
+\printindex
+\end{document}
+----
+
+We’ve shown two features of indexing here: subdivision using `!`, and
+printing something different from the ‘sort text’ of an index entry
+using `@`. There is a lot of customisation possible with an index; try
+out the example and see how it works.
+
+[[ml14]]
+== More Lesson 14 Lua
+
+The LuaTeX engine provides access to OpenType fonts in a similar way to
+XeTeX, and most uses of the `fontspec` package work equally well with
+either engine.
+
+LuaTeX also extends TeX in other ways, notably by embedding the Lua
+scripting language. This may be used for programming in a style more
+familiar to people used to ‘mainstream’ programming languages. It also
+offers the possibility to access inner workings of the TeX system and
+modify the behaviour by substituting new code written in Lua.
+
+Lua programming is not covered by this course but a simple example to
+calculate 2π is shown here.
+
+[source,latex]
+----
+%!TEX lualatex
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+
+\begin{document}
+
+$ 2\pi \approx \directlua{ tex.print(2 * math.pi) } $
+
+\end{document}
+----
+
+TIP: 由于 AsciiDoc 集成的 Kroki 服务使用 pdfTeX 引擎渲染脚本，不能提供 LuaTeX 支持，
+可以使用以下脚本的形式调用 luatex 命令来生成 PDF。其中 `\directlua` 这个宏命令用于在
+TeX 脚本中插入 Lua 脚本代码，这里演示了如何通过 Lua 脚本来计算 stem:[2\pi] 并输出结果。
+
+.LuaTeX = Lua + TeXw 双脚本环境 https://www.learnlatex.org/en/more-14[Learn LaTeX]
+[source,bash]
+----
+rm texput*; cat | luatex -output-format pdf -job-name=texput <<EOF
+%!TEX lualtex
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+
+\begin{document}
+
+$ 2\pi \approx \directlua{ tex.print(2 * math.pi) } $
+
+\end{document}
+EOF
+----
+
+[source,output,role="yellow-background"]
+----
+2π ≈ 6.2831853071796
+----
+
+
+[[ml15]]
+== More Lesson 15 Errors reported at ends of environments
+
+Some environments (notably `amsmath` alignments and `tabularx`
+tables) scan the whole environment body before processing the content.
+This means that any error within the environment is reported on the last
+line. However, as seen in the main lesson, TeX’s display of the error
+context should still pinpoint the error location.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{align}
+\alpha &= \frac{1}{2}\\
+\beta  &= \frak{2}{3}\\
+\gamma &= \frac{3}{4} 
+\end{align}
+
+\end{document}
+----
+
+Here the error will be reported on line 12
+
+[source,noedit]
+----
+l.12 \end{align}
+----
+
+Although the real error is on line 10 as shown by the context lines:
+
+[source,noedit]
+----
+! Undefined control sequence.
+<argument> ...ha &= \frac {1}{2}\\ \beta &= \frak 
+                                                  {2}{3}\\ \gamma &= \frac {...
+----
+
+WARNING: LaTeX 的错误消息定位并不准确，检查时应该将给出错误行号对应的代码块作为潜在
+问题代码来分析。因此错误代码有可能就是前面产生，但是解析器需要分析到后面才能给出报告。
+错误消息最后一行开关头的 L 表明了错误报告产生的位置，并不一一定是错误实际的位置。错误
+报告后面出现一个 ? 号表示解析器正在等待用户交互，可以选择输入 x 结束编译，或者回车继续。
+
+[tikz]
+----
+\documentclass{article}
+\usepackage[height=3.5cm]{geometry}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{align}
+\alpha &= \frac{1}{2}\\
+\beta  &= \frac{2}{3}\\
+\gamma &= \frac{3}{4} 
+\end{align}
+
+\end{document}
+----
+
+=== Spurious errors due to earlier errors
+
+When calling LaTeX interactively from the command line it is possible to
+stop the processing at the first error with `x`, edit the document and
+re-run. However if you scroll past the error or use an editor or online
+system that does this for you then TeX will try to recover; however this
+may lead to several more errors being reported.
+
+So do not be too concerned about the _number_ of errors reported and
+always concentrate on fixing the first reported error.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+Text_word  $\alpha + \beta$.
+
+More text.
+\end{document}
+----
+
+The error here is the underscore `_` which should be entered as
+`\_`.
+
+TeX does report this correctly with the _first_ error message
+
+[source,noedit]
+----
+! Missing $ inserted.
+<inserted text> 
+                $
+l.5 Text_
+         word  $\alpha + \beta$.
+?
+----
+
+However if you scroll past the `?` prompt then TeX recovers by adding
+a `$` so the `_` is seen in math mode as a subscript. The math mode
+then continues until the `$` which ends math, so the following
+`\alpha` is seen in text mode generating another error
+
+[source,noedit]
+----
+! Missing $ inserted.
+<inserted text> 
+                $
+l.5 Text_word  $\alpha
+                       + \beta$.
+? 
+----
+
+=== Errors that do not trigger an error prompt
+
+Some errors, especially errors that are not detected until the end of
+the file, do not generate an error prompt but just give a warning in the
+log.
+
+If you try this example using the TeXLive.net server it will return a
+PDF by default; to see the error message in the log add `%!TeX log`.
+
+[source,latex]
+----
+\documentclass{article}
+\usepackage[height=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+
+ Text {\large some large text) normal size?
+
+\end{document}
+----
+
+In this example the size change was mistakenly ended with `)` rather
+than `}`. This is not detected until the end of the file when TeX
+detects that there is still an unclosed group. It reports here the line
+at which the group was opened `{`. It can not detect the actual error
+as the `)` is seen as “normal text”.
+
+[source,noedit]
+----
+(\end occurred inside a group at level 1)
+
+### simple group (level 1) entered at line 5 ({)
+----
+
+[[ml16]]
+== More Lesson 16
+
+
+=== Documented sources of LaTeX
+
+The `texdoc` command described earlier is not restricted to package
+documentation. If you wish to go beyond the areas covered by this course
+and study the LaTeX inplementation in detail then the following links
+may help.
+
+The source of LaTeX itself is available as a LaTeX-typeset document
+`source2e.pdf`, available from `texdoc source2e` or at
+https://texdoc.org/pkg/source2e[texdoc.org].
+
+Current releases of LaTeX also have preloaded the LaTeX3 Programming
+Language code, previously available as the `expl3` package. `texdoc`
+may be used to see 
+the https://texdoc.org/pkg/interface3[expl3 interface description] 
+(`texdoc interface3`) 
+or https://texdoc.org/pkg/source3[full expl3 source code] (`texdoc source3`).
+

@@ -817,16 +817,16 @@ C4 称为中央 C，或者称小字组 c，A4 称为国际标准音，440Hz。�
 
 音程的度数划分涉及三个方面：
 
-1. 自然音阶的数量
-2. 半音的数量
-3. 和谐程度
+1. 自然音阶的数量（度数，1st 2nd 2nd 3rd 4th...）
+2. 半音的数量（大或小，Major or Minor）
+3. 和谐程度（Perfect)
 
 按协和度划分音程，有以下四类：
 
-1. 极完全协和音程：纯一度 纯八度；
-2. 完全协和音程：纯四度 纯五度；
-3. 不完全协和音程：大小三度 大小六度；
-4. 不协和音程：大小二度，大小七度，和所有增减音程。
+1. 极完全协和音程（Perfect）：纯一度 纯八度；
+2. 完全协和音程（Perfect）：纯四度 纯五度；
+3. 不完全协和音程：大、小三度 大、小六度；
+4. 不协和音程：大、小二度，大、小七度，和所有增减音程。
 
 从物理属性来看，八度音在频率上互为 1:2 关系，纯五度在频率上是 2:3 关系，所以听感上非常和谐。
 
@@ -837,36 +837,57 @@ C4 称为中央 C，或者称小字组 c，A4 称为国际标准音，440Hz。�
 6. 爵士初级乐理与即兴 丁铌 https://www.bilibili.com/video/BV1N84y1z7Nm/
 6. 一次就能搞懂音程！【警长音乐课堂】 https://www.bilibili.com/video/BV1t64y1u7Yh/
 
-度数计算首先确定两个音之间包含了自然音（不考虑升降号）的数量，即为度数。
-然后再计算两音之间所包含的半音数量，即为增、减、大 (Major)、小 (Minor)，与协和程度直接相关。
+度数计算首先确定两个音之间包含了自然音（不考虑升降号）的数量，即为度数（Intervals）。然后再计算
+两音之间所包含的半音数量，即为增、减、大 (Major)、小 (Minor)。如果参考音程是纯协调音程（Perfect），
+那么增减半音则称为增几度、减几度，这种考虑半音数量的音程称为具体音程（Specfic Intervals）。
+两个音之间有几个自然音（含两端），就用 1st、2nd、3rd、4th... 序数表示几度。
 
 通用的标准 C 大调的音程关系口诀：一四五八没大小，二三六七没有纯
 
-| 01 | C     | 纯一度       | Perfect              | 1st Interval (Prime)  |
-| 02 | C# D♭ | 小二度       | Minor                | 2nd Interval          |
-| 03 | D     | 大二度       | Major                | 2nd Interval          |
-| 04 | D# E♭ | 小三度       | Minor                | 3rd Interval          |
-| 05 | E     | 大三度       | Major                | 3rd Interval          |
-| 06 | F     | 纯四度       | Perfect              | 4th Interval          |
-| 07 | F# G♭ | 增四度/减五度 | Augmented 4th/Diminished 5th                 |
-| 08 | G     | 纯五度       | Perfect              | 5th Interval          |
-| 09 | G# A♭ | 小六度       | Minor                | 6th Interval          |
-| 10 | A     | 大六度       | Major                | 6th Interval          |
-| 11 | A# B♭ | 小七度       | Minor                | 7th Interval          |
-| 12 | B     | 大七度       | Major                | 7th Interval          |
-| 13 | C     | 纯八度       | Perfect              | 8th Interval (Octave) |
+    | 01 | C     | 纯一度       | Perfect              | 1st Interval (Prime)  |
+    | 02 | C# D♭ | 小二度       | Minor                | 2nd Interval          |
+    | 03 | D     | 大二度       | Major                | 2nd Interval          |
+    | 04 | D# E♭ | 小三度       | Minor                | 3rd Interval          |
+    | 05 | E     | 大三度       | Major                | 3rd Interval          |
+    | 06 | F     | 纯四度       | Perfect              | 4th Interval          |
+    | 07 | F# G♭ | 增四度/减五度 | Augmented 4th/Diminished 5th                 |
+    | 08 | G     | 纯五度       | Perfect              | 5th Interval          |
+    | 09 | G# A♭ | 小六度       | Minor                | 6th Interval          |
+    | 10 | A     | 大六度       | Major                | 6th Interval          |
+    | 11 | A# B♭ | 小七度       | Minor                | 7th Interval          |
+    | 12 | B     | 大七度       | Major                | 7th Interval          |
+    | 13 | C     | 纯八度       | Perfect              | 8th Interval (Octave) |
 
-比如 C-G 包含 C D E F G 五个自然音，所以是五度，然后计算两音包含的半音数为 7，
-考虑升降号，这是标准 C 大调的音程关系，称为纯五度。如果半音相对减少一个或增加一个，
-则称为小、大几度。
+比如 C-G 包含 C D E F G 五个自然音，所以是五度，然后计算两音包含的半音数为 7，考虑升降号，这是
+标准 C 大调的音程关系，称为纯五度。如果是 C-G♭，那么在纯五度的基础上，半音数量减一，所以称为减五度。
 
-在乐理上，升、降半音不改变度数，只改变修饰属性：增、减、大、小。例如，F F# F♭ 都有相同的度。
-又比如，F# 和 G♭ 虽然是相同的音高，但是它们在乐理上不能划等号，转调后它们不一定相等。
+在乐理上，升、降半音不改变度数，只改变修饰属性：增、减、大、小。例如，F-F# 或者 F-F♭ 都有相同的度。
+类似地，C-C# D-D♭ A#-A♭ 都是一度音程。又比如 F# 和 G♭ 音高虽然相同，但是它们在乐理上不能划等号，
+转调后它们不一定相等。
 
 度数计算公式是 y = 9 - x，比如 C 与高八度的 C，1 = 9 - 8，又比如 F = 9 - 5。
 因为八度之内有 12 个半音，计算出度数以后，根据前面音程的色彩，大小互换，增减互换，纯不变。
 因为使用 12 平均律，音程又可以在一个八音阶内进行转位，Interval Inversion，互为转位的
 音程关系在听感上比较和谐。
+
+    Semitones   Interval         Abbreviation  Example
+    0           Unison           PP or P1      C – C
+    1           Minor 2nd        m2            C – D♭
+    2           Major 2nd        M2            C – D
+    3           Augmented 2nd    A2            C – D#
+    3           Minor 3rd        m3            C – E♭
+    4           Major 3rd        M3            C – E
+    4           Diminished 4th   D4            C – F♭
+    5           Perfect 4th      P4            C – F
+    6           Augmented 4th    A4            C – F#
+    6           Diminished 5th   D5            C – G♭
+    7           Perfect 5th      P5            C – G
+    8           Augmented 5th    A5            C – G#
+    8           Minor 6th        m6            C – A♭
+    9           Major 6th        M6            C – A
+    10          Minor 7th        m7            C – B♭
+    11          Major 7th        M7            C – B
+    12          Perfect 8ve      P8            C – C
 
 
 调式和调性是两个较为相近的概念，不同的调性可以理解为同一套音阶整体往更高或更低音移动，
@@ -918,9 +939,9 @@ C4 称为中央 C，或者称小字组 c，A4 称为国际标准音，440Hz。�
 旋律小调则是将大调的第一个小二度间前移，而和声小调的还增加了一个特征：小三度音。
 四种调式音阶测试 https://www.musictheory.net/exercises/keyboard-scale
 
-     C natural major: C D E  F G A B
-     C natural minor: C D E♭ F G A♭ B♭
-     C melodic minor: C D E♭ F G A  B
+    C natural major: C D E  F G A B
+    C natural minor: C D E♭ F G A♭ B♭
+    C melodic minor: C D E♭ F G A  B
     C harmonic minor: C D E♭ F G A♭ B
 
 D pentatonic 意思是 D 大调五音阶，中国民族调式宫、商徵角、徵、羽五声构成的五声调式，
@@ -953,7 +974,32 @@ D pentatonic 意思是 D 大调五音阶，中国民族调式宫、商徵角、�
     满园花开比也比不过它
     我有心采一朵戴，又怕来年不发芽。
 
+五线谱是世界通用记谱法，因此在有视奏要求的场合中要求熟记低音谱、中音谱、高音谱的音符。因为标准五线谱
+的五条线上和线之间都可以表示一个音阶，所以算上第一线下和第五线上的空白区，五线谱可以标记 11 个音高的
+音符，不算升降记号和加线。为了高效记忆这些音高，不能够使用有序的训练方法，也就是不能从一条线有序地数到
+最后一条线。这种记忆方法是不能让大脑快速检索出眼睛看到的音符对应的音高，因为涉及推算过程，不是视觉直接
+驱动的记忆检索，这种记忆检索并不能满足视奏要求。应该针对每一个音符制订出各具特色的视觉化特征来训练记忆，
+这样眼睛看到对应的视觉特征，才能直接激发相应的记忆信息，并完成读谱过程。
 
+比如，记忆线间音高，就需要将唱名与你熟悉的符号关联起来，五线谱线条序号从下往上数：
+
+*   𝄟 高音谱表，第二线为 G，五线间四个音对应为 F A C E，这可以关联 Face 这个单词（乏啦哆咪）。
+*   𝄡 中音谱表，中间线为 C，五线间四个音对应为 G B D F。这可以关联 GB 容量单位和 DF 东风导弹（嗦吸嘞乏）。
+*   𝄢 低音谱表，第四线为 F，五线间四个音对应为 A C E G。这可以联想 Ace is Good（啦哆咪嗦）。
+
+线上音高多了一个音，这就增了视觉记忆训练的难度，也就需要更多的训练时间，但是和上面的线间音有重叠：
+
+*   𝄟 高音谱表，第二线为 G，五线上的音高对应为 E G B D F，关联 𝄡 中音谱表线间音（咪 嗦吸嘞乏）。
+*   𝄡 中音谱表，中间线为 C，五线上的音高对应为 F A C E G，关联 𝄟 高音谱表线间音（乏啦哆咪 嗦）。
+*   𝄢 低音谱表，第四线为 F，五线上的音高对应为 G B D F A，关联 𝄡 中音谱表线间音（嗦吸嘞乏 啦）。
+
+可以看到，无论是线间音符还是线上音符，它们都是 F A C E G B D F 这几个音的循环，并且主要是在重复
+A C E 和 G B D F 两组音乐符。
+
+为了增强记忆信息的网络连接，可以使用 Musescore 等打谱软件，结合听觉、视频进行练级。乐谱的谱表类型
+可以将工具面板中的 Palettes -> Clefs 符号拖放到五线谱的谱表记号上。或者先点击谱表记号，再选择
+要设置的谱表类型。如果乐谱中有多余的小节（Bar）影响播放、练习，可以按 Shift 拖动选中不需要的小节，
+再点击 Properties -> Bar -> Delete 删除。
 
 
 ## Chords Progressions 和弦进行
@@ -989,11 +1035,32 @@ D pentatonic 意思是 D 大调五音阶，中国民族调式宫、商徵角、�
     Am： A  C  E
     Bm： B  D  F#
 3. 增三和弦 Augmented: Root, Major 3rd, Augmented 5th 
-    C ： C  E  G#
-    B ： B  D# F𝄪
+    Caug ： C  E  G#
+    Baug ： B  D# F𝄪
 4. 减三和弦 Diminished: Root, Minor 3rd, Diminished 5th
-    C ： C  E♭ G♭
-    B ： B  D  F
+    Cdim ： C  E♭ G♭
+    Bdim ： B  D  F
+
+无论是三和弦、七和弦，和弦的两个相邻音之间一般都是小三度（Minor 3rd）或者大三度（Major 3rd）的关系。
+音程间的度的组合就是形成和弦的因素，如果以上所示，三和弦有 4 种，七和弦增加了一个音，共用 7 种。为何
+七和弦不是 8 种（三和弦各类的两倍）？因为“增大七和弦（大三度-大三度-大三度）”的七音正好是纯八度，这和
+根音重叠，所以不存在这种和弦。
+
+对于不同的调式，和弦可以使用级数来表示。之所以使用和弦级数，是因为调式可以变化，但是相同级数的和弦
+听觉上的色彩相对稳定。不同调式由于音阶的音程不同，和弦级数对应的 7 个和弦也不同。以自然大调 C 大调
+为例，依次将 7 个音作为三和弦根音，就可以得到 7 级和弦，组成的和弦名称其级数如下，级数使用大小写分别
+表示大三和弦、小三和弦：
+
+    C   D   E   F   G   A   B   Chords      Series
+    ===============================================
+    C       E       G           C Major     I
+        D       F       A       D Minor     ii
+            E       G       B   E Minor     iii
+    C           F       A       F Major     IV
+        D           G       B   G Major     V
+    C       E           A       A Minor     vi
+        D       F           B   B Dim       vii°
+
 
 Interval Inversion & Chord Inversion：
 
@@ -1192,7 +1259,7 @@ C G D A E B F#，按音阶高低排序就是，G A B C D E F# 或者 C D E F# G 
 | Minor              | m                | Cm Cm7       | 1 ♭3 5 (♭7 9 11 13)        |
 | Dominant           | -                | C7 C9        | 1 3 5 ♭7 (9 11 13)         |
 | Half-diminished    | ø m7(♭5)         | Cø Cm7(♭5)   | 1 ♭3 ♭5 ♭7                 |
-| Diminished         | dim o            | Cdim Co Co7  | 1 ♭3 ♭5 𝄫7                 |
+| Diminished         | dim °            | Cdim C° C°7  | 1 ♭3 ♭5 𝄫7                 |
 | Augmented          | aug +            | Caug C+      | 1 3 ♯5                     |
 | Augmented dominant | aug7 +7          | Caug7 C+7    | 1 3 ♯5 ♭7 (9 11 13)        |
 | Augmented major    | M7(♯5) augM7 +M7 | CM7(♯5) C+M7 | 1 3 ♯5 7 (9 11 13)         |

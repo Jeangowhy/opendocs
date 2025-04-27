@@ -303,6 +303,41 @@ FFmpeg 常用的命令行参数如下。
 
 上面例子中，-vframes 1指定只截取一帧，-q:v 2表示输出的图片质量，一般是1到5之间（1 为质量最高）。
 
+在优先保证画面质量（也不太在乎转码时间）的情况下，使用 -crf 参数来控制转码是比较适宜的。这个参数的取值范围为 0——51，其中 0 为无损模式，数值越大，画质越差，生成的文件却越小。
+
+ffmpeg -i D:\src.mov -c:v libx264 -preset veryslow -crf 18 -c:acopy D:\dest1.mp4
+
+其中，-preset 指定的编码速度越慢，获得的压缩效率就越高。与 veryslow 相比，placebo 以极高的编码时间为代价，只换取了大概1%的视频质量提升。这是一种收益递减准则：slow 与 medium 相比提升了 5%——10%；slower 与 slow 相比提升了5%；veryslow 与 slower 相比提升了3%。
+
+另外，针对特定类型的源内容（比如电影、动画等），还可以使用-tune参数进行特别的优化。但如果你不确定该用哪个选项，还是忽略这个参数吧。
+
+    源                文件大小      缩减比率
+    crf = 18       46.3              21%
+    crf = 19       36.7              33%
+    crf = 20       31.2              43%
+    crf = 28       26.5              83%
+    crf = 51       1.25              97%
+
+PNG 输出可以使用 -compression_level 设置压缩比，范围为 0-100。默认值是 100 表示最大的压缩率，这意味着默认提供最小的输出文件大小。
+
+画面或图像缩放可以通过 Variable Bit Rate with -qscale 参数设置压缩比。
+https://trac.ffmpeg.org/wiki/Encode/MPEG-4
+
+You can select a video quality level with -qscale:v n (or the alias -q:v n), where n is a number from 1-31, with 1 being highest quality/largest filesize and 31 being the lowest quality/smallest filesize. This is a variable bit rate mode, roughly analogous to using -qp (constant QP [quantization parameter]) with x264. Most of the time this should be the preferred method.
+
+    function resize(){
+    cd "C:\pictures"
+    for it in ./*.jpg
+    do
+        echo ${it}
+        ffmpeg -i "$it" -vf 'scale=iw/2:ih/2' -qscale 1 "${it/.jpg/_S.jpg}"
+    done
+    mkdir s
+    mv *_S.jpg s/
+    }
+    resize; exit
+
+
 4.9 裁剪
 裁剪（cutting）指的是，截取原始视频里面的一个片段，输出为一个新视频。可以指定开始时间（start）和持续时间（duration），也可以指定结束时间（end）。
 

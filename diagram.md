@@ -1656,6 +1656,15 @@ Mermaid 支持多种图表的方向，语法如下：
 | -.-      | 虚线           |
 | -.text.- | 虚线加文字     |
 
+[Basic flowchart](https://mermaid.js.org/syntax/examples.html)
+
+```mermaid
+graph LR
+    A[Square Rect] == Link text ==> B((Circle))
+    A --> C(Round Rect)
+    B --> D{Rhombus}
+    C --> E(((End)))
+```
 
 使用以下语法添加子图表
 

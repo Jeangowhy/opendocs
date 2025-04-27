@@ -2295,13 +2295,16 @@ In the context of a browser, it is most likely (X)HTML.
 这是 SVG 通用的文本标签，当渲染器不支持 foreignObject 内嵌的外部命名空间的节点时，就会回退
 使用默认的 text 标签显示文本。这段文字内容是：[Not supported by viewer]，提示用户渲染不支持此标签。
 
-Inkscape 软件于 2003 年首次发布以来，由于人员不足问题，导致优化工作一直不到位。
+Inkscape 软件于 2003 年首次发布以来，由于人员不足问题，导致优化工作一直不到位。特别是 Windows
+系统下，卡顿到以致无法正常使用的地步。可以通过 WSL 子系统来解决，软件安装设置可以参考此文档：
+ `GUI - X Windows 图形协议 <../Makefile.md#L17823>`__。
+
 直到但近年来其开发速度不断加快，专业艺术家对其的接受程度也在不断提高，终于 2020 年发布了
 程碑版本 Inkscape 1.0。Inkscape 20 周年：1.3.1 版发布，修复 70 多个错误并新增两项功能。
 
 01. 全新的用户界面（User Interface），使用 GTK+ (GTK+ 3) 图形框架，这是 Linux 系统使用的图形框架；
 02. 运行速度优化，可以开启 OpenGL 加速渲染，以及设置渲染线程：Edit ➞ Preferences ➞ Rendering。
-03. 新增形状构建器”（Shape Builder）工具，只需点击和拖动，就可以基于现有图形快速地组合和分割路径。
+03. 新增形状构建器（Shape Builder）工具，只需点击和拖动，就可以基于现有图形的布尔运算组合。
 04. 路径特效，Path → Path Effect...
 05. 增强的实时路径特效 PowerStroke Live Path Effect (LPE)，可以伸缩已画笔触的宽度，并更好地处理闭合路径。
 06. 支持压感的 Pencil Tool，勾选工具选项 Use pressure input 使用压感，Edit ➞ Input Devices 进行压感硬件设置。

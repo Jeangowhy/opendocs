@@ -1,3 +1,451 @@
+中国科学院大学硕士研究生入学考试
+=====================================
+
+   中国科学院大学硕士研究生入学考试
+   《人工智能基础》考试大纲
+
+   一、基本要求及适用范围
+
+   《人工智能基础》考试大纲适用于中国科学院大学（085410）人工智能专业硕士
+   研究生入学考试。《人工智能基础》考试强调人工智能及其数学基础，要求考生对所
+   涉及的基本概念和方法有准确的理解，具备较好数学基础和专业知识。
+
+   二、考试形式及试卷结构
+
+   考试采取闭卷笔试形式，考试时间 180 分钟，总分 150 分。  
+   考查内容：人工智能基础（约占 70%）、数学基础（约占 30%）。  
+   题型包括：选择、填空、判断、简答、计算及证明、综合等。  
+
+   三、考试内容
+
+   （一）人工智能的数学基础
+   1.事件与概率
+   2.随机变量与概率分布
+   3.期望、方差与协方差的定义与应用
+   4.矩阵基础
+
+   （二）机器学习基础
+   1.监督学习、无监督学习、半监督学习
+   2.数据集、损失函数、优化方法
+   3.泛化、过拟合、欠拟合
+
+   （三）线性回归
+   1.分类与回归
+   2.优化方法
+   3.岭回归、套索回归
+   4.支持向量机
+
+   （四）决策树模型
+   1.决策树定义
+   2.训练算法
+
+   （五）神经网络基础
+   1.深度线性网络与非线性神经网络
+   2.反向传播算法、优化器
+   3.权值初始化方法
+   4.卷积神经网络、循环神经网络
+
+   （六）计算机视觉基础
+   1.视觉基本原理与概念
+   2.线性滤波器
+   3.边缘检测、物体检测、语义分割
+
+   （七）自然语言处理基础
+   1.语言模型基础
+   2.向量语义
+   3.基于神经网络的语言模型处理与机器翻译
+   4.预训练语言模型
+
+   四、考试要求
+
+   （一）人工智能的数学基础
+   掌握概率基础知识，例如概率分布、联合概率、边缘概率、条件概率等概念；  
+   掌握离散随机变量、连续随机变量的主要性质，了解掌握伯努利分布、泊松分布、均匀分布、正态分布等常用概率分布的公式与参数；  
+   掌握样本的概念和性质，统计量的定义与性质，三大抽样分布函数的定义；  
+   掌握大数定理和中心极限定理；  
+   掌握参数估计的定义，掌握点估计、极大似然估计方法的原理；  
+   掌握评价估计量的标准、区间估计的概念和方法；  
+   掌握矩阵的基础知识，例如矩阵的基本运算、矩阵的秩、特征值分解、奇异值分解等基本原理等。  
+
+   （二）人工智能基础
+   了解掌握人工智能的基本概念与定义；  
+   了解人工智能主要领域方向的起源与发展历程；  
+   了解掌握机器学习中监督学习、无监督学习和半监督学习的概念，掌握数据集、优化、泛化等过程中的方法和存在的问题；  
+   了解掌握分类与回归的基本原理，基本优化方法，岭回归、套索回归、支持向量机等常见算法的原理；  
+   了解掌握决策树的原理与训练算法；  
+   了解掌握神经元网络的结构、反向传播算法、优化器、权值初始化、权值共享等原理；  
+   了解掌握计算机视觉的基本概念，卷积神经网络的结构与原理，物体检测、语义分割等原理与方法；  
+   了解掌握语言模型基本概念、向量语义、基于神经网络的语言模型处理、基于神经网络的机器翻译、预训练语言模型的基本原理与方法。  
+
+   五、主要参考书目
+
+   姚期智，《人工智能》，清华大学出版社，2022。
+   编制单位：中国科学院大学
+   编制日期：2024 年 8 月 30 日
+
+   人工智能专业硕士研究生研究方向
+
+   1.  人工智能（华大专项）
+   2.  移动通信与多媒体通信
+   3.  物联网技术及应用
+   4.  智能终端与移动安全
+   5.  图像处理与计算机视觉
+   6.  语音信号处理与语音识别
+   7.  视频（信号）处理与分析
+   8.  无线传感器网络关键技术
+   9.  无线泛在业务架构及技术
+   10. 多传感器集成与数据融合
+   11. 云计算、虚拟化
+   12. 大数据技术与应用
+   13. 计算机安全技术
+   14. 脑认知与智能医生
+   15. 智能控制与计算智能
+   16. 模式识别
+   17. 智能机器人
+   18. 图像与视频处理
+   19. 显微影像分析
+
+清华大人工智能班教学设计
+============================
+
+清华大学本科培养方案
+----------------------------
+
+   交叉信息研究院
+
+   计算机科学与技术（人工智能班）专业本科培养方案
+
+   一、培养目标
+
+   1. 全面掌握人工智能基础理论与前沿应用知识，科研实践能力强，并能终身学习。  
+   2. 熟悉人工智能前沿领域，具有良好科学素养和创新精神，成为能够从事人工智能领域研究的领跑国际拔尖创新人工智能领域人才 。  
+   3. 具有职业道德和社会责任感，具备与世界一流高校本科生同等、甚至更高的竞争力。  
+
+   二、培养成效
+
+   a. 应用数学、科学和工程知识的能力；  
+   b. 发现、提出和解决工程问题的能力；  
+   c. 理解所学专业的职业责任和职业道德；  
+   d. 有效沟通的能力；  
+   e. 认识终身学习的重要性并有效实施的能力；  
+   f. 具备从本专业角度理解当代社会和科技热点问题的知识；  
+   g. 综合运用技术、技能和现代工程共聚来进行工程实践的能力。   
+
+   三、学制与学位授予
+
+   学制：本科四年学制，按学制进行课程设置及学分分配。
+   授予学位：工学学士学位。 
+
+   四、基本学分学时
+
+   本科培养总学分为 150 学分，实习实践 17 周。其中，全校统一设置课程（校级通识教育课程）46 学分，
+   夏季学期 3 周；院系设置课程 104 学分，夏季学期 14 周。 
+
+   五、课程设置与学分分布
+
+   1．校级通识教育 46学分
+
+   (1) 思想政治理论课 必修 17学分
+
+   10610183 思想道德修养与法律基础 3学分  
+   10680011 形势与政策 1学分  
+   10610193 中国近现代史纲要 3学分  
+   10610204 马克思主义基本原理 4学分  
+   10680032 毛泽东思想和中国特色社会主义理论体系概论（1） 2学分  
+   10680042 毛泽东思想和中国特色社会主义理论体系概论（2） 2学分  
+   10680022 习近平新时代中国特色社会主义思想概论 2学分  
+
+   (2) 体育 4学分
+
+   第 1-4 学期的体育(1)-(4)为必修，每学期 1 学分；第 5-8 学期的体育专项不设学分，其中第5-6学期为限选，
+   第 7-8 学期为任选。学生大三结束申请推荐免试攻读研究生需完成第1-4 学期的体育必修课程并取得学分。
+   本科毕业必须通过学校体育部组织的游泳测试。
+
+   体育课的选课、退课、游泳测试及境外交换学生的体育课程认定等请详见 2019 级学生手册《清华大学本科体育课程的有关规定及要求》。
+
+   (3) 外语（一外英语学生必修8学分，一外其他语种学生必修6学分）
+   
+      学生  课组 课程 课程面向学分要求
+      一外
+      英语
+      学生
+
+      英语综合能力课组
+      英语综合训练（C1）
+      学分英语综合训练（C2）     入学分级考试 1 级4 
+      英语阅读写作（B）
+      级英语听说交流（B）        入学分级考试 2 
+      英语阅读写作（A）
+      英语听说交流（A）          入学分级考试 3 级、4 级
+
+      第二外语课组
+      外国语言文化课组
+      外语专项提高课组           详见选课手册 4 学分
+      一外小语种学生             详见选课手册 6 学分
+
+   公外课程免修、替代等详细规定见教学门户-清华大学本科生公共外语课程设置及修读管理办法。
+
+   (4) 写作与沟通课 必修 2学分  
+   (5) 通识选修课 限选 11学分  
+   通识选修课包括人文、社科、艺术、科学四大课组，要求学生每个课组至少选修2 学分。《学术之道》（10690013）必修。
+
+   (6) 军事课程 4学分  
+
+      12090052 军事理论 2学分  
+      12090052 军事训练 2学分
+
+   2．专业教育 104学分  
+
+   （1）基础课程 29学分
+
+   1) 数学必修 21学分
+
+      10421055 微积分A(1) 5学分  
+      10421065 微积分A(2) 5学分  
+      20470044 线性代数 4学分  
+      20470054 抽象代数 4学分  
+               概率与统计 3学分  
+
+   2) 物理必修 8学分
+
+      20470024 普通物理(1)英 4学分  
+      20470034 普通物理(2)英 4学分  
+
+   （2）专业主修课程 49学分
+
+      20470073 人工智能入门 3学分
+      30470293 人工智能应用数学 3学分
+      30470124 算法设计 4学分
+      30470134 计算理论 4学分
+      40470243 人工智能：原理与技术 3学分
+      30470104 机器学习 4学分
+               深度学习 3学分
+               计算机视觉 3学分
+      40470333 数据挖掘 3学分
+               自然语言处理 3学分               四选三
+               人工智能交叉项目(AI+X) 6学分
+               人工智能研究实践 9学分
+
+   （3）夏季学期和实践训练 11 学分
+
+      30470232 信息物理 2学分
+      20470062 代数与计算 2学分
+      30470312 数据库系统概论 2学分
+      40470342 生物信息学概论 2学分
+      40470085 专题训练实践 5学分
+
+   （4）综合论文训练要求 15学分
+
+
+清华大学本科指导性教学计划
+----------------------------
+
+   交叉信息研究院计算机科学与技术（人工智能班）专业本科指导性教学计划
+   
+   第一学年
+
+      课程编号 课程名称 学分 周学时 说明及主要先修课
+      12090052 军事理论 2 3
+      12090062 军事技能 2 3
+
+      秋季学期
+      课程编号 课程名称 学分 周学时 说明及主要先修课
+      10610183 思想道德修养与法律基础 3 2
+      10680011 形势与政策 1 1
+      10720011 体育(1) 1 2
+      10640532 英语(1) 2 2
+      10691342 写作与沟通 2 2
+      10421055 微积分A(1) 5 5
+      20470044 线性代数 4 4
+      20470073 人工智能入门 3 3
+      合计：: 21
+
+      春季学期
+      课程编号 课程名称 学分 周学时 说明及主要先修课
+      10610193 中国近现代史纲要 3 2
+      10720021 体育(2) 1 2
+      10640682 英语(2) 2 2
+      10690013 学术之道 3 3
+      10421065 微积分A(2) 5 5
+      20470054 抽象代数 4 4
+      20470024 普通物理(1)英 4 4
+      30470293 人工智能应用数学 3 3
+      合计： 25
+
+      夏季学期
+      课程编号 课程名称 学分 周学时 说明及主要先修课
+      30470232 信息物理 2 3
+      20470062 代数与计算 2 3
+      30470312 数据库系统概论 2 3   二选一
+      合计： 4
+
+   第二学年
+
+      秋季学期
+      课程编号 课程名称 学分 周学时 说明及主要先修课
+      10610204 马克思主义基本原理 4 3
+      10720031 体育(3) 1 2
+      10641132 英语(3) 2 2
+      20470034 普通物理(2)英 4 4
+      30470124 算法设计 4 4
+      30470303 概率与统计 3 3
+      30470104 机器学习 4 4
+      40470243 人工智能：原理与技术 3 3
+      合计： 25
+
+      春季学期
+      课程编号 课程名称 学分 周学时 说明及主要先修课
+      10680032 毛泽东思想和中国特色社会主义理论体系概论(1) 2
+      10680022 习近平新时代中国特色社会主义思想概论 2 2
+      10720041 体育(4) 1 2
+      10641142 英语(4) 2 2
+      30470134 计算理论 4 4
+      40470284 量子计算机科学 4 4
+      ******** 计算机视觉* 3 3
+      ******** 深度学习* 3 3
+      合计： 18
+      注：*课程为四选三
+
+      夏季学期
+      课程编号 课程名称 学分 周学时 说明及主要先修课
+      40470342 生物信息学概论 2 3
+      合计： 2 3
+
+   第三学年
+
+      秋季学期
+      课程编号 课程名称 学分 周学时 说明及主要先修课
+      10720110 体育专项(1) 2
+      ******** 通识选修课 4 4
+      40470333 数据挖掘* 3 3
+      ******** 自然语言处理* 3 3
+      ******** 人工智能交叉项目(AI+X) 6 6
+      合计： 16
+      注：*课程为四选三
+
+      春季学期
+      课程编号 课程名称 学分 周学时 说明及主要先修课
+      10720120 体育专项(2) 2
+      ******** 通识选修课 4 4
+      合计： 4
+
+      夏季学期
+      课程编号 课程名称 学分 周学时 说明及主要先修课
+      40470085 专题训练实践 5 5
+      合计： 5 5
+
+   第四学年
+
+      秋季学期
+      课程编号 课程名称 学分 周学时 说明及主要先修课
+      10720130 体育专项(3)
+      ******** 人工智能研究实践 9 9
+      合计： 9
+
+      春季学期
+      课程编号 课程名称 学分 周学时 说明及主要先修课
+      10720140 体育专项(4)
+      通识选修 2 2
+      40470075 综合论文训练 15
+      合计： 15
+
+AI 论理学
+======================
+
+   CS 3111: Computer Ethics  
+   https://www.d.umn.edu/~tcolburn/cs3111/  
+   https://www.d.umn.edu/~tcolburn/cs3111/slides/ai/overview.pdf  
+
+   Abridged history of AI
+
+   •  1943 McCulloch & Pitts: Boolean circuit model of brain  
+   •  1950 Turing's "Computing Machinery and Intelligence"  
+   •  1956 Dartmouth meeting: "Artificial Intelligence" adopted  
+   •  1952—69 Look, Ma, no hands!  
+   •  1950s Early AI programs, including Samuel's checkers program, Newell & Simon's 
+      Logic Theorist, Gelernter's Geometry Engine
+   •  1965 Robinson's complete algorithm for logical reasoning (逻辑推理算法)  
+   •  1966—73 AI discovers computational complexity Neural network research almost disappears  
+   •  1969—79 Early development of knowledge-based systems  
+   •  1980-- AI becomes an industry  
+   •  1986-- Neural networks return to popularity as part of machine learning  
+   •  1987-- AI becomes a science—triumph of neats over scruffies  
+   •  1995-- The emergence of intelligent agents -- “-bots”  
+
+   AI Ancient History
+
+   •  800 B.C. -- Moving statue of the god Amon in ancient Egypt operated with 
+      levers by a concealed priest.  
+   •  300-100 B.C. -- Automated figures (like singing ravens) through the force 
+      of steam and water in Greek city of Alexandria.
+
+   AI Collaborators
+
+   •  Philosophy Logic, methods of reasoning, mind as physical system foundations 
+      of learning, language, rationality
+   •  Mathematics Formal representation and proof algorithms, computation, 
+      (un)decidability, (in)tractability, probability
+   •  Economics utility, decision theory  
+   •  Neuroscience physical substrate for mental activity  
+   •  Psychology phenomena of perception and motor control, experimental techniques
+   •  Computer building fast computers engineering
+   •  Control theory design systems that maximize an objective function over time
+   •  Linguistics knowledge representation, grammar  
+
+   Sub-human Level
+
+   •  Handwriting recognition  
+   •  Object recognition  
+   •  Translation  
+   •  Speech recognition  
+   •  Word-sense disambiguation  
+   •  Natural language processing  
+
+   Super- Or Par-human Level
+
+   •  Backgammon, Bridge  
+   •  Chess, Crosswords  
+   •  Jigsaw puzzles  
+   •  Car driving  
+   •  Scrabble  
+   •  Quiz show question answering  
+   •  Go  
+   •  OCR for printed text  
+
+   Examples
+
+   •  Deep Blue defeated the reigning world chess champion Garry Kasparov in 1997
+   •  Proved a mathematical conjecture (Robbins conjecture) unsolved for decades
+   •  No hands across America (driving autonomously 98% of the time from Pittsburgh to San Diego)
+   •  During the 1991 Gulf War, US forces deployed an AI logistics planning and 
+      scheduling program that involved up to 50,000 vehicles, cargo, and people
+   •  NASA's on-board autonomous planning program controlled the scheduling of 
+      operations for a spacecraft
+   •  Proverb solves crossword puzzles better than most humans
+   •  IBM's Watson beats best humans at Jeopardy!
+
+   Aristotle's Logic of Syllogisms (350 B.C.)
+
+   All men are mortal.  
+   Socrates is a man.  
+   Therefore, Socrates is mortal.  
+
+   All S are P.  
+   a is an S.  
+   Therefore, a is a P  
+
+   All S are P.  
+   a is not a P.  
+   Therefore, a is not an S  
+
+   Modern notation:
+
+   ∀x S(x) ⟶ P(x)  
+   S(a)  
+   ∴ P(a)  
+
+
+
 # NLP
 - [NLP - Natural Language Processing](https://algorithmia.com/blog/introduction-natural-language-processing-nlp)
 - [Natural Language Toolkit(NLTK)](http://www.nltk.org/)
@@ -8,13 +456,18 @@
 - [万字长文概述NLP中的深度学习技术](https://zhuanlan.zhihu.com/p/57979184)
 - [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 - [卷积神经网络 convolutional neural network，CNN](https://mp.weixin.qq.com/s/vcw_b2jBMiPQLW5gbjyVlg)
-- []()
+- Artificial Intelligence: A Modern Approach, 4th US ed. by Stuart Russell and Peter Norvig
+  https://aima.cs.berkeley.edu/  
+  https://github.dev/sxcong/books/blob/main/Artificial-Intelligence-A-Modern-Approach-4th.pdf
+
 
 自然语言处理 NLP - Natural Language Processing 就是用计算机来处理、理解以及运用人类语言(如中文、英文等)，它属于人工智能的一个分支，是计算机科学与语言学的交叉学科，又常被称为计算语言学。由于自然语言是人类区别于其他动物的根本标志。没有语言，人类的思维也就无从谈起，所以自然语言处理体现了人工智能的最高任务与境界，也就是说，只有当计算机具备了处理自然语言的能力时，机器才算实现了真正的智能。
 
 从研究内容来看，自然语言处理包括语法分析、语义分析、篇章理解等。从应用角度来看，自然语言处理具有广泛的应用前景。特别是在信息时代，自然语言处理的应用包罗万象，例如：机器翻译、手写体和印刷体字符识别、语音识别及文语转换、信息检索、信息抽取与过滤、文本分类与聚类、舆情分析和观点挖掘等，它涉及与语言处理相关的数据挖掘、机器学习、知识获取、知识工程、人工智能研究和与语言计算相关的语言学研究等。
 
-NLP 作为一种人工智能方法，能够处理机器和人类自然语言之间的交互，即 NLP 帮助计算机机器以各种形式使用自然人类语言进行交流，包括进行分析、理解、改变或生成自然语言。主要涉及的范畴如下（维基百科）：
+中文信息处理是自然语言处理的分支。和大部分西方语言不同，书面汉语的词语之间没有明显的空格标记，句子是以字串的形式出现。因此对中文信息进行处理的第一步就是进行分词，将字串（character string）转变成词串（word string）。依据字在词语中位置，为每个字赋予不同的状态（如句子开始、句子中间、句子结尾、单字成词等），将输入的中文句子转化为状态序列。
+
+NLP 作为人工智能的一个分支，能够处理机器和人类自然语言之间的交互，即 NLP 帮助计算机机器以各种形式使用自然人类语言进行交流，包括进行分析、理解、改变或生成自然语言。主要涉及的如下范畴（维基百科）：
 
 - 中文自动分词
 - 词性标注

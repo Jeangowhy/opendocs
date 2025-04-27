@@ -1,0 +1,5053 @@
+:icons: font
+:stem: latexmath
+:source-highlighter: highlight.js
+:standards: https://www.web3d.org/standards
+
+[[C19777_1]]
+== Part1: ECMAScript Binding (19777-1)
+
+Information technology — Computer graphics and image processing —
+Extensible 3D (X3D) language bindings +
+Part 1: ECMAScript
+
+ISO/IEC CD 19777-1:201x
+
+This document is the Committee Draft of Part 1 of ISO/IEC 19777 Edition
+2, Extensible 3D (X3D) language bindings. The full title of this part of
+the International Standard is: _Information technology — Computer
+graphics and image processing — Extensible 3D (X3D) language bindings —
+Part 1: ECMAScript_.
+
+• <<foreword, Foreword>>
+• <<introduction, Introduction>>
+• 1 <<scope, Scope>>
+• 2 <<references, Normative references>>
+• 3 <<glossary, Definitions>>
+• 4 <<concepts, Concepts>>
+• 5 <<tables, Tables>>
+• 6 <<types, Type definitions>>
+• 7 <<functions, Function definitions>>
+• A <<VRMLrelationship, Relationship to ISO/IEC 14772>>
+• B <<examples, Examples>>
+
+
+The *_Foreword_* provides background on the standards process for X3D
+language bindings. The *_Introduction_* describes the purpose of X3D
+language bindings. The following clauses define this part of ISO/IEC
+19777:
+
+. *_Scope_* defines the problem area that the ECMAScript language
+binding of X3D addresses.
+. *_Normative references_* lists the normative standards referenced in
+this part of ISO/IEC 19777.
+. *_Definitions_* specifies the terms used in this part of ISO/IEC
+19777.
+. *_Concepts_* describes various fundamentals of the ECMAScript language
+binding of X3D.
+. *_Tables_* describes the mapping between abstract names and bound
+names.
+. *_Type definitions_* specifies the binding of abstract data types to
+ECMAScript data types.
+. *_Function definitions_* specifies binding of abstract service and
+function definitions to ECMAScript function definitions.
+
+There are two annexes included in this part of ISO/IEC 19777:
+
+[upperalpha]
+. *_Relationship to ISO/IEC 14772_* describes the relationship to
+features of VRML 97
+. *_Examples_* includes a variety of ECMAScript bound example files.
+
+[[foreword]]
+== Foreword
+
+http://www.iso.org/[ISO] (the International Organization for
+Standardization) and http://www.iec.ch/[IEC] (the International
+Electrotechnical Commission) form a specialized system for worldwide
+standardization. National bodies that are members of ISO or IEC
+participate in the development of International Standards through
+technical committees established by the respective organization to deal
+with particular fields of technical activity. ISO and IEC technical
+committees collaborate in fields of mutual interest. Other international
+organizations, governmental and non-governmental, in liaison with ISO
+and IEC, also take part in the work. In the field of information
+technology, ISO and IEC have established a joint technical committee,
+http://www.jtc1.org/[ISO/IEC JTC 1].
+
+International Standards are drafted in accordance with the rules given
+in the ISO/IEC Directives, Part 2.
+
+The main task of the joint technical committee is to prepare
+International Standards. Draft International Standards adopted by the
+joint technical committee are circulated to national bodies for voting.
+Publication as an International Standard requires approval by at least
+75 % of the national bodies casting a vote.
+
+Attention is drawn to the possibility that some of the elements of this
+document may be the subject of patent rights. ISO and IEC shall not be
+held responsible for identifying any or all such patent rights.
+
+International Standard ISO/IEC 19777-1 Edition 2 was prepared by Joint
+Technical Committee ISO/IEC JTC 1, _Information technology_,
+Subcommittee 24, _Computer graphics, image processing and environmental
+data representation_, in collaboration with http://www.web3d.org/[Web3D
+Consortium, Inc.]
+
+ISO/IEC 19777 consists of the following parts, under the general title
+_Information technology — Computer graphics and image processing —
+Extensible 3D (X3D) language bindings:_
+
+_Part 1: ECMAScript_ +
+_Part 2: Java_
+
+[[introduction]]
+== Introduction
+
+Extensible 3D (X3D) is a system for describing interactive 3D objects
+and worlds as defined in ISO/IEC 19775. This part of ISO/IEC 19777
+specifies the binding of the services defined in ISO/IEC 19775-2 to the
+programming language ECMAScript for use in X3D internal representation
+(Script nodes) and for external application access.
+
+[[scope]]
+== 1 Scope
+
+Part 2 of ISO/IEC 19775 specifies a language-independent application
+programmer interface (API) to a set of services and functions. For
+integration into a programming language, the X3D abstract interfaces are
+embedded in a language-dependent layer obeying the particular
+conventions of that language. This part of ISO/IEC 19777 specifies such
+a language-dependent layer for the ECMAScript language.
+
+[[references]]
+== 2 Normative references
+
+The following referenced documents are indispensable for the application
+of this document. For dated references, only the edition cited applies.
+For undated references, the latest edition of the referenced document
+(including any amendments) applies.
+
+[opts=autowidth,frame=ends,grid=rows]
+|===
+|Identifier |Reference
+|[[I10641]]*I10641* |http://www.iso.org/[ISO/IEC] 10641:1993
+_Information technology — Computer graphics and image processing —
+Conformance testing of implementations of graphics standards_
+
+|[[I14772_1]]*I14772-1* |http://www.iso.org/[ISO/IEC] 14772-1:1997
+_Information technology — Computer graphics and image processing — The
+Virtual Reality Modeling Language (VRML) — Part 1: Functional
+specification and UTF-8 encoding_
+
+|[[I14772_2]]*I14772-2* |http://www.iso.org/[ISO/IEC] 14772-2:2004
+_Information technology — Computer graphics and image processing — The
+Virtual Reality Modeling Language (VRML) — Part 2: External authoring
+interface (EAI)_
+
+|[[I16262]]*I16262* |http://www.iso.org/[ISO/IEC] 16262:2011
+_Information technology — ECMAScript language specification_
+
+|[[I19775-1]]*I19775-1* |http://www.iso.org/[ISO/IEC] 19775-1:2013
+_Information technology — Computer graphics and image processing —
+Extensible 3D (X3D) — Part 1: Architecture and base components_
+
+|[[I19775-2]]*I19775-2* |http://www.iso.org/[ISO/IEC] 19775-2:2014 (to
+be published) _Information technology — Computer graphics and image
+processing — Extensible 3D (X3D) — Part 2: Scene Access Interfaces
+(SAI)_
+
+|[[I19776-2]]*I19776-2* |http://www.iso.org/[ISO/IEC] 19776-2:2014 (to
+be published) _Information technology — Computer graphics, image
+processing and environmental data representation — Extensible 3D (X3D)
+encodings — Part 2:  Classic VRML encoding_
+
+|[[RFC1738]]*RFC1738* |http://www.ietf.org/rfc/rfc1738.txt?numb[IETF
+RFC 1738] _Uniform Resource Locator, Internet standards track protocol_
+
+|[[RFC1808]]*RFC1808*
+|http://www.ietf.org/rfc/rfc1808.txt?number=1808[IETF RFC 1808]
+_Relative Uniform Resource Locators, Internet standards track protocol_
+
+|[[RFC2077]]*RFC2077*
+|http://www.ietf.org/rfc/rfc2077.txt?number=2077[IETF RFC 2077] _The
+Model Primary Content Type for Multipurpose Internet Mail Extensions,
+IETF Internet standards track protocol_
+
+|[[RFC2141]]*RFC2141*
+|http://www.ietf.org/rfc/rfc2141.txt?number=2141[IETF RFC 2141]
+_Universal Resource Name, Internet standards track protocol_
+
+|[[RFC2397]]*RFC2397*
+|http://www.ietf.org/rfc/rfc2397.txt?number=2397[IETF RFC 2397] _The
+"data" URL scheme, Internet standards track protocol_
+|===
+
+[[glossary]]
+== 3 Definitions
+
+For the purposes of this document, the terms and definitions given in
+parts 1 and 2 of ISO/IEC 19775 and the following apply.
+
+=== 3.1 auxiliary object
+
+any array placeholder object that is required by the various service
+requests defined in this part of ISO/IEC 19777
+
+=== 3.2 built-in object
+
+any object supplied by an ECMAScript implementation, independent of the
+host environment, which is present at the start of the execution of an
+ECMAScript program
+
+<<I16262, ISO/IEC 16262>>
+
+=== 3.3 host object
+
+any object supplied by the host environment to complete the execution
+environment of ECMAScript
+
+<<I16262, ISO/IEC 16262>>
+
+=== 3.4 native object
+
+any object supplied by an ECMAScript implementation independent of the
+host environment
+
+<<I16262, ISO/IEC 16262>>
+
+[[concepts]]
+== 4 Concepts
+
+[[IntroductionAndTOC]]
+=== 4.1 Introduction and table of contents
+
+[[Introduciton]]
+==== 4.1.1 Introduction
+
+This clause describes key concepts in this part of ISO/IEC 19777. This
+includes conformance criteria and abstract concepts of the binding to
+ECMAScript defined in this part to the abstract definitions of the X3D
+scene authoring interface (SAI) specified in <<I19775-2, part 2 of ISO/IEC 19775>>.
+The ECMAScript programming language is specified in <<I16262, ISO/IEC 16262>>.
+
+[[TOC]]
+==== 4.1.2 Table of contents
+
+See <<t-Topics, Table 4.1>> for the table of contents for this clause.
+
+[[t-Topics]]
+Table 4.1 — Topics in this clause
+
+* <<IntroductionAndTOC, 4.1 Introduction and Table of Contents>> +
+** <<Introduciton, 4.1.1 Introduction>> +
+** <<TOC, 4.1.2 Table of contents>> +
+** <<NotationalConventions, 4.1.3 Notational conventions>> +
+* <<Concepts, 4.2 Concepts>> +
+** <<Relationship, 4.2.1 Relationship to ISO/IEC 14772>> +
+** <<Conformance, 4.2.2 Conformance>> +
+** <<ImplementationDependencies, 4.2.3 Implementation dependencies>> +
+* <<LanguageSpecificConcepts, 4.3 Language-specific concepts>> +
+** <<General, 4.3.1 General>> +
+*** <<GeneralIntroduction, 4.3.1.1 Introduction>> +
+*** <<NativeObjectDefinitions, 4.3.1.2 Standard object definitions>> +
+**** <<ProvisionOfStandardObjects, 4.3.1.2.1 Provision of standard objects>> +
+**** <<FunctionandPropertyDefintions, 4.3.1.2.2 Function and property definitions>> +
+*** <<RequiredECMAScriptVersion, 4.3.1.3 Required ECMAScript version>> +
+*** <<SupportedScriptURLs, 4.3.1.4 Supported Script URLs>> +
+**** <<ScriptIntroduction, 4.3.1.4.1 Introduction>> +
+**** <<InlineSscript, 4.3.1.4.2 Inline script definition>> +
+**** <<ExternalScript, 4.3.1.4.3 External script files>> +
+**** <<MIMEType, 4.3.1.4.4 MIME type>> +
+** <<Sessions, 4.3.2 Sessions>> +
+*** <<SessionsIntroduction, 4.3.2.1 Introduction>> +
+*** <<BrowserCreation, 4.3.2.2 Browser creation>> +
+*** <<WebBrowserPlugin, 4.3.2.3 Web browser plug-in>> +
+** <<Identifiers, 4.3.3 Identifiers>> +
+*** <<IdentifierEquivalence, 4.3.3.1 Identifier equivalence>> +
+*** <<DataStorage, 4.3.3.2 Data storage>> +
+*** <<RegisteringInterest, 4.3.3.3 Interest-registering services>> +
+** <<FieldAccess, 4.3.4 Field access>> +
+*** <<NULLNodes, 4.3.4.1 NULL nodes>> +
+*** <<SingleValuedFieldTypes, 4.3.4.2 Representing single-value field types>> +
+*** <<X3DFieldToECMAScriptTypeConversions, 4.3.4.3 X3DField to ECMAScript type conversions>> +
+*** <<Multi-valueFieldTypes, 4.3.4.4 Representing multi-value field types>> +
+** <<InternalInteractions, 4.3.5 Internal interactions>> +
+*** <<GeneralConcepts, 4.3.5.1 General concepts>> +
+*** <<Interacting, 4.3.5.2 Interacting with fields>> +
+**** <<AccessingScript, 4.3.5.2.1 Accessing fields and output fields of the Script>> +
+**** <<AccessingOtherNodes, 4.3.5.2.2 Accessing fields and readable fields of other nodes>> +
+*** <<SendingEvents, 4.3.5.3 Sending events>> +
+*** <<ReceivingEvents, 4.3.5.4 Receiving events>> +
+** <<ExternalInteractions, 4.3.6 External interactions>> +
+** <<DisposingofRresources, 4.3.7 Disposing of resources>> +
+
+* <<t-Topics, Table 4.1: Topics in this clause>>
+
+
+[[NotationalConventions]]
+==== 4.1.3 Notational conventions
+
+Since ECMAScript is an untyped language it has no language constructs to
+describe the types of parameters passed to, or values returned from,
+functions. Therefore this Part uses a notational convention to describe
+these types. Parameters passed are preceded by their type, and the type
+of any return value precedes the function name. Normally these types
+correspond to X3D field types, so those names are used. In the case of
+no return value, the identifier _void_ is used. In the case of a
+ECMAScript numeric value or numeric array return, the identifier
+_numeric_ or _numeric[ ]_ is used. In the case of a string return, the
+identifier _String_ is used.
+
+[[Concepts]]
+=== 4.2 Concepts
+
+[[Relationship]]
+==== 4.2.1 Relationship to ISO/IEC 14772
+
+This part of ISO/IEC 19777 defines the binding of services as defined in
+<<I19775-2, part 2 of ISO/IEC 19775>> to ECMAScript. Details of
+providing ECMAScript support for ISO/IEC 14772 may be found in
+<<VRMLrelationship, Annex A — Relationship to ISO/IEC 14772>>.
+
+[[Conformance]]
+==== 4.2.2 Conformance
+
+A browser supporting an ECMAScript language interface for the SAI shall
+conform to 7 Conformance of <<I19775-2, part 2 of ISO/IEC 19775>> and
+shall conform to the provisions of this part of ISO/IEC 19777.
+
+ECMAScript bindings within scripting node types shall be supported by a
+conforming browser. A browser may optionally support ECMAScript when used 
+for external interactions as defined in <<I19775-2, part 2 of ISO/IEC 19775>>.
+
+An implementation shall not modify the objects and functions defined in
+this specification with their own specific methods or additional
+methods. There shall be one exception to this requirement in order to
+allow browser-specific extension functions within the Browser services.
+
+The Browser object may be extended with new function calls that indicate
+the extended functionality. <<I19775-2, Part 2 of ISO/IEC 19775>>
+defines the requirements for naming conventions. For the purposes of
+this specification, browser-specific function calls that are added to
+the Browser object shall conform to the naming conventions including
+prefix/suffix additions.
+
+EXAMPLE  Browser XYZ has an extension function as:
+
+[source,listing]
+----
+  Browser.XYZ_customFunction();
+----
+
+To satisfy this requirement, a browser implementation may provide
+additional new objects, but shall not extend or modify the objects
+defined in this part of ISO/IEC 19777.
+
+[[ImplementationDependencies]]
+==== 4.2.3 Implementation dependencies
+
+Implementation dependent for the scope of this part of ISO/IEC 19777 is
+defined to be the browser writer implementation of the ECMAScript host
+objects and how those objects interact with the environment and the X3D
+browser.
+
+[[LanguageSpecificConcepts]]
+=== 4.3 Language-specific concepts
+
+[[General]]
+==== 4.3.1 General
+
+[[GeneralIntroduction]]
+===== 4.3.1.1 Introduction
+
+This specification provides a set of implementation-independent objects
+that a piece of ECMAScript code may assume are Host Objects as defined
+by <<I16262, ISO/IEC 16262>>. These objects represent the possible
+interactions with the X3D scene through the SAI. Browser specific
+implementation dependencies shall remain hidden to the general user.
+
+Apart from the Browser object (see <<NativeObjects, 7.2.1 Native objects>>),
+an implementation shall not modify these objects and
+functions with their own specific methods or additional methods. The
+term application is used to describe the ECMAScript code that wishes to
+access the X3D browser, regardless of how the initial reference to the
+browser was obtained.
+
+[[NativeObjectDefinitions]]
+===== 4.3.1.2 Native object definitions
+
+[[ProvisionOfStandardObjects]]
+===== 4.3.1.2.1 Provision of standard objects
+
+All objects defined in this part of ISO/IEC 19777 shall be treated as
+Native Objects in the ECMAScript environment. The process of
+implementing and registering these objects with the ECMAScript engine
+shall be implementation dependent as each engine is different. The
+specification only defines the functions and properties of the objects,
+and not how they are to be implemented.
+
+[[FunctionandPropertyDefintions]]
+===== 4.3.1.2.2 Function and property definitions
+
+An object is described by the functions and properties it contains.
+Properties may only be defined as a single primitive type or another
+object. Many concepts in X3D are described using array semantics, and
+ECMAScript does not allow the definition of properties that are arrays
+of values. To overcome this limitation, this specification defines a
+collection of __auxiliary object__s to function as array placeholders
+that are required by the various service requests.
+
+These auxiliary objects are not meant to be directly instantiated by
+user code. They are implied properties of the parent object and
+therefore no public constructor shall be provided. Individual elements
+of each auxiliary object can be accessed using access by zero-based
+indices.
+
+EXAMPLE  To read the 3rd available component, the following syntax is
+used:
+
+____
+....
+comp = Browser.supportedComponents[2];
+....
+____
+
+This component request is the result of a `GET` request on the Browser
+host object, which returns a ComponentInfoArray host object, on which a
+`GET` request is made with the index value of 2.
+
+[[RequiredECMAScriptVersion]]
+==== 4.3.1.3 Required ECMAScript version
+
+A browser shall only be required to support the standard built-in
+objects defined by <<I16262, ISO/IEC 16262>>.
+
+A browser implementation may optionally provide other host objects for
+the user code to use.
+
+EXAMPLE  A browser in a web page may provide host objects for accessing
+the containing external document structure.
+
+[[SupportedScriptURLs]]
+===== 4.3.1.4 Supported Script URLs
+
+[[ScriptIntroduction]]
+====== 4.3.1.4.1 Introduction
+
+A Script node defines content through its URL field. ECMAscript code may
+be supported through either direct in-line declaration of the code or by
+using an external file.
+
+[[InlineSscript]]
+====== 4.3.1.4.2 Inline script definition
+
+Browsers supporting the ECMAScript scripting language shall support the
+use of in-lined script nodes through the use of the customized protocol
+definition _ecmascript_. This support is required in addition to the
+other required protocols as defined in 7, Conformance and minimum
+support requirements of <<I19775-2, part 2 of ISO/IEC 19775>>.
+
+EXAMPLE 1  An example of the in-lined script definition is:
+
+[source,listing]
+----
+Script {
+    url "ecmascript: function foo() { ... }"
+}
+----
+
+EXAMPLE 2  The _url_ field may contain multiple URL's referencing either
+a remote file or in-line code as shown in the following example:
+
+[source,listing]
+----
+Script {
+    url [
+        "http://foo.com/myScript.js",
+        "ecmascript: function foo( ) { ... }"
+    ]
+}
+----
+
+A browser implementation shall support no other protocol type for
+in-lined script code that conforms to this part of ISO/IEC 19777.
+
+[[ExternalScript]]
+====== 4.3.1.4.3 External script files
+
+The file extension for ECMASCript source code is ‘.js’, unless a
+protocol returning MIME types is used (such as HTTP). In that case, any
+suffix is allowed as long as the proper MIME type is returned (see
+<<MIMEtype, 4.3.1.4.4 MIME type>>).
+
+[[MIMEType]]
+====== 4.3.1.4.4 MIME type
+
+The MIME type for ECMAScript source code is defined as follows:
+
+[source,listing]
+----
+application/ecmascript
+----
+
+For backwards compatibility with old web servers, it is recommended
+browsers also support the following MIME type:
+
+[source,listing]
+----
+application/x-ecmascript
+----
+
+[[Sessions]]
+==== 4.3.2 Sessions
+
+[[SessionsIntroduction]]
+===== 4.3.2.1 Introduction
+
+A session for ECMAScript-based communications is dependent on the type
+of handle established: embedded object or standalone application.
+
+The difference between the two forms of the browser is limited to how to
+initially obtain the browser reference. Once this has been obtained, the
+services provided shall not differ. The term application is used to
+describe the ECMAScript code that wishes to access the X3D browser
+regardless of how the initial reference to the browser was obtained.
+
+[[BrowserCreation]]
+===== 4.3.2.2 Browser creation
+
+Since ECMAScript does not define a user interface creation set of
+libraries, the usefulness of creating standalone browsers that may be
+embedded in custom applications is limited. Therefore, the createBrowser
+service (see 6.2.3 createBrowser of <<I19775-2, part 2 of ISO/IEC 19775>>) 
+is not defined for this binding. Browser implementations may
+optionally provide a browser-specific mechanism for creating a new
+browser instance.
+
+[[WebBrowserPlugin]]
+===== 4.3.2.3 Web browser plug-in
+
+When the X3D browser exists as an element embedded in a HTML page to
+which an ECMScript script has access, it shall use the underlying web
+browser APIs to access the document and plug-in. The session is defined
+to last as long as that particular plug-in instance is associated with a
+currently active page.
+
+The browser shall also provide notification to the listening
+applications when the world is no longer displayed on the page. When the
+browser is removed from visibility, it shall generate a shutdown event
+to all registered listeners. If the browser becomes visible again an
+initialized event shall be generated. If a new page is loaded with a X3D
+browser as part of it, it will contain a different Browser reference and
+hence scripts (_e.g._, HTML onMouseOver, not X3D scripts) in the page
+will not receive any such notification of its presence.
+
+[[Identifiers]]
+==== 4.3.3 Identifiers
+
+[[IdentifierEquivalence]]
+===== 4.3.3.1 Identifier equivalence
+
+Due to the nature of ECMAScript code interaction, it is possible that
+two instances of an ECMAScript object may refer to the same node or
+field inside the X3D scene (that is, using the `+==+` comparison may be
+`+false+`). For this reason, an identifier of a node or field cannot be
+implied to mean the same instance reference of the object representation
+between separate function calls to the user code. Within a single
+function call, the identifier shall be identical. This ensures that the
+following semantics seem logical to the end user:
+
+....
+  Object1 = new SFVec3f(0, 0, 0);
+  Objext2 = new SFVec3f(2, 4, 0);
+  Object1.x = 6;                     // Object1 is (6, 0, 0)
+  Object2.y = Object1.x;             // Object2 is (2, 6, 0)
+  transform.translation = Object2;   //call translation.setValue(2, 6, 0);
+....
+
+The representation of an identifier in ECMAScript is implementation
+dependent and hidden from the ordinary user. However, objects instances
+may be checked for equivalence by calling the `+equals()+` function of
+the appropriate object instances. Implementations of the objects shall
+provide the `+equals()+` function so that comparing two nodes, fields or
+other objects that require an identifier will return the correct result.
+
+[[DataStorage]]
+===== 4.3.3.2 Data storage
+
+In the object definitions, it is possible to associate user-definable
+data references with each field of a node and with the node itself. This
+data is separate from the metadata capability required by the X3DNode
+and X3DMetadataObject definitions. If one reference to a node has data
+associated with it, this information shall be available to all
+references to that node at all times. For example, if a field has data
+associated with it, is then disposed and a later application references
+that node, the data shall still remain (if that other application is
+ECMAScript). There is no requirement to store this information if the
+node/field is no longer referenced by external applications or the
+internal scene graph. An optional capability that a browser may provide
+is for the object to be available across languages such that an object
+set in an ECMAScript script many be fetched and examined using an
+external application in another language.
+
+[[RegisteringInterest]]
+===== 4.3.3.3 Interest-registering services
+
+Several services allow user code to register for notifications of state
+changes. When the browser code needs to inform the user code of the item
+of interest, this shall be performed through a callback. Because
+ECMAScript is an interpreted language, the means of defining the
+callback shall be to provide a string, which is the name of the function
+to be called when required. In addition to the name of the function, a
+second optional parameter may be supplied which is any arbitrary object
+value (for example a string). This second parameter shall have no
+implied semantics other than as a piece of user code to identify which
+object this callback was registered with. The parameters to be provided
+to the callback function shall be defined by the individual service
+request mapping. They shall include the user provided data as one of the
+parameters of the callback function. User code is allowed to use a
+single callback function for registering interest with multiple sources.
+
+[[FieldAccess]]
+==== 4.3.4 Field access
+
+[[NULLNodes]]
+===== 4.3.4.1 NULL nodes
+
+The ECMAscript `+null+` reference to an object shall be treated as the
+equivalent of the X3D `+NULL+` value. Where an SFNode field has its
+value set to `+null+`, this shall clear the field of the node reference
+causing the default behaviour defined by the parent node to be used for
+that field. When reading a value of an SFNode field where it is empty,
+the return value shall be `+null+`.
+
+[[SingleValuedFieldTypes]]
+===== 4.3.4.2 Representing single-value field types
+
+Single-value field types may be represented in one of two ways. For
+simple objects, that can correspond to one of the ECMAScript primitive
+types of _numeric_, _String_ and _boolean_. Where such a simple mapping
+is not possible, the data type is represented by a host object bearing
+the same name as the type. If the type represents a compound type such
+as SFVec3f, each part of the type may be directly accessible as either a
+property or using array-indexed access. The definitions and name of each
+property are specified in <<types, 6 Type definitions>>.
+
+[[X3DFieldToECMAScriptTypeConversions]]
+===== 4.3.4.3 X3DField to ECMAScript type conversions
+
+Where field types represent primitive data types such as integers and
+strings, there shall be no standard object type supplied.
+
+[[Multi-valueFieldTypes]]
+===== 4.3.4.4 Representing multi-value field types
+
+Each multi-valued field type is represented by a host object bearing the
+same name as the type. The properties of the object is an array of the
+equivalent single-valued object types. Access is through numerical array
+access and there are no separately defined properties.
+
+EXAMPLE  _mfColorObjectName[index]_, where _index_ is an integer-valued
+expression with 0 ≤ _index_ < length and length is the number of
+elements in the array.
+
+set1Value/get1Value service requests are equivalent to the array access
+mechanism provided by the object representing the field. Setting or
+getting a single array index shall use the same semantics for the
+setValue and getValue services.
+
+Assigning to an element with _index_ ≥ length results in the array being
+dynamically expanded to contain length elements. All elements not
+explicitly initialized are set to the default value for that field type
+
+[[InternalInteractions]]
+==== 4.3.5 Internal interactions
+
+[[GeneralConcepts]]
+===== 4.3.5.1 General concepts
+
+The executable content of a script shall be made available to the browser 
+as either an external file or through the use of one of the custom protocol 
+types defined in <<SupportedScriptURLs, 4.3.1.4 SupportedScriptURLs>>. 
+The content may define zero or more functions. For
+the X3D Browser to communicate information to the script, a number of
+functions are defined by this specification. If the script content
+defines one of these functions, it shall be called at the appropriate
+time as defined by the following specification. If the script does not
+define the function, the browser silently ignores the action to be
+taken.
+
+EXAMPLE  If the script content does not define an `+eventsProcessed()+`
+function, the browser does not attempt to call it.
+
+[[Interacting]]
+===== 4.3.5.2 Interacting with fields
+
+[[AccessingScript]]
+====== 4.3.5.2.1 Accessing fields and output fields of the Script
+
+All fields of a Script node are accessible from its ECMAScript
+functions. As in all other nodes, the initializeOnly fields are
+accessible only within the Script. The inputOnly fields are not
+accessible. Events can be routed to input-capable fields and events can
+be routed from output-capable fields. Another node with a reference to
+this node can access its input fields and output fields just like any
+other node.
+
+A field defined in the containing node is available to the user code by
+using its name. Its value can be read or written. This value is
+persistent across function calls. Output-capable fields defined in the
+script node can also be read. The value is the last value assigned.
+
+If a function represents an inputOutput field, the name of the 
+corresponding function shall be the same name as the field
+declaration with the `set_` modifier prepended. To access the value 
+of the inputOutput field, the name of the field itself shall be used 
+without the *_changed* modifier.
+
+When using the script node as the parameter to methods that require an
+SFNode object instance, the _this_ keyword may be used. For the purposes
+of this specification, the script context and the containing X3D
+_X3DScriptNode_ are equivalent.
+
+[[AccessingOtherNodes]]
+====== 4.3.5.2.2 Accessing fields and readable fields of other nodes
+
+The script can access any field type except initializeOnly fields of any
+node to which it has access:
+
+EXAMPLE
+
+[source,listing]
+----
+DEF SomeNode Transform { }
+Script {
+    field SFNode node USE SomeNode
+    eventIn SFVec3f pos
+    directOutput TRUE
+    url "ecmascript:
+           function pos(value) {
+               node.set_translation = value;
+           }
+        "
+}
+----
+
+This example sends a set_translation event to the Transform node.
+
+A writable field on a passed node can appear only on the left side of
+the assignment. A readable field in the passed node can appear only on
+the right side, which reads the last value sent out. Fields in the
+passed node cannot be accessed. However, inputOutput fields can either
+send an event to the "_set__..." inputOnly field or read the current
+value of the "...__changed_" outputOnly field. This follows the routing
+model as defined in <<I19775-1, part 1 of ISO/IEC 19775>>.
+
+Events generated by setting an input-capable field on a node are sent at
+the completion of the initial function call made to the user code by the
+browser. The inputOnly field shall be assigned a value of the same data
+type; no partial assignments are allowed.
+
+EXAMPLE  It is not possible to assign the red component value of an
+SFColor inputOnly field.
+
+Since inputOnly fields are strictly write-only, the remainder of the
+partial assignment would have invalid field values. Assigning to the
+inputOnly field multiple times during one execution of the function
+still only sends one event and that event shall be the last value
+assigned.
+
+[[SendingEvents]]
+===== 4.3.5.3 Sending events
+
+An event on a field is queued if that field is writable and is assigned,
+or an element of a writable field (_i.e._, an index of an MF field type
+or a property of an SF field type) is assigned. Events are sent at the
+end of script execution. An output-capable field may be assigned a value
+multiple times within the script during a single call to the script. If
+during a single call to a script, multiple attempts are made to write a
+value to an output-capable field, only the last such attempt shall be
+used. If the value of individual components of a field is changed, the
+last value given to each component shall be sent. Elements of the field
+that are not changed in the user code send their initial value
+determined at the beginning of the script execution.
+
+EXAMPLE  The following code segment produces an value of (4, 3, 1) for
+the outputOnly field SFVec3f _foo_changed_ with an initial value of
+(6, 6, 6):
+
+[source,listing]
+----
+a = foo_changed; // copy by reference a(6,6,6)
+a.x = 5;         // foo_changed(5,6,6)
+a.z = 1;         // foo_changed(5,6,1)
+b = foo_changed; // copy by reference b(5,6,1)
+b.x = 4;         // foo_changed(4,6,1)
+c = a;           // copy by reference c(4,6,1)
+c.y = 3;         // foo_changed(4,3,1))
+----
+
+If a script is called multiple times within a single timestamp, in
+accordance with the loop-breaking rule, only the first event generated
+from any output capable fields is queued. +
+
+[[ReceivingEvents]]
+===== 4.3.5.4 Receiving events
+
+Events sent to the containing node are passed to the corresponding
+ECMAScript function in the script. The function's name is the same as
+the field and is passed two arguments. If the function represents an
+inputOutput field, the name of the function shall be the same name as
+the field declaration, without the _set__ or __changed_ modifiers. The
+value of the event is passed as the first argument and the timestamp of
+the event is passed as the second argument. The type of the value is the
+same as the type of the event and the type of the timestamp is SFTime.
+<<X3DFieldToECMAScriptTypeConversions, 4.3.4.3 X3D field to ECMAScript variable conversion>>
+provides a description of how X3D types
+appear in ECMAScript. The values of the parameters have no visibility
+outside the function.
+
+If there is no corresponding ECMAScript function in the script, the
+browser's behaviour is to silently ignore the event.
+
+EXAMPLE  The following Script node has one writable field whose name is
+_start_:
+
+[source,listing]
+----
+Script {
+    eventIn SFBool start
+    url "ecmascript: function start(value, timestamp) { ... }"
+}
+----
+
+When the _start_ event is received, the start() function is executed.
+
+[[ExternalInteractions]]
+==== 4.3.6 External interactions
+
+If `+beginUpdate()+` has been called and multiple individual `PUT`
+actions have been performed on a single field, the result when
+`+endUpdate()+` is called shall be a single event with all of the
+individual values set. If two calls are made to set a particular array
+index, the last value written shall be used.
+
+If `+beginUpdate()+`has not been called, the result shall be an event
+that contains the entire field value with the individual value changed.
+Multiple `PUT` calls on the field object shall result in the
+equivalent number of events being generated inside the X3D browser.
+
+[[DisposingofRresources]]
+==== 4.3.7 Disposing of resources
+
+Although not required by the ECMAScript environment because all objects
+are automatically disposed, the SAI defines a service request for
+explicit disposal. Each host object defined by this specification and
+any extension objects provided by a browser shall have a `+dispose()+`
+function available. This shall dispose of the local handle to the
+underlying node. Any further access to that object shall generate an
+error.
+
+[[tables]]
+== 5 Tables
+
+[[IntroAndTOC]]
+=== 5.1 Introduction and table of contents
+
+[[Introduction]]
+==== 5.1.1 Introduction
+
+This clause contains tables defining abbreviations used and mapping
+abstract names from <<I19775-2, part 2 of ISO/IEC 19775>> to those of
+this binding.
+
+[[TOC]]
+==== 5.1.2 Table of contents
+
+See <<t-Topics, Table 5.1>> for the table of contents for this clause.
+
+[[t-Topics]]
+Table 5.1 — Topics in this clause
+
+* <<IntroAndTOC, 5.1 Introduction and Table of Contents>>
+** <<Introduction, 5.1.1 Introduction>>
+** <<TOC, 5.1.2 Table of contents>>
+* <<MappingsOfAbstractNamesToECMAScript, 5.2 Mappings of abstract names to ECMAScript binding names>>
+** <<DataTypes, 5.2.1 Data types>>
+** <<ErrorTypes, 5.2.2 Error types>>
+** <<EventTypes, 5.2.3 Event types>>
+** <<BrowserServices, 5.2.4 Browser services>>
+** <<ExecutionContextServices, 5.2.5 Execution context services>>
+** <<SceneServices, 5.2.6 Scene services>>
+** <<NodeServices, 5.2.7 Node services>>
+** <<FieldServices, 5.2.8 Field services>>
+** <<RouteServices, 5.2.9 Route services>>
+** <<PrototypeServices, 5.2.10 Prototype services>>
+** <<ScriptServices, 5.2.11 Script content services>>
+** <<MatrixServices, 5.2.12 Matrix services>>
+
+* <<t-Topics, Table 5.1 — Topics in this clause>>
+* <<t-DataTypesToECMAScriptMapping, Table 5.2 — Data type names listed alphabetically by abstract name>>
+* <<t-DataClassesToECMAScriptMapping, Table 5.3 — Data class names listed alphabetically by abstract name>>
+* <<t-ErrorTypeToECMASCriptMapping, Table 5.4 — Error class names listed alphabetically by abstract name>>
+* <<t-EventTypesToECMAScriptMapping, Table 5.5 — Event type names listed alphabetically by abstract name>>
+* <<t-BrowserSerivesToECMAScriptMapping, Table 5.6 — Browser services listed alphabetically by abstract name>>
+* <<t-ECMAScriptSpecificBrowserServices, Table 5.7 — ECMAScript-specific browser services listed aphabetically by abstract name>>
+* <<t-ExecutionContextServicesToECMAScriptMapping, Table 5.8 — Execution context services listed alphabetically by abstract name>>
+* <<t-SceneServicesToECMAScriptMapping, Table 5.9 — Scene services listed alphabetically by abstract name>>
+* <<t-NodeServicesToECMAScriptMapping, Table 5.10 — Node services listed alphabetically by abstract name>>
+* <<t-FieldServicesToECMAScriptMapping, Table 5.11 — Field services listed alphabetically by abstract name>>
+* <<t-RouteServicesToECMAScriptMapping, Table 5.12 — Route services listed alphabetically by abstract name>>
+* <<t-ProtoServicesToECMAScriptMapping, Table 5.13 — Prototye services listed alphabetically by abstract name>>
+* <<t-ScriptServicesToECMAScriptMapping, Table 5.14 — Script services listed alphabetically by abstract name>>
+* <<t-MatrixServicesToECMAScriptMapping, Table 5.15 — Matrix services listed alphabetically by abstract name>>
+
+[[MappingsOfAbstractNamesToECMAScript]]
+=== 5.2 Mappings of abstract names to ECMAScript binding names
+
+[[DataTypes]]
+==== 5.2.1 Data types
+
+In <<t-DataTypesToECMAScriptMapping, Table 5.2>>, each row lists an
+abstract name of a data type from <<I19775-2, part 2 of ISO/IEC 19775>>
+followed by the corresponding bound name. The names of data types used
+to reference data items are not included but may be found in
+<<t-DataClassesToECMAScriptMapping, Table 5.3>>.
+
+[[t-DataTypesToECMAScriptMapping]]
+Table 5.2 — Data type names listed alphabetically by abstract name
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Abstract name      |ECMAScript bound name
+|SAIAction          |N/A
+|SAIBrowserApp      |N/A
+|SAIBrowserName     |String
+|SAIBrowserRef      |Browser +
+ExternalBrowser
+|SAIBrowserVersion  |String
+|SAIComponentID     |String +
+Numeric
+|SAIFieldAccess     |X3DConstants
+|SAIFieldName       |String
+|SAIFieldType       |X3DConstants
+|SAIFieldValue      |various. Defined by field type (see <<FieldServices, 7.6>>)
+|SAIFrameRate       |Numeric
+|SAILoadState       |X3DConstants
+|SAINavSpeed        |Numeric
+|SAINodeID          |SFNode
+|SAINodeType        |X3DConstants
+|SAIParameterList   |N/A
+|SAIPropertyList    |String
+|SAIRequesterID     |Object
+|SAIString          |String
+|SAIURL             |String
+|null               |null
+|===
+
+[[t-DataClassesToECMAScriptMapping]]
+Table 5.3 — Data class names listed alphabetically by abstract name
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Abstract name          |ECMAScript bound name
+|SAIBrowserRef          |Browser +
+ExternalBrowser
+|SAIComponentDeclaration|ComponentInfo
+|SAIExecutionContextID  |X3DExecutionContext
+|SAIFieldDefinition     |X3DFieldDefinition
+|SAIFieldID             |an instance of the ECMAScript object appropriate to the
+field type. Defined by field type (see <<FieldServices, 7.6>>)
+|SAIFieldValue          |various. Defined by field type (see <<FieldServices, 7.6>>)
+|SAILoadState           |X3DConstants
+|SAINodeID              |SFNode
+|SAIProfileDeclaration  |ProfileInfo
+|SAIProtoDeclaration    |X3DProtoDeclaration or +
+X3DExternProtoDeclaration
+|SAIRoute               |X3DRoute
+|SAIScene               |X3DScene
+|SAIScript              |SFNode
+|SAIScriptImplementation|N/A +
+|SAIScene               |X3DScene
+|SAIStream              |X3DStream
+|SAIUnitDeclaration     |UnitInfo
+|===
+
+[[ErrorTypes]]
+==== 5.2.2 Error types
+
+In <<t-ErrorTypeToECMASCriptMapping, Table 5.4>>, each row lists an
+abstract name of an error type from <<I19775-2, part 2 of ISO/IEC 19775>>
+followed by the corresponding bound name.
+
+[[t-ErrorTypeToECMASCriptMapping]]
+Table 5.4 — Error class names listed alphabetically by abstract name
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Abstract name                 |ECMAScript bound name
+|SAI_BROWSER_UNAVAILABLE       |X3DConstants.SAI_BROWSER_UNAVAILABLE_ERROR
+|SAI_CONNECTION_ERROR          |X3DConstants.SAI_CONNECTION_ERROR
+|SAI_DISPOSED                  |X3DConstants.SAI_DISPOSED_ERROR
+|SAI_IMPORTED_NODE             |X3DConstants.SAI_IMPORTED_NODE_ERROR
+|SAI_INSUFFICIENT_CAPABILITY   |X3DConstants.SAI_INSUFFICIENT_CAPABILITY_ERROR
+|SAI_INVALID_ACCESS_TYPE       |X3DConstants.SAI_INVALID_ACCESS_TYPE_ERROR
+|SAI_INVALID_BROWSER           |X3DConstants.SAI_INVALID_BROWSER_ERROR
+|SAI_INVALID_DOCUMENT          |X3DConstants.SAI_INVALID_DOCUMENT_ERROR
+|SAI_INVALID_EXECUTION_CONTEXT |X3DConstants.SAI_INVALID_EXECUTION_CONTEXT_ERROR
+|SAI_INVALID_NAME              |X3DConstants.SAI_INVALID_NAME_ERROR
+|SAI_INVALID_NODE              |X3DConstants.SAI_INVALID_NODE_ERROR
+|SAI_INVALID_FIELD             |X3DConstants.SAI_INVALID_FIELD_ERROR
+|SAI_INVALID_OPERATION_TIMING  |X3DConstants.SAI_INVALID_OPERATION_TIMING_ERROR
+|SAI_INVALID_URL               |X3DConstants.SAI_INVALID_URL_ERROR
+|SAI_INVALID_X3D               |X3DConstants.SAI_INVALID_X3D_ERROR
+|SAI_NODE_NOT_AVAILABLE        |X3DConstants.SAI_NODE_NOT_AVAILABLE_ERROR
+|SAI_NODE_IN_USE               |X3DConstants.SAI_NODE_IN_USE_ERROR
+|SAI_NOT_SHARED                |X3DConstants.SAI_NOT_SHARED_ERROR
+|SAI_NOT_SUPPORTED             |X3DConstants.SAI_NOT_SUPPORTED_ERROR
+|SAI_URL_UNAVAILABLE           |X3DConstants.SAI_URL_UNAVAILABLE_ERROR
+|===
+
+[[EventTypes]]
+==== 5.2.3 Event types
+
+In <<t-EventTypesToECMAScriptMapping, Table 5.5>>, each row lists an
+abstract name of an event type from <<I19775-2, part 2 of ISO/IEC 19775>> 
+followed by the corresponding bound name.
+
+[[t-EventTypesToECMAScriptMapping]]
+Table 5.5 — Event type names listed alphabetically by abstract name
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Abstract name                |ECMAScript bound name
+|SAIBrowserEvent              |BrowserEvent
+|SAI_BROWSER_Connection_Error |X3DConstants.CONNECTION_ERROR
+|SAI_BROWSER_Initialized      |X3DConstants.INITIALIZED_EVENT
+|SAI_BROWSER_Shutdown         |X3DConstants.SHUTDOWN_EVENT
+|SAI_BROWSER_URL_Error        |X3DConstants.URL_ERROR_EVENT
+|SAIFieldEvent                |user-defined callback
+|===
+
+[[BrowserServices]]
+==== 5.2.4 Browser services
+
+In <<t-BrowserSerivesToECMAScriptMapping, Table 5.6>>, each row lists
+an abstract name of a browser service from <<I19775-2, part 2 of ISO/IEC 19775>> 
+followed by the corresponding bound name.
+
+[[t-BrowserSerivesToECMAScriptMapping]]
+Table 5.6 — Browser services listed alphabetically by abstract name
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Abstract name          |ECMAScript bound name
+|getBrowser             |Application-specific
+|createBrowser          |N/A
+|getName                |*Browser* property String *name*
+|getVersion             |*Browser* property String *version*
+|getCurrentSpeed        |*Browser* property Numeric *currentSpeed*
+|getCurrentFrameRate    |*Browser* property Numeric *currentFrameRate*
+|getSupportedProfiles   |*Browser* property ProfileInfo *supportedProfiles*
+|getProfile             |array access of ProfileInfo element
+|getSupportedComponents |*Browser* property ComponentInfo *supportedComponents*
+|getComponent           |array access of ComponentInfo element
+|getExecutionContext    |*Browser* property X3DExecutionContext *currentScene*
+|createScene            |N/A
+|replaceWorld           |*Browser* function void *replaceWorld(X3DScene)*
+|importDocument         |*Browser* function X3DScene *importDocument(org.w3c.dom.Node)*
+|loadURL                |*Browser* function void *loadURL(MFString, String)*
+|setDescription         |*Browser* property String *description*
+|createX3DFromString    |*Browser* function X3DScene *createX3DFromString(String)*
+|createX3DFromStream    |N/A
+|createX3DFromURL       |*Browser* function X3DScene *createX3DFromURL(MFString, String, object)*
+|Update Control         |*Browser* function void *beginUpdate()* +
+*Browser* function void *endUpdate()*
+|Register Browser Interest |*Browser* function void *addBrowserCallback(String, object)* +
+*Browser* function void *removeBrowserCallback(String)*
+|Share World            |*Browser* function void *shareWorld(ExternalBrowser, SFNode, SFNode)*
+|setSharedViewpoint     |*Browser* function void *setSharedViewpoint(SFNode)*
+|setSharedNavigation    |*Browser* function void *setSharedNavigation(X3DNode)*
+|getRenderingProperties |*Browser* function String *getRenderingProperty(String)*
+|getBrowserProperties   |*Browser* function String *getBrowserProperty(String)*
+|changeViewpoint        |*Browser* function void *nextViewpoint()* +
+*Browser* function void *previousViewpoint()* +
+*Browser* function void *firstViewpoint()* +
+*Browser* function void *lastViewpoint()*
+|Print                  |*Browser* function void *println(Object)*
+|Dispose                |*Browser* function void *dispose()*
+|===
+
+In <<t-ECMAScriptSpecificBrowserServices, Table 5.7>>, each row lists
+an abstract name of an additional browser service only available in this
+language binding followed by the corresponding bound name.
+
+[[t-ECMAScriptSpecificBrowserServices]]
+Table 5.7 —
+ECMAScript-specific browser services listed alphabetically by abstract
+name
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Abstract name      |ECMAScript bound name
+
+|Share World        |*Browser* function void *shareWorld(ExternalBrowser, SFNode, SFNode)*
+|setSharedViewpoint |*Browser* function void *setSharedViewpoint(SFNode)*
+|setSharedNavigation|*Browser* function void *setSharedNavigation(X3DNode)*
+|===
+
+==== 5.2.5 Execution context services
+
+In <<t-ExecutionContextServicesToECMAScriptMapping, Table 5.8>>, each
+row lists an abstract name of an execution context service from
+<<I19775-2, part 2 of ISO/IEC 19775>> followed by the corresponding
+
+[[t-ExecutionContextServicesToECMAScriptMapping]]
+Table 5.8 — Execution context services listed alphabetically by abstract name
+
+bound name.
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Abstract name              |ECMAScript bound name
+
+|getSpecificationVersion    |*X3DExecutionContext* property String *specificationVersion*
+|getEncoding                |*X3DExecutionContext* property Numeric *encoding*
+|getProfile                 |*X3DExecutionContext* property ProfileInfo *profile*
+|getComponents              |*X3DExecutionContext* property ComponentInfo *components*
+|getWorldURL                |*X3DExecutionContext* property String *worldURL*
+|getNode                    |*X3DExecutionContext* property MFNode *rootNodes*
+|createNode                 |*X3DExecutionContext* function SFNode *createNode(String)*
+|createProto                |*X3DExecutionContext* function SFNode *createProto(String)*
+|Named node handling        |N/A
+|getProtoDeclaration        |*X3DExecutionContext* property X3DProtoDeclarations *protoDeclarations*
+|PROTO Declaration Handling |N/A
+|getExternProtoDeclaration  |*X3DExecutionContext* property X3DExternProtoDeclarations *externProtoDeclarations*
+|EXTERNPROTO                Declaration Handling |N/A
+|getRootNodes               |*X3DExecutionContext* property MFNode *rootNodes*
+|getRoutes                  |*X3DExecutionContext* property RouteArray *routes*
+|Dynamic Route Handling     |*X3DExecutionContext* function X3DRoute *addRoute(SFNode, String, SFNode, String)* +
+*X3DExecutionContext* function void *deleteRoute(X3DRoute)*
+|Dispose                    |*X3DExecutionContext* function void *dispose()*
+|===
+
+[[SceneServices]]
+==== 5.2.6 Scene services
+
+In <<t-SceneServicesToECMAScriptMapping, Table 5.9>>, each row lists
+an abstract name of an scene service from <<I19775-2, part 2 of ISO/IEC 19775>>
+followed by the corresponding bound name.
+
+[[t-SceneServicesToECMAScriptMapping]]
+Table 5.9 — Scene services listed alphabetically by abstract name
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Abstract name       |ECMAScript bound name
+
+|getMetaData         |*X3DScene* function String *getMetaData(String)*
+|setMetaData         |*X3DScene* function void *setMetaData(String, String)*
+|getNode             |*X3DScene* function SFNode *getExportedNode(String)*
+|Named Node Handling |*X3DScene* function void *updateExportedNode(String)* +
+*X3DScene* function void *removeExportedNode(String)*
+|Root Node Handling  |*X3DScene* function void *addRootNode(SFNode)* +
+*X3DScene* function void *removeRootNode(SFNode)*
+|===
+
+[[NodeServices]]
+==== 5.2.7 Node services
+
+In <<t-NodeServicesToECMAScriptMapping, Table 5.10>>, each row lists
+an abstract name of an node service from <<I19775-2, part 2 of ISO/IEC 19775>>
+followed by the corresponding bound name.
+
+[[t-NodeServicesToECMAScriptMapping]]
+Table 5.10 — Node services listed alphabetically by abstract name
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Abstract name          |ECMAScript bound name
+|getName                |*SFNode* function String *getName()*
+|getType                |*SFNode* function Numeric *getType()*
+|getField               |*SFNode* function X3DField *getField(String)*
+|getFieldDefinitions    |*SFNode* function X3DFieldDefinitions *getFieldDefinitions()*
+|Dispose                |*SFNode* function void *dispose()*
+|===
+
+[[FieldServices]]
+==== 5.2.8 Field services
+
+In <<t-FieldServicesToECMAScriptMapping, Table 5.11>>, each row lists
+an abstract name of a field service from <<I19775-2, part 2 of ISO/IEC 19775>>
+followed by the corresponding bound name.
+
+[[t-FieldServicesToECMAScriptMapping]]
+Table 5.11 — Field services listed alphabetically by abstract name
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Abstract name           |ECMAScript bound name
+|getName                 |*X3DField* function String *getName()*
+|getType                 |*X3DField* function int *getType()*
+|getAccessType           |*X3DField* function boolean *isWritable()* +
+*X3DField* function boolean *isReadable()*
+|getValue                |_type_ *getValue()* +
+_type_ *get1Value(int)* +
+|setValue                |void *setValue(_type_)* +
+void *set1Value(int, _type_)* +
+|Register Field Interest |*X3DField* function void *addFieldCallback(String, Object)* +
+*X3DField* function void *removeFieldCallback(String)*
+|Dispose                 |*X3DField* function void *dispose()*
+|===
+
+[[RouteServices]]
+==== 5.2.9 Route services
+
+In <<t-RouteServicesToECMAScriptMapping, Table 5.12>>, each row lists
+an abstract name of a route service from <<I19775-2, part 2 of ISO/IEC 19775>>
+followed by the corresponding bound name.
+
+[[t-RouteServicesToECMAScriptMapping]]
+Table 5.12 — Route services
+listed alphabetically by abstract name
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Abstract name          |ECMAScript bound name
+|getSourceNode          |*X3DRoute* property SFNode *sourceNode*
+|getSourceField         |*X3DRoute* property String *sourceField*
+|getDestinationNode     |*X3DRoute* property SFNode *destinationNode*
+|getDestinationField    |*X3DRoute* property String *destinationField*
+|Dispose                |*X3DRoute* function void *dispose()*
+|===
+
+[[PrototypeServices]]
+==== 5.2.10 Prototype services
+
+In <<t-ProtoServicesToECMAScriptMapping, Table 5.13>>, each row lists
+an abstract name of a prototype service from <<I19775-2, part 2 of ISO/IEC 19775>>
+followed by the corresponding bound name.
+
+[[t-ProtoServicesToECMAScriptMapping]]
+Table 5.13 — Prototye services listed alphabetically by abstract name
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Abstract name  |ECMAScript bound name
+|isExternProto  |*X3DProtoDeclaration* property boolean *isExternProto*
+|createInstance |*X3DProtoDeclaration* function *newInstance()*
+|getFieldDefinitions    |*X3DProtoDeclaration* property FieldDefinitionArray *fields*
+|Check Load State       |*X3DExternProtoDeclaration* property boolean *loadState*
+|Request Immediate Load |*X3DExternProtoDeclaration* function void *loadNow()*
+|Dispose        |*X3DExternProtoDeclaration* function void *dispose()*
+|===
+
+[[ScriptServices]]
+==== 5.2.11 Script content services
+
+In <<t-ScriptServicesToECMAScriptMapping, Table 5.14>>, each row lists
+an abstract name of a script content service from <<I19775-2, part 2 of ISO/IEC 19775>>
+followed by the corresponding bound name.
+
+[[t-ScriptServicesToECMAScriptMapping]]
+Table 5.14 — Script content
+services listed alphabetically by abstract name
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Abstract name      |ECMAScript bound name
+|setBrowser         |N/A
+|setFields          |N/A
+|initialize         |void *initialize()*
+|prepareEvents      |void *prepareEvents()*
+|eventsProcessed    |void *eventsProcessed()*
+|shutdown           |void *shutdown()*
+|===
+
+[[MatrixServices]]
+==== 5.2.12 Matrix services
+
+In <<t-MatrixServicesToECMAScriptMapping, Table 5.15>>, each row lists
+an abstract name of a matrix service from <<I19775-2, part 2 of ISO/IEC 19775>>
+followed by the corresponding bound name.
+
+[[t-MatrixServicesToECMAScriptMapping]]
+Table 5.15 — Matrix services listed alphabetically by abstract name
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Abstract name  |ECMAScript bound name
+|set            |*Matrix4* function void *set(SFVec3f, SFRotation, SFVec3f, SFRotation, SFVec3f)*
+|get            |*Matrix4* function void *get(SFVec3f, SFRotation, SFVec3f)*
+|inverse        |*Matrix4* function Matrix4 *inverse()*
+|transpose      |*Matrix4* function Matrix4 *transpose()*
+|multiply       |*Matrix4* function Matrix4 *multLeft(Matrix4)* +
+*Matrix4* function Matrix4 *multRight(Matrix4)*
+|Matrix multiply with vector |*Matrix4* function SFVec3f
+*multVecMatrix(SFVec3f)* +
+*Matrix4* function SFVec3d *multVecMatrix(SFVec3d)* +
+*Matrix4* function SFVec3f *multMatrixVec(SFVec3f)* +
+*Matrix4* function SFVec3d *multMatrixVec(SFVec3d)* +
+|===
+
+[[types]]
+== 6 Type definitions
+
+[[IntroAndTOC]]
+=== 6.1 Introduction and table of contents
+
+[[Introduction]]
+==== 6.1.1 Introduction
+
+The X3D Scene Authoring Interface defines a set of fundamental abstract
+data types. This clause gives the mapping from those data types to the
+data types defined in this binding. All implementation-dependent data
+types are defined after all implementation-independent data types in
+each category.
+
+[[TOC]]
+==== 6.1.2 Table of contents
+
+See <<Table5.1, Table 6.1>> for the table of contents for this clause.
+
+[[t-Topics]]
+Table 6.1 — Topics in this clause
+
+* <<IntroAndTOC, 6.1 Introduction and Table of Contents>>
+** <<Introduction, 6.1.1 Introduction>>
+** <<TOC, 6.1.2 Table of contents>>
+* <<X3DFieldToECMAScriptConversion, 6.2 X3D field to ECMAScript variable conversion>>
+* <<DataTtypeDefinitions, 6.3 Data type definitions>>
+** <<SAIAction, 6.3.1 SAIAction>>
+** <<SAIBrowserApp, 6.3.2 SAIBrowserApp>>
+** <<SAIBrowserName, 6.3.3 SAIBrowserName>>
+** <<SAIBrowserRef, 6.3.4 SAIBrowserRef>>
+** <<SAIBrowserVersion, 6.3.5 SAIBrowserVersion>>
+** <<SAIComponentDeclaration, 6.3.6 SAIComponentDeclaration>>
+** <<SAIComponentID, 6.3.7 SAIComponentID>>
+** <<SAIExecutionContextID, 6.3.8 SAIExecutionContextID>>
+** <<SAIFieldAccess, 6.3.9 SAIFieldAccess>>
+** <<SAIFieldDefinition, 6.3.10 SAIFieldDefinition>>
+** <<SAIFieldID, 6.3.11 SAIFieldID>>
+** <<SAIFieldName, 6.3.12 SAIFieldName>>
+** <<SAIFieldType, 6.3.13 SAIFieldType>>
+** <<SAIFieldValue, 6.3.14 SAIFieldValue>>
+** <<SAIFrameRate, 6.3.15 SAIFrameRate>>
+** <<SAILoadState, 6.3.16 SAILoadState>>
+** <<SAINavSpeed, 6.3.17 SAINavSpeed>>
+** <<SAINodeID, 6.3.18 SAINodeID>>
+** <<SAINodeType, 6.3.19 SAINodeType>>
+** <<SAIParameterList, 6.3.20 SAIParameterList>>
+** <<SAIProfileDeclaration, 6.3.21 SAIProfileDeclaration>>
+** <<SAIPropertyList, 6.3.22 SAIPropertyList>>
+** <<SAIProtoDeclaration, 6.3.23 SAIProtoDeclaration>>
+** <<SAIRequesterID, 6.3.24 SAIRequesterID>>
+** <<SAIRoute, 6.3.25 SAIRoute>>
+** <<SAIScene, 6.3.26 SAIScene>>
+** <<SAIScript, 6.3.27 SAIScript>>
+** <<SAIScriptImplementation, 6.3.28 SAIScriptImplementation>>
+** <<SAIStream, 6.3.29 SAIStream>>
+** <<SAIString, 6.3.30 SAIString>>
+** <<SAIUnitDeclaration, 6.3.31 SAIUnitDeclaration>>
+** <<SAIURL, 6.3.30 SAIURL>>
+* <<ErrorDataTypes, 6.4 Error data types>>
+** <<SAIError, 6.4.1 SAIError>>
+** <<SAIBrowserUnavailable, 6.4.2 SAI_BROWSER_UNAVAILABLE>>
+** <<SAIConnectionError, 6.4.3 SAI_CONNECTION_ERROR>>
+** <<SAIDisposed, 6.4.4 SAI_DISPOSED>>
+** <<SAIImportedNode, 6.4.5 SAI_IMPORTED_NODE>>
+** <<SAIInsufficientCapability, 6.4.6 SAI_INSUFFICIENT_CAPABILITY>>
+** <<SAIInvalidAccessType, 6.4.7 SAI_INVALID_ACCESS_TYPE>>
+** <<SAIInvalidBrowser, 6.4.8 SAI_INVALID_BROWSER>>
+** <<SAIInvalidDocument, 6.4.9 SAI_INVALID_DOCUMENT>>
+** <<SAIInvalidExecutionContext, 6.4.10 SAI_INVALID_EXECUTION_CONTEXT>>
+** <<SAIInvalidField, 6.4.11 SAI_INVALID_FIELD>>
+** <<SAIInvalidName, 6.4.12 SAI_INVALID_NAME>>
+** <<SAIInvalidNode, 6.4.13 SAI_INVALID_NODE>>
+** <<SAIInvalidOperationTiming, 6.4.14 SAI_INVALID_OPERATION_TIMING>>
+** <<SAIInvalidURL, 6.4.15 SAI_INVALID_URL>>
+** <<SAIInvalidX3D, 6.4.16 SAI_INVALID_X3D>>
+** <<SAINodeNotAvailable, 6.4.17 SAI_NODE_NOT_AVAILABLE>>
+** <<SAINodeInUse, 6.4.18 SAI_NODE_IN_USE>>
+** <<SAINotShared, 6.4.19 SAI_NOT_SHARED>>
+** <<SAIURLUnavailable, 6.4.20 SAI_URL_UNAVAILABLE>>
+* <<EventTypes, 6.5 Event types>>
+** <<EventTypesGeneral, 6.5.1 General concepts>>
+** <<EventTypesSAIBrowserEvent, 6.5.2 SAIBrowserEvent>>
+** <<EventTypesSAIFieldEvent, 6.5.3 SAIFieldEvent>>
+
+* <<t-Topics, Table 6.1 — Topics in this clause>>
+* <<t-SAIActionToECMAScript, Table 6.2 — SAIAction to ECMAScript implementation mapping>>
+* <<t-X3DFieldTypeToECMAScrip, Table 6.3 — Mapping of X3D Field type to ECMAScript representation>>
+* <<t-t-X3DTypesToECMAScriptTypes, Table 6.4 — Mapping of X3D data types to ECMAScript data types>>
+* <<t-LoadStateTypeValueDefs, Table 6.5 — Load state type value defintions>>
+* <<t-SAIParamToECMAScriptParam, Table 6.6 — Mapping of SAI event types to ECMAScript constants>>
+
+[[X3DFieldToECMAScriptConversion]]
+=== 6.2 X3D field to ECMAScript variable conversion
+
+ECMAScript native datatypes consist of boolean, numeric and string. The
+language is not typed, so datatypes are implicit upon assignment. The
+VRML SFBool is mapped to the ECMAScript boolean. In addition to the
+ECMAScript _true_ and _false_ constants, the X3D TRUE and FALSE values
+may be used. The X3D SFInt32, SFFloat and SFTime fields are mapped to
+the numeric datatype and are maintained in double precision accuracy.
+These types are passed by value in function calls. All other X3D fields
+are mapped to ECMAScript objects. ECMAScript objects are passed by
+reference.
+
+The ECMAScript boolean, numeric and string are automatically converted
+to other datatypes when needed. See <<I16262, ISO/IEC 16262>> for more
+details.
+
+In ECMAScript, assigning a new value to a variable gives the variable
+the datatype of the new value, in addition to the value. Scalar values
+(boolean and numeric) are assigned by copying the value. Other objects
+are assigned by reference.
+
+When assignments are made to writable fields, the values are converted
+to the X3D field type. Values assigned are always copied. This contrasts
+with normal assignment in ECMAScript where all assignments except for
+scalar are performed by reference.
+
+For write-only objects within an internal interaction, assignment copies
+the value to the field, which will be sent upon completion of the
+current function in accordance with 4.8.3.3 Responding to events of
+<<I19775-2, part 2 of ISO/IEC 19775>>. Assigning a write-only field
+object to an internal variable copies by reference. Subsequent
+assignments to that internal variable will behave like assignments to
+the write-only field (_i.e._, an event will be sent at the end of the
+function). InitializeOnly field objects behave identically to write-only
+objects, except that no event is sent upon completion of the function.
+
+Assigning an element of a multi-valued field object to an internal
+variable creates a reference to that element. The type shall be the
+corresponding single valued object type. If the multi-valued object is
+an write-only field and an assignment is made to the internal variable,
+an event will be sent at the end of the function. Assigning a single
+valued field object to an element of a multi-valued field object object
+which is an initialize-only field or write-only field (which shall be of
+the corresponding type) copies the value of the single-valued field
+object into the multi-valued field object element. If the multi-valued
+field object is a write-only field an event will be sent at the end of
+the function.
+
+[[DataTtypeDefinitions]]
+=== 6.3 Data type definitions
+
+[[SAIAction]]
+==== 6.3.1 SAIAction
+
+The action type is dependent on the method used.
+<<t-SAIActionToECMAScript, Table 6.2>> defines the mapping between
+each service, the valid action types for that service and the Java
+implementation of that action. Actions are mapped as method names
+describing the action rather than strict primitive types.
+
+[[t-SAIActionToECMAScript]]
+Table 6.2 — SAIAction to ECMAScript implementation mapping
+
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Abstract SAI service |Action type |ECMASCript implementation
+
+|Dynamic Route Handling |Add Route |`+X3DExecutionContext+` function `+addRoute()+`
+|               |Delete Route |`+X3DExecutionContext+` function `+deleteRoute()+`
+|Update Control |Begin Update |`+ExternalBrowser+` function `+beginUpdate()+`
+|               |End Update |`+ExternalBrowser+` function `+endUpdate()+`
+|Register Browser Interest |Add |`+Browser+` function `+addBrowserCallback()+`
+|               |Remove |`+Browser+` function `+removeBrowserCallback()+`
+|Register Event Interest |Add |_FieldObject_ function `+addFieldCallback()+`
+|               |Remove |_FieldObject_ function `+removeFieldCallback()+`
+|Share World    |share |`+ExternalBrowser+` function `+shareBrowser()+`
+|               |unshare |`+ExternalBrowser+` function `+unshareBrowser()+`
+|getNode        |DEF node |`+X3DExecutionContext+` function `+getNamedNode()+`
+|               |IMPORT node |`+X3DExecutionContext+` function `+getImportedNode()+`
+|               |EXPORT node |`+X3DScene+` function `+getExportedNode()+`
+|Named Node Handling |add/update DEF node |`+X3DExecutionContext+` function `+updateNamedNode()+`
+|               |remove DEF node |`+X3DExecutionContext+` function `+removedNamedNode()+`
+|               |add/update IMPORT node |`+X3DExecutionContext+` function `+updateImportedNode()+`
+|               |remove IMPORT node |`+X3DExecutionContext+` function `+removeImportedNode()+`
+|               |add/update EXPORT node |`+X3DScene+` function `+updateExportedNode()+`
+|               |remove EXPORT node |`+X3DScene+` function `+removeExportedNode()+`
+|PROTO Declaration Handling |add/update Proto |`+X3DExecutionContext+` function `+updateProtoDeclaration()+`
+|               |remove Proto |`+X3DExecutionContext+` function `+removeProtoDeclaration()+`
+|EXTERNPROTO Declaration Handling |add/update ExternProto
+|`+X3DExecutionContext+` function `+updateExternProtoDeclaration()+`
+|               |remove ExternProto |`+X3DExecutionContext+` function `+removeExternProtoDeclaration()+`
+|Root Node Handling |add root node |`+X3DScene+` property `+rootNodes+` (`+MFNode+` object type)
+|               |remove root node |`+X3DScene+` property `+rootNodes+` (`+MFNode+` object type)
+|Change Viewpoint |next |Browser function `+nextViewpoint()+`
+|               |previous |Browser function `+previousViewpoint()+`
+|               |first |Browser function `+firstViewpoint()+`
+|               |last |Browser function `+lastViewpoint()+`
+|===
+
+[[SAIBrowserApp]]
+==== 6.3.2 SAIBrowserApp
+
+The data type is not provided by this specification as it is assumed the
+surrounding scripting context will make this information available in
+its own fashion. The capability to obtain an SAIBrowserRef is
+implemented in the `+getBrowser()+` function of that
+environment-specific object which returns an instance of the
+`+ExternalBrowser+` object.
+
+[[SAIBrowserName]]
+==== 6.3.3 SAIBrowserName
+
+The data type is implemented as the String standard object type.
+
+[[SAIBrowserRef]]
+==== 6.3.4 SAIBrowserRef
+
+The browser reference type is defined to be an instance of the
+`+Browser+` host object. This is the base representation used for both
+internal and external interaction. For external-only interactions, extra
+functions are available through the `+ExternalBrowser+` host object that
+corresponds with capabilities in addition to those of the basic
+`+Browser+` object. For external interactions, the `+Browser+` object
+shall not be defined.
+
+[[SAIBrowserVersion]]
+==== 6.3.5 SAIBrowserVersion
+
+The data type is implemented as the String standard object type. The
+NULL value is defined as the ECMAScript `+null+` value type.
+
+[[SAIComponentDeclaration]]
+==== 6.3.6 SAIComponentDeclaration
+
+The component declaration is represented by the `+ComponentInfo+` host
+object. This object presents a read-only view of a component and its
+information.
+
+[[SAIComponentID]]
+==== 6.3.7 SAIComponentID
+
+The component ID is represented as two separate primitive values. The
+name of the component is defined using an ECMAScript String and the
+level is represented using the numeric primitive type. If the user
+provides a level value that is anything but a positive integer, the
+browser shall generate an error.
+
+[[SAIExecutionContextID]]
+==== 6.3.8 SAIExecutionContextID
+
+The execution content is represented by an instance of the
+X3DExecutionContext host object type.
+
+[[SAIFieldAccess]]
+==== 6.3.9 SAIFieldAccess
+
+Field access is driven by the state of the field object. It shall have
+two read-only Boolean properties to determine if it is readable
+(`+readable+`) and writeable (`+writable+`) These properties shall be
+`+true+` if the field is readable or writable respectively at the
+current point in time. Note that for a given field the value of the
+properties for a particular SAIFieldID may change over time dependent on
+the node's current state in the life cycle as specified in 4.4.3.5
+Object life cycle of <<I19775-1, part 1 of ISO/IEC 19775>>.
+
+[[SAIFieldDefinition]]
+==== 6.3.10 SAIFieldDefinition
+
+The field declaration is represented by the `+X3DFieldDefinition+` host
+object. This object has a number of read-only properties defined. The
+definition of the properties available are described in
+<<X3DFieldDefinition, 7.6.2 Field services and objects>> .
+
+[[SAIFieldID]]
+==== 6.3.11 SAIFieldID
+
+The field identifier is represented as an instance of the object that is
+appropriate to the field type. For each specific X3D field type, there
+shall be a derived object that represents the field type, and includes
+strong type checking for the values. An implementation is not required
+to return the same object instance for every query, but shall ensure
+that equivalence checking is correct through the implementation of the
+`+equals()+` function.
+
+[[SAIFieldName]]
+==== 6.3.12 SAIFieldName
+
+The name of the field is implemented as a String standard object type.
+
+[[SAIFieldType]]
+==== 6.3.13 SAIFieldType
+
+The field type may be represented in two alternative fashions.
+
+The first alternative is provided through `+getType()+` function
+provided in the field object. This returns a numeric value which has one
+of the values defined by the defined in
+<<t-X3DFieldTypeToECMAScript, Table 6.3>>.
+
+[[t-X3DFieldTypeToECMAScrip]]
+Table 6.3 — Mapping of X3D Field type to ECMAScript representation
+
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|X3D Field type |ECMAScript representation
+|SFBool         |X3DConstants.SFBool
+|MFBool         |X3DConstants.MFBool
+|SFColor        |X3DConstants.SFColor
+|MFColor        |X3DConstants.MFColor
+|SFColorRGBA    |X3DConstants.SFColorRGBA
+|MFColorRGBA    |X3DConstants.MFColorRGBA
+|SFDouble       |X3DConstants.SFDouble
+|MFDouble       |X3DConstants.MFDouble
+|SFFloat        |X3DConstants.SFFloat
+|MFFloat        |X3DConstants.MFFloat
+|SFImage        |X3DConstants.SFImage
+|MFImage        |X3DConstants.MFImage
+|SFInt32        |X3DConstants.SFInt32
+|MFInt32        |X3DConstants.MFInt32
+|SFMatrix3d     |X3DConstants.SFMatrix3d
+|MFMatrix3d     |X3DConstants.MFMatrix3d
+|SFMatrix3f     |X3DConstants.SFMatrix3f
+|MFMatrix3f     |X3DConstants.MFMatrix3f
+|SFMatrix4d     |X3DConstants.SFMatrix4d
+|MFMatrix4d     |X3DConstants.MFMatrix4d
+|SFMatrix4f     |X3DConstants.SFMatrix4f
+|MFMatrix4f     |X3DConstants.MFMatrix4f
+|SFNode         |X3DConstants.SFNode
+|MFNode         |X3DConstants.MFNode
+|SFRotation     |X3DConstants.SFRotation
+|MFRotation     |X3DConstants.MFRotation
+|SFString       |X3DConstants.SFString
+|MFString       |X3DConstants.MFString
+|SFTime         |X3DConstants.SFTime
+|MFTime         |X3DConstants.MFTime
+|SFVec2d        |X3DConstants.SFVec2d
+|MFVec2d        |X3DConstants.MFVec2d
+|SFVec2f        |X3DConstants.SFVec2f
+|MFVec2f        |X3DConstants.MFVec2f
+|SFVec3d        |X3DConstants.SFVec3d
+|MFVec3d        |X3DConstants.MFVec3d
+|SFVec3f        |X3DConstants.SFVec3f
+|MFVec3f        |X3DConstants.MFVec3f
+|SFVec4f        |X3DConstants.SFVec4f
+|MFVec4f        |X3DConstants.MFVec4f
+|===
+
+The second alternative is provided by the objects themselves. Field
+objects are derived to provide implementations of the exact field type.
+A list of all the objects for each field type and access type is
+provided in <<FieldServices, 7.5.4 Field Services>>.
+
+[[SAIFieldValue]]
+==== 6.3.14 SAIFieldValue
+
+The field value is defined on a per object and per field type instance.
+See the definitions of the individual field type objects for the exact
+definition of each type. As a general rule, the X3D data type maps the
+the equivalent ECMAScript primitive type using the mapping in
+<<t-t-X3DTypesToECMAScriptTypes, Table 6.4>>.
+
+[[t-t-X3DTypesToECMAScriptTypes]]
+Table 6.4 — Mapping of X3D data types to ECMAScript data types
+
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|X3D field type                     |ECMAScript type
+|SFBool                             |Boolean
+|SFColor, SFColorRGBA               |Object
+|SFFloat, SFDouble                  |Numeric
+|SFImage                            |Object
+|SFInt32                            |Numeric
+|SFRotation                         |Object
+|SFString                           |String
+|SFTime                             |Numeric
+|SFVec2f, SFVec3f, SFVec2d, SFVec3d |Object
+|All MF fields                      |Object
+|===
+
+[[SAIFrameRate]]
+==== 6.3.15 SAIFrameRate
+
+The data type is implemented as the numeric standard object type. A null
+value is defined as the value `+0.0f+`.
+
+[[SAILoadState]]
+==== 6.3.16 SAILoadState
+
+The load state is implemented as a numeric primitive type. The values
+for each state are defined in <<t-LoadStateTypeValueDefs, Table 6.5>>.
+If a component defines new field types, the numerical values assigned
+shall not override the values already defined.
+
+[[t-LoadStateTypeValueDefs]]
+Table 6.5 — Load state type value definitions
+
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|State          |Value
+|NOT_STARTED    |X3DConstants.NOT_STARTED_STATE
+|IN_PROGRESS    |X3DConstants.IN_PROGRESS_STATE
+|COMPLETE       |X3DConstants.COMPLETE_STATE
+|FAILED         |X3DConstants.FAILED_STATE
+|===
+
+[[SAINavSpeed]]
+==== 6.3.17 SAINavSpeed
+
+The data type is implemented as the numeric standard object type. A null
+value is defined as the value `+0.0f+`.
+
+[[SAINodeID]]
+==== 6.3.18 SAINodeID
+
+The node identifier is represented as an instance of the `+SFNode+`
+object. This object is used for the dual purpose of representing an
+individual node as well as the single-value node field type. The
+identifier of a node field may be accessed directly as a property of the
+parent node. In the following example, the value of the appearance field
+of the Shape node is assigned a new value.
+
+....
+   myShape.appearance = someNewAppearanceNode;
+....
+
+[[SAINodeType]]
+==== 6.3.19 SAINodeType
+
+The node type is represented as a numeric constant value in the host
+object `+X3DConstants+`. The host object contains a collection of
+read-only numeric propeties named for each abstract node type defined in
+<<I19775-1, part 1 of ISO/IEC 19775>>. The naming convention shall be
+to use the exact naming specified in part 1 of ISO/IEC 19775,
+maintaining case.
+
+EXAMPLE  The following two constants define the X3DGroupingNode and
+X3DUrlObject abstract node types:
+
+[source,listing]
+----
+X3DConstants.X3DGroupingNode
+X3DConstants.X3DUrlObject
+----
+
+[[SAIParameterList]]
+==== 6.3.20 SAIParameterList
+
+The createBrowser and getBrowser services are not implemented by this
+language binding. Therefore, there is no requirement to define valid
+values for this abstract type.
+
+[[SAIProfileDeclaration]]
+==== 6.3.21 SAIProfileDeclaration
+
+The profile declaration is represented by the `+ProfileInfo+` host
+object type. See <<ProfileInfo, 7.8.1 ProfileInfo>> for a detailed
+definition of this object.
+
+[[SAIPropertyList]]
+==== 6.3.22 SAIPropertyList
+
+The data type is implemented as an array of `+String+` standard object
+types. Key/Value pairs are declared in a single string in the following
+format with the '=' character as the separator. Whitespace surrounding
+the key and value are ignored although whitespace inside the key and
+value are legal.
+
+The following are considered valid values (as well as permutations of
+the given examples):
+
+[source,listing]
+----
+"key=value"
+"key = value"
+"key= value"
+"a key = some value"
+"a key =some value"
+----
+
+[[SAIProtoDeclaration]]
+==== 6.3.23 SAIProtoDeclaration
+
+The component declaration is represented by two separate object types:
+PROTO and EXTERNPROTO. For PROTO, the object is `+X3DProtoDeclaration+`.
+For EXTERNPROTO, the object is `+X3DExternProtoDeclaration+`.
+
+[[SAIRequesterID]]
+==== 6.3.24 SAIRequesterID
+
+The requestor ID is represented as the ECMAScript execution context of
+the code that is being evaluated. In addition, the calls shall pass in a
+String object instance that represents the name of the function to be
+called in the same execution context when the desired callback needs to
+be made. If the user does not provide the string, or the name is not
+valid in the context, the browser may ignore the request.
+
+[[SAIRoute]]
+==== 6.3.25 SAIRoute
+
+Routes are represented by the immutable object `+X3DRoute+`. This allows
+fetching of all the route information, but it may not be changed.
+Browsers shall not expose to the end user extended versions of this
+object that allow direct modification of the route.
+
+[[SAIScene]]
+==== 6.3.26 SAIScene
+
+The scene is represented by the object X3DScene. The scene interface
+holds all the functions that represent the Scene Services. A full
+definition of the interface and all its functions is in
+<<SceneServices, 7.3 Scene Services>>.
+
+[[SAIScript]]
+==== 6.3.27 SAIScript
+
+This is the external, containing node representation of the script that
+is passed to the script implementation object during the initialisation
+phase. It shall be represented by an SFNode host object (see
+<<SFNode, 7.5.4 SFNode>>) with the node type of
+`+X3DConstants.X3DScriptNode+`. This represents the abstract node type
+as there may be more than one script node type.
+
+[[SAIScriptImplementation]]
+==== 6.3.28 SAIScriptImplementation
+
+The SAIScriptImplementation abstract type corresponds to the ECMAScript
+concept of the Execution Context (not to be confused with the X3D
+definition). The ECMAScript Execution Context is a construct created by
+the browser implementation that wraps the user-provided code in the
+Script node's _url_ field.
+
+Standard functions are defined for scripts in order to receive important
+information during its lifecylce. These standard functions are described
+in <<InternalInteractions, 4.3.5 Internal Interactions>> and
+<<ScriptImplementation, 7.9 Script Implementation Details>>
+
+[[SAIStream]]
+==== 6.3.29 SAIStream
+
+TO DO
+
+[[SAIString]]
+==== 6.3.30 SAIString
+
+The string is implemented as a String standard object type.
+
+[[SAIUnitDeclaration]]
+==== 6.3.31 SAIUnitDeclaration
+
+The SAIUnitDeclaration is represented as three separate primitive
+values. The category is defined using an ECMAScript String, the name of
+the new default base unit is defined using an ECMAScript String, and the
+conversion factor from the new default base unit to the initial default
+base unit is represented using the numeric primitive type.
+
+==== 6.3.32 SAIURL
+
+The URL is implemented as the String standard object type.
+
+[[ErrorDataTypes]]
+=== 6.4 Error data types
+
+[[SAIError]]
+==== 6.4.1 SAIError
+
+ECMAscript implementations of the errors rely on a derived object based
+on the SAIError type. +
+ +
+The error types are implemented using the host object X3DException. All
+exceptions (errors) defined in this specification shall be implemented
+as integer constant properties of the X3DException object. A user may
+catch exceptions using the try/catch keywords.
+
+[[SAIBrowserUnavailable]]
+==== 6.4.2 SAI_BROWSER_UNAVAILABLE
+
+The error type is implemented as the object `+NoSuchBrowserException+`.
+
+[[SAIConnectionError]]
+==== 6.4.3 SAI_CONNECTION_ERROR
+
+The error type is implemented as the object `+ConnectionException+`.
+
+[[SAIDisposed]]
+==== 6.4.4 SAI_DISPOSED
+
+The error type is implemented as two separate dual-purpose exception
+objects depending on their scope.
+
+`+InvalidBrowserException+` is used to indicate the disposal of an
+<<SAIBrowserRef, SAIBrowserRef>>.
+
+`+InvalidNodeException+` is used to indicate the disposal of an
+<<SAINodeID, SAINodeID>>.
+
+[[SAIImportedNode]]
+==== 6.4.5 SAI_IMPORTED_NODE
+
+The error type is implemented as the object
+`+InvalidImportedNodeException.+`
+
+[[SAIInsufficientCapability]]
+==== 6.4.6 SAI_INSUFFICIENT_CAPABILITY
+
+The error type is implemented as the object
+`+InvalidInsufficientCapabilityException.+`
+
+[[SAIInvalidAccessType]]
+==== 6.4.7 SAI_INVALID_ACCESS_TYPE
+
+The error type is implemented as two separate exceptions based on the
+implementation of <<SAINodeID, SAINodeID>> and the rules defined in
+<<SAIActionToECMAScriptImplementationMapping, Table 6.3>>. These
+objects also derive from `+InvalidFieldException+`.
+
+`+InvalidEventInException+` is used to indicate the named field is not
+accessible as a writable field when attempting to create a route with
+the `+X3DExecutionContext.addRoute()+` function.
+
+`+InvalidEventOutException+` is used to indicate the named field is not
+accessible as a readable field when attempting to create a route with
+the `+X3DExecutionContext.addRoute()+` function.
+
+[[SAIInvalidBrowser]]
+==== 6.4.8 SAI_INVALID_BROWSER
+
+The error type is implemented as the object `+InvalidBrowserException+`.
+
+[[SAIInvalidDocument]]
+==== 6.4.9 SAI_INVALID_DOCUMENT
+
+The error type is implemented as the object
+`+InvalidDocumentException.+`
+
+[[SAIInvalidExecutionContext]]
+==== 6.4.10 SAI_INVALID_EXECUTION_CONTEXT
+
+The error type is implemented as the object
+`+InvalidExecutionContextException.+`
+
+[[SAIInvalidName]]
+==== 6.4.11 SAI_INVALID_NAME
+
+The error type is expressed as different exceptions dependent on the
+situation. The `+X3DExecutionContext.getNamedNode()+`,
+`+X3DScene.getExportedNode()+` and
+`+X3DExecutionContext.getImportedNode()+` functions use the
+`+InvalidNodeException+`. When accessing fields of a node, the error is
+expressed as an `+InvalidFieldException+`.
+
+[[SAIInvalidNode]]
+==== 6.4.12 SAI_INVALID_NODE
+
+The error type is implemented as the object `+InvalidNodeException.+`
+
+[[SAIInvalidField]]
+==== 6.4.13 SAI_INVALID_FIELD
+
+The error type is implemented as the object `+InvalidFieldException+`.
+Note that there are two derived objects from this object
+(`+InvalidEventInException+` and `+InvalidEventOutException) +`that may
+be used at times where this error may be generated.
+
+[[SAIInvalidOperationTiming]]
+==== 6.4.14 SAI_INVALID_OPERATION_TIMING
+
+The error type is implemented as the object
+`+InvalidOperationTimingException.+`
+
+[[SAIInvalidURL]]
+==== 6.4.15 SAI_INVALID_URL
+
+The error type is implemented as the object `+InvalidURLException+`.
+
+[[SAIInvalidX3D]]
+==== 6.4.16 SAI_INVALID_X3D
+
+The error type is implemented as the object `+InvalidX3DException+`.
+
+[[SAINodeNotAvailable]]
+==== 6.4.17 SAI_NODE_NOT_AVAILABLE
+
+The error type is implemented as the object
+`+NodeUnavailableException+`.
+
+[[SAINodeInUse]]
+==== 6.4.18 SAI_NODE_IN_USE
+
+The error type is implemented as the object `+NodeInUseException+`.
+
+[[SAINotShared]]
+==== 6.4.19 SAI_NOT_SHARED
+
+The error type is implemented as the object
+`+BrowserNotSharedException+`.
+
+[[SAIURLUnavailable]]
+==== 6.4.20 SAI_URL_UNAVAILABLE
+
+The error type is implemented as the object `+URLUnavailableException+`.
+
+[[EventTypes]]
+=== 6.5 Event types
+
+[[EventTypesGeneral]]
+==== 6.5.1 General concepts
+
+The ECMAScript design philosophy does not always mesh well with the idea
+of event object representations. As a consequence, this annex does not
+define event type objects for the `+SAIBrowserEvent+` and
+`+SAIFieldEvent+` object types. Instead a series of constants are
+defined and standard function calls are used.
+
+[[EventTypesSAIBrowserEvent]]
+==== 6.5.2 SAIBrowserEvent
+
+A function that is to act as a callback for browser events shall consist
+of two optional parameters. A reference to the browser object will be
+the first parameter and a numeric primitive value that represents the
+event type. will be the second parameter The mapping of the numeric
+value to the error types defined by the abstract specification is
+defined in <<t-SAIParamToECMAScriptParam, Table 6.6>>
+
+[[t-SAIParamToECMAScriptParam]]
+Table 6.6 — Mapping of Abstract SAI event types to ECMAScript constants
+
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Type                               |ECMAScript constant
+|`+SAI_BROWSER_Connection_Error+`   |X3DConstants.CONNECTION_ERROR
+|`+SAI_BROWSER_Event+`              |X3DConstants.BROWSER_EVENT
+|`+SAI_BROWSER_Initialized+`        |X3DConstants.INITIALIZED_EVENT
+|`+SAI_BROWSER_Shutdown+`           |X3DConstants.SHUTDOWN_EVENT
+|`+SAI_BROWSER_URL_Error+`          |X3DConstants.INITIALIZED_ERROR
+|===
+
+[[EventTypesSAIFieldEvent]]
+==== 6.5.3 SAIFieldEvent
+
+The event type is implemented as a set of parameters passed to the user
+defined callback function. The user function shall have parameters that
+are the pointer to the field, the timestamp of when the event happened
+and the user data that may have been registered with the field.
+
+[[functions]]
+== 7 Function definitions
+
+[[IntroAndTOC]]
+=== 7.1 Introduction and table of contents
+
+[[Introduction]]
+==== 7.1.1 Introduction
+
+This clause describes key concepts in this part of ISO/IEC 19776. This
+includes conformance criteria and abstract concepts of the binding
+defined in this part to the abstract definitions specified in
+<<I19775-2, Part 2 of ISO/IEC 19775>>.
+
+[[TOC]]
+==== 7.1.2 Table of contents
+
+See <<Table6.1, Table 7.1>> for the table of contents for this clause.
+
+[[t-Topics]]
+Table 7.1 — Topics in this clause
+
+* <<IntroAndTOC, 7.1 Introduction and Table of Contents>>
+** <<Introduction, 7.1.1 Introduction>>
+** <<TOC, 7.1.2 Table of contents>>
+* <<BrowserServices, 7.2 Browser services and connections>>
+** <<NativeObjects, 7.2.1 Native objects>>
+** <<EstablishingConnections, 7.2.2 Establishing connections>>
+*** <<getBrowser, 7.2.2.1 getBrowser>>
+*** <<createBrowser, 7.2.2.2 createBrowser>>
+** <<ProvidingExtensionFunctions, 7.2.3 Providing extension functions>>
+* <<ExecutionContextServices, 7.3 Execution context services>>
+** <<ContextDescription, 7.3.1 Description>>
+** <<ExecutionContextInstanceCreationFunctions, 7.3.2 Instance creation function>>
+** <<ExecutionContextProperties, 7.3.3 Properties>>
+** <<ExecutionContextFunctions, 7.3.4 Functions>>
+* <<SceneServices, 7.4 Scene services>>
+** <<SceneDescription, 7.4.1 Description>>
+** <<t-SceneInstanceCreationFunction, 7.4.2 Instance creation function>>
+** <<SceneProperties, 7.4.3 Properties>>
+** <<SceneFunctions, 7.4.4 Functions>>
+* <<NodeServices, 7.5 Node services>>
+* <<FieldServices, 7.6 Field services and objects>>
+** <<CommonProperties, 7.6.1 Common properties>>
+** <<X3DFieldDefinition, 7.6.2 X3DFieldDefinition>>
+*** <<X3DFieldDefinitionDescription, 7.6.2.1 Description>>
+*** <<X3DFieldDefinitionInstanceCreationFunction, 7.6.2.2 Instance creation function>>
+*** <<X3DFieldDefinitionProperties, 7.6.2.3 Properties>>
+*** <<X3DFieldDefinitionFunctions, 7.6.2.4 Functions>>
+** <<SFColor, 7.6.3 SFColor>>
+*** <<SFColorDescription, 7.6.3.1 Description>>
+*** <<SFColorInstanceCreationFunction, 7.6.3.2 Instance creation function>>
+*** <<SFColorProperties, 7.6.3.3 Properties>>
+*** <<SFColorFunctions, 7.6.3.4 Functions>>
+** <<SFImage, 7.6.4 SFImage>>
+*** <<SFImageDescription, 7.6.4.1 Description>>
+*** <<SFImageInstanceCreationFunction, 7.6.4.2 Instance creation function>>
+*** <<SFImageProperties, 7.6.4.3 Properties>>
+*** <<SFImageFunctions, 7.6.4.4 Function>>
+** <<SFNode, 7.6.5 SFNode>>
+*** <<SFNodeDescription, 7.6.5.1 Description>>
+*** <<SFNodeInstanceCreationFunction, 7.6.5.2 Instance creation function>>
+*** <<SFNodeProperties, 7.6.5.3 Properties>>
+*** <<SFNodeFunctions, 7.6.5.4 Functions>>
+** <<SFRotation, 7.6.6 SFRotation>>
+*** <<SFRotationDescription, 7.6.6.1 Description>>
+*** <<SFRotationInstanceCreationFunction, 7.6.6.2 Instance creation functions>>
+*** <<SFRotationProperties, 7.6.6.3 Properties>>
+*** <<SFRotationFunctions, 7.6.6.4 Functions>>
+** <<SFVec2d, 7.6.7 SFVec2d>>
+*** <<SFVec2DDescription, 7.6.7.1 Description>>
+*** <<SFVec2dInstanceCreationFunction, 7.6.7.2 Instance creation function>>
+*** <<SFVec2dProperties, 7.6.7.3 Properties>>
+*** <<SFVec2dFunctions, 7.6.7.4 Functions>>
+** <<SFVec2f, 7.6.8 SFVec2f>>
+*** <<SFVec2fDescription, 7.6.8.1 Description>>
+*** <<SFVec2fInstanceCreationFunction, 7.6.8.2 Instance creation function>>
+*** <<SFVec2fProperties, 7.6.8.3 Properties>>
+*** <<SFVec2fFunctions, 7.6.8.4 Functions>>
+** <<SFVec3d, 7.6.9 SFVec3d>>
+*** <<SFVec3dInstanceCreationFunction, 7.6.9.1 Description>>
+*** <<SFVec3dInstanceCreationFunction, 7.6.9.2 Instance creation function>>
+*** <<SFVec3dProperties, 7.6.9.3 Properties>>
+*** <<SFVec3dFunctions, 7.6.9.4 Functions>>
+** <<SFVec3f, 7.6.10 SFVec3f>>
+*** <<SFVec3fDescription, 7.6.10.1 Description>>
+*** <<SFVec3dInstanceCreationFunction, 7.6.10.2 Instance creation function>>
+*** <<SFVec3fProperties, 7.6.10.3 Properties>>
+*** <<SFVec3fFunctions, 7.6.10.4 Functions>>
+** <<MFBool, 7.6.11 MFBool>>
+*** <<MFBoolDescription, 7.6.11.1 Description>>
+*** <<MFBoolInstanceCreationFunction, 7.6.11.2 Instance creation function>>
+*** <<MFBoolProperties, 7.6.11.3 Properties>>
+*** <<MFBoolFunction, 7.6.11.4 Function>>
+** <<MFColor, 7.6.12 MFColor>>
+*** <<MFColorDescription, 7.6.12.1 Description>>
+*** <<MFColorInstanceCreationFunction, 7.6.12.2 Instance creation function>>
+*** <<MFColorProperties, 7.6.12.3 Properties>>
+*** <<MFColorFunctions, 7.6.12.4 Function>>
+** <<MFDouble, 7.6.13 MFDouble>>
+*** <<MFDoubleDescription, 7.6.13.1 Description>>
+*** <<MFDoubleInstanceCreationFunction, 7.6.13.2 Instance creation function>>
+*** <<MFDoubleProperties, 7.6.13.3 Properties>>
+*** <<MFDoubleFunction, 7.6.13.4 Function>>
+** <<MFFloat, 7.6.14 MFFloat>>
+*** <<MFFloatDescription, 7.6.14.1 Description>>
+*** <<MFFloatInstaceCreationFunction, 7.6.14.2 Instance creation function>>
+*** <<MFFloatProperties, 7.6.14.3 Properties>>
+*** <<MFFloatFunctions, 7.6.14.4 Functions>>
+** <<MFImage, 7.6.15 MFImage>>
+*** <<MFImageDescription, 7.6.15.1 Description>>
+*** <<MFImageInstanceCreationFunction, 7.6.15.2 Instance creation function>>
+*** <<MFImageProperties, 7.6.15.3 Properties>>
+*** <<MFImageFunction, 7.6.15.4 Function>>
+** <<MFInt32, 7.6.16 MFInt32>>
+*** <<MFInt32Description, 7.6.16.1 Description>>
+*** <<MFInt32InstanceCreationFunction, 7.6.16.2 Instance creation function>>
+*** <<MFInt32Properties, 7.6.16.3 Properties>>
+*** <<MFInt32Function, 7.6.16.4 Function>>
+** <<MFNode, 7.6.17 MFNode>>
+*** <<MFNodeDescription, 7.6.17.1 Description>>
+*** <<MFNodeInstanceCreationFunction, 7.6.17.2 Instance creation function>>
+*** <<MFNodeProperties, 7.6.17.3 Properties>>
+*** <<MFNodeFunction, 7.6.17.4 Function>>
+** <<MFRotation, 7.6.18 MFRotation>>
+*** <<MFRotationDescription, 7.6.18.1 Description>>
+*** <<MFRotationInstanceCreationFunction, 7.6.18.2 Instance creation function>>
+*** <<MFRotationProperties, 7.6.18.3 Properties>>
+*** <<MFRotationFunction, 7.6.18.4 Function>>
+** <<MFVec2d, 7.6.19 MFVec2d>>
+*** <<MFVec2dDescription, 7.6.19.1 Description>>
+*** <<MFVec2dInstanceCreationFunction, 7.6.19.2 Instance creation function>>
+*** <<MFVec2dProperties, 7.6.19.3 Properties>>
+*** <<MFVec2dFunction, 7.6.19.4 Function>>
+** <<MFVec2f, 7.6.20 MFVec2f>>
+*** <<MFVec2fDescription, 7.6.20.1 Description>>
+*** <<MFVec2fInstanceCreationFunction, 7.6.20.2 Instance creation function>>
+*** <<MFVec2fProperties, 7.6.20.3 Properties>>
+*** <<MFVec2fFunction, 7.6.20.4 Function>>
+** <<MFVec3d, 7.6.21 MFVec3d>>
+*** <<MFVec3dDescription, 7.6.21.1 Description>>
+*** <<MFVec3dInstanceCreationFunction, 7.6.21.2 Instance creation function>>
+*** <<MFVec3dProperties, 7.6.21.3 Properties>>
+*** <<MFVec3dFunction, 7.6.21.4 Function>>
+** <<MFVec3f, 7.6.22 MFVec3f>>
+*** <<MFVec3fDescription, 7.6.22.1 Description>>
+*** <<MFVec3fInstanceCreationFunction, 7.6.22.2 Instance creation function>>
+*** <<MFVec3fProperties, 7.6.22.3 Properties>>
+*** <<MFVec3fFunction, 7.6.22.4 Function>>
+* <<RouteServices, 7.7 Route services>>
+** <<Route, 7.7.1 Route>>
+*** <<RouteDescription, 7.7.1.1 Description>>
+*** <<RouteInstanceCreationFunction, 7.7.1.2 Instance creation function>>
+*** <<RouteProperties, 7.7.1.3 Properties>>
+*** <<RouteFunctions, 7.7.1.4 Functions>>
+* <<PrototypeServices, 7.8 Prototype services>>
+** <<ProtoDeclaration, 7.8.1 ProtoDeclaration>>
+*** <<ProtoDeclarationDescription, 7.8.1.1 Description>>
+*** <<ProtoDeclarationInstanceCreationFunction, 7.8.1.2 Instance creation function>>
+*** <<ProtoDeclarationProperties, 7.8.1.3 Properties>>
+** <<ExternProtoDeclaration, 7.8.2 ExternProtoDeclaration>>
+*** <<ExternProtoDeclarationDescription, 7.8.2.1 Description>>
+*** <<ExternProtoDeclarationInstanceCreation, 7.8.2.2 Instance creation function>>
+*** <<ExternProtoDeclarationProperties, 7.8.2.3 Properties>>
+*** <<ExternProtoDeclarationFunctions, 7.8.2.4 Functions>>
+* <<MiscellaneousObjects, 7.9 Miscellaneous objects>>
+** <<ProfileInfo, 7.9.1 ProfileInfo>>
+** <<ProfileInfoArray, 7.9.2 ProfileInfoArray>>
+** <<ComponentInfo, 7.9.3 ComponentInfo>>
+** <<ComponentInfoArray, 7.9.4 ComponentInfoArray>>
+** <<UnitInfo, 7.9.5 UnitInfo>>
+** <<UnitInfoArray, 7.9.6 UnitInfoArray>>
+** <<FieldDefinitionArray, 7.9.7 FieldDefinitionArray>>
+** <<ExternProtoDeclarationArray, 7.9.8 ExternProtoDeclarationArray>>
+** <<ProtoDeclarationArray, 7.9.9 ProtoDeclarationArray>>
+** <<RouteArray, 7.9.10 RouteArray>>
+** <<Matrix3, 7.9.11 Matrix3>>
+*** <<Matrix3Description, 7.9.11.1 Description>>
+*** <<Matrix3InstanceCreationFunction, 7.9.11.2 Instance creation function>>
+*** <<Matrix3Properties, 7.9.11.3 Properties>>
+*** <<Matrix3Functions, 7.9.11.4 Functions>>
+** <<Matrix4, 7.9.12 Matrix4>>
+*** <<Matrix4Description, 7.9.12.1 Description>>
+*** <<Matrix4InstanceCreationFunction, 7.9.12.2 Instance creation function>>
+*** <<Matrix4Properties, 7.9.12.3 Properties>>
+*** <<Matrix4Functions, 7.9.12.4 Functions>>
+** <<X3DConstants, 7.9.13 X3DConstants>>
+* <<ScriptImplementation, 7.10 Script implementation details>>
+** <<initialize, 7.10.1 initialize() function>>
+** <<prepareEvents, 7.10.2 prepareEvents() function>>
+** <<eventsProcessed, 7.10.3 eventsProcessed() function>>
+** <<shutdown, 7.10.4 shutdown() function>>
+
+* <<t-Topics, Table 7.1 — Topics in this clause>>
+* <<t-PropertiesOfTheBrowserObject, Table 7.2 — Properties of the Browser object>>
+* <<t-FunctionsBrowserObject, Table 7.3 — Functions of the Browser object>>
+* <<t-ExternalBrowserFunctions, Table 7.4 — External Browser Functions>>
+* <<t-ExecutionContextProperties, Table 7.5 — Execution context properties>>
+* <<t-ExecutionContextFunctions, Table 7.6 — Execution context functions>>
+* <<t-SceneProperties, Table 7.7 — Scene properties>>
+* <<t-SceneFuctions, Table 7.8 — Scene functions>>
+* <<t-FieldFunctions, Table 7.9 — Field functions>>
+* <<t-X3DFieldDefinitionProperties, Table 7.10 — X3DFieldDefinition properties>>
+* <<t-SFColorInstanceCreationFunction, Table 7.11 — SFColor instance creation function>>
+* <<t-X3DFieldDefinitionProperties, Table 7.12 — SFColor properties>>
+* <<t-SFColorFunctions, Table 7.13 — SFColor functions>>
+* <<t-SFImageInstanceCreationFunction, Table 7.14 — SFImage instance creation function>>
+* <<t-SFImageProperties, Table 7.15 — SFImage properties>>
+* <<t-SFImageFunctions, Table 7.16 — SFImage functions>>
+* <<t-SFNodeFunctions, Table 7.17 — SFNode functions>>
+* <<t-SFRotationInstanceCreationFunctions, Table 7.18 — SFRotation instance creation functions>>
+* <<t-SFRotationProperties, Table 7.19 — SFRotation properties>>
+* <<t-SFRotationFunctions, Table 7.20 — SFRotation functions>>
+* <<t-SFVec2dInstanceCreationFunction, Table 7.21 — SFVec2d instance creation function>>
+* <<t-SFVec2dProperties, Table 7.22 — SFVec2d properties>>
+* <<t-SFVec2dFunctions, Table 7.23 — SFVec2d functions>>
+* <<t-SFVec2fInstanceCreationFunction, Table 7.24 — SFVec2f instance creation function>>
+* <<t-SFVec2fProperties, Table 7.25 — SFVec2f properties>>
+* <<t-SFVec2fFunctions, Table 7.26 — SFVec2f functions>>
+* <<t-SFVec3dInstanceCreationFunction, Table 7.27 — SFVec3d instance creation function>>
+* <<t-SFVec3dProperties, Table 7.28 — SFVec3d Properties>>
+* <<t-SFVec3dFunctions, Table 7.29 — SFVec3d Functions>>
+* <<t-SFVec3fInstanceCreationFunction, Table 7.30 — SFVec3f instance creation function>>
+* <<t-SFVec3fProperties, Table 7.31 — SFVec3f properties>>
+* <<t-SFVec3fFunctions, Table 7.32 — SFVec3f functions>>
+* <<t-MFBooInstanceCreationlFunction, Table 7.33 — MFBool instance creation function>>
+* <<t-MFBoolProperties, Table 7.34 — MFBool properties>>
+* <<t-MFBoolFunctions, Table 7.35 — MFBool function>>
+* <<t-MFColorInstanceCreationFunction, Table 7.36 — MFColor instance creation function>>
+* <<t-MFColorProperties, Table 7.37 — MFColor properties>>
+* <<t-MFColorFunction, Table 7.38 — MFColor function>>
+* <<t-MFDoubleInstanceCreationFunction, Table 7.39 — MFDouble instance creation function>>
+* <<t-MFDoubleProperties, Table 7.40 — MFDouble properties>>
+* <<t-MFDoubleFunction, Table 7.41 — MFDouble function>>
+* <<t-MFFloatInstanceCreationFunction, Table 7.42 — MFFloat instance creation function>>
+* <<t-MFFloatProperties, Table 7.43 — MFFloat properties>>
+* <<t-MFFloatFunctions, Table 7.44 — MFFloat functions>>
+* <<t-MFImageInstanceCreationFunction, Table 7.45 — MFImage instance creation function>>
+* <<t-MFImageProperties, Table 7.46 — MFImage properties>>
+* <<t-MFImageFunction, Table 7.47 — MFImage function>>
+* <<t-MFInt32InstanceCreationFunction, Table 7.48 — MFInt32 Instance creation function>>
+* <<t-MFInt32Properties, Table 7.49 — MFInt32 properties>>
+* <<t-MFInt32Function, Table 7.50 — MFInt32 Function>>
+* <<t-MFNodeInstanceCreationFunction, Table 7.51 — MFNode instance creation function>>
+* <<t-MFNodeProperties, Table 7.52 — MFNode Properties>>
+* <<t-MFNodeFunction, Table 7.53 — MFNode function>>
+* <<t-MFRotationInstanceCreationFunction, Table 7.54 — MFRotation instance creation function>>
+* <<t-MFRotationProperties, Table 7.55 — MFRotation properties>>
+* <<t-MFRotationFunction, Table 7.56 — MFRotation function>>
+* <<t-MFVec2dInstanceCreationFunction, Table 7.57 — MFVec2d Instance creation function>>
+* <<t-MFVec2dProperties, Table 7.58 — MFVec2d properties>>
+* <<t-MFVec2dFunction, Table 7.59 — MFVec2d function>>
+* <<t-MFVec2fInstanceCreationFunction, Table 7.60 — MFVec2f instance creation function>>
+* <<t-MFVec2fProperties, Table 7.61 — MFVec2f properties>>
+* <<t-MFVec2fFunction, Table 7.62 — MFVec2f function>>
+* <<t-MFVec3dInstanceCreationFunction, Table 7.63 — MFVec3d instance creation function>>
+* <<t-MFVec3dProperties, Table 7.64 — MFVec3d properties>>
+* <<t-MFVec3dFunction, Table 7.65 — MFVec3d function>>
+* <<t-MFVec3fInstanceCreationFunction, Table 7.66 — MFVec3f instance creation function>>
+* <<t-MFVec3dProperties, Table 7.67 — MFVec3f properties>>
+* <<t-MFVec3fFunction, Table 7.68 — MFVec3f function>>
+* <<t-RouteProperties, Table 7.69 — Route properties>>
+* <<t-ProtoDeclarationProperties, Table 7.70 — ProtoDeclaration properties>>
+* <<t-ProtoDeclarationFunctions, Table 7.71 — ProtoDeclaration functions>>
+* <<t-ExternProtoDeclarationProperties, Table 7.72 — ExternProtoDeclaration properties>>
+* <<t-ExternProtoDeclarationFunction, Table 7.73 — ExternProtoDeclaration function>>
+* <<t-ProfileInfoFunctions, Table 7.74 — ProfileInfo functions>>
+* <<t-ProfileInfoArrayFunctions, Table 7.75 — ProfileInfoArray functions>>
+* <<t-ComponentInfoFunctions, Table 7.76 — ComponentInfo functions>>
+* <<t-ComponentInfoArrayFunctions, Table 7.77 — ComponentInfoArray functions>>
+* <<t-UnitInfoFunctions, Table 7.78 — UnitInfo functions>>
+* <<t-UnitInfoArrayFunctions, Table 7.79 — UnitInfoArray functions>>
+* <<t-FieldDefinitionArrayFunctions, Table 7.80 — FieldDefinitionArray functions>>
+* <<t-ExternProtoDeclarationArrayFunctions, Table 7.81 — ExternProtoDeclarationArray functions>>
+* <<t-ProtoDeclarationArrayFunctions, Table 7.82 — ProtoDeclarationArray functions>>
+* <<t-RouteArrayFunctions, Table 7.83 — RouteArray functions>>
+* <<t-Matrix3InstanceCreationFunction, Table 7.84 — Matrix3 instance creation function>>
+* <<t-X3DConstantValues, Table 7.85 — Matrix3 functions>>
+* <<t-Matrix4InstanceCreationFunction, Table 7.86 — Matrix4 Instance creation function>>
+* <<t-Matrix4Functions, Table 7.87 — Matrix4 functions>>
+* <<t-X3DConstantValues, Table 7.88 — X3DConstant values>>
+
+[[BrowserServices]]
+=== 7.2 Browser services and connections
+
+[[NativeObjects]]
+==== 7.2.1 Native objects
+
+All browser services are encapsulated through two host objects:
+`+Browser+` and `+ExternalBrowser+`. The properties of these objects are
+defined in <<t-PropertiesOfTheBrowserObject, Table 7.2>>. All
+functions are considered to be static and are defined in
+<<t-FunctionsBrowserObject, Table 7.3>>. The browser object shall not
+have the ability to be directly instantiated.
+
+[[t-PropertiesOfTheBrowserObject]]
+Table 7.2 — Properties of the
+Browser object
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data Type  |Property       |Read only |Comment
+|String     |name           |Yes |A browser-implementation specific string describing the browser
+|String     |version        |Yes |A browser-implementation specific string describing the browser version.
+|numeric    |currentSpeed   |Yes |If this is not supported, the string "0.0" is returned
+|numeric    |currentFrameRate |Yes |If this is not supported, the string "0.0" is returned
+|String     |description    |No |
+|ComponentInfoArray |supportedComponents |Yes |The property value cannot
+be changed, but the properties of the ComponentInfoArray can be.
+|ProfileInfoArray |supportedProfiles |Yes |The property value cannot be
+changed, but the properties of the ProfileInfoArray can be.
+|X3DExecutionContext X3DScene |currentScene |Yes |The real type of this
+class is dependent on whether the user code is inside a prototype
+instance or not. If the user code is inside a prototype instance the
+property shall represent a X3DExecutionContenxt otherwise it shall
+represent a X3DScene.
+|===
+
+[[t-FunctionsBrowserObject]]
+Table 7.3 — Functions of the Browser object
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Comment
+
+|void |replaceWorld(X3DScene) |Replace the current world with this new
+scene that has been loaded or constructed from somewhere.
+
+|X3DScene |createX3DFromString(String x3dSyntax) |The string may be any
+valid X3D content in any language supported by the browser
+implementation. If the browser does not support the content encoding the
+appropriate exception shall be thrown.
+
+|X3DScene |createX3DFromURL(MFString, +
+String, +
+Object) |If the callback parameter is given, the method is asynchronous
+and the function name is called when the url list has been loaded. The
+return value is shall always be null. If the callback argument is not
+given, the method become synchronous and returns the scene from the
+completed load process, if it succeeded.
+
+|void |loadURL(MFString url, +
+MFString parameter) |Valid values for the parameters can be found in
+ISO/IEC 19775-1
+
+|Scene |importDocument(DOMNode^1^) |
+
+|String |getRenderingProperty(String) |All properties are converted to a
+string internally, even when their normal native type would be an
+numeric value.
+
+|void |addBrowserListener(String, Object) |The string describes the name
+of the callback function to be called within the current ECMAScript
+context.
+
+|void |removeBrowserListener(String) |The string describes the name of
+the callback function to be called within the current ECMAScript
+context.
+
+|void |print(Object) |Prints the object to the browser's console without
+a newline character. Successive calls to this function append the
+descriptions on the same line. The output is the implicit call to the
+object's toString() function.
+
+|void |println(Object) |Prints the object to the browser's console,
+inserting a newline character after the output. Successive calls to this
+function will result in each output presented on separate lines. The
+output is the implicit call to the object's toString() function.
+|===
+
+____
+^1^DOMNode represents a DOM node object.
+____
+
+Note that the createX3DFromStream() service is not available to
+ECMAScript-based SAI interaction as ECMAScript does not include inherent
+I/O capabilities, which would be needed in order to handle this service
+request.
+
+<<t-ExternalBrowserFunctions, Table 7.4>> describes the functions that
+are available when the browser accessed from an external application.
+These functions are in addition to those described by
+<<t-FunctionsBrowserObject, Table 7.3>>.
+
+[[t-ExternalBrowserFunctions]]
+Table 7.4 — External Browser Functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return value   |Function
+|void           |beginUpdate()
+|void           |endUpdate()
+|void           |addBrowserCallback(String, object)
+|void           |removeBrowserCallback(String)
+|Scene   |createScene(ProfileInfo, ComponentInfo n1, ComponentInfo n2, ...)
+|===
+
+[[EstablishingConnections]]
+==== 7.2.2 Establishing connections
+
+[[getBrowser]]
+===== 7.2.2.1 getBrowser
+
+For external interactions, this service request is provided through an
+application-specific context and is also dependent on the environment
+being used. For example, inside a web page script, it may use the HTML
+DOM to access the embedded object for the X3D plug-in that supplies the
+getBrowser function call. The object returned shall be an instance of
+ExternalBrowser.
+
+Internal interactions do not need this call as the Browser object
+reference is provided automatically as a static object available to
+every script context.
+
+[[createBrowser]]
+===== 7.2.2.2 createBrowser
+
+For external interactions, this service request is provided through an
+application-specific context and is also dependent on the environment
+being used. For example, inside a web page script, it may use the HTML
+DOM to access the embedded object for the X3D plug-in, which supplies
+the createBrowser function call. The object returned shall be an
+instance of ExternalBrowser. A browser is not required to provide this
+service and the implementation shall be browser specific.
+
+[[ProvidingExtensionFunctions]]
+==== 7.2.3 Providing extension functions
+
+Browsers implementers may extend the basic Browser object in accordance
+with 3.2.2 Conformance. Because ECMAScript does not permit object
+inheritance, the process of providing custom extensions is accomplished
+through adding additional functions to the Browser object.
+
+[[ExecutionContextServices]]
+=== 7.3 Execution context services
+
+[[ContextDescription]]
+==== 7.3.1 Description
+
+This is the representation of the SAIExecutionContextID abstract type.
+
+[[ExecutionContextInstanceCreationFunctions]]
+==== 7.3.2 Instance creation function
+
+This object cannot be instantiated by the user.
+
+[[ExecutionContextProperties]]
+==== 7.3.3 Properties
+
+The properties defined for the ExecutionContext host object are defined
+in <<t-ExecutionContextProperties, Table 7.5>>
+
+[[t-ExecutionContextPropertie]s]
+Table 7.5 — Execution context properties
+
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+
+|String |specificationVersion |Yes |The string shall represent the basic
+specification version used by the parsed file in decimal format. For
+example, a scene conforming to this specification returns a value such
+as "3.3".
+
+|String |encoding |Yes |The encoding is represented as a string that
+describes the data encoding used. Valid values are "ASCII", "VRML",
+"XML", "BINARY", "SCRIPTED", "BIFS", "NONE"
+
+|ProfileInfo |profile |Yes |
+
+|ComponentInfoArray |components |Yes |Properties are name and support level.
+
+|String |worldURL |Yes |
+
+|MFNode |rootNodes |Yes/No |When used inside a prototype instance, this
+property shall not be writable. The MFNode object instance shall also
+not be writable. When used anywhere else, it shall be writable.
+
+|ProtoDeclarationArray |protos |No |
+
+|ExternProtoDeclarationArray |externprotos |No |
+
+|RouteArray |routes |Yes |
+|===
+
+[[ExecutionContextFunctions]]
+==== 7.3.4 Functions
+
+The functions defined for the X3DExecutionContext host object are
+defined in <<t-ExecutionContextFunctions, Table 7.6>>
+
+[[t-ExecutionContextFunctions]]
+Table 7.6 — Execution context
+functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function
+|X3DRoute    |addRoute(SFNode fromNode, String fromReadableField, +
+SFNode toNode, String toWritableField)
+|void        |deleteRoute(X3DRoute)
+|SFNode      |createNode(String)
+|SFNode      |createProto(String)
+|SFNode      |getImportedNode(String, String)
+|void        |updateImportedNode(String, String)
+|void        |removeImportedNode(String)
+|SFNode      |getNamedNode(String)
+|void        |updateNamedNode(String, SFNode)
+|void        |removeNamedNode(String)
+|===
+
+[[SceneServices]]
+=== 7.4 Scene services
+
+[[SceneDescription]]
+==== 7.4.1 Description
+
+The `+Scene+` object extends the `+ExecutionContext+` object and adds
+the properties defined in <<t-SceneProperties, Table 7.7>> and
+functions in <<t-SceneFuctions, Table 7.8>> to those defined in
+<<t-ExecutionContextProperties, Table 7.5>> and
+<<t-ExecutionContextFunctions, Table 7.6>> respectively. An `+ Scene+`
+object is created by the function defined in
+<<t-ExternalBrowserFunctions, Table 7.4>>.
+
+[[SceneInstanceCreationFunction]]
+==== 7.4.2 Instance creation function
+
+It shall not be possible to directly create an instance of this object.
+
+[[SceneProperties]]
+==== 7.4.3 Properties
+
+The properties defined for the X3DScene host object is defined in
+<<t-SceneProperties, Table 7.7>>
+
+[[t-SceneProperties]]
+Table 7.7 — Scene properties
+[
+cols=",,,",]
+|===
+|Data type |Property Name |Read Only |Description
+
+|String |specificationVersion |Yes |The string shall represent the basic
+specification version used by the parsed file in decimal format. For
+example, a scene conforming to this specification returns a value such
+as "3.3".
+|===
+
+[[SceneFunctions]]
+==== 7.4.4 Functions
+
+The functions defined for the X3DScene host object are defined in
+<<t-SceneFuctions, Table 7.8>>
+
+[[t-SceneFuctions]]
+Table 7.8 — Scene functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function
+|void        |setMetaData(String, String)
+|String      |getMetaData(String)
+|SFNode      |getExportedNode(String)
+|void        |updateExportedNode(String, SFNode)
+|void        |removeExportedNode(String)
+|===
+
+[[NodeServices]]
+=== 7.5 Node services
+
+In addition to providing node field services, the SFNode host object is
+also used to represent node objects. The services defined for node
+objects are split to avoid confusion. When the user wishes to directly
+access and modify the fields of a node, the properties and functions
+defined by <<SFNode, 7.6.4 SFNode>> shall be used. However, the nodes
+also need to provide definition information about themselves such as the
+field definitions available. To avoid clashes with fields of the node,
+function calls are used to return the appropriate information.
+
+[[FieldServices]]
+=== 7.6 Field services and objects
+
+[[CommonProperties]]
+==== 7.6.1 Common Properties
+
+All objects that represent fields shall have the functions defined in
+<<t-FieldFunctions, Table 7.9>>.
+
+[[t-FieldFunctions]]
+Table 7.9 — Field functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Description
+
+|String |getName |The name of this field
+
+|numeric |getType |One of the constant values defined in the
+X3DConstants object.
+
+|Boolean |isReadable |true if this field is currently readable; false,
+otherwise.
+
+|Boolean |isWritable |true if this field is currently writable; false,
+otherwise
+
+|void |addFieldCallback(String, object) |The string is the name of the
+callback function to use. The object is any arbitrary identifying object
+that user code wishes to associate with the callback.
+
+|void |removeFieldCallback(String) |The string is the name of the
+callback function to be removed on this field.
+|===
+
+[[X3DFieldDefinition]]
+==== 7.6.2 X3DFieldDefinition
+
+[[X3DFieldDefinitionDescription]]
+===== 7.6.2.1 Description
+
+The X3DFieldDefinition object represents all of the descriptive
+properties of a single field of a node. The properties of an
+X3DFieldDefinition object are defined in
+<<t-X3DFieldDefinitionProperties, Table 7.10>>.
+
+[[X3DFieldDefinitionInstanceCreationFunction]]
+===== 7.6.2.2 Instance creation function
+
+It shall not be possible to directly create an instance of this object.
+
+[[X3DFieldDefinitionProperties]]
+===== 7.6.2.3 Properties
+
+[[t-X3DFieldDefinitionProperties]]
+Table 7.10 — X3DFieldDefinition
+properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+
+|String |name |Yes |The field name (_e.g._, "children").
+
+|numeric |accessType |Yes |Value from the X3DConstants object describing
+the accessType (_e.g._, "inputOnly").
+
+|numeric |dataType |Yes |Value from X3DConstants cobject describing the
+field's data type (_e.g._, "SFBool").
+|===
+
+[[X3DFieldDefinitionFunctions]]
+===== 7.6.2.4 Functions
+
+No functions are defined for this object.
+
+[[SFColor]]
+==== 7.6.3 SFColor
+
+[[SFColorDescription]]
+===== 7.6.3.1 Description
+
+The SFColor object corresponds to a X3D SFColor field. All properties
+defined in <<t-X3DFieldDefinitionProperties, Table 7.12>> are accessed
+using the syntax sfColorObjectName.<property>, where sfColorObjectName
+is an instance of an SFColor object. The properties may also be accessed
+by the indices [0] for red, [1] for green and [2] blue. All functions
+are invoked using the syntax sfColorObjectName.method(<argument-list>),
+where sfColorObjectName is an instance of an SFColor object. An SFColor
+object is created using the function defined in
+<<t-SFColorInstanceCreationFunction, Table 7.11>>. The functions in
+<<t-SFColorFunctions, Table 7.13>> are available for manipulating an
+SFColor object.
+
+[[SFColorInstanceCreationFunction]]
+===== 7.6.3.2 Instance creation function
+
+[[t-SFColorInstanceCreationFunction]]
+Table 7.11 — SFColor instance
+creation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object |Parameter List |Description
+
+|SFColor |(float r, float g, float b) |r, g, and b are the red, green,
+and blue values of the colour. Missing values are filled by 0.0.
+|===
+
+[[SFColorProperties]]
+===== 7.6.3.3 Properties
+
+[[t-SFColorProperties]]
+Table 7.12 — SFColor properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+|numeric   |r             |No        |Red component of the colour
+|numeric   |g             |No        |Green component of the colour
+|numeric   |b             |No        |Blue component of the colour
+|===
+
+[[SFColorFunctions]]
+===== 7.6.3.4 Functions
+
+[[t-SFColorFunctions]]
+Table 7.13 — SFColor functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|void |setHSV(float h, float s, float v) |Sets the value of the colour
+by specifying the values of hue, saturation, and value.
+
+|numeric[3] |getHSV() |Returns the value of the colour in a
+three-element numeric array, with hue at index 0, saturation at index 1,
+and value at index 2.
+
+|String |toString() |Returns a String containing the  values of r, g and
+b encoded using the Classic VRML encoding (see <<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+[[SFImage]]
+==== 7.6.4 SFImage
+
+[[SFImageDescription]]
+===== 7.6.4.1 Description
+
+The SFImage object corresponds to a X3D SFImage field. All properties
+are accessed using the syntax sfImageObjectName.<property>, where
+sfImageObjectName is an instance of an SFImage object. An SFImage object
+may be created using the function defined in
+<<t-SFImageInstanceCreationFunction, Table 7.14>>. The properties of
+SFImage are defined in <<t-SFImageProperties, Table 7.15>>. The
+functions that may be used to manipulate an SFImage object are defined
+in <<t-SFImageFunctions, Table 7.16>>.
+
+[[SFImageInstanceCreationFunction]]
+===== 7.6.4.2 Instance creation function
+
+[[t-SFImageInstanceCreationFunction]]
+Table 7.14 — SFImage instance creation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object |Parameter List |Description
+
+|SFImage |(numeric x, +
+numeric y, +
+numeric comp, +
+MFInt32 array) |x is the x-dimension of the image. y is the y-dimension
+of the image. comp is the number of components of the image (1 for
+greyscale, 2 for greyscale+alpha, 3 for rgb, 4 for rgb+alpha). Array
+contains the x * y values for the pixels of the image. The format of
+each pixel is an integer or hexadecimal value as defined as in the
+PixelTexture node (see <<I19775-1, part 1 of ISO/IEC 19775>>).
+|===
+
+[[SFImageProperties]]
+===== 7.6.4.3 Properties
+
+[[t-SFImageProperties]]
+Table 7.15 — SFImage properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type  |Property Name |Read Only |Description
+|numeric    |width         |No        |Width dimension of the image in pixels
+|numeric    |height        |No        |Height dimension of the image in pixels
+|numeric    |comp          |No        |Number of components of the image
+. greyscale or alpha
+. greyscale + alpha
+. rgb
+. rgb + alpha
+|MFInt32 |array |No |Returns a String containing the  value of x, y,
+comp and array encoded using the Classic VRML encoding (see
+<<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+[[SFImageFunctions]]
+===== 7.6.4.4 Function
+
+[[t-SFImageFunctions]]
+Table 7.16 — SFImage functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|String |toString() |Returns a String containing the  value of x, y,
+comp and array encoded using the Classic VRML encoding (see
+<<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+[[SFNode]]
+==== 7.6.5 SFNode
+
+[[SFNodeDescription]]
+===== 7.6.5.1 Description
+
+The SFNode object corresponds to an X3D SFNode field. There are no
+explicitly defined properties. Functions for accessing SFNode fields are
+defined in <<t-SFNodeFunctions, Table 7.17>>.
+
+[[SFNodeInstanceCreationFunction]]
+===== 7.6.5.2 Instance creation function
+
+This object cannot be directly instantiated
+
+[[SFNodeProperties]]
+===== 7.6.5.3 Properties
+
+There are no explicitly defined properties; however, each node may
+assign values to its writable fields and obtain the last output values
+of its readable fields using the _sfNodeObjectName.fieldName_ syntax.
+
+[[SFNodeFunctions]]
+===== 7.6.5.4 Functions
+
+[[t-SFNodeFunctions]]
+Table 7.17 — SFNode functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|String |getNodeName() |Returns the node name
+
+|Array |getNodeType() |Returns, in the array, a list of constant values
+that indicate node types as provided in the X3DConstants object.
+
+|FieldDefinitionArray |getFieldDefinitions() |Returns a list of fields
+defined for the SFNode object.
+
+|String |toVRMLString() |Returns the X3D Classic VRML-encoded string
+that, if parsed as the value of an SFNode field, produce this node. If
+the browser is unable to reproduce this node, the name of the node
+followed by the open brace and close brace shall be returned. Additional
+information may be included as one or more Classic VRML comment strings.
+
+|String |toXMLString() |Returns the X3D XML-encoded string that, if
+parsed as the value of an SFNode field, produce this node. If the
+browser is unable to reproduce this node, a simple XML Element
+definition shall be returned. Additional information may be appended as
+one or more XML comments.
+|===
+
+[[SFRotation]]
+==== 7.6.6 SFRotation
+
+[[SFRotationDescription]]
+===== 7.6.6.1 Description
+
+The SFRotation object corresponds to an X3D SFRotation field. It has
+four numeric properties as defined in <<t-SFImageProperties, Table 7.19:>>
+x, y, z (the non-zero axis of rotation) and angle. These may also
+be addressed by indices [0] through [3]. An SFRotation object may be
+created using one of the functions defined in
+<<t-SFImageInstanceCreationFunction, Table 7.18>>. An SFRotation
+object may be manipulated using the functions defined in
+<<t-SFImageFunctions, Table 7.20>>.
+
+[[SFRotationInstanceCreationFunction]]
+===== 7.6.6.2 Instance creation functions
+
+[[t-SFRotationInstanceCreationFunctions]]
+Table 7.18 — SFRotation
+instance creation functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object |Parameter List |Description
+
+|SFRotation |(numeric x, +
+ numeric y, +
+ numeric z, +
+ numeric angle) |x, y, and z are the axis of the rotation. angle is the
+angle of the rotation (in radians). Missing values default to 0.0,
+except y, which defaults to 1.0.
+
+|SFRotation |(SFVec3f axis, +
+ numeric  angle) |axis is the axis of rotation. angle is the angle of
+the rotation (in radians)
+
+|SFRotation |(SFVec3f fromVector, +
+ SFVec3f toVector) |fromVector and toVector are normalized and the
+rotation value that matches the minimum rotation between the fromVector
+to the toVector is stored in the object.
+|===
+
+[[SFRotationProperties]]
+===== 7.6.6.3 Properties
+
+[[t-SFRotationProperties]]
+Table 7.19 — SFRotation properties
+[
+cols=",,,",]
+|===
+|Data type |Property Name |Read Only |Description
+|numeric   |x             |No |first value of the axis vector
+|numeric   |y             |No |second value of the axis vector
+|numeric   |z             |No |third value of the axis vector
+|numeric   |angle         |No |the angle of the rotation (in radians)
+|===
+
+[[SFRotationFunctions]]
+===== 7.6.6.4 Functions
+
+[[t-SFRotationFunctions]]
+Table 7.20 — SFRotation functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|SFVec3f |getAxis() |Returns the axis of rotation.
+
+|SFRotation |inverse() |Returns the inverse of this object's rotation.
+
+|SFRotation |multiply(SFRotation rot) |Returns the object multiplied by
+the passed value.
+
+|SFVec3f |multiVec(SFVec3f vec) |Returns the value of vec multiplied by
+the matrix corresponding to this object's rotation.
+
+|void |setAxis(SFVec3f vec) |Sets the axis of rotation to the value
+passed in vec.
+
+|SFRotation |slerp(SFRotation dest, numeric t) |Returns the value of the
+spherical linear interpolation between this object's rotation and dest
+at value 0 ≤ t ≤ 1. For t = 0, the value is this object`s rotation. For
+t = 1, the value is the dest rotation.
+
+|String |toString() |Returns a String containing the value of x, y, z,
+and angle encoding using the X3D Classic VRML encoding (see
+<<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+[[SFVec2d]]
+==== 7.6.7 SFVec2d
+
+[[SFVec2DDescription]]
+===== 7.6.7.1 Description
+
+The SFVec2d object corresponds to an X3D SFVec2d field. Each component
+of the vector can be accessed using the x and y properties or using
+C-style array dereferencing (i.e., sfVec2dObjectName[0] or
+sfVec2dObjectName[1]). An SFVec2d object may be created using the
+function in <<t-SFVec2dInstanceCreationFunction, Table 7.21>>. The
+properties of an SFVec2d object are defined in
+<<t-SFVec2dProperties, Table 7.22>>. The functions defined in
+<<t-SFVec2dFunctions, Table 7.23>> may be used to manipulate an
+SFVec2d object.
+
+[[SFVec2dInstanceCreationFunction]]
+===== 7.6.7.2 Instance creation function
+
+[[t-SFVec2dInstanceCreationFunction]]
+Table 7.21 — SFVec2d instance
+creation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object  |Parameter List |Description
+|SFVec2f |(numeric x, numeric y) |Missing values default to 0.0.
+|===
+
+[[SFVec2dProperties]]
+===== 7.6.7.3 Properties
+
+[[t-SFVec2dProperties]]
+Table 7.22 — SFVec2d properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+|numeric   |x             |No |First value of the vector
+|numeric   |y             |No |Second value of the vector
+|===
+
+[[SFVec2dFunctions]]
+===== 7.6.7.4 Functions
+
+[[t-SFVec2dFunctions]]
+Table 7.23 — SFVec2d functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|SFVec2d |add(SFVec2d vec) |Returns the value of the passed value added,
+component-wise, to the object.
+
+|SFVec2d |divide(numeric n) |Returns the value of the object divided by
+the passed value.
+
+|numeric |dot(SFVec2d vec) |Returns the dot product of this vector and
+the passed value.
+
+|numeric |length() |Returns the geometric length of this vector.
+
+|SFVec2d |multiply(numeric n) |Returns the value of the object
+multiplied by the passed value.
+
+|SFVec2d |normalize() |Returns the object converted to unit length.
+
+|SFVec2d |subtract(SFVec2d vec) |Returns the value of the passed vec
+value subtracted, component-wise, from the object.
+
+|String |toString() |Returns a String containing the value of x and y
+encoding using the X3D Classic VRML encoding (see <<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+[[SFVec2f]]
+==== 7.6.8 SFVec2f
+
+[[SFVec2fDescription]]
+===== 7.6.8.1 Description
+
+The SFVec2f object corresponds to an X3D SFVec2f field. Each component
+of the vector can be accessed using the x and y properties or using
+C-style array dereferencing (i.e., sfVec2fObjectName[0] or
+sfVec2fObjectName[1]).  An SFVec2f object may be created using the
+function in <<t-SFVec2fInstanceCreationFunction, Table 7.24>>. The
+properties of an SFVec2f object are defined in
+<<t-SFVec2fProperties, Table 7.25>>. The functions defined in
+<<t-SFVec2fFunctions, Table 7.26>> may be used to manipulate an
+SFVec2f object.
+
+[[SFVec2fInstanceCreationFunction]]
+===== 7.6.8.2 Instance creation function
+
+[[t-SFVec2fInstanceCreationFunction]]
+Table 7.24 — SFVec2f instance
+creation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object  |Parameter List |Description
+|SFVec2f |(numeric x, numeric y) |Missing values default to 0.0.
+|===
+
+[[SFVec2fProperties]]
+===== 7.6.8.3 Properties
+
+[[t-SFVec2fProperties]]
+Table 7.25 — SFVec2f properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+|numeric   |x             |No |First value of the vector
+|numeric   |y             |No |Second value of the vector
+|===
+
+[[SFVec2fFunctions]]
+===== 7.6.8.4 Functions
+
+[[t-SFVec2fFunctions]]
+Table 7.26 — SFVec2f functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|SFVec2f |add(SFVec2f vec) |Returns the value of the passed value added,
+component-wise, to the object.
+
+|SFVec2f |divide(numeric n) |Returns the value of the object divided by
+the passed value.
+
+|numeric |dot(SFVec2f vec) |Returns the dot product of this vector and
+the passed value.
+
+|numeric |length() |Returns the geometric length of this vector.
+
+|SFVec2f |multiply(numeric n) |Returns the value of the object
+multiplied by the passed value.
+
+|SFVec2f |normalize() |Returns the object converted to unit length.
+
+|SFVec2f |subtract(SFVec2f vec) |Returns the value of the passed vec
+value subtracted, component-wise, from the object.
+
+|String |toString() |Returns a String containing the value of x and y
+encoding using the X3D Classic VRML encoding (see <<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+[[SFVec3d]]
+==== 7.6.9 SFVec3d
+
+[[SFVec3dDescription]]
+===== 7.6.9.1 Description
+
+The SFVec3d object corresponds to a X3D SFVec3d field. Each component of
+the vector can be accessed using the x, y, and z properties or using
+C-style array dereferencing (i.e., sfVec3dObjectName[0],
+sfVec3dObjectName[1] or sfVec3dObjectName[2]).   An SFVec3d object may
+be created using the function in
+<<t-SFVec3dInstanceCreationFunction, Table 7.27>>. The properties of
+an SFVec3d object are defined in <<t-SFVec3dProperties, Table 7.28>>.
+The functions defined in <<t-SFVec3dFunctions, Table 7.29>> may be
+used to manipulate an SFVec3d object.
+
+[[SFVec3dInstanceCreationFunction]]
+===== 7.6.9.2 Instance creation function
+
+[[t-SFVec3dInstanceCreationFunction]]
+Table 7.27 — SFVec3d instance
+creation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object |Parameter List |Description
+
+|SFVec3d |(numeric x, numeric y, numeric z) |Missing values default to 0.0d.
+|===
+
+[[SFVec3dProperties]]
+===== 7.6.9.3 Properties
+
+[[t-SFVec3dProperties]]
+Table 7.28 — SFVec3d properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+|numeric   |x             |No |First value of the vector.
+|numeric   |y             |No |Second value of the vector.
+|numeric   |z             |No |Third value of the vector.
+|===
+
+[[SFVec3dFunctions]]
+===== 7.6.9.4 Functions
+
+[[t-SFVec3dFunctions]]
+Table 7.29 — SFVec3d functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|SFVec3d |add(SFVec3d vec) |Returns the value of the passed value added,
+component-wise, to the object.
+
+|SFVec3d |cross(SFVec3d vec) |Returns the cross product of the object
+and the passed value.
+
+|SFVec3d |divide(numeric n) |Returns the value of the object divided by
+the passed value.
+
+|numeric |dot(SFVec3d vec) |Returns the dot product of this vector and
+the passed value as a double precision value.
+
+|numeric |length() |Returns the geometric length of this vector as a
+double precision value.
+
+|SFVec3d |multiple(numeric n) |Returns the value of the object
+multiplied by the passed value.
+
+|SFVec3d |negate() |Returns the value of the component-wise negation of
+the object.
+
+|SFVec3d |normalize() |Returns the object converted to unit length.
+
+|SFVec3d |subtract(SFVec3f vec) |Returns the value of the passed vec
+value subtracted, component-wise, from the object.
+
+|String |toString() |Returns a String containing the value of x, y, and
+z encoded using the X3D Classic VRML encoding (see <<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+[[SFVec3f]]
+==== 7.6.10 SFVec3f
+
+[[SFVec3fDescription]]
+===== 7.6.10.1 Description
+
+The SFVec3f object corresponds to a X3D SFVec3f field. Each component of
+the vector can be accessed using the x, y, and z properties or using
+C-style array dereferencing (i.e., sfVec3fObjectName[0],
+sfVec3fObjectName[1] or sfVec3fObjectName[2]). An SFVec3f object may be
+created using the function in
+<<t-SFVec3fInstanceCreationFunction, Table 7.30>>. The properties of
+an SFVec3f object are defined in <<t-SFVec3fProperties, Table 7.31>>.
+The functions defined in <<t-SFVec3fFunctions, Table 7.32>> may be
+used to manipulate an SFVec3f object.
+
+[[SFVec3fInstanceCreationFunction]]
+===== 7.6.10.2 Instance creation function
+
+[[t-SFVec3fInstanceCreationFunction]]
+Table 7.30 — SFVec3f instance
+creation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object |Parameter List |Description
+
+|SFVec3f |(numeric x, numeric y, numeric z) |Missing values default to 0.0.
+|===
+
+[[SFVec3fProperties]]
+===== 7.6.10.3 Properties
+
+[[t-SFVec3fProperties]]
+Table 7.31 — SFVec3f properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+|numeric |x |No |First value of the vector.
+|numeric |y |No |Second value of the vector.
+|numeric |z |No |Third value of the vector.
+|===
+
+
+[[SFVec3fFunctions]]
+===== 7.6.10.4 Functions
+
+[[t-SFVec3fFunctions]]
+Table 7.32 — SFVec3f functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|SFVec3f |add(SFVec3f vec) |Returns the value of the passed value added,
+component-wise, to the object.
+
+|SFVec3f |cross(SFVec3f vec) |Returns the cross product of the object
+and the passed value.
+
+|SFVec3f |divide(numeric n) |Returns the value of the object divided by
+the passed value.
+
+|numeric |dot(SFVec3f vec) |Returns the dot product of this vector and
+the passed value.
+
+|numeric |length() |Returns the geometric length of this vector.
+
+|SFVec3f |multiple(numeric n) |Returns the value of the object
+multiplied by the passed value.
+
+|SFVec3f |negate() |Returns the value of the component-wise negation of
+the object.
+
+|SFVec3f |normalize() |Returns the object converted to unit length.
+
+|SFVec3f |subtract(SFVec3f vec) |Returns the value of the passed vec
+value subtracted, component-wise, from the object.
+
+|String |toString() |Returns a String containing the value of x, y, and
+z encoded using the X3D Classic VRML encoding (see <<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+[[MFBool]]
+==== 7.6.11 MFBool
+
+[[MFBoolDescription]]
+===== 7.6.11.1 Description
+
+The MFBool object corresponds to an X3D MFBool field. It is used to
+store a one-dimensional array of boolean values. Individual elements of
+the array can be referenced using the standard C-style dereferencing
+operator (e.g., mfBoolObjectName[index], where index is an
+integer-valued expression with 0 ≤ index < length and length is the
+number of elements in the array). Assigning to an element with index ≥
+length results in the array being dynamically expanded to contain length
+elements. All elements not explicitly initialized are set to FALSE. An
+MFBool object may be created using the function in
+<<t-MFBooInstanceCreationlFunction, Table 7.33>>. The properties of an
+MFBool object are defined in <<t-MFBoolProperties, Table 7.34>>. The
+functions defined in <<t-MFBoolFunctions, Table 7.35>> may be used to
+manipulate an MFBool object.
+
+[[MFBoolInstanceCreationFunction]]
+===== 7.6.11.2 Instance creation function
+
+[[t-MFBooInstanceCreationlFunction]]
+Table 7.33 — MFBool instance creation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object |Parameter List |Description
+
+|MFBool |(boolean n1, +
+ boolean n2, ...) |The creation function shall initialize the array
+using 0 or more boolean-valued expressions passed as parameters.
+|===
+
+[[MFBoolProperties]]
+===== 7.6.11.3 Properties
+
+[[t-MFBoolProperties]]
+Table 7.34 — MFBool properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+
+|numeric |length |No |Property for getting/setting the number of
+elements in the array.
+|===
+
+[[MFBoolFunction]]
+===== 7.6.11.4 Function
+
+[[t-MFBoolFunctions]]
+Table 7.35 — MFBool function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|String |toString() |Returns a String containing the value of the MFBool
+array encoding using the X3D Classic VRML encoding (see
+<<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+[[MFColor]]
+==== 7.6.12 MFColor
+
+[[MFColorDescription]]
+===== 7.6.12.1 Description
+
+The MFColor object corresponds to an X3D MFColor field. It is used to
+store a one-dimensional array of SFColor objects. Individual elements of
+the array can be referenced using the standard C-style dereferencing
+operator (e.g., mfColorObjectName[index], where index is an
+integer-valued expression with 0 ≤ index < length and length is the
+number of elements in the array). Assigning to an element with index ≥
+length results in the array being dynamically expanded to contain length
+elements. All elements not explicitly initialized are set to SFColor (0,
+0, 0). An MFColor object may be created using the function in
+<<t-MFColorInstanceCreationFunction, Table 7.36>>. The properties of
+an MFColor object are defined in <<t-MFColorProperties, Table 7.37>>.
+The functions defined in <<t-MFColorFunction, Table 7.38>> may be used
+to manipulate an MFColor object.
+
+[[MFColorInstanceCreationFunction]]
+===== 7.6.12.2 Instance creation function
+
+[[t-MFColorInstanceCreationFunction]]
+Table 7.36 — MFColor instance
+creation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object |Parameter List |Description
+
+|MFColor |(SFColor c1, +
+ SFColor c2, +
+ ...) |The creation function shall initialize the array using zero or
+more SFColor-valued expressions passed as parameters.
+|===
+
+[[MFColorProperties]]
+===== 7.6.12.3 Properties
+
+[[t-MFColorProperties]]
+Table 7.37 — MFColor properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+
+|numeric |length |No |property for getting/setting the number of
+elements in the array.
+|===
+
+[[MFColorFunctions]]
+===== 7.6.12.4 Function
+
+[[t-MFColorFunction]]
+Table 7.38 — MFColor function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|String |.toString() |Returns a String containing the value of the
+MFColor array encoded using the X3D Classic VRML encoding (see
+<<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+[[MFDouble]]
+==== 7.6.13 MFDouble
+
+[[MFDoubleDescription]]
+===== 7.6.13.1 Description
+
+The MFDouble object corresponds to an X3D MFDouble field. It is used to
+store a one-dimensional array of double precision numeric values.
+Individual elements of the array can be referenced using the standard
+C-style dereferencing operator (e.g., mfDoubleObjectName[index], where
+index is an integer-valued expression with 0 ≤ index < length and length
+is the number of elements in the array). Assigning to an element with
+index ≥ length results in the array being dynamically expanded to
+contain length elements. All elements not explicitly initialized are set
+to 0.0. An MFDouble object may be created using the function in
+<<t-MFDoubleInstanceCreationFunction, Table 7.39>>. The properties of
+an MFDouble object are defined in <<t-MFDoubleProperties, Table 7.40>>.
+The functions defined in <<t-MFDoubleFunction, Table 7.41>> may
+be used to manipulate an MFDouble object.
+
+[[MFDoubleInstanceCreationFunction]]
+===== 7.6.13.2 Instance creation function
+
+[[t-MFDoubleInstanceCreationFunction]]
+Table 7.39 — MFDouble instance
+creation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object |Parameter List |Description
+
+|MFDouble |(numeric n1, numeric n2, ...) |The creation function shall
+initialize the array using zero or more numeric-valued expressions
+passed as parameters.
+|===
+
+[[MFDoubleProperties]]
+===== 7.6.13.3 Properties
+
+[[t-MFDoubleProperties]]
+Table 7.40 — MFDouble properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+
+|numeric |length |No |property for getting/setting the number of
+elements in the array.
+|===
+
+[[MFDoubleFunction]]
+===== 7.6.13.4 Function
+
+[[t-MFDoubleFunction]]
+Table 7.41 — MFDouble function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|String |toString() |Returns a String containing the value of the
+MFDouble array encoded using the X3D Classic VRML encoding (see
+<<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+[[MFFloat]]
+==== 7.6.14 MFFloat
+
+[[MFFloatDescription]]
+===== 7.6.14.1 Description
+
+The MFFloat object corresponds to an X3D MFFloat field. It is used to
+store a one-dimensional array of single precision numeric values.
+Individual elements of the array can be referenced using the standard
+C-style dereferencing operator (e.g., mfFloatObjectName[index], where
+index is an integer-valued expression with 0 ≤ index < length and length
+is the number of elements in the array). Assigning to an element with
+index ≥ length results in the array being dynamically expanded to
+contain length elements. All elements not explicitly initialized are set
+to 0.0. An MFFloat object may be created using the function in
+<<t-MFFloatInstanceCreationFunction, Table 7.42>>. The properties of
+an MFFloat object are defined in <<t-MFFloatProperties, Table 7.43>>.
+The functions defined in <<t-MFFloatFunctions, Table 7.44>> may be
+used to manipulate an MFFloat object.
+
+[[MFFloatInstaceCreationFunction]]
+===== 7.6.14.2 Instance creation function
+
+[[t-MFFloatInstanceCreationFunction]]
+Table 7.42 — MFFloat instance
+creation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object |Parameter List |Description
+
+|MFFloat |(numeric n1, +
+ numeric n2, ...) |The creation function shall initialize the array
+using zero or more numeric-valued expressions passed as parameters.
+|===
+
+[[MFFloatProperties]]
+===== 7.6.14.3 Properties
+
+[[t-MFFloatProperties]]
+Table 7.43 — MFFloat properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+
+|numeric |length |No |property for getting/setting the number of
+elements in the array.
+|===
+
+[[MFFloatFunctions]]
+===== 7.6.14.4 Functions
+
+[[t-MFFloatFunctions]]
+Table 7.44 — MFFloat functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|String |toString() |Returns a String containing the value of the
+MFFloat array encoded using the X3D Classic VRML encoding (see
+<<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+[[MFImage]]
+==== 7.6.15 MFImage
+
+[[MFImageDescription]]
+===== 7.6.15.1 Description
+
+The MFImage object corresponds to a X3D MFImage field. It is used to
+store a one-dimensional array of SFImage values. An MFImage object may
+be created using the function in
+<<t-MFImageInstanceCreationFunction, Table 7.45>>. The properties of
+an MFImage object are defined in <<t-MFImageProperties, Table 7.46>>.
+The functions defined in <<t-MFImageFunction, Table 7.47>> may be used
+to manipulate an MFImage object.
+
+[[MFImageInstanceCreationFunction]]
+===== 7.6.15.2 Instance creation function
+
+[[t-MFImageInstanceCreationFunction]]
+Table 7.45 — MFImage instance
+creation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object |Parameter List |Description
+
+|MFImage |(SFImage i1, +
+ SFImage i2, ...) |The creation function shall initialize the array
+using 0 or more SFImage-valued expressions passed as parameters.
+|===
+
+[[MFImageProperties]]
+===== 7.6.15.3 Properties
+
+[[t-MFImageProperties]]
+Table 7.46 — MFImage properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+
+|numeric |length |No |Property for getting/setting the number of
+elements in the array.
+|===
+
+[[MFImageFunction]]
+===== 7.6.15.4 Function
+
+[[t-MFImageFunction]]
+Table 7.47 — MFImage function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function   |Description
+|String      |toString() 
+|Returns a String containing the value of the MFImage array encoded using
+the X3D Classic VRML encoding (see <<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+
+[[MFInt32]]
+==== 7.6.16 MFInt32
+
+[[MFInt32Description]]
+===== 7.6.16.1 Description
+
+The MFInt32 object corresponds to a X3D MFInt32 field. It is used to
+store a one-dimensional array of integer values. Individual elements of
+the array can be referenced using the standard C-style dereferencing
+operator (e.g., mfInt32ObjectName[index], where index is an
+integer-valued expression with 0 ≤ index < length and length is the
+number of elements in the array). Assigning to an element with index ≥
+length results in the array being dynamically expanded to contain length
+elements. All elements not explicitly initialized are set to 0. An
+MFInt32 object may be created using the function in
+<<t-MFInt32InstanceCreationFunction, Table 7.48>>. The properties of
+an MFInt32 object are defined in <<t-MFInt32Properties, Table 7.49>>.
+The functions defined in <<t-MFInt32Function, Table 7.50>> may be used
+to manipulate an MFInt32 object.
+
+[[MFInt32InstanceCreationFunction]]
+===== 7.6.16.2 Instance creation function
+
+[[t-MFInt32InstanceCreationFunction]]
+Table 7.48 — MFInt32 Instance
+creation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object |Parameter List |Description
+
+|MFInt32 |(integer n1, +
+ integer n2, ...) |The creation function shall initialize the array
+using zero or more integer-valued expressions passed as parameters.
+|===
+
+[[MFInt32Properties]]
+===== 7.6.16.3 Properties
+
+[[t-MFInt32Properties]]
+Table 7.49 — MFInt32 properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+
+|numeric |length |No |property for getting/setting the number of
+elements in the array.
+|===
+
+[[MFInt32Function]]
+===== 7.6.16.4 Function
+
+[[t-MFInt32Function]]
+Table 7.50 — MFInt32 Function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|String |toString() |Returns a String containing the value of the
+MFInt32 array encoded using the X3D Classic VRML encoding (see
+<<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+[[MFNode]]
+==== 7.6.17 MFNode
+
+[[MFNodeDescription]]
+===== 7.6.17.1 Description
+
+The MFNode object corresponds to an X3D MFNode field. It is used to
+store a one-dimensional array of SFNode objects. Individual elements of
+the array can be referenced using the standard C-style dereferencing
+operator (e.g., mfNodeObjectName[index], where index is an
+integer-valued expression with 0 ≤ index < length and length is the
+number of elements in the array). Assigning to an element with index ≥
+length results in the array being dynamically expanded to contain length
+elements. All elements not explicitly initialized are set to NULL. An
+MFNode object may be created using the function in
+<<t-MFNodeInstanceCreationFunction, Table 7.51>>. The properties of an
+MFNode object are defined in <<t-MFNodeProperties, Table 7.52>>. The
+functions defined in <<t-MFNodeFunction, Table 7.53>> may be used to
+manipulate an MFNode object.
+
+[[MFNodeInstanceCreationFunction]]
+===== 7.6.17.2 Instance creation function
+
+[[t-MFNodeInstanceCreationFunction]]
+Table 7.51 — MFNode instance
+creation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object |Parameter List |Description
+
+|MFNode |(SFNode n1, +
+ SFNode n2, ...) |The creation function shall initialize the array using
+zero or more SFNode-valued expressions passed as parameters.
+|===
+
+[[MFNodeProperties]]
+===== 7.6.17.3 Properties
+
+[[t-MFNodeProperties]]
+Table 7.52 — MFNode Properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+
+|numeric |length |No |Property for getting/setting the number of
+elements in the array.
+|===
+
+[[MFNodeFunction]]
+===== 7.6.17.4 Function
+
+[[t-MFNodeFunction]]
+Table 7.53 — MFNode function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|String |toString() |Returns the X3D Classic VRML-encoded string that,
+if parsed as the value of an MFNode field, produces this array of nodes.
+If the browser is unable to reproduce this node, the name of the node
+followed by the open brace and close brace shall be returned. Additional
+information may be included as one or more X3D comment strings.
+|===
+
+[[MFRotation]]
+==== 7.6.18 MFRotation
+
+[[MFRotationDescription]]
+===== 7.6.18.1 Description
+
+The MFRotation object corresponds to a X3D MFRotation field. It is used
+to store a one-dimensional array of SFRotation objects. Individual
+elements of the array can be referenced using the standard dereferencing
+operator (e.g., mfRotationObjectName[index], where index is an
+integer-valued expression with 0 ≤ index < length and length is the
+number of elements in the array). Assigning to an element with index ≥
+length results in the array being dynamically expanded to contain length
+elements. All elements not explicitly initialized are set to SFRotation
+(0, 0, 1, 0). An MFRotation object may be created using the function in
+<<t-MFRotationInstanceCreationFunction, Table 7.54>>. The properties
+of an MFRotation object are defined in
+<<t-MFRotationProperties, Table 7.55>>. The functions defined in
+<<t-MFRotationFunction, Table 7.56>> may be used to manipulate an
+MFRotation object.
+
+[[MFRotationInstanceCreationFunction]]
+===== 7.6.18.2 Instance creation function
+
+[[t-MFRotationInstanceCreationFunction]]
+Table 7.54 — MFRotation
+instance creation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object |Parameter List |Description
+
+|MFRotation |(SFRotation r1, +
+ SFRotation r2, ...) |The creation function shall initialize the array
+using zero or more SFRotation-valued expressions passed as parameters.
+|===
+
+[[MFRotationProperties]]
+===== 7.6.18.3 Properties
+
+[[t-MFRotationProperties]]
+Table 7.55 — MFRotation properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+
+|numeric |length |No |property for getting/setting the number of
+elements in the array.
+|===
+
+[[MFRotationFunction]]
+===== 7.6.18.4 Function
+
+[[t-MFRotationFunction]]
+Table 7.56 — MFRotation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|String |toString() |Returns a String containing the value of the
+MFRotation array encoded using the X3D Classic VRML encoding (see
+<<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+[[MFVec2d]]
+==== 7.6.19 MFVec2d
+
+[[MFVec2dDescription]]
+===== 7.6.19.1 Description
+
+The MFVec2d object corresponds to an X3D MFVec2d field. It is used to
+store a one-dimensional array of SFVec2d values. Individual elements of
+the array can be referenced using the standard C-style dereferencing
+operator (e.g., mfVec2dObjectName[index], where index is an
+integer-valued expression with 0 ≤ index < length and length is the
+number of elements in the array). Assigning to an element with index ≥
+length results in the array being dynamically expanded to contain length
+elements. All elements not explicitly initialized are set to SFVec2d
+(0.0, 0.0). An MFVec2d object may be created using the function in
+<<t-MFVec2dInstanceCreationFunction, Table 7.57>>. The properties of
+an MFVec2d object are defined in <<t-MFVec2dProperties, Table 7.58>>.
+The functions defined in <<t-MFVec2dFunction, Table 7.59>> may be used
+to manipulate an MFVec2d object.
+
+[[MFVec2dInstanceCreationFunction]]
+===== 7.6.19.2 Instance creation function
+
+[[t-MFVec2dInstanceCreationFunction]]
+Table 7.57 — MFVec2d Instance
+creation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object |Parameter List |Description
+
+|MFVec2d |(SFVec2d v1, SFVec2d v2, ...) |The creation function shall
+initialize the array using zero or more SFVec2d-valued expressions
+passed as parameters.
+|===
+
+[[MFVec2dProperties]]
+===== 7.6.19.3 Properties
+
+[[t-MFVec2dProperties]]
+Table 7.58 — MFVec2d properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+
+|numeric |length |No |property for getting/setting the number of
+elements in the array.
+|===
+
+[[MFVec2dFunction]]
+===== 7.6.19.4 Function
+
+[[t-MFVec2dFunction]]
+Table 7.59 — MFVec2d function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|String |toString() |Returns a String containing the value of the
+MFVec2d array encoded using the X3D Classic VRML encoding (see
+<<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+[[MFVec2f]]
+==== 7.6.20 MFVec2f
+
+[[MFVec2fDescription]]
+===== 7.6.20.1 Description
+
+The MFVec2f object corresponds to a X3D MFVec2f field. It is used to
+store a one-dimensional array of SFVec2f values. Individual elements of
+the array can be referenced using the standard C-style dereferencing
+operator (e.g., mfVec2fObjectName[index], where index is an
+integer-valued expression with 0 ≤ index < length and length is the
+number of elements in the array). Assigning to an element with index ≥
+length results in the array being dynamically expanded to contain length
+elements. All elements not explicitly initialized are set to SFVec2f
+(0.0, 0.0). An MFVec2f object may be created using the function in
+<<t-MFVec2fInstanceCreationFunction, Table 7.60>>. The properties of
+an MFVec2f object are defined in <<t-MFVec2fProperties, Table 7.61>>.
+The functions defined in <<t-MFVec2fFunction, Table 7.62>> may be used
+to manipulate an MFVec2f object.
+
+[[MFVec2fInstanceCreationFunction]]
+===== 7.6.20.2 Instance creation function
+
+[[t-MFVec2fInstanceCreationFunction]]
+Table 7.60 — MFVec2f instance
+creation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object |Parameter List |Description
+
+|MFVec2f |(SFVec2f v1, SFVec2f v2, ...) |The creation function shall
+initialize the array using zero or more SFVec2f-valued expressions
+passed as parameters.
+|===
+
+[[MFVec2fProperties]]
+===== 7.6.20.3 Properties
+
+[[t-MFVec2fProperties]]
+Table 7.61 — MFVec2f properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+
+|numeric |length |No |property for getting/setting the number of
+elements in the array.
+|===
+
+[[MFVec2fFunction]]
+===== 7.6.20.4 Function
+
+[[t-MFVec2fFunction]]
+Table 7.62 — MFVec2f function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|String |toString() |Returns a String containing the value of the
+MFVec2f array encoded using the X3D Classic VRML encoding (see
+<<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+[[MFVec3d]]
+==== 7.6.21 MFVec3d
+
+[[MFVec3dDescription]]
+===== 7.6.21.1 Description
+
+The MFVec3d object corresponds to an X3D MFVec3d field. It is used to
+store a one-dimensional array of SFVec3d values. Individual elements of
+the array can be referenced using the standard C-style dereferencing
+operator (e.g., mfVec3dObjectName[index], where index is an
+integer-valued expression with 0 ≤ index < length and length is the
+number of elements in the array). Assigning to an element with index ≥
+length results in the array being dynamically expanded to contain length
+elements. All elements not explicitly initialized are set to SFVec3d
+(0.0, 0.0, 0.0). An MFVec3d object may be created using the function in
+<<t-MFVec3dInstanceCreationFunction, Table 7.63>>. The properties of
+an MFVec3d object are defined in <<t-MFVec3dProperties, Table 7.64>>.
+The functions defined in <<t-MFVec3dFunction, Table 7.65>> may be used
+to manipulate an MFVec3d object.
+
+[[MFVec3dInstanceCreationFunction]]
+===== 7.6.21.2 Instance creation function
+
+[[t-MFVec3dInstanceCreationFunction]]
+Table 7.63 — MFVec3d instance
+creation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object |Parameter List |Description
+
+|MFVec3d |(SFVec3d v1, SFVec3d v2, ...) |The creation function shall
+initialize the array using zero or more SFVec3d-valued expressions
+passed as parameters.
+|===
+
+[[MFVec3dProperties]]
+===== 7.6.21.3 Properties
+
+[[t-MFVec3dProperties]]
+Table 7.64 — MFVec3d properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+
+|numeric |length |No |property for getting/setting the number of
+elements in the array.
+|===
+
+[[MFVec3dFunction]]
+===== 7.6.21.4 Function
+
+[[t-MFVec3dFunction]]
+Table 7.65 — MFVec3d function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|String |toString() |Returns a String containing the value of the
+MFVec3d array encoded using the X3D Classic VRML encoding (see
+<<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+[[MFVec3f]]
+==== 7.6.22 MFVec3f
+
+[[MFVec3fDescription]]
+===== 7.6.22.1 Description
+
+The MFVec3f object corresponds to an X3D MFVec3f field. It is used to
+store a one-dimensional array of SFVec3f values. Individual elements of
+the array can be referenced using the standard C-style dereferencing
+operator (e.g., mfVec3fObjectName[index], where index is an
+integer-valued expression with 0 ≤ index < length and length is the
+number of elements in the array). Assigning to an element with index ≥
+length results in the array being dynamically expanded to contain length
+elements. All elements not explicitly initialized are set to SFVec3f
+(0.0, 0.0, 0.0). An MFVec3f object may be created using the function in
+<<t-MFVec3fInstanceCreationFunction, Table 7.66>>. The properties of
+an MFVec3f object are defined in <<t-MFVec3fProperties, Table 7.67>>.
+The functions defined in <<t-MFVec3fFunction, Table 7.68>> may be used
+to manipulate an MFVec3f object.
+
+[[MFVec3fInstanceCreationFunction]]
+===== 7.6.22.2 Instance creation function
+
+[[t-MFVec3fInstanceCreationFunction]]
+Table 7.66 — MFVec3f instance
+creation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object |Parameter List |Description
+
+|MFVec3f |(SFVec3f v1, SFVec3f v2, ...) |The creation function shall
+initialize the array using zero or more SFVec3-valued expressions passed
+as parameters.
+|===
+
+[[MFVec3fProperties]]
+===== 7.6.22.3 Properties
+
+[[t-MFVec3fProperties]]
+Table 7.67 — MFVec3f properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+
+|numeric |length |No |property for getting/setting the number of
+elements in the array.
+|===
+
+[[MFVec3fFunction]]
+===== 7.6.22.4 Function
+
+[[t-MFVec3fFunction]]
+Table 7.68 — MFVec3f function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|String |toString() |Returns a String containing the value of the
+MFVec3f array encoded using the X3D Classic VRML encoding (see
+<<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+[[RouteServices]]
+=== 7.7 Route services
+
+[[Route]]
+==== 7.7.1 Route
+
+[[RouteDescription]]
+===== 7.7.1.1 Description
+
+Routes are represented by the X3DRoute host object. This object cannot
+be directly instantiated. Routes may only be created through calls to
+the addRoute() function of X3DExecutionContext. The properties of the
+X3DRoute object are defined in <<t-RouteProperties, Table 7.69>>.
+
+[[RouteInstanceCreationFunction]]
+===== 7.7.1.2 Instance creation function
+
+This object cannot be directly instantiated.
+
+[[RouteProperties]]
+===== 7.7.1.3 Properties
+
+[[t-RouteProperties]]
+Table 7.69 — Route properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+
+|SFNode |sourceNode |yes |A reference to the node that is the source of
+this route.
+
+|String |sourceField |yes |The name of the field in the source node.
+
+|SFNode |destinationNode |yes |A reference to the node that is the
+destination of this route.
+
+|String |destinationField |yes |The name of the field in the destination
+node.
+|===
+
+[[RouteFunctions]]
+===== 7.7.1.4 Functions
+
+There are no functions defined for this object.
+
+[[PrototypeServices]]
+=== 7.8 Prototype services
+
+[[ProtoDeclaration]]
+==== 7.8.1 ProtoDeclaration
+
+[[ProtoDeclarationDescription]]
+===== 7.8.1.1 Description
+
+A PROTO declaration is represented by the X3DProtoDeclaration host
+object. The user cannot create instances of this object. This object can
+only be fetched using the X3DExecutionContext object. The properties of
+a PROTO declaration are defined in
+<<t-ProtoDeclarationProperties, Table 7.70>>. The functions defined in
+<<t-ProtoDeclarationFunctions, Table 7.71>> may be used to manipulate
+a ProtoDeclare object.
+
+[[ProtoDeclarationInstanceCreationFunction]]
+===== 7.8.1.2 Instance creation function
+
+This object cannot be directly instantiated.
+
+[[ProtoDeclarationProperties]]
+===== 7.8.1.3 Properties
+
+[[t-ProtoDeclarationProperties]]
+Table 7.70 — ProtoDeclaration
+properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+
+|String |name |yes |The declared name of this proto
+
+|FieldDefinitionArray |fields |yes |The list of all the fields defined
+for this proto
+
+|Boolean |isExternProto |yes |Always has the value of `+false+`
+|===
+
+[[ProtoDeclarationFunctions]]
+===== 7.8.1.4 Functions
+
+[[t-ProtoDeclarationFunctions]]
+Table 7.71 — ProtoDeclaration functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function
+|SFNode |newInstance()
+|===
+
+[[ExternProtoDeclaration]]
+==== 7.8.2 ExternProtoDeclaration
+
+[[ExternProtoDeclarationDescription]]
+===== 7.8.2.1 Description
+
+An EXTERNPROTO declaration is represented by the
+X3DExternProtoDeclaration host object. The user cannot create instances
+of this object. EXTERNPROTO declarations can only be fetched using the
+X3DExecutionContext object. The properties of an EXTERNPROTO declaration
+are defined in <<t-ExternProtoDeclarationProperties, Table 7.72>>. 
+The functions defined in <<t-ExternProtoDeclarationFunction, Table 7.73>> may be used to manipulate a ExternProtoDeclare object.
+
+[[ExternProtoDeclarationInstanceCreation]]
+===== 7.8.2.2 Instance creation function
+
+This object cannot be directly instantiated.
+
+[[ExternProtoDeclarationProperties]]
+===== 7.8.2.3 Properties
+
+[[t-ExternProtoDeclarationProperties]]
+Table 7.72 —
+ExternProtoDeclaration properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Read Only |Description
+
+|String |name |yes |The declared name of this proto
+
+|FieldDefinitionArray |fields |yes |The list of all the fields defined
+for this proto
+
+|MFString |urls |yes |The list of all the URIs defined for this proto
+
+|Boolean |isExternProto |yes |Always has the value of `+true+`
+
+|numeric |loadState |yes |The value is one of the __STATE_ properties
+defined in the X3DConstants object
+|===
+
+[[ExternProtoDeclarationFunctions]]
+===== 7.8.2.4 Function
+
+[[t-ExternProtoDeclarationFunction]]
+Table 7.73 — ExternProtoDeclaration function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function
+|SFNode |newInstance()
+|void |loadNow()
+|===
+
+[[MiscellaneousObjects]]
+=== 7.9 Miscellaneous objects
+
+[[ProfileInfo]]
+==== 7.9.1 ProfileInfo
+
+This object stores information about a particular X3D profile.
+<<t-ProfileInfoFunctions, Table 7.74>> lists the items maintained by a
+ProfileInfo object.
+
+[[t-ProfileInfoFunctions]]
+Table 7.74 — ProfileInfo properties
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property name |Description
+
+|String |name |The formal name as defined in <<I19775-1, part 1 of ISO/IEC 19775>>.
+
+|Numeric |level |The level of support of this instance
+
+|String |Title |A generic, freeform title string provided by the browser
+manufacturer
+
+|String |providerUrl |If provided, the URL to the entity that wrote this
+component. This assumes that extensions to the browser may not
+necessarily be provided by the browser writer's themselves.
+
+|ComponentInfoArray |components |An array of the `+ComponentInfo+`
+object instances that make up this profile.
+|===
+
+[[ProfileInfoArray]]
+==== 7.9.2 ProfileInfoArray
+
+The ProfileInfoArray object is an object that represents an array of
+ProfileInfo objects. This is a read-only object. The user is not
+permitted to create a new instance of this object.
+<<t-ProfileInfoArrayFunctions, Table 7.75>> lists the items maintained
+by a ProfileInfoArray object.
+
+[[t-ProfileInfoArrayFunctions]]
+Table 7.75 — ProfileInfoArray
+functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Description
+
+|numeric |length |The number of items currently in this array
+
+|ProfileInfo |_integer_ |Treated as an array, this is ProfileInfo at the
+given index
+|===
+
+[[ComponentInfo]]
+==== 7.9.3 ComponentInfo
+
+The ComponentInfo object stores information about a particular X3D
+component. The object consists solely of read-only properties. It does
+not define any additional functions. It shall be an error to write to
+any of these properties. <<t-ComponentInfoFunctions, Table 7.76>>
+lists the items maintained by a ComponentInfo object.
+
+[[t-ComponentInfoFunctions]]
+Table 7.76 — ComponentInfo functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Description
+
+|String |name |The formal name as defined in the appropriate Part 1,
+Clause
+
+|Numeric |level |The level of support of this instance
+
+|String |title |A generic, freeform title string provided by the browser
+manufacturer
+
+|String |providerUrl |If provided, the URL to the entity that wrote this
+component. Assumes that extensions to the browser may not necessarily be
+provided by the browser writer's themselves.
+|===
+
+[[ComponentInfoArray]]
+==== 7.9.4 ComponentInfoArray
+
+The ComponentInfoArray object is an object that represents an array of
+ComponentInfo objects. This is a read-only object. The user is not
+permitted to create a new instance of this object.
+<<t-ComponentInfoArrayFunctions, Table 7.77>> lists the items
+maintained by a ComponentInfoArray object.
+
+[[t-ComponentInfoArrayFunctions]]
+Table 7.77 — ComponentInfoArray functions
+
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Description
+
+|numeric |length |The number of items currently in this array
+
+|ComponentInfo |_integer_ |Treated as an array, this is ComponentInfo at
+the given index
+|===
+
+[[UnitInfo]]
+==== 7.9.5 UnitInfo
+
+The UnitInfo object stores information about a particular
+unit declaration. The object consists solely of read-only properties. It
+does not define any additional functions. It shall be an error to write
+to any of these properties. <<t-UnitInfoFunctions, Table 7.78>>
+lists the items maintained by a UnitInfo object.
+
+[[t-UnitInfoFunctions]]
+Tbale 7.78 — UnitInfo functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Description
+
+|String |category |The category of default unit being modified as
+defined in Table 4.2 of ISO/IEC 19775-1.
+
+|String |name |The name assigned to the new default unit.
+
+|numeric |conversion_factor |The double-precision number needed to
+convert from the new default unit to the initial default unit.
+|===
+
+[[UnitInfoArray]]
+==== 7.9.6 UnitInfoArray
+
+The UnitInfoArray object is an object that represents an
+array of UnitInfo objects. This is a read-only object. The user is not
+permitted to create a new instance of this object. 
+<<t-UnitInfoArrayFunctions, Table 7.79>> lists the items maintained by 
+a UnitInfoArray object.
+
+[[t-UnitInfoArrayFunctions]]
+Table 7.79 — UnitInfoArray functions#
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Description
+
+|numeric |length |The number of items currently in this array
+
+|UnitInfo |integer |Treated as an array, this is
+UnitInfo at the given index
+|===
+
+[[FieldDefinitionArray]]
+==== 7.9.7 FieldDefinitionArray
+
+FieldDefinitionArray is an object that represents an array of
+X3DFieldDefinition objects. This is a read-only object. The user is not
+permitted to create a new instance of this object.
+<<t-FieldDefinitionArrayFunctions, Table 7.80>> lists the items
+maintained by a FieldDefinitionArray object.
+
+[[t-FieldDefinitionArrayFunctions]]
+Table 7.80 — FieldDefinitionArray functions
+
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Description
+
+|numeric |length |The number of items currently in this array
+
+|X3DFieldDefinition |_integer_ |Treated as an array, this is
+X3DFieldDefinition at the given index
+|===
+
+[[ExternProtoDeclarationArray]]
+==== 7.9.8 ExternProtoDeclarationArray
+
+ExternProtoDeclarationArray is an object that represents an array of
+X3DExternProtoDeclaration objects. This is a read-only object. The user
+is not permitted to create a new instance of this object.
+<<t-ExternProtoDeclarationArrayFunctions, Table 7.81>> lists the items
+maintained by an ExternProtoDeclarationArray object.
+
+[[t-ExternPr]otoDeclarationArrayFunctions]
+Table 7.81 — ExternProtoDeclarationArray functions
+
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Description
+
+|numeric |length |The number of items currently in this array
+
+|X3DExternProtoDeclaration |_integer_ |Treated as an array, this is the
+X3DExternProtoDeclaration at the given index
+|===
+
+[[ProtoDeclarationArray]]
+==== 7.9.9 ProtoDeclarationArray
+
+ProtoDeclarationArray is an object that represents an array of
+X3DProtoDeclaration objects. This is a read-only object. The user is not
+permitted to create a new instance of this object.
+<<t-ProtoDeclarationArrayFunctions, Table 7.82>> lists the items
+maintained by a ProtoDeclarationArray object.
+
+[[t-ProtoDeclarationArrayFunctions]]
+Table 7.82 — ProtoDeclarationArray functions
+
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Description
+
+|numeric |length |The number of items currently in this array
+
+|ComponentInfo |_integer_ |Treated as an array, this is the
+X3DProtoDeclaration at the given index
+|===
+
+[[RouteArray]]
+==== 7.9.10 RouteArray
+
+RouteArray is an object that represents an array of X3DRoute objects.
+This is a read-only object. The user is not permitted to create a new
+instance of this object. <<t-RouteArrayFunctions, Table 7.83>> lists
+the items maintained by a RouteArray object.
+
+[[t-RouteArrayFunctions]]
+Table 7.83 — RouteArray functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Data type |Property Name |Description
+
+|numeric |length |The number of items currently in this array
+
+|Route |_integer_ |Treated as an array, this is ComponentInfo at the
+given index
+|===
+
+[[Matrix3]]
+==== 7.9.11 Matrix3
+
+[[Matrix3Description]]
+===== 7.9.11.1 Description
+
+The X3DMatrix3 object provides many useful functions for performing
+manipulations on 3x3 matrices. Each of element of the matrix can be
+accessed using C-style array dereferencing (i.e.,
+x3dMatrixObjectName[0][1] is the element in row 0, column 1). The
+results of dereferencing a Matrix3 object using a single index (i.e.,
+x3dMatrixObjectName[0]) are undefined. The translation elements are in
+the third row. For example, x3dMatrixObjectName[2][0] is the X offset. A
+Matrix3 object may be created using the function defined in
+<<t-Matrix3InstanceCreationFunction, Table 7.84>>. A Matrix3 object
+may be manipulated by the functions defined in
+<<t-Matrix3Functions, Table 7.85>>.
+
+[[Matrix3InstanceCreationFunction]]
+===== 7.9.11.2 Instance creation function
+
+[[t-Matrix3InstanceCreationFunction]]
+Table 7.84 — Matrix3 instance
+creation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object |Parameter List |Description
+
+|X3DMatrix3 |(numeric f11, numeric f12, numeric f13, +
+ numeric f21, numeric f22, numeric f23, +
+ numeric f31, numeric f32, numeric f33) |The creation function shall
+initialize the array using zero or more SFVec3-valued expressions passed
+as parameters.
+|===
+
+[[Matrix3Properties]]
+===== 7.9.11.3 Properties
+
+The individual values of the matrix may be addressed using array-style
+indexing. The values are organized in a flat array in row-major order
+(e.g., [0] is f11, [2] is f12, and [3] is f13.
+
+[[Matrix3Functions]]
+===== 7.9.11.4 Functions
+
+[[t-Matrix3Functions]]
+Table 7.85 — Matrix3 functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|void |setTransform(SFVec2f translation, +
+SFVec3f rotation, +
+SFVec2f scale, +
+SFVec3f scaleOrientation, +
+SFVec2f center) |Sets the Matrix to the passed values. Any of the
+rightmost parameters may be omitted. The function has zero to five
+parameters. For example, specifying zero parameters results in an
+identity matrix while specifying one parameter results in a translation
+and specifying two parameters results in a translation and a rotation.
+Any unspecified parameter is set to its default as specified for the
+Transform node. Values are applied to the matrix in the same order as
+the matrix field calculations for the Transform node.
+
+|void |getTransform(SFVec2f translation, +
+SFVec3f rotation, +
+SFVec2f scale) |Decomposes the Matrix and returns the components in the
+passed translation, rotation, and scale objects. The types of these
+passed objects is the same as the first three arguments to setTransform.
+If any passed object is not sent, or if the null object is sent for any
+value, that value is not returned. Any projection or shear information
+in the matrix is ignored.
+
+|Matrix3 |inverse() + |Returns a Matrix whose value is the inverse of
+this object.
+
+|Matrix3 |transpose() + |Returns a Matrix whose value is the transpose
+of this object.
+
+|Matrix3 |multLeft(Matrix3) + |Returns a Matrix whose value is the
+object multiplied by the passed matrix on the left.
+
+|Matrix3 |multRight(Matrix3) + |Returns a Matrix whose value is the
+object multiplied by the passed matrix on the right.
+
+|SFVec2f |multVecMatrix(SFVec2f vec) + |Returns an SFVec3f whose value
+is the object multiplied by the passed row vector.
+
+|SFVec2f |multMatrixVec(SFVec2f vec) + |Returns an SFVec3f whose value
+is the object multiplied by the passed column vector.
+
+|String |toString() |Returns a String containing the matrix contents
+encoded using the X3D Classic VRML encoding (see <<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+[[Matrix4]]
+==== 7.9.12 Matrix4
+
+[[Matrix4Description]]
+===== 7.9.12.1 Description
+
+The X3DMatrix4 object provides many useful functions for performing
+manipulations on 4x4 matrices. Each of element of the matrix can be
+accessed using C-style array dereferencing (i.e.,
+x3dMatrixObjectName[0][1] is the element in row 0, column 1). The
+results of dereferencing a Matrix4 object using a single index (i.e.,
+x3dMatrixObjectName[0]) are undefined. The translation elements are in
+the fourth row. For example, x3dMatrixObjectName[3][0] is the X offset. 
+A Matrix4 object may be created using the function defined in
+<<t-Matrix4InstanceCreationFunction, Table 7.86>>. A Matrix4 object
+may be manipulated by the functions defined in
+<<t-Matrix4Functions, Table 7.87>>.
+
+[[Matrix4InstanceCreationFunction]]
+===== 7.9.12.2 Instance creation function
+
+[[t-Matrix4InstanceCreationFunction]]
+Table 7.86 — Matrix4 Instance
+creation function
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Object |Parameter List |Description
+
+|X3DMatrix4 |(numeric f11, numeric f12, numeric f13, numeric f14, +
+ numeric f21, numeric f22, numeric f23, numeric f24, +
+ numeric f31, numeric f32, numeric f33, numeric f34, +
+ numeric f41, numeric f42, numeric f43, numeric f44) |The creation
+function shall initialize the array using zero or more SFVec3-valued
+expressions passed as parameters.
+|===
+
+[[Matrix4Properties]]
+===== 7.9.12.3 Properties
+
+The individual values of the matrix may be addressed using array-style
+indexing. The values are organized in a flat array in row-major order
+(e.g., [0] is f11, [3] is f14, and [4] is f21).
+
+[[Matrix4Functions]]
+===== 7.9.12.4 Functions
+
+[[t-Matrix4Functions]]
+Table 7.87 — Matrix4 functions
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|Return Type |Function |Description
+
+|void |setTransform(SFVec3f translation, +
+SFRotation rotation, +
+SFVec3f scale, +
+SFRotation scaleOrientation, +
+SFVec3f center) |Sets the Matrix to the passed values. Any of the
+rightmost parameters may be omitted. The function has zero to five
+parameters. For example, specifying zero parameters results in an
+identity matrix while specifying one parameter results in a translation
+and specifying two parameters results in a translation and a rotation.
+Any unspecified parameter is set to its default as specified for the
+Transform node. Values are applied to the matrix in the same order as
+the matrix field calculations for the Transform node.
+
+|void |getTransform(SFVec3f translation, +
+SFRotation rotation, +
+SFVec3f scale) |Decomposes the Matrix and returns the components in the
+passed translation, rotation, and scale objects. The types of these
+passed objects is the same as the first three arguments to setTransform.
+If any passed object is not sent, or if the null object is sent for any
+value, that value is not returned. Any projection or shear information
+in the matrix is ignored.
+
+|Matrix4 |inverse() + |Returns a Matrix whose value is the inverse of
+this object.
+
+|Matrix4 |transpose() + |Returns a Matrix whose value is the transpose
+of this object.
+
+|Matrix4 |multLeft(Matrix4 matrix) + |Returns a Matrix whose value is
+the object multiplied by the passed matrix on the left.
+
+|Matrix4 |multRight(Matrix4 matrix) + |Returns a Matrix whose value is
+the object multiplied by the passed matrix on the right.
+
+|SFVec3f |multVecMatrix(SFVec3f vec) + |Returns an SFVec3f whose value
+is the object multiplied by the passed row vector.
+
+|SFVec3f |multMatrixVec(SFVec3f vec) + |Returns an SFVec3f whose value
+is the object multiplied by the passed column vector.
+
+|String |toString() |Returns a String containing the matrix contents
+encoded using the X3D Classic VRML encoding (see <<I19776-2, part 2 of ISO/IEC 19776>>).
+|===
+
+[[X3DConstants]]
+==== 7.9.13 X3DConstants
+
+The X3DConstants host object is used to define constants values used
+throughout this language binding. Each property is defined as a numeric,
+read-only value. The individual values are not specified; these shall be
+implementation-dependent. These constants may be used anywhere that a
+service request wishes to return some fixed value such as `+if+` or
+`+switch+` statements. The list of known values are defined in
+<<t-X3DConstantValues, Table 7.88>>:
+
+[[t-X3DConstantValues]]
+Table 7.88 — X3DConstant values
+
+[opts="autowidth",frame=ends,grid=rows]
+|===
+|INITIALIZED_EVENT  |SHUTDOWN_EVENT       |CONNECTION_ERROR  |INITIALIZED_ERROR
+|NOT_STARTED_STATE  |IN_PROGRESS_STATE    |COMPLETE_STATE    |FAILED_STATE
+|SFBool             |MFBool               |MFInt32           |SFInt32
+|SFFloat            |MFFloat              |SFDouble          |MFDouble
+|SFTime             |MFTime               |SFNode            |MFNode
+|SFVec2f            |MFVec2f              |SFVec3f           |MFVec3f
+|SFVec3d            |MFVec3d              |MFRotation        |SFRotation
+|MFColor            |SFColor              |SFImage           |MFImage
+|MFColorRGBA        |SFColorRGBA          |SFString          |MFString
+|X3DBoundedObject   |X3DMetadataObject    |X3DUrlObject      |X3DTriggerNode
+|X3DInfoNode        |X3DAppearanceNode    |X3DAppearanceChildNode |X3DMaterialNode
+|X3DTextureNode     |X3DTexture2DNode     |X3DTexture3DNode  |X3DTextureTransformNode
+|X3DGeometryNode    |X3DGeometry3DNode    |X3DTextureTransformNode |X3DCoordinateNode
+|X3DParametricGeometryNode |X3DGeometricPropertyNode |X3DColorNode |X3DProtoInstance
+|X3DNormalNode      |X3DTextureCoordinateNode |X3DFontStyleNode |X3DGroupingNode
+|X3DChildNode       |X3DBindableNode      |X3DBackgroundNode |X3DInterpolatorNode
+|X3DShapeNode |X3DScriptNode        |X3DSensorNode     |X3DEnvironmentalSensorNode
+|X3DLightNode |X3DNetworkSensorNode |X3DPointingDeviceSensorNode |X3DDragSensorNode
+|X3DKeyDeviceSensorNode |X3DSequencerNode |X3DTimeDependentNode |X3DSoundNode
+|X3DSoundSourceNode |X3DTouchSensorNode   |inputOnly         |outputOnly
+|inputOutput        |initializeOnly       |  | 
+|===
+
+[[ScriptImplementation]]
+=== 7.10 Script implementation details
+
+[[initialize]]
+==== 7.10.1 initialize() function
+
+Authors may define a function named initialize() that is invoked before
+the browser presents the world to the user and before any events are
+processed by any nodes in the same X3D file as the Script node
+containing this script (see <<I19775-2, part 2 of ISO/IEC 19775>><<19775-2, >>,] initialize and shutdown service request
+definitions).
+
+The `+initialize()+` function has no parameters. Events generated from
+`+initialize()+` are given the timestamp of when the Script node was
+loaded.
+
+[[prepareEvents]]
+==== 7.10.2 prepareEvents() function
+
+The `+prepareEvents()+` function represents the service request that is
+called every frame. If the user code defines this function, it shall be
+called by the browser every frame.
+
+The `+prepareEvents()+` function takes a single optional argument that
+is the current timestamp.
+
+[[eventsProcessed]]
+==== 7.10.3 eventsProcessed() function
+
+The `+eventsProcessed()+` function represents the service request that
+is called after some set of events has been received. This allows Script
+nodes that do not rely on the ordering of events received to generate
+fewer events than an equivalent Script node that generates events
+whenever events are received (see <<ReceivingEvents, 4.3.5.4 Receiving events>>).
+
+The `+eventsProcessed()+` function takes no parameters. Events generated
+from it are given the timestamp of the last event processed.
+
+[[shutdown]]
+==== 7.10.4 shutdown() function
+
+Authors may define a function named `+shutdown()+` that is invoked when
+the corresponding Script node is deleted or when the world containing
+the Script node is unloaded or replaced by another world (see
+<<I19775-2, part 2 of ISO/IEC 19775>><<19775-2, ,>> initialize and
+shutdown service request definitions).
+
+The shutdown() function has no parameters. Events generated from
+shutdown() are given the timestamp of when the containing node was
+deleted or the URL replaced.
+
+[[VRMLrelationship]]
+== Annex A Relationship to ISO/IEC 14772
+
+Annex A ECMAScript scripting reference of <<I14772_1, Part 1 of ISO/IEC 14772>>
+defines an ECMAScript specification to the script
+interface. Most of the standard objects added by this specification are
+interchangable. However, due to the differing capabilities of the SAI
+and VRML services, the Browser object definitions are not
+interchangeable between the two environments. This applies to all of the
+objects defined in ISO/IEC 14772-1 C ECMAScript scripting reference.
+This specification defines the interfaces that user code shall use in
+order to interact with an X3D scene graph.
+
+Because the two object sets look very similar, but are not totally
+interchangable, when a browser finds a script that defines its content
+with ECMAScript, it shall determine which set of objects to support
+based on the declared protocol type if the script code is inlined.
+Scripts that require backwards compatibility shall use the protocol type
+"*`+javascript:+`*". The objects and semantics from ISO/IEC 14772-1
+Annex C are to be used. In all other cases, it is assumed to be the
+semantics and objects defined in this part of ISO/IEC 19777.
+
+External access to the browser shall be through the use of the objects
+and semantics defined in this part of ISO/IEC 19777. A conformant
+browser shall only support these objects and semantics when registering
+standard objects with the containing application's ECMAScript engine.
+Although <<I14772_2, part 2 of ISO/IEC14772>> does not define formal
+bindings to the browser for ECMAScript programming, it shall be an error
+to support VRML objects and semantics if the browser claims conformance
+to this specification.
+
+[[examples]]
+== Annex B Examples
+
+[[IntroductionAndTopics]]
+=== B.1 Introduction and topics
+
+[[Introduction]]
+==== B.1.1 Introduction
+
+This annex provides a variety of X3D examples showing ECMAScript
+operations.
+
+[[Topics]]
+==== B.1.2 Topics
+
+<<t-Topics, Table B.1>> lists the topics in this clause:
+
+[[t-Topics]]
+Table B.1 — Topics in this annex
+
+
+* <<IntroductionAndTopics, B.1 Introduction and topics>>
+** <<Introduction, B.1.1 Introduction>>
+** <<Topics, B.1.2 Topics>>
+* <<TouchSensorIsOverEvent, B.2 TouchSensor isOver event>>
+* <<CreateNodes, B.3 Create nodes>>
+* <<PerFrameNotification, B.4 Per frame notification>>
+* <<AddDynamicRoutes, B.5 Add dynamic routes>>
+* <<CreateNodesFromAPrototype, B.6 Create nodes from prototype>> +
+
+
+[[TouchSensorIsOverEvent]]
+=== B.2 touchSensor isOver event
+
+This example demonstrates a scripted response to a TouchSensor isOver
+event by changing the color of a Box from blue to red:
+
+[source,listing]
+----
+#X3D V3.0 utf8
+----
+
+[source,listing]
+----
+PROFILE Immersive
+
+Group {
+    children [
+        Shape {
+            appearance Appearance {
+                material DEF MAT Material { diffuseColor 0 0 1 }
+            }
+            geometry Box {}
+        }
+        DEF TS TouchSensor {}
+    ]
+}
+
+DEF SC Script {
+    inputOnly SFBool isOver
+    outputOnly SFColor diffuseColor_changed
+
+    url ["ecmascript:
+        function initialize() { }
+        function isOver(val) {
+            if (val == true) {
+                diffuseColor_changed = new SFColor(1,0,0);
+            } else {
+                diffuseColor_changed = new SFColor(0,0,1);
+            }
+        }
+    "]
+}
+
+ROUTE TS.isOver TO SC.isOver
+ROUTE SC.diffuseColor_changed TO MAT.set_diffuseColor
+----
+
+https://www.web3d.org/documents/specifications/19777-1/V3.3/Part1/Examples/TouchSensorIsOverEvent.x3dv[Click here] to view this example in a 3D scene window.
+
+[[CreateNodes]]
+=== B.3 Create nodes
+
+This example shows using createX3DFromString to create nodes:
+
+[source,listing]
+----
+#X3D V3.0 utf8
+----
+
+[source,listing]
+----
+PROFILE Immersive
+
+DEF HOLDER Transform { translation -2 0 0 }
+
+DEF SC Script {
+    outputOnly MFNode children
+
+    url ["ecmascript:
+        function initialize() {
+            // Create nodes directly in the parent scene
+            shape = Browser.currentScene.createNode('Shape');
+            box = Browser.currentScene.createNode('Box');
+            shape.geometry = box;
+            Browser.currentScene.RootNodes[0] = shape;
+
+            // Create children using the createX3DFromString service
+            vrmlCmd = 'PROFILE Interchange  Shape { geometry Sphere{} }'
+            tmpScene = Browser.createX3DFromString(vrmlCmd);
+            nodes = tmpScene.rootNodes;
+
+            // Nodes must be removed before adding to another scene
+            for(i=0; i < nodes.length; i++) {
+                tmpScene.removeRootNode(nodes[i]);
+            }
+
+            children = nodes;
+        }
+    "]
+}
+
+ROUTE SC.children TO HOLDER.children
+----
+
+https://www.web3d.org/documents/specifications/19777-1/V3.3/Part1/Examples/CreateNodes.x3dv[Click here] to view this example in a 3D scene window.
+
+[[PerFrameNotification]]
+=== B.4 Per frame notification
+
+This example shows how to use per frame notification to produce a frame
+rate annotation:
+
+[source,listing]
+----
+#X3D V3.0 utf8
+----
+
+[source,listing]
+----
+PROFILE Immersive
+
+DEF SC Script {
+    url ["ecmascript:
+        var lastStartTime;
+
+        function initialize() {
+            date = new Date();
+            lastStartTime = date.getTime();
+        }
+
+        // Called each frame
+        function prepareEvents() {
+            date = new Date();
+            frameTime = (date.getTime() - lastStartTime) / 1000.0;
+            lastStartTime = date.getTime();
+            fps = 1.0 / frameTime;
+            Browser.println('FPS: ' + fps);
+        }
+    "]
+}
+----
+
+https://www.web3d.org/documents/specifications/19777-1/V3.3/Part1/Examples/PerFrameNotification.x3dv[Click here] to view this example in a 3D scene window.
+
+[[AddDynamicRoutes]]
+=== B.5 Add dynamic routes
+
+This example shows adding dynamic routes:
+
+[source,listing]
+----
+#X3D V3.0 utf8
+----
+
+[source,listing]
+----
+PROFILE Immersive
+
+DEF SC Script {
+    inputOnly SFTime touchTime
+    url ["ecmascript:
+
+        function touchTime(val) {
+            // Create nodes directly in the parent scene
+            scene = Browser.currentScene;
+
+            shape = scene.createNode('Shape');
+            box = scene.createNode('Box');
+            touchSensor = scene.createNode('TouchSensor');
+            shape.geometry = box;
+
+            // Create a Group to hold the nodes
+            group = scene.createNode('Group');
+
+            // Add the shape and sensor to the group
+            group.children = new MFNode(shape, touchSensor);
+
+            // Add the nodes to the scene
+            scene.RootNodes[0] = group;
+
+            // Add a route from the touchSensor to this script
+            scene.addRoute(touchSensor, 'touchTime', Script, 'touchTime');
+        }
+    "]
+}
+----
+
+https://www.web3d.org/documents/specifications/19777-1/V3.3/Part1/Examples/AddDynamicRoutes.x3dv[Click here] to view this example in a 3D scene window.
+
+[[CreateNodesFromAPrototype]]
+=== B.6 Create nodes from a prototype
+
+This example shows creation of nodes from a prototype:
+
+[source,listing]
+----
+#X3D V3.0 utf8
+----
+
+[source,listing]
+----
+PROFILE Immersive
+
+PROTO ColoredSphere [
+    initializeOnly SFColor color 0 1 0
+] {
+    Shape {
+        appearance Appearance {
+            material Material {
+                diffuseColor IS color
+            }
+        }
+        geometry Sphere {}
+    }
+}
+
+DEF SC Script {
+    url ["ecmascript:
+
+        function initialize() {
+            // Create nodes directly in the parent scene
+            scene = Browser.currentScene;
+
+            // Look through proto declarations for ColoredSphere
+            protoDecls = scene.protoDeclarations;
+
+            var protoDecl;
+
+            for(i=0; i < protoDecls.length; i++) {
+                if (protoDecls[i].name == 'ColoredSphere')
+                    protoDecl = protoDecls[i];
+            }
+
+            // Create an instance of RedSphere
+            instance = protoDecl.newInstance();
+
+            // Set the color field to Red
+            instance.color = new SFColor(1,0,0);
+
+            // Add the created proto to the scene
+            scene.rootNodes[0] = instance;
+        }
+    "]
+}
+----
+
+https://www.web3d.org/documents/specifications/19777-1/V3.3/Part1/Examples/CreateNodesFromPrototype.x3dv[Click here] to view this example in a 3D scene window.

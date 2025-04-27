@@ -1,0 +1,2359 @@
+﻿:source-highlighter: highlight.js
+:stem: latexmath
+== Getting Started with Plain TEX
+
+[.text-center.big]
+**Getting Started with Plain TEX** 
+https://www.ntg.nl/literatuur/wilkins/pllong.pdf[PDF] +
+D. R. Wilkins  +
+April 18, 1994 +
+*Summary of Commonly-Used Features of Plain TEX* 
+https://ntg.nl/literatuur/wilkins/plshort.pdf[PDF] +
+D. R. Wilkins  +
+April 18, 1994 +
+
+== Contents (plshort.pdf)
+
+• <<S02, 1 Summary of Commonly-Used Features of Plain TEX>>
+• <<S02, 2 Rules for Ordinary Text (without mathematics)>>
+• <<S02, 2.1 Special Characters>>
+• <<S02, 2.2 Special Characters>>
+• <<S03, 2.3 Quotation marks>>
+• <<S03, 2.4 Quotation marks>>
+• <<S04, 2.5 Changing Fonts>>
+• <<S04, 2.6 Changing Fonts>>
+• <<S05, 2.7 Producing Blank Space in Plain TEX>>
+• <<S05, 2.8 Producing Blank Space in Plain TEX>>
+• <<S06, 3 Rules for obtaining Mathematical Formulae >>
+• <<S06, 3.1 Mathematics embedded in Text>>
+• <<S06, 3.2 Displayed Mathematical Formulae>>
+• <<S06, 3.3 Special Characters in Mathematics Mode>>
+• <<S07, 3.4 Superscripts and Subscripts>>
+• <<S07, 3.5 Greek Letters>>
+• <<S07, 3.6 Mathematical Symbols>>
+• <<S07, 3.7 Accents in Mathematics>>
+• <<S07, 3.8 Standard Functions>>
+• <<S08, 3.9 Fractions>>
+• <<S08, 3.10 Roots>>
+• <<S08, 3.11 Ellipsis>>
+• <<S09, 3.12 Delimiters>>
+• <<S09, 3.13 Embedding Text in Mathematics>>
+• <<S09, 3.14 Inserting and Removing Blank Space in Formulae>>
+• <<S10, 3.15 Further Features of Plain TEX>>
+• <<S10, A Control Sequences used in Text (Plain TEX) >>
+• <<S12, B Control Sequences used in Mathematics (Plain TEX) >>
+• <<S12, B.1 Font Changes, Accents and Standard Functions>>
+• <<S13, B.2 Control Sequences for Mathematical Symbols>>
+• <<S17, B.3 Some frequently used Control Sequences of Plain TEX>>
+
+== Contents (pllong.pdf)
+
+•  <<P02, 1 Introduction to Plain TEX>>
+•  <<P02, 1.1 What is Plain TEX?>>
+•  <<P03, 1.2 A Typical Plain stem:[\TeX] Input File>>
+•  <<P04, 1.3 Characters and Control Sequences>>
+•  <<P06, 2 Producing Simple Documents using Plain TEX>>
+•  <<P06, 2.1 Producing Ordinary Text using Plain TEX>>
+•  <<P07, 2.2 Blank Spaces and Carriage Returns in the Input File>>
+•  <<P08, 2.3 Quotation Marks>>
+•  <<P09, 2.4 Section Headings in Plain TEX>>
+•  <<P10, 2.5 Dashes>>
+•  <<P10, 2.6 Changing Fonts>>
+•  <<P11, 2.7 Accents and other Symbols used in Text>>
+•  <<P11, 2.8 Special Characters>>
+•  <<P12, 3 Mathematical Formulae using Plain TEX>>
+•  <<P12, 3.1 Mathematics Mode>>
+•  <<P13, 3.2 Characters in Mathematics Mode>>
+•  <<P14, 3.3 Subscripts and Superscripts>>
+•  <<P14, 3.4 Greek Letters>>
+•  <<P15, 3.5 Mathematical Symbols>>
+•  <<P15, 3.6 Changing Fonts in Mathematics Mode>>
+•  <<P16, 3.7 Standard Functions and Embedded Text>>
+•  <<P17, 3.8 Fractions,Roots and Ellipsis>>
+•  <<P18, 3.9 Accents in Mathematics Mode>>
+•  <<P19, 3.10 Brackets and Norms>>
+•  <<P20, 3.11 Multiline Formulae in Plain TEX>>
+•  <<P22, 3.12 Matrices and other arrays in Plain TEX>>
+•  <<P24, 3.13 Derivatives, Limits, Sums and Integrals>>
+•  <<P28, 4 Further Features of Plain TEX>>
+•  <<P28, 4.1 Producing Blank Space in Plain TEX>>
+•  <<P30, 4.2 Blank Spaces: Fine Tuning>>
+•  <<P31, 4.3 Defining your own Control Sequences in Plain TEX>>
+•  <<P33, A Control Sequences used in Text (Plain TEX)>>
+•  <<P34, B Control Sequences used in Mathematics (Plain TEX)>>
+•  <<P34, B.1 Font Changes, Accents and Standard Functions>>
+•  <<P36, B.2 Control Sequences for Mathematical Symbols>>
+•  <<P39, B.3 Some frequently used Control Sequences of Plain TEX>>
+
+[[S02]]
+== 1 Summary of Commonly-Used Features of Plain TEX
+
+== 2 Rules for Ordinary Text (without mathematics)
+
+=== 2.1 Special Characters
+
+All characters on the keyboard have their standard meaning in ordinary text
+with the exception of the special characters
+
+    #    $    %    &    ~    _    ^    \    {    }    ’
+
+which have special functions within TEX. On the rare occasions when these
+special characters are required in the final document they must be produced
+by an appropriate control sequence. Thus you should type \#, \$, \%, \&,
+\_, \{ and \} to obtain #, $, %, &, _, { and } respectively.
+
+=== 2.2 Special Characters
+
+Successive paragraphs in the input file should be separated by a completely
+blank line. All paragraphs will be automatically indented by stem:[\TeX] with the
+exception of the first paragraph of a new section. (One can override the
+conventions of stem:[\TeX] by placing the control sequence *\noindent* of the control
+sequence *\indent* at the beginning of the paragraph.)
+
+[[S03]]
+=== 2.3 Quotation marks
+
+To produce single quotation marks use the characters ‘ (left quote) and ’
+(right quote). For double quotation marks use ‘‘ (two left quotes) and ’’
+(two right quotes). Do not use " (undirected double quote). Thus to obtain
+
+[source,role=big]
+    “This is easy” he said.
+
+you should type
+
+[source,role=big]
+    ‘‘This is easy’’ he said.
+
+The control sequence *\thinspace* can be used to separate single quotes
+from double quotes where necessary.
+
+=== 2.4 Quotation marks
+
+Dashes of various lengths are obtained using -, -- and ---. You should use
+- for hyphenation, -- when specifying ranges of numbers, and --- to obtain
+a punctuation dash. Thus we obtain
+
+[source,role=big]
+    The Cayley-Hamilton Theorem.
+    See pages 95–104.
+    Use three dashes to obtain a punctuation dash—like this.
+
+by typing
+
+[source,role=big]
+    The Cayley-Hamilton Theorem.
+    See pages 95--104.
+    Use three dashes to obtain a punctuation dash---like this.
+
+[[S04]]
+
+=== 2.5 Changing Fonts
+
+The control sequences *\rm, \sl, \it, \tt* and *\bf* change to roman, slanted,
+italic, teletype and boldface fonts respectively. Any change of font made
+within a group enclosed within curly brackets { and } will only apply to text
+within that group. On leaving the group, the current font is restored to what
+it was before entering the group. Thus we can obtain
+
+[source,role=big,subs=normal]
+    This sentence contains a word set in *boldface* type
+
+by typing
+
+[source,role=big]
+    This sentence contains a word set in {\bf boldface} type
+
+The control sequence \/ produces the so-called ‘italic correction’. It is
+sometimes desirable when changing from a slanted font (such as italic or
+slanted) back to a non-slanted font such as roman or *boldface*, in order to
+produce a small amount of extra space to compensate for the slantedness of
+the font, and thus improve the appearance of the final document. However
+the italic correction should not be applied before a period (full stop) or a
+comma. To obtain
+
+[source,role=big,subs=normal]
+    Here is some _italicized_ text.
+
+one should type
+
+[source,role=big]
+    Here is some {\it italicized\/} text.
+
+However it usually does not matter all that much if you forget about this
+italic correction.
+
+=== 2.6 Changing Fonts
+
+These are produced by control sequences such as \’, \‘ and \". Thus one
+types Se\’{a}n and H\"{o}lder to obtain ‘Seán’ and ‘Hölder’ respectively.
+For a full list of such accents, see Appendix A. Note however that accents
+within mathematics are produced in a different fashion.
+
+[[S05]]
+
+=== 2.7 Producing Blank Space in Plain TEX
+
+To produce (horizontal) blank space within a paragraph, use \hskip, followed
+by the length of the blank space. The length of the skip should be expressed
+in a unit recognized by TEX. These recognized units are given in the following
+table:
+
+[source,role=big,subs=normal]
+    pt point            (1 in = 72.27 pt)
+    pc pica             (1 pc = 12 pt)
+    in inch             (1 in = 25.4 mm)
+    bp big point        (1 in = 72 bp)
+    cm centimetre       (1 cm = 10 mm)
+    mm millimetre
+    dd didot point      (1157 dd = 1238 pt)
+    cc cicero           (1 cc = 12 dd)
+    sp scaled point     (65536 sp = 1 pt)
+
+Thus to produce a horizontal blank space of 20 mm in the middle of a paragraph 
+one would type *\hskip 20 mm* (or, better still, type ‘\hskip 20 mm \relax’
+to avoid the error that might occur if the following word were to begin with
+the letters ‘plus’).
+
+To produce (vertical) blank space between paragraphs, use *\vskip*, followed 
+by the length of the vertical skip.
+
+=== 2.8 Producing Blank Space in Plain TEX
+
+To force stem:[\TeX] to produce a blank space where it might not otherwise put one,
+one should precede the blank space with a \ (backslash). It is often advisable
+to precede with a backslash blank spaces after certain abbreviations such as
+‘Dr.’, ‘etc.’, and ‘Math. Soc.’ (so that one should type Dr.\ Smith etc.).
+
+If you wish to ensure that stem:[\TeX] does not start a new line at a particular
+blank space, then you can use ~ in place of the blank space. Thus if you type
+I.~Newton or Example~4 then you prevent a line break at these places.
+
+[[S06]]
+== 3 Rules for obtaining Mathematical Formulae
+
+=== 3.1 Mathematics embedded in Text
+
+Any mathematical expressions embedded in text should be preceded and
+followed by the character $. Thus to obtain
+
+[source,role=big,subs=normal]
+    Let f be the function defined by f(x) = x + 7.
+
+one should type
+
+[source,role=big,subs=normal]
+    Let $f$ be the function defined by $f(x) = x + 7$.
+
+=== 3.2 Displayed Mathematical Formulae
+
+Any displayed mathematical formulae should be preceded and followed by
+\$\$. Thus to obtain
+
+[source,role=big,subs=normal]
+    Let g be the function defined by
+
+[stem]
+++++
+    g(x, y) = xy + x + y + 2.
+++++
+
+The function stem:[g] is positive when both stem:[x] and stem:[y] are positive.
+
+one should type
+
+[source,role=big,subs=normal]
+    Let $g$ be the function defined by
+    $$g(x,y) = xy + x + y + 2.$$
+    The function $g$ is positive when both $x$ and $y$ are positive.
+
+=== 3.3 Special Characters in Mathematics Mode
+
+All characters on the keyboard have their standard meaning in mathematical
+expressions with the exception of the special characters
+
+    #    $    %    &    ~    _    ^    \    {    }    ’
+
+[[S07]]
+which have special functions within TEX. On the rare occasions when these
+special characters are required in the final document they must be produced
+by an appropriate control sequence. Thus you should type \#, \$, \%, \&,
+\_, \{ and \} to obtain #, $, %, &, _, { and } respectively. To obtain \ in
+mathematics mode, type *\backslash*.
+
+The character ’ is used to put a superscript prime after a character. Thus
+if we type $f’$ and $g’’$ we obtain stem:[f'] and stem:[g''] respectively.
+
+=== 3.4 Superscripts and Subscripts
+
+Superscripts and subscripts are produced using the characters ^ and _ respectively.
+Thus we obtain stem:[t^2 + x_1 − x^3_1]  by typeint $t^2 + x_1 - x^3_1$.
+If a superscript or subscript consists of more than one character then the
+superscripts and subscripts should be enclosed in curly brackets. Thus one
+obtains stem:[a_{i,j}] by typing $a_{i,j}$. One can obtain double subscripts: we
+obtain stem:[s_{nj}] by typing $s_{n_j}$.
+
+=== 3.5 Greek Letters
+
+Greek letters are obtained by preceding the name of the letter by a backslash. 
+Thus we obtain α,β,γ by typing $\alpha, \beta, \gamma$. See
+Appendix B for a list of Greek letters. Some Greek letters have variant
+forms—see Appendix B.
+
+=== 3.6 Mathematical Symbols
+
+Mathematical symbols such as ÷, ≡, ⊗, P, ∈, ∪, ∩ and → are obtained
+using the appropriate control sequences—see Appendix B.
+
+=== 3.7 Accents in Mathematics
+
+These are produced using the appropriate control sequence—see Appendix B.
+
+=== 3.8 Standard Functions
+
+Certain standard functions such as sin and log are obtained by preceding the
+name with a backslash—see Appendix B for a full list of these. To obtain
+a function or similar expression not on this list you should convert to the
+roman font (e.g., to obtain stem:[\rm Aut(G)] one should type ${\rm Aut}(G)$).
+
+[[S08]]
+=== 3.9 Fractions
+
+Fractions are obtained in Plain stem:[\TeX] using the control sequence *\over*. We
+type
+
+[source,role=big,subs=normal]
+    { numerator \over denominator }
+
+to obtain the required fraction. Thus to obtain
+
+[stem,role=big]
+++++
+f(x) =  {2x \over (1 + x^2)^2}
+++++
+
+we type
+
+[source,role=big]
+    $$f(x) = { 2 x \over (1 + x^2)^2 }$$
+
+=== 3.10 Roots
+
+Square roots are obtained using the control sequence *\sqrt*. Thus to obtain
+stem:[\sqrt{3x + 7}] we type $\sqrt{3x + 7}$. To obtain an nth root in Plain stem:[\TeX] 
+we use the construction
+
+[source,role=big,subs=normal]
+    \root n \of { expression }
+
+Thus stem:[\root 3 \of {3x + 7}] is obtained by typing $\root 3 \of {3x + 7}$.
+
+=== 3.11 Ellipsis
+
+Ellipsis (three dots) is obtained in mathematical formulae using the control
+sequences \cdots (centred ellipsis) and \ldots (lowered ellipsis). Thus to obtain 
+stem:[x_1+x_2+···+x_n\; and\; x_1, x_2,...,x_n] we type $x_1 + x_2 + \cdots + x_n$
+and $x_1, x_2, \ldots, x_n$ respectively.
+
+[[S09]]
+
+=== 3.12 Delimiters
+
+To surround a subformula with delimiters large enough to enclose the subformula 
+we use the construction
+
+[source,role=big,subs=normal]
+    \left( ... subformula ... \right)
+
+(where the parentheses ( ... ) may be replaced by any other pair of delimiters
+such as [ ... ] or \{ ... \}). Thus to obtain the equation
+
+[stem,role=big]
+++++
+f(x) = \left( 1 + 2x \over x^2 + 1 \right) − sin(x)
+++++
+
+we type
+
+[source,role=big]
+    $$f(x) = \left( 1 + { 2x \over x^2 + 1 } \right) - \sin(x)$$
+
+=== 3.13 Embedding Text in Mathematics
+
+Text can be embedded in mathematics using the control sequence \hbox.
+Thus if we type
+
+[source,role=big]
+    $$V’ = \{ f \in X’ : f(v) = 0 \hbox{ for all } v \in V \}$$
+
+we obtain
+
+[stem,role=big]
+++++
+    V' = {f ∈ X' : f(v) = 0 \hbox{ for all } v ∈ V }
+++++
+
+=== 3.14 Inserting and Removing Blank Space in Formulae
+
+The control sequence *\quad* produces a ‘quad’ of blank space (a ‘quad’ is
+approximately the width of the letter ‘m’). The control sequence *\qquad*
+produces two quads of blank space. The control sequence \, inserts a thin
+blank space and the control sequence \! removes a thin space. One uses \,
+and \! to improve the appearance of mathematical formulae. For example,
+if we type
+
+[source,role=big]
+    $$\int_0^\pi \sin x dx = 2,$$
+
+[[S10]]
+we obtain
+
+[stem,role=big]
+++++
+    \int_0^π \sin x dx = 2,
+++++
+
+whereas if we type
+
+[source,role=big]
+    $$\int_0^\pi \sin x \,dx = 2,$$
+
+we obtain
+
+[stem,role=big]
+++++
+\int_0^π \sin x \,dx = 2,
+++++
+
+and this equation has a more satisfactory appearance.
+
+=== 3.15 Further Features of Plain TEX
+
+There are plenty of control sequences in Plain stem:[\TeX] for accomplishing 
+various tasks. Among the most widely used of these are *\eqalign* (for producing
+multiline formulae), *\cases* (for equations which divide up into a number of
+cases) *\matrix* (for producing arrays) and *\pmatrix* (for producing matrices
+surrounded by large parentheses).
+
+== A Control Sequences used in Text (Plain TEX)
+
+Control Sequences for Changing Fonts in Text
+
+    \rm changes to the normal “roman” font:  Roman
+    \sl changes to a slanted roman font:     Slanted
+    \it changes to an italic font:           Italic
+    \tt changes to an “typewriter” font:     Typewriter
+    \bf changes to a boldface font:          Boldface
+
+[[S11]]
+
+Control Sequences for obtaining Accents in Text
+
+    \’{e}  é    e.g., math\’{e}matique yields ‘mathématique’
+    \‘{e}  è    e.g., alg\‘{e}bre yields ‘algèbre’
+    \^{e}  ê    e.g., h\^{o}te yields ‘hôte’
+    \"{o}  ö    e.g., H\"{o}lder yields ‘Hölder’
+    \~{n}  ñ    e.g., ˜ ma\~{n}ana yields ‘mañana’
+    \={o}  ō    
+    \.{o}  ȯ    
+    \u{o}  ŏ    
+    \v{c}  č    e.g., \v{C}ech yields ‘čech’
+    \H{o}  ő    
+    \t{oo} O͡o  
+    \c{c}  ç    e.g., gar\c{c}on yields ‘garçon’
+    \d{o}  ọ    
+    \b{o}  o̲    
+
+These accents are for use in ordinary text. They cannot be used within
+mathematical formulae, since different control sequences are used to produce
+accents within mathematics.
+
+Special Symbols used in Text
+
+    \oe, \OE      œ, Œ
+    \ae, \AE      æ, Æ
+    \aa, \AA      å, Å
+    \o, \O        ø, Ø
+    \l, \L        ł, Ł
+    \ss           ß
+    ?‘            ¿
+    !‘            ¡
+    \dag          †
+    \ddag         ‡
+    \S            §
+    \P            ¶
+    \copyright    ©
+    {\it \$}      $
+    {\it \&}      &
+    \i            ı
+    \j            ȷ
+
+[[S12]]
+== B Control Sequences used in Mathematics (Plain TEX)
+
+=== B.1 Font Changes, Accents and Standard Functions
+
+==== Changing Fonts in Mathematical Expressions
+
+Fonts are changed using suitable control sequences.
+
+[stem]
+++++
+\begin{align}
+&\text{ \mit changes to the ‘math italic’ font:}&  \mit{ MathItalic }   \\
+&\text{ \rm  changes to the roman font:        }&  \rm{ Roman }         \\
+&\text{ \sl  changes to a slanted roman font:  }&  \sl{ Slanted }       \\
+&\text{ \it  changes to an italic font:        }&  \it{ Italic }        \\
+&\text{ \tt  changes to an “typewriter” font:  }&  \tt{ Typewriter }    \\
+&\text{ \bf  changes to a boldface font:       }&  \bf{ Boldface }      \\
+&\text{ \cal changes to a calligraphic font:   }&  \cal{ CALLIGRAPHIC } \\
+\end{align}
+++++
+
+The default font for mathematics is MathItalic. The stem:[\cal{CALLIGRAPHIC}]
+font is only available for uppercase letters. Any change of font made within
+a group enclosed within curly brackets { and } will only apply to text within
+that group. On leaving the group, the current font is restored to what it was
+before entering the group.
+
+==== Accents in Mathematics Mode
+
+Accents in mathematics mode are produced using appropriate control
+sequences. The effect of these on the letter a is exhibited in the following
+table.
+
+[[S13]]
+
+[frame=ends,grid=rows,opts=autowidth]
+|===
+|$\underline{a}$ | stem:[\underline{a}]
+|$\overline{a}$  | stem:[\overline{a} ]
+|$\hat{a}$       | stem:[\hat{a}      ]
+|$\check{a}$     | stem:[\check{a}    ]
+|$\tilde{a}$     | stem:[\tilde{a}    ]
+|$\acute{a}$     | stem:[\acute{a}    ]
+|$\grave{a}$     | stem:[\grave{a}    ]
+|$\dot{a}$       | stem:[\dot{a}      ]
+|$\ddot{a}$      | stem:[\ddot{a}     ]
+|$\breve{a}$     | stem:[\breve{a}    ]
+|$\bar{a}$       | stem:[\bar{a}      ]
+|$\vec{a}$       | stem:[\vec{a}      ]
+|===
+
+These control sequences should only be used for mathematics, not for ordinary text.
+
+You should bear in mind that when a character is underlined in a mathematical manuscript then it is normally typeset in bold face without any
+underlining. Underlining is used very rarely in print.
+
+==== Standard Functions
+
+The names of certain standard functions and abbreviations are obtained
+by typing a backlash \ before the name. The complete list in stem:[\TeX] is as
+follows:-
+
+[source,role="big"]
+    \arccos \cos   \csc   \exp   \ker     \limsup \min  \sinh
+    \arcsin \cosh  \deg   \gcd   \lg      \ln     \Pr   \sup
+    \arctan \cot   \det   \hom   \lim     \log    \sec  \tan
+    \arg    \coth  \dim   \inf   \liminf  \max    \sin  \tanh
+
+=== B.2 Control Sequences for Mathematical Symbols
+
+==== Lowercase Greek Letters
+
+[[S14]]
+
+[source,role="big"]
+    α  \alpha           ι  \iota            %  \varrho
+    β  \beta            κ  \kappa           σ  \sigma
+    γ  \gamma           λ  \lambda          ς  \varsigma
+    δ  \delta           µ  \mu              τ  \tau
+    ϵ  \epsilon         ν  \nu              υ  \upsilon
+    ε  \varepsilon      ξ  \xi              φ  \phi
+    ζ  \zeta            o  o                ϕ  \varphi
+    η  \eta             π  \pi              χ  \chi
+    θ  \theta           $  \varpi           ψ  \psi
+    ϑ  \vartheta        ρ  \rho             ω  \omega
+
+==== Uppercase Greek Letters
+
+
+[source,role="big"]
+    Γ  \Gamma           Ξ  \Xi              Φ  \Phi
+    ∆  \Delta           Π  \Pi              Ψ  \Psi
+    Θ  \Theta           Σ  \Sigma           Ω  \Omega
+    Λ  \Lambda          Υ  \Upsilon
+
+==== Miscellaneous Symbols
+
+
+[source,role="big"]
+    ℵ  \aleph            ′  \prime          ∀  \forall
+    ℏ  \hbar             ∅  \emptyset       ∃  \exists
+    ı  \imath            ∇  \nabla          ¬  \neg
+    ȷ  \jmath            √  \surd           ♭  \flat
+    ℓ  \ell              ⊤  \top            ♮  \natural
+    ℘  \wp               ⊥  \bot            ♯  \sharp
+    ℜ  \Re               ‖  \|              ♣  \clubsuit
+    ℑ  \Im               ∠  \angle          ♦  \diamondsuit
+    ∂  \partial          △  \triangle       ♥  \heartsuit
+    ∞  \infty            \  \backslash      ♠  \spadesuit
+
+[[S15]]
+==== “Large” Operators
+
+
+[source,role="big"]
+    ∑  \sum              ⋂  \bigcap           ⨀  \bigodot
+    ∏  \prod             ⋃  \bigcup           ⨂  \bigotimes
+    ∐  \coprod           ⨆  \bigsqcup         ⨁  \bigoplus
+    ∫  \int              ⋁  \bigvee           ⨄  \biguplus
+    ∮  \oint             ⋀  \bigwedge
+
+==== Binary Operations
+
+
+[source,role="big"]
+    ±  \pm               ∩  \cap                ∨   \vee
+    ∓  \mp               ∪  \cup                ∧   \wedge
+    \  \setminus         ⊎  \uplus              ⊕   \oplus
+    ·  \cdot             ⊓  \sqcap              ⊖   \ominus
+    ×  \times            ⊔  \sqcup              ⊗   \otimes
+    ∗  \ast              ◃  \triangleleft       ⊘   \oslash
+    ?  \star             ▹  \triangleright      ⊙   \odot
+    ⋄  \diamond          ≀  \wr                  †   \dagger
+    ◦  \circ             ◯  \bigcirc            ‡   \ddagger
+    •  \bullet           △  \bigtriangleup      ⨿   \amalg
+    ÷  \div              ▽  \bigtriangledown
+
+==== Relations
+
+
+[source,role="big"]
+    ≤  \leq               ≥  \geq                 ≡  \equiv
+    ≺  \prec              ≻  \succ                ∼  \sim
+    ⪯  \preceq            ⪰  \succeq              ≃  \simeq
+    ≪  \ll                ≫  \gg                  ≍  \asymp
+    ⊂  \subset            ⊃  \supset              ≈  \approx
+    ⊆  \subseteq          ⊇  \supseteq            ≅  \cong
+    v  \sqsubseteq        ⊒  \sqsupseteq          ⋈  \bowtie
+    ∈  \in                ∋  \ni                  ∝  \propto
+    ⊢  \vdash             ⊣  \dashv               ⊨  \models
+    ⌣  \smile             ∣  \mid                 ≐  \doteq 
+    ⌢  \frown             ∥  \parallel            ⊥  \perp
+
+[[S16]]
+==== Negated Relations
+
+
+[source,role="big"]
+    ≮  \not<                ≯  \not>                ≠  \not=
+    ≰  \not\leq             ≱  \not\geq             ≢  \not\equiv
+    ⊀  \not\prec            ⊁  \not\succ            ≁  \not\sim
+    ⪯̸  \not\preceq          ⪰̸  \not\succeq          ≄  \not\simeq
+    ⊄  \not\subset          ⊅  \not\supset          ≉  \not\approx
+    ⊈  \not\subseteq        ⊉  \not\supseteq        ≆  \not\cong
+    ⋢  \not\sqsubseteq      ⋣  \not\sqsupseteq      ≭  \not\asymp
+ 
+==== Arrows
+
+[source,role="big"]
+    ←  \leftarrow             ⟵  \longleftarrow            ↑  \uparrow
+    ⇐  \Leftarrow             ⟸  \Longleftarrow            ⇑  \Uparrow
+    →  \rightarrow            ⟶  \longrightarrow           ↓  \downarrow
+    ⇒  \Rightarrow            ⟹  \Longrightarrow           ⇓  \Downarrow
+    ↔  \leftrightarrow        ⟷  \longleftrightarrow       ↕  \updownarrow
+    ⇔  \Leftrightarrow        ⟺  \Longleftrightarrow       ⇕  \Updownarrow
+    ↦  \mapsto                ⟼  \longmapsto               ↗  \nearrow
+    ↩  \hookleftarrow         ↪  \hookrightarrow           ↘  \searrow
+    ↼  \leftharpoonup         ⇀  \rightharpoonup           ↙  \swarrow
+    ↽  \leftharpoondown       ⇁  \rightharpoondown         ↖  \nwarrow
+    ⇌  \rightleftharpoons
+
+==== Openings
+
+[source,role="big"]
+    [ \lbrack           ⌊ \lfloor        ⌈ \lciel
+    { \lbrace           ⟨ \langle
+
+==== Closings
+
+[source,role="big"]
+    ] \rbrack           ⌋ \rfloor        ⌉ \rciel
+    } \rbrace           ⟩ \rangle
+
+[[S17]]
+==== Alternative Names
+
+
+[source,role="big"]
+    ≠      \ne or \neq  (same as \not=)
+    ≤      \le          (same as \leq)
+    ≥      \ge          (same as \geq)
+    {      \{           (same as \lbrace)
+    }      \}           (same as \lbrace)
+    →      \to          (same as \rightarrow)
+    ←      \gets        (same as \leftarrow)
+    ∋      \owns        (same as \ni)
+    ∧      \land        (same as \wedge)
+    ∨      \lor         (same as \vee)
+    ¬      \lnot        (same as \neg)
+    |      \vert        (same as |)
+    ∥      \Vert        (same as \|)
+    ⟺      \iff         (same as \Longleftrightarrow, but with
+                        extra space at each end)
+    :      \colon       (same as :, but with less space around it and
+                        less likelihood of a line break after it)
+
+=== B.3 Some frequently used Control Sequences of Plain TEX
+
+We list some of the control sequences of Plain stem:[\TeX] that are frequently 
+used when typesetting mathematical formulae. The list is by no means exhaustive. 
+For information on how to apply these control sequences, consult the
+appropriate manual (e.g. ‘The stem:[\TeX]book’).
+
+[[S18]]
+
+[source,role="big"]
+    \over       produces fractions
+    \sqrt       produces square roots
+    \root       produces nth roots
+    \left       produces left delimiter of required size
+    \right      produces right delimiter of required size
+    \quad       produces a ‘quad’ of blank space
+    \qquad      produces two ‘quads’ of blank space
+    \,          produces a thin space
+    \!          removes a thin space
+    \hbox       creates a box of text within mathematics
+    \eqalign    creates a multiline formula
+    \eqalignno  creates a numbered multiline formula
+    \leqalignno creates a multiline formula numbered on the left
+    \cases      creates an equation that splits into cases
+    \matrix     produces an array
+    \pmatrix    produces a matrix surrounded by parentheses
+
+
+== 1 Introduction to Plain TEX
+
+
+=== 1.1 What is Plain TEX?
+
+TEX is a computer program for typesetting documents. It takes a computer
+file, prepared according to the rules of TEX, and converts it to a form that
+may be printed on a high-quality printer, such as a laser writer, to produce
+a printed document of a quality comparable with good quality books and
+journals. Simple documents, which do not contain mathematical formulae
+or tables may be produced very easily: effectively all one has to do is to
+type the text straight in (though observing certain rules relating to quotation
+marks and punctuation dashes). Typesetting mathematics is somewhat more
+complicated, but even here stem:[\TeX] is comparatively straightforward to use when
+one considers the complexity of some of the formulae that it has to produce
+and the large number of mathematical symbols which it has to produce.
+
+There are various ‘dialects’ of TEX, including LaTEX. Plain stem:[\TeX] 
+(created by D. E. Knuth) is the basic version of stem:[\TeX] on which these 
+other ‘dialects’ are based. The reference manual for Plain stem:[\TeX] is 
+“The stem:[\TeX]book”, by D. E. Knuth.
+
+[[P02]]
+
+=== 1.2 A Typical Plain stem:[\TeX] Input File
+
+In order to produce a document using TEX, we must first create a suitable input 
+file on the computer. We apply the stem:[\TeX] program to the input file and
+then use the printer to print out the so-called ‘DVI’ file produced by the TEX
+program (after first using another program to translate the ‘DVI’ file into a
+form that the printer can understand). Here is an example of a typical Plain
+TEX input file:
+
+[source,role="big"]
+----
+    The foundations of the rigorous study of {\it analysis}
+    were laid in the nineteenth century, notably by the
+    mathematicians Cauchy and Weierstrass. Central to the
+    study of this subject are the formal definitions of
+    {\it limits} and {\it continuity}.
+
+    Let $D$ be a subset of $\bf R$ and let
+    $f \colon D \to {\bf R}$ be a real-valued function on
+    $D$. The function $f$ is said to be {\it continuous} on
+    $D$ if, for all $\epsilon > 0$ and for all $x \in D$,
+    there exists some $\delta > 0$ (which may depend on $x$)
+    such that if $y \in D$ satisfies
+    $$|y - x| < \delta$$
+    then
+    $$|f(y) - f(x)| < \epsilon.$$
+
+    One may readily verify that if $f$ and $g$ are continuous
+    functions on $D$ then the functions $f+g$, $f-g$ and
+    $f.g$ are continuous. If in addition $g$ is everywhere
+    non-zero then $f/g$ is continuous.
+
+    \bye
+----
+
+When we apply stem:[\TeX] to these paragraphs we produce the text
+
+[[P03]]
+
+    The foundations of the rigorous study of analysis were laid in the
+    nineteenth century, notably by the mathematicians Cauchy and Weierstrass. 
+    Central to the study of this subject are the formal definitions
+    of limits and continuity.
+
+    Let D be a subset of R and let f:D → R be a real-valued function
+    on D. The function f is said to be continuous on D if, for all ? > 0
+    and for all x ∈ D, there exists some δ > 0 (which may depend on x)
+    such that if y ∈ D satisfies
+
+    |y − x| < δ
+
+    then
+
+    |f(y) − f(x)| < ?.
+
+    One may readily verify that if f and g are continuous functions
+    on D then the functions f + g, f − g and f.g are continuous. If in
+    addition g is everywhere non-zero then f/g is continuous.
+
+This example illustrates various features of TEX. Note that the line
+
+    \bye
+
+is placed at the end of the input file. This is to tell TEXwhen the end of the
+document has been reached. Note also that, although most characters occurring 
+in this file have their usual meaning, yet there are special characters
+such as \, $, { and } which have special meanings within TEX. Note in particular 
+that there are sequences of characters which begin with a ‘backslash’
+\ which are used to produce mathematical symbols and Greek letters and to
+accomplish tasks such as changing fonts. These sequences of characters are
+known as control sequences.
+
+=== 1.3 Characters and Control Sequences
+
+We now describe in more detail some of the features of stem:[\TeX] illustrated 
+in the above example.
+
+Most characters on the keyboard, such as letters and numbers, have their
+usual meaning. However the characters
+
+    \     {     }     $     ^     _     %     ~     #     &  
+
+[[P04]]
+are used for special purposes within TEX. Thus typing one of these characters
+will not produce the corresponding character in the final document. Of course
+these characters are very rarely used in ordinary text, and there are methods
+of producing them when they are required in the final document.
+
+In order to typeset a mathematical document it is necessary to produce
+a considerable number of special mathematical symbols. One also needs to
+be able to change fonts. Also mathematical documents often contain arrays
+of numbers or symbols (matrices) and other complicated expressions. These are 
+produced in stem:[\TeX] using control sequences. Most control sequences consist
+of a backslash \ followed by a string of (upper or lower case) letters. For
+example, \alpha, \it, \sum and \TeX are control sequences.
+
+In the example above we used the control sequences \it and \bf to
+change the font to italic and *boldface* respectively. Also we used the con-
+trol sequences \to, \in, \delta and \epsilon to produce the mathematical
+symbols → and ∈ and the Greek letters δ and ?.
+
+There is another variety of control sequence which consists of a backslash
+followed by a single character that is not a letter. Examples of control
+sequences of this sort are \{, \" and \$.
+
+The special characters { and } are used for grouping purposes. Everything
+enclosed within matching pair of such brackets is treated as a single unit. We
+have applied these brackets in the example above whenever we changed fonts.
+We shall see other instances where one needs to use { and } in stem:[\TeX] to 
+group words and symbols together (e.g., when we need to produce superscripts 
+and subscripts which contain more than one symbol).
+
+The special character $ is used when one is changing from ordinary text
+to a mathematical expression and when one is changing back to ordinary
+text. Thus we used
+
+    for all $\epsilon > 0$ and for all $x \in D$,
+
+to produce the phrase
+
+    for all ϵ > 0 and for all x ∈ D,
+
+in the example given above. Note also that we used \$$ and $$ in the example
+above to mark the beginning and end respectively of a mathematical formula
+that is displayed on a separate line.
+
+The remaining special characters
+
+    ^    _    %    ~    #    &
+
+have special purposes within stem:[\TeX] that we shall discuss later.
+
+[[P05]]
+== 2 Producing Simple Documents using Plain TEX
+
+
+=== 2.1 Producing Ordinary Text using Plain TEX
+
+To produce a simple document using Plain stem:[\TeX] one should create a TEX
+input file. The input file should end with the \bye command, in order to tell
+TEX when the end of the file has been reached.
+
+If one merely wishes to type in ordinary text, without complicated math-
+ematical formulae or special effects such as font changes, then one merely has
+to type it in as it is, leaving a completely blank line between successive para-
+graphs. You do not have to worry about paragraph indentation: stem:[\TeX] will
+automatically indent all paragraphs with the exception of the first paragraph
+of a new section (unless you take special action to override the conventions
+adopted by TEX)
+
+For example, suppose that we wish to create a document containing the
+following paragraphs:
+
+    If one merely wishes to type in ordinary text, without complicated
+    mathematical formulae or special effects such as font changes, then
+    one merely has to type it in as it is, leaving a completely blank line
+    between successive paragraphs.
+
+    You do not have to worry about paragraph indentation: all para-
+    graphs will be indented with the exception of the first paragraph of a
+    new section.
+
+    One must take care to distinguish between the ‘left quote’ and
+    the ‘right quote’ on the computer terminal. Also, one should use two
+    ‘single quote’ characters in succession if one requires “double quotes”.
+    One should never use the (undirected) ‘double quote’ character on the
+    computer terminal, since the computer is unable to tell whether it is a
+    ‘left quote’ or a ‘right quote’. One also has to take care with dashes: a
+    single dash is used for hyphenation, whereas three dashes in succession
+    are required to produce a dash of the sort used for punctuation—such
+    as the one used in this sentence.
+
+To create this document using Plain stem:[\TeX] we use the following input file:
+
+[[P06]]
+
+    If one merely wishes to type in ordinary text, without
+    complicated mathematical formulae or special effects such
+    as font changes, then one merely has to type it in as it
+    is, leaving a completely blank line between successive
+    paragraphs.
+
+    You do not have to worry about paragraph indentation:
+    all paragraphs will be indented with the exception of
+    the first paragraph of a new section.
+
+    One must take care to distinguish between the ‘left quote’
+    and the ‘right quote’ on the computer terminal. Also, one
+    should use two ‘single quote’ characters in succession if
+    one requires ‘‘double quotes’’. One should never use the
+    (undirected) ‘double quote’ character on the computer
+    terminal, since the computer is unable to tell whether it
+    is a ‘left quote’ or a ‘right quote’. One also has to
+    take care with dashes: a single dash is used for
+    hyphenation, whereas three dashes in succession are required
+    to produce a dash of the sort used for punctuation---such as
+    the one used in this sentence.
+
+    \bye
+
+Having created the input file, one then has to run it through the TEX
+program and then print it out the resulting output file (known as a ‘DVI’
+file).
+
+=== 2.2 Blank Spaces and Carriage Returns in the Input File
+
+TEX treats the carriage return at the end of a line as though it were a blank
+space. Similarly stem:[\TeX] treats tab characters as blank spaces. Moreover, TEX
+regards a sequence of blank spaces as though it were a single space, and
+similarly it will ignore blank spaces at the beginning or end of a line in the
+input file. Thus, for example, if we type
+
+[[P07]]
+    This is
+        a
+              silly
+         example of a
+    file with many spaces.
+
+                This is the beginning
+    of a new paragraph.
+
+then we obtain
+
+    This is a silly example of a file with many spaces.
+    This is the beginning of a new paragraph.
+
+It follows immediately from this that one will obtain the same results
+whether one types one space or two spaces after a full stop: stem:[\TeX] does 
+not distinguish between the two cases.
+
+Any spaces which follow a control sequence will be ignored by TEX.
+If you really need a blank space in the final document following whatever
+is produced by the control sequence, then you must precede this blank by a
+backslash \. Thus in order to obtain the sentence
+
+    TEX is a very powerful computer typesetting program.
+
+we must type
+
+    \TeX\ is a very powerful computer typesetting program.
+
+(Here the control sequence \TeX is used to produce the stem:[\TeX] logo.)
+In general, preceding a blank space by a backslash forces stem:[\TeX] to include
+the blank space in the final document.
+
+=== 2.3 Quotation Marks
+
+Single left and right quotation marks are produced by ‘ and ’ respectively.
+Double left and right quotation marks are produced by ‘‘ and ’’ respectively.
+Thus
+
+    “What did you do yesterday?” he asked.
+
+is produced by typing
+
+    ‘‘What did you do yesterday?’’  he asked.
+
+[[P08]]  
+You should never use the character " to produce quotation marks. This is
+because stem:[\TeX] has no way of knowing whether you want a left quote or 
+a right quote if you do this.
+
+You can use the control sequences \lq and \rq in place of ‘ and ’. This
+is useful if your keyboard does not have a ‘ character.
+
+Sometimes you need two quotation marks following one another, as in
+“I regard computer typesetting as being reasonably ‘straight-
+forward’” he said.
+
+The way to do this is to use the control sequence \thinspace between the
+quotation marks. Thus one would type
+
+    ‘‘I regard computer typesetting as being reasonably
+    ‘straightforward’\,’’ he said.
+
+However this problem arises very rarely.
+
+=== 2.4 Section Headings in Plain TEX
+
+The control sequence \beginsection is used in Plain stem:[\TeX] to produce a
+section heading, printed in a boldface typestyle. This control sequence should
+be followed by the title of the section, and this should then be followed by a
+blank line. Thus if we type
+
+    \beginsection
+    Section Headings
+
+    In this section, we describe how to obtain section
+    headings, printed in a boldface font.
+
+then we obtain
+
+    Section Headings
+    In this section, we describe how to obtain section headings, printed in
+    a boldface font.
+
+[[P09]]
+
+=== 2.5 Dashes
+
+TEX allows you to produce dashes of various length. Typing - by itself pro-
+duces a hyphen, as in ‘double-quote’. Typing -- produces a dash suitable for
+denoting a range of numbers, as in the phrase ‘on pages 155–159’, produced
+by typing
+
+    on pages 155--159.
+
+Finally, typing --- produces a punctuation dash—this is a dash such as the
+one in this sentence.
+
+=== 2.6 Changing Fonts
+
+Fonts are changed using the control sequences \rm, \sl, \it, \tt and \bf.
+
+[frame=ends,grid=rows,opts=autowidth]
+|===
+|\rm changes to the normal “roman” font:    |stem:[\rm{ Roman }]
+|\sl changes to a slanted roman font:       |stem:[\sl{ Slanted }]
+|\it changes to an italic font:             |stem:[\it{ Italic }]
+|\tt changes to an “typewriter” font:       |stem:[\tt{ Typewriter }]
+|\bf changes to a boldface font:            |stem:[\bf{ Boldface }]
+|===
+
+It is best to use the special characters { and } when changing fonts. One
+encloses the text whose font is to be changed within these curly brackets
+and places the font-changing control sequence immediately after the opening
+bracket {. Thus the text
+
+In this sentence we have stem:[\it{italicized}] a few words, set others in 
+stem:[\sl{slanting type}] or stem:[\bf{boldface type}], and typeset others 
+using a stem:[\tt ‘typewriter’] font in which all the letters have a fixed width.
+
+is produced by typing
+
+    In this sentence we have {\it italicized\/} a few words, set
+    others in {\sl slanting type\/} or {\bf boldface type}, and
+    typeset others using a {\tt ‘typewriter’ font in which all
+    the letters have a fixed width}.
+
+The control sequence \/ produces the so-called _italic correction_. The use
+of this is recommended when changing back from an italic or slanted font into
+a roman or *boldface* font, in order to produce extra space to compensate for
+the way in which some italic and slanted letters lean into the following blank
+space. However this italic correction should not be used before a comma or
+a full stop.
+
+[[P10]]
+
+=== 2.7 Accents and other Symbols used in Text
+
+There are a variety of control sequences for producing accents. For example,
+the control sequence \’{o} produces an acute accent on the letter o. Thus
+typing
+
+    Se\’{a}n \’{O} Cinn\’{e}ide.
+
+produces
+
+    Seán Ó Cinn éide.
+
+Similarly we use the control sequence \‘ to produce the grave accent in
+‘algèbre’ and we use \" to produce the umlaut in ‘Universität’. A list of the
+accents provided by stem:[\TeX] is given in Appendix A.
+
+The control sequences \i and \j produce dotless i and j. These are
+required when placing an accent on the letter. Thus ¯ı is produced by typing
+\={\i}. There are also control sequences for ligatures and other special
+symbols used within text. These are listed in Appendix A.
+
+=== 2.8 Special Characters
+
+The characters
+
+    # $ % & \ ^ _ { } ~
+
+have special purposes within TEX. Thus they cannot be produced in the final
+document simply by typing them directly. On the rare occasions when one
+needs to use the special characters
+
+    # $ % & { }
+
+in the final document, they can be produced by typing the control sequences
+
+    \# \$ \% \& \_ \{ \}
+
+respectively. However, somewhat more ingenuity is required to produce \, ^
+and ~.
+
+[[P11]]
+== 3 Mathematical Formulae using Plain TEX
+
+
+=== 3.1 Mathematics Mode
+
+In order to obtain a mathematical formula using TEX, one must enter 
+mathematics mode before the formula and leave it afterwards. Mathematical 
+for mulae can occur either embedded in text or else displayed on a separate 
+line. When a formula occurs within the text of a paragraph one should place 
+a $ sign before and after the formula, in order to enter and leave 
+mathematics mode. Thus to obtain a sentence like
+
+Let f be the function defined by stem:[f(x) = 3x + 7], and let a be a
+positive real number.
+
+one should type
+
+Let $f$ be the function defined by $f(x) = 3x + 7$, and
+let $a$ be a positive real number.
+
+In particular, note that even mathematical expressions consisting of a single
+character, like f and a in the example above, are placed within $ signs. This
+is to ensure that they are set in italic type, as is customary in mathematical
+typesetting.
+
+In order to obtain an mathematical formula or equation which is displayed
+on a line by itself, one places $$ before and after the formula. Thus to obtain
+
+The product of two first degree polynomials is a quadratic polynomial. 
+For example, if f(x) = 3x + 7 and g(x) = x + 4 then
+
+\[ f(x)g(x) = 3x^2 + 19x + 28. \]
+
+The converse does not hold for polynomials over the field of real numbers. 
+However if we consider polynomials over the complex field then
+every polynomial factorizes as a product of first degree polynomials,
+by the Fundamental Theorem of Algebra.
+
+one would type
+
+    The product of two first degree polynomials is a quadratic
+    polynomial. For example, if $f(x) = 3x + 7$ and $g(x) = x + 4$
+    then
+
+[[P12]]
+
+    $$f(x)g(x) = 3x^2 + 19x +28.$$
+
+The converse does not hold for polynomials over the field of
+real numbers. However if we consider polynomials over the
+complex field then every polynomial factorizes as a product
+of first degree polynomials, by the Fundamental Theorem of Algebra.
+
+Numbered equations are produced using the control sequence \eqno. For
+example, if we type
+
+    $$f(x)g(x) = 3x^2 + 19x +28.\eqno(15)$$
+
+we obtain
+
+\[ f(x)g(x) = 3x 2 + 19x + 28. \eqno(15) \]
+
+We obtain displayed equations with numbers on the left hand side by using
+\leqno in place of \eqno. Thus if we type
+
+    $$f(x)g(x) = 3x^2 + 19x +28.\leqno(15)$$
+
+we obtain
+
+\[ f(x)g(x) = 3x 2 + 19x + 28. \leqno(15)\]
+
+=== 3.2 Characters in Mathematics Mode
+
+All the characters on the keyboard have their standard meaning in 
+mathematics mode, with the exception of the characters
+
+    # $ % & ~ _ ^ \ { } ’
+
+Letters are set in italic type. In mathematics mode the character ’ has a
+special meaning: typing $f’ + g’’$ produces f 0 +g 00 . When in mathematics
+mode the spaces you type between letters and other symbols do not affect
+the spacing of the final result, since stem:[\TeX] determines the spacing of 
+characters in formulae by its own internal rules. Thus $x ( y + z )$ and $x(y+z)$
+both produce x(y + z). You can also type carriage returns where necessary
+in your input file (e.g., if you are typing in a complicated formula with many
+Greek characters and funny symbols) and this will have no effect on the final
+result if you are in mathematics mode.
+
+[[P13]]
+To obtain the characters
+
+    # $ % & { }
+
+in mathematics mode, one should type
+
+    \# \$ \% \& \_ \{ \} .
+
+To obtain \ in mathematics mode, one may type \backslash.
+
+=== 3.3 Subscripts and Superscripts
+
+Subscripts and superscripts are obtained using the special characters _ and
+^ respectively. Thus the expression stem:[t_3 + x^2_1 − x_2] is obtained by 
+typing $t^3 + x_1^2 - x_2$. When the subscript or superscript consists of more
+than one character then the characters involved should be enclosed in curly
+brackets. Thus to obtain the expression stem:[u^{12}_{i,j}] one would type 
+$u_{i,j}^{12}$.
+
+It is immaterial whether one specifies the subscript before the superscript
+or vica versa. Thus $u_1^2$ and $u^2_1$ both produce stem:[u^2_1] . However TEX
+does not like it if you type $s_n_j$ since this could be interpreted either as
+stem:[s_{nj}] or as stem:[s_{n_j}] . The first of these alternatives is obtained 
+by typing $s_{n j}$,
+the second by typing $s_{n_j}$. A similar remark applies to superscripts.
+Incidentally, the second alternative illustrates the fact that one can obtain
+subscripts (or superscripts) on subscripts (or superscripts). However one
+should not go beyond this to try to obtain triple subscripts.
+
+It is sometimes necessary to obtain expressions such as stem:[R_i{}^j{}_{kl}] 
+in which the exact positioning of the subscripts and superscripts is important 
+(e.g., in papers on general relativity and tensor analysis). The way this is 
+done is to include the ‘empty group’ {} at the appropriate places to enable the
+superscripts and subscripts to be aligned correctly. Thus to obtain 
+stem:[R_i{}^j{}_{kl}]  one would type $R_i{}^j{}_{kl}$.
+
+=== 3.4 Greek Letters
+
+Greek letters are produced in mathematics mode by preceding the name of
+the letter by a backslash \. Thus the Greek letters alpha (α), pi (π) and
+chi (χ) are obtained by typing \alpha,\pi and \chi respectively. Thus the
+sentence
+
+The area A of a circle of radius r is given by the formula stem:[A = πr^2].
+
+[[P14]]
+is obtained by typing
+
+    The area~$A$ of a circle of radius~$r$ is given by the formula $A = \pi r^2$.
+
+Upper case Greek letters are obtained by making the first character of the
+name upper case. Thus Γ,Φ and Λ are obtained by typing \Gamma,\Phi and \Lambda.
+
+There is no special command for omicron: just use o.
+
+Some Greek letters occur in variant forms. The variant forms are obtained
+by preceding the name of the Greek letter by ‘var’. The following table lists
+the usual form of these letters and the variant forms:-
+
+    ϵ  \epsilon         ε  \varepsilon
+    θ  \theta           ϑ  \vartheta
+    π  \pi              ϖ  \varpi
+    ρ  \rho             ϱ  \varrho
+    σ  \sigma           ς  \varsigma
+    ϕ  \phi             φ  \varphi
+
+=== 3.5 Mathematical Symbols
+
+There are numerous mathematical symbols that can be used in mathematics
+mode. These are obtained by typing an appropriate control sequence. These
+are listed in Appendix B. For example \neq, \leq and \geq produce ≠, ≤
+and ≥ respectively, \infty produces ∞, \times and \div produce × and
+÷, both \to and \rightarrow produce →, \in produces ∈, \cup, \cap,
+[\setminus] and \subset produce ∪,∩, ∖ and ⊂ respectively. The list seems
+endless.
+
+=== 3.6 Changing Fonts in Mathematics Mode
+
+One can change fonts in mathematics mode in exactly the same way as when
+typesetting ordinary text. For instance \rm changes to the roman font, \bf
+changes to the stem:[\bf boldface] font and \mit changes to the math italic font.
+The math italic font is automatically used in mathematics mode unless you
+explicitly change the font. In addition there is a ‘calligraphic’ font which is
+obtained using the control sequence \cal. This font can only be used for
+uppercase letters. These calligraphic letters have the form
+
+\[ \cal ABCDEFGHIJKLMNOPQRSTUVWXYZ. \]
+
+[[P15]]
+The following example shows how fonts are changed in an example involving
+mathematics. To obtain
+
+Let u,v and w be three vectors in stem:[R^3] . The volume V of the
+parallelepiped with corners at the points 0,u,v,w,u+v,u+w,v+w
+and u + v + w is given by the formula
+
+\[ V = (u × v).w. \]
+
+one would type
+
+    Let $\bf u$,$\bf v$ and $\bf w$ be three vectors in
+    ${\bf R}^3$. The volume~$V$ of the parallelepiped with
+    corners at the points $\bf 0$,$\bf u$,$\bf v$,
+    $\bf w$,$\bf u+v$,$\bf u+w$,$\bf v+w$ and $\bf u+v+w$
+    is given by the formula
+
+$$V = {\bf (u \times v) . w}.$$
+
+=== 3.7 Standard Functions and Embedded Text
+
+The names of certain standard functions and abbreviations are obtained by
+typing a backlash \ before the name. The complete list in stem:[\TeX] is as 
+follows:-
+
+    \arccos  \cos    \csc   \exp    \ker     \limsup  \min     \sinh
+    \arcsin  \cosh   \deg   \gcd    \lg      \ln      \Pr      \sup
+    \arctan  \cot    \det   \hom    \lim     \log     \sec     \tan
+    \arg     \coth   \dim   \inf    \liminf  \max     \sin     \tanh
+
+Names of functions and other abbreviations not in this list can be obtained 
+by converting to the roman font. Thus one obtains stem:[{\rm Aut}(V)] by typing
+
+    ${\rm Aut}(V)$.
+
+Note that if one were to type simply $Aut(V)$ one would obtain stem:[Aut(V)],
+because stem:[\TeX] has treated Aut as the product of three quantities A,u and t
+and typeset the formula accordingly.
+
+[[P16]]
+The recommended way to obtain ordinary text in displayed mathematical
+formulae is to use \hbox. Thus one obtains
+
+\[ M^⊥ = \{f ∈ V' : f(m) = 0 \hbox{ for all } m ∈ M\}. \]
+
+by typing
+
+    $$M^\bot = \{ f \in V’ : f(m) = 0 \hbox{ for all } m \in M \}.$$
+
+Note the blank spaces before and after the words ‘for all’ in the above 
+example. Had we typed
+
+    $$M^\bot = \{ f \in V’ : f(m) = 0 \hbox{for all} m \in M \}.$$
+
+we would have obtained
+
+\[ M^⊥ = \{f ∈ V': f(m) = 0 \hbox{for all} m ∈ M\}. \]
+
+=== 3.8 Fractions,Roots and Ellipsis
+
+Fractions of the form
+
+\[ numerator \over denominator \]
+
+are obtained in Plain stem:[\TeX] using the construction
+
+    {numerator \over denominator}.
+
+For example, to obtain
+
+The function f is given by
+
+\[ f(x) = 2x + \frac{x − 7}{x^2 + 4} \]
+
+for all real numbers x.
+
+one would type
+
+    The function $f$ is given by
+    $$f(x) = 2x + {x - 7 \over x^2 + 4}$$
+    for all real numbers $x$.
+
+[[P17]]
+To obtain square roots one uses the control sequence \sqrt. For example,
+stem:[\sqrt{x^2 + y^2}] is produced by typing $\sqrt{x^2 + y^2}$. To produce 
+roots of higher order in Plain stem:[\TeX] one uses the construction
+
+    \root n \of expression
+
+to produce stem:[\root n \of {expression}]. Thus typing $\root 3 \of {x + 3y}$ produces
+
+\[ \root 3 \of {x + 3y}. \]
+
+Ellipsis (three dots) is produced in mathematics mode using the control
+sequences \cdots and \ldots. A low ellipsis, such as (x 1 ,x 2 ,...,x n ), is
+produced by typing
+
+    $(x_1,x_2,\ldots ,x_n)$.
+
+A centred ellipsis, such as stem:[x_1 + x_2 + ··· + x_n] is produced by typing
+
+    $x_1 + x_2 + \cdots + x_n$.
+
+=== 3.9 Accents in Mathematics Mode
+
+The control sequences \underline, \overline, \hat, \check, \tilde, \acute,
+\grave, \dot, \ddot, \breve, \bar and \vec produce underlining, overlining,
+and various accents, but only in mathematics mode. For example, c̃ is
+produced by $\tilde{c}$. The effect of these accents on the letter a is
+shown in the table below:
+
+[grid=rows,frame=ends,opts=autowidth]
+|===
+|$\underline{a}$  |stem:[\underline{a}]
+|$\overline{a}$   |stem:[\overline{a}]
+|$\hat{a}$        |stem:[\hat{a}]
+|$\check{a}$      |stem:[\check{a}]
+|$\tilde{a}$      |stem:[\tilde{a}]
+|$\acute{a}$      |stem:[\acute{a}]
+|$\grave{a}$      |stem:[\grave{a}]
+|$\dot{a}$        |stem:[\dot{a}]
+|$\ddot{a}$       |stem:[\ddot{a}]
+|$\breve{a}$      |stem:[\breve{a}]
+|$\bar{a}$        |stem:[\bar{a}]
+|$\vec{a}$        |stem:[\vec{a}]
+|===
+
+[[P18]]
+You should bear in mind that when a character is underlined in a 
+mathematical manuscript then it is normally typeset in bold face without 
+any underlining. Underlining is used very rarely in print.
+
+The control sequences such as \’ and \", used to produce accents in
+ordinary text, may not be used in mathematics mode.
+
+=== 3.10 Brackets and Norms
+
+The frequently used left delimiters include (, [ and {, which are obtained by
+typing (, [ and \{ respectively. The corresponding right delimiters are of
+course ), ] and }, obtained by typing ), ] and \}. In addition | and ∥ are
+used as both left and right delimiters, and are obtained by typing | and \|
+respectively. For example, we obtain
+
+Let X be a Banach space and let f:B → R be a bounded linear
+functional on X. The norm of f, denoted by ∥f∥, is defined by
+
+\[ ∥f∥ = inf\{K ∈ [0,+∞) : |f(x)| ≤ K∥x∥ \hbox{ for all } x ∈ X\}. \]
+
+by typing
+
+    Let $X$ be a Banach space and let $f \colon B \to {\bf R}$
+    be a bounded linear functional on $X$. The {\it norm} of
+    $f$, denoted by $\|f\|$, is defined by
+    $$\|f\| = \inf \{ K \in [0,+\infty) :
+    |f(x)| \leq K \|x\| \hbox{ for all } x \in X \}.$$
+
+Larger delimiters are sometimes required which have the appropriate
+height to match the size of the subformula which they enclose. Consider,
+for instance, the problem of typesetting the following formula:
+
+\[ f(x,y,z) = 3y^2 z \left(3 + {7x + 5 \over 1 + y^2}\right).\]
+
+The way to type the large parentheses is to type \left( for the left 
+parenthesis and \right) for the right parenthesis, and let stem:[\TeX] 
+do the rest of the work for you. Thus the above formula was obtained by typing
+
+    $$f(x,y,z) = 3y^2 z \left( 3 + {7x+5 \over 1 + y^2} \right).$$
+
+[[P19]]
+If you type a delimiter which is preceded by \left then stem:[\TeX] will search for
+a corresponding delimiter preceded by \right and calculate the size of the
+delimiters required to enclose the intervening subformula. One is allowed to
+balance a \left( with a \right] (say) if one desires: there is no reason why
+the enclosing delimiters have to have the same shape. One may also nest
+pairs of delimiters within one another: by typing
+
+    $$\left| 4 x^3 + \left( x + {42 \over 1+x^4} \right) \right|.$$
+
+we obtain
+
+\[ \left| 4x^3+\left(x +{42 \over 1 + x 4} \right) \right| .\]
+
+By typing \left. and \right. one obtains null delimiters which are
+completely invisible. Consider, for example, the problem of typesetting
+
+\[ \left. {du \over dx} \right|_{x=0} . \]
+
+We wish to make the vertical bar big enough to match the derivative preced-
+ing it. To do this, we suppose that the derivative is enclosed by delimiters,
+where the left delimiter is invisible and the right delimiter is the vertical line.
+The invisible delimiter is produced using \left. and thus the whole formula
+is produced by typing
+
+    $$\left. {du \over dx} \right|_{x=0}.$$
+
+=== 3.11 Multiline Formulae in Plain TEX
+
+Consider the problem of typesetting the formula
+
+\[ \eqalign{ \cos2θ &= \cos^2θ − \sin^2θ \cr &= 2\cos^2θ − 1.} \]
+
+It is necessary to ensure that the = signs are aligned with one another. The
+above example was obtained by typing typing the lines
+
+    $$\eqalign{\cos 2\theta &= \cos^2 \theta - \sin^2 \theta \cr
+    &= 2 \cos^2 \theta - 1.\cr}$$
+
+[[P20]]
+Note the use of the special character & as an it alignment tab. When the
+formula is typeset, the part of the second line of the formula beginning with
+an occurrence of & will be placed immediately beneath that part of the first
+line of the formula which begins with the corresponding occurrence of &. Also
+the control sequence \cr is placed at the end of each line of the formula.
+
+Although we have placed corresponding occurrences of & beneath one
+another in the above example, it is not necessary to do this in the input file.
+It was done in the above example merely to improve the appearance (and
+readability) of the input file. The more complicated example
+
+If stem:[ h ≤{1 \over 2} |ζ − z|] then
+
+\[ |ζ − z − h| ≥ {1 \over 2} |ζ − z| \]
+
+and hence
+
+\[ \eqalign{\left|{1 \over ζ − z − h} − {1 \over ζ − z}\right| 
+   &= \left| (ζ − z) − (ζ − z − h) \over (ζ − z − h)(ζ − z) \right| \cr
+   &= \left|  h \over (ζ − z − h)(ζ − z)  \right| \cr
+   &≤ { 2|h| \over |ζ − z| 2 }}.  \]
+
+was obtained by typing
+
+    If $h \leq {1 \over 2} |\zeta - z|$ then
+    $$|\zeta - z - h| \geq {1 \over 2} |\zeta - z|$$
+
+and hence
+
+    $$\eqalign{
+    \left| {1 \over \zeta - z - h} - {1 \over \zeta - z} \right|
+    & = \left|
+    {(\zeta - z) - (\zeta - z - h) \over (\zeta - z - h)(\zeta - z)}
+    \right| \cr & =
+    \left| {h \over (\zeta - z - h)(\zeta - z)} \right| \cr
+    & \leq {2 |h| \over |\zeta - z|^2}.\cr}$$
+
+Numbered multiline formulae are produced using the control sequence
+\eqalignno. This works exactly like \eqalign, but on each line for which
+you want an equation number you insert ‘&equation number’ immediately
+before the \cr. Thus typing
+
+    $$\eqalignno{
+    \sin 2\theta &= 2\sin \theta \cos \theta,&(6)\cr
+    \cos 2\theta &= \cos^2 \theta - \sin^2 \theta \cr
+                 &= 2 \cos^2 \theta - 1.     &(7)\cr}$$
+
+[[P21]]
+produces
+
+\[\eqalignno{
+    \sin 2\theta &= 2\sin \theta \cos \theta,&(6)\cr
+    \cos 2\theta &= \cos^2 \theta - \sin^2 \theta \cr
+                 &= 2 \cos^2 \theta - 1.&(7)\cr} \]
+
+It is occasionally necessary to produce formulae such as
+
+\[ |x| = \cases{ x &if $x \geq 0$;\cr
+                -x &if $x < 0$.\cr} \]
+
+We use the control sequence \cases. The above formula is obtained by
+typing
+
+    $$|x| = \cases{ x &if $x \geq 0$;\cr
+                   -x &if $x < 0$.\cr}$$
+
+Note the use of the alignment tab &. Also note that the expression to the
+left of the alignment tab & is a mathematical expression, processed in 
+mathematics mode, whereas the expression to the right of the alignment tab 
+& is treated as ordinary text. Thus one must place $ before and after any 
+mathematical expression occurring to the right of the alignment tab &. Note also
+the use of \cr at the end of each line on the right hand side of the equation.
+
+=== 3.12 Matrices and other arrays in Plain TEX
+
+Matrices and other arrays are produced in Plain stem:[\TeX] using the control 
+sequences \matrix and \pmatrix. For example, suppose that we wish to type-
+set the following passage:
+
+The {\it characteristic polynomial} stem:[\chi(\lambda)] of the
+stem:[3 \times 3] matrix
+
+\[ \left( \matrix{  a & b & c \cr
+                    d & e & f \cr
+                    g & h & i \cr} \right)\]
+
+is given by the formula
+
+\[\chi(\lambda) = \left| \matrix{
+        \lambda - a & -b & -c \cr
+        -d & \lambda - e & -f \cr
+        -g & -h & \lambda - i \cr} \right|.\]
+
+
+[[P22]]
+
+This passage is produced by the following input:
+
+    The {\it characteristic polynomial} $\chi(\lambda)$ of the
+    $3 \times 3$~matrix
+    $$\left( \matrix{ a & b & c \cr
+    d & e & f \cr
+    g & h & i \cr} \right)$$
+    is given by the formula
+    $$\chi(\lambda) = \left| \matrix{
+    \lambda - a & -b & -c \cr
+    -d & \lambda - e & -f \cr
+    -g & -h & \lambda - i \cr} \right|.$$
+
+First of all, note the use of \left and \right to produce the large delimiters
+around the arrays. As we have already seen, if we use
+
+    \left( ... \right)
+
+then the size of the parentheses is chosen to match the subformula that they
+enclose. Next note the use of the alignment tab character & to separate the
+entries of the matrix and the use of \cr at the end of each row of the matrix,
+exactly as in the construction of multiline formulae described above.
+Since matrices delimited by parentheses are common, Plain stem:[\TeX] provides
+the control sequence \pmatrix to construct them. Thus
+
+\[ \pmatrix{\lambda - a & -b & -c \cr
+            -d & \lambda - e & -f \cr
+            -g & -h & \lambda - i \cr}.\]
+
+may be obtained by typing
+
+    $$\pmatrix{\lambda - a & -b & -c \cr
+                -d & \lambda - e & -f \cr
+                -g & -h & \lambda - i \cr}.$$
+
+[[P23]]
+Note that \pmatrix behaves exactly like \matrix, except that there is no
+need to use \left( and \right) to produce the parentheses around the
+matrix, since these are automatically produced by \pmatrix.
+
+More complicated arrays can be produced in Plain stem:[\TeX] with comparative
+ease using \halign (see Chapter 22 of the stem:[\TeX]book).
+
+=== 3.13 Derivatives, Limits, Sums and Integrals
+
+The expressions
+
+\[ {du \over dt} \hbox{ and } {d^2 u \over dx^2} \]
+
+are obtained by typing {du \over dt} and {d^2 u \over dx^2} respec-
+tively. The mathematical symbol ∂ is produced using \partial. Thus to
+obtain partial derivatives such as
+
+\[ {\partial u \over \partial t} and {\partial^2 u \over \partial x^2} \]
+
+one types {\partial u \over \partial t} and {\partial^2 u \over \partial x^2}
+respectively.
+
+To obtain mathematical expressions such as
+
+\[ \lim_{x \to +\infty}, \inf_{x > s}\hbox{ and }\sup_K \]
+
+in displayed equations we type \lim_{x \to +\infty}, \inf_{x > s} and
+\sup_K respectively. Thus to obtain
+
+\[  \lim_{x \to 0} {3x^2 +7x^3 \over x^2 +5x^4} = 3. \]
+
+we type
+
+    $$\lim_{x \to 0} {3x^2 +7x^3 \over x^2 +5x^4} = 3.$$
+
+To obtain a summation sign such as
+
+\[ \lim_{x \to 0} {3x^2 +7x^3 \over x^2 +5x^4} = 3. \]
+
+[[P24]]
+we type \sum_{i=1}^{2n}. Thus
+
+\[ \sum_{k=1}^n k^2 = {1 \over 2} n (n+1). \]
+
+is obtained by typing
+
+    $$\sum_{k=1}^n k^2 = {1 \over 2} n (n+1).$$
+
+We now discuss how to obtain integrals in mathematical documents. A
+typical integral is the following:
+
+\[ \int_a^b f(x)\,dx. \]
+
+This is typeset using
+
+    $$\int_a^b f(x)\,dx.$$
+
+The integral sign stem:[\int] is typeset using the control sequence \int, 
+and the limits of integration (in this case a and b) are treated as a 
+subscript and a superscript on the integral sign. It remains to describe 
+the purpose of the \, occurring immediately before the dx. This is the 
+means of telling stem:[\TeX] to put extra space before the d. This is 
+necessary to produce the correct appearance.
+
+Most integrals occurring in mathematical documents begin with an integral 
+sign and contain one or more instances of d followed by another (Latin
+or Greek) letter, as in dx, dt, and dθ. To obtain the correct appearance one
+should put extra space before the d, using \,. Thus
+
+\[ \int_0^{+\infty} x^n e^{-x} \,dx = n!. \]
+\[ \int \cos \theta \,d\theta = \sin \theta. \]
+\[ \int_{x^2 + y^2 \leq R^2} f(x,y)\,dx\,dy
+= \int_{\theta=0}^{2\pi} \int_{r=0}^R
+f(r\cos\theta,r\sin\theta) r\,dr\,d\theta. \]
+
+and
+
+\[ \int_0^R {2x\,dx \over 1+x^2} = \log(1+R^2). \]
+
+are obtained by typing
+
+[[P25]]
+
+    $$\int_0^{+\infty} x^n e^{-x} \,dx = n!.$$
+    $$\int \cos \theta \,d\theta = \sin \theta.$$
+    $$\int_{x^2 + y^2 \leq R^2} f(x,y)\,dx\,dy
+    = \int_{\theta=0}^{2\pi} \int_{r=0}^R
+    f(r\cos\theta,r\sin\theta) r\,dr\,d\theta.$$
+
+and
+
+    $$\int_0^R {2x\,dx \over 1+x^2} = \log(1+R^2).$$
+
+respectively.
+
+In some multiple integrals (i.e., integrals containing more than one integral
+sign) one finds that stem:[\TeX] puts too much space between the integral signs.
+The way to improve the appearance of of the integral is to use the control
+sequence \! to remove a thin strip of unwanted space. Thus, for example,
+the multiple integral
+
+\[ \int_0^1 \! \int_0^1 x^2 y^2\,dx\,dy. \]
+
+is obtained by typing
+
+    $$\int_0^1 \! \int_0^1 x^2 y^2\,dx\,dy.$$
+
+Had we typed
+
+    $$\int_0^1 \int_0^1 x^2 y^2\,dx\,dy.$$
+
+we would have obtained
+    
+\[ \int_0^1 \int_0^1 x^2 y^2\,dx\,dy. \]
+
+A particularly noteworthy example comes when we are typesetting a 
+multiple integral such as
+
+\[ \int \!\!\! \int_D f(x,y)\,dx\,dy. \]
+
+
+Here we use \! three times to obtain suitable spacing between the integral
+signs. We typeset this integral using
+
+$$\int \!\!\! \int_D f(x,y)\,dx\,dy.$$
+
+[[P26]]
+Had we typed
+
+    $$\int \int_D f(x,y)\,dx\,dy.$$
+
+we would have obtained Z Z
+
+\[ \int \int_D f(x,y)\,dx\,dy. \]
+
+The following (reasonably complicated) passage exhibits a number of the
+features which we have been discussing:
+
+In non-relativistic wave mechanics, the wave function ψ(r,t) of a
+particle satisfies the Schrödinger Wave Equation
+
+\[ i\hbar{\partial \psi \over \partial t}
+        = {-\hbar^2 \over 2m} \left(
+        {\partial^2 \over \partial x^2}
+        + {\partial^2 \over \partial y^2}
+        + {\partial^2 \over \partial z^2}
+        \right) \psi + V \psi. \]
+
+It is customary to normalize the wave equation by demanding that
+
+\[ \int \!\!\! \int \!\!\! \int_{{\bf R}^3}
+\left| \psi({\bf r},0) \right|^2\,dx\,dy\,dz = 1. \]
+
+A simple calculation using the Schrödinger wave equation shows that
+
+\[ {d \over dt} \int \!\!\! \int \!\!\! \int_{{\bf R}^3}
+\left| \psi({\bf r},t) \right|^2\,dx\,dy\,dz = 0, \]
+
+
+and hence
+
+\[ \int \!\!\! \int \!\!\! \int_{{\bf R}^3}
+\left| \psi({\bf r},t) \right|^2\,dx\,dy\,dz = 1 \]
+
+for all times t. If we normalize the wave function in this way then, for
+any (measurable) subset V of R 3 and time t,
+
+\[ \int \!\!\! \int \!\!\! \int_V
+  \left| \psi({\bf r},t) \right|^2\,dx\,dy\,dz \]
+
+represents the probability that the particle is to be found within the
+region V at time t.
+
+One would typeset this in Plain stem:[\TeX] by typing
+
+    In non-relativistic wave mechanics, the wave function
+    $\psi({\bf r},t)$ of a particle satisfies the
+    {\it Schr\"{o}dinger Wave Equation}
+
+    $$i\hbar{\partial \psi \over \partial t}
+    = {-\hbar^2 \over 2m} \left(
+    {\partial^2 \over \partial x^2}
+    + {\partial^2 \over \partial y^2}
+    + {\partial^2 \over \partial z^2}
+    \right) \psi + V \psi.$$
+
+[[P27]]
+It is customary to normalize the wave equation by demanding that
+
+    $$\int \!\!\! \int \!\!\! \int_{{\bf R}^3}
+    \left| \psi({\bf r},0) \right|^2\,dx\,dy\,dz = 1.$$
+
+A simple calculation using the Schr\"{o}dinger wave
+equation shows that
+
+    $${d \over dt} \int \!\!\! \int \!\!\! \int_{{\bf R}^3}
+    \left| \psi({\bf r},t) \right|^2\,dx\,dy\,dz = 0,$$
+
+and hence
+
+    $$\int \!\!\! \int \!\!\! \int_{{\bf R}^3}
+    \left| \psi({\bf r},t) \right|^2\,dx\,dy\,dz = 1$$
+
+for all times~$t$. If we normalize the wave function in this
+way then, for any (measurable) subset~$V$ of ${\bf R}^3$ and
+time~$t$,
+
+    $$\int \!\!\! \int \!\!\! \int_V
+    \left| \psi({\bf r},t) \right|^2\,dx\,dy\,dz$$
+
+represents the probability that the particle is to be found
+within the region~$V$ at time~$t$.
+
+== 4 Further Features of Plain TEX
+
+
+=== 4.1 Producing Blank Space in Plain TEX
+
+To produce (horizontal) blank space within a paragraph, use \hskip, followed
+by the length of the blank space. The length of the skip should be expressed
+in a unit recognized by TEX. These recognized units are given in the following
+table:
+
+[[P28]]
+
+    pt point        (1 in = 72.27 pt)
+    pc pica         (1 pc = 12 pt)
+    in inch         (1 in = 25.4 mm)
+    bp big point    (1 in = 72 bp)
+    cm centimetre   (1 cm = 10 mm)
+    mm millimetre
+    dd didot point  (1157 dd = 1238 pt)
+    cc cicero       (1 cc = 12 dd)
+    sp scaled point (65536 sp = 1 pt)
+
+Thus to produce a horizontal blank space of 20 mm in the middle of a para-
+graph one would type \hskip 20 mm. (There is however a mild quirk of TEX
+which arises very rarely: if the word following the horizontal skip happens
+to begin with the letters ‘plus’ then you will probably get an error message,
+probably
+
+    ! Missing number, treated as zero.
+
+For an explanation of why this occurs, see the stem:[\TeX]book. This problem can
+be avoided by typing ‘\hskip 20 mm \relax’).
+
+To produce (vertical) blank space between paragraphs, use \vskip, fol-
+lowed by the length of the vertical skip. Thus to obtain
+
+This is the first paragraph of some text. It is separated from the
+second paragraph by a vertical skip of 10 millimetres.
+
+This is the second paragraph.
+
+one should type
+
+This is the first paragraph of some text. It is
+separated from the second paragraph by a vertical skip of
+10 millimetres.
+
+    \vskip 10 mm
+
+This is the second paragraph.
+
+[[P29]]
+
+=== 4.2 Blank Spaces: Fine Tuning
+
+We describe certain features of stem:[\TeX] relating to blank spaces and 
+paragraph indentation which will improve the appearance of the final document. 
+Experienced users of stem:[\TeX] will improve the appearance of their 
+documents if they bear these remarks in mind.
+
+First note that, as a general rule, you should never put a blank space after
+a left parenthesis or before a right parenthesis. If you were to put a blank
+space in these places, then you run the risk that stem:[\TeX] might start a 
+new line immediately after the left parenthesis or before the right parenthesis, 
+leaving the parenthesis marooned at the beginning or end of a line.
+
+TEX has its own rules for deciding the lengths of blank spaces. For instance,
+stem:[\TeX] will put an extra amount of space after a full stop if it considers
+that the full stop marks the end of a sentence.
+
+The rule adopted by stem:[\TeX] is to regard a period (full stop) as the end 
+of a sentence if it is preceded by a lowercase letter. If the period is preceded 
+by an uppercase letter then stem:[\TeX] assumes that it is not a full stop but 
+follows the initials of somebody’s name.
+
+This works very well in most cases. However stem:[\TeX] occasionally gets 
+things wrong. This happens with a number of common abbreviations (as in 
+‘Mr. Smith’ or in ‘etc.’), and, in particular, in the names of journals given 
+in abbreviated form (e.g., ‘Proc. Amer. Math. Soc.’). The way to overcome this
+problem is to put a backslash before the blank space in question. Thus we
+should type
+
+    Mr.\ Smith
+    etc.\ and
+    Proc.\ Amer.\ Math.\ Soc.
+
+TEX determines itself how to break up a paragraph into lines, and will
+occasionally hyphenate long words where this is desirable. However it is
+sometimes necessary to tell stem:[\TeX] not to break at a particular blank space.
+The special character used for this purpose is ~. It represents a blank space
+at which stem:[\TeX] is not allowed to break between lines. It is often desirable
+to use ~ in names where the forenames are represented by initials. Thus
+to obtain ‘W. R. Hamilton’ it is best to type W.~R.~Hamilton. It is also
+desirable in phrases like ‘Example 7’ and ‘the length l of the rod’, obtained
+
+[[P30]]
+by typing Example~7 and the length~$l$ of the rod. This feature of
+TEX may be safely ignored by beginners, though more experienced TEXnical
+typists should gradually accustom themselves to using it occasionally where
+appropriate.
+
+TEX will automatically indent paragraphs (with the exception of the first 
+paragraph of a new section). One can prevent stem:[\TeX] from indenting a
+paragraph though by beginning the paragraph with the control sequence
+\noindent. Thus one obtains
+
+    This is the beginning of a paragraph which is not indented in the
+    usual way. This has been achieved by placing an appropriate control
+    sequence at the beginning of the paragraph.
+
+by typing
+
+    \noindent
+    This is the beginning of a paragraph which is not
+    indented in the usual way. This has been achieved
+    by placing an appropriate control sequence at the
+    beginning of the paragraph.
+
+Conversely, the control sequence \indent forces stem:[\TeX] to indent the paragraph.
+
+=== 4.3 Defining your own Control Sequences in Plain TEX
+
+Suppose that we are producing a paper that makes frequent use of some
+mathematical expression. For example, suppose that integrals like
+
+\[ \int_{-\infty}^{+\infty} f(x)\,dx. \]
+
+occur frequently throughout the text. This formula is obtained by typing
+
+    $$\int_{-\infty}^{+\infty} f(x)\,dx.$$
+
+[[P31]]
+It would be nice if we could type \inftyint (say) to obtain the integral sign
+at the beginning. This can be done using \def. What we do is to place a
+line with the command
+
+    \def\inftyint{\int_{-\infty}^{+\infty}}
+
+near the beginning of the input file. Then we only have to type
+
+    $$\inftyint f(x)\,dx.$$
+
+to obtain the above formula.
+
+We can modify this procedure slightly. Suppose that we we defined a new
+control sequence \intwrtx by putting the line
+
+    \def\intwrtx#1{\int_{-\infty}^{+\infty} #1 \,dx}
+
+at the beginning of the input file. If we then type the line
+
+    $$\intwrtx{f(x)}.$$
+
+then we obtain
+
+\[   \int_{-\infty}^{+\infty} f(x) \,dx \]
+
+What has happened is that the expression in curly brackets after \intwrtx
+has been substituted in the expression defining \intwrtx, replacing the #1
+in that expression.
+
+The #1 occurring after the \intwrtx in the line defining this control sequence 
+indicates to stem:[\TeX] that that it is to expect one expression (in curly
+brackets) after \intwrtx to substitute for #1 in the definition of \intwrtx.
+If we defined a control sequence \intwrt by
+
+    \def\intwrt#1#2{\int_{-\infty}^{+\infty} #2 \,d #1}
+
+then it would expect two expressions to substitute in for #1 and #2 in the
+definition of \intwrt. Thus if we then type
+
+    $$\intwrt{y}{f(y)}.$$
+
+we obtain
+
+\[ \int_{-\infty}^{+\infty} f(y) \,d y\]
+
+
+[[P32]]
+== A Control Sequences used in Text (Plain TEX)
+
+Control Sequences for Changing Fonts in Text
+
+[frame=ends,grid=rows,opts=autowidth]
+|===
+| \rm changes to the normal “roman” font: | stem:[\rm Roman ]
+| \sl changes to a slanted roman font:    | stem:[\sl Slanted ]
+| \it changes to an italic font:          | stem:[\it Italic ]
+| \tt changes to an “typewriter” font:    | stem:[\tt Typewriter ]
+| \bf changes to a boldface font:         | stem:[\bf Boldface ]
+|===
+
+Control Sequences for obtaining Accents in Text
+
+[cols="a,,",frame=ends,grid=rows,opts=autowidth]
+|===
+|\’{e}  |é      |e.g., math\’{e}matique yields ‘mathématique’
+|\‘{e}  |è      |e.g., alg\‘{e}bre yields ‘algèbre’
+|\^{e}  |ê      |e.g., h\^{o}te yields ‘höte’
+|\"{o}  |ö or Ö |e.g., H\"{o}lder yields ‘Hölder’
+|\~{n}  |ñ      |e.g., ma\~{n}ana yields ‘ma˜ nana’
+|\={o}  |ō      |
+|\.{o}  |ȯ      |
+|\u{o}  |ŏ      |
+|\v{c}  |ç      |e.g., \v{C}ech yields ‘çech’
+|\H{o}  |ő      |
+|\t{oo} |O͡o     |
+|\c{c}  |ç      |e.g., gar\c{c}on yields ‘garçon’
+|\d{o}  |ọ      |
+|\b{o}  |o̲      |
+|===
+
+These accents are for use in ordinary text. They cannot be used within
+mathematical formulae, since different control sequences are used to produce
+accents within mathematics.
+Special Symbols used in Text
+
+[[P33]]
+
+[cols="a,",frame=ends,grid=rows,opts=autowidth]
+|===
+| \oe, \OE    |  œ, Œ 用于法语、国际音标（IPA）及部分拉丁语词汇。
+| \ae, \AE    |  æ, Æ 是古英语、挪威语、丹麦语、冰岛语的连字字符（Ligature），称为“ash”。
+| \aa, \AA    |  å, Å 北欧语言中的独立字母。
+| \o, \O      |  ø, Ø
+| \l, \L      |  ł, Ł 波兰语字母
+| \ss         |  ß 是源于德语 s-z 的连字 (Eszett) 或 scharfes S（尖音 S）。
+| ?‘          |  ¿ 西班牙语倒问号（Inverted Question Mark）配合疑问句开头的句式。
+| !‘          |  ¡ 倒感叹号配套使用于感叹句
+| \dag        |  † 匕首符 (Dagger) 又称 obelisk，用于学术引用、脚注标记、宗教文本、数学符号、生物学分类等。
+| \ddag       |  ‡ 双匕首符又称 diesis。作为多层脚注的第二级标记、学术引用或专业符号。
+| \S          |  § 章节标记 Section
+| \P          |  ¶ 段落符号 pilcrow
+| \copyright  |  © 版权标记符号
+| {\it \$}    |  stem:[ \mathit{\$}] 美元符号斜体
+| {\it \&}    |  stem:[ \mathit{\&}] 与号斜体
+| \i          |  ı 无点字母
+| \j          |  ȷ 无点字母
+|===
+
+== B Control Sequences used in Mathematics (Plain TEX)
+
+=== B.1 Font Changes, Accents and Standard Functions
+
+==== Changing Fonts in Mathematical Expressions
+
+Fonts are changed using suitable control sequences.
+
+[cols="a,",frame=ends,grid=rows,opts=autowidth]
+|===
+|\mit changes to the ‘math italic’ font: |stem:[\mit MathItalic]
+|\rm changes to the roman font:          |stem:[\rm Roman]
+|\sl changes to a slanted roman font:    |stem:[\sl Slanted]
+|\it changes to an italic font:          |stem:[\it Italic]
+|\tt changes to an “typewriter” font:    |stem:[\tt Typewriter]
+|\bf changes to a boldface font:         |stem:[\bf Boldface]
+|\cal changes to a calligraphic font:    |stem:[\cal CALLIGRAPHIC]
+|===
+
+The default font for mathematics is MathItalic. The CALLIGRAPHIC
+font is only available for uppercase letters. Any change of font made within
+a group enclosed within curly brackets { and } will only apply to text within
+that group. On leaving the group, the current font is restored to what it was
+before entering the group.
+
+[[P34]]
+==== Accents in Mathematics Mode
+
+Accents in mathematics mode are produced using appropriate control sequences. 
+The effect of these on the letter a is exhibited in the following table.
+
+[cols="a,",frame=ends,grid=rows,opts=autowidth]
+|===
+|$\underline{a}$ |ª 
+|$\overline{a}$  |stem:[\overline{a}] (上横线比 \bar 更长，可多字符覆盖)
+|$\hat{a}$       |â 
+|$\check{a}$     |ă 
+|$\tilde{a}$     |ã 
+|$\acute{a}$     |á 
+|$\grave{a}$     |à 
+|$\dot{a}$       |ȧ
+|$\ddot{a}$      |ä
+|$\breve{a}$     |ǎ (和汉语拼音使用的 ă 区别)
+|$\bar{a}$       |ā (和汉语拼音使用的 ā 相同)
+|$\vec{a}$       |ã
+|===
+
+These control sequences should only be used for mathematics, not for 
+ordinary text. You should bear in mind that when a character is underlined 
+in a mathematical manuscript then it is normally typeset in bold face without 
+any underlining. Underlining is used very rarely in print.
+
+==== Standard Functions
+
+The names of certain standard functions and abbreviations are obtained
+by typing a backlash \ before the name. The complete list in stem:[\TeX] 
+is as follows:-
+
+[source,role="big"]
+    \arccos  \cos   \csc  \exp  \ker     \limsup \min  \sinh
+    \arcsin  \cosh  \deg  \gcd  \lg      \ln     \Pr   \sup
+    \arctan  \cot   \det  \hom  \lim     \log    \sec  \tan
+    \arg     \coth  \dim  \inf  \liminf  \max    \sin  \tanh
+
+[[P35]]
+=== B.2 Control Sequences for Mathematical Symbols
+
+
+==== Lowercase Greek Letters
+
+[source,role="big"]
+    α \alpha       ι \iota       % \varrho
+    β \beta        κ \kappa      σ \sigma
+    γ \gamma       λ \lambda     ς \varsigma
+    δ \delta       µ \mu         τ \tau
+    ? \epsilon     ν \nu         υ \upsilon
+    ε \varepsilon  ξ \xi         φ \phi
+    ζ \zeta        o o           ϕ \varphi
+    η \eta         π \pi         χ \chi
+    θ \theta       $ \varpi      ψ \psi
+    ϑ \vartheta    ρ \rho        ω \omega
+
+==== Uppercase Greek Letters
+
+[source,role="big"]
+    Γ \Gamma       Ξ \Xi         Φ \Phi
+    ∆ \Delta       Π \Pi         Ψ \Psi
+    Θ \Theta       Σ \Sigma      Ω \Omega
+    Λ \Lambda      Υ \Upsilon
+
+==== Miscellaneous Symbols
+
+[source,role="big"]
+    ℵ  \aleph            ′  \prime          ∀  \forall
+    ℏ  \hbar             ∅  \emptyset       ∃  \exists
+    ı  \imath            ∇  \nabla          ¬  \neg
+    ȷ  \jmath            √  \surd           ♭  \flat
+    ℓ  \ell              ⊤  \top            ♮  \natural
+    ℘  \wp               ⊥  \bot            ♯  \sharp
+    ℜ  \Re               ‖  \|              ♣  \clubsuit
+    ℑ  \Im               ∠  \angle          ♦  \diamondsuit
+    ∂  \partial          △  \triangle       ♥  \heartsuit
+    ∞  \infty            \  \backslash      ♠  \spadesuit
+
+
+[[P36]]
+==== “Large” Operators
+
+
+[source,role="big"]
+    ∑  \sum              ⋂  \bigcap           ⨀  \bigodot
+    ∏  \prod             ⋃  \bigcup           ⨂  \bigotimes
+    ∐  \coprod           ⨆  \bigsqcup         ⨁  \bigoplus
+    ∫  \int              ⋁  \bigvee           ⨄  \biguplus
+    ∮  \oint             ⋀  \bigwedge
+
+==== Binary Operations
+
+[source,role="big"]
+    ±  \pm               ∩  \cap                ∨   \vee
+    ∓  \mp               ∪  \cup                ∧   \wedge
+    \  \setminus         ⊎  \uplus              ⊕   \oplus
+    ·  \cdot             ⊓  \sqcap              ⊖   \ominus
+    ×  \times            ⊔  \sqcup              ⊗   \otimes
+    ∗  \ast              ◃  \triangleleft       ⊘   \oslash
+    ?  \star             ▹  \triangleright      ⊙   \odot
+    ⋄  \diamond          ≀  \wr                  †   \dagger
+    ◦  \circ             ◯  \bigcirc            ‡   \ddagger
+    •  \bullet           △  \bigtriangleup      ⨿   \amalg
+    ÷  \div              ▽  \bigtriangledown
+
+
+==== Relations
+
+[source,role="big"]
+    ≤  \leq               ≥  \geq                 ≡  \equiv
+    ≺  \prec              ≻  \succ                ∼  \sim
+    ⪯  \preceq            ⪰  \succeq              ≃  \simeq
+    ≪  \ll                ≫  \gg                  ≍  \asymp
+    ⊂  \subset            ⊃  \supset              ≈  \approx
+    ⊆  \subseteq          ⊇  \supseteq            ≅  \cong
+    v  \sqsubseteq        ⊒  \sqsupseteq          ⋈  \bowtie
+    ∈  \in                ∋  \ni                  ∝  \propto
+    ⊢  \vdash             ⊣  \dashv               ⊨  \models
+    ⌣  \smile             ∣  \mid                 ≐  \doteq 
+    ⌢  \frown             ∥  \parallel            ⊥  \perp
+
+[[P37]]
+==== Negated Relations
+
+[source,role="big"]
+    ≮  \not<                ≯  \not>                ≠  \not=
+    ≰  \not\leq             ≱  \not\geq             ≢  \not\equiv
+    ⊀  \not\prec            ⊁  \not\succ            ≁  \not\sim
+    ⪯̸  \not\preceq          ⪰̸  \not\succeq          ≄  \not\simeq
+    ⊄  \not\subset          ⊅  \not\supset          ≉  \not\approx
+    ⊈  \not\subseteq        ⊉  \not\supseteq        ≆  \not\cong
+    ⋢  \not\sqsubseteq      ⋣  \not\sqsupseteq      ≭  \not\asymp
+
+==== Arrows
+
+[source,role="big"]
+    ←  \leftarrow             ⟵  \longleftarrow            ↑  \uparrow
+    ⇐  \Leftarrow             ⟸  \Longleftarrow            ⇑  \Uparrow
+    →  \rightarrow            ⟶  \longrightarrow           ↓  \downarrow
+    ⇒  \Rightarrow            ⟹  \Longrightarrow           ⇓  \Downarrow
+    ↔  \leftrightarrow        ⟷  \longleftrightarrow       ↕  \updownarrow
+    ⇔  \Leftrightarrow        ⟺  \Longleftrightarrow       ⇕  \Updownarrow
+    ↦  \mapsto                ⟼  \longmapsto               ↗  \nearrow
+    ↩  \hookleftarrow         ↪  \hookrightarrow           ↘  \searrow
+    ↼  \leftharpoonup         ⇀  \rightharpoonup           ↙  \swarrow
+    ↽  \leftharpoondown       ⇁  \rightharpoondown         ↖  \nwarrow
+    ⇌  \rightleftharpoons
+
+==== Openings
+
+[source,role="big"]
+    [ \lbrack           ⌊ \lfloor        ⌈ \lciel
+    { \lbrace           ⟨ \langle
+
+==== Closings
+
+[source,role="big"]
+    ] \rbrack           ⌋ \rfloor        ⌉ \rciel
+    } \rbrace           ⟩ \rangle
+
+[[P38]]
+==== Alternative Names
+
+[source,role="big"]
+    ≠      \ne or \neq  (same as \not=)
+    ≤      \le          (same as \leq)
+    ≥      \ge          (same as \geq)
+    {      \{           (same as \lbrace)
+    }      \}           (same as \lbrace)
+    →      \to          (same as \rightarrow)
+    ←      \gets        (same as \leftarrow)
+    ∋      \owns        (same as \ni)
+    ∧      \land        (same as \wedge)
+    ∨      \lor         (same as \vee)
+    ¬      \lnot        (same as \neg)
+    |      \vert        (same as |)
+    ∥      \Vert        (same as \|)
+    ⟺      \iff         (same as \Longleftrightarrow, but with
+                        extra space at each end)
+    :      \colon       (same as :, but with less space around it and
+                        less likelihood of a line break after it)
+
+
+=== B.3 Some frequently used Control Sequences of Plain TEX
+
+We list some of the control sequences of Plain stem:[\TeX] that are frequently 
+used when typesetting mathematical formulae. The list is by no means exhaustive.
+For information on how to apply these control sequences, consult the
+appropriate manual (e.g. ‘The stem:[\TeX]book’).
+
+[[P39]]
+
+[frame=ends,grid=rows,opts=autowidth]
+|==
+|\over        |produces fractions
+|\sqrt        |produces square roots
+|\root        |produces nth roots
+|\left        |produces left delimiter of required size
+|\right       |produces right delimiter of required size
+|\quad        |produces a ‘quad’ of blank space
+|\qquad       |produces two ‘quads’ of blank space
+|\,           |produces a thin space
+|\!           |removes a thin space
+|\hbox        |creates a box of text within mathematics
+|\eqalign     |creates a multiline formula
+|\eqalignno   |creates a numbered multiline formula
+|\leqalignno  |creates a multiline formula numbered on the left
+|\cases       |creates an equation that splits into cases
+|\matrix      |produces an array
+|\pmatrix     |produces a matrix surrounded by parentheses
+|==
+
+[[P40]]

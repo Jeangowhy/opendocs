@@ -1,0 +1,4695 @@
+:source-highlighter: highlight.js
+
+[source,bash]
+----
+while read -r it
+do
+  #echo "$it"; continue;
+  if ! [[ $it =~ ^│[[:space:]]{3}.*[^m][^d]$ ]]; then continue; fi
+  name=$(echo $it|sed -E -n 's|[^0-9]*([0-9]+)[^0-9]*/(.*)|\1-\2|p')
+  printf "== $name\r\r----\r"  >> $0
+  echo "// tag::$name[]" >> $0
+  cat "$it"       >> $0
+  echo "// end::$name[]" >> $0
+  printf "\r----\r\r" >> $0
+done << EOF
+    tree -f
+    ├── ./01-Exploring-Various-Document-Classes
+    │   ├── ./01-Exploring-Various-Document-Classes/01-short-text.tex
+    │   ├── ./01-Exploring-Various-Document-Classes/02-book.tex
+    │   ├── ./01-Exploring-Various-Document-Classes/03-book-title-page.tex
+    │   ├── ./01-Exploring-Various-Document-Classes/04-book-memoir.tex
+    │   ├── ./01-Exploring-Various-Document-Classes/05-presentation.tex
+    │   ├── ./01-Exploring-Various-Document-Classes/06-presentation-short-names.tex
+    │   ├── ./01-Exploring-Various-Document-Classes/07-presentation-pauses.tex
+    │   ├── ./01-Exploring-Various-Document-Classes/08-presentation-outline.tex
+    │   ├── ./01-Exploring-Various-Document-Classes/09-presentation-no-navigation.tex
+    │   ├── ./01-Exploring-Various-Document-Classes/10-presentation-serif.tex
+    │   ├── ./01-Exploring-Various-Document-Classes/11-presentation-handout.tex
+    │   ├── ./01-Exploring-Various-Document-Classes/12-cv.tex
+    │   ├── ./01-Exploring-Various-Document-Classes/13-letter.tex
+    │   ├── ./01-Exploring-Various-Document-Classes/14-letter-more.tex
+    │   ├── ./01-Exploring-Various-Document-Classes/15-leaflet.tex
+    │   └── ./01-Exploring-Various-Document-Classes/16-leaflet-more.tex
+    ├── ./02-Tuning-the-Text
+    │   ├── ./02-Tuning-the-Text/01-margin-notes.tex
+    │   ├── ./02-Tuning-the-Text/02-converting-numbers.tex
+    │   ├── ./02-Tuning-the-Text/03-numbered-list.tex
+    │   ├── ./02-Tuning-the-Text/04-colored-boxes.tex
+    │   ├── ./02-Tuning-the-Text/05-frame.tex
+    │   ├── ./02-Tuning-the-Text/06-frame-geometry.tex
+    │   ├── ./02-Tuning-the-Text/07-layout.tex
+    │   ├── ./02-Tuning-the-Text/08-visual-boxes.tex
+    │   ├── ./02-Tuning-the-Text/09-grid.tex
+    │   ├── ./02-Tuning-the-Text/10-gridset.tex
+    │   ├── ./02-Tuning-the-Text/11-absolute-positioning.tex
+    │   ├── ./02-Tuning-the-Text/12-drop-caps.tex
+    │   ├── ./02-Tuning-the-Text/13-drop-caps-color.tex
+    │   ├── ./02-Tuning-the-Text/14-shape.tex
+    │   ├── ./02-Tuning-the-Text/15-cutout.tex
+    │   └── ./02-Tuning-the-Text/16-pullquote.tex
+    ├── ./03-Adjusting-Fonts
+    │   ├── ./03-Adjusting-Fonts/01-latin-modern.tex
+    │   ├── ./03-Adjusting-Fonts/02-kepler-fonts.tex
+    │   ├── ./03-Adjusting-Fonts/03-libertine.tex
+    │   ├── ./03-Adjusting-Fonts/04-zapf-chancery.tex
+    │   ├── ./03-Adjusting-Fonts/05-font-selection.tex
+    │   ├── ./03-Adjusting-Fonts/06-heading-font.tex
+    │   ├── ./03-Adjusting-Fonts/07-font-table.tex
+    │   ├── ./03-Adjusting-Fonts/08-font-table-extended.tex
+    │   ├── ./03-Adjusting-Fonts/09-font-sample.tex
+    │   ├── ./03-Adjusting-Fonts/10-import-symbol.tex
+    │   ├── ./03-Adjusting-Fonts/11-bold-symbols-bm.tex
+    │   ├── ./03-Adjusting-Fonts/12-bold-symbols-amsmath.tex
+    │   ├── ./03-Adjusting-Fonts/13-sans-serif-math.tex
+    │   ├── ./03-Adjusting-Fonts/14-sansmath.tex
+    │   ├── ./03-Adjusting-Fonts/15-sans-math-arev.tex
+    │   ├── ./03-Adjusting-Fonts/16-sans-math-kepler.tex
+    │   ├── ./03-Adjusting-Fonts/17-double-stroke-letters.tex
+    │   ├── ./03-Adjusting-Fonts/18-ligatures.tex
+    │   ├── ./03-Adjusting-Fonts/19-disable-ligatures.tex
+    │   └── ./03-Adjusting-Fonts/20-contour.tex
+    ├── ./04-Creating-Tables
+    │   ├── ./04-Creating-Tables/01-table-lines.tex
+    │   ├── ./04-Creating-Tables/02-table-improved.tex
+    │   ├── ./04-Creating-Tables/03-merge-cells.tex
+    │   ├── ./04-Creating-Tables/04-merge-rows.tex
+    │   ├── ./04-Creating-Tables/05-split-cells.tex
+    │   ├── ./04-Creating-Tables/06-table-footnotes.tex
+    │   ├── ./04-Creating-Tables/07-align-data.tex
+    │   ├── ./04-Creating-Tables/08-zebra-table.tex
+    │   └── ./04-Creating-Tables/09-csv-import.tex
+    ├── ./05-Working-with-Images
+    │   └── ./05-Working-with-Images/README.md
+    ├── ./06-Creating-Graphics
+    │   └── ./06-Creating-Graphics/README.md
+    ├── ./07-Beautiful-Designs
+    │   ├── ./07-Beautiful-Designs/01-background.tex
+    │   ├── ./07-Beautiful-Designs/02-background-border.tex
+    │   ├── ./07-Beautiful-Designs/03-background-number.tex
+    │   ├── ./07-Beautiful-Designs/04-ornament.tex
+    │   ├── ./07-Beautiful-Designs/05-background-ornament.tex
+    │   ├── ./07-Beautiful-Designs/06-headings.tex
+    │   ├── ./07-Beautiful-Designs/07-calendar.tex
+    │   ├── ./07-Beautiful-Designs/08-keyboard-menu.tex
+    │   ├── ./07-Beautiful-Designs/09-contextmenu.tex
+    │   ├── ./07-Beautiful-Designs/10-terminal.tex
+    │   └── ./07-Beautiful-Designs/11-puzzle.tex
+    ├── ./08-Contents-Indexes-Bibliographies
+    │   ├── ./08-Contents-Indexes-Bibliographies/01-toc-graduated.tex
+    │   ├── ./08-Contents-Indexes-Bibliographies/02-toc-flat.tex
+    │   ├── ./08-Contents-Indexes-Bibliographies/03-toc-fullflat.tex
+    │   ├── ./08-Contents-Indexes-Bibliographies/04-bibliography.tex
+    │   ├── ./08-Contents-Indexes-Bibliographies/05-bibliography-options.tex
+    │   ├── ./08-Contents-Indexes-Bibliographies/06-bibliography-internet.tex
+    │   ├── ./08-Contents-Indexes-Bibliographies/07-glossaries.tex
+    │   ├── ./08-Contents-Indexes-Bibliographies/08-acronyms.tex
+    │   ├── ./08-Contents-Indexes-Bibliographies/09-index.tex
+    │   ├── ./08-Contents-Indexes-Bibliographies/10-index-extended.tex
+    │   └── ./08-Contents-Indexes-Bibliographies/texbooks.bib
+    ├── ./09-Optimizing-PDF
+    │   ├── ./09-Optimizing-PDF/01-hyperlinks.tex
+    │   ├── ./09-Optimizing-PDF/02-hyperlinks-targets.tex
+    │   ├── ./09-Optimizing-PDF/03-custom-hyperlinks.tex
+    │   ├── ./09-Optimizing-PDF/04-metadata.tex
+    │   ├── ./09-Optimizing-PDF/05-metadata-options.tex
+    │   ├── ./09-Optimizing-PDF/06-metadata-pdftex.tex
+    │   ├── ./09-Optimizing-PDF/07-metadata-pdfinfo.tex
+    │   ├── ./09-Optimizing-PDF/08-copyright.tex
+    │   ├── ./09-Optimizing-PDF/09-comments.tex
+    │   ├── ./09-Optimizing-PDF/10-form.tex
+    │   └── ./09-Optimizing-PDF/11-ebook.tex
+    ├── ./10-Advanced-Mathematics
+    │   ├── ./10-Advanced-Mathematics/01-basic-math.tex
+    │   ├── ./10-Advanced-Mathematics/02-exponents.tex
+    │   ├── ./10-Advanced-Mathematics/03-aligned-equation.tex
+    │   ├── ./10-Advanced-Mathematics/04-math-deficient.tex
+    │   ├── ./10-Advanced-Mathematics/04-theorems-listof.tex
+    │   ├── ./10-Advanced-Mathematics/05-breaking-equations.tex
+    │   ├── ./10-Advanced-Mathematics/05-math-finetuned.tex
+    │   ├── ./10-Advanced-Mathematics/06-diagram-arrows-tikzcd.tex
+    │   ├── ./10-Advanced-Mathematics/06-diagram-tikzcd.tex
+    │   ├── ./10-Advanced-Mathematics/06-highlight.tex
+    │   ├── ./10-Advanced-Mathematics/06-theorems.tex
+    │   ├── ./10-Advanced-Mathematics/07-theorems-shared.tex
+    │   ├── ./10-Advanced-Mathematics/08-theorems-ntheorem.tex
+    │   ├── ./10-Advanced-Mathematics/09-theorems-thmtools.tex
+    │   ├── ./10-Advanced-Mathematics/10-diagram.tex
+    │   ├── ./10-Advanced-Mathematics/11-diagram-arrows.tex
+    │   ├── ./10-Advanced-Mathematics/12-diagram-five-lemma.tex
+    │   ├── ./10-Advanced-Mathematics/13-plot-2d.tex
+    │   ├── ./10-Advanced-Mathematics/14-plot-grid.tex
+    │   ├── ./10-Advanced-Mathematics/15-plot-shift-2d.tex
+    │   ├── ./10-Advanced-Mathematics/16-plot-polar-sin.tex
+    │   ├── ./10-Advanced-Mathematics/17-plot-polar.tex
+    │   ├── ./10-Advanced-Mathematics/18-plot-3d.tex
+    │   ├── ./10-Advanced-Mathematics/19-plot-shift-3d.tex
+    │   ├── ./10-Advanced-Mathematics/20-geometry-start.tex
+    │   ├── ./10-Advanced-Mathematics/21-geometry-extended.tex
+    │   ├── ./10-Advanced-Mathematics/22-geometry-circles.tex
+    │   └── ./10-Advanced-Mathematics/23-calculation.tex
+    ├── ./11-Science-Technology
+    │   ├── ./11-Science-Technology/01-algorithms.tex
+    │   ├── ./11-Science-Technology/03-listing-customized.tex
+    │   ├── ./11-Science-Technology/04-graphs-shaded.tex
+    │   ├── ./11-Science-Technology/05-graphs.tex
+    │   ├── ./11-Science-Technology/05-units-bad.tex
+    │   ├── ./11-Science-Technology/06-units-good.tex
+    │   ├── ./11-Science-Technology/07-units-changing.tex
+    │   ├── ./11-Science-Technology/08-units-fraction.tex
+    │   ├── ./11-Science-Technology/09-units-si.tex
+    │   ├── ./11-Science-Technology/10-units-sansserif.tex
+    │   ├── ./11-Science-Technology/19-chemical-formulas.tex
+    │   ├── ./11-Science-Technology/20-molecules.tex
+    │   ├── ./11-Science-Technology/21-ring-benzene.tex
+    │   ├── ./11-Science-Technology/22-ring.tex
+    │   ├── ./11-Science-Technology/23-benzene.tex
+    │   ├── ./11-Science-Technology/24-submole.tex
+    │   ├── ./11-Science-Technology/25-molecules-options.tex
+    │   ├── ./11-Science-Technology/26-alignment.tex
+    │   ├── ./11-Science-Technology/27-carbohydrates.tex
+    │   ├── ./11-Science-Technology/28-carbohydrates-1.tex
+    │   ├── ./11-Science-Technology/29-carbohydrates-2.tex
+    │   ├── ./11-Science-Technology/30-level.tex
+    │   ├── ./11-Science-Technology/31-orbitals.tex
+    │   ├── ./11-Science-Technology/32-atom.tex
+    │   ├── ./11-Science-Technology/35-periodic-table.tex
+    │   ├── ./11-Science-Technology/36-periodic-table-detail.tex
+    │   ├── ./11-Science-Technology/37-feynman.tex
+    │   ├── ./11-Science-Technology/40-circuit.tex
+    │   ├── ./11-Science-Technology/51-lua-small.tex
+    │   └── ./11-Science-Technology/52-lua-plot.tex
+    ├── ./LICENSE
+    └── ./README.md
+EOF
+exit
+----
+
+
+== 01-01-short-text.tex
+
+----
+// tag::01-01-short-text.tex[]
+\documentclass[paper=a4,oneside,fontsize=11pt,
+  parskip=full]{scrartcl}
+\begin{document}
+\tableofcontents
+\addsec{Introduction}
+This document will be our starting point for simple
+documents. It is suitable for a single page or up to
+a couple of dozen pages.
+
+The text will be divided into sections.
+\section{The first section}
+This first text will contain
+\begin{itemize}
+\item a table of contents,
+\item a bulleted list,
+\item headings and some text and math in section,
+\item referencing such as to section \ref{sec:maths} and
+      equation (\ref{eq:integral}).
+\end{itemize}
+We can use this document as a template for filling in
+our own content.
+\section{Some maths}
+\label{sec:maths}
+When we write a scientific or technical document, we usually
+include math formulas. To get a brief glimpse of the look of
+maths, we will look at an integral approximation of a function
+$f(x)$ as a sum with weights $w_i$:
+\begin{equation}
+  \label{eq:integral}
+  \int_a^b f(x)\,\mathrm{d}x \approx (b-a)
+  \sum_{i=0}^n w_i f(x_i)
+\end{equation}
+\end{document}
+// end::01-01-short-text.tex[]
+----
+
+
+== 01-02-book.tex
+
+----
+// tag::01-02-book.tex[]
+\documentclass[fontsize=11pt,paper=a5,pagesize=auto]{scrbook}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{blindtext}
+\frenchspacing
+\begin{document}
+\title{The Book}
+\subtitle{Some more to know}
+\author{The Author}
+\date{}
+\maketitle
+\tableofcontents 
+\part{First portion}
+\chapter{The beginning}
+Some introductional text comes here.
+\section{A first section}
+Dummy text will follow.
+\blindtext
+\section{Another section}
+\Blindtext
+\appendix
+\part{Appendix}
+\chapter{An addendum}
+\section{Section within the appendix}
+\blindtext
+\end{document}
+// end::01-02-book.tex[]
+----
+
+
+== 01-03-book-title-page.tex
+
+----
+// tag::01-03-book-title-page.tex[]
+\documentclass[fontsize=11pt,paper=a5,pagesize=auto]{scrbook}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{blindtext}
+\frenchspacing
+\begin{document}
+\begin{titlepage}
+  \vspace*{1cm}
+  {\huge\raggedright The Book\par}
+  \noindent\hrulefill\par
+  {\LARGE\raggedleft The Author\par}
+  \vfill
+  {\Large\raggedleft Institute\par}
+\end{titlepage}
+\tableofcontents 
+\part{First portion}
+\chapter{The beginning}
+Some introductional text comes here.
+\section{A first section}
+Dummy text will follow.
+\blindtext
+\section{Another section}
+\Blindtext
+\appendix
+\part{Appendix}
+\chapter{An addendum}
+\section{Section within the appendix}
+\blindtext
+\end{document}
+// end::01-03-book-title-page.tex[]
+----
+
+
+== 01-04-book-memoir.tex
+
+----
+// tag::01-04-book-memoir.tex[]
+\documentclass[11pt,a5paper]{memoir}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{blindtext}
+\frenchspacing
+\begin{document}
+\title{The Book}
+\author{The Author}
+\date{}
+\begin{titlingpage}
+  \maketitle
+\end{titlingpage}
+\tableofcontents 
+\part{First portion}
+\chapter{The beginning}
+Some introductional text comes here.
+\section{A first section}
+Dummy text will follow.
+\blindtext
+\section{Another section}
+\Blindtext
+\appendix
+\part{Appendix}
+\chapter{An addendum}
+\section{Section within the appendix}
+\blindtext
+\end{document}
+// end::01-04-book-memoir.tex[]
+----
+
+
+== 01-05-presentation.tex
+
+----
+// tag::01-05-presentation.tex[]
+\documentclass{beamer}
+\usetheme{Warsaw}
+\begin{document}
+\title{Talk on the Subject}
+\subtitle{What this is about}
+\author{Author Name}
+\institute{University of X}
+\date{January 24, 2024}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}{Outline}
+  \tableofcontents[pausesections]
+\end{frame}
+\section{Introduction}
+\subsection{A subsection}
+\begin{frame}{Very Informative Title}
+  \begin{itemize}
+    \item First thing to say.
+    \item There is more.
+    \item Another short point.
+  \end{itemize}
+\end{frame}
+\begin{frame}{Another Title With Uppercased Words}
+  Text
+  \begin{alertblock}{A highlighted block}
+    Some important information put into a block.
+  \end{alertblock}
+\end{frame}
+\subsection{Another subsection}
+\begin{frame}{Informative Title}
+  \begin{exampleblock}{An example}
+    An example within a block.
+  \end{exampleblock}
+  Explanation follows.
+\end{frame}
+\section{Summary}
+\begin{frame}{Summary}
+  \begin{itemize}
+    \item Our \alert{main point}
+    \item The \alert{second main point}
+  \end{itemize}
+  \vfill
+  \begin{block}{Outlook}
+    Further ideas here.
+  \end{block}
+\end{frame}
+\end{document}
+// end::01-05-presentation.tex[]
+----
+
+
+== 01-06-presentation-short-names.tex
+
+----
+// tag::01-06-presentation-short-names.tex[]
+\documentclass{beamer}
+\usetheme{Warsaw}
+\begin{document}
+\title[Short title]{Long Informative Title}
+\author[Shortened name]{Author’s Complete Name}
+\date[2015/06/24]{Conference on X at Y, June 24, 2015}
+\institute{University of X}
+\date{June 24, 2015}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}{Outline}
+  \tableofcontents[pausesections]
+\end{frame}
+\section{Introduction}
+\subsection{A subsection}
+\begin{frame}{Very Informative Title}
+  \begin{itemize}
+    \item First thing to say.
+    \item There is more.
+    \item Another short point.
+  \end{itemize}
+\end{frame}
+\begin{frame}{Another Title With Uppercased Words}
+  Text
+  \begin{alertblock}{A highlighted block}
+    Some important information put into a block.
+  \end{alertblock}
+\end{frame}
+\subsection{Another subsection}
+\begin{frame}{Informative Title}
+  \begin{exampleblock}{An example}
+    An example within a block.
+  \end{exampleblock}
+  Explanation follows.
+\end{frame}
+\section{Summary}
+\begin{frame}{Summary}
+  \begin{itemize}
+    \item Our \alert{main point}
+    \item The \alert{second main point}
+  \end{itemize}
+  \vfill
+  \begin{block}{Outlook}
+    Further ideas here.
+  \end{block}
+\end{frame}
+\end{document}
+// end::01-06-presentation-short-names.tex[]
+----
+
+
+== 01-07-presentation-pauses.tex
+
+----
+// tag::01-07-presentation-pauses.tex[]
+\documentclass[demo]{beamer}% demo option for dummy graphics
+\usetheme{Warsaw}
+\begin{document}
+\title[Short title]{Long Informative Title}
+\author[Shortened name]{Author’s Complete Name}
+\date[2015/06/24]{Conference on X at Y, June 24, 2015}
+\institute{University of X}
+\date{June 24, 2015}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}{Outline}
+  \tableofcontents[pausesections]
+\end{frame}
+\section{Introduction}
+\subsection{A subsection}
+\begin{frame}{Very Informative Title}
+  \begin{itemize}
+    \item First thing to say.
+    \item There is more.
+    \item Another short point.
+  \end{itemize}
+  Text\pause\ more text\pause\ \includegraphics{filename}
+  \uncover<3->{Surprise!}
+\end{frame}
+\end{document}
+// end::01-07-presentation-pauses.tex[]
+----
+
+
+== 01-08-presentation-outline.tex
+
+----
+// tag::01-08-presentation-outline.tex[]
+\documentclass{beamer}
+\usetheme{Warsaw}
+\AtBeginSection{
+  \begin{frame}{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}}
+\begin{document}
+\title{Talk on the Subject}
+\subtitle{What this is about}
+\author{Author Name}
+\institute{University of X}
+\date{June 24, 2015}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}{Outline}
+  \tableofcontents[pausesections]
+\end{frame}
+\section{Introduction}
+\subsection{A subsection}
+\begin{frame}{Very Informative Title}
+  \begin{itemize}
+    \item First thing to say.
+    \item There is more.
+    \item Another short point.
+  \end{itemize}
+\end{frame}
+\begin{frame}{Another Title With Uppercased Words}
+  Text
+  \begin{alertblock}{A highlighted block}
+    Some important information put into a block.
+  \end{alertblock}
+\end{frame}
+\subsection{Another subsection}
+\begin{frame}{Informative Title}
+  \begin{exampleblock}{An example}
+    An example within a block.
+  \end{exampleblock}
+  Explanation follows.
+\end{frame}
+\section{Summary}
+\begin{frame}{Summary}
+  \begin{itemize}
+    \item Our \alert{main point}
+    \item The \alert{second main point}
+  \end{itemize}
+  \vfill
+  \begin{block}{Outlook}
+    Further ideas here.
+  \end{block}
+\end{frame}
+\end{document}
+// end::01-08-presentation-outline.tex[]
+----
+
+
+== 01-09-presentation-no-navigation.tex
+
+----
+// tag::01-09-presentation-no-navigation.tex[]
+\documentclass{beamer}
+\usetheme{Warsaw}
+\setbeamertemplate{navigation symbols}{}
+\begin{document}
+\title{Talk on the Subject}
+\subtitle{What this is about}
+\author{Author Name}
+\institute{University of X}
+\date{June 24, 2015}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}{Outline}
+  \tableofcontents[pausesections]
+\end{frame}
+\section{Introduction}
+\subsection{A subsection}
+\begin{frame}{Very Informative Title}
+  \begin{itemize}
+    \item First thing to say.
+    \item There is more.
+    \item Another short point.
+  \end{itemize}
+\end{frame}
+\begin{frame}{Another Title With Uppercased Words}
+  Text
+  \begin{alertblock}{A highlighted block}
+    Some important information put into a block.
+  \end{alertblock}
+\end{frame}
+\subsection{Another subsection}
+\begin{frame}{Informative Title}
+  \begin{exampleblock}{An example}
+    An example within a block.
+  \end{exampleblock}
+  Explanation follows.
+\end{frame}
+\section{Summary}
+\begin{frame}{Summary}
+  \begin{itemize}
+    \item Our \alert{main point}
+    \item The \alert{second main point}
+  \end{itemize}
+  \vfill
+  \begin{block}{Outlook}
+    Further ideas here.
+  \end{block}
+\end{frame}
+\end{document}
+// end::01-09-presentation-no-navigation.tex[]
+----
+
+
+== 01-10-presentation-serif.tex
+
+----
+// tag::01-10-presentation-serif.tex[]
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usefonttheme{serif}
+\begin{document}
+\title{Talk on the Subject}
+\subtitle{What this is about}
+\author{Author Name}
+\institute{University of X}
+\date{June 24, 2015}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}{Outline}
+  \tableofcontents[pausesections]
+\end{frame}
+\section{Introduction}
+\subsection{A subsection}
+\begin{frame}{Very Informative Title}
+  \begin{itemize}
+    \item First thing to say.
+    \item There is more.
+    \item Another short point.
+  \end{itemize}
+\end{frame}
+\begin{frame}{Another Title With Uppercased Words}
+  Text
+  \begin{alertblock}{A highlighted block}
+    Some important information put into a block.
+  \end{alertblock}
+\end{frame}
+\subsection{Another subsection}
+\begin{frame}{Informative Title}
+  \begin{exampleblock}{An example}
+    An example within a block.
+  \end{exampleblock}
+  Explanation follows.
+\end{frame}
+\section{Summary}
+\begin{frame}{Summary}
+  \begin{itemize}
+    \item Our \alert{main point}
+    \item The \alert{second main point}
+  \end{itemize}
+  \vfill
+  \begin{block}{Outlook}
+    Further ideas here.
+  \end{block}
+\end{frame}
+\end{document}
+// end::01-10-presentation-serif.tex[]
+----
+
+
+== 01-11-presentation-handout.tex
+
+----
+// tag::01-11-presentation-handout.tex[]
+\documentclass[handout]{beamer}
+\usetheme{Warsaw}
+\usepackage{pgfpages}
+\pgfpagesuselayout{4 on 1}[a4paper,
+  border shrink=5mm,landscape]
+\begin{document}
+\title{Talk on the Subject}
+\subtitle{What this is about}
+\author{Author Name}
+\institute{University of X}
+\date{June 24, 2015}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}{Outline}
+  \tableofcontents[pausesections]
+\end{frame}
+\section{Introduction}
+\subsection{A subsection}
+\begin{frame}{Very Informative Title}
+  \begin{itemize}
+    \item First thing to say.
+    \item There is more.
+    \item Another short point.
+  \end{itemize}
+\end{frame}
+\begin{frame}{Another Title With Uppercased Words}
+  Text
+  \begin{alertblock}{A highlighted block}
+    Some important information put into a block.
+  \end{alertblock}
+\end{frame}
+\subsection{Another subsection}
+\begin{frame}{Informative Title}
+  \begin{exampleblock}{An example}
+    An example within a block.
+  \end{exampleblock}
+  Explanation follows.
+\end{frame}
+\section{Summary}
+\begin{frame}{Summary}
+  \begin{itemize}
+    \item Our \alert{main point}
+    \item The \alert{second main point}
+  \end{itemize}
+  \vfill
+  \begin{block}{Outlook}
+    Further ideas here.
+  \end{block}
+\end{frame}
+\end{document}
+// end::01-11-presentation-handout.tex[]
+----
+
+
+== 01-12-cv.tex
+
+----
+// tag::01-12-cv.tex[]
+\documentclass[11pt,a4paper,sans]{moderncv}% demo option for dummy photo
+\moderncvstyle{classic}
+\moderncvcolor{blue}
+\usepackage[scale=0.75]{geometry}
+\name{John}{Doe}
+\title{CV title}
+\address{street and number}{postcode city}{country}
+\phone[mobile]{+1~(234)~567~890}
+\phone[fixed]{+2~(345)~678~901}
+\email{john@doe.org}
+\homepage{www.johndoe.com}
+\photo[64pt][0.4pt]{picture.jpg}
+\begin{document}
+\makecvtitle
+\section{Education}
+\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}
+\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}
+\section{Experience}
+\subsection{Vocational}
+\cventry{year--year}{Job title}{Employer}{City}{}
+  {General description\newline{}%
+Detailed achievements:%
+\begin{itemize}%
+\item Achievement 1;
+\item Achievement 2, with sub-achievements:
+  \begin{itemize}%
+  \item Sub-achievement (a)
+  \item Sub-achievement (b)
+  \end{itemize}
+\item Achievement 3.
+\end{itemize}}
+\cventry{year--year}{Job title}{Employer}{City}{}
+  {Description line 1\newline{}Description line 2}
+\subsection{Miscellaneous}
+\cventry{year--year}{Job title}{Employer}{City}{}{Description}
+\section{Languages}
+\cvitemwithcomment{Language 1}{Skill level}{Comment}
+\cvitemwithcomment{Language 2}{Skill level}{Comment}
+\end{document}
+// end::01-12-cv.tex[]
+----
+
+
+== 01-13-letter.tex
+
+----
+// tag::01-13-letter.tex[]
+\documentclass[fromalign=right,addrfield=true,
+  foldmarks=true]{scrlttr2}
+\setkomavar{fromname}{Thomas Smith}
+\setkomavar{fromaddress}{123 Blvd \\ City, CC 12345}
+\date{\today}
+\begin{document}
+\begin{letter}{Agency \\ 5th Avenue \\ Capital City, CC 12345}
+\opening{Dear Sir or Madam,}
+the actual content of the letter follows.
+\closing{Yours sincerely}
+\end{letter} 
+\end{document}
+// end::01-13-letter.tex[]
+----
+
+
+== 01-14-letter-more.tex
+
+----
+// tag::01-14-letter-more.tex[]
+\documentclass[fromalign=right,addrfield=true,
+  foldmarks=true,parskip=full]{scrlttr2}
+\setkomavar{fromname}{Thomas Smith}
+\setkomavar{fromaddress}{123 Blvd \\ City, CC 12345}
+\setkomavar*{enclseparator}{Attached}
+\setkomavar{signature}{Thomas}
+\renewcommand{\raggedsignature}{\raggedright}
+\date{\today}
+\begin{document}
+\begin{letter}{Agency \\ 5th Avenue \\ Capital City, CC 12345}
+\opening{Dear Sir or Madam,}
+the actual content of the letter follows.
+\closing{Yours sincerely}
+\encl{Curriculum vitae, certificates}
+\end{letter} 
+\end{document}
+// end::01-14-letter-more.tex[]
+----
+
+
+== 01-15-leaflet.tex
+
+----
+// tag::01-15-leaflet.tex[]
+\documentclass[10pt,notumble,dummy]{leaflet}% demo option for dummy image
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{microtype}
+\pagenumbering{gobble}
+\begin{document}
+\title{\textbf{\TeX\ Live Install Party}}
+\author{\Large\textbf{Your \TeX\ team}}
+\date{\textbf{August 11, City Hall Cellar}}
+\maketitle
+\begin{center}
+\includegraphics[width=\linewidth]{ctanlion.pdf}
+\end{center}
+We'd like to welcome you to our famous yearly \TeX\ install party!
+Bring your laptop and have free cold soft drinks while we assist you in
+installing the latest \TeX\ version on your computer.
+
+We will provide
+\begin{itemize}
+\item a fast internet connection fow downloading,
+\item media such as DVDs and USB sticks with the latest \TeX\,
+\item \TeX\ books for bying with a discount,
+\item chat with \TeX\ experts.
+\end{itemize}
+\clearpage
+Fill in text for page 2 (on the back side)
+\clearpage
+Fill in text for page 3 (on the back side)
+\clearpage
+Fill in text for page 4 (on the back side)
+\clearpage
+\section{Schedule}
+\begin{tabular}{@{}rl@{}}
+6 pm    & Welcome \\
+7:30 pm & Live install presentation \\
+8 pm    & Book authors available for talks and signing \\
+9:30 pm & Bar closing
+\end{tabular}
+
+From 6pm to 10pm: install support
+and free \TeX\ copies on DVD on our welcome desk. 
+\section{Accomodation}
+Hotel, Meals, Travel information here
+\section{Sponsors}
+Information about our local \TeX\ user group
+and Open Source projects sponsor
+\clearpage
+\section{Contact}
+Names, Phone numbers, email addresses
+\end{document}
+// end::01-15-leaflet.tex[]
+----
+
+
+== 01-16-leaflet-more.tex
+
+----
+// tag::01-16-leaflet-more.tex[]
+\documentclass[10pt,notumble,nofoldmark,demo]{leaflet}% demo option for dummy image
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{microtype}
+\pagenumbering{gobble}
+\CutLine{3}
+\usepackage{xcolor}
+\renewcommand{\sectfont}{\large\sffamily\bfseries\color{blue}}
+\begin{document}
+\title{\textbf{\TeX\ Live Install Party}}
+\author{\Large\textbf{Your \TeX\ team}}
+\date{\textbf{August 11, City Hall Cellar}}
+\maketitle
+\begin{center}
+\includegraphics[width=\linewidth]{ctanlion.pdf}
+\end{center}
+We'd like to welcome you to our famous yearly \TeX\ install party!
+Bring your laptop and have free cold soft drinks while we assist you in
+installing the latest \TeX\ version on your computer.
+
+We will provide
+\begin{itemize}
+\item a fast internet connection fow downloading,
+\item media such as DVDs and USB sticks with the latest \TeX\,
+\item \TeX\ books for bying with a discount,
+\item chat with \TeX\ experts.
+\end{itemize}
+\clearpage
+Fill in text for page 2 (on the back side)
+\clearpage
+Fill in text for page 3 (on the back side)
+\clearpage
+Fill in text for page 4 (on the back side)
+\clearpage
+\section{Schedule}
+\begin{tabular}{@{}rl@{}}
+6 pm    & Welcome \\
+7:30 pm & Live install presentation \\
+8 pm    & Book authors available for talks and signing \\
+9:30 pm & Bar closing
+\end{tabular}
+
+From 6pm to 10pm: install support
+and free \TeX\ copies on DVD on our welcome desk. 
+\section{Accomodation}
+Hotel, Meals, Travel information here
+\section{Sponsors}
+Information about our local \TeX\ user group
+and Open Source projects sponsor
+\clearpage
+\section{Contact}
+Names, Phone numbers, email addresses
+\end{document}
+// end::01-16-leaflet-more.tex[]
+----
+
+
+== 02-01-margin-notes.tex
+
+----
+// tag::02-01-margin-notes.tex[]
+\documentclass[paper=a4,oneside,fontsize=11pt,
+  parskip=full]{scrartcl}
+\usepackage{marginnote}
+\usepackage{xcolor}
+\renewcommand*{\marginfont}{\strut\color{blue}%
+  \sffamily\scriptsize}
+%\reversemarginpar
+\begin{document}
+\addsec{Introduction}
+This document will be our starting point for simple
+documents.\marginnote{No chapters supported!}
+It is suitable for a single page or up to
+a couple of dozen pages.
+
+The text will be divided into sections.
+\marginnote{Subsections are the next level.}
+\end{document}
+// end::02-01-margin-notes.tex[]
+----
+
+
+== 02-02-converting-numbers.tex
+
+----
+// tag::02-02-converting-numbers.tex[]
+\documentclass{article}
+\usepackage{fmtcount}
+\begin{document}
+\section{Introduction}
+This document should have \numberstringnum{32}
+pages, now we are on page \numberstring{page}
+in the \ordinalstring{section} section.
+\end{document}
+// end::02-02-converting-numbers.tex[]
+----
+
+
+== 02-03-numbered-list.tex
+
+----
+// tag::02-03-numbered-list.tex[]
+\documentclass{article}
+\usepackage{moreenum}
+\begin{document}
+\begin{enumerate}[label=\Nthwords*]
+  \item live
+  \item long
+  \item prosper
+\end{enumerate}
+\end{document}
+// end::02-03-numbered-list.tex[]
+----
+
+
+== 02-04-colored-boxes.tex
+
+----
+// tag::02-04-colored-boxes.tex[]
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage[pangram]{blindtext}
+\usepackage{tcolorbox}
+\begin{document}
+\begin{tcolorbox}
+  \blindtext
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=\textbf{Examples},
+  colback=blue!5!white,colframe=blue!75!white]
+  The text below consists of pangrams.
+  \tcblower
+  \blindtext[3]
+\end{tcolorbox}
+
+\tcbset{colframe=green!50!black,colback=white,
+  colupper=green!30!black,fonttitle=\bfseries, center title,
+  nobeforeafter, tcbox raise base}
+  Normal text \tcbox{Boxed text}
+\tcbox[left=0pt,right=0pt,top=0.5ex,bottom=0pt,boxsep=0pt,
+  toptitle=0.5ex,bottomtitle=0.5ex,title=Sample table]{
+  \begin{tabular}[t]{rl}
+    Number & 100 \\
+    Sum    & 350
+  \end{tabular}}
+\end{document}
+// end::02-04-colored-boxes.tex[]
+----
+
+
+== 02-05-frame.tex
+
+----
+// tag::02-05-frame.tex[]
+\documentclass[paper=a4,oneside,fontsize=11pt,
+  parskip=full]{scrartcl}
+\usepackage{showframe}
+\pagestyle{empty}
+\begin{document}
+\tableofcontents
+\addsec{Introduction}
+This document will be our starting point for simple
+documents. It is suitable for a single page or up to
+a couple of dozen pages.
+
+The text will be divided into sections.
+\section{The first section}
+This first text will contain
+\begin{itemize}
+  \item a table of contents,
+  \item a bulleted list,
+  \item headings and some text and math in section,
+  \item referencing such as to section \ref{sec:maths} and
+      equation (\ref{eq:integral}).
+\end{itemize}
+We can use this document as a template for filling in
+our own content.
+\section{Some maths}
+\label{sec:maths}
+When we write a scientific or technical document, we usually
+include math formulas. To get a brief glimpse of the look of
+maths, we will look at an integral approximation of a function
+$f(x)$ as a sum with weights $w_i$:
+\begin{equation}
+  \label{eq:integral}
+  \int_a^b f(x)\,\mathrm{d}x \approx (b-a)
+  \sum_{i=0}^n w_i f(x_i)
+\end{equation}
+\end{document}
+// end::02-05-frame.tex[]
+----
+
+
+== 02-06-frame-geometry.tex
+
+----
+// tag::02-06-frame-geometry.tex[]
+\documentclass[paper=a4,oneside,fontsize=11pt,
+  parskip=full]{scrartcl}
+\usepackage[a4paper,bindingoffset=5mm,showframe]{geometry}
+\geometry{showframe}
+\begin{document}
+\tableofcontents
+\addsec{Introduction}
+This document will be our starting point for simple
+documents. It is suitable for a single page or up to
+a couple of dozen pages.
+
+The text will be divided into sections.
+\section{The first section}
+This first text will contain
+\begin{itemize}
+  \item a table of contents,
+  \item a bulleted list,
+  \item headings and some text and math in section,
+  \item referencing such as to section \ref{sec:maths} and
+        equation (\ref{eq:integral}).
+\end{itemize}
+We can use this document as a template for filling in
+our own content.
+\section{Some maths}
+\label{sec:maths}
+When we write a scientific or technical document, we usually
+include math formulas. To get a brief glimpse of the look of
+maths, we will look at an integral approximation of a function
+$f(x)$ as a sum with weights $w_i$:
+\begin{equation}
+  \label{eq:integral}
+  \int_a^b f(x)\,\mathrm{d}x \approx (b-a)
+  \sum_{i=0}^n w_i f(x_i)
+\end{equation}
+\end{document}
+// end::02-06-frame-geometry.tex[]
+----
+
+
+== 02-07-layout.tex
+
+----
+// tag::02-07-layout.tex[]
+\documentclass[paper=a4,oneside,fontsize=11pt,
+  parskip=full]{scrartcl}
+\usepackage{layout}
+\begin{document}
+\layout
+\tableofcontents
+\addsec{Introduction}
+This document will be our starting point for simple
+documents. It is suitable for a single page or up to
+a couple of dozen pages.
+
+The text will be divided into sections.
+\section{The first section}
+This first text will contain
+\begin{itemize}
+  \item a table of contents,
+  \item a bulleted list,
+  \item headings and some text and math in section,
+  \item referencing such as to section \ref{sec:maths} and
+        equation (\ref{eq:integral}).
+\end{itemize}
+We can use this document as a template for filling in
+our own content.
+\section{Some maths}
+\label{sec:maths}
+When we write a scientific or technical document, we usually
+include math formulas. To get a brief glimpse of the look of
+maths, we will look at an integral approximation of a function
+$f(x)$ as a sum with weights $w_i$:
+\begin{equation}
+  \label{eq:integral}
+  \int_a^b f(x)\,\mathrm{d}x \approx (b-a)
+  \sum_{i=0}^n w_i f(x_i)
+\end{equation}
+\end{document}
+// end::02-07-layout.tex[]
+----
+
+
+== 02-08-visual-boxes.tex
+
+----
+// tag::02-08-visual-boxes.tex[]
+% Use LuaLaTeX
+\documentclass[paper=a4,oneside,fontsize=11pt,
+  parskip=full]{scrartcl}
+\usepackage{lua-visual-debug}
+\pagestyle{empty}
+\begin{document}
+\tableofcontents
+\addsec{Introduction}
+This document will be our starting point for simple
+documents. It is suitable for a single page or up to
+a couple of dozen pages.
+
+The text will be divided into sections.
+\section{The first section}
+This first text will contain
+\begin{itemize}
+  \item a table of contents,
+  \item a bulleted list,
+  \item headings and some text and math in section,
+  \item referencing such as to section \ref{sec:maths} and
+        equation (\ref{eq:integral}).
+\end{itemize}
+We can use this document as a template for filling in
+our own content.
+\section{Some maths}
+\label{sec:maths}
+When we write a scientific or technical document, we usually
+include math formulas. To get a brief glimpse of the look of
+maths, we will look at an integral approximation of a function
+$f(x)$ as a sum with weights $w_i$:
+\begin{equation}
+  \label{eq:integral}
+  \int_a^b f(x)\,\mathrm{d}x \approx (b-a)
+  \sum_{i=0}^n w_i f(x_i)
+\end{equation}
+\end{document}
+// end::02-08-visual-boxes.tex[]
+----
+
+
+== 02-09-grid.tex
+
+----
+// tag::02-09-grid.tex[]
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{microtype}
+\usepackage[fontsize=10pt,baseline=12pt]{grid}
+\begin{document}
+\twocolumn
+\section*{Two columns}
+\blindtext[3]
+\begin{figure}
+  \centering
+  \fbox{\makebox(50,50){}}
+  \caption{A dummy figure}
+\end{figure}
+\begin{gridenv}
+  \begin{equation}
+    \sum_n f(n)
+  \end{equation}
+\end{gridenv}
+Text
+\end{document}
+// end::02-09-grid.tex[]
+----
+
+
+== 02-10-gridset.tex
+
+----
+// tag::02-10-gridset.tex[]
+\documentclass{article}% compile until last test is stable
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{microtype}
+\usepackage[fontsize=10pt,baseline=12pt]{grid}
+\usepackage{gridset}
+\usepackage{amsmath}
+\begin{document}
+\twocolumn
+\section*{Two columns}
+\blindtext[3]
+\begin{figure}
+  \centering
+  \fbox{\makebox(50,50){}}
+  \caption{A dummy figure}
+\end{figure}
+\begin{align}
+  y &= \sum_{n=1}^3 f(n) \\
+    &= f(1) + f(2) + f(3)
+\end{align}
+\par\vskipnextgrid\noindent
+Text
+\end{document}
+// end::02-10-gridset.tex[]
+----
+
+
+== 02-11-absolute-positioning.tex
+
+----
+// tag::02-11-absolute-positioning.tex[]
+\documentclass[a5paper]{article}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{showframe}
+\usepackage{eso-pic}
+\usepackage{picture}
+\pagestyle{empty}
+\begin{document}
+\AddToShipoutPictureBG{%
+  \setlength{\unitlength}{1cm}%
+  \put(2.5,2){Test document}%
+  \put(\paperwidth-2cm,2cm){\llap{\thepage}}%
+}
+\AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{Page bottom left}%
+  \AtPageUpperLeft{\raisebox{-\height}{Page top left}}%
+  \AtTextUpperLeft{\raisebox{-\height}{%
+    \color{red}Text area top left}}%
+}
+\AddToShipoutPictureFG{%
+  \AtPageCenter{\rotatebox{15}{\makebox[0pt]{%
+    \Huge\bfseries\color{red}Confidential}}}%
+}
+\lipsum
+\end{document}
+// end::02-11-absolute-positioning.tex[]
+----
+
+
+== 02-12-drop-caps.tex
+
+----
+// tag::02-12-drop-caps.tex[]
+\documentclass{book}
+\usepackage[a6paper]{geometry}
+\usepackage{lettrine}
+\begin{document}
+\lettrine{O}{nce upon a time}, professional writer used
+a mechanical machine called a typewriter. It commonly
+printed fixed-width characters. Emphasizing was done by 
+writing all capitals, and by underlining.
+\end{document}
+// end::02-12-drop-caps.tex[]
+----
+
+
+== 02-13-drop-caps-color.tex
+
+----
+// tag::02-13-drop-caps-color.tex[]
+\documentclass{book}
+\usepackage[a6paper,hmargin=1.5cm]{geometry}
+\usepackage{microtype}
+\usepackage{coloredlettrine}
+\renewcommand{\EBLettrineBackColor}{SlateBlue}
+\setcounter{DefaultLines}{3}
+\renewcommand{\DefaultLraise}{0.25}
+\renewcommand{\DefaultFindent}{0.3em}
+\renewcommand{\DefaultNindent}{0pt}
+\begin{document}
+\coloredlettrine{O}{nce upon a time}, professional
+writers used a mechanical machine called a typewriter.
+It commonly printed fixed-width characters. 
+Emphasizing was done by writing all capitals
+and by underlining.
+
+\coloredlettrine{T}{oday}, we prefer variable-width
+letters. It’s common to provide subtle emphasis by using
+italics or to add greater emphasis by using bold text.
+\end{document}
+// end::02-13-drop-caps-color.tex[]
+----
+
+
+== 02-14-shape.tex
+
+----
+// tag::02-14-shape.tex[]
+\documentclass{article}
+\usepackage{blindtext}
+\usepackage{shapepar}
+\pagestyle{empty}
+\begin{document}
+\shapepar{\heartshape}\blindtext[2]
+\end{document}
+// end::02-14-shape.tex[]
+----
+
+
+== 02-15-cutout.tex
+
+----
+// tag::02-15-cutout.tex[]
+\documentclass{article}
+\usepackage{blindtext}
+\usepackage{shapepar}
+\pagestyle{empty}
+\begin{document}
+\cutout{l} (5ex,2\baselineskip) \setlength{\cutoutsep}{8pt}
+  \shapepar{\circleshape} a few words of text\par
+\blindtext
+\end{document}
+// end::02-15-cutout.tex[]
+----
+
+
+== 02-16-pullquote.tex
+
+----
+// tag::02-16-pullquote.tex[]
+\documentclass{article}
+\usepackage{lipsum}
+\usepackage{pullquote}
+% http://bazaar.launchpad.net/~tex-sx/tex-sx/development/view/head:/pullquote.dtx
+\newcommand{\myquote}{%
+  \parbox{4cm}{
+    \hrule\vspace{1ex}
+    \textit{I can’t go to a restaurant and order food
+      because I keep looking at the fonts on the menu.}
+
+    \hfill Knuth, Donald (2002)%
+    \vspace{1ex}
+    \hrule
+  }%
+}
+\pagestyle{empty}
+\begin{document}
+\begin{pullquote}{object=\myquote}
+  \lipsum[1]
+\end{pullquote}
+\end{document}
+// end::02-16-pullquote.tex[]
+----
+
+
+== 03-01-latin-modern.tex
+
+----
+// tag::03-01-latin-modern.tex[]
+\documentclass[paper=a4,oneside,fontsize=11pt,
+  parskip=full]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\begin{document}
+\tableofcontents
+\addsec{Introduction}
+This document will be our starting point for simple
+documents. It is suitable for a single page or up to
+a couple of dozen pages.
+
+The text will be divided into sections.
+\section{The first section}
+This first text will contain
+\begin{itemize}
+\item a table of contents,
+\item a bullet list,
+\item headings and some text and math in section,
+\item referencing such as to section \ref{sec:maths} and
+      equation (\ref{eq:integral}).
+\end{itemize}
+We can use this document as a template for filling in
+our own content.
+\section{Some maths}
+\label{sec:maths}
+When we write a scientific or technical document, we usually
+include math formulas. To get a brief glimpse of the look of
+maths, we will look at an integral approximation of a function
+$f(x)$ as a sum with weights $w_i$:
+\begin{equation}
+  \label{eq:integral}
+  \int_a^b f(x)\,\mathrm{d}x \approx (b-a)
+  \sum_{i=0}^n w_i f(x_i)
+\end{equation}
+\end{document}
+// end::03-01-latin-modern.tex[]
+----
+
+
+== 03-02-kepler-fonts.tex
+
+----
+// tag::03-02-kepler-fonts.tex[]
+\documentclass[paper=a4,oneside,fontsize=11pt,
+  parskip=full]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage{kpfonts}
+\begin{document}
+\tableofcontents
+\addsec{Introduction}
+This document will be our starting point for simple
+documents. It is suitable for a single page or up to
+a couple of dozen pages.
+
+The text will be divided into sections.
+\section{The first section}
+This first text will contain
+\begin{itemize}
+\item a table of contents,
+\item a bullet list,
+\item headings and some text and math in section,
+\item referencing such as to section \ref{sec:maths} and
+      equation (\ref{eq:integral}).
+\end{itemize}
+We can use this document as a template for filling in
+our own content.
+\section{Some maths}
+\label{sec:maths}
+When we write a scientific or technical document, we usually
+include math formulas. To get a brief glimpse of the look of
+maths, we will look at an integral approximation of a function
+$f(x)$ as a sum with weights $w_i$:
+\begin{equation}
+  \label{eq:integral}
+  \int_a^b f(x)\,\mathrm{d}x \approx (b-a)
+  \sum_{i=0}^n w_i f(x_i)
+\end{equation}
+\end{document}
+// end::03-02-kepler-fonts.tex[]
+----
+
+
+== 03-03-libertine.tex
+
+----
+// tag::03-03-libertine.tex[]
+\documentclass[paper=a4,oneside,fontsize=11pt,
+  parskip=full]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\usepackage[libertine,cmintegrals,cmbraces,vvarbb]{newtxmath}
+\usepackage[scaled=0.95]{inconsolata}
+\begin{document}
+\tableofcontents
+\addsec{Introduction}
+This document will be our starting point for simple
+documents. It is suitable for a single page or up to
+a couple of dozen pages.
+
+The text will be divided into sections.
+\section{The first section}
+This first text will contain
+\begin{itemize}
+\item a table of contents,
+\item a bullet list,
+\item headings and some text and math in section,
+\item referencing such as to section \ref{sec:maths} and
+      equation (\ref{eq:integral}).
+\end{itemize}
+We can use this document as a template for filling in
+our own content.
+\section{Some maths}
+\label{sec:maths}
+When we write a scientific or technical document, we usually
+include math formulas. To get a brief glimpse of the look of
+maths, we will look at an integral approximation of a function
+$f(x)$ as a sum with weights $w_i$:
+\begin{equation}
+  \label{eq:integral}
+  \int_a^b f(x)\,\mathrm{d}x \approx (b-a)
+  \sum_{i=0}^n w_i f(x_i)
+\end{equation}
+\end{document}
+// end::03-03-libertine.tex[]
+----
+
+
+== 03-04-zapf-chancery.tex
+
+----
+// tag::03-04-zapf-chancery.tex[]
+\documentclass{article}
+\newcommand{\zapf}{\fontfamily{pzc}\selectfont}
+\newenvironment{zapfenv}{\fontfamily{pzc}\selectfont}{}
+\begin{document}
+Normal text
+
+{\zapf Zapf Chancery\par}
+
+Normal text
+
+\begin{zapfenv}
+Zapf Chancery
+\end{zapfenv}
+
+Normal text
+\end{document}
+// end::03-04-zapf-chancery.tex[]
+----
+
+
+== 03-05-font-selection.tex
+
+----
+// tag::03-05-font-selection.tex[]
+\documentclass{article}
+\newcommand{\setfont}[1]{\fontfamily{#1}\selectfont}
+\newenvironment{fontenv}[1]{\fontfamily{#1}\selectfont}{}
+\begin{document}
+Normal text
+
+{\setfont{pzc} Zapf Chancery\par}
+
+Normal text
+
+\begin{fontenv}{pzc}
+Zapf Chancery
+\end{fontenv}
+
+Normal text
+\end{document}
+// end::03-05-font-selection.tex[]
+----
+
+
+== 03-06-heading-font.tex
+
+----
+// tag::03-06-heading-font.tex[]
+\documentclass{scrbook}
+\newcommand{\zapf}{\fontfamily{pzc}\selectfont}
+\setkomafont{chapter}{\normalcolor\zapf\Huge}
+\begin{document}
+\chapter{The Heading}
+Normal text
+\end{document}
+// end::03-06-heading-font.tex[]
+----
+
+
+== 03-07-font-table.tex
+
+----
+// tag::03-07-font-table.tex[]
+\documentclass[a4paper]{article}
+\usepackage{fonttable}
+\usepackage[margin=4.5cm]{geometry}
+\pagestyle{empty}
+\begin{document}
+\fonttable{pzdr}
+\end{document}
+// end::03-07-font-table.tex[]
+----
+
+
+== 03-08-font-table-extended.tex
+
+----
+// tag::03-08-font-table-extended.tex[]
+\documentclass[a4paper]{article}
+\usepackage{fonttable}
+\usepackage[margin=4.5cm]{geometry}
+\pagestyle{empty}
+\begin{document}
+\xfonttable{T1}{pzc}{m}{it}
+\end{document}
+// end::03-08-font-table-extended.tex[]
+----
+
+
+== 03-09-font-sample.tex
+
+----
+// tag::03-09-font-sample.tex[]
+\documentclass[a4paper]{article}
+\usepackage{fonttable}
+\usepackage[margin=4.5cm]{geometry}
+\pagestyle{empty}
+\begin{document}
+\fonttext{pzcmi7t}
+\end{document}
+// end::03-09-font-sample.tex[]
+----
+
+
+== 03-10-import-symbol.tex
+
+----
+// tag::03-10-import-symbol.tex[]
+\documentclass[border=10pt]{standalone}
+\DeclareFontFamily{U}{matha}{\hyphenchar\font45}
+\DeclareFontShape{U}{matha}{m}{n}{
+      <5> <6> <7> <8> <9> <10> gen * matha
+      <10.95> matha10 <12> <14.4> <17.28> <20.74> <24.88> matha12
+      }{}
+\DeclareSymbolFont{matha}{U}{matha}{m}{n}
+\DeclareMathSymbol{\leq}{3}{matha}{"A4}
+\DeclareMathSymbol{\nleq}{3}{matha}{"A6}
+\begin{document}
+If $A \leq B$, then $B \nleq A$.
+\end{document}
+// end::03-10-import-symbol.tex[]
+----
+
+
+== 03-11-bold-symbols-bm.tex
+
+----
+// tag::03-11-bold-symbols-bm.tex[]
+\documentclass{article}
+\usepackage{bm}
+\bmdefine{\bX}{X}
+\bmdefine{\bi}{i}
+\bmdefine{\bMinus}{-}
+\bmdefine{\bSum}{\sum}
+\bmdefine{\bLeft}{(}
+\bmdefine{\bRight}{)}
+\pagestyle{empty}
+\begin{document}
+\[ \sum_{i} ( - X_{i} ) \]
+\[ \bSum_{\bi} \bLeft \bMinus \bX_{\bi} \bRight \]
+\end{document}
+// end::03-11-bold-symbols-bm.tex[]
+----
+
+
+== 03-12-bold-symbols-amsmath.tex
+
+----
+// tag::03-12-bold-symbols-amsmath.tex[]
+\documentclass{article}
+\usepackage{amsmath}
+\newcommand{\bX}{\boldsymbol{X}}
+\newcommand{\bi}{\boldsymbol{i}}
+\newcommand{\bMinus}{\boldsymbol{-}}
+\newcommand{\bSum}{\boldsymbol{\sum}}
+\newcommand{\bLeft}{\boldsymbol{(}}
+\newcommand{\bRight}{\boldsymbol{)}}
+\pagestyle{empty}
+\begin{document}
+\[ \sum_{i} ( - X_{i} ) \]
+\[ \bSum_{\bi} \bLeft \bMinus \bX_{\bi} \bRight \]
+\end{document}
+// end::03-12-bold-symbols-amsmath.tex[]
+----
+
+
+== 03-13-sans-serif-math.tex
+
+----
+// tag::03-13-sans-serif-math.tex[]
+\documentclass{article}
+\usepackage{sfmath}
+\usepackage{sansmathaccent}
+\pagestyle{empty}
+\begin{document}
+\[
+  \int_a^b f(x)\,\mathrm{d}x \approx (b-a)
+  \sum_{i=0}^n w_i f(x_i)
+\]
+\end{document}
+// end::03-13-sans-serif-math.tex[]
+----
+
+
+== 03-14-sansmath.tex
+
+----
+// tag::03-14-sansmath.tex[]
+\documentclass{standalone}
+\usepackage{sansmath}
+\sansmath
+\pagestyle{empty}
+\begin{document}
+\[
+  \int_a^b f(x)\,\mathrm{d}x \approx (b-a)
+  \sum_{i=0}^n w_i f(x_i)
+\]
+\end{document}
+// end::03-14-sansmath.tex[]
+----
+
+
+== 03-15-sans-math-arev.tex
+
+----
+// tag::03-15-sans-math-arev.tex[]
+\documentclass{article}
+\usepackage{arev}
+\pagestyle{empty}
+\begin{document}
+\[
+  \int_a^b f(x)\,\mathrm{d}x \approx (b-a)
+  \sum_{i=0}^n w_i f(x_i)
+\]
+\end{document}
+// end::03-15-sans-math-arev.tex[]
+----
+
+
+== 03-16-sans-math-kepler.tex
+
+----
+// tag::03-16-sans-math-kepler.tex[]
+\documentclass{article}
+\usepackage[sfmath,lighttext]{kpfonts}
+\pagestyle{empty}
+\begin{document}
+\[
+  \int_a^b f(x)\,\mathrm{d}x \approx (b-a)
+  \sum_{i=0}^n w_i f(x_i)
+\]
+\end{document}
+// end::03-16-sans-math-kepler.tex[]
+----
+
+
+== 03-17-double-stroke-letters.tex
+
+----
+// tag::03-17-double-stroke-letters.tex[]
+\documentclass{article}
+\usepackage{dsfont}
+\begin{document}
+\pagestyle{empty}
+\[
+  \mathds{N} \subset \mathds{Z} \subset
+  \mathds{Q} \subset \mathds{R} \subset \mathds{C}
+\]
+\end{document}
+// end::03-17-double-stroke-letters.tex[]
+----
+
+
+== 03-18-ligatures.tex
+
+----
+// tag::03-18-ligatures.tex[]
+\documentclass{article}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\begin{document}
+floating figures
+\end{document}
+// end::03-18-ligatures.tex[]
+----
+
+
+== 03-19-disable-ligatures.tex
+
+----
+// tag::03-19-disable-ligatures.tex[]
+\documentclass{article}
+\usepackage{microtype}
+\DisableLigatures[f]{encoding = *, family = * }
+\begin{document}
+floating figures
+\end{document}
+// end::03-19-disable-ligatures.tex[]
+----
+
+
+== 03-20-contour.tex
+
+----
+// tag::03-20-contour.tex[]
+// end::03-20-contour.tex[]
+----
+
+
+== 04-01-table-lines.tex
+
+----
+// tag::04-01-table-lines.tex[]
+% Example of a bad table - too many lines reduce legibility
+\documentclass{article}
+\pagestyle{empty}
+\begin{document}
+\begin{tabular}{|c|c|c|c|}
+  \hline
+  $\ast$ & 1 & 2 & 3 \\\hline
+     1   & 1 & 2 & 3 \\\hline
+     2   & 2 & 4 & 6 \\\hline
+     3   & 3 & 6 & 9 \\\hline
+  \end{tabular}
+\end{document}
+// end::04-01-table-lines.tex[]
+----
+
+
+== 04-02-table-improved.tex
+
+----
+// tag::04-02-table-improved.tex[]
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{bbding}
+\pagestyle{empty}
+\begin{document}
+\begin{table}
+  \centering
+  \renewcommand{\arraystretch}{1.6}
+  \begin{tabular}{lccccc}
+    \toprule
+    Class   & Part page  & Chapters   & Abstract   &
+                    Front-/Backmatter & Appendix name \\
+    \cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(lr){3-3}
+    \cmidrule(lr){4-4}\cmidrule(lr){5-5}\cmidrule(l){6-6}
+    article &            &            & \Checkmark &  \\
+    book    & \Checkmark & \Checkmark &            &
+              \Checkmark & \Checkmark                 \\
+    report  & \Checkmark & \Checkmark & \Checkmark &
+                         & \Checkmark                 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Structuring differences between standard
+           \LaTeX\ classes}
+  \label{comparison}
+\end{table}
+\end{document}
+// end::04-02-table-improved.tex[]
+----
+
+
+== 04-03-merge-cells.tex
+
+----
+// tag::04-03-merge-cells.tex[]
+% Merging cells
+\documentclass{article}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{metalogo}
+\renewcommand{\arraystretch}{1.6}
+\begin{document}
+\begin{tabular}{@{}p{1.5cm}p{1.6cm}>{\raggedleft}p{1cm}
+                >{\raggedright}p{1.6cm}r@{}}
+  Compiler & \multicolumn{2}{c}{Input}
+           & \multicolumn{2}{c}{Output} \\
+   \cmidrule(r){1-1}\cmidrule(lr){2-3}\cmidrule(l){4-5}
+           & Encoding & Images  & Fonts & Format \\
+   \cmidrule(lr){2-2}\cmidrule(lr){3-3}
+   \cmidrule(lr){4-4}\cmidrule(l){5-5}
+   \LaTeX    & utf8, ascii, applemac, latin1, \ldots
+             & EPS         & Type 1, Type 3 & DVI \\
+   pdf\LaTeX & utf8, ascii, applemac, latin1, \ldots
+             & PDF PNG JPG & Type 1, Type 3 & PDF \\
+  \XeLaTeX, \LuaLaTeX & utf8
+             & PDF PNG JPG & Type 1, Type 3,
+             OpenType, Graphite, TrueType & PDF \\
+\end{tabular}
+\end{document}
+// end::04-03-merge-cells.tex[]
+----
+
+
+== 04-04-merge-rows.tex
+
+----
+// tag::04-04-merge-rows.tex[]
+% Merging cells, merging rows
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{multirow}
+\begin{document}
+\begin{tabular}{cc}
+  Bundle & Main classes \\
+  \cmidrule(lr){1-1}\cmidrule(lr){2-2}
+  \addlinespace
+  \multirow{4}{*}{\LaTeX\ base} & article  \\
+       & book     \\
+       & report   \\
+       & letter   \\
+  \addlinespace
+  \multirow{4}{*}{KOMA-Script}  & scrartcl \\
+       & scrbook  \\
+       & scrreprt \\
+       & scrlttr2 \\
+\end{tabular}
+\end{document}
+// end::04-04-merge-rows.tex[]
+----
+
+
+== 04-05-split-cells.tex
+
+----
+// tag::04-05-split-cells.tex[]
+% Splitting a cell diagonally
+\documentclass{article}
+\usepackage{slashbox}
+\begin{document}
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+\backslashbox{Time}{Weekday} & Monday & Tuesday
+& Wednesday & Thursday & Friday \\
+\hline
+8--10 & & & & & \\
+10--12 & & & & & \\
+12--14 & & & & & \\
+14--16 & & & & & \\
+\hline
+\end{tabular}
+\end{document}
+// end::04-05-split-cells.tex[]
+----
+
+
+== 04-06-table-footnotes.tex
+
+----
+// tag::04-06-table-footnotes.tex[]
+% Stefan Kottwitz, LaTeX Cookbook, Packt Publishing, 2015
+% Chapter 5, Designing Tables
+% Adding footnotes to a table
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{bbding}
+\usepackage{threeparttable}
+\begin{document}
+\begin{table}
+  \centering
+  \renewcommand{\arraystretch}{1.6}
+  \begin{threeparttable}
+    \begin{tabular}{lccccc}
+      \toprule
+      Class   & Part page  & Chapters   & Abstract\tnote{1} &
+      Front-/Backmatter\tnote{2}  & Appendix name\tnote{3} \\
+      \cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(lr){3-3}
+      \cmidrule(lr){4-4}\cmidrule(lr){5-5}\cmidrule(l){6-6}
+      article &            &            & \Checkmark &  \\
+      book    & \Checkmark & \Checkmark &            &
+                \Checkmark & \Checkmark                 \\
+      report  & \Checkmark & \Checkmark & \Checkmark &
+                           & \Checkmark                 \\
+      \bottomrule
+    \end{tabular}
+    \begin{tablenotes}
+      \item[1] An environment: \verb|\begin{abstract}| \ldots
+               \verb|\end{abstract}|
+      \item[2] Commands: \verb|\frontmatter|, \verb|\mainmatter|,
+        \verb|\backmatter|
+      \item[3] The \verb|article| class provides the
+        \verb|\appendix| command without
+        ``Appendix'' prefix.
+    \end{tablenotes}
+  \end{threeparttable}
+  \caption{Structuring differences between standard
+           \LaTeX\ classes}
+  \label{comparison}
+\end{table}
+\end{document}
+// end::04-06-table-footnotes.tex[]
+----
+
+
+== 04-07-align-data.tex
+
+----
+// tag::04-07-align-data.tex[]
+% Aligning numeric data
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{chemformula}
+%\sisetup{table-figures-decimal  = 5,
+%         table-figures-integer  = 2,
+%         table-number-alignment = right}
+%\sisetup{table-format = 2.5,
+%         table-number-alignment = right}
+\begin{document}
+  \begin{tabular}{lSS}
+    \toprule
+              & {atomic mass} & {total mass} \\
+    \midrule
+    \ch{C}    &    12.011     & 12.011       \\
+    \ch{H}    &     1.00794   &  6.04764     \\
+    \ch{C2H6} &               & 30.06964     \\
+    \bottomrule
+  \end{tabular}
+\end{document}
+// end::04-07-align-data.tex[]
+----
+
+
+== 04-08-zebra-table.tex
+
+----
+// tag::04-08-zebra-table.tex[]
+\documentclass{article}
+\usepackage[table]{xcolor}
+\rowcolors{2}{gray!30}{white}
+\newcommand{\head}[1]{%
+  \textcolor{black}{\textbf{#1}}}
+\renewcommand{\arraystretch}{1.5}
+\begin{document}
+\pagestyle{empty}
+\begin{table}
+  \centering
+  \sffamily
+  \begin{tabular}{rlr}
+    \rowcolor{gray}
+     & \head{Distribution} & \head{Hits} \\
+     1 & MX Linux    & 2717 \\
+     2 & Mint        & 2097 \\
+     3 & EndeavourOS & 2055 \\
+     4 & Manjaro     & 1382 \\
+     5 & Debian      & 1316 \\
+     6 & Ubuntu      & 1083 \\
+     7 & Pop! OS     & 1063 \\
+     8 & Fedora      & 1056 \\
+     9 & openSUSE    & 748  \\
+    10 & Lite        & 685
+  \end{tabular}
+\end{table}
+\end{document}
+\DTLsort[[replacement keys]{sort criteria}{database name}
+// end::04-08-zebra-table.tex[]
+----
+
+
+== 04-09-csv-import.tex
+
+----
+// tag::04-09-csv-import.tex[]
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{datatool}
+\DTLloaddb{Linux}{linux.csv}
+\DTLsort{Hits=descending}{Linux}
+\pagestyle{empty}
+\begin{document}
+\begin{tabular}{rlr}
+  & Distribution & Hits \\
+  \cmidrule(lr){2-2}\cmidrule(lr){3-3}
+  \DTLforeach{Linux}{%
+    \distribution=Distribution, \hits=Hits}{%
+      \theDTLrowi & \distribution & \hits \\}
+\end{tabular}
+\end{document}
+// end::04-09-csv-import.tex[]
+----
+
+
+== 0-5-Working-with-Images/README.md
+
+----
+// tag::0-5-Working-with-Images/README.md[]
+The code will be uploaded soon.
+// end::0-5-Working-with-Images/README.md[]
+----
+
+
+== 0-6-Creating-Graphics/README.md
+
+----
+// tag::0-6-Creating-Graphics/README.md[]
+The code will be uploaded soon.
+// end::0-6-Creating-Graphics/README.md[]
+----
+
+
+== 07-01-background.tex
+
+----
+// tag::07-01-background.tex[]
+\documentclass{article}
+\usepackage{background}
+\usepackage{blindtext}
+\backgroundsetup{scale = 1, angle = 0, opacity = 0.2,
+  contents = {\includegraphics[width = \paperwidth,
+  height = \paperheight, keepaspectratio]
+  {/usr/local/texlive/2014/texmf-dist/doc/latex/l2picfaq/ctanlion.pdf}}}
+  % Adjust filename and path to match your own image 
+\begin{document}
+\Blinddocument
+\end{document}
+// end::07-01-background.tex[]
+----
+
+
+== 07-02-background-border.tex
+
+----
+// tag::07-02-background-border.tex[]
+\documentclass{article}
+\usepackage{blindtext}
+\usepackage{background}
+\usetikzlibrary{calc}
+\backgroundsetup{angle = 0, scale = 1, vshift = -2ex,
+  contents = {\tikz[overlay, remember picture]
+    \draw [rounded corners = 20pt, line width = 1pt,
+           color = blue, fill = yellow!20, double = blue!10]
+           ($(current page.north west)+(1cm,-1cm)$)
+           rectangle ($(current page.south east)+(-1,1)$);}}
+\pagestyle{empty}
+\begin{document}
+\Blinddocument
+\end{document}
+// end::07-02-background-border.tex[]
+----
+
+
+== 07-03-background-number.tex
+
+----
+// tag::07-03-background-number.tex[]
+\documentclass{article}
+\usepackage{blindtext}
+\usepackage{background}
+\backgroundsetup{placement = top, angle = 0,
+  scale = 4, color = blue!80,vshift = -0ex,
+  contents = {--\thepage--}}
+\pagestyle{empty}
+\begin{document}
+\Blinddocument
+\end{document}
+// end::07-03-background-number.tex[]
+----
+
+
+== 07-04-ornament.tex
+
+----
+// tag::07-04-ornament.tex[]
+\documentclass[paper=a6,landscape,fontsize=30pt]{scrartcl}
+\areaset{0.9\paperwidth}{0.68\paperheight}
+\pagestyle{empty}
+\usepackage[T1]{fontenc}
+\usepackage{calligra}
+\usepackage{pgfornament}
+\usetikzlibrary{calc}
+\begin{document}
+\centering
+\begin{tikzpicture}[
+    every node/.style       = {inner sep = 0pt},
+    pgfornamentstyle/.style = {color     = green!50!black,
+                               fill      = green!80!black}]
+  \node [text width = 8cm, outer sep = 1.2cm, text centered,
+    color = red!90!black, font = \calligra] (Greeting)
+    { Happy Birthday,\\Dear Mom!\\[-1ex]
+      \pgfornament[color = red!90!black, width = 2.5cm]{72}};
+  \foreach \corner/\sym in {north west/none, north east/v,
+      south west/h, south east/c} {
+      \node [anchor = \corner] (\corner) at (Greeting.\corner)
+        {\pgfornament[width = 2cm, symmetry = \sym]{63}};}
+  \path (north west) -- (south west)
+          node [midway, anchor = east]
+               {\pgfornament[height = 2cm]{9}}
+        (north east) -- (south east)
+          node [midway, anchor = west]
+               {\pgfornament[height = 2cm, symmetry = v]{9}};
+  \pgfornamenthline{north west}{north east}{north}{87}
+  \pgfornamenthline{south west}{south east}{south}{87}
+\end{tikzpicture}
+\end{document}
+// end::07-04-ornament.tex[]
+----
+
+
+== 07-05-background-ornament.tex
+
+----
+// tag::07-05-background-ornament.tex[]
+\documentclass[a7paper,fontsize=19pt]{scrartcl}
+\usepackage[landscape,margin=1.2cm]{geometry}
+\usepackage{pgfornament}
+\usepackage{background}
+\usepackage{lipsum}
+\usepackage{microtype}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\backgroundsetup{angle=0, scale=1, opacity=1, color=black!60,
+  contents={\begin{tikzpicture}[remember picture, overlay]
+    \foreach \pos/\sym in {north west/none, north east/v,
+      south west/h, south east/c} {
+        \node[anchor=\pos] at (current page.\pos)
+          {\pgfornament[width=2cm,symmetry=\sym]{63}};}
+  \end{tikzpicture}}}
+\begin{document}
+\noindent\lipsum
+\end{document}
+// end::07-05-background-ornament.tex[]
+----
+
+
+== 07-06-headings.tex
+
+----
+// tag::07-06-headings.tex[]
+\documentclass{scrartcl}
+\usepackage[automark]{scrpage2}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\PassOptionsToPackage{svgnames}{xcolor}
+\usepackage{tikz}
+\newcommand{\tikzhead}[1]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[yshift=-2cm] at (current page.north west)
+      {\begin{tikzpicture}[remember picture, overlay]
+        \path[draw=none, fill=LightSkyBlue] (0,0) rectangle
+          (\paperwidth,2cm);
+        \node[anchor=east,xshift=.9\paperwidth,rectangle,
+              rounded corners=15pt,inner sep=11pt,
+              fill=MidnightBlue,font=\sffamily\bfseries]
+              {\color{white}#1};
+       \end{tikzpicture}
+      };
+   \end{tikzpicture}}
+\clearscrheadings
+\ihead{\tikzhead{\headmark}}
+\pagestyle{scrheadings}
+\begin{document}
+\tableofcontents
+\clearpage
+\blinddocument
+\end{document}
+// end::07-06-headings.tex[]
+----
+
+
+== 07-07-calendar.tex
+
+----
+// tag::07-07-calendar.tex[]
+\documentclass[DIV14]{scrartcl}
+%\usepackage[margin = 2.5cm, a4paper]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{calendar,positioning}
+\newcommand{\calyear}{2016}
+\newcommand{\mon}[1]{\calendar[dates = \calyear-#1-01
+  to \calyear-#1-last] if (Sunday) [red];}
+\pagestyle{empty}
+\begin{document}
+  \begin{tikzpicture}[every calendar/.style = {
+      month label above centered,
+      month text = {\Large\textsc{\%mt}},
+      week list,
+    }]
+    \matrix (Calendar) [column sep = 4em, row sep = 3em] {
+      \mon{01} & \mon{02} & \mon{03} \\
+      \mon{04} & \mon{05} & \mon{06} \\
+      \mon{07} & \mon{08} & \mon{09} \\
+      \mon{10} & \mon{11} & \mon{12} \\ };
+    \node [above = 1cm of Calendar, font = \Huge] {\calyear};
+  \end{tikzpicture}
+\end{document}
+// end::07-07-calendar.tex[]
+----
+
+
+== 07-08-keyboard-menu.tex
+
+----
+// tag::07-08-keyboard-menu.tex[]
+\documentclass[a4paper]{scrartcl}
+\usepackage{tikz}
+\pagestyle{empty}
+\begin{document}
+\begin{tikzpicture}[remember picture,overlay]
+  \draw[step=0.5cm, color=gray]
+    (current page.south west) grid (current page.north east);
+\end{tikzpicture}
+\end{document}
+// end::07-08-keyboard-menu.tex[]
+----
+
+
+== 07-09-contextmenu.tex
+
+----
+// tag::07-09-contextmenu.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{sim-os-menus}
+\usepackage{xfp}
+\begin{document}
+  \ContextMenu[Font=\sffamily]{Open, Open with(>), Rename, Run(>)(*), Delete § LaTeX,BibTeX,MakeIndex}
+\end{document}
+// end::07-09-contextmenu.tex[]
+----
+
+
+== 07-10-terminal.tex
+
+----
+// tag::07-10-terminal.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{sim-os-menus}
+\usepackage{xfp}
+\begin{document}
+\begin{TermMac}{hbox}
+stefan@laptop ~ % ping latex.org
+PING latex.org (78.46.26.59): 56 data bytes
+64 bytes from 78.46.26.59: icmp_seq=0 ttl=55 time=45.882 ms
+64 bytes from 78.46.26.59: icmp_seq=1 ttl=55 time=31.600 ms
+64 bytes from 78.46.26.59: icmp_seq=2 ttl=55 time=36.364 ms
+^C
+--- latex.org ping statistics ---
+3 packets transmitted, 3 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 31.600/37.949/45.882/5.937 ms
+stefan@laptop ~ % 
+\end{TermMac}
+\end{document}
+
+
+extrude top by=0.2cm,sharpish corners
+// end::07-10-terminal.tex[]
+----
+
+
+== 07-11-puzzle.tex
+
+----
+// tag::07-11-puzzle.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{thematicpuzzle}
+\usepackage{xfp}
+\usepackage{fontawesome5}
+\begin{document}
+\ThematicPuzzle[FontLabels = {\tiny\sffamily},
+  Labels = { Editor, LaTeX, BibTeX,
+             MakeIndex, Tools, PDF},
+  BgColors = {green!90, yellow!20, red!20, blue!20,
+  orange!60, yellow!30},
+  IconsColor = {red!90!black}]
+  { \faEdit, \faFileExport, \faBookOpen,
+    \faClipboardList, \faTools,\faFilePdf }
+\end{document}
+// end::07-11-puzzle.tex[]
+----
+
+
+== 08-01-toc-graduated.tex
+
+----
+// tag::08-01-toc-graduated.tex[]
+\documentclass[11pt,a5paper,pagesize=auto,titlepage=firstiscover]{scrbook}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{blindtext}
+\usepackage[tocindentauto]{tocstyle}
+\usetocstyle{KOMAlike}
+\frenchspacing
+\makeatletter
+\renewcommand*{\maketitle}{
+  \thispagestyle{empty}
+  \vspace*{1cm}
+  {\huge\raggedright\@title\par}
+  \noindent\hrulefill\par
+  {\LARGE\raggedleft\@author\par}
+  \vfill
+  {\Large\raggedleft Institute\par}
+  \cleardoublepage
+  }
+\makeatother
+\begin{document}
+\title{The Book}
+\author{The Author}
+\date{}
+\maketitle
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\tableofcontents 
+\part{First portion}
+\chapter{The beginning}
+Some introductional text comes here.
+\section{A first section}
+Dummy text will follow.
+\blindtext
+\section{Another section}
+\Blindtext
+\appendix
+\part{Appendix}
+\chapter{An addendum}
+\section{Section within the appendix}
+\blindtext
+\end{document}
+// end::08-01-toc-graduated.tex[]
+----
+
+
+== 08-02-toc-flat.tex
+
+----
+// tag::08-02-toc-flat.tex[]
+\documentclass[11pt,a5paper,pagesize=auto,titlepage=firstiscover]{scrbook}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{blindtext}
+\usepackage[tocindentauto,tocflat]{tocstyle}
+\usetocstyle{KOMAlike}
+\frenchspacing
+\makeatletter
+\renewcommand*{\maketitle}{
+  \thispagestyle{empty}
+  \vspace*{1cm}
+  {\huge\raggedright\@title\par}
+  \noindent\hrulefill\par
+  {\LARGE\raggedleft\@author\par}
+  \vfill
+  {\Large\raggedleft Institute\par}
+  \cleardoublepage
+  }
+\makeatother
+\begin{document}
+\title{The Book}
+\author{The Author}
+\date{}
+\maketitle
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\tableofcontents 
+\part{First portion}
+\chapter{The beginning}
+Some introductional text comes here.
+\section{A first section}
+Dummy text will follow.
+\blindtext
+\section{Another section}
+\Blindtext
+\appendix
+\part{Appendix}
+\chapter{An addendum}
+\section{Section within the appendix}
+\blindtext
+\end{document}
+// end::08-02-toc-flat.tex[]
+----
+
+
+== 08-03-toc-fullflat.tex
+
+----
+// tag::08-03-toc-fullflat.tex[]
+\documentclass[11pt,a5paper,pagesize=auto,titlepage=firstiscover]{scrbook}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{blindtext}
+\usepackage[tocindentauto,tocfullflat]{tocstyle}
+\usetocstyle{KOMAlike}
+\frenchspacing
+\makeatletter
+\renewcommand*{\maketitle}{
+  \thispagestyle{empty}
+  \vspace*{1cm}
+  {\huge\raggedright\@title\par}
+  \noindent\hrulefill\par
+  {\LARGE\raggedleft\@author\par}
+  \vfill
+  {\Large\raggedleft Institute\par}
+  \cleardoublepage
+  }
+\makeatother
+\begin{document}
+\title{The Book}
+\author{The Author}
+\date{}
+\maketitle
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\tableofcontents 
+\part{First portion}
+\chapter{The beginning}
+Some introductional text comes here.
+\section{A first section}
+Dummy text will follow.
+\blindtext
+\section{Another section}
+\Blindtext
+\appendix
+\part{Appendix}
+\chapter{An addendum}
+\section{Section within the appendix}
+\blindtext
+\end{document}
+// end::08-03-toc-fullflat.tex[]
+----
+
+
+== 08-04-bibliography.tex
+
+----
+// tag::08-04-bibliography.tex[]
+\documentclass{scrartcl}
+\usepackage{biblatex}
+\addbibresource{texbooks.bib}
+\begin{document}
+\section*{Recommended texts}
+To study \TeX\ in depth, see \autocite{DK86}. For writing math texts,
+see \autocite{DK89}. The basic reference for \LaTeX\ is \autocite{Lamport}.
+\printbibliography
+\end{document}
+// end::08-04-bibliography.tex[]
+----
+
+
+== 08-05-bibliography-options.tex
+
+----
+// tag::08-05-bibliography-options.tex[]
+\documentclass{scrartcl}
+\usepackage[
+    backend = biber,
+    style   = authoryear,
+    natbib  = true,
+  ]{biblatex}
+\addbibresource{texbooks.bib}
+\begin{document}
+\section*{Recommended texts}
+To study \TeX\ in depth, see \autocite{DK86}. For writing math texts,
+see \autocite{DK89}. The basic reference for \LaTeX\ is \autocite{Lamport}.
+\printbibliography
+\end{document}
+// end::08-05-bibliography-options.tex[]
+----
+
+
+== 08-06-bibliography-internet.tex
+
+----
+// tag::08-06-bibliography-internet.tex[]
+\documentclass{scrartcl}
+\usepackage{biblatex}
+\addbibresource[location=remote]{http://latex-community.org/texbooks.bib}
+\begin{document}
+\section*{Recommended texts}
+To study \TeX\ in depth, see \autocite{DK86}. For writing math texts,
+see \autocite{DK89}. The basic reference for \LaTeX\ is \autocite{Lamport}.
+\printbibliography
+\end{document}
+// end::08-06-bibliography-internet.tex[]
+----
+
+
+== 08-07-glossaries.tex
+
+----
+// tag::08-07-glossaries.tex[]
+\documentclass[parskip=half]{scrartcl}
+\usepackage[style=long3col]{glossaries}
+\makenoidxglossaries
+\newglossaryentry{tex}{
+  name = {\TeX},
+  sort = {TEX},
+  description = {Sophisticated digital typesetting system,
+                 famous for high typographic quality of
+                 mathematical formulae}
+}
+\newglossaryentry{latex}{
+  name ={\LaTeX},
+  sort = {LATEX},
+  description = {Document markup language based on
+                 \gls{tex}, widely used in academia}
+}
+\newglossaryentry{tikz}{
+  name = {Ti\emph{k}Z},
+  sort = {TikZ},
+  description = {Extremely capable graphics
+                 language for drawing with \gls{tex}}
+}
+\begin{document}
+\gls{tikz} works with plain \gls{tex}. However,
+it is mostly used with \gls{latex}.
+\printnoidxglossary
+\end{document}
+// end::08-07-glossaries.tex[]
+----
+
+
+== 08-08-acronyms.tex
+
+----
+// tag::08-08-acronyms.tex[]
+\documentclass[parskip=half]{scrartcl}
+\usepackage[acronym,style=long3col]{glossaries}
+\setacronymstyle{long-sc-short}
+\newacronym{ctan}{CTAN}{Comprehensive \TeX\ Archive Network}
+\newacronym{tug}{TUG}{\TeX\ Users Group}
+\newacronym{dante}{DANTE}{Deutschsprachige Anwendervereinigung \TeX}
+\makenoidxglossaries
+\begin{document}
+The \gls{ctan} has been founded by members of the \gls{tug} and of
+the German speaking group ``\gls{dante}''.
+
+The \gls{ctan} project is actually independent of \gls{tug} and \gls{dante},
+but \gls{dante} is still the main supporter.
+\printnoidxglossary[type=\acronymtype]
+\end{document}
+// end::08-08-acronyms.tex[]
+----
+
+
+== 08-09-index.tex
+
+----
+// tag::08-09-index.tex[]
+\documentclass[parskip=half]{scrartcl}
+\usepackage{makeidx}
+\makeindex
+\begin{document}
+While \index{glossary}glossary entries are simply
+printed in the text, an \index{acronyms}acronym
+is firstly fully printed with the short version
+in parentheses, later only in the short version.
+\printindex
+\end{document}
+// end::08-09-index.tex[]
+----
+
+
+== 08-10-index-extended.tex
+
+----
+// tag::08-10-index-extended.tex[]
+\documentclass[parskip=half]{scrartcl}
+\usepackage{makeidx}
+\newcommand{\package}[2]{\index{packages!\texttt{#2}}%
+  \index{#1!package \texttt{#2}}\texttt{#2}}
+\makeindex
+\begin{document}
+While \index{glossary}glossary \index{glossary!entry}entries are simply printed in the text,
+an \index{acronym}acronym is firstly fully printed with the \index{acronym!short version}short
+version in \index{parentheses}parentheses, later only in the short version.
+
+A glossary can be done using one of the packages
+\package{glossary}{glossaries} or \package{glossary}{nomencl}.
+For a list of acronyms, suitable are \package{acronyms}{acronym}, \package{acronyms}{acro}
+and also \package{acronyms}{glossaries}.
+\clearpage
+\thispagestyle{empty}
+\printindex
+\end{document}
+// end::08-10-index-extended.tex[]
+----
+
+
+== 08-texbooks.bib
+
+----
+// tag::08-texbooks.bib[]
+@book{DK86,
+  author = "D.E. Knuth",
+  title = "The {\TeX}book",
+  publisher = "Addison Wesley",
+  year = 1986
+}
+@article{DK89,
+  author = "D.E. Knuth",
+  title = "Typesetting Concrete Mathematics",
+  journal = "TUGboat",
+  volume = 10,
+  number = 1,
+  pages = "31--36",
+  month = apr,
+  year = 1989
+}
+@book{Lamport,
+  author = "Leslie Lamport",
+  title = "\LaTeX: A Document Preparation System",
+  publisher = "Addison Wesley",
+  year = 1986
+}
+    
+    // end::08-texbooks.bib[]
+----
+
+
+== 09-01-hyperlinks.tex
+
+----
+// tag::09-01-hyperlinks.tex[]
+\documentclass[fontsize=11pt,paper=a5,pagesize=auto]{scrbook}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{blindtext}
+\frenchspacing
+\usepackage{hyperref}
+\begin{document}
+\title{The Book}
+\subtitle{Some more to know}
+\author{The Author}
+\date{}
+\maketitle
+\tableofcontents 
+\part{First portion}
+\chapter{The beginning}
+Some introductional text comes here.
+\section{A first section}
+Dummy text will follow.
+\blindtext
+\section{Another section}
+\Blindtext
+\appendix
+\part{Appendix}
+\chapter{An addendum}
+\section{Section within the appendix}
+\blindtext
+\end{document}
+// end::09-01-hyperlinks.tex[]
+----
+
+
+== 09-02-hyperlinks-targets.tex
+
+----
+// tag::09-02-hyperlinks-targets.tex[]
+\documentclass{article}
+\usepackage{hyperref}
+\begin{document}
+See \hyperlink{mytarget}{next page}.
+\newpage
+\hypertarget{mytarget}{Here} starts a new page.
+\end{document}
+// end::09-02-hyperlinks-targets.tex[]
+----
+
+
+== 09-03-custom-hyperlinks.tex
+
+----
+// tag::09-03-custom-hyperlinks.tex[]
+\documentclass{article}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\begin{document}
+See \hyperlink{mytarget}{next page}.
+Refer to the \hyperref[eq:einstein]{mass-energy equivalence}.
+\newpage
+\hypertarget{mytarget}{Here} starts a new page.
+\begin{equation}
+  \label{eq:einstein}
+  E = mc^2 
+\end{equation}
+\href{http://latex-community.org}{LaTeX Community Forum}
+
+\url{http://texample.net}
+
+\nolinkurl{http://texdoc.net}
+
+
+\newcommand{\baseaddress}{http://latex-community.org/}
+\newcommand{\articleaddress}{\baseaddress
+  know-how/latexs-friends/61/486/}
+\hyperref{\articleaddress}{running}{lualatex}
+  {Running MetaPost within LuaLaTeX}
+\end{document}
+
+// end::09-03-custom-hyperlinks.tex[]
+----
+
+
+== 09-04-metadata.tex
+
+----
+// tag::09-04-metadata.tex[]
+\documentclass[fontsize=11pt,paper=a5,pagesize=auto]{scrbook}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{blindtext}
+\frenchspacing
+\usepackage{hyperref}
+\hypersetup{pdfauthor   = Stefan Kottwitz,
+            pdftitle    = LaTeX Graphics with TikZ,
+            pdfsubject  = Draft 1.0,
+            pdfkeywords = {latex,graphics,tikz},
+            pdfproducer = TeX Live 2023,
+            pdfcreator  = TeXworks}
+\begin{document}
+\title{The Book}
+\subtitle{Some more to know}
+\author{The Author}
+\date{}
+\maketitle
+\tableofcontents 
+\part{First portion}
+\chapter{The beginning}
+Some introductional text comes here.
+\section{A first section}
+Dummy text will follow.
+\blindtext
+\section{Another section}
+\Blindtext
+\appendix
+\part{Appendix}
+\chapter{An addendum}
+\section{Section within the appendix}
+\blindtext
+\end{document}
+// end::09-04-metadata.tex[]
+----
+
+
+== 09-05-metadata-options.tex
+
+----
+// tag::09-05-metadata-options.tex[]
+\documentclass[fontsize=11pt,paper=a5,pagesize=auto]{scrbook}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{blindtext}
+\frenchspacing
+\usepackage[pdfauthor   = {The\ Author},
+            pdftitle    = {The\ Book},
+            pdfsubject  = {Draft\ version},
+            pdfkeywords = {{book, draft}},
+            pdfproducer = {TeX\ version},
+            pdfcreator  = {LaTeX\ editor}]{hyperref}
+\begin{document}
+\title{The Book}
+\subtitle{Some more to know}
+\author{The Author}
+\date{}
+\maketitle
+\tableofcontents 
+\part{First portion}
+\chapter{The beginning}
+Some introductional text comes here.
+\section{A first section}
+Dummy text will follow.
+\blindtext
+\section{Another section}
+\Blindtext
+\appendix
+\part{Appendix}
+\chapter{An addendum}
+\section{Section within the appendix}
+\blindtext
+\end{document}
+// end::09-05-metadata-options.tex[]
+----
+
+
+== 09-06-metadata-pdftex.tex
+
+----
+// tag::09-06-metadata-pdftex.tex[]
+\documentclass[fontsize=11pt,paper=a5,pagesize=auto]{scrbook}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{blindtext}
+\frenchspacing
+\pdfinfo{
+  /Author (The Author)
+  /Title (The Book)
+  /Subject (Draft version)
+  /Keywords (book, draft)
+  /Producer (pdfTeX 1.40.0)
+  /Creator (LaTeX editor)}
+\begin{document}
+\title{The Book}
+\subtitle{Some more to know}
+\author{The Author}
+\date{}
+\maketitle
+\tableofcontents 
+\part{First portion}
+\chapter{The beginning}
+Some introductional text comes here.
+\section{A first section}
+Dummy text will follow.
+\blindtext
+\section{Another section}
+\Blindtext
+\appendix
+\part{Appendix}
+\chapter{An addendum}
+\section{Section within the appendix}
+\blindtext
+\end{document}
+// end::09-06-metadata-pdftex.tex[]
+----
+
+
+== 09-07-metadata-pdfinfo.tex
+
+----
+// tag::09-07-metadata-pdfinfo.tex[]
+\documentclass[fontsize=11pt,paper=a5,pagesize=auto]{scrbook}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{blindtext}
+\frenchspacing
+\usepackage{hyperref}
+\hypersetup{pdfinfo = {
+              Author   = The Author,
+              Title    = The Book,
+              Subject  = Draft version,
+              Keywords = {book, draft},
+              Producer = TeX Live 2014,
+              Creator  = TeXworks,
+              Version  = 2.0,
+              Comment  = Contains dummy text}}
+\begin{document}
+\title{The Book}
+\subtitle{Some more to know}
+\author{The Author}
+\date{}
+\maketitle
+\tableofcontents 
+\part{First portion}
+\chapter{The beginning}
+Some introductional text comes here.
+\section{A first section}
+Dummy text will follow.
+\blindtext
+\section{Another section}
+\Blindtext
+\appendix
+\part{Appendix}
+\chapter{An addendum}
+\section{Section within the appendix}
+\blindtext
+\end{document}
+// end::09-07-metadata-pdfinfo.tex[]
+----
+
+
+== 09-08-copyright.tex
+
+----
+// tag::09-08-copyright.tex[]
+\documentclass[fontsize=11pt,paper=a5,pagesize=auto]{scrbook}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{blindtext}
+\frenchspacing
+\usepackage{hyperref}
+\usepackage{hyperxmp}
+\hypersetup{
+  pdfcopyright = {Copyright (C) 2012 by auhor name.
+    All rights reserved.},
+  pdflicenseurl = {http://latex-community.org/license/}}
+\begin{document}
+\title{The Book}
+\subtitle{Some more to know}
+\author{The Author}
+\date{}
+\maketitle
+\tableofcontents 
+\part{First portion}
+\chapter{The beginning}
+Some introductional text comes here.
+\section{A first section}
+Dummy text will follow.
+\blindtext
+\section{Another section}
+\Blindtext
+\appendix
+\part{Appendix}
+\chapter{An addendum}
+\section{Section within the appendix}
+\blindtext
+\end{document}
+// end::09-08-copyright.tex[]
+----
+
+
+== 09-09-comments.tex
+
+----
+// tag::09-09-comments.tex[]
+\documentclass[paper=a4,oneside,fontsize=12pt,
+  parskip=full]{scrartcl}
+\usepackage[svgnames]{xcolor}
+\usepackage[author={Stefan Kottwitz},icon=Note,color=Yellow,open=true,final]{pdfcomment}
+\begin{document}
+%\tableofcontents
+\addsec{Introduction}
+This document will be our starting point for simple
+documents. It is suitable for a single page or up to
+a couple of dozen pages.
+\pdfcomment{Simple documents don't have chapters.}
+
+The text will be divided into \pdfmarkupcomment{sections}{You could additionally use subsections.}.
+\section{The first section}
+This first text will contain
+\begin{pdfsidelinecomment}[color=Red]{A bulleted list}
+\begin{itemize}
+\item a table of contents,
+\item a bulleted list,
+\item headings and some text and math in section,
+\item referencing such as to section \ref{sec:maths} and
+      equation (\ref{eq:integral}).
+\end{itemize}
+\end{pdfsidelinecomment}
+We can use this document as a template for filling in
+our own content.
+\section{Some maths}
+\label{sec:maths}
+When we write a scientific or technical document, we usually
+include math \pdftooltip{formulas}{Formulas can be inline or displayed in their own paragraph}. To get a brief glimpse of the look of
+maths, we will look at an integral approximation of a function
+$f(x)$ as a sum with weights $w_i$:
+\begin{equation}
+  \pdfmargincomment{The equation environment produces a centered
+  equation with whitespace before and after it.}
+  \label{eq:integral}
+  \int_a^b \pdfmarkupcomment{f(x)}{This function will be approximated.}\,\mathrm{d}x \approx (b-a)
+  \sum_{i=0}^n \pdfmarkupcomment{w_i}{Those are the weights} f(x_i)
+\end{equation}
+\pdffreetextcomment[subject={Summary},width=7.5cm,height=2.2cm,opacity=0.5,voffset=-3cm]{The whole document is an example
+showing how to write a small document.
+Now we enriched it with sample comments.}
+\end{document}
+// end::09-09-comments.tex[]
+----
+
+
+== 09-10-form.tex
+
+----
+// tag::09-10-form.tex[]
+\documentclass[a6paper,landscape,parskip=half]{scrartcl}
+\usepackage[margin=0.4cm]{geometry}
+\usepackage{xcolor}
+\pagecolor{yellow!30}
+\pagestyle{empty}
+\usepackage{hyperref}
+\begin{document}
+\begin{Form}
+  \begin{tabular}{|lr|}\hline
+    \textbf{Dear \TeX\ user, please help in our survey.} &
+      \PushButton[width=1cm, onclick =
+         {app.alert("You may use a pseudonym for the name.")}]%
+         {Info}\\[0.5ex] \hline
+    & \\
+    \TextField[width=5cm]{Name:} &
+    \TextField[width=3cm]{Profession:} \\
+    & \\
+    \ChoiceMenu[radio, radiosymbol=6,
+      width=0.5cm]{Software:\quad}{\TeX\ Live, MiK\TeX} 
+    &\ChoiceMenu[combo, width=3cm]{Editor:}%
+    {TeXworks,TeXstudio,TeXmaker,TeXshop,
+    WinEdt,Kile,Emacs,vi} \\ 
+    & \\ 
+    Membership in: \hfill\CheckBox[width=0.5cm]{TUG}\hfill
+    \CheckBox[width=0.5cm]{DANTE e.V.} &
+    \TextField[width=3cm]{Other:}\\ & \\ \hline
+  \end{tabular}
+  \par
+  \textbf{Notes:}
+  \par
+  \TextField[multiline, width=0.94\paperwidth,
+    height=10\baselineskip]{ }
+\end{Form}%
+\end{document}
+
+
+
+// end::09-10-form.tex[]
+----
+
+
+== 09-11-ebook.tex
+
+----
+// tag::09-11-ebook.tex[]
+\documentclass[fontsize=11pt,headings=small,
+  parskip=half]{scrreprt}
+\usepackage[papersize={3.6in,4.8in},margin=0.2in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage[demo]{graphicx}
+\pagestyle{empty}
+\renewcommand{\partpagestyle}{empty}
+\renewcommand{\chapterpagestyle}{empty}
+\usepackage{blindtext}
+\frenchspacing
+\usepackage{hyperref}
+\hypersetup{colorlinks}
+\begin{document}
+\title{The Book}
+\subtitle{Some more to know}
+\author{The Author}
+\date{}
+\maketitle
+\tableofcontents 
+\part{First portion}
+\chapter{The beginning}
+Some introductional text comes here.
+\begin{center}
+  \includegraphics[width=0.8\textwidth]{text}
+\end{center}
+\section{A first section}
+Dummy text will follow.
+\blindtext
+\section{Another section}
+\Blindtext
+\appendix
+\part{Appendix}
+\chapter{An addendum}
+\section{Section within the appendix}
+\blindtext
+\end{document}
+// end::09-11-ebook.tex[]
+----
+
+
+== 10-01-basic-math.tex
+
+----
+// tag::10-01-basic-math.tex[]
+\documentclass{article}
+\pagestyle{empty}
+\begin{document}
+\section*{The golden ratio}
+The symbol for the golden ratio is the Greek
+letter \( \varphi \). Its value is the positive solution
+of \( x^2 - x - 1 = 0 \).
+It can be calculated to:
+\[
+  \varphi = \frac{1 + \sqrt{5}}{2} = 1.618 \ldots
+\]   
+\end{document}
+// end::10-01-basic-math.tex[]
+----
+
+
+== 10-02-exponents.tex
+
+----
+// tag::10-02-exponents.tex[]
+\documentclass{article}
+\pagestyle{empty}
+\begin{document}
+\[
+  x^{n_1} \neq x^n_1
+\]
+\[
+  {x^2}^3 = x^{2^3}
+\]
+\end{document} 
+
+
+// end::10-02-exponents.tex[]
+----
+
+
+== 10-03-aligned-equation.tex
+
+----
+// tag::10-03-aligned-equation.tex[]
+\documentclass{article}
+\pagestyle{empty}
+\usepackage{mathtools} 
+\mathtoolsset{showonlyrefs}
+\begin{document} 
+\begin{gather}
+  y = x^2 + 1 \label{xx}\\
+  z = 0
+\end{gather}
+See \eqref{xx}.
+\end{document} 
+
+// end::10-03-aligned-equation.tex[]
+----
+
+
+== 10-04-math-deficient.tex
+
+----
+// tag::10-04-math-deficient.tex[]
+\documentclass{article}
+\usepackage{dsfont}
+\begin{document}
+\[
+  \lim_{n\to\infty} \sup_{x\in\mathds{R}} f_n(x^2)
+    < n \Big(\sum_{x\in\mathds{R}, n\in\mathds{N}}
+    \big| f_n(x^2) \big| \Big)
+\]
+\end{document}
+// end::10-04-math-deficient.tex[]
+----
+
+
+== 10-04-theorems-listof.tex
+
+----
+// tag::10-04-theorems-listof.tex[]
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\theoremstyle{definition}
+\newtheorem{dfn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem*{note}{Note}
+\pagestyle{empty}
+\begin{document}
+\listoftheorems
+\newpage
+\begin{dfn}
+  The longest side of a triangle with a right angle
+  is called the \emph{hypotenuse}.
+\end{dfn}
+\begin{note}
+  The other sides are called \emph{catheti},
+  or \emph{legs}.
+\end{note}
+\begin{thm}[Pythagoras]
+  \label{pythagoras}
+  In any right triangle, the square of the hypotenuse
+  equals the sum of the squares of the other sides.
+\end{thm}
+\begin{proof}
+  The proof has been given in Euclid's Elements,
+  Book 1, Proposition 47. Refer to it for details.
+  The converse is also true, see lemma \ref{converse}.
+\end{proof}
+\begin{lem}
+  \label{converse}
+  For any three positive numbers \(x\), \(y\),
+  and \(z\) with \(x^2 + y^2 = z^2\), there is a
+  triangle with side lengths \(x\), \(y\) and \(z\).
+  Such triangle has a right angle, and the hypotenuse
+  has the length \(z\).
+\end{lem}
+\begin{note}
+  This is the converse of theorem \ref{pythagoras}.
+\end{note}
+\end{document}
+// end::10-04-theorems-listof.tex[]
+----
+
+
+== 10-05-breaking-equations.tex
+
+----
+// tag::10-05-breaking-equations.tex[]
+\documentclass[12pt]{beamer}
+\usefonttheme[onlymath]{serif}
+\usepackage{breqn}
+\begin{document}
+\begin{frame}
+\begin{dmath*}
+  \left( \frac{f}{g} \right)^\prime(x)
+    = \lim_{h \rightarrow 0}
+      \left( \frac{1}{ g(x+h) g(x) } \right)
+      \left[
+             \frac{ f(x+h) - f(x) }{h} g(x)
+            -\frac{ g(x+h) - g(x) }{h} f(x)
+      \right]
+    = \frac{f^\prime(x)g(x)-f(x)g^\prime(x)}{g^2(x)}
+  \end{dmath*}
+\end{frame}
+\end{document} 
+// end::10-05-breaking-equations.tex[]
+----
+
+
+== 10-05-math-finetuned.tex
+
+----
+// tag::10-05-math-finetuned.tex[]
+\documentclass{article}
+\usepackage{dsfont}
+\usepackage{mathtools}
+\begin{document}
+\[
+  \adjustlimits\lim_{n\to\infty} \sup_{x\in\mathds{R}}
+    f_n(\cramped{x^2})
+    < n \Big( \smashoperator{\sum_{x\in\mathds{R},
+    n\in\mathds{N}}}
+    \big\lvert f_n(\cramped{x^2}) \big\rvert \Big)
+\]
+\end{document}
+// end::10-05-math-finetuned.tex[]
+----
+
+
+== 10-06-diagram-arrows-tikzcd.tex
+
+----
+// tag::10-06-diagram-arrows-tikzcd.tex[]
+\documentclass{article}
+\usepackage{tikz-cd}
+\usepackage{amsmath}
+\DeclareMathOperator{\im}{im}
+\pagestyle{empty}
+\begin{document}
+\begin{tikzcd}
+      G \arrow[r, "\varphi"]
+        \arrow[d, twoheadrightarrow, "\pi" left] & \im \varphi \\
+      G/\ker \varphi \arrow[ru, hook, dashed, "\tilde{\varphi}" below] & \\
+\end{tikzcd}
+\end{document}
+// end::10-06-diagram-arrows-tikzcd.tex[]
+----
+
+
+== 10-06-diagram-tikzcd.tex
+
+----
+// tag::10-06-diagram-tikzcd.tex[]
+\documentclass{article}
+\usepackage{tikz-cd}
+\usepackage{amsmath}
+\DeclareMathOperator{\im}{im}
+\pagestyle{empty}
+\begin{document}
+\begin{tikzcd}
+  G \arrow[r, "\varphi"]
+    \arrow[d, "\pi" left] & \im \varphi \\
+  G/\ker \varphi \arrow[ru, "\tilde{\varphi}" below]
+\end{tikzcd}
+\end{document}
+// end::10-06-diagram-tikzcd.tex[]
+----
+
+
+== 10-06-highlight.tex
+
+----
+// tag::10-06-highlight.tex[]
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{fit}
+\newcommand{\overlay}[2][]{\tikz[overlay,
+  remember picture, #1]{#2}}
+\tikzset{
+  highlighted/.style = { draw, thick, rectangle,
+                         rounded corners, inner sep = 0pt,
+                         fill = red!15, fill opacity = 0.5
+                       }
+}
+\newcommand{\highlight}[1]{%
+  \overlay{
+    \node [fit = (left.north west) (right.south east),
+           highlighted] (#1) {}; }
+}
+\newcommand{\flag}[2]{\overlay[baseline=(#1.base)]
+  {\node (#1) {$#2$};}}
+\begin{document}
+\[
+  M = \begin{pmatrix}
+    \flag{left}{1} & 2 & 3 & 4 & 5 \\
+    6 & 7 & 8 & 9 & 10 \\
+    11 & \flag{before}{12} & \flag{right}{13} & 14 & 15 \\
+    16 & 17 & 18 & 19 & 20
+  \end{pmatrix}
+  \highlight{N}
+  \qquad
+  M^T = \begin{pmatrix}
+    \flag{left}{1} & 6 & 11 & 16 \\
+    2 & 7 & \flag{after}{12} & 17 \\
+    3 & 8 & \flag{right}{13} & 18 \\
+    4 & 9 & 14 & 19 \\
+    5 & 10 & 15 & 20
+  \end{pmatrix}
+  \highlight{NT}
+\]
+\overlay{
+  \draw[->, thick, red, dotted] (before) -- (after);
+  \draw[->, thick, red, dashed] (N) -- (NT)
+    node [pos=0.68, above] {Transpose};
+  \node[above of = N ] { $N$   };
+  \node[above of = NT] { $N^T$ };
+}
+\end{document}
+// end::10-06-highlight.tex[]
+----
+
+
+== 10-06-theorems.tex
+
+----
+// tag::10-06-theorems.tex[]
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\theoremstyle{definition}
+\newtheorem{dfn}{Definition}
+\theoremstyle{remark}
+\newtheorem*{note}{Note}
+\begin{document}
+\begin{dfn}
+  The longest side of a triangle with a right angle
+  is called the \emph{hypotenuse}.
+\end{dfn}
+\begin{note}
+  The other sides are called \emph{catheti},
+  or \emph{legs}.
+\end{note}
+\begin{thm}[Pythagoras]
+  \label{pythagoras}
+  In any right triangle, the square of the hypotenuse
+  equals the sum of the squares of the other sides.
+\end{thm}
+\begin{proof}
+  The proof has been given in Euclid's Elements,
+  Book 1, Proposition 47. Refer to it for details.
+  The converse is also true, see lemma \ref{converse}.
+\end{proof}
+\begin{lem}
+  \label{converse}
+  For any three positive numbers \(x\), \(y\),
+  and \(z\) with \(x^2 + y^2 = z^2\), there is a
+  triangle with side lengths \(x\), \(y\) and \(z\).
+  Such triangle has a right angle, and the hypotenuse
+  has the length \(z\).
+\end{lem}
+\begin{note}
+  This is the converse of theorem \ref{pythagoras}.
+\end{note}
+\end{document}
+// end::10-06-theorems.tex[]
+----
+
+
+== 10-07-theorems-shared.tex
+
+----
+// tag::10-07-theorems-shared.tex[]
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsthm}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\theoremstyle{definition}
+\newtheorem{dfn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem*{note}{Note}
+\begin{document}
+\begin{dfn}
+  The longest side of a triangle with a right angle
+  is called the \emph{hypotenuse}.
+\end{dfn}
+\begin{note}
+  The other sides are called \emph{catheti},
+  or \emph{legs}.
+\end{note}
+\begin{thm}[Pythagoras]
+  \label{pythagoras}
+  In any right triangle, the square of the hypotenuse
+  equals the sum of the squares of the other sides.
+\end{thm}
+\begin{proof}
+  The proof has been given in Euclid's Elements,
+  Book 1, Proposition 47. Refer to it for details.
+  The converse is also true, see lemma \ref{converse}.
+\end{proof}
+\begin{lem}
+  \label{converse}
+  For any three positive numbers \(x\), \(y\),
+  and \(z\) with \(x^2 + y^2 = z^2\), there is a
+  triangle with side lengths \(x\), \(y\) and \(z\).
+  Such triangle has a right angle, and the hypotenuse
+  has the length \(z\).
+\end{lem}
+\begin{note}
+  This is the converse of theorem \ref{pythagoras}.
+\end{note}
+\end{document}
+// end::10-07-theorems-shared.tex[]
+----
+
+
+== 10-08-theorems-ntheorem.tex
+
+----
+// tag::10-08-theorems-ntheorem.tex[]
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[amsmath,amsthm,thmmarks]{ntheorem}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\theoremstyle{definition}
+\newtheorem{dfn}{Definition}
+\theoremstyle{remark}
+\newtheorem{note}{Note}
+\begin{document}
+\begin{dfn}
+  The longest side of a triangle with a right angle
+  is called the \emph{hypotenuse}.
+\end{dfn}
+\begin{note}
+  The other sides are called \emph{catheti},
+  or \emph{legs}.
+\end{note}
+\begin{thm}[Pythagoras]
+  \label{pythagoras}
+  In any right triangle, the square of the hypotenuse
+  equals the sum of the squares of the other sides.
+\end{thm}
+\begin{proof}
+  The proof has been given in Euclid's Elements,
+  Book 1, Proposition 47. Refer to it for details.
+  The converse is also true, see lemma \ref{converse}.
+\end{proof}
+\begin{lem}
+  \label{converse}
+  For any three positive numbers \(x\), \(y\),
+  and \(z\) with \(x^2 + y^2 = z^2\), there is a
+  triangle with side lengths \(x\), \(y\) and \(z\).
+  Such triangle has a right angle, and the hypotenuse
+  has the length \(z\).
+\end{lem}
+\begin{note}
+  This is the converse of theorem \ref{pythagoras}.
+\end{note}
+\end{document}
+// end::10-08-theorems-ntheorem.tex[]
+----
+
+
+== 10-09-theorems-thmtools.tex
+
+----
+// tag::10-09-theorems-thmtools.tex[]
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{xcolor}
+\declaretheorem[shaded={bgcolor=red!15}]{Theorem}
+\declaretheorem[thmbox=L]{Definition}
+\begin{document}
+\begin{Definition}
+  The longest side of a triangle with a right angle
+  is called the \emph{hypotenuse}.
+\end{Definition}
+\begin{Theorem}[Pythagoras]
+  \label{pythagoras}
+  In any right triangle, the square of the hypotenuse
+  equals the sum of the squares of the other sides.
+\end{Theorem}
+\end{document}
+// end::10-09-theorems-thmtools.tex[]
+----
+
+
+== 10-10-diagram.tex
+
+----
+// tag::10-10-diagram.tex[]
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\usepackage{amsmath}
+\DeclareMathOperator{\im}{im}
+\begin{document}
+\begin{tikzpicture}
+  \matrix (m)
+    [
+      matrix of math nodes,
+      row sep    = 3em,
+      column sep = 4em
+    ]
+    {
+      G              & \im \varphi \\
+      G/\ker \varphi &             \\
+    };
+  \path[-stealth]
+    (m-1-1) edge node [left] {$\pi$} (m-2-1)
+    (m-1-1.east |- m-1-2)
+      edge node [above] {$\varphi$} (m-1-2)
+    (m-2-1) edge node [below] {$\tilde{\varphi}$}
+      (m-1-2);
+\end{tikzpicture}
+\end{document}
+// end::10-10-diagram.tex[]
+----
+
+
+== 10-11-diagram-arrows.tex
+
+----
+// tag::10-11-diagram-arrows.tex[]
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows.meta}
+\usepackage{amsmath}
+\DeclareMathOperator{\im}{im}
+\begin{document}
+\begin{tikzpicture}
+  \matrix (m)
+    [
+      matrix of math nodes,
+      row sep    = 3em,
+      column sep = 4em
+    ]
+    {
+      G              & \im \varphi \\
+      G/\ker \varphi &             \\
+    };
+  \path
+    (m-1-1) edge [->>] node [left] {$\pi$} (m-2-1)
+    (m-1-1.east |- m-1-2)
+      edge [->] node [above] {$\varphi$} (m-1-2)
+    (m-2-1.east) edge [{Hooks[right,length=0.8ex]}->,
+      dashed] node [below] {$\tilde{\varphi}$} (m-1-2);
+\end{tikzpicture}
+\end{document}
+// end::10-11-diagram-arrows.tex[]
+----
+
+
+== 10-12-diagram-five-lemma.tex
+
+----
+// tag::10-12-diagram-five-lemma.tex[]
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{matrix,calc}
+\begin{document}
+\begin{tikzpicture}[-stealth,
+  label/.style = { font=\footnotesize }]
+  \matrix (m)
+    [
+      matrix of math nodes,
+      row sep    = 4em,
+      column sep = 4em
+    ]
+    {
+      A_0 & A_1 & A_2 & A_3 & A_4 \\
+      B_0 & B_1 & B_2 & B_3 & B_4 \\
+    };
+  \foreach \i in {1,...,4} {
+    \path
+      let \n1 = { int(\i+1) } in
+        (m-1-\i) edge node [above, label] {$f_\i$} (m-1-\n1)
+        (m-2-\i) edge node [below, label] {$f^\prime_\i$} (m-2-\n1)
+        (m-1-\i) edge node [left,  label] {$g_\i$} (m-2-\i);
+  }
+  \path (m-1-5) edge node [left, label] {$g_5$} (m-2-5);
+\end{tikzpicture}
+\end{document}
+// end::10-12-diagram-five-lemma.tex[]
+----
+
+
+== 10-13-plot-2d.tex
+
+----
+// tag::10-13-plot-2d.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{pgfplots}
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis} [axis lines=center]
+    \addplot [domain=-3:3, smooth, thick] { x^3 - 5*x };
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+// end::10-13-plot-2d.tex[]
+----
+
+
+== 10-14-plot-grid.tex
+
+----
+// tag::10-14-plot-grid.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{pgfplots}
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis} [grid, xtick = {-360,-270,...,360}]
+    \addplot [domain=-360:360, samples=100, thick] { sin(x) };
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+// end::10-14-plot-grid.tex[]
+----
+
+
+== 10-15-plot-shift-2d.tex
+
+----
+// tag::10-15-plot-shift-2d.tex[]
+\documentclass[border=5pt]{standalone}
+\usepackage{pgfplots}
+\usepgfplotslibrary{shift}
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis} [shift, xtick = {-360,-270,...,360}]
+    \addplot [domain=-360:360, samples=100, thick] { sin(x) };
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+// end::10-15-plot-shift-2d.tex[]
+----
+
+
+== 10-16-plot-polar-sin.tex
+
+----
+// tag::10-16-plot-polar-sin.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{pgfplots}
+\usepgfplotslibrary{polar}
+\begin{document}
+\begin{tikzpicture}
+  \begin{polaraxis}[hide axis]
+    \addplot[domain=0:180,smooth] {sin(x)}; 
+  \end{polaraxis}
+\end{tikzpicture}
+\end{document}
+// end::10-16-plot-polar-sin.tex[]
+----
+
+
+== 10-17-plot-polar.tex
+
+----
+// tag::10-17-plot-polar.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{pgfplots}
+\usepgfplotslibrary{polar}
+\begin{document}
+\begin{tikzpicture}
+  \begin{polaraxis}
+    \addplot[domain=0:360,samples=300] {sin(6*x)}; 
+  \end{polaraxis}
+\end{tikzpicture}
+\end{document}
+// end::10-17-plot-polar.tex[]
+----
+
+
+== 10-18-plot-3d.tex
+
+----
+// tag::10-18-plot-3d.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{pgfplots}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis} [
+    title = {$f(x,y) = \sin(x)\sin(y)$},
+    xtick = {0,90,...,360},
+    ytick = {90,180,...,360},
+    xlabel = $x$, ylabel = $y$,
+    ticklabel style = {font = \scriptsize},
+	grid
+]
+\addplot3 [surf, domain=0:360, samples=60] 
+	{ sin(x)*sin(y) };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+// end::10-18-plot-3d.tex[]
+----
+
+
+== 10-19-plot-shift-3d.tex
+
+----
+// tag::10-19-plot-shift-3d.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{pgfplots}
+\usepgfplotslibrary{shift}
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis} [shift3d]
+    \addplot3 [surf, colormap/hot2, domain = -2:2, samples = 50]
+      { x/exp(x^2+y^2) };
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+// end::10-19-plot-shift-3d.tex[]
+----
+
+
+== 10-20-geometry-start.tex
+
+----
+// tag::10-20-geometry-start.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\begin{document}
+\begin{tikzpicture}
+ \tkzDefPoint(0,0){A}
+ \tkzDefPoint(4,1){B}
+ \tkzInterCC(A,B)(B,A)
+ \tkzGetPoints{C}{D}
+
+ \tkzDrawPolygon(A,B,C)
+
+ \tkzDrawPoints(A,B,C,D)
+ \tkzLabelPoints[below left](A)
+ \tkzLabelPoints(B,D)
+ \tkzLabelPoint[above](C){$C$}
+
+ \tkzDrawCircle[dotted](A,B)
+ \tkzDrawCircle[dotted](B,A)
+
+ \tkzCompass[color=red, very thick](A,C)
+ \tkzCompass[color=red, very thick](B,C)
+
+ \tkzCompass[color=red, very thick](A,D)
+ \tkzCompass[color=red, very thick](B,D)
+\end{tikzpicture}
+\end{document} 
+// end::10-20-geometry-start.tex[]
+----
+
+
+== 10-21-geometry-extended.tex
+
+----
+// tag::10-21-geometry-extended.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\begin{document}
+\begin{tikzpicture}
+  \tkzDefPoint(0,0){A}
+  \tkzDefPoint(4,1){B}
+  \tkzInterCC(A,B)(B,A)
+  \tkzGetPoints{C}{D}
+
+  \tkzDrawPolygon(A,B,C)
+  \tkzDrawPoints(A,B,C,D)
+
+  \tkzLabelPoints[below left](A)
+  \tkzLabelPoints(B,D)
+  \tkzLabelPoint[above](C){$C$}
+
+  \tkzDrawCircle[dotted](A,B)
+  \tkzDrawCircle[dotted](B,A)
+
+  \tkzCompass[color=red, very thick](A,C)
+  \tkzCompass[color=red, very thick](B,C)
+
+  \tkzCompass[color=red, very thick](A,D)
+  \tkzCompass[color=red, very thick](B,D)
+
+  \tkzDrawArc[fill=blue!10,thick](A,B)(C)
+    \tkzDrawArc[fill=blue!10,thick](B,C)(A)
+    \tkzDrawArc[fill=blue!10,thick](C,A)(B)
+
+  \tkzInterLC(A,B)(B,A)
+  \tkzGetPoints{F}{E}
+  \tkzDrawPoints(E)
+  \tkzLabelPoints(E)
+  \tkzDrawPolygon(A,E,D)
+
+  \tkzMarkAngles[fill=yellow,opacity=0.5](D,A,E A,E,D)
+  \tkzMarkRightAngle[size=0.65,fill=red,opacity=0.5](A,D,E)
+  \tkzLabelAngle[pos=0.7](D,A,E){$\alpha$}
+  \tkzLabelAngle[pos=0.8](A,E,D){$\beta$}
+  \tkzLabelAngle[pos=0.5,xshift=-1.4mm](A,D,D){$90^\circ$}
+
+  \tkzLabelSegment[below=0.6cm,align=center,font=\small](A,B){Reuleaux\\triangle}
+  \tkzLabelSegment[above right,sloped,font=\small](A,E){hypotenuse}
+  \tkzLabelSegment[below,sloped,font=\small](D,E){opposite}
+  \tkzLabelSegment[below,sloped,font=\small](A,D){adjacent}
+  \tkzLabelSegment[below right=4cm,font=\small](A,E){Thales circle}
+\end{tikzpicture}
+\end{document} 
+// end::10-21-geometry-extended.tex[]
+----
+
+
+== 10-22-geometry-circles.tex
+
+----
+// tag::10-22-geometry-circles.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\begin{document}
+\begin{tikzpicture}
+  \tkzDefPoints{0/0/A, 5/0/B, 1/4/C}
+  \tkzDefCircle[in](A,B,C)
+  \tkzGetPoint{M}
+  \tkzGetLength{r}
+  \tkzDefCircle[circum](A,B,C)
+  \tkzGetPoint{N}
+  \tkzGetLength{R}
+  \tkzDefPointBy[projection=onto A--B](M)
+  \tkzGetPoint{a}
+  \tkzDefPointBy[projection=onto B--C](M)
+  \tkzGetPoint{b}
+  \tkzDefPointBy[projection=onto A--C](M)
+  \tkzGetPoint{c}
+
+  \tkzDrawCircle[R](M,\r pt)
+  \tkzDrawCircle[R](N,\R pt)
+  \tkzDrawPolygon[very thick](A,B,C)
+  \tkzDrawLines[dotted](N,A N,B N,C)
+  \tkzDrawLines[dashed](M,a M,b M,c)
+  \tkzMarkRightAngles(M,a,B M,b,C M,c,C)
+  \tkzDrawPoints(A,B,C,M,N,a,b,c)
+  \tkzLabelPoints[below left](A,M,a,c)
+  \tkzLabelPoints[below right](B)
+  \tkzLabelPoints[above](C,b)
+  \tkzLabelPoints[below](N)
+\end{tikzpicture}
+
+\end{document} 
+   \tkzInterLC[R](A,C)(S,\rSN pt) \tkzGetFirstPoint{D}
+   \tkzInterLC[R](B,C)(S,\rSN pt) \tkzGetFirstPoint{E}
+   \tkzInterLL(B,S)(D,E) \tkzGetPoint{F}
+   \tkzDrawSegments[thick,red](D,E)
+   \tkzDrawSegments[thick,violet](B,F)
+   \tkzLabelPoints[left](D)
+   \tkzLabelPoints[above left](C,F)
+   \tkzLabelPoints[below right](B)
+   \tkzLabelPoints[below left](A,S)
+   \tkzLabelPoints[above right](E)
+   \tkzMarkAngle[size=0.4 cm](B,F,E)
+   \tkzLabelAngle[pos=0.6](B,F,E){\large $x$}
+   \tkzMarkRightAngle(B,A,C)
+   \tkzDrawPoints(D,E)      
+   \tkzDrawPoint[color=black,fill=black](F)  
+   \tkzDrawPoint[color=black,fill=violet](S)
+
+
+\end{tikzpicture}
+
+\end{document} 
+// end::10-22-geometry-circles.tex[]
+----
+
+
+== 10-23-calculation.tex
+
+----
+// tag::10-23-calculation.tex[]
+\documentclass{article}
+\usepackage{tikz}
+\pagestyle{empty}
+\begin{document}
+\noindent
+In a right-angled triangle the two shortest sides
+got widths of 3 and 7, respectively. Then, the
+longest side has a width of \pgfmathparse{min(3^2 + 7^2)}\pgfmathresult.
+The smallest angle is about \pgfmathparse{atan(3/7)}
+\pgfmathprintnumber[precision=2]{\pgfmathresult} degrees.
+\end{document}
+// end::10-23-calculation.tex[]
+----
+
+
+== 11-01-algorithms.tex
+
+----
+// tag::11-01-algorithms.tex[]
+\documentclass{article}
+\usepackage{dsfont}
+\usepackage{mathtools}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+%\usepackage{algpascal}
+\usepackage{algpseudocode}
+\algnewcommand{\Local}{\State\textbf{local variables: }}
+\newcommand{\Let}[2]{\State $\mathmakebox[1em]{#1} \gets #2$}
+\pagestyle{empty}
+\begin{document}
+%\listofalgorithms
+\begin{algorithm}
+  \caption{Mandelbrot set}
+  \label{alg:mandelbrot}
+  \begin{algorithmic}[1]
+    \Require{$c_x, c_y, \Sigma_{\max} \in \mathds{R},
+      \quad i \in \mathds{N}, \quad i_{\max} > 0,
+      \quad \Sigma_{\max} > 0$}
+    \Function{mandelbrot}{$c_x, c_y, i_{\max},
+              \Sigma_{\max}$}
+      \Local{$x, y, x_1, y_1, i, \Sigma$}
+      \State $x, y, i, \Sigma \gets 0$
+      \Comment{initial zero value for variables}
+      \While{$\Sigma \leq \Sigma_{\max}$
+             and $i < i_{\max}$}
+        \Let{x_1}{x^2 - y^2 + c_x}
+        \Let{y_1}{2xy + c_y}
+        \Let{x}{x_1}
+        \Let{y}{y_1}
+        \Let{\Sigma}{x^2 + y^2}
+      \EndWhile
+      \If{$i < i_{\max}$}
+        \State \Return{$i$}
+      \EndIf
+      \State \Return{0}
+    \EndFunction
+  \end{algorithmic}
+\end{algorithm}
+\end{document}
+// end::11-01-algorithms.tex[]
+----
+
+
+== 11-03-listing-customized.tex
+
+----
+// tag::11-03-listing-customized.tex[]
+\documentclass[border={10pt 10pt 30pt 10pt}]{standalone}
+\usepackage{xcolor}
+\usepackage{inconsolata}
+\newcommand{\Cpp}{C\texttt{++}}
+\usepackage{listings}
+\lstset{
+  language     = C++,
+  basicstyle   = \ttfamily,
+  keywordstyle = \color{blue}\textbf,
+  commentstyle = \color{gray},
+  stringstyle  = \color{green!70!black},
+  stringstyle  = \color{red},
+  columns      = fullflexible,
+  numbers      = left,
+  numberstyle  = \scriptsize\sffamily\color{gray},
+  caption      = A hello world program in \Cpp,
+  xleftmargin  = 0.16\textwidth,
+  xrightmargin = 0.16\textwidth,
+  showstringspaces = false,
+  float,
+}
+\begin{document}
+\begin{lstlisting}
+// include standard input/output stream objects:
+#include <iostream>
+// the main method:
+int main()
+{
+    std::cout << "Hello TeX world!" << std::endl;
+}
+\end{lstlisting}
+\end{document}
+// end::11-03-listing-customized.tex[]
+----
+
+
+== 11-04-graphs-shaded.tex
+
+----
+// tag::11-04-graphs-shaded.tex[]
+\documentclass{standalone}
+\usepackage{tkz-graph}
+\GraphInit[vstyle = Shade]
+\SetGraphUnit{5}
+\tikzset{
+  VertexStyle/.append style = { inner sep=5pt,
+                                font = \Large\bfseries},
+  EdgeStyle/.append style = {->, bend left},
+  LabelStyle/.append style = { rectangle, rounded corners, draw,
+                        minimum width = 2em, fill = yellow!50,
+                        text = red, font = \bfseries} }
+
+\renewcommand{\VertexBallColor}{blue!30}
+\thispagestyle{empty}
+\begin{document}
+\begin{tikzpicture}
+  \Vertex{B}
+  \WE(B){A}
+  \EA(B){C}
+  \Edge[label = 1](A)(B)
+  \Edge[label = 2](B)(C)
+  \Edge[label = 3](C)(B)
+  \Edge[label = 4](B)(A)
+  \Loop[dist = 4cm, dir = NO, label = 5](A.west)
+  \Loop[dist = 4cm, dir = SO, label = 6](C.east)
+  \tikzset{EdgeStyle/.append style = {bend left = 50}}
+  \Edge[label = 7](A)(C)
+  \Edge[label = 8](C)(A)
+\end{tikzpicture}
+\end{document}
+// end::11-04-graphs-shaded.tex[]
+----
+
+
+== 11-05-graphs.tex
+
+----
+// tag::11-05-graphs.tex[]
+\documentclass[border=15pt]{standalone}
+\usepackage{tkz-graph}
+\SetGraphUnit{3}
+\GraphInit[vstyle=Shade]
+\begin{document}
+\begin{tikzpicture}[rotate=18]
+  \Vertices{circle}{A,B,C,D,E}
+  \Edges(A,B,C,D,E,A,D,B,E,C,A)
+  \Edge[label=$7$](A)(B)
+\end{tikzpicture}
+\end{document}
+// end::11-05-graphs.tex[]
+----
+
+
+== 11-05-units-bad.tex
+
+----
+// tag::11-05-units-bad.tex[]
+\documentclass[border=10pt]{standalone}
+\begin{document}
+% bad style which shall be improved:
+\( m \cdot s = m \cdot 1 m s^{-1} \)
+\end{document}
+// end::11-05-units-bad.tex[]
+----
+
+
+== 11-06-units-good.tex
+
+----
+// tag::11-06-units-good.tex[]
+\documentclass[border=10pt]{article}
+\usepackage{siunitx}
+\usepackage{cancel}
+\begin{document}
+\( m \cdot s = m \cdot \qty{1}{\m\per\s} \)
+%\( m \cdot s = m \cdot \qty{1}{\meter\per\second} \)
+\( m \cdot s = m \cdot \qty{1e-3}{\cancel\m\highlight{red}\km\per\s} \)
+
+\unit{\kilo\gram\meter\per\square\second}
+\end{document}
+// end::11-06-units-good.tex[]
+----
+
+
+== 11-07-units-changing.tex
+
+----
+// tag::11-07-units-changing.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{siunitx}
+\usepackage{cancel}
+\usepackage{color}
+\sisetup{per-mode = symbol}
+\begin{document}
+\( m \cdot s = m \cdot
+  \SI{1e-3}{\cancel\m\highlight{red}\km\per\s} \)
+\end{document}
+// end::11-07-units-changing.tex[]
+----
+
+
+== 11-08-units-fraction.tex
+
+----
+// tag::11-08-units-fraction.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{siunitx}
+\sisetup{per-mode = symbol}
+\begin{document}
+\( m \cdot s = m \cdot \SI{1}{\m\per\s} \)
+\end{document}
+// end::11-08-units-fraction.tex[]
+----
+
+
+== 11-09-units-si.tex
+
+----
+// tag::11-09-units-si.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{siunitx}
+\sisetup{per-mode = symbol}
+\begin{document}
+\si{\kg\m\per\square\s}
+\end{document}
+// end::11-09-units-si.tex[]
+----
+
+
+== 11-10-units-sansserif.tex
+
+----
+// tag::11-10-units-sansserif.tex[]
+\documentclass[border=10pt]{standalone}
+%\renewcommand{\familydefault}{\sfdefault}
+\usepackage{siunitx}
+\usepackage{sfmath}
+\sisetup{per-mode = symbol, detect-all}
+\begin{document}
+\sffamily
+\( m \cdot s = m \cdot \SI{1}{\m\per\s} \)
+\end{document}
+// end::11-10-units-sansserif.tex[]
+----
+
+
+== 11-19-chemical-formulas.tex
+
+----
+// tag::11-19-chemical-formulas.tex[]
+\documentclass{scrartcl}
+\usepackage{chemformula}
+\pagestyle{empty}
+\begin{document}
+\section*{About \ch{Na2SO4}}
+\ch{Na2SO4} is sodium sulfate.
+It contains \ch{Na+} and \ch{SO4^2-}.
+\ch{Na2SO4 * 10 H2O} is a decahydrate.
+\[
+\ch{Na2SO4 + 2 C -> Na2S + 2 CO2}
+\]
+\begin{equation}
+\ch{Na2SO4 + H2SO4 <=> 2 NaHSO4}
+\end{equation}
+\section*{Isotopes}
+\ch{^{232}_{92}U140} is uranium-232.
+\section*{Hydrocarbons}
+\begin{itemize}
+  \item \ch{H3C-CH3} is ethane,
+  \item \ch{H2C=CH2} is ethylene,
+  \item \ch{H2C+CH2} is ethyne.
+\end{itemize}
+\end{document}
+// end::11-19-chemical-formulas.tex[]
+----
+
+
+== 11-20-molecules.tex
+
+----
+// tag::11-20-molecules.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{chemfig}
+\begin{document}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{rl}
+  Hydrogen: & \chemfig{H-H} \\
+  Oxygen:   & \chemfig{O=O} \\
+  Ethyne:   & \chemfig{H-C~C-H}
+\end{tabular}
+\qquad
+Methane: \chemfig{[,0.8]C(-[2]H)(-[4]H)(-[6]H)-H}
+\end{document}
+// end::11-20-molecules.tex[]
+----
+
+
+== 11-21-ring-benzene.tex
+
+----
+// tag::11-21-ring-benzene.tex[]
+\documentclass[border=15pt]{standalone}
+\usepackage{chemfig}
+\begin{document}
+\chemfig{C*6((-H)-C(-H)=C(-H)-C(-H)=C(-H)-C(-H)=)}
+\end{document}
+// end::11-21-ring-benzene.tex[]
+----
+
+
+== 11-22-ring.tex
+
+----
+// tag::11-22-ring.tex[]
+\documentclass[border=15pt]{standalone}
+\usepackage{chemfig}
+\begin{document}
+\chemname{\chemfig{*6(=-=-=-)}}{Benzene}
+\end{document}
+// end::11-22-ring.tex[]
+----
+
+
+== 11-23-benzene.tex
+
+----
+// tag::11-23-benzene.tex[]
+\documentclass{article}
+\usepackage{chemfig}
+\pagestyle{empty}
+\begin{document}
+\chemfig{C*6((-H)-C(-H)=C(-H)-C(-H)=C(-H)-C(-H)=)}
+\end{document}
+// end::11-23-benzene.tex[]
+----
+
+
+== 11-24-submole.tex
+
+----
+// tag::11-24-submole.tex[]
+\documentclass[border=15pt]{standalone}
+\usepackage{chemfig}
+\begin{document}
+\definesubmol{C}{-C(-[2]H)(-[6]H)}
+\chemfig{H!C!C!C!C!C-H}
+\end{document}
+// end::11-24-submole.tex[]
+----
+
+
+== 11-25-molecules-options.tex
+
+----
+// tag::11-25-molecules-options.tex[]
+\documentclass{article}
+\usepackage{chemfig}
+\pagestyle{empty}
+\begin{document}
+\chemfig[scale=1.5,transform shape][color=blue]{H-C~C-H}
+\hspace{0.2\linewidth}
+\chemfig[thick][rotate=15]{C(-[2]H)(-[4]H)(-[6]H)-H}
+\end{document}
+// end::11-25-molecules-options.tex[]
+----
+
+
+== 11-26-alignment.tex
+
+----
+// tag::11-26-alignment.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{chemfig}
+\newcommand{\charge}[1]{\rlap{${}^{\texttt{#1}}$}}
+\newcommand{\positive}{\charge{+}}
+\newcommand{\negative}{\charge{-}}
+\begin{document}
+\chemfig{H\positive-[:322.25]O\negative-[:37.75]H\positive}
+\end{document}
+
+// end::11-26-alignment.tex[]
+----
+
+
+== 11-27-carbohydrates.tex
+
+----
+// tag::11-27-carbohydrates.tex[]
+\documentclass{article}
+\usepackage[hmargin=4cm]{geometry}
+\usepackage{carbohydrates}
+\pagestyle{empty}
+\begin{document}
+\centering
+\glucose[model=fischer,chain]\quad
+\glucose[model={fischer=skeleton},chain]
+
+\vspace{1cm}
+\glucose[model=haworth,chain]\hfill
+\glucose[model=haworth,ring]\hfill
+\glucose[model=chair,ring]
+\end{document}
+// end::11-27-carbohydrates.tex[]
+----
+
+
+== 11-28-carbohydrates-1.tex
+
+----
+// tag::11-28-carbohydrates-1.tex[]
+\documentclass{article}
+\usepackage[hmargin=4cm]{geometry}
+\usepackage{carbohydrates}
+\pagestyle{empty}
+\begin{document}
+\centering
+\glucose[model=fischer,chain]\qquad
+\glucose[model={fischer=skeleton},chain]
+\end{document}
+// end::11-28-carbohydrates-1.tex[]
+----
+
+
+== 11-29-carbohydrates-2.tex
+
+----
+// tag::11-29-carbohydrates-2.tex[]
+\documentclass{article}
+\usepackage[hmargin=4cm]{geometry}
+\usepackage{carbohydrates}
+\pagestyle{empty}
+\begin{document}
+\centering
+\glucose[model=haworth,chain]\hfill
+\glucose[model=haworth,ring]\hfill
+\glucose[model=chair,ring]
+\end{document}
+// end::11-29-carbohydrates-2.tex[]
+----
+
+
+== 11-30-level.tex
+
+----
+// tag::11-30-level.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{tikzorbital}
+\usetikzlibrary{positioning,quotes}
+\begin{document}
+\begin{tikzpicture}[note/.style={align=center, font=\sffamily\scriptsize}]
+  \drawLevel[elec = up]{1s1}
+  \drawLevel[elec = up, pos = {(5,0)}]{1s2}
+  \drawLevel[elec = pair, pos = {(2,-2)}, width = 2]{sigma}
+  \drawLevel[pos = {(2,2)}, width = 2]{sigmastar}
+
+  \draw[dashed]
+    (right 1s1) -- (left sigma)
+    (right 1s1) -- (left  sigmastar)
+    (left  1s2) -- (right sigmastar)
+    (left  1s2) -- (right sigma);
+
+  \node[left]  at (left 1s1) {{$1s_1$}};
+  \node[right] at (right 1s2) {{$1s_2$}};
+  \node[right] at (right sigma) {$\sigma$};
+  \node[right] at (right sigmastar) {$\sigma^*$};
+  \node[below = 0.4cm of middle 1s1,   note] {Atomic\\Orbital};
+  \node[below = 0.4cm of middle 1s2,   note] {Atomic\\Orbital};
+  \node[below = 0.4cm of middle sigma, note]
+    {Molecular Orbital};
+  \draw[very thick,-stealth] (-1.5,-2.5)
+    to["Energy", note, sloped] (-1.5,2.5);
+\end{tikzpicture}
+\end{document}
+// end::11-30-level.tex[]
+----
+
+
+== 11-31-orbitals.tex
+
+----
+// tag::11-31-orbitals.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{tikzorbital}
+\begin{document}
+\begin{tikzpicture}
+  \orbital{dyz}
+  \orbital[pos = {(2.4,0)}]{dx2y2}
+  \orbital[pos = {(4.5,0)}]{dz2}
+\end{tikzpicture}
+\end{document}
+// end::11-31-orbitals.tex[]
+----
+
+
+== 11-32-atom.tex
+
+----
+// tag::11-32-atom.tex[]
+% Hydrogen fluoride HF, diatomic molecule
+\documentclass[border=10pt]{standalone}
+\usepackage{tikzorbital}
+\begin{document}
+\begin{tikzpicture}
+  \atom[name=F, color=red]{
+    blue/270/south/2, blue/180/west/2,
+    blue/90/north/2,  blue/0/east/1}
+  \atom[name=H, color=gray, pos={(1.5,0)},
+      scale=0.7]{gray/180/west/1}
+\end{tikzpicture}
+\end{document}
+// end::11-32-atom.tex[]
+----
+
+
+== 11-35-periodic-table.tex
+
+----
+// tag::11-35-periodic-table.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{pgf-PeriodicTable}
+\begin{document}
+\pgfPT
+\end{document}
+// end::11-35-periodic-table.tex[]
+----
+
+
+== 11-36-periodic-table-detail.tex
+
+----
+// tag::11-36-periodic-table-detail.tex[]
+\documentclass[border=10pt]{standalone}
+\usepackage{pgf-PeriodicTable}
+\usepgfPTlibrary{colorschemes}
+\pgfPTGroupColors{example}{G1=red!90!black,G2=orange}
+\begin{document}
+\pgfPT[show title=false, back color scheme=example,
+  legend box={draw=blue!50,fill=blue!20},
+  show extra legend,
+  Z list={1,3,4,11,12}]
+\end{document}
+// end::11-36-periodic-table-detail.tex[]
+----
+
+
+== 11-37-feynman.tex
+
+----
+// tag::11-37-feynman.tex[]
+% Use LuaLaTeX to compile
+\documentclass[border=10pt]{standalone}
+\usepackage{tikz-feynman}
+\usetikzlibrary{positioning,quotes}
+\begin{document}
+\feynmandiagram [horizontal=a to b] {
+  i1 [particle=$e^-$] -- [fermion] a
+    -- [fermion] f1 [particle=$e^-$],
+  a -- [photon, "$\gamma$", red, thick,
+      momentum' = {[arrow style=red]$k$}] b,
+  i2 [particle=$\mu^-$] -- [anti fermion] b
+    -- [anti fermion] f2 [particle=$\mu^-$],
+};
+\end{document}
+// end::11-37-feynman.tex[]
+----
+
+
+== 11-40-circuit.tex
+
+----
+// tag::11-40-circuit.tex[]
+\documentclass[border=10pt]{standalone} 
+\usepackage{tikz}
+\usetikzlibrary{circuits.ee.IEC}
+\begin{document}
+\begin{tikzpicture}[
+    circuit ee IEC,
+    x = 3cm, y = 2cm,
+    every info/.style = {font = \scriptsize},
+    set diode graphic = var diode IEC graphic,
+    set make contact graphic = var make contact IEC graphic,
+  ]
+  \foreach \i in {1,...,3} {
+    \node [contact] (lower contact \i) at (\i,0) {};
+    \node [contact] (upper contact \i) at (\i,1) {};
+  }
+  \draw (upper contact 1) to [diode] (lower contact 1);
+  \draw (lower contact 2) to [capacitor] (upper contact 2);
+  \draw (upper contact 1) to [resistor = {ohm = 6}]
+        (upper contact 2);
+  \draw (lower contact 2) to [resistor = {adjustable}]
+        (lower contact 3);
+  \draw (lower contact 1) to [
+           voltage source = {near start,
+                             direction info = {volt = 12}},
+           inductor = {near end}]
+        (lower contact 2);
+  \draw (upper contact 2) to [make contact = {near start},
+                              battery = {near end,
+                                         info = {loaded}}]
+        (upper contact 3);
+  \draw (lower contact 3) to [bulb = {minimum height = 0.6cm}]
+        (upper contact 3);
+\end{tikzpicture}
+\end{document}
+// end::11-40-circuit.tex[]
+----
+
+
+== 11-51-lua-small.tex
+
+----
+// tag::11-51-lua-small.tex[]
+% Use LuaLaTeX to compile
+\documentclass[border=10pt]{standalone}
+\usepackage{luacode}
+\begin{document}
+The value of $\sqrt{2}$ is \approx
+\begin{luacode}
+  local x = 1
+  for i=1,10 do
+    x = (x + 2/x)/2
+  end
+  tex.print(x)
+\end{luacode}
+\end{document}
+
+Die Kreiszahl $\pi$ hat den Wert \directlua{tex.print(math.sqrt(2))}.
+// end::11-51-lua-small.tex[]
+----
+
+
+== 11-52-lua-plot.tex
+
+----
+// tag::11-52-lua-plot.tex[]
+% Use LuaLaTeX to compile
+\documentclass[border=10pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm, compat=1.18}
+\usepackage{luacode}
+\begin{luacode}
+  function mandelbrot(cx, cy, imax, smax)
+    local x, y, x1, y1, i, s
+    x, y, i, s = 0, 0, 0, 0
+    while (s <= smax) and (i < imax)  do
+      x1 = x * x - y * y + cx
+      y1 = 2 * x * y + cy
+      x = x1
+      y = y1
+      i = i + 1
+      s = x * x + y * y
+    end
+    if (i < imax) then
+      tex.print(i)
+    else
+      tex.print(0)
+    end
+  end
+\end{luacode}
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    colorbar,
+    point meta max = 30,
+    tick label style = {font=\tiny},
+    view={0}{90}]
+    \addplot3 [surf, domain = -1.5:0.5, shader = interp,
+               domain y = -1:1, samples = 200]
+        { \directlua{mandelbrot(\pgfmathfloatvalueof\x,
+          \pgfmathfloatvalueof\y,10000,4)} };
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+// end::11-52-lua-plot.tex[]
+----
+
+

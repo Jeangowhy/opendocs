@@ -1,0 +1,480 @@
+:stem: latexmath
+:source-highlighter: highlight.js
+:source: https://vscode.dev/github.com/pgf-tikz/pgf
+:ctan: http://ctan.org/pkg/tikz
+:PGF-TikZ-Manual: https://tikz.dev/
+
+[source]
+----
+\begin{tikzpicture}
+\coordinate (front)   at (0,0);
+\coordinate (horizon) at (0,.31\paperheight);
+\coordinate (bottom)  at (0,-.6\paperheight);
+\coordinate (sky)     at (0,.57\paperheight);
+\coordinate (left)    at (-.51\paperwidth,0);
+\coordinate (right)   at (.51\paperwidth,0);
+
+\shade [bottom color=white,
+        top color=blue!30!black!50]
+          ([yshift=-5mm]horizon -| left)
+        rectangle (sky -| right);
+
+\shade [bottom color=black!70!green!25,
+        top color=black!70!green!10]
+        (front -| left) -- (horizon -| left)
+        decorate [decoration=random steps] {
+        -- (horizon -| right) }
+        -- (front -| right) -- cycle;
+
+\shade [top color=black!70!green!25,
+        bottom color=black!25]
+        ([yshift=-5mm-1pt]front -| left)
+        rectangle ([yshift=1pt]front -| right);
+
+\fill [black!25]
+      (bottom -| left)
+      rectangle ([yshift=-5mm]front -| right);
+
+\def\nodeshadowed[#1]#2;{
+  \node[scale=2,above,#1]{
+        \global\setbox\mybox=\hbox{#2}
+        \copy\mybox};
+  \node[scale=2,above,#1,yscale=-1,
+      scope fading=south,opacity=0.4]{\box\mybox};
+}
+
+\nodeshadowed [at={(-5,8 )},yslant=0.05]
+              {\Huge Ti\textcolor{orange}{\emph{k}}Z};
+
+\nodeshadowed [at={( 0,8.3)}]
+              {\huge \textcolor{green!50!black!50}{\&}};
+
+\nodeshadowed [at={( 5,8 )},yslant=-0.05]
+              {\Huge \textsc{PGF}};
+
+\nodeshadowed [at={( 0,5 )}]
+              {Manual for Version \pgftypesetversion};
+
+\foreach \where in {-9cm,9cm} {
+
+          \nodeshadowed [at={(\where,5cm)}] { \tikz
+
+            \draw [green!20!black, rotate=90,
+                  l-system={rule set={F -> FF-[-F+F]+[+F-F]},
+                  axiom=F, order=4,step=2pt,
+                  randomize step percent=50, angle=30,
+                  randomize angle percent=5}] l-system; }}
+
+\foreach \i in {0.5,0.6,...,2}
+
+          \fill
+          [white,opacity=\i/2,
+          decoration=Koch snowflake,
+          shift=(horizon),shift={(rand*11,rnd*7)},
+          scale=\i,double copy shadow={
+                opacity=0.2,shadow xshift=0pt,
+                shadow yshift=3*\i pt,fill=white,draw=none}]
+                decorate {
+                  decorate {
+                    decorate {
+                      (0,0)- ++(60:1) -- ++(-60:1) -- cycle
+                    } } };
+
+\node (left text) ...
+\node (right text) ...
+
+\fill [decorate,decoration={footprints,foot of=gnome},
+      opacity=.5,brown] (rand*8,-rnd*10)
+      to [out=rand*18
+----
+
+
+== TikZ and PGF Manual
+
+link:https://pgf-tikz.github.io/pgf/pgfmanual.pdf#nameddest=section.31[PDF ver.]
+link:https://tikz.dev/[HTML ver.]
+
+
+Contents
+
+• <<P000,〉>>link:https://tikz.dev/[Introduction]
+• <<S001,〉>>link:https://tikz.dev/tutorials-guidelines[Tutorials and Guidelines]
+* <<S002,〉>> link:https://tikz.dev/tutorial[Tutorial: A Picture for Karl’s Students]
+* <<S003,〉>> link:https://tikz.dev/tutorial-nodes[Tutorial: A Petri-Net for Hagen]
+* <<S004,〉>> link:https://tikz.dev/tutorial-Euclid[Tutorial: Euclid’s Amber Version of the Elements]
+* <<S005,〉>> link:https://tikz.dev/tutorial-chains[Tutorial: Diagrams as Simple Graphs]
+* <<S006,〉>> link:https://tikz.dev/tutorial-map[Tutorial: A Lecture Map for Johannes]
+* <<S007,〉>> link:https://tikz.dev/guidelines[Guidelines on Graphics]
+• <<P002,〉>>link:https://tikz.dev/install[Installation and Configuration]
+* <<S008,〉>> link:https://tikz.dev/installation[Installation]
+* <<S009,〉>> link:https://tikz.dev/license[Licenses and Copyright]
+* <<S010,〉>> link:https://tikz.dev/drivers[Supported Formats]
+• <<P003,〉>>link:https://tikz.dev/tikz[TikZ]
+* <<S011,〉>> link:https://tikz.dev/tikz-design[Design Principles]
+* <<S012,〉>> link:https://tikz.dev/tikz-scopes[Hierarchical Structures: Package, Environments, Scopes, and Styles]
+* <<S013,〉>> link:https://tikz.dev/tikz-coordinates[Specifying Coordinates]
+* <<S014,〉>> link:https://tikz.dev/tikz-paths[Syntax for Path Specifications]
+* <<S015,〉>> link:https://tikz.dev/tikz-actions[Actions on Paths]
+* <<S016,〉>> link:https://tikz.dev/tikz-arrows[Arrows]
+* <<S017,〉>> link:https://tikz.dev/tikz-shapes[Nodes and Edges]
+* <<S018,〉>> link:https://tikz.dev/tikz-pics[Pics: Small Pictures on Paths]
+* <<S019,〉>> link:https://tikz.dev/tikz-graphs[Specifying Graphs]
+* <<S020,〉>> link:https://tikz.dev/tikz-matrices[Matrices and Alignment]
+* <<S021,〉>> link:https://tikz.dev/tikz-trees[Making Trees Grow]
+* <<S022,〉>> link:https://tikz.dev/tikz-plots[Plots of Functions]
+* <<S023,〉>> link:https://tikz.dev/tikz-transparency[Transparency]
+* <<S024,〉>> link:https://tikz.dev/tikz-decorations[Decorated Paths]
+* <<S025,〉>> link:https://tikz.dev/tikz-transformations[Transformations]
+* <<S026,〉>> link:https://tikz.dev/tikz-animations[Animations]
+• <<P004,〉>>link:https://tikz.dev/gd[Graph Drawing]
+* <<S027,〉>> link:https://tikz.dev/gd-overview[Introduction to Algorithmic Graph Drawing]
+* <<S028,〉>> link:https://tikz.dev/gd-usage-tikz[Using Graph Drawing in TikZ]
+* <<S029,〉>> link:https://tikz.dev/gd-usage-pgf[Using Graph Drawing in PGF]
+* <<S030,〉>> link:https://tikz.dev/gd-trees[Graph Drawing Layouts: Trees]
+* <<S031,〉>> link:https://tikz.dev/gd-layered[Graph Drawing Algorithms: Layered Layouts]
+* <<S032,〉>> link:https://tikz.dev/gd-force[Graph Drawing Algorithms: Force-Based Methods]
+* <<S033,〉>> link:https://tikz.dev/gd-circular[Graph Drawing Algorithms: Circular Layouts]
+* <<S034,〉>> link:https://tikz.dev/gd-phylogenetics[Graph Drawing Layouts: Phylogenetic Trees]
+* <<S035,〉>> link:https://tikz.dev/gd-edge-routing[Graph Drawing Algorithms: Edge Routing]
+* <<S036,〉>> link:https://tikz.dev/gd-algorithm-layer[The Algorithm Layer]
+* <<S037,〉>> link:https://tikz.dev/gd-algorithms-in-c[Writing Graph Drawing Algorithms in C]
+* <<S038,〉>> link:https://tikz.dev/gd-display-layer[The Display Layer]
+* <<S039,〉>> link:https://tikz.dev/gd-binding-layer[The Binding Layer]
+• <<P005,〉>>link:https://tikz.dev/libraries[Libraries]
+* <<S040,〉>> link:https://tikz.dev/library-3d[Three Dimensional Drawing Library]
+* <<S041,〉>> link:https://tikz.dev/library-angle[Angle Library]
+* <<S042,〉>> link:https://tikz.dev/library-arrows[Arrow Tip Library]
+* <<S043,〉>> link:https://tikz.dev/library-automata[Automata Drawing Library]
+* <<S044,〉>> link:https://tikz.dev/library-babel[Babel Library]
+* <<S045,〉>> link:https://tikz.dev/library-backgrounds[Background Library]
+* <<S046,〉>> link:https://tikz.dev/library-calc[Calc Library]
+* <<S047,〉>> link:https://tikz.dev/library-calender[Calendar Library]
+* <<S048,〉>> link:https://tikz.dev/library-chains[Chains]
+* <<S049,〉>> link:https://tikz.dev/library-circuits[Circuit Libraries]
+* <<S050,〉>> link:https://tikz.dev/library-decorations[Decoration Library]
+* <<S051,〉>> link:https://tikz.dev/library-er[Entity-Relationship Diagram Drawing Library]
+* <<S052,〉>> link:https://tikz.dev/library-external[Externalization Library]
+* <<S053,〉>> link:https://tikz.dev/library-fadings[Fading Library]
+* <<S054,〉>> link:https://tikz.dev/library-fit[Fitting Library]
+* <<S055,〉>> link:https://tikz.dev/library-fixedpoint[Fixed Point Arithmetic Library]
+* <<S056,〉>> link:https://tikz.dev/library-fpu[Floating Point Unit Library]
+* <<S057,〉>> link:https://tikz.dev/library-lsystems[Lindenmayer System Drawing Library]
+* <<S058,〉>> link:https://tikz.dev/library-math[Math Library]
+* <<S059,〉>> link:https://tikz.dev/library-matrix[Matrix Library]
+* <<S060,〉>> link:https://tikz.dev/library-mindmaps[Mindmap Drawing Library]
+* <<S061,〉>> link:https://tikz.dev/library-folding[Paper-Folding Diagrams Library]
+* <<S062,〉>> link:https://tikz.dev/library-patterns[Pattern Library]
+* <<S063,〉>> link:https://tikz.dev/library-perspective[Three Point Perspective Drawing Library]
+* <<S064,〉>> link:https://tikz.dev/library-petri[Petri-Net Drawing Library]
+* <<S065,〉>> link:https://tikz.dev/library-plot-handlers[Plot Handler Library]
+* <<S066,〉>> link:https://tikz.dev/library-plot-marks[Plot Mark Library]
+* <<S067,〉>> link:https://tikz.dev/library-profiler[Profiler Library]
+* <<S068,〉>> link:https://tikz.dev/library-rdf[Resource Description Framework Library]
+* <<S069,〉>> link:https://tikz.dev/library-shadings[Shadings Library]
+* <<S070,〉>> link:https://tikz.dev/library-shadows[Shadows Library]
+* <<S071,〉>> link:https://tikz.dev/library-shapes[Shape Library]
+* <<S072,〉>> link:https://tikz.dev/library-spy[Spy Library: Magnifying Parts of Pictures]
+* <<S073,〉>> link:https://tikz.dev/library-svg-path[SVG-Path Library]
+* <<S074,〉>> link:https://tikz.dev/library-edges[To Path Library]
+* <<S075,〉>> link:https://tikz.dev/library-through[Through Library]
+* <<S076,〉>> link:https://tikz.dev/library-trees[Tree Library]
+* <<S077,〉>> link:https://tikz.dev/library-turtle[Turtle Graphics Library]
+* <<S078,〉>> link:https://tikz.dev/library-views[Views Library]
+• <<P006,〉>>link:https://tikz.dev/dv[Data Visualization]
+* <<S079,〉>> link:https://tikz.dev/dv-introduction[Introduction to Data Visualization]
+* <<S080,〉>> link:https://tikz.dev/dv-main[Creating Data Visualizations]
+* <<S081,〉>> link:https://tikz.dev/dv-formats[Providing Data for a Data Visualization]
+* <<S082,〉>> link:https://tikz.dev/dv-axes[Axes]
+* <<S083,〉>> link:https://tikz.dev/dv-visualizers[Visualizers]
+* <<S084,〉>> link:https://tikz.dev/dv-stylesheets[Style Sheets and Legends]
+* <<S085,〉>> link:https://tikz.dev/dv-polar[Polar Axes]
+* <<S086,〉>> link:https://tikz.dev/dv-backend[The Data Visualization Backend]
+• <<P007,〉>>link:https://tikz.dev/utilities[Utilities]
+* <<S087,〉>> link:https://tikz.dev/pgfkeys[Key Management]
+* <<S088,〉>> link:https://tikz.dev/pgffor[Repeating Things: The Foreach Statement]
+* <<S089,〉>> link:https://tikz.dev/pgfcalendar[Date and Calendar Utility Macros]
+* <<S090,〉>> link:https://tikz.dev/pages[Page Management]
+* <<S091,〉>> link:https://tikz.dev/xxcolor[Extended Color Support]
+* <<S092,〉>> link:https://tikz.dev/module-parser[Parser Module]
+• <<P008,〉>>link:https://tikz.dev/math[Mathematical and Object-Oriented Engines]
+* <<S093,〉>> link:https://tikz.dev/math-design[Design Principles]
+* <<S094,〉>> link:https://tikz.dev/math-parsing[Mathematical Expressions]
+* <<S095,〉>> link:https://tikz.dev/math-commands[Additional Mathematical Commands]
+* <<S096,〉>> link:https://tikz.dev/math-algorithms[Customizing the Mathematical Engine]
+* <<S097,〉>> link:https://tikz.dev/math-numberprinting[Number Printing]
+* <<S098,〉>> link:https://tikz.dev/oo[Object-Oriented Programming]
+• <<P009,〉>>link:https://tikz.dev/base[The Basic Layer]
+* <<S099,〉>> link:https://tikz.dev/base-design[Design Principles]
+* <<S100,〉>> link:https://tikz.dev/base-scopes[Hierarchical Structures: Package, Environments, Scopes, and Text]
+* <<S101,〉>> link:https://tikz.dev/base-points[Specifying Coordinates]
+* <<S102,〉>> link:https://tikz.dev/base-paths[Constructing Paths]
+* <<S103,〉>> link:https://tikz.dev/base-decorations[Decorations]
+* <<S104,〉>> link:https://tikz.dev/base-actions[Using Paths]
+* <<S105,〉>> link:https://tikz.dev/base-arrows[Defining New Arrow Tip Kinds]
+* <<S106,〉>> link:https://tikz.dev/base-nodes[Nodes and Shapes]
+* <<S107,〉>> link:https://tikz.dev/base-matrices[Matrices]
+* <<S108,〉>> link:https://tikz.dev/base-transformations[Coordinate, Canvas, and Nonlinear Transformations]
+* <<S109,〉>> link:https://tikz.dev/base-patterns[Patterns]
+* <<S110,〉>> link:https://tikz.dev/base-images[Declaring and Using Images]
+* <<S111,〉>> link:https://tikz.dev/base-external[Externalizing Graphics]
+* <<S112,〉>> link:https://tikz.dev/base-plots[Creating Plots]
+* <<S113,〉>> link:https://tikz.dev/base-layers[Layered Graphics]
+* <<S114,〉>> link:https://tikz.dev/base-shadings[Shadings]
+* <<S115,〉>> link:https://tikz.dev/base-transparency[Transparency]
+* <<S116,〉>> link:https://tikz.dev/base-animations[Animations]
+* <<S117,〉>> link:https://tikz.dev/base-internalregisters[Adding libraries to pgf: temporary registers]
+* <<S118,〉>> link:https://tikz.dev/base-quick[Quick Commands]
+• <<P010,〉>>link:https://tikz.dev/pgfsys[The System Layer]
+* <<S119,〉>> link:https://tikz.dev/pgfsys-overview[Design of the System Layer]
+* <<S120,〉>> link:https://tikz.dev/pgfsys-commands[Commands of the System Layer]
+* <<S121,〉>> link:https://tikz.dev/pgfsys-paths[The Soft Path Subsystem]
+* <<S122,〉>> link:https://tikz.dev/pgfsys-protocol[The Protocol Subsystem]
+* <<S123,〉>> link:https://tikz.dev/pgfsys-animations[Animation System Layer]
+
+
+== Intro
+
+[.text-center]
+==============
+**The TikZ and PGF Packages**
+
+Updated 2024-12-20 – Manual for Version 3.1.10
+
+Unofficial HTML Version
+
+This HTML version of the documentation is maintained by Dominik Peters, 
+and is produced using the https://ctan.org/pkg/lwarp?lang=en[`lwarp`] package.
+
+Editor of the PGF/TikZ documentation: Till Tantau.
+
+Parts of this documentation have been written by other authors as indicated 
+in these parts or chapters and in Section <<sec_001.5>>.
+==============
+
+
+*Quick Links* https://tikz.dev/tikz-shapes#sec-17.2.1[\node] •
+https://tikz.dev/tikz-actions#sec-15.5[\fill] •
+https://tikz.dev/tikz-actions#sec-15.3[\draw] •
+https://tikz.dev/pgffor[\foreach] •
+https://tikz.dev/tikz-actions#sec-15.2[color] •
+https://tikz.dev/tikz-paths#pgf.circle[circle] •
+https://tikz.dev/tikz-paths#sec-14.7[arc] •
+https://tikz.dev/tikz-paths#sec-14.8[grid] •
+https://tikz.dev/tikz-paths#sec-14.4[rectangle] •
+https://tikz.dev/tikz-shapes#sec-17.10[label] •
+https://tikz.dev/tikz-shapes#sec-17.12[edge] •
+https://tikz.dev/tikz-shapes#sec-17.5.1[anchor] •
+https://tikz.dev/tikz-actions#sec-15.9[clip]
+
+*Tutorials*
+
+:cover: image:https://tikz.dev/toc-banners/tutorial.png[width=600,height=315]
+link:https://tikz.dev/tutorial[{cover}]
+Tutorial: A Picture for Karl’s Students
+
+:cover: image:https://tikz.dev/toc-banners/tutorial-nodes.png[width=600,height=315]
+link:https://tikz.dev/tutorial-nodes[{cover}]
+Tutorial: A Petri-Net for Hagen
+
+:cover: image:https://tikz.dev/toc-banners/tutorial-Euclid.png[width=600,height=315]
+link:https://tikz.dev/tutorial-Euclid[{cover}]
+Tutorial: Euclid’s Elements
+
+:cover: image:https://tikz.dev/toc-banners/tutorial-chains.png[width=600,height=315]
+link:https://tikz.dev/tutorial-chains[{cover}]
+Tutorial: Diagrams as Simple Graphs
+
+*TikZ*
+
+:cover: image:https://tikz.dev/toc-banners/tikz-design.png[width=600,height=315]
+link:https://tikz.dev/tikz-design[{cover}]
+Design Principles
+
+:cover: image:https://tikz.dev/toc-banners/tikz-coordinates.png[width=600,height=315]
+link:https://tikz.dev/tikz-coordinates[{cover}]
+Specifying Coordinates
+
+:cover: image:https://tikz.dev/toc-banners/tikz-paths.png[width=600,height=315]
+link:https://tikz.dev/tikz-paths[{cover}]
+Path Specifications
+
+:cover: image:https://tikz.dev/toc-banners/tikz-actions.png[width=600,height=315]
+link:https://tikz.dev/tikz-actions[{cover}]
+Actions on Paths
+
+:cover: image:https://tikz.dev/toc-banners/tikz-arrows.png[width=600,height=315]
+link:https://tikz.dev/tikz-arrows[{cover}]
+Arrows
+
+:cover: image:https://tikz.dev/toc-banners/tikz-shapes.png[width=600,height=315]
+link:https://tikz.dev/tikz-shapes[{cover}]
+Nodes and Edges
+
+:cover: image:https://tikz.dev/toc-banners/tikz-pics.png[width=600,height=315]
+link:https://tikz.dev/tikz-pics[{cover}]
+Pics: Small Pictures on Paths
+
+:cover: image:https://tikz.dev/toc-banners/tikz-graphs.png[width=600,height=315]
+link:https://tikz.dev/tikz-graphs[{cover}]
+Specifying Graphs
+
+:cover: image:https://tikz.dev/toc-banners/tikz-matrices.png[width=600,height=315]
+link:https://tikz.dev/tikz-matrices[{cover}]
+Matrices and Alignment
+
+:cover: image:https://tikz.dev/toc-banners/tikz-trees.png[width=600,height=315]
+link:https://tikz.dev/tikz-trees[{cover}]
+Making Trees Grow
+
+:cover: image:https://tikz.dev/toc-banners/tikz-plots.png[width=600,height=315]
+link:https://tikz.dev/tikz-plots[{cover}]
+Plots of Functions
+
+:cover: image:https://tikz.dev/toc-banners/tikz-transparency.png[width=600,height=315]
+link:https://tikz.dev/tikz-transparency[{cover}]
+Transparency
+
+:cover: image:https://tikz.dev/toc-banners/tikz-decorations.png[width=600,height=315]
+link:https://tikz.dev/tikz-decorations[{cover}]
+Decorated Paths
+
+:cover: image:https://tikz.dev/toc-banners/tikz-transformations.png[width=600,height=315]
+link:https://tikz.dev/tikz-transformations[{cover}]
+Transformations
+
+:cover: image:https://tikz.dev/toc-banners/tikz-animations.svg[width=600,height=315]
+link:https://tikz.dev/tikz-animations[{cover}]
+Animations
+
+*Libraries*
+
+:cover: image:https://tikz.dev/toc-banners/library-3d.png[width=600,height=315]
+link:https://tikz.dev/library-3d[{cover}]
+Three Dimensional Drawing Library
+
+:cover: image:https://tikz.dev/toc-banners/library-angle.png[width=600,height=315]
+link:https://tikz.dev/library-angle[{cover}]
+Angle Library
+
+:cover: image:https://tikz.dev/toc-banners/library-automata.png[width=600,height=315]
+link:https://tikz.dev/library-automata[{cover}]
+Automata Drawing Library
+
+:cover: image:https://tikz.dev/toc-banners/library-calender.png[width=600,height=315]
+link:https://tikz.dev/library-calender[{cover}]
+Calendar Library
+
+:cover: image:https://tikz.dev/toc-banners/library-circuits.png[width=600,height=315]
+link:https://tikz.dev/library-circuits[{cover}]
+Circuit Library
+
+:cover: image:https://tikz.dev/toc-banners/library-decorations.png[width=600,height=315]
+link:https://tikz.dev/library-decorations[{cover}]
+Decoration Library
+
+:cover: image:https://tikz.dev/toc-banners/library-fit.png[width=600,height=315]
+link:https://tikz.dev/library-fit[{cover}]
+Fitting Library
+
+:cover: image:https://tikz.dev/toc-banners/library-matrix.png[width=600,height=315]
+link:https://tikz.dev/library-matrix[{cover}]
+Matrix Library
+
+:cover: image:https://tikz.dev/toc-banners/library-mindmaps.png[width=600,height=315]
+link:https://tikz.dev/library-mindmaps[{cover}]
+Mindmap Drawing Library
+
+:cover: image:https://tikz.dev/toc-banners/library-folding.png[width=600,height=315]
+link:https://tikz.dev/library-folding[{cover}]
+Paper-Folding Diagrams Library
+
+:cover: image:https://tikz.dev/toc-banners/library-patterns.png[width=600,height=315]
+link:https://tikz.dev/library-patterns[{cover}]
+Pattern Library
+
+:cover: image:https://tikz.dev/toc-banners/library-perspective.png[width=600,height=315]
+link:https://tikz.dev/library-perspective[{cover}]
+Three Point Perspective Library
+
+:cover: image:https://tikz.dev/toc-banners/library-petri.png[width=600,height=315]
+link:https://tikz.dev/library-petri[{cover}]
+Petri-Net Drawing Library
+
+:cover: image:https://tikz.dev/toc-banners/library-shadings.png[width=600,height=315]
+link:https://tikz.dev/library-shadings[{cover}]
+Shadings Library
+
+:cover: image:https://tikz.dev/toc-banners/library-shadows.png[width=600,height=315]
+link:https://tikz.dev/library-shadows[{cover}]
+Shadows Library
+
+:cover: image:https://tikz.dev/toc-banners/library-shapes.png[width=600,height=315]
+link:https://tikz.dev/library-shapes[{cover}]
+Shape Library
+
+:cover: image:https://tikz.dev/toc-banners/library-spy.png[width=600,height=315]
+link:https://tikz.dev/library-spy[{cover}]
+Spy Library: Magnifying Pictures
+
+*Graph Drawing*
+
+:cover: image:https://tikz.dev/toc-banners/gd-overview.png[width=600,height=315]
+link:https://tikz.dev/gd-overview[{cover}]
+Introduction to Graph Drawing
+
+:cover: image:https://tikz.dev/toc-banners/gd-usage-tikz.png[width=600,height=315]
+link:https://tikz.dev/gd-usage-tikz[{cover}]
+Using Graph Drawing in *TikZ*
+
+:cover: image:https://tikz.dev/toc-banners/gd-trees.png[width=600,height=315]
+link:https://tikz.dev/gd-trees[{cover}]
+[.home-toc-chapter-name]#Layouts: Trees#]
+
+:cover: image:https://tikz.dev/toc-banners/gd-layered.png[width=600,height=315]
+link:https://tikz.dev/gd-layered[{cover}]
+[.home-toc-chapter-name]#Layered Layouts#]
+
+:cover: image:https://tikz.dev/toc-banners/gd-force.png[width=600,height=315]
+link:https://tikz.dev/gd-force[{cover}]
+Force-Based Methods
+
+:cover: image:https://tikz.dev/toc-banners/gd-circular.png[width=600,height=315]
+link:https://tikz.dev/gd-circular[{cover}]
+Circular Layouts
+
+:cover: image:https://tikz.dev/toc-banners/gd-phylogenetics.png[width=600,height=315]
+link:https://tikz.dev/gd-phylogenetics[{cover}]
+Phylogenetic Trees
+
+*Data Visualization*
+
+:cover: image:https://tikz.dev/toc-banners/dv-main.png[width=600,height=315]
+link:https://tikz.dev/dv-main[{cover}]
+Creating Data Visualizations
+
+:cover: image:https://tikz.dev/toc-banners/dv-formats.png[width=600,height=315]
+link:https://tikz.dev/dv-formats[{cover}]
+Providing Data for Visualizations
+
+:cover: image:https://tikz.dev/toc-banners/dv-axes.png[width=600,height=315]
+link:https://tikz.dev/dv-axes[{cover}]
+Axes
+
+:cover: image:https://tikz.dev/toc-banners/dv-visualizers.png[width=600,height=315]
+link:https://tikz.dev/dv-visualizers[{cover}]
+Visualizers
+
+:cover: image:https://tikz.dev/toc-banners/dv-stylesheets.png[width=600,height=315]
+link:https://tikz.dev/dv-stylesheets[{cover}]
+Style Sheets and Legends
+
+:cover: image:https://tikz.dev/toc-banners/dv-polar.png[width=600,height=315]
+link:https://tikz.dev/dv-polar[{cover}]
+Polar Axes
+
+*Utilities*
+
+:cover: image:https://tikz.dev/toc-banners/pgffor.png[width=600,height=315]
+link:https://tikz.dev/pgffor[{cover}]
+Repeating Things: Foreach
+

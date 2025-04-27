@@ -1,6 +1,707 @@
 
 [TOC]
 
+# =🚩 Unicode Charts
+
+符号说明：Þ、þ （þorn 或 thorn）是古英语和冰岛语的一个字母。属于 Unicode 拉丁增补符号，
+U0080 [Latin-1 Supplement]。经过查阅 Unicode 官方资料，发现 ϔ 这个有点像喷泉的符号属于
+U0370 [Greek and Coptic] 字符集，类似的变体还有 Ÿ。加拿大印第安方言领音符号(乌兹克里语) 
+ᔧ 归属于 U1400 [Unified Canadian Aboriginal Syllabics]。这种笔画走势与 U10140 [Ancient Greek Numbers] 有些形似。Unicode 16.0 目前收录全球各地超过 15 万符号图案，
+分两大类：文字符号与其它物体图形符号。箭头符号归为数学符号，U2190 [Mathematical Symbols - Arrows]。
+
+[Announcing The Unicode® Standard, Version 16.0](https://blog.unicode.org/2024/09/announcing-unicode-standard-version-160.html)
+
+[Unicode 字符集查询工具](https://www.rapidtables.org/code/text/unicode-characters.html)
+
+作为全球符号制造基地，中国使用的汉语贡献出 10 多万文字符号。Unicode 也收录汉语的注音符号，
+现在简化汉语使用以 latin 符号作为拼音的替代方案。
+
+表意文字结构描述符 (Ideographic Description Character, 2FF0–2FFF)：
+
+* ⿰ 象形字左右结构
+* ⿱ 象形字上下结构
+* ⿲ 象形字左中右结构
+* ⿳ 象形字上中下结构
+* ⿴ 象形字全包围结构
+* ⿵ 象形字上半包围结构
+* ⿶ 象形字下半包围结构
+* ⿷ 象形字左半包围结构
+* ⿸ 象形字左上半包围结构
+* ⿹ 象形字右上半包围结构
+* ⿺ 象形字左下半包围结构
+* ⿻ 象形字重叠结构
+
+
+Based on GB 2312
+
+    3105 ㄅ BOPOMOFO LETTER B
+    3106 ㄆ BOPOMOFO LETTER P
+    3107 ㄇ BOPOMOFO LETTER M
+    3108 ㄈ BOPOMOFO LETTER F
+    3109 ㄉ BOPOMOFO LETTER D
+    310A ㄊ BOPOMOFO LETTER T
+    310B ㄋ BOPOMOFO LETTER N
+    310C ㄌ BOPOMOFO LETTER L
+    310D ㄍ BOPOMOFO LETTER G
+    310E ㄎ BOPOMOFO LETTER K
+    310F ㄏ BOPOMOFO LETTER H
+    3110 ㄐ BOPOMOFO LETTER J
+    3111 ㄑ BOPOMOFO LETTER Q
+    3112 ㄒ BOPOMOFO LETTER X
+    3113 ㄓ BOPOMOFO LETTER ZH
+    3114 ㄔ BOPOMOFO LETTER CH
+    3115 ㄕ BOPOMOFO LETTER SH
+    3116 ㄖ BOPOMOFO LETTER R
+    3117 ㄗ BOPOMOFO LETTER Z
+    3118 ㄘ BOPOMOFO LETTER C
+    3119 ㄙ BOPOMOFO LETTER S
+    311A ㄚ BOPOMOFO LETTER A
+    311B ㄛ BOPOMOFO LETTER O
+    311C ㄜ BOPOMOFO LETTER E
+    311D ㄝ BOPOMOFO LETTER EH
+    311E ㄞ BOPOMOFO LETTER AI
+    311F ㄟ BOPOMOFO LETTER EI
+    3120 ㄠ BOPOMOFO LETTER AU
+    3121 ㄡ BOPOMOFO LETTER OU
+    3122 ㄢ BOPOMOFO LETTER AN
+    3123 ㄣ BOPOMOFO LETTER EN
+    3124 ㄤ BOPOMOFO LETTER ANG
+    3125 ㄥ BOPOMOFO LETTER ENG
+    3126 ㄦ BOPOMOFO LETTER ER
+    3127 ㄧ BOPOMOFO LETTER I
+            • the vertical stroke form is considered a rendering variant
+    3128 ㄨ BOPOMOFO LETTER U
+    3129 ㄩ BOPOMOFO LETTER IU
+
+Dialect (non-Mandarin) letters
+
+    312A ㄪ BOPOMOFO LETTER V
+    312B ㄫ BOPOMOFO LETTER NG
+    312C ㄬ BOPOMOFO LETTER GN
+
+Miscellaneous additions
+
+    312D ㄭ BOPOMOFO LETTER IH
+            • for analytic representation of apical vowel
+    312E ㄮ BOPOMOFO LETTER O WITH DOT ABOVE
+            • early form of letter e
+    312F ㄯ BOPOMOFO LETTER NN
+            • syllabic nasal
+
+Extended Bopomofo for Minnan and Hakka
+
+    31A0 ㆠ BOPOMOFO LETTER BU
+    31A1 ㆡ BOPOMOFO LETTER ZI
+    31A2 ㆢ BOPOMOFO LETTER JI
+    31A3 ㆣ BOPOMOFO LETTER GU
+    31A4 ㆤ BOPOMOFO LETTER EE
+    31A5 ㆥ BOPOMOFO LETTER ENN
+    31A6 ㆦ BOPOMOFO LETTER OO
+    31A7 ㆧ BOPOMOFO LETTER ONN
+    31A8 ㆨ BOPOMOFO LETTER IR
+    31A9 ㆩ BOPOMOFO LETTER ANN
+    31AA ㆪ BOPOMOFO LETTER INN
+    31AB ㆫ BOPOMOFO LETTER UNN
+    31AC ㆬ BOPOMOFO LETTER IM
+    31AD ㆭ BOPOMOFO LETTER NGG
+    31AE ㆮ BOPOMOFO LETTER AINN
+    31AF ㆯ BOPOMOFO LETTER AUNN
+    31B0 ㆰ BOPOMOFO LETTER AM
+    31B1 ㆱ BOPOMOFO LETTER OM
+    31B2 ㆲ BOPOMOFO LETTER ONG
+    31B3 ㆳ BOPOMOFO LETTER INNN
+    31B4 ㆴ BOPOMOFO FINAL LETTER P
+    31B5 ㆵ BOPOMOFO FINAL LETTER T
+    31B6 ㆶ BOPOMOFO FINAL LETTER K
+    • use of 31BB ㆻ  is preferred
+    31B7 ㆷ BOPOMOFO FINAL LETTER H
+
+Extended Bopomofo for Hmu and Ge
+
+    31B8 ㆸ BOPOMOFO LETTER GH
+    31B9 ㆹ BOPOMOFO LETTER LH
+    31BA ㆺ BOPOMOFO LETTER ZY
+
+Extended Bopomofo for Minnan and Hakka
+
+    31BB ㆻ BOPOMOFO FINAL LETTER G
+
+Extended Bopomofo for Cantonese
+
+    31BC ㆼ BOPOMOFO LETTER GW
+    31BD ㆽ BOPOMOFO LETTER KW
+    31BE ㆾ BOPOMOFO LETTER OE
+    31BF ㆿ BOPOMOFO LETTER AH
+
+制表常用 U2500 [Box Drawing] 符号。
+
+AsciiArt 绘图中常用 U2580 [Block Elements] 符号。
+
+Block elements
+
+    2580 ▀ UPPER HALF BLOCK
+    2581 ▁ LOWER ONE EIGHTH BLOCK
+    2582 ▂ LOWER ONE QUARTER BLOCK
+    2583 ▃ LOWER THREE EIGHTHS BLOCK
+    2584 ▄ LOWER HALF BLOCK
+    2585 ▅ LOWER FIVE EIGHTHS BLOCK
+    2586 ▆ LOWER THREE QUARTERS BLOCK
+    2587 ▇ LOWER SEVEN EIGHTHS BLOCK
+    2588 █ FULL BLOCK
+        = solid
+        → 25A0 ■  black square
+    2589 ▉ LEFT SEVEN EIGHTHS BLOCK
+    258A ▊ LEFT THREE QUARTERS BLOCK
+    258B ▋ LEFT FIVE EIGHTHS BLOCK
+    258C ▌ LEFT HALF BLOCK
+    258D ▍ LEFT THREE EIGHTHS BLOCK
+    258E ▎ LEFT ONE QUARTER BLOCK
+    258F ▏ LEFT ONE EIGHTH BLOCK
+    2590 ▐ RIGHT HALF BLOCK
+
+Shade characters
+
+    2591 ░ LIGHT SHADE
+        • 25%
+    2592 ▒ MEDIUM SHADE
+        = speckles fill, dotted fill
+        • 50%
+        • used in mapping to cp949
+        → 1FB90 🮐  inverse medium shade
+    2593 ▓ DARK SHADE
+        • 75%
+
+Block elements
+
+    2594 ▔ UPPER ONE EIGHTH BLOCK
+    2595 ▕ RIGHT ONE EIGHTH BLOCK
+        Terminal graphic characters
+    2596 ▖ QUADRANT LOWER LEFT
+    2597 ▗ QUADRANT LOWER RIGHT
+    2598 ▘ QUADRANT UPPER LEFT
+    2599 ▙ QUADRANT UPPER LEFT AND LOWER LEFT AND LOWER RIGHT
+    259A ▚ QUADRANT UPPER LEFT AND LOWER RIGHT
+        → 1F67F   reverse checker board
+        → 1FB95 🮕  checker board fill
+    259B ▛ QUADRANT UPPER LEFT AND UPPER RIGHT AND LOWER LEFT
+    259C ▜ QUADRANT UPPER LEFT AND UPPER RIGHT AND LOWER RIGHT
+    259D ▝ QUADRANT UPPER RIGHT
+    259E ▞ QUADRANT UPPER RIGHT AND LOWER LEFT
+        → 1F67E   checker board
+        → 1FB96 🮖  inverse checker board fill
+    259F ▟ QUADRANT UPPER RIGHT AND LOWER LEFT AND LOWER RIGHT
+
+
+# =🚩 Unicode Scripts
+
+[Scripts](https://www.unicode.org/charts/#scripts)   |
+[Symbols & Punctuation](https://www.unicode.org/charts/#symbols)   |
+[Name Index](https://www.unicode.org/charts/charindex.html)  |
+[Help](https://www.unicode.org/charts/About.html)   |
+[Conventions](https://www.unicode.org/charts/About.html#Conventions)    
+
+## European Scripts
+
+[Armenian](https://www.unicode.org/charts/PDF/U0530.pdf)  |
+[Armenian Ligatures](https://www.unicode.org/charts/PDF/UFB00.pdf)  |
+[Carian](https://www.unicode.org/charts/PDF/U102A0.pdf)  |
+[Caucasian Albanian](https://www.unicode.org/charts/PDF/U10530.pdf)   |
+[Cypriot Syllabary](https://www.unicode.org/charts/PDF/U10800.pdf)  |
+[Cypro-Minoan](https://www.unicode.org/charts/PDF/U12F90.pdf)  |
+[Cyrillic](https://www.unicode.org/charts/PDF/U0400.pdf)  |
+[Cyrillic Supplement](https://www.unicode.org/charts/PDF/U0500.pdf)  |
+[Cyrillic Extended-A](https://www.unicode.org/charts/PDF/U2DE0.pdf)  |
+[Cyrillic Extended-B](https://www.unicode.org/charts/PDF/UA640.pdf)  |
+[Cyrillic Extended-C](https://www.unicode.org/charts/PDF/U1C80.pdf)  |
+[Cyrillic Extended-D](https://www.unicode.org/charts/PDF/U1E030.pdf)  |
+[Elbasan](https://www.unicode.org/charts/PDF/U10500.pdf)  |
+[Georgian](https://www.unicode.org/charts/PDF/U10A0.pdf)  |
+[Georgian Extended](https://www.unicode.org/charts/PDF/U1C90.pdf)  |
+[Georgian Supplement](https://www.unicode.org/charts/PDF/U2D00.pdf)  |
+[Glagolitic](https://www.unicode.org/charts/PDF/U2C00.pdf)  |
+[Glagolitic Supplement](https://www.unicode.org/charts/PDF/U1E000.pdf)  |
+[Gothic](https://www.unicode.org/charts/PDF/U10330.pdf)  |
+[Greek](https://www.unicode.org/charts/PDF/U0370.pdf)  |
+[Greek Extended](https://www.unicode.org/charts/PDF/U1F00.pdf)  |
+[Ancient Greek Numbers](https://www.unicode.org/charts/PDF/U10140.pdf)  |
+[Latin](https://www.unicode.org/charts/PDF/U0000.pdf)  |
+[Basic Latin (ASCII)](https://www.unicode.org/charts/PDF/U0000.pdf)  |
+[Latin-1 Supplement](https://www.unicode.org/charts/PDF/U0080.pdf)  |
+[Latin Extended-A](https://www.unicode.org/charts/PDF/U0100.pdf)  |
+[Latin Extended-B](https://www.unicode.org/charts/PDF/U0180.pdf)  |
+[Latin Extended-C](https://www.unicode.org/charts/PDF/U2C60.pdf)  |
+[Latin Extended-D](https://www.unicode.org/charts/PDF/UA720.pdf)  |
+[Latin Extended-E](https://www.unicode.org/charts/PDF/UAB30.pdf)  |
+[Latin Extended-F](https://www.unicode.org/charts/PDF/U10780.pdf)  |
+[Latin Extended-G](https://www.unicode.org/charts/PDF/U1DF00.pdf)  |
+[Latin Extended Additional](https://www.unicode.org/charts/PDF/U1E00.pdf)  |
+[Latin Ligatures](https://www.unicode.org/charts/PDF/UFB00.pdf)  |
+[Fullwidth Latin Letters](https://www.unicode.org/charts/PDF/UFF00.pdf)  |
+[IPA Extensions](https://www.unicode.org/charts/PDF/U0250.pdf)  |
+[Phonetic Extensions](https://www.unicode.org/charts/PDF/U1D00.pdf)  |
+[Phonetic Extensions Supplement](https://www.unicode.org/charts/PDF/U1D80.pdf)  |
+[Linear A](https://www.unicode.org/charts/PDF/U10600.pdf)  |
+[Linear B Syllabary](https://www.unicode.org/charts/PDF/U10000.pdf)  |
+[Linear B Ideograms](https://www.unicode.org/charts/PDF/U10080.pdf)  |
+[Aegean Numbers](https://www.unicode.org/charts/PDF/U10100.pdf)  |
+[Lycian](https://www.unicode.org/charts/PDF/U10280.pdf)  |
+[Lydian](https://www.unicode.org/charts/PDF/U10920.pdf)  |
+[Ogham](https://www.unicode.org/charts/PDF/U1680.pdf)  |
+[Old Hungarian](https://www.unicode.org/charts/PDF/U10C80.pdf)  |
+[Old Italic](https://www.unicode.org/charts/PDF/U10300.pdf)  |
+[Old Permic](https://www.unicode.org/charts/PDF/U10350.pdf)  |
+[Phaistos Disc](https://www.unicode.org/charts/PDF/U101D0.pdf)  |
+[Runic](https://www.unicode.org/charts/PDF/U16A0.pdf)  |
+[Shavian](https://www.unicode.org/charts/PDF/U10450.pdf)  |
+[Todhri](https://www.unicode.org/charts/PDF/U105C0.pdf)  |
+[Vithkuqi](https://www.unicode.org/charts/PDF/U10570.pdf)  |
+
+## Modifier Letters
+
+[Modifier Tone Letters](https://www.unicode.org/charts/PDF/UA700.pdf)  |
+[Spacing Modifier Letters](https://www.unicode.org/charts/PDF/U02B0.pdf)  |
+[Superscripts and Subscripts](https://www.unicode.org/charts/PDF/U2070.pdf)  |
+
+## Combining Marks
+
+[Combining Diacritical Marks](https://www.unicode.org/charts/PDF/U0300.pdf)  |
+[Combining Diacritical Marks Extended](https://www.unicode.org/charts/PDF/U1AB0.pdf)  |
+[Combining Diacritical Marks Supplement](https://www.unicode.org/charts/PDF/U1DC0.pdf)  |
+[Combining Diacritical Marks for Symbols](https://www.unicode.org/charts/PDF/U20D0.pdf)  |
+[Combining Half Marks](https://www.unicode.org/charts/PDF/UFE20.pdf)
+
+## Miscellaneous
+
+[Alphabetic Presentation Forms](https://www.unicode.org/charts/PDF/UFB00.pdf)  |
+[ASCII Characters](https://www.unicode.org/charts/PDF/U0000.pdf)  |
+[Halfwidth and Fullwidth Forms](https://www.unicode.org/charts/PDF/UFF00.pdf)
+
+## African Scripts
+
+[Adlam](https://www.unicode.org/charts/PDF/U1E900.pdf)  |
+[Bamum](https://www.unicode.org/charts/PDF/UA6A0.pdf)  |
+[Bamum Supplement](https://www.unicode.org/charts/PDF/U16800.pdf)  |
+[Bassa Vah](https://www.unicode.org/charts/PDF/U16AD0.pdf)  |
+[Coptic](https://www.unicode.org/charts/PDF/U2C80.pdf)   |
+[Coptic in Greek block](https://www.unicode.org/charts/PDF/U0370.pdf)  |
+[Coptic Epact Numbers](https://www.unicode.org/charts/PDF/U102E0.pdf)  |
+[Egyptian Hieroglyphs](https://www.unicode.org/charts/PDF/U13000.pdf)  |
+[Egyptian Hieroglyph Format Controls](https://www.unicode.org/charts/PDF/U13430.pdf)  |
+[Egyptian Hieroglyphs Extended-A](https://www.unicode.org/charts/PDF/U13460.pdf)  |
+[Ethiopic](https://www.unicode.org/charts/PDF/U1200.pdf)  |
+[Ethiopic Supplement](https://www.unicode.org/charts/PDF/U1380.pdf)  |
+[Ethiopic Extended](https://www.unicode.org/charts/PDF/U2D80.pdf)  |
+[Ethiopic Extended-A](https://www.unicode.org/charts/PDF/UAB00.pdf)  |
+[Ethiopic Extended-B](https://www.unicode.org/charts/PDF/U1E7E0.pdf)  |
+[Garay](https://www.unicode.org/charts/PDF/U10D40.pdf)  |
+[Medefaidrin](https://www.unicode.org/charts/PDF/U16E40.pdf)  |
+[Mende Kikakui](https://www.unicode.org/charts/PDF/U1E800.pdf)
+
+## Meroitic
+
+[Meroitic Cursive](https://www.unicode.org/charts/PDF/U109A0.pdf)  |
+[Meroitic Hieroglyphs](https://www.unicode.org/charts/PDF/U10980.pdf)  |
+[N'Ko](https://www.unicode.org/charts/PDF/U07C0.pdf)  |
+[Osmanya](https://www.unicode.org/charts/PDF/U10480.pdf)  |
+[Tifinagh](https://www.unicode.org/charts/PDF/U2D30.pdf)  |
+[Vai](https://www.unicode.org/charts/PDF/UA500.pdf)
+
+## Middle Eastern Scripts
+
+[Anatolian Hieroglyphs](https://www.unicode.org/charts/PDF/U14400.pdf)  |
+[Arabic](https://www.unicode.org/charts/PDF/U0600.pdf)  |
+[Arabic Supplement](https://www.unicode.org/charts/PDF/U0750.pdf)  |
+[Arabic Extended-A](https://www.unicode.org/charts/PDF/U08A0.pdf)  |
+[Arabic Extended-B](https://www.unicode.org/charts/PDF/U0870.pdf)  |
+[Arabic Extended-C](https://www.unicode.org/charts/PDF/U10EC0.pdf)  |
+[Arabic Presentation Forms-A](https://www.unicode.org/charts/PDF/UFB50.pdf)  |
+[Arabic Presentation Forms-B](https://www.unicode.org/charts/PDF/UFE70.pdf)  |
+[Aramaic&#44; Imperial](https://www.unicode.org/charts/PDF/U10840.pdf)  |
+[Avestan](https://www.unicode.org/charts/PDF/U10B00.pdf)  |
+[Chorasmian](https://www.unicode.org/charts/PDF/U10FB0.pdf)  |
+[Cuneiform](https://www.unicode.org/charts/PDF/U12000.pdf)  |
+[Cuneiform Numbers and Punctuation](https://www.unicode.org/charts/PDF/U12400.pdf)  |
+[Early Dynastic Cuneiform](https://www.unicode.org/charts/PDF/U12480.pdf)  |
+[Old Persian](https://www.unicode.org/charts/PDF/U103A0.pdf)  |
+[Ugaritic](https://www.unicode.org/charts/PDF/U10380.pdf)  |
+[Elymaic](https://www.unicode.org/charts/PDF/U10FE0.pdf)  |
+[Hatran](https://www.unicode.org/charts/PDF/U108E0.pdf)  |
+[Hebrew](https://www.unicode.org/charts/PDF/U0590.pdf)  |
+[Hebrew Presentation Forms](https://www.unicode.org/charts/PDF/UFB00.pdf)  |
+[Mandaic](https://www.unicode.org/charts/PDF/U0840.pdf)  |
+[Nabataean](https://www.unicode.org/charts/PDF/U10880.pdf)  |
+[Old North Arabian](https://www.unicode.org/charts/PDF/U10A80.pdf)  |
+[Old South Arabian](https://www.unicode.org/charts/PDF/U10A60.pdf)  |
+[Pahlavi&#44; Inscriptional](https://www.unicode.org/charts/PDF/U10B60.pdf)  |
+[Pahlavi&#44; Psalter](https://www.unicode.org/charts/PDF/U10B80.pdf)  |
+[Palmyrene](https://www.unicode.org/charts/PDF/U10860.pdf)  |
+[Parthian&#44; Inscriptional](https://www.unicode.org/charts/PDF/U10B40.pdf)  |
+[Phoenician](https://www.unicode.org/charts/PDF/U10900.pdf)  |
+[Samaritan](https://www.unicode.org/charts/PDF/U0800.pdf)  |
+[Syriac](https://www.unicode.org/charts/PDF/U0700.pdf)  |
+[Syriac Supplement](https://www.unicode.org/charts/PDF/U0860.pdf)  |
+[Yezidi](https://www.unicode.org/charts/PDF/U10E80.pdf)
+
+## Central Asian Scripts
+
+[Manichaean](https://www.unicode.org/charts/PDF/U10AC0.pdf)  |
+[Marchen](https://www.unicode.org/charts/PDF/U11C70.pdf)  |
+[Mongolian](https://www.unicode.org/charts/PDF/U1800.pdf)  |
+[Mongolian Supplement](https://www.unicode.org/charts/PDF/U11660.pdf)  |
+[Old Sogdian](https://www.unicode.org/charts/PDF/U10F00.pdf)  |
+[Old Turkic](https://www.unicode.org/charts/PDF/U10C00.pdf)  |
+[Old Uyghur](https://www.unicode.org/charts/PDF/U10F70.pdf)  |
+[Phags-Pa](https://www.unicode.org/charts/PDF/UA840.pdf)  |
+[Sogdian](https://www.unicode.org/charts/PDF/U10F30.pdf)  |
+[Soyombo](https://www.unicode.org/charts/PDF/U11A50.pdf)  |
+[Tibetan](https://www.unicode.org/charts/PDF/U0F00.pdf)  |
+[Zanabazar Square](https://www.unicode.org/charts/PDF/U11A00.pdf)
+
+## South Asian Scripts
+
+[Ahom](https://www.unicode.org/charts/PDF/U11700.pdf)  |
+[Bengali and Assamese](https://www.unicode.org/charts/PDF/U0980.pdf)  |
+[Bhaiksuki](https://www.unicode.org/charts/PDF/U11C00.pdf)  |
+[Brahmi](https://www.unicode.org/charts/PDF/U11000.pdf)  |
+[Chakma](https://www.unicode.org/charts/PDF/U11100.pdf)  |
+[Devanagari](https://www.unicode.org/charts/PDF/U0900.pdf)  |
+[Devanagari Extended](https://www.unicode.org/charts/PDF/UA8E0.pdf)  |
+[Devanagari Extended-A](https://www.unicode.org/charts/PDF/U11B00.pdf)  |
+[Dives Akuru](https://www.unicode.org/charts/PDF/U11900.pdf)  |
+[Dogra](https://www.unicode.org/charts/PDF/U11800.pdf)  |
+[Grantha](https://www.unicode.org/charts/PDF/U11300.pdf)  |
+[Gujarati](https://www.unicode.org/charts/PDF/U0A80.pdf)  |
+[Gunjala Gondi](https://www.unicode.org/charts/PDF/U11D60.pdf)  |
+[Gurmukhi](https://www.unicode.org/charts/PDF/U0A00.pdf)  |
+[Gurung Khema](https://www.unicode.org/charts/PDF/U16100.pdf)  |
+[Kaithi](https://www.unicode.org/charts/PDF/U11080.pdf)  |
+[Kannada](https://www.unicode.org/charts/PDF/U0C80.pdf)  |
+[Kharoshthi](https://www.unicode.org/charts/PDF/U10A00.pdf)  |
+[Khojki](https://www.unicode.org/charts/PDF/U11200.pdf)  |
+[Kirat Rai](https://www.unicode.org/charts/PDF/U16D40.pdf)  |
+[Khudawadi](https://www.unicode.org/charts/PDF/U112B0.pdf)  |
+[Lepcha](https://www.unicode.org/charts/PDF/U1C00.pdf)  |
+[Limbu](https://www.unicode.org/charts/PDF/U1900.pdf)  |
+[Mahajani](https://www.unicode.org/charts/PDF/U11150.pdf)  |
+[Malayalam](https://www.unicode.org/charts/PDF/U0D00.pdf)  |
+[Masaram Gondi](https://www.unicode.org/charts/PDF/U11D00.pdf)  |
+[Meetei Mayek](https://www.unicode.org/charts/PDF/UABC0.pdf)  |
+[Meetei Mayek Extensions](https://www.unicode.org/charts/PDF/UAAE0.pdf)  |
+[Modi](https://www.unicode.org/charts/PDF/U11600.pdf)  |
+[Mro](https://www.unicode.org/charts/PDF/U16A40.pdf)  |
+[Multani](https://www.unicode.org/charts/PDF/U11280.pdf)  |
+[Nag Mundari](https://www.unicode.org/charts/PDF/U1E4D0.pdf)  |
+[Nandinagari](https://www.unicode.org/charts/PDF/U119A0.pdf)  |
+[Newa](https://www.unicode.org/charts/PDF/U11400.pdf)  |
+[Ol Chiki](https://www.unicode.org/charts/PDF/U1C50.pdf)  |
+[Ol Onal](https://www.unicode.org/charts/PDF/U1E5D0.pdf)  |
+[Oriya (Odia)](https://www.unicode.org/charts/PDF/U0B00.pdf)  |
+[Saurashtra](https://www.unicode.org/charts/PDF/UA880.pdf)  |
+[Sharada](https://www.unicode.org/charts/PDF/U11180.pdf)  |
+[Siddham](https://www.unicode.org/charts/PDF/U11580.pdf)  |
+[Sinhala](https://www.unicode.org/charts/PDF/U0D80.pdf)  |
+[Sinhala Archaic Numbers](https://www.unicode.org/charts/PDF/U111E0.pdf)  |
+[Sora Sompeng](https://www.unicode.org/charts/PDF/U110D0.pdf)  |
+[Sunuwar](https://www.unicode.org/charts/PDF/U11BC0.pdf)  |
+[Syloti Nagri](https://www.unicode.org/charts/PDF/UA800.pdf)  |
+[Takri](https://www.unicode.org/charts/PDF/U11680.pdf)  |
+[Tamil](https://www.unicode.org/charts/PDF/U0B80.pdf)  |
+[Tamil Supplement](https://www.unicode.org/charts/PDF/U11FC0.pdf)  |
+[Telugu](https://www.unicode.org/charts/PDF/U0C00.pdf)  |
+[Thaana](https://www.unicode.org/charts/PDF/U0780.pdf)  |
+[Tirhuta](https://www.unicode.org/charts/PDF/U11480.pdf)  |
+[Toto](https://www.unicode.org/charts/PDF/U1E290.pdf)  |
+[Tulu-Tigalari](https://www.unicode.org/charts/PDF/U11380.pdf)  |
+[Vedic Extensions](https://www.unicode.org/charts/PDF/U1CD0.pdf)  |
+[Wancho](https://www.unicode.org/charts/PDF/U1E2C0.pdf)  |
+[Warang Citi](https://www.unicode.org/charts/PDF/U118A0.pdf)
+
+## Southeast Asian Scripts
+
+[Cham](https://www.unicode.org/charts/PDF/UAA00.pdf)  |
+[Hanifi Rohingya](https://www.unicode.org/charts/PDF/U10D00.pdf)  |
+[Kayah Li](https://www.unicode.org/charts/PDF/UA900.pdf)  |
+[Khmer](https://www.unicode.org/charts/PDF/U1780.pdf)  |
+[Khmer Symbols](https://www.unicode.org/charts/PDF/U19E0.pdf)  |
+[Lao](https://www.unicode.org/charts/PDF/U0E80.pdf)  |
+[Myanmar](https://www.unicode.org/charts/PDF/U1000.pdf)  |
+[Myanmar Extended-A](https://www.unicode.org/charts/PDF/UAA60.pdf)  |
+[Myanmar Extended-B](https://www.unicode.org/charts/PDF/UA9E0.pdf)  |
+[Myanmar Extended-C](https://www.unicode.org/charts/PDF/U116D0.pdf)  |
+[New Tai Lue](https://www.unicode.org/charts/PDF/U1980.pdf)  |
+[Nyiakeng Puachue Hmong](https://www.unicode.org/charts/PDF/U1E100.pdf)  |
+[Pahawh Hmong](https://www.unicode.org/charts/PDF/U16B00.pdf)  |
+[Pau Cin Hau](https://www.unicode.org/charts/PDF/U11AC0.pdf)  |
+[Tai Le](https://www.unicode.org/charts/PDF/U1950.pdf)  |
+[Tai Tham](https://www.unicode.org/charts/PDF/U1A20.pdf)  |
+[Tai Viet](https://www.unicode.org/charts/PDF/UAA80.pdf)  |
+[Tangsa](https://www.unicode.org/charts/PDF/U16A70.pdf)  |
+[Thai](https://www.unicode.org/charts/PDF/U0E00.pdf)
+
+## Indonesian & Philippine Scripts
+
+[Balinese](https://www.unicode.org/charts/PDF/U1B00.pdf)  |
+[Batak](https://www.unicode.org/charts/PDF/U1BC0.pdf)  |
+[Buginese](https://www.unicode.org/charts/PDF/U1A00.pdf)  |
+[Buhid](https://www.unicode.org/charts/PDF/U1740.pdf)  |
+[Hanunoo](https://www.unicode.org/charts/PDF/U1720.pdf)  |
+[Javanese](https://www.unicode.org/charts/PDF/UA980.pdf)  |
+[Kawi](https://www.unicode.org/charts/PDF/U11F00.pdf)  |
+[Makasar](https://www.unicode.org/charts/PDF/U11EE0.pdf)  |
+[Rejang](https://www.unicode.org/charts/PDF/UA930.pdf)  |
+[Sundanese](https://www.unicode.org/charts/PDF/U1B80.pdf)  |
+[Sundanese Supplement](https://www.unicode.org/charts/PDF/U1CC0.pdf)  |
+[Tagalog](https://www.unicode.org/charts/PDF/U1700.pdf)  |
+[Tagbanwa](https://www.unicode.org/charts/PDF/U1760.pdf)
+
+## East Asian Scripts
+
+[Bopomofo](https://www.unicode.org/charts/PDF/U3100.pdf)  |
+[Bopomofo Extended](https://www.unicode.org/charts/PDF/U31A0.pdf)  |
+[CJK Unified Ideographs (Han)](https://www.unicode.org/charts/PDF/U4E00.pdf) (43MB)  |
+[CJK Extension A](https://www.unicode.org/charts/PDF/U3400.pdf) (10MB)  |
+[CJK Extension B](https://www.unicode.org/charts/PDF/U20000.pdf) (45MB)  |
+[CJK Extension C](https://www.unicode.org/charts/PDF/U2A700.pdf)  |
+[CJK Extension D](https://www.unicode.org/charts/PDF/U2B740.pdf)  |
+[CJK Extension E](https://www.unicode.org/charts/PDF/U2B820.pdf)  |
+[CJK Extension F](https://www.unicode.org/charts/PDF/U2CEB0.pdf)  |
+[CJK Extension G](https://www.unicode.org/charts/PDF/U30000.pdf)  |
+[CJK Extension H](https://www.unicode.org/charts/PDF/U31350.pdf)  |
+[CJK Extension I](https://www.unicode.org/charts/PDF/U2EBF0.pdf)  |
+(see also [Unihan Database](https://www.unicode.org/charts/unihan.html))  |
+[CJK Compatibility Ideographs](https://www.unicode.org/charts/PDF/UF900.pdf)  |
+[CJK Compatibility Ideographs Supplement](https://www.unicode.org/charts/PDF/U2F800.pdf)  |
+[CJK Radicals / Kangxi Radicals](https://www.unicode.org/charts/PDF/U2F00.pdf)  |
+[CJK Radicals Supplement](https://www.unicode.org/charts/PDF/U2E80.pdf)  |
+[CJK Strokes](https://www.unicode.org/charts/PDF/U31C0.pdf)  |
+[Ideographic Description Characters](https://www.unicode.org/charts/PDF/U2FF0.pdf)  |
+[Hangul Jamo](https://www.unicode.org/charts/PDF/U1100.pdf)  |
+[Hangul Jamo Extended-A](https://www.unicode.org/charts/PDF/UA960.pdf)  |
+[Hangul Jamo Extended-B](https://www.unicode.org/charts/PDF/UD7B0.pdf)  |
+[Hangul Compatibility Jamo](https://www.unicode.org/charts/PDF/U3130.pdf)  |
+[Halfwidth Jamo](https://www.unicode.org/charts/PDF/UFF00.pdf)  |
+[Hangul Syllables](https://www.unicode.org/charts/PDF/UAC00.pdf)  |
+[Hiragana](https://www.unicode.org/charts/PDF/U3040.pdf)  |
+[Kana Extended-A](https://www.unicode.org/charts/PDF/U1B100.pdf)  |
+[Kana Extended-B](https://www.unicode.org/charts/PDF/U1AFF0.pdf)  |
+[Kana Supplement](https://www.unicode.org/charts/PDF/U1B000.pdf)  |
+[Small Kana Extension](https://www.unicode.org/charts/PDF/U1B130.pdf)  |
+[Kanbun](https://www.unicode.org/charts/PDF/U3190.pdf)  |
+[Katakana](https://www.unicode.org/charts/PDF/U30A0.pdf)  |
+[Katakana Phonetic Extensions](https://www.unicode.org/charts/PDF/U31F0.pdf)  |
+[Halfwidth Katakana](https://www.unicode.org/charts/PDF/UFF00.pdf)  |
+[Khitan Small Script](https://www.unicode.org/charts/PDF/U18B00.pdf)  |
+[Lisu](https://www.unicode.org/charts/PDF/UA4D0.pdf)  |
+[Lisu Supplement](https://www.unicode.org/charts/PDF/U11FB0.pdf)  |
+[Miao](https://www.unicode.org/charts/PDF/U16F00.pdf)  |
+[Nushu](https://www.unicode.org/charts/PDF/U1B170.pdf)  |
+[Tangut](https://www.unicode.org/charts/PDF/U17000.pdf)  |
+[Tangut Components](https://www.unicode.org/charts/PDF/U18800.pdf)  |
+[Tangut Supplement](https://www.unicode.org/charts/PDF/U18D00.pdf)
+
+## Yi
+
+[Yi Syllables](https://www.unicode.org/charts/PDF/UA000.pdf)  |
+[Yi Radicals](https://www.unicode.org/charts/PDF/UA490.pdf)
+
+## American Scripts
+
+[Cherokee](https://www.unicode.org/charts/PDF/U13A0.pdf)  
+[Cherokee Supplement](https://www.unicode.org/charts/PDF/UAB70.pdf)  
+[Deseret](https://www.unicode.org/charts/PDF/U10400.pdf)  
+[Osage](https://www.unicode.org/charts/PDF/U104B0.pdf)  
+[Unified Canadian Aboriginal Syllabics](https://www.unicode.org/charts/PDF/U1400.pdf)  
+[UCAS Extended](https://www.unicode.org/charts/PDF/U18B0.pdf)  
+[UCAS Extended-A](https://www.unicode.org/charts/PDF/U11AB0.pdf)
+
+# =🚩 Unicode Symbols and Punctuation
+
+## Notational Systems
+
+[Braille Patterns](https://www.unicode.org/charts/PDF/U2800.pdf)  |
+[Musical Symbols](https://www.unicode.org/charts/PDF/U1D100.pdf)  |
+[Ancient Greek Musical Notation](https://www.unicode.org/charts/PDF/U1D200.pdf)  |
+[Byzantine Musical Symbols](https://www.unicode.org/charts/PDF/U1D000.pdf)  |
+[Znamenny Musical Notation](https://www.unicode.org/charts/PDF/U1CF00.pdf)  |
+[Duployan](https://www.unicode.org/charts/PDF/U1BC00.pdf)  |
+[Shorthand Format Controls](https://www.unicode.org/charts/PDF/U1BCA0.pdf)  |
+[Sutton SignWriting](https://www.unicode.org/charts/PDF/U1D800.pdf)  |
+
+## Punctuation
+
+[General Punctuation](https://www.unicode.org/charts/PDF/U2000.pdf)  |
+[ASCII Punctuation](https://www.unicode.org/charts/PDF/U0000.pdf)  |
+[Latin-1 Punctuation](https://www.unicode.org/charts/PDF/U0080.pdf)  |
+[Supplemental Punctuation](https://www.unicode.org/charts/PDF/U2E00.pdf)  |
+[CJK Symbols and Punctuation](https://www.unicode.org/charts/PDF/U3000.pdf)  |
+[Ideographic Symbols and Punctuation](https://www.unicode.org/charts/PDF/U16FE0.pdf)  |
+[CJK Compatibility Forms](https://www.unicode.org/charts/PDF/UFE30.pdf)  |
+[Halfwidth and Fullwidth Forms](https://www.unicode.org/charts/PDF/UFF00.pdf)  |
+[Small Form Variants](https://www.unicode.org/charts/PDF/UFE50.pdf)  |
+[Vertical Forms](https://www.unicode.org/charts/PDF/UFE10.pdf)  |
+
+## Alphanumeric Symbols
+
+[Letterlike Symbols](https://www.unicode.org/charts/PDF/U2100.pdf)  |
+[Roman Symbols](https://www.unicode.org/charts/PDF/U10190.pdf)  |
+[Mathematical Alphanumeric Symbols](https://www.unicode.org/charts/PDF/U1D400.pdf)  |
+[Arabic Mathematical Alphabetic Symbols](https://www.unicode.org/charts/PDF/U1EE00.pdf)  |
+[Enclosed Alphanumerics](https://www.unicode.org/charts/PDF/U2460.pdf)  |
+[Enclosed Alphanumeric Supplement](https://www.unicode.org/charts/PDF/U1F100.pdf)  |
+[Enclosed CJK Letters and Months](https://www.unicode.org/charts/PDF/U3200.pdf)  |
+[Enclosed Ideographic Supplement](https://www.unicode.org/charts/PDF/U1F200.pdf)  |
+[CJK Compatibility](https://www.unicode.org/charts/PDF/U3300.pdf)  |
+[Additional Squared Symbols](https://www.unicode.org/charts/PDF/U2100.pdf)  |
+
+## Technical Symbols
+
+[APL symbols](https://www.unicode.org/charts/PDF/U2300.pdf)  |
+[Control Pictures](https://www.unicode.org/charts/PDF/U2400.pdf)  |
+[Miscellaneous Technical](https://www.unicode.org/charts/PDF/U2300.pdf)  |
+[Optical Character Recognition (OCR)](https://www.unicode.org/charts/PDF/U2440.pdf)  |
+
+## Numbers & Digits
+
+(see also specific [scripts](https://www.unicode.org/charts/#scripts))  |
+[ASCII Digits](https://www.unicode.org/charts/PDF/U0000.pdf)  |
+[Fullwidth ASCII Digits](https://www.unicode.org/charts/PDF/UFF00.pdf)  |
+[Common Indic Number Forms](https://www.unicode.org/charts/PDF/UA830.pdf)  |
+[Coptic Epact Numbers](https://www.unicode.org/charts/PDF/U102E0.pdf)  |
+[Counting Rod Numerals](https://www.unicode.org/charts/PDF/U1D360.pdf)  |
+[Cuneiform Numbers and Punctuation](https://www.unicode.org/charts/PDF/U12400.pdf)  |
+[Indic Siyaq Numbers](https://www.unicode.org/charts/PDF/U1EC70.pdf)  |
+[Kaktovik Numerals](https://www.unicode.org/charts/PDF/U1D2C0.pdf)  |
+[Mayan Numerals](https://www.unicode.org/charts/PDF/U1D2E0.pdf)  |
+[Number Forms](https://www.unicode.org/charts/PDF/U2150.pdf)  |
+[Ottoman Siyaq Numbers](https://www.unicode.org/charts/PDF/U1ED00.pdf)  |
+[Rumi Numeral Symbols](https://www.unicode.org/charts/PDF/U10E60.pdf)  |
+[Sinhala Archaic Numbers](https://www.unicode.org/charts/PDF/U111E0.pdf)  |
+[Super and Subscripts](https://www.unicode.org/charts/PDF/U2070.pdf)  |
+
+## Mathematical Symbols
+
+[Arrows](https://www.unicode.org/charts/PDF/U2190.pdf)  |
+[Supplemental Arrows-A](https://www.unicode.org/charts/PDF/U27F0.pdf)  |
+[Supplemental Arrows-B](https://www.unicode.org/charts/PDF/U2900.pdf)  |
+[Supplemental Arrows-C](https://www.unicode.org/charts/PDF/U1F800.pdf)  |
+[Additional Arrows](https://www.unicode.org/charts/PDF/U2B00.pdf)  |
+[Miscellaneous Symbols and Arrows](https://www.unicode.org/charts/PDF/U2B00.pdf)  |
+[Mathematical Alphanumeric Symbols](https://www.unicode.org/charts/PDF/U1D400.pdf)  |
+[Arabic Mathematical Alphabetic Symbols](https://www.unicode.org/charts/PDF/U1EE00.pdf)  |
+[Letterlike Symbols](https://www.unicode.org/charts/PDF/U2100.pdf)  |
+[Mathematical Operators](https://www.unicode.org/charts/PDF/U2200.pdf)  |
+[Basic operators: Plus&#44; Factorial&#44;](https://www.unicode.org/charts/PDF/U0000.pdf) [Division&#44; Multiplication](https://www.unicode.org/charts/PDF/U0080.pdf)  |
+
+[Supplemental Mathematical Operators](https://www.unicode.org/charts/PDF/U2A00.pdf)  |
+[Miscellaneous Mathematical Symbols-A](https://www.unicode.org/charts/PDF/U27C0.pdf)  |
+[Miscellaneous Mathematical Symbols-B](https://www.unicode.org/charts/PDF/U2980.pdf)  |
+[Floors and Ceilings](https://www.unicode.org/charts/PDF/U2300.pdf)  |
+[Invisible Operators](https://www.unicode.org/charts/PDF/U2000.pdf)  |
+[Geometric Shapes](https://www.unicode.org/charts/PDF/U25A0.pdf)  |
+[Additional Shapes](https://www.unicode.org/charts/PDF/U2B00.pdf)  |
+[Box Drawing](https://www.unicode.org/charts/PDF/U2500.pdf)  |
+[Block Elements](https://www.unicode.org/charts/PDF/U2580.pdf)  |
+[Geometric Shapes Extended](https://www.unicode.org/charts/PDF/U1F780.pdf)  |
+
+## Emoji & Pictographs
+
+[Dingbats](https://www.unicode.org/charts/PDF/U2700.pdf)  |
+[Ornamental Dingbats](https://www.unicode.org/charts/PDF/U1F650.pdf)  |
+[Emoticons](https://www.unicode.org/charts/PDF/U1F600.pdf)  |
+[Miscellaneous Symbols](https://www.unicode.org/charts/PDF/U2600.pdf)  |
+[Miscellaneous Symbols And Pictographs](https://www.unicode.org/charts/PDF/U1F300.pdf)  |
+[Supplemental Symbols and Pictographs](https://www.unicode.org/charts/PDF/U1F900.pdf)  |
+[Symbols and Pictographs Extended-A](https://www.unicode.org/charts/PDF/U1FA70.pdf)  |
+[Transport and Map Symbols](https://www.unicode.org/charts/PDF/U1F680.pdf)  |
+
+## Other Symbols
+
+[Alchemical Symbols](https://www.unicode.org/charts/PDF/U1F700.pdf)  |
+[Ancient Symbols](https://www.unicode.org/charts/PDF/U10190.pdf)  |
+[Currency Symbols](https://www.unicode.org/charts/PDF/U20A0.pdf)  |
+(see also specific [scripts](https://www.unicode.org/charts/#scripts))  |
+[Dollar Sign](https://www.unicode.org/charts/PDF/U0000.pdf), [Euro Sign](https://www.unicode.org/charts/PDF/U20A0.pdf)  |
+[Yen&#44; Pound and Cent](https://www.unicode.org/charts/PDF/U0080.pdf)  |
+[Fullwidth Currency Symbols](https://www.unicode.org/charts/PDF/UFF00.pdf)  |
+[Rial Sign](https://www.unicode.org/charts/PDF/UFB50.pdf)  |
+
+## Game Symbols
+
+[Chess&#44; Checkers/Draughts](https://www.unicode.org/charts/PDF/U2600.pdf)  |
+[Chess Symbols](https://www.unicode.org/charts/PDF/U1FA00.pdf)  |
+[Domino Tiles](https://www.unicode.org/charts/PDF/U1F030.pdf)  |
+[Japanese Chess](https://www.unicode.org/charts/PDF/U2600.pdf)  |
+[Mahjong Tiles](https://www.unicode.org/charts/PDF/U1F000.pdf)  |
+[Playing Cards](https://www.unicode.org/charts/PDF/U1F0A0.pdf)  |
+_[Card suits](https://www.unicode.org/charts/PDF/U2600.pdf)_  |
+[Miscellaneous Symbols and Arrows](https://www.unicode.org/charts/PDF/U2B00.pdf)  |
+[Symbols for Legacy Computing](https://www.unicode.org/charts/PDF/U1FB00.pdf)  |
+[Symbols for Legacy Computing Supplement](https://www.unicode.org/charts/PDF/U1CC00.pdf)  |
+
+## Yijing Symbols
+
+[Yijing Mono-&#44; Di- and Trigrams](https://www.unicode.org/charts/PDF/U2600.pdf)  |
+[Yijing Hexagram Symbols](https://www.unicode.org/charts/PDF/U4DC0.pdf)  |
+[Tai Xuan Jing Symbols](https://www.unicode.org/charts/PDF/U1D300.pdf)  |
+
+## Specials
+
+Controls: [C0](https://www.unicode.org/charts/PDF/U0000.pdf), 
+[C1](https://www.unicode.org/charts/PDF/U0080.pdf)  |
+[Layout Controls](https://www.unicode.org/charts/PDF/U2000.pdf)  |
+[Invisible Operators](https://www.unicode.org/charts/PDF/U2000.pdf)  |
+[Specials](https://www.unicode.org/charts/PDF/UFFF0.pdf)  |
+[Tags](https://www.unicode.org/charts/PDF/UE0000.pdf)  |
+[Variation Selectors](https://www.unicode.org/charts/PDF/UFE00.pdf)  |
+[Variation Selectors Supplement](https://www.unicode.org/charts/PDF/UE0100.pdf)  |
+## Private Use
+
+[Private Use Area](https://www.unicode.org/charts/PDF/UE000.pdf)  |
+[Supplementary Private Use Area-A](https://www.unicode.org/charts/PDF/UF0000.pdf)  |
+[Supplementary Private Use Area-B](https://www.unicode.org/charts/PDF/U100000.pdf)
+
+## Surrogates
+
+[High Surrogates](https://www.unicode.org/charts/PDF/UD800.pdf)  |
+[Low Surrogates](https://www.unicode.org/charts/PDF/UDC00.pdf)
+
+## Noncharacters in Charts
+
+Noncharacters in blocks
+
+[Range in Arabic Presentation Forms-A](https://www.unicode.org/charts/PDF/UFB50.pdf)  |
+[Range in Specials](https://www.unicode.org/charts/PDF/UFFF0.pdf)
+
+## Noncharacters at end of ...
+
+[BMP](https://www.unicode.org/charts/PDF/UFFF0.pdf),
+[Plane 1](https://www.unicode.org/charts/PDF/U1FF80.pdf),
+[Plane 2](https://www.unicode.org/charts/PDF/U2FF80.pdf),
+[Plane 3](https://www.unicode.org/charts/PDF/U3FF80.pdf),
+[Plane 4](https://www.unicode.org/charts/PDF/U4FF80.pdf),
+[Plane 5](https://www.unicode.org/charts/PDF/U5FF80.pdf),
+[Plane 6](https://www.unicode.org/charts/PDF/U6FF80.pdf),
+[Plane 7](https://www.unicode.org/charts/PDF/U7FF80.pdf),
+[Plane 8](https://www.unicode.org/charts/PDF/U8FF80.pdf),
+[Plane 9](https://www.unicode.org/charts/PDF/U9FF80.pdf),
+[Plane 10](https://www.unicode.org/charts/PDF/UAFF80.pdf),
+[Plane 11](https://www.unicode.org/charts/PDF/UBFF80.pdf),
+[Plane 12](https://www.unicode.org/charts/PDF/UCFF80.pdf),
+[Plane 13](https://www.unicode.org/charts/PDF/UDFF80.pdf),
+[Plane 14](https://www.unicode.org/charts/PDF/UEFF80.pdf),
+[Plane 15](https://www.unicode.org/charts/PDF/UFFF80.pdf),
+[Plane 16](https://www.unicode.org/charts/PDF/U10FF80.pdf)
+
+To get a list of code charts for a character, enter its code in the search 
+box at the top. To access a chart for a given block, click on its entry in 
+the table. The charts are PDF files, and some of them may be very large. 
+For frequent access to the same chart, right-click and save the file to 
+your disk. For an alphabetical index of character and block names, use the 
+[Unicode Character Names Index](https://www.unicode.org/charts/charindex.html).
+
+'''''
+
+
 # =🚩 Unicode 14.0 Character Code Charts
 
 ```js
@@ -1351,6 +2052,22 @@ Ligature
 
 
 
+# =🚩 Czech alphabet
+
+https://www.czechtime.cz/pronunciation/special-characters/
+
+The Czech alphabet has 42 letters out of which 15 need an extra symbol above the letter. You can read detailed information about Special characters in our pronunciation course.
+
+There are three special symbols which can found on the keyboard. The official terms for them are acute, caron and ring. Their colloquial, better-known, names are comma, hook and circle, respectively.
+
+    Á É Í Ó Ú Ý
+    á é í ó ú ý
+    Ě Š Č Ř Ž Ď Ť Ň
+    ě š č ř ž ď ť ň
+    Ů
+    ů
+
+
 # =🚩 Arrows →
 
 | Arrows                | ← → ↑ ↓ ⟵ ⟶ ⇦ ⇨ ⇧ ⇩ ➡ ⬅ ⮕ ⬆ ⬇ 🡐 🡒 🡑 🡓
@@ -1821,6 +2538,12 @@ D52 Combining character: A character with the General Category of Combining Mark
 • Combining characters consist of all characters with the General Category 
 values of Spacing Combining Mark (Mc), Nonspacing Mark (Mn), and Enclosing
 Mark (Me). 
+
+Unicode strikethrough characters U+0336 字符，它是一种组合字符，可以用来给文本添加删除线效果。
+为了方便给字符添加删除线，可以在 VS Code 使用字符位置交换功能（Transpose Letters），将 G̶ 中的
+删除线符号交换到其它字符。也可以利用 Add Selection To Next Find Match 功能将 GG̶ 里的两个字母
+选中再删除，剩下的删除线符号复制到剪贴板中重复使用。这个操作需要将字符放在独立一行中操作，否则删除线符号
+会和空格组合。利用 VS Code 的正则搜索功能，同时打开选区操作，可以将当前选择的字符串转换为单个字符的选择。
 
 以下是变音组合符号表（修饰字符上或下面） Combining Diacritical Marks 
 

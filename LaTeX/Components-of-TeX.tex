@@ -1,0 +1,705 @@
+% etexkomp.tex                                  25 Mar 91
+%------------------------------------------------------------
+% (c) 1990 by J.Schrod (TeXsys).
+
+%
+% originally published in Die TeXnische Komoedie (DANTE e.V.) as:
+%     Die Komponenten von TeX
+%
+% ILaTeX with standard styles and
+%	style for reports about TeX
+
+% Changes made by Adrian Clark for publication in `Baskerville'
+% and editorial remarks by Malcolm Clark
+% incorporated.
+
+%\documentclass{article}
+\documentstyle[texrep]{article}
+
+
+% terms `output' and `driver' in english, used in picture `figtotal'.
+\def\OutputInFigtotal{output}
+\def\DriverInFigtotal{\DVI{} driver}
+
+
+
+\begin{document}
+
+
+\title{The Components of \TeX{}}
+\author{
+   Joachim Schrod\\
+   Detig$\,\cdot\,$Schrod \TeX{}sys
+   }
+  \date{March 1991}
+
+\titlenote{
+   \copyright{} Copyright 1990, 1991 by Joachim Schrod.
+   All rights reserved.
+   Republication and Distribution is allowed under conditions analog
+   to the GNU General Public License.
+   Previous revisions of this paper appeared in ``Die \TeX{}nische
+   Kom\"odie'' and in ``Baskerville.''
+   }
+\titlenote{
+   {\sl Actual address\/}:
+   Joachim Schrod, Detig$\,\cdot\,$Schrod \TeX{}sys,
+   Kranichweg 1, D-6074 R\"odermark, FR~Germany,
+   Email: {\tt xitijsch@ddathd21.bitnet}
+   }
+
+\maketitle
+
+
+
+ \begin{abstract}
+ \TeX{} needs a great amount of supplementary components (files and
+programs) of which the meaning and interaction often is unknown. This
+paper explains the components of the kernel system \TeX{} that are
+visible for the \TeX{} user and their relations.
+ \end{abstract}
+
+
+
+
+\section{About this Report}
+
+\TeX{} is a typesetting system which offers authors easy usage of
+powerful typesetting features to produce printed matter which is the
+state of the art of computer typesetting. This is, however, not done by the
+\TeX{} program alone: A significant number of supplementary
+programs and files together form the complete typesetting and
+authoring system. Along with the programs that belong to \TeX{}
+directly, there exist two other major programs which were built by {\sc
+Donald Knuth} in connection with \TeX{} and must be included in an
+explanation of the full system: \MF{}, for the generation of fonts,
+and \WEB{}, a documentation and developing `language' for programming.
+\TeX{} and \MF{} are written in \WEB{}.
+
+This text describes this `kernel' \TeX{} from a user's viewpoint: at
+the end you should have an overview of the ingredients of the \TeX{}
+system, and about the files and support programs that are essential
+for you as a user. This will not, however, be an introduction to the
+capabilities of \TeX{} or how you may run \TeX{} on your computer.
+
+I will use marginal notes to identify the places where terms are
+explained for the first time. Abbrevations for file types -- usually
+identified by common suffixes or extensions -- are set in a monospace
+type (``{\tt typewriter\/}'') and those abbrevations are put into the
+margin, too. Please note that these abbreviations are sometimes not
+identical with the file extensions (see also
+Table~\ref{tab:filetypes}).
+
+This report is the start of a series that describes the subsystems
+mentioned above and their respective components. In that series each
+report will focus on one subsystem in a special point of view; it
+should not result in gigantic descriptions which tell everything (and
+then nothing). In my opinion the following reports will be of
+interest:
+ %
+ \begin{itemize}
+
+\item the structure of a standard installation of \TeX{}
+\item \DVI{} drivers and fonts
+\item possibilities of graphics inclusion in \TeX{} documents
+\item the components of \MF{}
+\item the structure of a standard installation of \MF{}
+\item \WEB{} systems --- the concept of Literate Programming
+\item other (though not yet planned) themes of interest are perhaps
+\begin{itemize}
+\item differences between \TeX{} and DTP systems
+\item the way how \TeX{} works (there exists some good books on this topic!)
+\item the limits of \TeX{}
+\item \TeX{} as a programming language
+\end{itemize}
+
+ \end{itemize}
+ %
+ The reports will be published in this sequence.
+
+
+
+
+\section{What is \TeX{}?}
+
+ \TeX{} is a typesetting system with great power for the typesetting
+of formulae. Its basic principle is that structures in the document
+are marked and transformed into typeset output. Providing such
+information about the structure of a document is known as {\it
+^|markup|}. If the marks describe the look of the document, it is
+called {\it ^|optical markup|}, while, if document structures are
+marked, it is called {\it ^|logical markup|}. \TeX{}  provides both
+forms of  markup, \ie{}, exact control of the layout of parts of the
+document and their positioning as well as the markup of the structure
+of formulae or document components. The logical markup is mapped to
+the optical one by \TeX{} so that layout may serve for the
+identification of structures by the reader.%
+   \footnote{
+      Layout -- and book design in general -- do not represent useless
+beauty. A good book design must first support the understanding of
+the content to produce readable text. So it is {\it
+\ae{}sthetic\/} in its best sense, since it connects form and contents
+and builts a new quality.
+      }
+
+ The kernel of the \TeX{} typesetting system is the formatting program
+\TeX82^^|typesetting machine \TeX82|, which is often simply called
+\TeX{}. This usage shall be adopted here whenever the difference
+between the complete system and the formatter is unimportant or
+obvious. \TeX82 is a big monolithic program which is published in the
+book {\it \TeX{}: The Program\/} by {\sc Donald Knuth}. Its features
+may be separated into two levels:
+ %
+ \begin{enumerate}
+
+\item \TeX82 formats text, \ie{}, it breaks it into paragraphs
+(including automatic hyphenation) and produces page breaks.
+
+\item It provides the programming language \TeX{} which incorporates a macro
+mechanism. This allows new commands to be built to support markup
+at a higher level. {\sc Donald Knuth} presents an example in the
+\TeX{}book: \Plain{}. A collection of macros which supports a special
+task and has (hopefully) a common philosophy of usage is called a
+{\it ^|macro package|}.
+
+\end{enumerate}
+ %
+ High level features for optical markup, as represented by \Plain{},
+allow one to build additional levels leading to full logical markup.
+At the moment, two macro packages for logical markup are widespread:
+\AmSTeX{} and \LaTeX{}. Both systems are built on top of \Plain{} to
+greater or lesser extents and the user can use the optical markup of
+\Plain{} in addition to logical markup if desired. This results in
+the effect that the author can use a mixture of structural
+information and explicit layout information -- a situation with a
+high potency of features that nevertheless can (and does) lead to a
+lot of typographic nonsense!
+
+As \TeX82 was built only for typesetting texts and to allow the
+realization of new markup structures, many features are lacking which are
+required by authors. To provide features like the production of
+an index or a bibliography or the inclusion of graphics, additional
+programs^^|supplementary programs| have been written, which use 
+information from a \TeX82 formatting run, process them, and provide
+them for the next \TeX82 run. Two supplementary programs are
+in widespread use and available for many computer/operating system
+combinations: \BibTeX{}, for the production of a bibliography from a
+reference collection, and \MakeIndex{}, for the production of an index.
+
+A special case of the processing of information provided by a \TeX{}
+run is the production of a table of contents or the usage of cross
+references in a text. For this only informations about page numbers,
+section numbers, etc., are needed. These are
+provided by \TeX82 and can be processed by \TeX82 itself, so \TeX82 is
+used as its own post processor in this situation.
+
+We have now seen that the \TeX{} typesetting system  is
+a collection of tools that consists of the typesetting `engine' \TeX82,
+macro packages (maybe several that are based on others) and
+supplementary programs, used together with these macro packages.
+This relation is illustrated by Figure~\ref{fig:components}.
+
+\begin{figure}
+\begin{center}
+% \input figkomp
+% figkomp.tex					01 Oct 90
+%------------------------------------------------------------
+% (c) 1990 by J.Schrod (TeXsys).
+
+%
+% picture of the components of TeX (logical connection)
+%
+
+% NOTE: BibTeX was made available for Plain TeX recently. So the
+% graphic will be changed soon...
+
+
+\begin{picture}(23,14)(3,0)
+
+
+   % TeX82
+   \put( 3, 0){ \rule{\w}{3\k} }
+   \put( 3, 3){ \rule{24\k}{\w} }
+   \put(27, 0){ \rule{\w}{3\k} }
+   \put( 3, 0){ \makebox(24,3){\TeX82} }
+   
+   % Plain TeX
+   \put( 4, 3){ \framebox(22,3){\Plain} }
+   
+   % AmS-TeX
+   \put( 5, 6){ \rule{\w}{5\k} }
+   \put( 5,11){ \rule{5\k}{\w} }
+   \put(10, 6){ \rule{\w}{5\k} }
+   \put( 5, 6){ \makebox(5,3){\AmSTeX} }
+   
+   % LAmS-TeX
+   \put( 6, 9){ \dashbox{.5}(4,2){\LAMSTeX LAMSTeX} }
+   
+   % LaTeX
+   \put(11, 6){ \framebox(8,5){\LaTeX} }
+   
+   % SliTeX
+   \put(11,11){ \framebox(4,3){\SliTeX} }
+   
+   % BibTeX
+   \put(15,11){ \framebox(4,3){\BibTeX} }
+   
+   % MakeIndex
+   \put(20, 6){ \framebox(5,8){\MakeIndex} }
+   
+   \end{picture}
+   
+   
+   
+   % \endinput
+   
+\caption{The Components of \TeX{}}
+\label{fig:components}
+\end{center}
+\end{figure}
+
+
+
+\section{Formatting}
+
+The formatting process of \TeX{} needs information about the
+dimensions of characters used for the paragraph breaking. A set
+of characters is grouped in {\it ^|font|s}. (But this is a
+simplification as the notion ``font'' should be used for the
+realization of a type in a fixed size for a specific output device.)
+The dimensions of the characters of a font are called {\it font
+metrics}.
+
+
+The format in which the font metrics are used by \TeX{} was
+defined by {\sc Donald Knuth} and is called  \ftype{tfm} format
+(``{\sl \TeX{} font metrics\/}''). In this format, every character is
+descibed as a {\it box\/} with a height, a depth, and a width.
+\TeX{} only needs these measurements, it is not interested in the shape
+of the character. It is even possible that the character may extend
+outside 
+the box, which may result in an overlap with other characters.
+The character measures are specified in a device independent
+dimension because \TeX{} processes its breaking algorithm
+independent of any output device.
+
+During paragraph breaking, \TeX{} hyphenates automatically, which
+can be done in an almost language-independent way. For the adaption to
+different languages, {\it ^|hyphenation patterns|\/} are needed to
+parametrize the hyphenation algorithm.
+
+The result of a \TeX{} formatting run is a \ftype{DVI} document, in which
+the type and position on the page are specified for each character to
+be output. The resolution that is used is so small that
+every possible output device will have a coarser raster, so that the
+positioning is effectively device independent. The \DVI{} document
+specifies only types, not the fonts themselves, so that the name \DVI{}%
+   \footnote{
+      This name is a problem because ``DVI'' is a trademark of 
+      Intel Corp.\ now, but the name \DVI{} for \TeX{} output files 
+      pre-dates this.
+      }
+ (``{\sl device independent\/}'') is accurate. To make the result of
+the formatting run available, the \DVI{} file must be output by a
+so-called ^|\DVI{} driver| on the desired output device.
+
+If problems occur during the formatting, error messages or warnings
+are output on the terminal. {\it Every\/} message that appears on the
+terminal will also be written into a protocol file named \ftype{log}
+file. In this \LOG{} file additional information may be placed that
+would have been too verbose for the output to the terminal. If this
+is the case, \TeX{} will tell the user so at the end of the
+formatting run. The messages of \TeX{} are not built in the program,
+they are stored in a (string) \ftype{pool} file. These messages must
+be read in at the beginning of a run.
+
+
+
+\section{Macro Packages}
+The basic macro package is ^|\Plain|, developed by {\sc Donald Knuth}
+together with \TeX82. It parametrizes the \TeX82 typesetting machine
+so that it can typeset English texts with the Computer Modern type
+family. Additionally, \Plain{} provides optical markup features.
+\Plain{} is available as one source file, {\tt plain.tex}.
+
+All other macro packages known to the author are based on \Plain{},
+\ie{}, they contain the source file {\tt plain.tex\/} either
+originally or with modifications of less important parts. Next to
+\Plain{}, the most important (free) available macro packages are
+^|\AmSTeX{}| by {\sc Michael Spivak} and ^|\LaTeX{}| by {\sc Leslie
+Lamport}. Other free macro packages are often of only local
+importance (\eg{} Blue\TeX{}, TEXT1, or \TeX{}sis) or are used in
+very special environments only (\eg{} {\tt texinfo\/} in the
+GNU~project or {\tt webmac\/} for \WEB{}). Important commercial macro
+packages are ^|Macro\TeX{}| by {\sc Amy Hendrickson} and
+^|\LAMSTeX{}|, also written by {\sc Michael Spivak}.
+
+These macro packages usually consist of a kernel that
+provides additional markup primitives. With such primitives,
+{\it document styles\/}^^|styles| can be built which realize logical
+markups by a corresponding layout. This layout can often be varied by
+{\it sub-styles\/} or {\it style options\/} which may also provide
+additional markups.
+
+The macro packages produce {\it ^|supplementary files|\/} which contain
+information about the page breaks or the document markup. This
+information may be used by support programs -- \eg{}, the
+specification of a reference from a bibliography database or the
+specification of an index entry with corresponding page number for the
+construction of an index. A special case is the information about
+cross references and headings for the building of a table of contents,
+as this information can be gathered and reused by \TeX{} directly.
+
+^|\SliTeX{}| is a special component of \LaTeX{} for the preparation
+of slides with overlays. In TUGBoat volume~10, no.~3 (1989)
+^|\LAMSTeX{}| was announced, which will provide the functionality of
+\LaTeX{} within \AmSTeX{}. ^|Macro\TeX{}| is a toolbox of macro
+``modules'' which may be used to realize new markups but, as it
+became available only short time ago, it is not yet widespread.
+
+For the usage of these (and other) macro packages, one must check
+whether they need ^|additional fonts| which do not belong to the Computer
+Modern type family. For \LaTeX{}, \eg{}, fonts with additional symbols
+and with invisible characters (for the slide overlays) are needed,
+while \AmSTeX{} needs several additional font sets with mathematical and
+Cyrillic characters.
+
+
+
+\section{Support Programs}
+
+Only two support programs will be discussed here: ^|\BibTeX{}| by
+{\sc Oren Patashnik} for the preparation of bibliographies and
+^|\MakeIndex{}| by {\sc Pehong Chen} and {\sc Michael Harrison} for
+the preparation of a sorted index. For both tasks exist other,
+funcionally equivalent, support programs. But the abovementioned are
+available on many operating systems, and have an ``official'' state
+as they are {\sc Leslie Lamport} encourages their usage with
+\LaTeX{} in his documentation, and the TUG supports them for general use.
+
+There is no totally portable mechanism for the inclusion of general
+graphics in \TeX{} documents, so that there are no machine independent
+support programs available.
+
+\BibTeX{} is used to handle references collected in \ftype{bib}
+files. \TeX{} produces supplementary files which contain information
+about the required references, and \BibTeX{} generates from them a
+sorted bibliography in a \ftype{bbl} file which may be subsequently
+used by \TeX{}. The kind of sorting and the type of ^|cite keys| are
+defined by {\it ^|bibliography styles|\/},  specified in \ftype{bst}
+files. The messages of a \BibTeX{} run are written to a \ftype{blg}
+logfile.
+
+\MakeIndex{} reads an \ftype{idx} support file that contains the index
+entries and the according page numbers, sorts these items, unifies
+them and writes them as \TeX{} input in an \ftype{ind} file. The
+formatting style may be specified by an {\it ^|index style|}. The
+messages of a \MakeIndex{} run are written to a \ftype{ilg} file.
+
+
+
+\section{Performance Improvements}
+
+Much of the work that \TeX82 has to do is the same for every
+document:
+%
+ \begin{enumerate}
+
+\item \label{enum:hyphen}
+ All text has to be broken into lines. Text pieces in the same
+language are hyphenated with the same hyphenation patterns.
+
+\item \label{enum:markup}
+ The basic markups of the corresponding macro packages must be
+available.
+
+\item The required font metrics are much alike for many documents, as the
+font set used usually doesn't differ that much.
+
+\end{enumerate} 
+% 
+ To improve \TeX{}'s performance, hyphenation, markup, and font
+metrics descriptions are converted from an external, for
+(\ref{enum:hyphen}) and~(\ref{enum:markup}) textual, representation
+into an internal representation which can easily be used by \TeX82.
+It is sensible to do this transformation only once, not for every
+document. The internal representation is stored in a \ftype{fmt} file.
+The storing is done with the \TeX{} command {\tt \bs{}dump}, so that
+\FMT{} files often are called ``{\it dumped formats}.'' A \FMT{} file
+can be read at the beginning of a \TeX82 run and is thus available
+for the processing of the actual text.
+
+As the creation of a \FMT{} file is done infrequently -- usually for
+the update of a macro package -- the formatting of texts can be done
+with a reduced version of the \TeX82 program that doesn't contain the
+storage and the program parts for the transformation of the
+hyphenation patterns and for the dumping. The complete version of
+\TeX82 is needed in an initialization phase only and therefore called
+^|\INITeX{}|. Additional improvements of the performance can be
+reached  by the usage of ^|production version|s of \TeX82 from which
+parts for statistical analysis and for debugging are stripped. 
+
+\TeX{} versions that have no dumped formats preloaded, have the
+ability to load a dumped format (\ie{} a \FMT{} file), and have no
+ability to dump a \FMT{} file (\ie{}, they are not \INITeX{}) are
+often called ^|Vir\TeX{}|, which stands for {\it virgin \TeX{}}.
+
+
+
+\section{Connections Between File Types and Components}
+
+In the above sections, the components of the \TeX{} authoring system 
+were described, and the files that are read or written by these
+components mentioned. The connections between them all is 
+demonstrated graphically in Figure~\ref{fig:total}. In this graphic,
+file types are represented by rectangles, and programs by ovals. The
+arrows mean ``is read by'' or ``is produced by.'' The abbreviations
+of the file types are explained in Table~\ref{tab:filetypes}, which
+also lists the file identifications (suffixes or extensions) that
+these files usually have (but note that  other file identifications
+are also in use).
+
+\begin{figure} 
+\begin{center} 
+% \input figtotal 
+% figtotal.tex					25 Mar 91
+%------------------------------------------------------------
+% (c) 1991 by J.Schrod (TeXsys).
+
+%
+% Picture of the components and used file types of TeX (data flow)
+%   (thanks to Nico Poppelier who contributed this better structured version)
+%
+% LaTeX picture
+
+
+% check if \OutputInFigtotal and \DriverInFigtotal is defined
+
+\ifx \OutputInFigtotal\undefined
+   \errhelp{It should be defined as the term `output' in the used language}
+   \errmessage{You must define \string\OutputInFigtotal}
+   \def\OutputInFigtotal{output}
+\fi
+\ifx \DriverInFigtotal\undefined
+   \errhelp{It should be defined as the term `driver' in the used language}
+   \errmessage{You must define \string\DriverInFigtotal}
+   \def\DriverInFigtotal{\DVI{} driver}
+\fi
+
+
+
+\def\file#1{\framebox(3,2){\tt \uppercase{#1}}}
+\def\prog(#1)#2{%
+   \oval(#1,2)%
+   \makebox(0,0){#2}%
+   }
+
+
+% X and Y variables
+
+\newcount\X \newcount\Y		% needed for \Program
+
+% macros for objects
+
+\def\File(#1,#2)#3{%
+  \put(#1,#2){\framebox(20,10){\tt\uppercase{#3}}}}
+\def\CopyFile(#1,#2)#3{%
+  \put(#1,#2){\dashbox{2}(20,10){#3}}}
+\def\Program(#1,#2)#3{%
+  \X=#1 \Y=#2 \advance\X by 15 \advance\Y by 5
+  \put(\X,\Y){\oval(30,10)}%
+  \put(#1,#2){\makebox(30,10){#3}}}
+\def\Device(#1,#2)#3{%
+  \put(#1,#2){\line(1,2){5}} \put(#1,#2){\line(1,0){25}}
+  \X=#1 \Y=#2 \advance\X by 30 \advance\Y by 10
+  \put(\the\X,\the\Y){\line(-1,-2){5}} \put(\the\X,\the\Y){\line(-1,0){25}}
+  \put(#1,#2){\makebox(30,10){#3}}}
+
+
+% don't ask me why it's 0.7mm, that's from Nico!  -js
+
+\unitlength=0.7mm
+
+
+\begin{picture}(260,160)(80,0)
+
+% this code provides a dotted grid that makes modification easier
+
+%\multiput( 70,  0)(10,0){20}{%
+%   \vbox to 160\unitlength{%
+%      \leaders
+%         \vbox to 2.5\unitlength{%
+%	    \vfill
+%	    \hbox{\fivrm .}%
+%	    \vfill
+%	    }%
+%	 \vfill
+%      }%
+%   }
+%\multiput( 70,  0)(0,10){17}{%
+%   \hbox to 190\unitlength{%
+%      \leaders
+%         \hbox to 2.5\unitlength{%
+%	    \hfill
+%	    \hbox{\fivrm .}%
+%	    \hfill
+%	    }%
+%	 \hfill
+%      }%
+%   }
+
+
+%
+% IniTeX block
+%
+    \File( 75,145){tfm} \File(105,145){hyp} \File(135,145){mac} 
+    \File(165,145){pool} 
+\multiput( 85,145)(30,0){4}{\line(0,-1){5}}
+     \put( 85,140){\line(1,0){90}}
+     \put(115,140){\vector(0,-1){5}}
+ \Program(100,125){\INITeX}
+     \put(115,125){\line(0,-1){5}}
+     \put(100,120){\line(1,0){30}}
+\multiput(100,120)(30,0){2}{\vector(0,-1){5}}
+    \File( 90,105){log}
+    \File(120,105){fmt} \File(150,105){tex}
+    \File(180,105){sty} \File(210,105){mac} \File(240,105){tfm}
+
+%
+% TeX block
+%
+\multiput(130,105)(30,0){5}{\line(0,-1){5}}
+     \put(130,100){\line(1,0){120}}
+     \put(175,100){\vector(0,-1){5}}
+ \Program(160, 85){\TeX82}
+     \put(175, 85){\line(0,-1){5}}
+     \put(130, 80){\line(1,0){90}}
+\multiput(130, 80)(30,0){4}{\vector(0,-1){5}}
+    \File(120, 65){dvi} \File(150, 65){log}
+    \File(180, 65){idx} \File(210, 65){aux}
+% loop back to TeX
+     \put(230, 70){\line(1,0){10}}
+     \put(240, 70){\vector(0,1){10}}
+     \put(240, 80){\line(0,1){10}}
+
+%
+% BibTeX block
+%
+    \File(195, 45){bib} \File(225, 45){bst}
+\multiput(205, 45)(30,0){2}{\line(0,-1){5}}
+     \put(205, 40){\line(1,0){30}}
+     \put(220, 65){\vector(0,-1){30}}
+ \Program(205, 25){\BibTeX}
+     \put(220, 25){\line(0,-1){5}}
+     \put(205, 20){\line(1,0){30}}
+\multiput(205, 20)(30,0){2}{\vector(0,-1){5}}
+    \File(195,  5){blg} \File(225,  5){bbl}
+% loop back to TeX
+     \put(245, 10){\line(1,0){10}}
+     \put(255, 10){\vector(0,1){10}}
+     \put(255, 20){\line(0,1){70}}
+
+%
+% MakeIndex block
+%
+    \File(150, 45){ist}
+     \put(190, 65){\line(0,-1){20}}
+\multiput(160, 45)(30,0){2}{\line(0,-1){5}}
+     \put(160, 40){\line(1,0){30}}
+     \put(175, 40){\vector(0,-1){5}}
+ \Program(160, 25){\MakeIndex}
+     \put(175, 25){\line(0,-1){5}}
+     \put(145, 20){\line(1,0){30}}
+\multiput(145, 20)(30,0){2}{\vector(0,-1){5}}
+    \File(135,  5){ilg} \File(165,  5){ind}
+% loop back to TeX
+     \put(175,  5){\line(0,-1){5}}
+     \put(175,  0){\line(1,0){85}}
+     \put(260,  0){\vector(0,1){10}}
+     \put(260, 10){\line(0,1){80}}
+     \put(260, 90){\vector(-1,0){70}}
+
+%
+% device driver block
+%
+    \File( 90, 65){fnt}
+\multiput(100, 65)(30,0){2}{\line(0,-1){25}}
+     \put(100, 40){\line(1,0){30}}
+     \put(115, 40){\vector(0,-1){5}}
+ \Program(100, 25){\DriverInFigtotal}
+     \put(115, 25){\vector(0,-1){10}}
+  \Device(100,  5){\OutputInFigtotal}
+
+
+   \end{picture}
+
+
+   % \endinput
+
+
+\caption{The Connection of Components and File Types} 
+\label{fig:total} 
+\end{center}
+\end{figure}
+
+
+\begin{table}
+\begin{center}
+
+\noindent
+\vbox\bgroup			% halign, LaTeX is too inflexible!!
+%
+\tabskip=1em
+\catcode`\,=\active % Roman Komma, also in typewriter text!
+\def,{{\rm \char`\,\relax \space}\ignorespaces}
+
+\let\par=\cr \obeylines%
+\halign{\tt \hfil #\unskip\hfil & #\unskip\hfil & \tt #\unskip\hfil
+%
+\sc File Type & \hfil \sc Explanation & \sc File Identification
+              &                       & \sc (suffix, extension, etc.)
+\noalign{\vskip 3pt}%
+%
+TEX   & Text input                    & tex, ltx
+DVI   & \TeX82 output, formatted text & dvi
+LOG   & \TeX82 log file               & log, lis, list
+HYP   & Hyphenation patterns          & tex
+TFM   & Font metrics                  & tfm
+POOL  & String pool                   & pool, poo, pol
+FMT   & Format file                   & fmt
+MAC   & \TeX{} macro file             & tex, doc
+STY   & \TeX{} style file             & sty, tex, st, doc
+AUX   & Support files                 & aux, toc, lot, lof,\unskip
+      &                               & glo, tmp, tex
+BIB   & Reference collections         & bib
+BBL   & References or bibliographies  & bbl
+BLG   & \BibTeX{} log file            & blg
+BST   & \BibTeX{} style file          & bst
+IDX   & Unsorted index                & idx
+IND   & Sorted index                  & ind
+IST   & Index markup specification    &
+ILG   & \MakeIndex{} log file         & ilg
+}%
+%
+\egroup
+
+\caption{File Types}
+\label{tab:filetypes}
+\end{center}
+\end{table}
+
+
+
+\subsubsection*{Acknowledgements}
+
+I would like to thank {\sc Christine Detig} who was so kind to
+provide the English translation. {\sc Nelson Beebe} suggested
+performing the  translation. {\sc Klaus Guntermann} made valuable
+comments on the first (German) version.
+{\sc Nico Poppelier} contributed a new version of figure
+\ref{fig:total}, better than my original one.
+
+
+
+\end{document}
+

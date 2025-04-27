@@ -1,0 +1,2681 @@
+:source-highlighter: highlight.js
+:stem: latexmath
+:icons: font
+:experimental:
+:toc: auto
+:toclevels: 1
+:sounds: https://www.polyu.edu.hk/cbs/pronunciation/sound_file
+
+== 必利其器
+
+• https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy[Content-Security-Policy]
+• https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement/allow[HTMLIFrameElement: allow property]
+• https://docs.asciidoctor.org/asciidoctor.js/latest/[Asciidoctor.js Documentation]
+• https://docs.asciidoctor.org/asciidoctor/latest/extensions/[Extensions]
+• https://vscode.dev/github/asciidoctor/asciidoctor-extensions-lab[Ruby-based extensions]
+• https://vscode.dev/github.com/asciidoctor/asciidoctor.js/blob/main/packages/core/types/index.d.ts[types/index.d.ts]
+• https://vscode.dev/github.com/asciidoctor/asciidoctor.js/blob/main/packages/core/src/asciidoctor-extensions-api.js[asciidoctor-extensions-api.js]
+
+TIP: 语言学习是一个“多输入，多输出”的实践行为，两个“多”字的内涵体现在：多种感官参与（视觉、触觉、嗅觉、感觉、想象），需要将你的一切能力调动起来；多时段重复调取记忆，重复是让大脑认真看待你所接触到的信息最基本手段，浅尝的食物一般都只在海马体中暂存，不会登记到大脑皮层———这里是记忆产生的主要位置。如果能够创造出“毕生难忘”的体验，将能够大大的提升记忆效率，这是一种全方位的感官刺激，具有最大效率地迫使大脑皮层建立新的神经网络。请相信，神经网络是可以改造的，只不过有效率快慢的差别。甚至，可以多门语言合并一起学习，作为现代人中国年轻人，我会选择英语加日语。语言学习的一般规律是多输入輸出（阅读、听、模仿），语法学习并非必须，除非需要应付考试。输入且大量的输入才是改造大脑皮层神经网络结构的能量来源，不要用任何行为替代大量的输入！
+
+TIP: 人工智能技术的成熟，极大地方便了计算机辅助教育，可以利用 https://chat.deepseek.com/[深度求索] 这样的产品来辅助学习。
+
+提示：
+
+• 拒绝死记顺序：线性输入导致输出也是线性，按使用频率分组记忆更快，随机抽签检查；
+• 警惕发音陷阱：勿用中文谐音记忆，比如日语「し→西」，发音不准将导致发音永久性偏差；
+• 片假名同步学：避免先学平假名再学片假名造成的混淆拖延，本质上也是线性记忆问题。
+
+TIP: https://rime.im/[中州韵 RIME] 是极值得推荐按的输入法「引擎」，可以通过配置够“创造”输入法，比如日语输入法是配置 https://github.com/gkovacs/rime-japanese[RIME Japanese]。把整个仓库里的文件全部下载下来，把这些文件复制到 rime 的用户文件夹就可以了。通过输入法图标的右键菜单打开“用户目录”，并在完成文件复制后重新部署，然后在”输入法设定”勾选“日本语”输入法，在打字时候使用 Ctrl+` 快捷键切换。输入促音需要重复后接的辅音字母（仅限清音），或在假名键盘中找到「小」或「っ」键（通常位于右下角）。比如邮票 きって（切手）对应输入 kitte。再如 がっこう（学校）对应输入 gakkou。日文输入法下按连字符“-”键自动转换，或者使用片假名键盘中单独存在「ー」键。在打字输时，可以使用 ja/ju/jo/sha/shu/so/cha/chu/cho 输入相应的抝音，也可以使用 zya/zyu/zyo/sya/syu/syo/cya/cyu/cyo。还有 を ヲ o 也可以写作 wo。
+
+TIP: https://github.com/rime/rime-cantonese[RIME Cantonese] 粵語輸入法。本方案預設**不支援**任何模糊音或懶音，即區分 n-/l-, ∅-/ng- 等常見懶音。若要啓用模糊音，先打開 `jyut6ping3.schema.yaml` ，取消 `speller/algebra:` 相應代碼的註釋（刪除前置 `#` 號）。例如想支援 n-/l- 不分，`speller/algebra:` 相應行數應作修改：加入 `derive/^n(?!g)/l/` 这句配置。輸入時可忽略聲調，也可按照下列鍵位輸入：
+
+1. 陰平 1 = kbd:[v]，示范：kbd:[s i v] 輸出「詩」；上陰入，打 kbd:[s i k v] 輸出「色」
+2. 陰上 2 = kbd:[x]，示范：kbd:[s i x] 輸出「史」
+3. 陰去 3 = kbd:[q]，示范：kbd:[s i q] 輸出「試」；下陰入，打 kbd:[s e k q] 輸出「錫」
+4. 陽平 4 = kbd:[vv]，示范：kbd:[s i v v] 輸出「時」
+5. 陽上 5 = kbd:[xx]，示范：kbd:[s i x x] 輸出「市」
+6. 陽去 6 = kbd:[qq]，示范：kbd:[s i q q] 輸出「事」；陽入，打 kbd:[s i k q q] 輸出「食」
+
+本方案支援普通話、Loengfan (粵語兩分)、筆畫、倉頡反查，可以用嚟反查鍵：普通話（kbd:[`]）、粵語兩分（kbd:[r]）、筆畫（kbd:[x]）、倉頡五代（kbd:[v]）。
+
+https://ctan.org/tex-archive/info/lshort/japanese[A Short Introduction to LaTeX2ε] 是一个多国语言版本的 LaTeX 数字化排版／写作教程，包括日语版本，这是非常好的学习资源。可以在 LaTeX 文档中给日文加注罗马音，也可以使用 Python 脚本生成罗马音。利用 LaTeX 排版功能，只需要将每行文本切分为两行，一行摆注音，另一行摆主文本。甚至，使用 `\over` 或者 `\frac` 这些用在公式中表示分数的宏命令都可以用来 stem:[{zhù \over 注}\frac{yìn}{音}]。希望去掉中间线，标准的做法是使用 `\genfrac` 命令来自定义分数线的样式，指定左边、右边、线的厚度以及样式。如果将线的厚度设置为 0pt，就可以实现隐藏分数线的效果。例如，使用 `\genfrac{}{}{0pt}{}{numerator}{denominator}` 就可以生成没有分数线的分数形式。将注音作分子、主文本作分母，就像这样 stem:[\genfrac{}{}{0pt}{}{fēnshù}{分数}]。分子和分母的位置可能会过于紧凑，需要调整间距可以考虑使用 `\phantom` 或者 `\mathrlap` 等命令来调整排版，确保分子和分母的位置合适。
+
+HTML5 提供了专用标签：`<ruby>`: The Ruby Annotation element，用于东亚文字排版中注音。Ruby 文本（ruby text）是一种通常放置在字符上方或右侧的小字体文本注释。也可以用在 AsciiDoc 文档中，只需要使用其直通宏命令，使用 `\pass:[<ruby>東京<rt>とうきょう</rt></ruby>]` 这样的代码片段得到“pass:[<ruby>東京<rt>とうきょう</rt></ruby>]”这样带有注音的文本。显然这个功能并不能完全满足我的需要：简洁的文本文档。AsciiDoc 支持扩展，可以自定义用户宏。但是，这要求你使用 Ruby, Java, Groovy or JavaScript 等语言编写扩展脚本（取决于使用的解释器），也会让文档结构变复杂，单个文档变文档工程。VS Code AsciiDoc 插件基于　JavaScript 语言的 Asciidoctor.js 库，在某些功能上与 Ruby 版本的 Asciidoctor 有差异，尤其是在处理扩展和自定义宏方面。用户的自定义宏依赖于 Ruby 扩展就会导致在 VS Code 中预览时无法正确渲染。其它参考 Asciidoctor.js Live Preview 或者 Live Server。
+
+TIP: 最直接的解决办法是编写 JavaScript 脚本，手动修改 HTML 节点内容。
+
+官方提供扩展示范，比如 link:https://github.com/mogztter/asciidoctor-emoji[Inline macro] 
+`emoji:heart[]`。用户编写扩展脚本只需要像以下一样在脚本模块中导出一个 `registry` 注册函数。
+如果脚本模块没有导出此函数，则会报错：TypeError: extjs.register is not a function。
+导出函数的目地是在加载时调用 inlineMacro 这些 API 以注册一个宏对象。注意 JavaScript 的函数
+就是类型对象，这取决于函数的执行方式：使用 `new` 关键字执行将其作为类型的构造函数。因为脚本可能
+存在潜在的安全威胁，VS Code 默认禁止插件加载脚本，需要用户手动执行授权命令以加载扩展脚本：
+AsciiDoc: Manage Asciidoctor.js Extensions Trust Mode。
+
+为了演示通过 hack 源代码实现用户定制功能，后面将通过修改 AsciiDoc 代码来实现一个注音扩展。
+这里直接给出扩展脚本的实现：
+
+[source,js]
+----
+/**
+ * Ruby Annotation Extension for Asciidoctor.s
+ * 
+ * Install::
+ * 
+ * Just save this script (ruby.js) in you vscode project:
+ *  .asciidoctor/lib/ruby.js
+ * 
+ * Test::
+ * 
+ *  oo:テスト[/test/]
+ *  oo:テスト[rt=/test/]
+ */
+function ruby_annotation_macro_oo() {
+    const self = this
+    self.named('oo')
+    self.positionalAttributes('rt')
+
+    self.process((...args)=>process(self, ...args))
+}
+
+function ruby_annotation_macro() {
+    const self = this
+    self.named('ruby')
+    self.positionalAttributes('rt')
+
+    self.process((...args)=>process(self, ...args))
+}
+
+function process (self, parent, target="", attr=null) {
+    console.log({ln:parent.constructor, target, attr},attr["$positional"])
+    let pos = attr["$positional"] || [""]
+    let anno = attr.rt || pos[0]
+    anno = anno.replace(/\^(\d)/g, "<sup>$1</sup>")
+    var text = `<ruby>${target}<rt>${anno}</rt></ruby>`
+    return self.createInline(parent, 'quoted', text, { 'type': 'normal' })
+}
+
+module.exports.register = function register (registry) {
+    if (typeof registry.register === 'function') {
+        registry.register(function () {
+            this.inlineMacro(ruby_annotation_macro)
+            this.inlineMacro(ruby_annotation_macro_oo)
+        })
+    } else if (typeof registry.block === 'function') {
+        registry.inlineMacro(ruby_annotation_macro)
+        registry.inlineMacro(ruby_annotation_macro_oo)
+    }
+    return registry
+}
+----
+
+AsciiDoc 文档解析器（Asciidoctor）原本使用 Ruby 语言编写，但是考虑到 JavaScript 的流行，转而使用 Opal 也就是 Ruby-to-JavaScript 转译生成 JavaScript 版本，这样就可以在流行的 Node/Deno 等平台，或者直接在浏览器中渲染 AsciiDoc！link:https://opalrb.com/[Opal] 是一个高度成熟的开源项目，它充当着 Ruby 代码与 JavaScript 世界的中介，允许开发者以熟悉的 Ruby 语法编写前端或 Node.js 应用。Opal 使用 Ruby 语言开发，同时也处理 JavaScript 代码的交互调用。Asciidoctor.js 只需要依赖 https://www.npmjs.com/package/asciidoctor-opal-runtime[Opal Runtime] 就可以在 JavaScript 环境下工作。
+
+    $ tree -d ./packages
+    ./packages
+    ├── asciidoctor   提供 @asciidoctor/cli 命令行工具
+    └── core       
+        ├── benchmark      性能跑分
+        ├── examples       示例
+        ├── lib            Ruby 实现代码库
+        ├── spec           规范测试
+        ├── src            @asciidoctor/core 核心代码
+        ├── tasks          Node.js 任务脚本
+        └── types          TypeScript Declaration File
+
+假定设计这样一个 AsciiDoc 宏：`ruby:[tā|铊]` 用于文字注音，那么就可以像以下代码片段一样给预览 AsciiDoc 来点 tricky 处理。你可以根据需要来选择哪些 HTML 标签，这里作为演示只处理 `<P>` 标签下的内容。这种实现有个缺点，需要脚本支持。因为 VS Code 为了提高安全性，启用了 Content-Security-Policy 安全策略，可以通过开发者工具查看 HTML 中包含 `<meta http-equiv="Content-Security-Policy" content="..."/>` 这个标签，用户要在 AsciiDoc 使用直通输出的脚本时，就需要正确编写包含 `nonce=...` 属性的脚本块，否则不能大道安全要求而被拒绝执行。可以看到安全规则配置包含以下两条，默认设置 fallback 为禁止（default-src 'none';），也就是一定要提供符合安全规则约束的脚本、资源才能通过安全审查。AsciiDoc 预览窗口通过 WebView 嵌入的 `<iframe>` 与主窗口隔离。AsciiDoc 预览窗口中也同样使用 `<meta>` 设置了安全规则。可以看到包含动态生成的 384-bit 或者 256-bit Secure Hash Algorithm (SHA) 摘要数据（经过编码作为文本显示），以及 nonce 随机数，还包含 kroki.io 等需要使用的服务器地址，也包括 localhost（用于执行插件本身内部脚本）。综合以上内容，可以通过修改 AsciiDoc 插件代码来实现你自己定制的 AsciiDoc 预览功能。
+
+    default-src 'none' ;
+    script-src 'self' 'unsafe-eval' blob: ;
+
+可以在插件的 asciidoctorWebViewConverter.js 代码文件中找到这个随机数的生成过程，就是时间值，getTime()+ '' + getMilliseconds()。建议不要修改此代码，如果使用固定值的 nonce，虽然可以方便在文档中插入直通脚本，但是也引入了潜在的安全隐患，让其他恶意用户有机会通过同样方式在文档中嵌入恶意代码。一旦用这个修改过的插件（有漏洞）打开包含恶意代码的文档，就有可能导致信息、财产安全问题。一个安全的方法是修改插件中嵌入 HTML 代码，注入功能补丁脚本。需要注意，AsciiDoc 插件支持 VS Code 本地环境和 Web 环境，如果只需要本地环境使用，则修改 package.json 配置文件 "main" 属性指定的模块代码即可。
+
+    "browser": "./dist/browser/extension",
+    "main": "./dist/src/extension",
+
+也就是 AsciidoctorWebViewConverter 类型实现代码。在本地环境下还可以导出 HTML 格式，参考插件的 SaveHTML 类型实现，为了让“自定义宏”在导出的 HTML 文档中有效果，可以使用直通宏将脚本一并输出，或者修改插件代码。正常来说，应该编写 AsciiDoc 扩展，只需要实现一个 Inline Macro Processor 并注册到解析器中即可处理这样的文本生成工作。而不是直接修改其代码，除非研究其内部结构或者作开源贡献。导出功能调用 asciidocEngine 对象的 `export(textDocument, 'html5')` 方法执行 processor 程序生成 HTML 文档。每个扩展宏（函数）都是一个 InlineMacroFunctions 接口实例。
+
+为了让功能补丁适用性更好，采用给插件代码打补丁。因为 WebView 预览以及 Export HTML 功能都需要对 AsciiDoc 文档内容进行处理。可以将补丁代码写入 @Asciidoctor/core 撒块或者插件代码文件，这里选择将自定义宏函数写入 asciidocEngine.js。另外，宏调用格式采用 AsciiDoc 文档的规范格式，也就是内联宏 `<name>:<target>[<attrs>]` 或者块宏 `<name>:<target>[<attrs>]`。调用时，使用 `+ruby:铊[tā]+` 格式，可以使用上尖括号来标记粤语的声调，比如 `+ruby:上岸[soeng^6 ngon^6]+`。为了让文档文本更短，考虑使用 `oo:` 替代 `ruby:`。本来想用 `__:` 宏标记，但是解析器不支持标点符号作宏名。可惜的是，AsciiDoc 解析器未能提供像 stem:[\LaTeX] 那样的宏扩展机制，不然会方便很多。
+
+测试 JavaScript 实现的 AsciiDoc 宏扩展：`ruby:铊[tā] oo:上岸[soeng^6 ngon^6]`。
+
+以下直通代码片段用于直接修改 HTML 标签，仅供参考。
+
+[source,js]
+----
+[pass]
+++++++
+<script>
+window.addEventListener("load", function() {
+  let targets = new Array(...document.querySelectorAll("*")).filter(it=>"P"==it.tagName)
+  for (let it of targets){
+    it.innerHTML = it.innerHTML.replace(/ruby:\[(.*?)\|(.*?)]/g, 
+      "<ruby>$2<rt>$1</rt><ruby>")
+  }
+})
+window.dispatchEvent(new Event("load"))
+</script>
+++++++
+----
+
+用户宏函数 `ruby_inline_macro(registry)` 实现以及修改代码片段参考，仅支持 HTML5：
+
+[source,js]
+----
+//asciidoctor.asciidoctor-vscode-3.4.2\dist\src\asciidocEngine.js
+
+function _ruby_inline_macro() {
+    var self = this
+    self.process(function (parent, target="", attr=null) {
+        console.log({ln:parent.constructor, target, attr},attr["$positional"])
+        let pos = attr["$positional"] || [""]
+        let anno = attr.anno || pos[0]
+        anno = anno.replace(/\^(\d)/g, "<sup>$1</sup>")
+        var text = `<ruby>${target}<rt>${anno}</rt></ruby>`
+        return self.createInline(parent, 'quoted', text, { 'type': 'normal' })
+    })
+}
+function ruby_inline_macro(registry){
+    registry.inlineMacro('ruby', _ruby_inline_macro)
+    registry.inlineMacro('o', _ruby_inline_macro)
+}
+
+class AsciidocEngine {
+
+    async export(textDocument, backend, asciidoctorAttributes = {}) {
+      //...
+      const registry = processor.Extensions.create();
+      ruby_inline_macro(registry)
+      //...
+    }
+
+    async convertFromTextDocument(textDocument, context, editor, line) {
+      //...
+      const registry = processor.Extensions.create();
+      ruby_inline_macro(registry);
+      //...
+    }
+}
+----
+
+.AsciiDoc 宏属性控制
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|属性类型|示例语法                 |功能说明
+|位置参数|[arg1,arg2]            |通过序号访问 (attr["$positional"])
+|命名属性|[key="value", size=20] |键值对配置 attr.key, attr.size
+|特殊属性|[%unchecked]           |添加 CSS 类/状态标记
+|内容继承|[context=section]      |继承父级上下文设置
+|===
+
+
+[source,tex]
+----
+% 实例１：导言区加载 amsmath，并定义无横线的分数命令
+\usepackage{amsmath}
+\newcommand{\nolinefrac}[2]{\genfrac{}{}{0pt}{}{#1}{#2}}
+\nolinefrac{a}{b}
+
+% 实例２：隐藏横线但保留分子分母位置
+\newcommand{\hidefrac}[2]{%
+  \genfrac{}{}{0pt}{0}{#1}{\phantom{#2}}%
+  \genfrac{}{}{0pt}{0}{\phantom{#1}}{#2}%
+}
+\hidefrac{a}{b}
+
+% 实例３：加载 mathtools　并定义隐藏横线的分数，显示为 a⁄b（横线不可见）
+\usepackage{mathtools}
+\newcommand{\invisiblefrac}[2]{%
+  \frac{\mathrlap{#1}}{#2}%
+}
+\invisiblefrac{a}{b}  % 
+----
+
+• http://kakasi.namazu.org/index.html.en[KAKASI - Kanji Kana Simple Inverter]
+
+[source,python]
+----
+#!/usr/bin/env python
+import io
+import sys
+import pykakasi
+kks = pykakasi.kakasi()
+text = "日本語を勉強します"
+sin = sys.stdin.readlines()
+result = kks.convert(text if len(sin)==0 else "".join(sin))
+print("".join([f"ruby:{it['orig']}[{it['hira']}]" 
+                 if it['orig'] != it['hira'] 
+                 else it['orig'] for it in result]))
+# Press Ctrl+D or Ctrl+Z (on Windows)
+# Output: ruby:日本語[にほんご]をruby:勉強[べんきょう]します
+----
+
+• https://pypi.org/project/pypinyin/[汉字拼音转换]
+• https://ctan.org/pkg/xpinyin[xpinyin 汉字自动注音宏包]
+• https://pycantonese.org/parsing.html[粤语 NLP 处理工具]
+
+此粤语 NLP 工具不能处理一些异体字，譬如 ruby:𧦠人[ngaak^1 jan^4] = ruby:訹人[seot^1 jan^4]。作为客家人，小时候我在农村经常听到大人用“訹人”这个词，所以小朋友经常被教育防“骗”。
+
+[source,tex]
+----
+>>> import pycantonese
+>>> data = "你食咗飯未呀？食咗喇！你聽日得唔得閒呀？"
+>>> corpus = pycantonese.parse_text(data)
+>>> corpus.head()
+*X:    你         食         咗        飯          未        呀        ？
+%mor:  PRON|nei5  VERB|sik6  PART|zo2  NOUN|faan6  ADV|mei6  PART|aa4  ？
+
+*X:    食         咗        喇         ！
+%mor:  VERB|sik6  PART|zo2  PART|laa1  ！
+
+*X:    你         聽日           得         唔      得閒           呀        ？
+%mor:  PRON|nei5  ADV|ting1jat6  VERB|dak1  ADV|m4  ADJ|dak1haan4  PART|aa4  ？
+----
+
+
+****
+[source,tikz]
+----
+\documentclass{article}
+\usepackage{ruby}
+\renewcommand{\rubyfont}{\footnotesize} % Smaller annotation
+\renewcommand{\rubysep}{-0.3em} % Tighter spacing
+\usepackage{fontspec}
+\setmainfont{Noto Sans CJK JP} % Requires XeLaTeX/LuaLaTeX
+
+\begin{document}
+\ruby{東京}{とうきょう}へ行きます。 % Tokyo (with furigana)
+\end{document}
+----
+
+[source,tikz]
+----
+% Use LuaLaTeX engine
+\documentclass{standalone}
+\usepackage{ruby}
+\begin{document}
+% Horizontal Ruby (e.g., furigana)
+\ruby{漢}{かん}字
+% Output: 漢 (with "かん" above it) followed by 字
+\end{document}
+----
+
+[source,tex]
+----
+% Use LuaLaTeX engine
+\documentclass{standalone}
+\usepackage{pinyin}
+\begin{document}
+\Hanyu{汉字} % Auto-generates pinyin (needs setup)
+% Or manually:
+\ruby{汉}{hàn}字
+\end{document}
+----
+
+[source,tex]
+----
+% Use LuaLaTeX engine
+\documentclass{ltjsarticle}
+\usepackage{luatexja}
+\begin{document}
+\rensuji{漢\kenten{かん}字} % Furigana example
+\end{document}
+----
+
+[source,tex]
+----
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{xpinyin}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+\xpinyin*{汉语拼音示例}
+\end{CJK}
+\end{document}
+----
+****
+
+
+== 汉语音标
+
+开明书店于 1933 年初出版的林語堂《开明英文文法》(Kaiming English Grammar) 就強調對比學習方法。普通話、粵語、英語喺我嘅語言學習對比。以汉语拼音方案做对比，声母、韵母加整体认读音节也只有六十三个，但是组合四声调，就具有强大的拟音能力。更别说有九声六调的粤语。中古汉语四声八调：平、上、去、入四声各分阴阳（阴平/阳平、阴上/阳上等），共八种声调。粤语声调演化：保留中古四声，进一步分化出“中入声”，形成 “九声”；但实际教学中常将入声调合并为三类，统称 “六调”。
+
+.汉语拼音核心元素分类
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|类别          |数量   |具体内容
+|声母          |23个   |b, p, m, f, d, t, n, l, g, k, h, j, q, x, zh, ch, sh, r, z, c, s, y, w
+1.3+|韵母  1.3+|24个  |单韵母（6个）：a, o, e, i, u, ü
+                     |复韵母（9个）：ai, ei, ui, ao, ou, iu, ie, üe, er
+                     |鼻韵母（9个）：an, en, in, un, ün, ang, eng, ing, ong
+|声调           |5种  |阴平（ˉ）、阳平（ˊ）、上声（ˇ）、去声（ˋ）、轻声（无符号）
+|整体认读音节    |16个  |zhi, chi, shi, ri, zi, ci, si, yi, wu, yu, ye, yue, yuan, yin, yun, ying
+|===
+
+汉语拼音（Pinyin）起源从清末至近代时期，出现了废除汉字、改用拼音文字的“切音字运动”。鸦片战争后，一些学者将落后的原因归结到汉字上，进而要求废除汉字，改用切音字即字母文字。钱玄同、鲁迅都有类似的言论。最终于 1955—1957 年文字改革时被原中国文字改革委员会（现国家语言文字工作委员会）汉语拼音方案委员会研究制定。
+
+我国在古代是使用汉字为载体，采用直音、反切等方法来给汉字注音。直音，就是用同音字注明汉字的读音，如果同音字都是生僻字，即使注了音也读不出来。反切，就是用两个汉字来给另一个汉字注音，「反切上字」与所注字的声母相同，「反切下字」与所注字的韵母和声调相同。周有光先生称反切是“心中切削焊接法”。这两种注音方法，用起来都不方便。
+
+切音字运动盛于1892年至1911年间，时值中日甲午战争和变法维新运动的时期，是以当时一些深受欧美和日本文化影响的士大夫阶层为主力掀起的一场盛极一时的汉字拼音化热潮。王照的切音字方案称为“官话合声字母”，是一种“假名式”方案，也是切音字运动中影响最为广泛的方案。1898年9月戊戌变法失败后，身为戊戌党人的王照被朝廷通缉不得已流亡日本。流亡期间，受日本假名字母启发，制定了一种假名式的拼音方案。1900年王照化名“赵世铭”秘密返华回到天津，出版了他的第一本切音字著作《官话合声字母》，署名“芦中居士”。到了1909年，政局变动，摄政王载沣下令查禁“官话字母”，《拼音官话报》被封。从1900年到1910年这十年间，“官话字母”被推广到了13个省，编印书籍达六万余部，成立推行官话字母的团体达数十个，也因此王照可以说是切音字运动中最有影响力的代表人物。
+
+清末民初时期，中国面临文字改革需求，旨在通过标准化发音提高国民识字率。1913 年由中华民国教育部成立的“读音统一会”开始研制，目的是统一汉字读音、推广国语（普通话）。1918 年正式公布《注音字母表》（后改称“注音符号”，Bopomofo），成为中国第一套官方汉字拼音系统。目前主要在台湾地区使用。
+
+周恩来总理在《当前文字改革的任务》中，高度评价了注音字母的作用。他说：“辛亥革命之后产生了注音字母，这是中国第一套由国家正式公布，并且在中小学校普遍推行过的拼音字母。注音字母对于识字教育和读音统一有过一定贡献。尽管今天看来，注音字母还有不少缺点（例如，作为各少数民族的共同基础和促进国际文化交流的工具，注音字母显然远不如拉丁字母），但是注音字母在历史上的功绩，我们应该加以肯定。对于近四十年来的拼音字母运动，注音字母也起了开创的作用。”
+
+在1951年，毛泽东就指出：“文字必须改革，必须走世界文字共同的拼音方向”，并指示中国文字改革研究委员会制订民族形式的拼音方案。但这个意见却被后人曲解成汉字拼音化。后来为了消除人们的疑虑和理解歧义，毛泽东对文字改革的任务作了明确界定，指出文字改革的主要任务就是“简化汉字，推广普通话，制定和推行汉语拼音方案”。
+
+.拼音、注音对照：声母（Initials）
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+| 拼音 | 注音  | 例字     | 拼音  | 注音 | 例字
+| b    | ㄅ   | 爸 (bà)  | j    | ㄐ   | 机 (jī)
+| p    | ㄆ   | 怕 (pà)  | q    | ㄑ   | 七 (qī)
+| m    | ㄇ   | 妈 (mā)  | x    | ㄒ   | 西 (xī)
+| f    | ㄈ   | 发 (fā)  | zh   | ㄓ   | 知 (zhī)
+| d    | ㄉ   | 大 (dà)  | ch   | ㄔ   | 吃 (chī)
+| t    | ㄊ   | 他 (tā)  | sh   | ㄕ   | 师 (shī)
+| n    | ㄋ   | 那 (nà)  | r    | ㄖ   | 日 (rì)
+| l    | ㄌ   | 拉 (lā)  | z    | ㄗ   | 子 (zǐ)
+| g    | ㄍ   | 哥 (gē)  | c    | ㄘ   | 次 (cì)
+| k    | ㄎ   | 科 (kē)  | s    | ㄙ   | 思 (sī)
+| h    | ㄏ   | 喝 (hē)  |      |      |
+|===
+
+
+.拼音、注音对照：韵母（Finals）
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+| 拼音 | 注音  | 例字       | 拼音  | 注音 | 例字
+| a    | ㄚ   | 阿 (ā)     | ang  | ㄤ   | 昂 (áng)
+| o    | ㄛ   | 哦 (ó)     | eng  | ㄥ   | 鞥 (ēng)
+| e    | ㄜ   | 饿 (è)     | er   | ㄦ   | 而 (ér)
+| ai   | ㄞ   | 爱 (ài)    | i    | ㄧ   | 衣 (yī)
+| ei   | ㄟ   | 诶 (ēi)    | u    | ㄨ   | 乌 (wū)
+| ao   | ㄠ   | 奥 (ào)    | ü    | ㄩ   | 鱼 (yú)
+| ou   | ㄡ   | 欧 (ōu)    |      |      |
+|===
+
+
+== 吴侬方言
+
+· 《上海方言与文化》钱乃荣著
+· https://www.qiuwenbaike.cn/wiki/钱乃荣式上海话拼音方案[钱乃荣式上海话拼音方案]
+· https://www.bilibili.com/video/BV13B4y1N7Tw[吴语注音符号介绍]
+· https://www.bilibili.com/video/BV1qi4y1U7YE[郑瑜：上海方言与文化]
+· https://www.bilibili.com/video/BV12A41157E9/[学说上海话]
+· https://zhongguoyuyan.cn/index[语保工程采录展示平台]
+
+常说“普通话是胡化的汉语”、“粤闽客等南方方言才是古汉语”。所有语言在发展中都会与其他语言发生接触，汉语在数千年间与匈奴、鲜卑、蒙古、满等语言存在词汇互借。例：普通话"胡同"借自蒙古语"gudum"（水井），但核心语法结构仍属汉藏语系。公元 304~439 年，中国经历第二个大乱时代——五胡十六国时期，最后“五胡归汉”，五胡十六国时期北方少数民族与汉族的融合。这个时期确实有大规模的民族融合，对汉语的发展有一定影响，但需要具体分析这些影响在哪些方面，比如词汇、语法结构等。
+
+[mermaid]
+----
+timeline
+    title 汉语与少数民族语言接触史
+    section 秦汉时期
+    前3世纪 : 匈奴语借词"琵琶""骆驼"
+    section 魏晋南北朝
+    4世纪 : 鲜卑语影响官话雏形
+    section 宋元时期
+    13世纪 : 蒙古语带来新量词系统
+    section 明清时期
+    17世纪 : 满语贡献词汇"阿哥""格格"
+----
+
+结构性影响局限。语音层面：北方官话儿化韵可能受阿尔泰语卷舌音影响；语法层面：处置式"把"字句发展成熟于唐五代，早于大规模民族融合；核心词汇：Swadesh 基本词表中 90% 仍为原生汉语词。
+粤语、上海话和日语有相似的地方，都没有翘舌音。但是都有鼻音，粤语有前鼻韵、后鼻韵。普通话不仅有鼻音，前后鼻蕴还明确区分，还有特有的翘舌音，这是国语的特色。上海人讲普通话，就是“王黄不分”，没有翘舌，没有鼻韵，或者鼻韵翘舌乱用，就像很多南方人“只字”不分。上海话算吴语的一个分支，与苏州话，杭州话，宁波话，绍兴话，可以直接交流无需翻译。
+
+上海话和日语、粤语有个别话的发音比较像，但那纯属巧合。比如上海话说“oo:四面没山[si mi me se]”，就和日语“对不起”「すみません」发音几乎一样。又譬如说，小朋友瞎胡闹说着玩的“あつまわ，あたしわ”，几乎等于上海话说“oo:鞋子没坏，鞋带先坏[阿兹么哇，阿哒西哇]！”
+
+和粤语九声六调相比，上海话只有五个声调：阴平，阴去，阳去，阴入，阳入。丁迪蒙《学说上海话》总结了四个重要的上海话单韵母，以下用日语假名注音：link:https://www.bilibili.com/video/BV1qi4y1U7YE?t=4664.3[Video Here]
+
+• “oo:哎[え]”：来来来，侬来伊来大家来，侪到阿拉屋里来。
+• “oo:安[う]”：衣裳穿穿，电影看看，钞票算算，饭碗端端。
+• “oo:凹[お]”：摇啊摇，摇到外婆桥。外婆叫我好宝宝。
+• “oo:欧[おう]”：落雨喽，打烊喽，小八辣子开会喽。
+
+上海话拼音方案，是在搜集了 21 个上海话拼音方案的情况下，于2006年深圳召开的第一届国际上海方言学术研讨会上，由海内外的研究和教学上海话的老中青专家学者投票，以压倒多数票数通过的方案，是与普通话汉语拼音方案最为靠拢的方案。
+
+    一、声母28个。（以下字母凡下面带“_”的为浊辅音，共13个）
+
+    唇   音：  b（玻） b（薄） p（扑）  m（摸） f（福）  v[f]（服）
+    舌尖中音： d（德）  d（达） t（塔）  n （纳） l（勒） 
+    舌尖前音： z（资）  z[s]（兹） c（次） s（思）   
+    舌 根 音： g（哥）  g（格） ng（额） k （科）  h（喝） h（合）
+    舌面前音： j（鸡）  j（其） q（欺）  x（西）  x（齐）
+    零声母：   w[u]（乌） w[u]（胡）  y[i]（衣）  y[i]（乙）
+
+    二、韵母共14个
+
+    单 韵 母：  哎 安  凹  欧 en（恩） in（因）
+    辅音作韵母： m（姆）  n（唔）   ng（鱼）
+    入声韵母：  ak（压）压 合 袜 勒 脚
+              ek（厄）德 克 勒 脱 辣
+              ik（噎）一 急 歇 滴七
+              ok（喔）北 恶 角 叔 录
+          uek（约）决 缺 血 略月
+
+    三、零声母音节： 
+
+     a（矮）    ak（鸭）  ang（肮） 哎  安 凹        
+     o（窝）    ok（屋）  ong（嗡）
+     e（欧)     en（恩）
+    yi（衣）   yik（乙） yi（烟）  yin（因）                   
+    wu（乌）    wu(胡）          
+    yu（迂）    yu（雨） yu安（圆）  yuek（月）
+    ya（夜）  yang（羊） yong（永）  y凹（摇） y欧（游）
+    wen（温）   er（而）
+
+
+一、上海话拼音用和汉语拼音一样的字母拼写。其中声母共 26 个，以下 17 个声母与普通话相同。
+
+[source,subs=normal]
+    oo:剥[b]     oo:朴[p]     oo:摸[m]     oo:福[f]
+    oo:答[d]     oo:塔[t]     oo:纳[n]     oo:蜡[l]
+    oo:鸽[g]     oo:渴[k]     oo:喝[h]
+    oo:鸡[j]     oo:妻[q]     oo:希[x]
+    oo:资[z]     oo:雌[c]     oo:思[s]
+
+以下 5 个声母，普通话没有，但是与英语的读音相同，通常称作"浊辅音"声母，圆括号"()"内为国际音标注音。
+
+[source,subs=normal]
+    oo:薄[bh] （b）    oo:达[dh] （d）    oo:轧[gh] （g）
+    oo:词[sh] （z）    oo:服[fh] （v）    
+
+这些声母，本拼音方案一律用“h”加在同部位发音的“清辅音”后面表示”这些声母相对应的“清辅音”依次为 b、d、g、s、f。还有 3 个声母，也是浊辅音声母，也是在相对的“清辅音”后面加个“h”。最后还有一个后鼻音，上海话中能做声母。
+
+[source,subs=normal]
+    oo:旗[jh] （dʑ）   oo:齐[xh] （ʑ）    oo:盒[hh] （ɦ）    oo:额[ng] （ŋ）
+
+
+二、韵母（共22个）
+
+[source,subs=normal]
+    oo:衣[i]         oo:乌[u]           oo:迂[yu]
+    oo:啊[a]         oo:哦[o]           oo:字[y]
+    oo:恩[en]        oo:翁[ong]         oo:而[er]
+
+其中，oo:迂[yu] 和 oo:字[y] 两个音用的字母与普通话拼音不同，用 yu 是为了避免电脑上难以打出的“ü”，用 y 不用 i 作为“字”的韵母，是因为仍需要用 i 照顾到一些沪剧语音中“分尖团”的老上海话音（如“oo:死[si]”和 oo:喜[xi] 有别，oo:死[si] 与 oo:四[sy] 有别）。
+
+下面一个韵与普通话，oo:耶[ye]、oo:约[yue] 中的“e”读音相同。
+
+[source,subs=normal]
+    oo:埃[e] [ᴇ] 
+
+以下 2 个韵母与普通话的读音稍有不同，上海话读成口腔不动的单元音，但本方案中字母写法与普通话相同。
+
+[source,subs=normal]
+    oo:澳[ao] [ɔ]    oo:欧[ou] [ɤ] 
+
+以下 2 个鼻化元音
+
+[source,subs=normal]
+    oo:张[an] [ã]    oo:章[ang] [ɑ̃] 
+
+发音方法是:鼻音与元音 [a] [ɑ] 同时发出，因此与普通话的鼻音稍后发出的 an、ang，有点区别。
+
+以下 4 个入声韵读音，“k” 在韵母里是入声的标志，表示喉部的急促收尾音。
+
+[source,subs=normal]
+      oo:鸭[ak]      oo:扼[ek]      oo:喔[ok]      oo:益[ik]
+
+· ak 读  [阿] 的短促音，如上海话 "阿哥、阿弟"的 "阿"。
+· ek 读上海话、普通话 "扼制"的 "扼"，读如英语不定冠词 "a"的发音。
+· ok 读 "哦"的短促音，读如英语 "book"中 "oo"的发音。
+· ik 读 "已"的短促音，读如英语 "is" "it"中的 "i"的发音。
+
+以下 3 个辅音能独立做韵母。
+
+[source,subs=normal]
+    oo:姆[m]       oo:唔[n]       oo:鱼[ng]
+
+还有一个韵母为普通话、英语所无，但在德语、法语中有。
+
+[source,subs=normal]
+    oo:安[oe] [ɸ]
+
+它的发音，如发普通话 ü 的圆嘴唇口形，只要把口张大一点儿，就读出了 "oe" 音。
+
+
+三、i、u、yu 开头的零声母的标音法
+
+与普通话一样，标为 y、w、yu。如: oo:衣[yi]，oo:呀[ya]，oo:央[yan]，oo:音[yin]，oo:永[yong]，oo:一[yik]，oo:郁[yok]；oo:乌[wu]，oo:喂[we]，oo:碗[woe]，oo:汪[wang]，oo:挖[wak]；oo:淤[yu]，oo:鸳[yuoe]。
+
+上海话中 i、u、yu 开头的字，有部分读浊音的零声母，拼写时就在第二个字母的位置加上 h ，用以区别读清音的零声母字。譬如 oo:加油[ga yhou]，试比较:
+
+[source,subs=normal]
+    oo:意[yi]，oo:移[yhi]； oo:要[yao]， oo:摇[yhao]
+    oo:污[wu]，oo:舞[whu]； oo:往[wang]，oo:黄[whang]
+    oo:迂[yu]，oo:雨[yhu]； oo:怨[yuoe]，oo:园[yhuoe]
+
+其他浊的零声母字，都用 hh 表示声母，试比较:
+
+[source,subs=normal]
+    oo:澳[ao]，oo:号[hhao]；oo:呕[ou]，oo:后[hhou]
+    oo:矮[a]， oo:鞋[hha]； oo:爱[e]， oo:害[hhe]
+    oo:暗[oe]，oo:汗[hhoe]
+
+
+四、其他拼写法
+
+1.yu 和 yuoe 开头的韵母，在与声母相拼时，除了声母 "n" "l" 外 ，都可省去 "y" ，只写作 "u" 。如:
+
+oo:贵[ju]，oo:券[quoe]，oo:许[xu]，oo:倦[juoe]。但 "oo:女[nyu]" "oo:旅[lyu]"不能省。
+
+2.iou、uen 两个韵母，与声母相拼时，写作 iu、un，即与普通话拼音处理相同。如:oo:救[jiu]，oo:昏[hun]。
+
+
+五、声调
+
+上海话有5个声调，用1到5的五度来表示声调的高低，1度最低，5度最高。
+
+1. 第一声阴平，读 52（低），读如普通话的第四声去声；
+2. 第二声阴去，读 34（底）；
+3. 第三声阳去，读 23（地）；
+4. 第四声阴入，读 5（跌）；
+5. 第五声阳入，读 12（蝶）。
+
+第二声和第三声调形相同，一个配清辅音开头的音节，所以高一点；一个配浊辅音开头的音节，所以低一点。
+
+上海话在说话中实际是有"连读变调"的。两字的连读调大致就是前字声调向后字的延伸。三字组以上的连读调，阴平字和阳平字领头的，也是第一字调向后两字的延伸。其余三个声调都用先低后高再加上一个最低的低降调21构成。所以，上海话在实际连读中，其实从两字组到五字组的词除了首字外，后面的字都失去了原来本字的原调。
+
+连读调调型总表:（A、B表示两式或两用）
+
+    单 字 调      两字连读调           三字连读调
+    阴平52          55＋21              55＋33＋21
+    阴去34          33＋44              33＋55＋21
+    阳去23          22＋44              22＋55＋21
+    阴入5            3＋44                3＋55＋21
+    阳入12         1＋23                1＋22＋23
+
+    - - - - - - - - - - - -
+
+    单 字 调       四字连读调           
+
+    阴平52     55＋33＋33＋21
+    阴去34     33＋55＋33＋21
+    阳去23     22＋55＋33＋21             
+    阴入5      3＋55＋33＋21              
+    阳入12    A.1＋22＋22＋23
+
+B.2＋55＋33＋21  
+
+表示连读调的两个数字也可以简化成一个数字，用 "下标" 方式标在音节字母后，举例说明如下:
+
+    天ti₅₃，
+    天堂ti₅dhang₁，
+    天落水 ti₅lok₃sy₁，
+    天下世界 ti₅hho₃sy₃ga₁
+    快 kua₃₄，
+    快手 kua₃sou₄，
+    快手脚 kua₃sou₅jiak₁，
+    快手快脚 kua₃sou₅kua₃jiak₁
+    后 hhou₂₃，
+    后头 hhou₂dhou₄，
+    后天井 hhou₂ti₅jin₁，
+    后门口头 hhou₂men₅kou₃dhou₁
+    一 yik₅，
+    一级 yik₃jik₅，
+    一末生 yik₃mek₅san₁，
+    一天世界yik₃ti₅sy₃ga₁，
+    一本三正经 yik₃ben₅se₃zen₃jin₁
+    热 nik₁₂，
+    热煞 nik₁sak₃，
+    热天色 nik₁ti₂sek₃，
+    热汤热水 nik₁tang₂nik₂sy₃／ nik₂tang₅nik₃sy₁，
+    热侬大头昏 nik₂nong₅dhu₃dhou₃hun₁。
+
+"上海话拼音方案" 设计巧妙，可以不用数字标示声调，依靠声母和韵母的字母来暗示单字声调和连读调。
+
+从上面的例示可以看到，上海话中只有阴平单字调和阴平开头的连读调是直往下降的调，我们在阴平声调开头的词条前头用" ’ " 符号标示出来。其他声调大致都是由下往上升的调子。在一个字的拼音里，凡是声母第二个字母是h的和声母是m、n、ng、l的（第1条件），都为阳声调；韵尾有k的（第2条件），都为入声调。这样就可以在拼式上区分阴去、阳去、阴入、阳入四个声调（阴去两个条件均无；阳去条件1有，条件2无；阳去条件1无，条件2有；阳入两个条件均有）。阴平声调单字调（和阴去一样两个条件均无）和阴平开头的连读调，就在开头的地方加一个符号" ’ " ，如"天下世界 ’ti hho sy ga" ，用以标识与阴去声调的区别。
+
+有的词条在注音中有一个空档，因为这个词条在发音中有个小停顿，即是用前后两个单字调或连读调一起来读的。比如号" 荡马路 "这个词条有两种发音:dhangmolu（2＋5＋1）和dhang molu（23 2＋4），前者三字连读，后者第一字和后两字分读，它们的声调有很大的差异，但大多数词语只有一种读法。
+
+　　上海话中有一个连调规律例外的情况:否定字"勿（阳入字）"开头的三字组词语，不读阳入开头的1＋22＋23连读调式，而一定读成阴入开头的3＋55＋21调式，还有很少数以"勿"字开头的四字组 词语只能用A 式。这时，我们用字母v替换了fh，如"勿开心"的拼写式为"vekkexin"，用于反映这个三字组不读通常的 "1＋22＋23"调式，而读 "3＋55＋21 "调式。
+
+
+== 国际音标
+
+• https://www.cambridge.org/gb/files/1413/8018/5069/PhoneticsOverview.pdf[Phonetics Overview]
+• https://repository.bbg.ac.id/bitstream/532/1/Introducing_Phonology.pdf[Introducing Phonology 1st]
+
+人类再漫长的生物进化道路上，除了获得了地球最强智力机器：大脑，还有最强交流器官：喉舌機構。元音（vowel）和辅音（consonant）是人类语言中最基本的两种声音。Phonetics Overview 一文做了语音（元音、辅音）的概览说明。
+
+____
+Phonetics Overview
+
+This is a brief overview of basic phonetic properties and symbols, encountered in languages of the world. It is intended for students who have not had a prior course in phonetics, and is based on Chapter 2 of the first edition of Introducing Phonology.
+
+1 Vowels: their symbols and properties
+
+Conventionally, the first division in speech sounds is made between vowels and consonants. Symbols for vowels will be considered first, because there are fewer vowels than consonants. American English has a fairly rich vowel inventory, so we can illustrate most of the vowel symbols with English words.
+
+    (1) Symbol  English equivalent
+        i       beat [bijt]
+        ɪ       bit [bɪt]
+        e       bait [bejt]
+        ε       bet [bεt]
+        æ       bat [bæt]
+        a       cot [kat]
+        ɔ       caught [kɔt]
+        o       coat [kowt]
+        ʊ       could [kʊd]
+        u       cooed [kuwd]
+        ʌ       cud [kʌd]
+        ə       (unstressed vowel in) ‘array’ [ə̍ rej] 
+
+2 Consonants: their symbols and properties
+
+There are many more consonants than vowels. English only has a fraction of the full range of possible consonants, so illustration of many of these symbols involves more extensive consideration of languages other than English. Most English dialects systematically use the following consonants:
+
+    (9) p pig         b   big
+        m mug         f   fog
+        v varmint     θ   thing
+        ð this        t   top
+        s sop         d   dog
+        n nog         tʃ  chuck
+        ʃ shuck       dʒ  jug
+        ʒ measure     k   cot
+        g got         ŋ   hang
+        h horse 
+____
+
+汉语的声母是音节开头的辅音，而韵母包括介音、主要元音和韵尾。英语中使用元音（vowel）和辅音（consonant），并没有完全对应的概念，但可以通过国际音标（IPA,  International Phonetic Alphabet）或英文中的类似发音来近似表达。
+
+中文声母（Initials）英语表达对照表
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+| 拼音   | 英语描述                      | IPA    | 近似英语发音示例
+| **b** | Voiceless bilabial plosive   | [p]    | **p** in "spin" (不送气)
+| **p** | Aspirated **b**              | [pʰ]   | **p** in "pie" (送气)
+| **m** | Bilabial nasal               | [m]    | **m** in "moon"
+| **f** | Labiodental fricative        | [f]    | **f** in "fish"
+| **d** | Voiceless alveolar plosive   | [t]    | **t** in "stop" (不送气)
+| **t** | Aspirated **d**              | [tʰ]   | **t** in "top" (送气)
+| **n** | Alveolar nasal               | [n]    | **n** in "noon"
+| **l** | Alveolar lateral approximant | [l]    | **l** in "light"
+| **g** | Voiceless velar plosive      | [k]    | **k** in "skate" (不送气)
+| **k** | Aspirated **g**              | [kʰ]   | **k** in "kite" (送气)
+| **h** | Glottal fricative            | [h]    | **h** in "hat"
+| **j** | Alveolo-palatal affricate    | [tɕ]   | **j** in "jeep" (轻颚化)
+| **q** | Aspirated **j**              | [tɕʰ]  | **ch** in "cheese" (更紧)
+| **x** | Alveolo-palatal fricative    | [ɕ]    | **sh** in "sheep" (舌位前)
+| **zh** | Retroflex affricate         | [ʈʂ]   | **j** in "judge" (卷舌)
+| **ch** | Aspirated **zh**            | [ʈʂʰ]  | **ch** in "church" (卷舌)
+| **sh** | Retroflex fricative         | [ʂ]    | **sh** in "shoe" (卷舌)
+| **r** | Voiced retroflex approximant | [ɻ]    | **r** in "red" (舌卷起)
+| **z** | Alveolar affricate           | [ts]   | **ts** in "cats"
+| **c** | Aspirated **z**              | [tsʰ]  | **ts** in "tsunami" (送气)
+| **s** | Alveolar fricative           | [s]    | **s** in "see"
+|===
+
+韵母（Finals）对照表
+
+.单韵母（Simple Finals）
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+| 拼音 | 英语描述                       | IPA       | 近似英语发音示例
+| **a** | Open front unrounded vowel  | [a]       | **a** in "father"
+| **o** | Mid-back rounded vowel      | [o]       | **o** in "law" (短促)
+| **e** | Mid-central unrounded vowel | [ɤ]       | **e** in "the" (舌位后)
+| **i** | Close front unrounded vowel | [i]       | **ee** in "see"
+| **u** | Close back rounded vowel    | [u]       | **oo** in "food"
+| **ü** | Close front rounded vowel   | [y]       | **u** in French "lune"
+|===
+
+.复韵母（Compound Finals）
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+| 拼音   | 英语描述                      | IPA       | 近似英语发音示例
+| **ai** | Diphthong: [a] → [i]        | [aɪ]      | **i** in "kite"
+| **ei** | Diphthong: [e] → [i]        | [eɪ]      | **a** in "cake"
+| **ao** | Diphthong: [a] → [u]        | [ɑʊ]      | **ou** in "cow"
+| **ou** | Diphthong: [o] → [u]        | [oʊ]      | **o** in "go"
+| **ie** | Diphthong: [i] + [ɛ]        | [iɛ]      | **ye** in "yes" (延长)
+| **üe** | Diphthong: [y] + [ɛ]        | [yɛ]      | **ü** + "e" in "bed"
+|===
+
+.鼻韵母（Nasal Finals）
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+| 拼音    | 英语描述                      | IPA       | 近似英语发音示例
+| **an**  | [a] + nasal [n]             | [an]      | **an** in "can"
+| **en**  | [ə] + nasal [n]             | [ən]      | **un** in "taken"
+| **ang** | [a] + nasal [ŋ]             | [ɑŋ]      | **ong** in "song" (开口大)
+| **eng** | [ɤ] + nasal [ŋ]             | [ɤŋ]      | **ung** in "lung" (舌位高)
+| **ong** | [u] + nasal [ŋ]             | [ʊŋ]      | **oong** (圆唇)
+|===
+
+.发音要点对比
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+| 特征          | 英语发音               | 中文发音
+| **声母送气**  | 无系统送气区分           | 送气/不送气对立（如 b vs. p）
+| **卷舌音**    | 仅 /r/ 有轻微卷舌       | zh/ch/sh/r 需明显卷舌
+| **韵母圆唇**  | /u/ 圆唇度低            | ü/u 需高圆唇度
+| **鼻音韵尾**  | /n/ 常弱化              | -n/-ng 需清晰区分
+|===
+
+关于英语，link:https://space.bilibili.com/631186842[瑞秋英语Rachel] 的教程讲解英语母语者的吞音、略读，单词间的同化现象，非常实用。英语音标有台大周育如老师给“小朋友”录的一套课程，生动活泼，非常好。台大教授史嘉琳老师 Karen 有一套回音法 link:https://www.bilibili.com/video/BV1XT4y1K7kM/[echo method]，最大化利用大脑的短时记忆，通常容纳 1~7 个信息，但是一般占用其中 3、4 个就可以了。例如：“How many credit | do you have this semester?”这个例句，可以沿着竖线将它分成前后两段。每次只需要念其中一部分，暂停，感觉这段声音在你大脑中的回响。在日常生活中，也有这样的现象，听到一段语音，可能当下没理解其中意，但是一会就反应过来是什么意思了。因为中文文字象形设计，文字包含的信息更密集，所以汉语使用者通常拥有更高效的文字阅读效率。但是在英语的听力上，这可能影响到能力的训练。The Echo method 有三个要点，先找到带文本的语音档，取其中的一小部分内容，看几遍后，重复这三个步骤：播放几个词，专心听；暂停一下，听大脑中的“回响”；模仿大脑中的回响 (imitation)。这里“大脑中的回响”就是大脑皮层信号处理工作的迹象，如果能认真对待，将可以加深听觉与记忆的联系，我将这种行为成为“与你大脑的对话”。这里的音频素材就很重要，最好是母语者的语音材料。通常，音樂、电影、电视节目就是一个很好的素材来源。
+
+史嘉琳，Karen Steffen Chung，荷兰莱顿大学语言学博士，拥有一口极其流利的中文，在她的 link:https://www.bilibili.com/video/BV1Na4y1p7kF/[神奇的 Echo Method 讓你講英文更像 native speaker] 公开演讲中，“处刑”了 费事 book 创始人在华演讲的口音问题。语言学习重点在语音输入，这也是母语学习者的最大优势。Karen 老师在演讲中反问：“我们的英语教学全都是白纸黑字，几乎是没有声音的，难道学生是用猜的吗？”这也是我们学习外语的最大硬伤，不仅仅是学英语的问题。就算学生可以自己读出来，如前面提到的 echo method，只有读出纯正的口音，才是正确的语音输入，否则就是“白沙在涅与之俱黑”，你朗读越大声，受到的能力损伤越大。正确的语言学习与是否 reading alond 没有关系。语言的学习也不应该以语法为重，而应该以语音输入为重，模仿为辅助，听！听！听！我们经历的英语教育却是围绕语法开展的，这可能在文字阅读上有较好的成效。但是会培养出大量的“哑巴”学生。Karen 强调，回音法需要你重复到想吐为止。这也是学习其它任何语言的不二法门，我们学汉语何尝不是，从小到大一直在重复。
+
+英语属于强节奏语音，其句子的含义完全由语调表现，这方面要比汉语、日语多变。能否说好一口纯正的英语，很大程度上取决与能否把握**句重音与弱式**，Strong Forms vs. Weak Forms 弱读。句重音(Stress)落在实词、疑问代词、感叹词、副词、形容词、动词、名词的重音节上，其它功能词不重读（助词、连词、人称代词等）。link:https://www.bilibili.com/video/BV1Bb411578k[田朝霞教授-英语口语能力标准教程] 中生动演示了汉语、英语的语调（intonation）差异，stress-timed vs. syllable-timed。英语是重音节奏型语言，每个音节的分布都不同，但是重音间隔差不多。所以，重音之间的音节会被弱化处理，并且同一句话在不同为重上重音处理后，得到的意思完全不一样。汉语则基本和每个字一致。譬如，“发音很重要”，如果按照英语的“重音”模式来给不同的汉字加语调，那么就会出来一口“洋味”。
+
+.英语音节连接、弱化处理
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|技巧            |核心原理      |例句
+|连读（Linking）  |辅音结尾+元音开头自然衔接，元音间插入半元音（/w/或/j/）
+                |How about → /haʊwəˈbaʊt/
+|加音（Intrusion）|词尾元音+词首元音时，加/r/的情况仅适用于英式RP口音，美式英语常见/w/插入
+                |law(r) and order, go(w) out /ɡoʊwaʊt/
+|爆破音处理（Plosive Release）|不完全爆破时保持发音器官位置
+                |button /ˈbʌtn̩/, little /ˈlɪtl̩/
+|同化（Assimilation）|顺向同化、逆向同化（更常见）、齿音化（/t,d,n/后接θ/ð）
+                |this shop → /ðɪʃ ʃɒp/, read these → /riːd diːz/, in the → /ɪn nə/
+|省音（Elision）  |词中非重读音节脱落、辅音丛简化、弱读式省音
+                |comfortable → /ˈkʌmftəbl/,
+                months → /mʌnθs/→/mʌns/,
+                and → /ænd/→/ən/→/n/
+|弱读（Weak Forms）|元音中央化、辅音脱落、时长缩短
+                |/æ/→/ə/, /iː/→/ɪ/;
+                h 在 he, her, him 中常省略;
+                can /kæn/→/kən/
+|浊化（Voicing）  |/s/+清辅音→浊化条件
+                |sport /sp/ 重读音节首;	discuss /sg/ 非重读位置; water → /ˈwɔːdər/
+|===
+
+
+== Swadesh list
+
+斯瓦迪士核心词表（Swadesh list）是美国语言学家斯瓦迪士提出的一个列表。 他从统计学的角度用分析不同的语言（以印欧语系为主），得出由 200 多个的核心词组成的列表。
+
+[opts="autowidth"]
+|===
+|指称 |
+    oo:我[1]       oo:你[2]       oo:他[3]      oo:我们[4]     oo:你们[5]
+    oo:他们[6]     oo:这[7]       oo:那[8]       oo:这里[9]     oo:那里[10]
+    oo:谁[11]      oo:什么[12]    oo:哪[13]      oo:何时[14]    oo:如何[15]
+    oo:不[16]      oo:所有[17]    oo:多[18]      oo:一些[19]    oo:少[20]
+    oo:其他[21]
+
+|数量&尺度&人 |
+    oo:一[22]      oo:二[23]     oo:三[24]      oo:四[25]      oo:五[26]
+    oo:大[27]      oo:长[28]     oo:宽[29]      oo:厚[30]      oo:重[31]
+    oo:小[32]      oo:短[33]     oo:窄[34]      oo:薄[35]
+    oo:女[36]      oo:男[37]     oo:人[38]      oo:孩[39]
+    oo:妻[40]      oo:夫[41]     oo:母[42]      oo:父[43]
+
+|自然物 |
+    oo:动物[44]     oo:鱼[45]     oo:鸟[46]      oo:狗[47]     oo:虱[48]
+    oo:蛇[49]       oo:虫[50]     oo:树[51]      oo:森[52]     oo:枝[53]
+    oo:果[54]      oo:种[55]      oo:叶[56]      oo:根[57]     oo:树皮[58]
+    oo:花[59]      oo:草[60]      oo:绳[61]
+
+|器官 |
+    oo:肤[62]      oo:肉[63]     oo:血[64]      oo:骨[65]      oo:脂[66]
+    oo:蛋[67]      oo:角[68]     oo:尾[69]      oo:羽[70]      oo:发[71]
+    oo:头[72]      oo:耳[73]     oo:眼[74]      oo:鼻[75]      oo:口[76]
+    oo:牙[77]      oo:舌[78]     oo:指甲[79]    oo:脚[80]      oo:腿[81]
+    oo:膝[82]      oo:手[83]     oo:翅[84]      oo:腹[85]      oo:肠[86]
+    oo:颈[87]      oo:背[88]     oo:乳[89]      oo:心[90]      oo:肝[91]
+
+|动词 |
+    oo:喝[92]      oo:吃[93]     oo:咬[94]      oo:吸[95]      oo:吐[96]
+    oo:呕[97]      oo:吹[98]     oo:呼吸[99]    oo:笑[100]     oo:看[101]
+    oo:听[102]     oo:知[103]    oo:想[104]     oo:嗅[105]     oo:怕[106]
+    oo:睡[107]     oo:住[108]    oo:死[109]     oo:杀[110]     oo:斗[111]
+    oo:猎[112]     oo:击[113]    oo:切[114]     oo:分[115]     oo:刺[116]
+    oo:挠[117]     oo:挖[118]    oo:游[119]     oo:飞[120]     oo:走[121]
+    oo:来[122]     oo:躺[123]    oo:坐[124]     oo:站[125]     oo:转[126]
+    oo:落[127]     oo:给[128]    oo:拿[129]     oo:挤[130]     oo:磨[131]
+    oo:洗[132]     oo:擦[133]    oo:拉[134]     oo:推[135]     oo:扔[136]
+    oo:系[137]     oo:缝[138]    oo:计[139]     oo:说[140]     oo:唱[141]
+    oo:玩[142]     oo:浮[143]    oo:流[144]     oo:冻[145]     oo:肿[146]
+
+|自然环境 |
+    oo:日[147]     oo:月[148]    oo:星[149]     oo:夜[177]     oo:昼[178]
+    oo:年[179]     oo:天[162]    oo:水[150]     oo:雨[151]     oo:云[160]
+    oo:雾[161]     oo:风[163]    oo:雪[164]     oo:冰[165]     oo:河[152]
+    oo:湖[153]     oo:海[154]    oo:尘[158]     oo:地[159]     oo:石[156]
+    oo:沙[157]     oo:盐[155]    oo:路[170]     oo:山[171]     oo:烟[166]
+    oo:火[167]     oo:灰[168]    oo:烧[169]
+
+|形容词　|
+    oo:暖[180]     oo:冷[181]    oo:满[182]     oo:新[183]     oo:旧[184]
+    oo:好[185]     oo:坏[186]    oo:腐[187]     oo:脏[188]     oo:直[189]
+    oo:圆[190]     oo:尖[191]    oo:钝[192]     oo:滑[193]     oo:湿[194]
+    oo:干[195]     oo:对[196]
+
+|颜色　|
+    oo:红[172]     oo:绿[173]    oo:黄[174]     oo:白[175]     oo:黑[176]
+
+|方位　|
+    oo:近[197]     oo:远[198]    oo:右[199]     oo:左[200]
+
+|介词连词　|
+    oo:在[201]     oo:里[202]    oo:与[203]     oo:和[204]     oo:若[205]
+    oo:因[206]     oo:名[207]
+|===
+
+
+== 九声六调
+
+
+九声六调的粤语與普通話拼音的主要區別就在此。拼音嘅一聲（阴平）可以通過註音符號理解其發音喺沒有聲波頻率嘅變化，無倫發音高低都可以分清，其它三個則有頻率上嘅變化。粵語有九個聲調，難以在單一頻率變化上体現，需要在同一句話中結合不同頻率高低的變化。因此，粵語發音中的音調不同，都具有不同意義，並且聲調的作用更重有，亦更有重量。第二聲（陰上）與第五聲（陽上）都係升調，但喺第二聲音調更高。参考后面 stem:[\large{fan^2_2 \over 粉}] 同埋 stem:[\large{fan^5_5 \over 奮}] 嘅音頻示範。音调随序号增加而相对下降，原理与音乐十二平均率相似。重点是，你不能单独去听一个字的发声，粤语中的声调需要将单字放到整句中才有意义，这一点与日语这种“平稳调”语言非常不同。
+
+TIP: 粵語講究避忌，譬如“stem:[gat^1 uk^1 \over 吉屋]”避忌 stem:[{hung^1 \over 空 = 凶}]，就連“同埋”這個詞匯，亦容易令人聯想到“一齊埋”。經商要忌諱“蝕本”，所以講 stem:[ngau^4 lei^6 \over 牛利]，而非“牛舌”，stem:[{sik^6 \over 蝕} vs. {sit^6 \over 舌}]。
+
+TIP: 受到英國 stem:[jeng^2 hoeng^2\over 影響]，粵語中有好多 stem:[ngoi^6 loi^4 \over 外來] stem:[ci^4 wui^6 \over 詞匯]，stem:[pei^3 jyu^4 \over 譬如] oo:𡆇[watt]。
+
+粵語的音節分為**聲母**、**韻母**和**聲調**三個部分。粵語聲母 20 個（包括零聲母），韻母 53 個，聲調 6 個。聲母指音節前一部分，多數由輔音充當。韻母指音節後一部分，是介音、主元音和尾音的總稱。粵語韻母的構成方式：**主元音＋尾音**。主元音又稱**韻腹**，是音節中最響亮的部分。**韻尾**位於主元音之後，粵語有元音韻尾（如-i、-u）、鼻音韻尾（如-m、-n、-ng）和塞音韻尾（如-p、-t、-k）。傳統的粵音 1 至 9 調，第 1 至 6 調與粵拼系統的第 1 至 6 調音高相同；它把入聲字（即以 p、t、k 收音的韻母）分開，並以 7、8、9 調標示。其實，7、8、9 調的調值與第 1、3、6 調相同；粵拼系統把它們統一，以 6 個調把粵音分類。
+
+零聲母嘅例子：stem:[丫\ aa^1\ 嗌\ aai^3\ 吳\ ng^4\ 安\ on^1]。
+
+[stem]
+++++++
+\begin{matrix}
+tai^2 &maai^4 &lai^4  && gong^2 &jyut^6 &jyu^5  && hou^2 &ceoi^2 &zi^3 \\
+睇    & 𠹺     & 嚟    && 講      &粵     &語     && 好    & 趣     & 致  \\
+
+fan^1 &dak^1 &ceng^1  && gou^1 &waak^6 &dai^1   && dou^1 &ho^2 &ji^5  \\
+分     & 得   & 清     && 高    & 或     & 低     && 都    & 可   & 以   \\
+
+jat^1 &ji^6 &saam^3 && ng^5 &liu^6 &cat^1 && baat^3 &gau^2tung^4 &si^3 sap^6 \\
+一    &二    &三     && 五    & 六   & 七   && 八    　& 九同       & 四十  \\
+
+saam3 &gau2 &si3      && ling4 &ng5 &ji6        && cat1 &baat3  &liu1  \\
+三    &九   &四        && 〇    &五   &二         && 七    &八     &六    \\
+
+pan^4 &leot^2 &soeng^5 && ting^1 &bin^3 &faa^1 && jau^5 &kwai^1 &zak^1 \\
+頻    & 率     & 上     && 听     & 變   & 化    && 有    & 規     & 則   \\
+\end{matrix}
+++++++
+
+[stem]
+++++++
+\begin{matrix}
+{\large jyut^6 yu^5 seng^1 mou^5\over   \huge 粵語聲母} & （19 個，不包括零聲母）&
+  \begin{matrix}
+    &b\ 叭  & p\ 琶 & m\ 孖  & f\ 花  & d\ 打 & t\ 鉈 & n\ 哪 & l\ 啦 & g\ 家 & k\ 卡 \\
+    &ng\ 雅 & h\ 蝦 & gw\ 瓜 & kw\ 夸 & w\ 哇 & j(y)\ 入 & z\ 知 & c\ 䧳 & s\ 思
+  \end{matrix} \\ \\
+{\large jyun^4 jam^1 wan^2 mou^5  \over \huge 元音韵母} & 单韵母[IPA] &
+  \begin{matrix}
+  \large aa [aː] {baa^3 \over 爸} &
+  \large a [ɐ]   {sam^1 \over 心} &
+  \large e [ɛː]  { se^1 \over 些} &
+  \large i [iː]  { si^1 \over 诗} & \\
+  \large o [ɔː]  { go^1 \over 哥} &
+  \large oe [œː] {hoe^1 \over 靴} &
+  \large u [uː]  { fu^1 \over 夫} &
+  \large yu [yː] {syu^1 \over 书} & \\
+  \end{matrix} \\ \\
+{\large fuk^6 hap^6 wan^5 mou^5 \over   \huge 复合韵母} & （\hbox{~i/~u}） &
+  \begin{matrix}
+  \large aai[aːi] {gaai^1 \over 街} &
+  \large  ei[ei]  { sei^3 \over 四}  &
+  \large aau[aːu] {gaau^1 \over 交} &
+  \large  ou[ou]  { hou^2 \over 好}  &
+  \end{matrix} \\ \\
+{\large bei^6 jam^1 wan^5 mou^5 \over   \huge 鼻音韵母} & （\hbox{~m/~n/~ng}） &
+  \begin{matrix}
+  \large am[ɐm]   {  sam^1 \over 森}  &
+  \large an[ɐn]   {  san^1 \over 新}  &
+  \large ang[aːŋ] {saang^1 \over 生}&
+  \large ong[ɔːŋ] {gwong^1 \over 光}&
+  \end{matrix} \\ \\
+{\large jap^6 seng^1 wan^5 mou^5 \over  \huge 入声韵母} & （\hbox{~p/~t/~k}） &
+  \begin{matrix}
+  \large ap[ɐp]  { hap^6 \over 合}   &
+  \large at[ɐt]  {baat^3 \over 八}  &
+  \large ak[ɐk]  { bak^1 \over 北}   &
+  \end{matrix} \\ \\
+\end{matrix}
+++++++
+
+[stem]
+++++++
+\begin{align}
+\begin{matrix}
+   king^4  lau^2   toi^1  \\ 瓊樓台 \\
+   wong^4 saan^1  cung^4  \\ 黃山松 \\
+    hou^2  git^3   hap^6  \\ 好結合 \\
+    hou^2   ji^3   tau^4  \\ 好意頭 \\
+    jik^6 zung^6   jiu^3  \\ 亦重要 \\
+    jau^6 cung^5 leong^6  \\ 有重量 \\
+    jau^6  fan^1   sou^3  \\ 有分数 \\
+\end{matrix} &
+\begin{matrix}
+    hai^2  gam^3     a^3  \\ 喺咁啊 \\
+    jau^5  mat^1  jung^6  \\ 有乜用 \\
+     si^6 faan^6   haa^1  \\ 示范吓 \\
+    gei^6  taa^1    le^2  \\ 其它咧 \\
+    mut^6  jau^6    la^1  \\ 末有啦 \\
+    dak^1   go^3   gat^1  \\ 得個桔 \\
+    jau^5  mou^5   paa^3  \\ 有冇怕 \\
+\end{matrix} &
+\begin{matrix}
+    hai^2   ng^5   hai^2  \\ 喺嗯喺 \\
+    jat^1  gau^1   waa^2  \\ 一句話 \\
+   gong^2   me^1          \\ 講　咩 \\
+   seoi^3  jiu^3   ngo^5  \\ 需要我 \\
+     si^6  sam^6    mo^1  \\ 是什么 \\
+    fun^1  lok^6    do^1  \\ 歡樂哆 \\
+    jam^1 ngok^6    lo^1  \\ 音樂咯 \\
+\end{matrix} &
+\begin{matrix}
+   zung^1  zau^1   wan^2  \\ 中州韻 \\
+     zi^6 dung^6    ge^2  \\ 自動嘅 \\
+    jau^6  zyu^3   jam^1  \\ 有註音 \\
+    deu^6 gang^3   gou^1  \\ 調更高 \\
+    hai^2 sing^1   deu^6  \\ 喺升調 \\
+    tai^2  jin^6   laa^3  \\ 體現喇 \\
+   naan^4 caai^1   tau^3  \\ 難猜透 \\
+\end{matrix} &
+\begin{matrix}
+    zyu^1 jeon^6  ngau^4  lei^6 \\ 豬潤牛利 \\
+   ngau^4  fun^1   hei^2  \\ 牛歡喜 \\
+    jik^1 maak^6   san^1  gaa^1 \\ 億萬身家 \\
+   baak^3  cin^1  zyun^3  \\ 百千轉 \\
+     lo^4  dai^2 caang^2  \\ 蘿底橙 \\
+   maai^6 sing^6    ze^3  \\ 賣剩蔗 \\
+  laang^5 faan^5  sung^3  \\ 冷飯餸 \\
+\end{matrix}
+\end{align}
+++++++
+
+[stem]
+++++++
+\begin{align}
+\begin{matrix}
+     si^6   do^1 be^1 lei^2 \\ 士多俾梨_{strawberry} \\
+    dim^2  sam^1        \\ 点心_{dim sum} \\
+   daai^6  wok^6        \\ 大鑊_{wok} \\
+   baak^6  coi^3        \\ 小白菜_{pak choi} \\
+    ung^3  coi^3        \\ 蕹菜_{ong choy} \\
+     ke^1  zap^1        \\ 茄汁_{ketchup} \\
+    dau^6   fu^6        \\ 荳腐_{tofu} \\
+\end{matrix} &
+\begin{matrix}
+  coeng^4 saam^1        \\ 旗袍(長衫)_{cheongsam} \\
+    puk^1 gaai^1        \\ 仆街_{Poor guy} \\
+   baau^3 gaak^3        \\ 爆甲_{burglary} \\
+     ke^1   le^1 fe^1   \\ 茄哩啡_{carefree} \\
+     si^6  baa^1 na^2   \\ 士巴拿_{spanner} \\
+    syu^4  mak^1        \\ 薯嘜_{schmuck} \\
+    zyu^1 daam^6 dau^1  \\ 豬噉㨮_{dumb} \\
+   paak^3   ce^1        \\ 泊車_{park} \\
+    sek^6  kiu^1        \\ 石Q_{security guard} \\
+\end{matrix} &
+\begin{matrix}
+    jan^1   ci^2        \\ 因此 \\
+    dik^1   si^2        \\ 的士 \\
+    bat^1 tung^4        \\ 不同 \\
+    bin^3  faa^3        \\ 變化 \\
+   bing^6   ce^2        \\ 並且 \\
+    tiu^4 zing^2        \\ 調整 \\
+   seng^1  deu^6        \\ 聲調 \\
+    syu^1  jap^6        \\ 输入 \\
+    syu^1 ceot^1        \\ 輸出 \\
+\end{matrix} &
+\begin{matrix}
+   ling^5   wik^6       \\ 領域 \\
+  gwong^2  faan^3       \\ 廣泛 \\
+    sai^2  jung^6       \\ 使用 \\
+    naa^4   hei^2       \\ 拿起 \\
+   zung^1 waang^4       \\ 縱橫 \\
+   gang^2  gaai^3       \\ 耿介 \\
+     je^5  maan^4       \\ 野蠻 \\
+   ngou^6  ngon^6       \\ 傲岸 \\
+\end{matrix} &
+\begin{matrix}
+    bak^1  ging^1       \\ 北京 \\
+    jau^4  laam^4       \\ 遊覽 \\
+     au^1    aa^3       \\ 歐亞 \\
+     on^1  ngai^4       \\ 安危 \\
+    ngo^2   aap^2       \\ 鵝鴨 \\
+    han^2   duk^6       \\ 狠毒 \\
+    gan^1  gwok^3       \\ 巾幗 \\
+  gwong^1  gwan^3       \\ 光棍 \\
+\end{matrix}
+\end{align}
+++++++
+
+[stem]
+++++++
+\begin{align}
+\begin{matrix}
+   gwan^1  gong^2       \\ 軍港 \\
+   baau^1   gwo^2       \\ 包裹 \\
+   saan^1  gong^1       \\ 山崗 \\
+    gwo^3  leoi^6       \\ 過濾 \\
+    kai^1   kok^3       \\ 溪壑 \\
+    gok^3  sing^2       \\ 覺醒 \\
+   hung^1 kwong^3       \\ 空曠 \\
+\end{matrix} &
+\begin{matrix}
+     lo^4  baak^6       \\ 蘿蔔 \\
+    gok^3  sing^2       \\ 覺醒 \\
+     aa^2  ling^4       \\ 啞鈴 \\
+   laap^6   bat^1       \\ 蠟筆 \\
+  ngaan^5  leoi^6       \\ 眼淚 \\
+    pan^4   mat^6       \\ 頻密 \\
+     on^3  naat^6       \\ 按捺 \\
+\end{matrix} &
+\begin{matrix}
+   baat^3   zam^6       \\ 八陣 \\
+    wui^4  gwai^3       \\ 回饋 \\
+   zing^1   fuk^6       \\ 征服 \\
+  kwong^3   mat^6       \\ 礦物 \\
+   leon^4  kwok^3       \\ 輪廓 \\
+   ngai^5  waan^6       \\ 蟻患 \\
+    sau^2   lei^5       \\ 手裡 \\
+\end{matrix} &
+\begin{matrix}
+   daai^6  tong^4       \\ 大堂 \\
+    baa^2   aak^1       \\ 把握 \\
+    pin^3    zi^2       \\ 騙子 \\
+    zai^2  neoi^2       \\ 仔女 \\
+   seot^1   jan^4       \\ 訹人 \\
+   ngak^1   jan^4       \\ 𧦠人 \\
+  seong^6  ngon^6       \\ 上岸 \\
+\end{matrix} &
+\end{align}
+++++++
+
+[source,python]
+----
+import pycantonese as p
+reader = p.parse_text("領域廣泛使用拿起縱橫耿介野蠻傲岸遊覽歐亞安危鵝鴨狠毒巾幗騙子仔女訹人")
+print("\n".join([jyut.jyutping+"\\\\"+jyut.word+"\\\\" for jyut in reader.tokens()]))
+----
+
+=== 粤语音标
+
+香港人講「懶音」的情況愈來愈普遍，如「女仔」說成「呂仔」（n-、l-不分），「過」、「個」不分（gw-、g-不分），「講解」說成「趕解」(-ng、-n不分)，「襪」、「默」不分（-t、-k不分）等等。為了加強學生對粵語的敏感度，香港理工大學「教學發展及語文培訓補助金」支持社團開展「『粵語懶音測試及糾正』網站」計劃。參考網頁 https://www.polyu.edu.hk/cbs/pronunciation/cantonese/intro[懶音診療室-認識粵語]，
+頁面有標準讀音參考。
+
+漢字舉例及粵拼，粵語 6 個聲調以阿拉伯數字 1 至 6 在每個音節的拼音上標標示，下標指示傳統字調。
+
+• 播放九聲調 icon:play-circle[role="ac_jyutping"]。
+• 播放十九个声母 icon:play-circle[role="ac_vocal"]。
+• 播放五十三个韵母 icon:play-circle[role="ac_rhyme"]。
+
+[cols="9*",subs=normal,frame=ends,grid=rows]
+|===
+|icon:play-circle[role=" ac_fan1"]  stem:[\large{fan^1_1 \over 分} ]
+|icon:play-circle[role=" ac_fan2"]  stem:[\large{fan^2_2 \over 粉} ]
+|icon:play-circle[role=" ac_fan3"]  stem:[\large{fan^3_3 \over 訓} ]
+|icon:play-circle[role=" ac_fan4"]  stem:[\large{fan^4_4 \over 焚} ]
+|icon:play-circle[role=" ac_fan5"]  stem:[\large{fan^5_5 \over 奮} ]
+|icon:play-circle[role=" ac_fan6"]  stem:[\large{fan^6_6 \over 份} ]
+|icon:play-circle[role=" ac_fat1"]  stem:[\large{fat^1_7 \over 忽} ]
+|icon:play-circle[role=" ac_faat3"] stem:[\large{faat^3_8 \over 發} ]
+|icon:play-circle[role=" ac_fat6"]  stem:[\large{fat^6_9 \over 佛} ]
+|===
+
+[opts=collapsible,title="Audio List"]
+=====
+[cols="9*",subs=normal,frame=ends,grid=rows]
+|===
+a|audio::{sounds}/fan1.wav[title=stem:[fan^1_1 \over 分]]
+a|audio::{sounds}/fan2.wav[title=stem:[fan^2_2 \over 粉]]
+a|audio::{sounds}/fan3.wav[title=stem:[fan^3_3 \over 訓]]
+a|audio::{sounds}/fan4.wav[title=stem:[fan^4_4 \over 焚]]
+a|audio::{sounds}/fan5.wav[title=stem:[fan^5_5 \over 奮]]
+a|audio::{sounds}/fan6.wav[title=stem:[fan^6_6 \over 份]]
+a|audio::{sounds}/fat1.wav[title=stem:[fat^1_7 \over 忽]]
+a|audio::{sounds}/faat3.wav[title=stem:[faat^3_8 \over 發]]
+a|audio::{sounds}/fat6.wav[title=stem:[fat^6_9 \over 佛]]
+|===
+=====
+
+[pass]
+++++++
+<script>
+//window.onclick = evt=>console.log({we:evt})
+document.onclick = evt=>{
+    let ipas = evt.srcElement.parentNode.className.split(/ac_/)
+    console.log({ipas})
+    if (ipas.length < 2) return true;
+    if (window["ac_"+ipas[1]]){
+        window["ac_"+ipas[1]](ipas[1])
+    }else{
+        play_jyutping(ipas[1])
+    }
+}
+let voices={
+  jyutping:['fan1','fan2','fan3','fan4','fan5','fan6','fat1','faat3','fat6'],
+  vocal:["baa1","paa4","maa1","faa1","daa2","taa1","naa4","laa1","gaa1","kaa1","ngaa4","haa1","gwaa1","kwaa1","waa1","zaa1","caa1","saa1","jaa5","aa1"],
+  rhyme:["aa3", "aai1", "aau3", "aam1", "aan3", "ngaang6", "aap3", "aat3", "ngaak6", "ai3", "ngau4", "am1", "ngan4", "ang1", "jap1", "ngat6", "dak1", "de1", "dei6", "deng1", "dek6", "goe3", "joeng1", "joek3", "jeoi6", "jeon6", "leot6", "o1", "oi1", "ou3", "on1", "ong1", "hot3", "ok3", "ji1", "jiu1", "jim1", "jin1", "jing1", "jip6", "jit6", "jik1", "jyu1", "jyun1", "jyut6", "wu1", "bui1", "bun1", "ung3", "but6", "uk1", "m4", "ng4",],
+}
+function ac_jyutping(tag){ ac_sequence(tag) }
+function ac_rhyme(tag){ ac_sequence(tag) }
+function ac_vocal(tag){ ac_sequence(tag) }
+function ac_sequence(tag){
+    if (!voices[tag]) return console.log({tag})
+    let delay=0
+    for (let it of voices[tag]){
+      setTimeout(((voice)=>()=>play_jyutping(voice))(it), delay+=650)
+    }
+}
+function play_jyutping(jyutping){
+    let audios = document.querySelectorAll("audio");
+    let that = null
+    audios.forEach(it => { // This is actually to find()
+                  if (it.src.indexOf("/"+jyutping+".wav") >= 0) {
+                    that = it
+                    return true
+                  }
+                })
+    console.log(that? that.src: {jyutping,that})
+    if (that) that.play()
+}
+</script>
+<style>
+.audioblock .title { float: right; margin-top: 8px; }
+.audioblock .content { width: 42px; overflow: hidden; }
+</style>
+++++++
+
+粵語 20 個聲母，零聲母用 / 符号作標記。
+
+[cols="9*",subs=normal,frame=ends,grid=rows]
+|===
+|b  [p]   |icon:play-circle[role="ac_baa1"] stem:[{baa^1 \over 爸}]  |icon:play-circle[role="ac_baai3"]stem:[{baai^3 \over 拜}]
+|p  [ph]  |icon:play-circle[role="ac_paa4"] stem:[{paa^4 \over 爬}]  |icon:play-circle[role="ac_paai3"]stem:[{paai^3 \over 派}]
+|m  [m]   |icon:play-circle[role="ac_maa1"] stem:[{maa^1 \over 媽}]  |icon:play-circle[role="ac_maai5"]stem:[{maai^5 \over 買}]
+|f  [f]   |icon:play-circle[role="ac_faa1"] stem:[{faa^1 \over 花}]  |icon:play-circle[role="ac_faai3"]stem:[{faai^3 \over 快}]
+|d  [t]   |icon:play-circle[role="ac_daa2"] stem:[{daa^2 \over 打}]  |icon:play-circle[role="ac_daai3"]stem:[{daai^3 \over 帶}]
+|t  [th]  |icon:play-circle[role="ac_taa1"] stem:[{taa^1 \over 他}]  |icon:play-circle[role="ac_taai3"]stem:[{taai^3 \over 太}]
+|n  [n]   |icon:play-circle[role="ac_naa4"] stem:[{naa^4 \over 拿}]  |icon:play-circle[role="ac_naai5"]stem:[{naai^5 \over 奶}]
+|l  [l]   |icon:play-circle[role="ac_laa1"] stem:[{laa^1 \over 啦}]  |icon:play-circle[role="ac_laai3"]stem:[{laai^3 \over 癩}]
+|g  [k]   |icon:play-circle[role="ac_gaa1"] stem:[{gaa^1 \over 家}]  |icon:play-circle[role="ac_gaai3"]stem:[{gaai^3 \over 界}]
+|k  [kh]  |icon:play-circle[role="ac_kaa1"] stem:[{kaa^1 \over 卡}]  |icon:play-circle[role="ac_kaai2"]stem:[{kaai^2 \over 楷}]
+|ng [ŋ]   |icon:play-circle[role="ac_ngaa4"]stem:[{ngaa^4 \over 牙}] |icon:play-circle[role="ac_ngaai6"]stem:[{ngaai^6 \over 艾}]
+|h  [h]   |icon:play-circle[role="ac_haa1"] stem:[{haa^1 \over 哈}]  |icon:play-circle[role="ac_haai4"]stem:[{haai^4 \over 鞋}]
+|gw [kw]  |icon:play-circle[role="ac_gwaa1"]stem:[{gwaa^1 \over 瓜}] |icon:play-circle[role="ac_gwaai1"]stem:[{gwaai^1 \over 乖}]
+|kw [kwh] |icon:play-circle[role="ac_kwaa1"]stem:[{kwaa^1 \over 誇}] |icon:play-circle[role="ac_kwaai3"]stem:[{kwaai^3 \over 嘳}]
+|w  [w]   |icon:play-circle[role="ac_waa1"] stem:[{waa^1 \over 蛙}]  |icon:play-circle[role="ac_waai1"]stem:[{waai^1 \over 歪}]
+|z  [ts]  |icon:play-circle[role="ac_zaa1"] stem:[{zaa^1 \over 渣}]  |icon:play-circle[role="ac_zaai1"]stem:[{zaai^1 \over 齋}]
+|c  [tsh] |icon:play-circle[role="ac_caa1"] stem:[{caa^1 \over 叉}]  |icon:play-circle[role="ac_caai2"]stem:[{caai^2 \over 踩}]
+|s  [s]   |icon:play-circle[role="ac_saa1"] stem:[{saa^1 \over 沙}]  |icon:play-circle[role="ac_saai2"]stem:[{saai^2 \over 壐}]
+|j  [j]   |icon:play-circle[role="ac_jaa5"] stem:[{jaa^5 \over 也}]  |icon:play-circle[role="ac_jaai2"]stem:[{jaai^2 \over 踹}]
+|/        |icon:play-circle[role="ac_aa1"]  stem:[{aa^1  \over 丫}]  |icon:play-circle[role="ac_aai3"]stem:[{aai^3 \over 嗌}]
+|||
+|===
+
+[opts=collapsible,title="Audio List"]
+=====
+[cols="6*",subs=normal,frame=ends,grid=rows]
+|===
+a|audio::{sounds}/baa1.wav[title="stem:[\Large{baa^1 \over 爸}]"]
+a|audio::{sounds}/baai3.wav[title="stem:[\Large{baai^3 \over 拜}]"]
+a|audio::{sounds}/paa4.wav[title="stem:[\Large{paa^4 \over 爬}]"]
+a|audio::{sounds}/paai3.wav[title="stem:[\Large{paai^3 \over 派}]"]
+a|audio::{sounds}/maa1.wav[title="stem:[\Large{maa^1 \over 媽}]"]
+a|audio::{sounds}/maai5.wav[title="stem:[\Large{maai^5 \over 買}]"]
+a|audio::{sounds}/faa1.wav[title="stem:[\Large{faa^1 \over 花}]"]
+a|audio::{sounds}/faai3.wav[title="stem:[\Large{faai^3 \over 快}]"]
+a|audio::{sounds}/daa2.wav[title="stem:[\Large{daa^2 \over 打}]"]
+a|audio::{sounds}/daai3.wav[title="stem:[\Large{daai^3 \over 帶}]"]
+a|audio::{sounds}/taa1.wav[title="stem:[\Large{taa^1 \over 他}]"]
+a|audio::{sounds}/taai3.wav[title="stem:[\Large{taai^3 \over 太}]"]
+a|audio::{sounds}/naa4.wav[title="stem:[\Large{naa^4 \over 拿}]"]
+a|audio::{sounds}/naai5.wav[title="stem:[\Large{naai^5 \over 奶}]"]
+a|audio::{sounds}/laa1.wav[title="stem:[\Large{laa^1 \over 啦}]"]
+a|audio::{sounds}/laai3.wav[title="stem:[\Large{laai^3 \over 癩}]"]
+a|audio::{sounds}/gaa1.wav[title="stem:[\Large{gaa^1 \over 家}]"]
+a|audio::{sounds}/gaai3.wav[title="stem:[\Large{gaai^3 \over 界}]"]
+a|audio::{sounds}/kaa1.wav[title="stem:[\Large{kaa^1 \over 卡}]"]
+a|audio::{sounds}/kaai2.wav[title="stem:[\Large{kaai^2 \over 楷}]"]
+a|audio::{sounds}/ngaa4.wav[title="stem:[\Large{ngaa^4 \over 牙}]"]
+a|audio::{sounds}/ngaai6.wav[title="stem:[\Large{ngaai^6 \over 艾}]"]
+a|audio::{sounds}/haa1.wav[title="stem:[\Large{haa^1 \over 哈}]"]
+a|audio::{sounds}/haai4.wav[title="stem:[\Large{haai^4 \over 鞋}]"]
+a|audio::{sounds}/gwaa1.wav[title="stem:[\Large{gwaa^1 \over 瓜}]"]
+a|audio::{sounds}/gwaai1.wav[title="stem:[\Large{gwaai^1 \over 乖}]"]
+a|audio::{sounds}/kwaa1.wav[title="stem:[\Large{kwaa^1 \over 誇}]"]
+a|audio::{sounds}/kwaai3.wav[title="stem:[\Large{kwaai^3 \over 嘳}]"]
+a|audio::{sounds}/waa1.wav[title="stem:[\Large{waa^1 \over 蛙}]"]
+a|audio::{sounds}/waai1.wav[title="stem:[\Large{waai^1 \over 歪}]"]
+a|audio::{sounds}/zaa1.wav[title="stem:[\Large{zaa^1 \over 渣}]"]
+a|audio::{sounds}/zaai1.wav[title="stem:[\Large{zaai^1 \over 齋}]"]
+a|audio::{sounds}/caa1.wav[title="stem:[\Large{caa^1 \over 叉}]"]
+a|audio::{sounds}/caai2.wav[title="stem:[\Large{caai^2 \over 踩}]"]
+a|audio::{sounds}/saa1.wav[title="stem:[\Large{saa^1 \over 沙}]"]
+a|audio::{sounds}/saai2.wav[title="stem:[\Large{saai^2 \over 壐}]"]
+a|audio::{sounds}/jaa5.wav[title="stem:[\Large{jaa^5 \over 也}]"]
+a|audio::{sounds}/jaai2.wav[title="stem:[\Large{jaai^2 \over 踹}]"]
+a|audio::{sounds}/aa1.wav[title="stem:[\Large{aa^1  \over 丫}]"]
+a|audio::{sounds}/aai3.wav[title="stem:[\Large{aai^3 \over 嗌}]"]
+||||
+|===
+=====
+
+粵語 53 個韻母发音参考：
+
+[cols="4*",subs=normal,frame=ends,grid=rows]
+|===
+a|audio::{sounds}/aa3.wav[title=stem:[\Large{aa^3        \over 阿}]  aa [a:] ]
+a|audio::{sounds}/aai1.wav[title=stem:[\Large{aai^1      \over 挨}] aai [a:i]]
+a|audio::{sounds}/aau3.wav[title=stem:[\Large{aau^3      \over 坳}] aau [a:u]]
+a|audio::{sounds}/aam1.wav[title=stem:[\Large{aam^1      \over 啱}] aam [a:m]]
+a|audio::{sounds}/aan3.wav[title=stem:[\Large{aan^3      \over 晏}] aan [a:n]]
+a|audio::{sounds}/ngaang6.wav[title=stem:[\Large{ngaang^6\over 硬}]aang [aːŋ]]
+a|audio::{sounds}/aap3.wav[title=stem:[\Large{aap^3      \over 鴨}] aap [aːp̚]]
+a|audio::{sounds}/aat3.wav[title=stem:[\Large{aat^3      \over 壓}] aat [aːt̚]]
+a|audio::{sounds}/ngaak6.wav[title=stem:[\Large{ngaak^6  \over 額}] aak [aːk̚]]
+a|audio::{sounds}/ai3.wav[title=stem:[\Large{ai^3        \over 縊}]  ai [ɐi] ]
+a|audio::{sounds}/ngau4.wav[title=stem:[\Large{ngau^4    \over 牛}]  au [ɐu] ]
+a|audio::{sounds}/am1.wav[title=stem:[\Large{am^1        \over 庵}]  am [ɐm] ]
+a|audio::{sounds}/ngan4.wav[title=stem:[\Large{ngan^4    \over 銀}]  an [ɐn] ]
+a|audio::{sounds}/ang1.wav[title=stem:[\Large{ang^1      \over 鶯}] ang [ɐŋ] ]
+a|audio::{sounds}/jap1.wav[title=stem:[\Large{jap^1      \over 邑}]  ap [ɐp̚] ]
+a|audio::{sounds}/ngat6.wav[title=stem:[\Large{ngat^6    \over 屹}]  at [ɐt̚] ]
+a|audio::{sounds}/dak1.wav[title=stem:[\Large{dak^1      \over 得}]  ak [ɐk̚] ]
+a|audio::{sounds}/de1.wav[title=stem:[\Large{de^1        \over 爹}]   e [ɛː] ]
+a|audio::{sounds}/dei6.wav[title=stem:[\Large{dei^6      \over 地}]  ei [ei] ]
+a|audio::{sounds}/deng1.wav[title=stem:[\Large{deng^1    \over 釘}] eng [ɛːŋ]]
+a|audio::{sounds}/dek6.wav[title=stem:[\Large{dek^6      \over 糴}]  ek [ɛːk̚]]
+a|audio::{sounds}/goe3.wav[title=stem:[\Large{goe^3      \over 鋸}]  oe [œː] ]
+a|audio::{sounds}/joeng1.wav[title=stem:[\Large{joeng^1  \over 央}]oeng [œːŋ]]
+a|audio::{sounds}/joek3.wav[title=stem:[\Large{joek^3    \over 約}] oek [œːk̚]]
+a|audio::{sounds}/jeoi6.wav[title=stem:[\Large{jeoi^6    \over 睿}] eoi [ɵy] ]
+a|audio::{sounds}/jeon6.wav[title=stem:[\Large{jeon^6    \over 潤}] eon [ɵn] ]
+a|audio::{sounds}/leot6.wav[title=stem:[\Large{leot^6    \over 律}] eot [ɵt̚] ]
+a|audio::{sounds}/o1.wav[title=stem:[\Large{o^1          \over 屙}]   o [ɔː] ]
+a|audio::{sounds}/oi1.wav[title=stem:[\Large{oi^1        \over 哀}]  oi [ɔːi]]
+a|audio::{sounds}/ou3.wav[title=stem:[\Large{ou^3        \over 澳}]  ou [ou] ]
+a|audio::{sounds}/on1.wav[title=stem:[\Large{on^1        \over 安}]  on [ɔːn]]
+a|audio::{sounds}/ong1.wav[title=stem:[\Large{ong^1      \over 骯}] ong [ɔːŋ]]
+a|audio::{sounds}/hot3.wav[title=stem:[\Large{hot^3      \over 渴}]  ot [ɔːt̚]]
+a|audio::{sounds}/ok3.wav[title=stem:[\Large{ok^3        \over 惡}]  ok [ɔːk̚]]
+a|audio::{sounds}/ji1.wav[title=stem:[\Large{ji^1        \over 衣}]   i [iː] ]
+a|audio::{sounds}/jiu1.wav[title=stem:[\Large{jiu^1      \over 腰}]  iu [iːu]]
+a|audio::{sounds}/jim1.wav[title=stem:[\Large{jim^1      \over 閹}]  im [iːm]]
+a|audio::{sounds}/jin1.wav[title=stem:[\Large{jin^1      \over 煙}]  in [iːn]]
+a|audio::{sounds}/jing1.wav[title=stem:[\Large{jing^1    \over 英}] ing [ɪŋ] ]
+a|audio::{sounds}/jip6.wav[title=stem:[\Large{jip^6      \over 葉}]  ip [iːp̚]]
+a|audio::{sounds}/jit6.wav[title=stem:[\Large{jit^6      \over 熱}]  it [iːt̚]]
+a|audio::{sounds}/jik1.wav[title=stem:[\Large{jik^1      \over 益}]  ik [ɪk̚] ]
+a|audio::{sounds}/jyu1.wav[title=stem:[\Large{jyu^1      \over 於}]  yu [yː] ]
+a|audio::{sounds}/jyun1.wav[title=stem:[\Large{jyun^1    \over 淵}] yun [yːn]]
+a|audio::{sounds}/jyut6.wav[title=stem:[\Large{jyut^6    \over 月}] yut [yːt̚]]
+a|audio::{sounds}/wu1.wav[title=stem:[\Large{wu^1        \over 烏}]   u [uː] ]
+a|audio::{sounds}/bui1.wav[title=stem:[\Large{bui^1      \over 杯}]  ui [uːi]]
+a|audio::{sounds}/bun1.wav[title=stem:[\Large{bun^1      \over 搬}]  un [u:n]]
+a|audio::{sounds}/ung3.wav[title=stem:[\Large{ung^3      \over 甕}] ung [ʊŋ] ]
+a|audio::{sounds}/but6.wav[title=stem:[\Large{but^6      \over 缽}]  ut [uːt̚]]
+a|audio::{sounds}/uk1.wav[title=stem:[\Large{uk^1        \over 屋}]  uk [ʊk̚] ]
+a|audio::{sounds}/m4.wav[title=stem:[\Large{m^4          \over 唔}]   m [m̩]  ]
+a|audio::{sounds}/ng4.wav[title=stem:[\Large{ng^4        \over 吳}]  ng [ŋ̩]  ]
+|||
+|===
+
+
+
+=== 聲母混讀：n 聲母、l聲母
+
+今日香港，n 聲母、l 聲母相混的情況極為普遍。「你」（nei5）、「李」（lei5）都讀lei5，「年」（nin4）、「連」（lin4）都讀lin4，「腦」（nou5）、「老」（lou5）都讀lou5，主要把n-唸成l-。
+
+• n- 是鼻音，發音時氣流通過鼻腔發出。stem:[nei^5] icon:play-circle[role="ac_nei5"]
+• l- 是邊音，發音時氣流從舌頭的兩邊通過。stem:[lei^5] icon:play-circle[role="ac_lei5"]
+
+[cols="4*",subs=normal,frame=ends,grid=rows]
+|===
+a|audio::{sounds}/nei5.wav[title=stem:[\Large{nei^5                \over 你}]]
+a|audio::{sounds}/lei5.wav[title=stem:[\Large{lei^5                \over 李}]]
+||
+a|audio::{sounds}/naam4.wav[title=stem:[\Large{naam^4              \over 南}]]
+a|audio::{sounds}/naam4_fong1.wav[title=stem:[\Large{naam^4 fong^1 \over 南方}]]
+a|audio::{sounds}/laam4.wav[title=stem:[\Large{laam^4              \over 藍}]]
+a|audio::{sounds}/laam4_tin1.wav[title=stem:[\Large{laam^4 tin^1   \over 藍天}]]
+a|audio::{sounds}/nap1.wav[title=stem:[\Large{nap^1                \over 凹}]]
+a|audio::{sounds}/nap1_dat6.wav[title=stem:[\Large{nap^1  dat^6    \over 凹凸}]]
+a|audio::{sounds}/lap1.wav[title=stem:[\Large{lap^1                \over 笠}]]
+a|audio::{sounds}/lap1_saam1.wav[title=stem:[\Large{lap^1  saam^1  \over 笠衫}]]
+a|audio::{sounds}/nin4.wav[title=stem:[\Large{nin^4                \over 年}]]
+a|audio::{sounds}/nin4_seoi3.wav[title=stem:[\Large{nin^4  seoi^3  \over 年歲}]]
+a|audio::{sounds}/lin4.wav[title=stem:[\Large{lin^4                \over 連}]]
+a|audio::{sounds}/lin4_sing4.wav[title=stem:[\Large{lin^4  sing^4  \over 連城}]]
+a|audio::{sounds}/naat6.wav[title=stem:[\Large{naat^6              \over 捺}]]
+a|audio::{sounds}/naat6_jan3.wav[title=stem:[\Large{naat^6 jan^3   \over 捺印}]]
+a|audio::{sounds}/laat6.wav[title=stem:[\Large{laat^6              \over 辣}]]
+a|audio::{sounds}/laat6_ziu1.wav[title=stem:[\Large{laat^6 ziu^1   \over 辣椒}]]
+a|audio::{sounds}/nai4.wav[title=stem:[\Large{nai^4                \over 泥}]]
+a|audio::{sounds}/nai4_tou2.wav[title=stem:[\Large{nai^4  tou^2    \over 泥土}]]
+a|audio::{sounds}/lai4.wav[title=stem:[\Large{lai^4                \over 黎}]]
+a|audio::{sounds}/lai4_ming4.wav[title=stem:[\Large{lai^4  ming^4  \over 黎明}]]
+a|audio::{sounds}/nok6.wav[title=stem:[\Large{nok^6                \over 諾}]]
+a|audio::{sounds}/sing4_nok6.wav[title=stem:[\Large{sing^4 nok^6   \over 承諾}]]
+a|audio::{sounds}/lok6.wav[title=stem:[\Large{lok^6                \over 樂}]]
+a|audio::{sounds}/faai3_lok6.wav[title=stem:[\Large{faai^3 lok^6   \over 快樂}]]
+a|audio::{sounds}/nim6.wav[title=stem:[\Large{nim^6                \over 念}]]
+a|audio::{sounds}/jyun4_nim6.wav[title=stem:[\Large{jyun^4 nim^6   \over 懸念}]]
+a|audio::{sounds}/lim6.wav[title=stem:[\Large{lim^6                \over 臉}]]
+a|audio::{sounds}/jyun4_lim6.wav[title=stem:[\Large{jyun^4 lim^6   \over 圓臉}]]
+a|audio::{sounds}/nou4.wav[title=stem:[\Large{nou^4                \over 奴}]]
+a|audio::{sounds}/gaa1_nou4.wav[title=stem:[\Large{gaa^1  nou^4    \over 家奴}]]
+a|audio::{sounds}/lou4.wav[title=stem:[\Large{lou^4                \over 勞}]]
+a|audio::{sounds}/wai3_lou4.wav[title=stem:[\Large{wai^3  lou^4    \over 慰勞}]]
+a|audio::{sounds}/nong4.wav[title=stem:[\Large{nong^4              \over 囊}]]
+a|audio::{sounds}/bui3_nong4.wav[title=stem:[\Large{bui^3  nong^4  \over 背囊}]]
+a|audio::{sounds}/long4.wav[title=stem:[\Large{long^4              \over 狼}]]
+a|audio::{sounds}/ngo6_long4.wav[title=stem:[\Large{ngo^6  long^4  \over 餓狼}]]
+a|audio::{sounds}/nung4.wav[title=stem:[\Large{nung^4              \over 農}]]
+a|audio::{sounds}/mou6_nung4.wav[title=stem:[\Large{mou^6  nung^4  \over 務農}]]
+a|audio::{sounds}/lung4.wav[title=stem:[\Large{lung^4              \over 龍}]]
+a|audio::{sounds}/jan4_lung4.wav[title=stem:[\Large{jan^4  lung^4  \over 人龍}]]
+|===
+
+
+=== 聲母混讀：ng 聲母、零聲母
+
+今日香港，有些人不會辨別 ng 聲母和零聲母。如「我」（ngo5），有些人讀 o5；「柯」（o1），有些人讀 ngo1；「牛」（ngau4），有些人讀 au4，「歐」（au1），有些人讀 ngau1。到底哪些字是 ng 聲母？哪些字是零聲母？該字屬於 1、2 或 3 調時，多數是零聲母，如果屬於 4、5 或 6 調時，多數是 ng 聲母。
+
+ng-是鼻音，發音時以舌根部位抵住軟顎，讓氣流通過鼻腔發出。省去 ng 不讀，直接把韻母讀出來，就是零聲母。
+
+[cols="4*",subs=normal,frame=ends,grid=rows]
+|===
+a|audio::{sounds}/ngong4.wav[title=stem:[\Large{ngong^4              \over 昂}]]
+a|audio::{sounds}/ngong4_gwai3.wav[title=stem:[\Large{ngong^4 gwai^3 \over 昂貴}]]
+a|audio::{sounds}/ong1.wav[title=stem:[\Large{ong^1                  \over 骯}]]
+a|audio::{sounds}/ong1_zong1.wav[title=stem:[\Large{ong^1 zong^1     \over 骯髒}]]
+a|audio::{sounds}/ngok6.wav[title=stem:[\Large{ngok^6                \over 樂}]]
+a|audio::{sounds}/ngok6_hei3.wav[title=stem:[\Large{ngok^6 hei^3     \over 樂器}]]
+a|audio::{sounds}/ok3.wav[title=stem:[\Large{ok^3                    \over 惡}]]
+a|audio::{sounds}/ok3_hang6.wav[title=stem:[\Large{ok^3 hang^6       \over 惡行}]]
+a|audio::{sounds}/ngaa4.wav[title=stem:[\Large{ngaa^4                \over 牙}]]
+a|audio::{sounds}/ngaa4_ci2.wav[title=stem:[\Large{ngaa^4 ci^2       \over 牙齒}]]
+a|audio::{sounds}/aa1.wav[title=stem:[\Large{aa^1                    \over 丫}]]
+a|audio::{sounds}/aa1_tau4.wav[title=stem:[\Large{aa^1 tau^4         \over 丫頭}]]
+a|audio::{sounds}/ngai5.wav[title=stem:[\Large{ngai^5                \over 蟻}]]
+a|audio::{sounds}/ngai5_man4.wav[title=stem:[\Large{ngai^5 man^4     \over 蟻民}]]
+a|audio::{sounds}/ai2.wav[title=stem:[\Large{ai^2                    \over 矮}]]
+a|audio::{sounds}/ai2_dang3.wav[title=stem:[\Large{ai^2 dang^3       \over 矮凳}]]
+a|audio::{sounds}/ngaa5.wav[title=stem:[\Large{ngaa^5                \over 雅}]]
+a|audio::{sounds}/ngaa5_din2.wav[title=stem:[\Large{ngaa^5 din^2     \over 雅典}]]
+a|audio::{sounds}/aa1.wav[title=stem:[\Large{aa^1                    \over 椏}]]
+a|audio::{sounds}/aa1_zi1.wav[title=stem:[\Large{aa^1 zi^1           \over 椏枝}]]
+a|audio::{sounds}/ngaak6.wav[title=stem:[\Large{ngaak^6              \over 額}]]
+a|audio::{sounds}/cin4_ngaak6.wav[title=stem:[\Large{cin^4 ngaak^6   \over 前額}]]
+a|audio::{sounds}/aak1.wav[title=stem:[\Large{aak^1                  \over 軛}]]
+a|audio::{sounds}/hang4_aak1.wav[title=stem:[\Large{hang^4 aak^1     \over 衡軛}]]
+a|audio::{sounds}/ngoi6.wav[title=stem:[\Large{ngoi^6                \over 外}]]
+a|audio::{sounds}/zung1_ngoi6.wav[title=stem:[\Large{zung^1 ngoi^6   \over 中外}]]
+a|audio::{sounds}/oi3.wav[title=stem:[\Large{oi^3                    \over 愛}]]
+a|audio::{sounds}/zung1_oi3.wav[title=stem:[\Large{zung^1 oi^3       \over 鍾愛}]]
+a|audio::{sounds}/ngo5.wav[title=stem:[\Large{ngo^5                  \over 我}]]
+a|audio::{sounds}/mong4_ngo5.wav[title=stem:[\Large{mong^4 ngo^5     \over 忘我}]]
+a|audio::{sounds}/o1.wav[title=stem:[\Large{o^1                      \over 柯}]]
+a|audio::{sounds}/naam4_o1.wav[title=stem:[\Large{naam^4 o^1         \over 南柯}]]
+a|audio::{sounds}/ngau4.wav[title=stem:[\Large{ngau^4                \over 牛}]]
+a|audio::{sounds}/sai1_ngau4.wav[title=stem:[\Large{sai^1 ngau^4     \over 犀牛}]]
+a|audio::{sounds}/au1.wav[title=stem:[\Large{au^1                    \over 歐}]]
+a|audio::{sounds}/sai1_au1.wav[title=stem:[\Large{sai^1 au^1         \over 西歐}]]
+a|audio::{sounds}/ngaai6.wav[title=stem:[\Large{ngaai^6              \over 艾}]]
+a|audio::{sounds}/siu3_ngaai6.wav[title=stem:[\Large{siu^3 ngaai^6   \over 少艾}]]
+a|audio::{sounds}/oi1.wav[title=stem:[\Large{oi^1                    \over 埃}]]
+a|audio::{sounds}/can4_oi1.wav[title=stem:[\Large{can^4 oi^1         \over 塵埃}]]
+|===
+
+
+=== 聲母混讀：gw/kw 聲母、g/k 聲母
+
+不少人會把圓唇的 gw-、kw- 讀成不圓唇的 g-、k-，把 gw-、kw -讀成 g-、k-，主要是涉及 o 的韻母，例如「過」（gwo3）和「個」（go1）、「鄺」（kwong3）和「抗」（kong3）。
+
+[cols="4*",subs=normal,frame=ends,grid=rows]
+|===
+a|audio::{sounds}/gwo3.wav[title=stem:[\Large{gwo^3                \over 過}]]
+a|audio::{sounds}/gwo3_jan4.wav[title=stem:[\Large{gwo^3 jan^4     \over 過人}]]
+a|audio::{sounds}/go3.wav[title=stem:[\Large{go^3                  \over 個}]]
+a|audio::{sounds}/go3_jan4.wav[title=stem:[\Large{go^3 jan^4       \over 個人}]]
+a|audio::{sounds}/gwok3.wav[title=stem:[\Large{gwok^3              \over 國}]]
+a|audio::{sounds}/gwok3_gaa1.wav[title=stem:[\Large{gwok^3 gaa^1   \over 國家}]]
+a|audio::{sounds}/gok3.wav[title=stem:[\Large{gok^3                \over 各}]]
+a|audio::{sounds}/gok3_gaa1.wav[title=stem:[\Large{gok^3 gaa^1     \over 各家}]]
+a|audio::{sounds}/gwong2.wav[title=stem:[\Large{gwong^2            \over 廣}]]
+a|audio::{sounds}/gong2.wav[title=stem:[\Large{gong^2              \over 港}]]
+a|audio::{sounds}/gong2_daai6.wav[title=stem:[\Large{gong^2 daai^6 \over 港大}]]
+a|audio::{sounds}/gwok3.wav[title=stem:[\Large{gwok^3              \over 郭}]]
+a|audio::{sounds}/sing4_gwok3.wav[title=stem:[\Large{sing^4 gwok^3 \over 城郭}]]
+a|audio::{sounds}/gok3.wav[title=stem:[\Large{gok^3                \over 角}]]
+a|audio::{sounds}/sing4_gok3.wav[title=stem:[\Large{sing^4 gok^3   \over 城角}]]
+a|audio::{sounds}/gwong1.wav[title=stem:[\Large{gwong^1            \over 光}]]
+a|audio::{sounds}/daa2_gwong1.wav[title=stem:[\Large{daa^2 gwong^1 \over 打光}]]
+a|audio::{sounds}/gong1.wav[title=stem:[\Large{gong^1              \over 綱}]]
+a|audio::{sounds}/daai6_gong1.wav[title=stem:[\Large{daai^6 gong^1 \over 大綱}]]
+a|audio::{sounds}/kwok3.wav[title=stem:[\Large{kwok^3              \over 擴}]]
+a|audio::{sounds}/kwok3_gin3.wav[title=stem:[\Large{kwok^3 gin^3   \over 擴建}]]
+a|audio::{sounds}/kok3.wav[title=stem:[\Large{kok^3                \over 涸}]]
+a|audio::{sounds}/gon1_kok3.wav[title=stem:[\Large{gon^1 kok^3     \over 乾涸}]]
+a|audio::{sounds}/kwong3.wav[title=stem:[\Large{kwong^3            \over 礦}]]
+a|audio::{sounds}/kwong3_sek6.wav[title=stem:[\Large{kwong^3 sek^6 \over 礦石}]]
+a|audio::{sounds}/kong3.wav[title=stem:[\Large{kong^3              \over 抗}]]
+a|audio::{sounds}/kwong3.wav[title=stem:[\Large{kwong^3            \over 曠}]]
+a|audio::{sounds}/kwong3_fo3.wav[title=stem:[\Large{kwong^3 fo^3   \over 曠課}]]
+a|audio::{sounds}/kong3.wav[title=stem:[\Large{kong^3              \over 炕}]]
+a|audio::{sounds}/kong3_cong4.wav[title=stem:[\Large{kong^3 cong^4 \over 炕床}]]
+a|audio::{sounds}/kwong4.wav[title=stem:[\Large{kwong^4            \over 狂}]]
+a|audio::{sounds}/kwong4_jit6.wav[title=stem:[\Large{kwong^4 jit^6 \over 狂熱}]]
+a|audio::{sounds}/kong3.wav[title=stem:[\Large{kong^3              \over 伉}]]
+a|audio::{sounds}/kong3_lai6.wav[title=stem:[\Large{kong^3 lai^6   \over 伉儷}]]
+a|audio::{sounds}/kwok3.wav[title=stem:[\Large{kwok^3              \over 廓}]]
+a|audio::{sounds}/leon4_kwok3.wav[title=stem:[\Large{leon^4 kwok^3 \over 輪廓}]]
+a|audio::{sounds}/kok3.wav[title=stem:[\Large{kok^3                \over 確}]]
+a|audio::{sounds}/dik1_kok3.wav[title=stem:[\Large{dik^1 kok^3     \over 的確}]]
+|===
+
+
+=== 韻母混讀：n 韻尾、ng 韻尾
+
+韻尾指韻母除去主要元音後，剩下來收音的部分，位於主元音之後。粵語的鼻音韻尾有 -m、-n、-ng。
+
+韻尾 n、ng 不分是港人最常出現的韻母混讀現象，最典型的例子是把 stem:[Hoeng^1 gong^2 hang^4 sang^1 ngan^4 hong^4 \over 「香港恒生銀行」] 讀成 stem:[Hoen^1 gon^2 han^4 san^1 an^4 hon^4 \over Hoen 擀痕身 an 寒]。
+
+• n 韻尾，舌尖要上翹抵住上齒背。stem:[pan^4 \over 貧] icon:play-circle[role="ac_pan4"]
+• ng 韻尾，舌根部位抵住軟顎。stem:[pang^4 \over 朋] icon:play-circle[role="ac_pang4"]
+
+[cols="4*",subs=normal,frame=ends,grid=rows]
+|===
+a|audio::{sounds}/man4.wav[title="stem:[\Large{man^4                  \over 民}]"]
+a|audio::{sounds}/man4_gwok3.wav[title="stem:[\Large{man^4_gwok^3     \over 民國}]"]
+a|audio::{sounds}/mang4.wav[title="stem:[\Large{mang^4                \over 盟}]"]
+a|audio::{sounds}/mang4_gwok3.wav[title="stem:[\Large{mang^4_gwok^3   \over 盟國}]"]
+a|audio::{sounds}/dan2.wav[title="stem:[\Large{dan^2                  \over 躉}]"]
+a|audio::{sounds}/dan2_syun4.wav[title="stem:[\Large{dan^2_syun^4     \over 躉船}]"]
+a|audio::{sounds}/dang2.wav[title="stem:[\Large{dang^2                \over 等}]"]
+a|audio::{sounds}/dang2_hau6.wav[title="stem:[\Large{dang^2_hau^6     \over 等候}]"]
+a|audio::{sounds}/zan1.wav[title="stem:[\Large{zan^1                  \over 真}]"]
+a|audio::{sounds}/zan1_sing4.wav[title="stem:[\Large{zan^1_sing^4     \over 真誠}]"]
+a|audio::{sounds}/zang1.wav[title="stem:[\Large{zang^1                \over 曾}]"]
+a|audio::{sounds}/zang1_syun1.wav[title="stem:[\Large{zang^1_syun^1   \over 曾孫}]"]
+a|audio::{sounds}/pan4.wav[title="stem:[\Large{pan^4                  \over 貧}]"]
+a|audio::{sounds}/pan4_kung4.wav[title="stem:[\Large{pan^4_kung^4     \over 貧窮}]"]
+a|audio::{sounds}/pang4.wav[title="stem:[\Large{pang^4                \over 朋}]"]
+a|audio::{sounds}/pang4_jau5.wav[title="stem:[\Large{pang^4_jau^5     \over 朋友}]"]
+a|audio::{sounds}/wan4.wav[title="stem:[\Large{wan^4                  \over 雲}]"]
+a|audio::{sounds}/wan4_dyun1.wav[title="stem:[\Large{wan^4_dyun^1     \over 雲端}]"]
+a|audio::{sounds}/wang4.wav[title="stem:[\Large{wang^4                \over 宏}]"]
+a|audio::{sounds}/wang4_gun1.wav[title="stem:[\Large{wang^4_gun^1     \over 宏觀}]"]
+a|audio::{sounds}/laan5.wav[title="stem:[\Large{laan^5                \over 懶}]"]
+a|audio::{sounds}/faat3_laan5.wav[title="stem:[\Large{faat^3_laan^5   \over 發懶}]"]
+a|audio::{sounds}/laang5.wav[title="stem:[\Large{laang^5              \over 冷}]"]
+a|audio::{sounds}/faat3_laang5.wav[title="stem:[\Large{faat^3_laang^5 \over 發冷}]"]
+a|audio::{sounds}/hon4.wav[title="stem:[\Large{hon^4                  \over 鼾}]"]
+a|audio::{sounds}/bei6_hon4.wav[title="stem:[\Large{bei^6_hon^4       \over 鼻鼾}]"]
+a|audio::{sounds}/hong4.wav[title="stem:[\Large{hong^4                \over 行}]"]
+a|audio::{sounds}/ngan4_hong4.wav[title="stem:[\Large{ngan^4_hong^4   \over 銀行}]"]
+a|audio::{sounds}/han6.wav[title="stem:[\Large{han^6                  \over 恨}]"]
+a|audio::{sounds}/jyun3_han6.wav[title="stem:[\Large{jyun^3_han^6     \over 怨恨}]"]
+a|audio::{sounds}/hang6.wav[title="stem:[\Large{hang^6                \over 幸}]"]
+a|audio::{sounds}/maan6_hang6.wav[title="stem:[\Large{maan^6_hang^6   \over 萬幸}]"]
+a|audio::{sounds}/han2.wav[title="stem:[\Large{han^2                  \over 狠}]"]
+a|audio::{sounds}/dau3_han2.wav[title="stem:[\Large{dau^3_han^2       \over 鬥狠}]"]
+a|audio::{sounds}/hang2.wav[title="stem:[\Large{hang^2                \over 肯}]"]
+a|audio::{sounds}/sau2_hang2.wav[title="stem:[\Large{sau^2 hang^2     \over 首肯}]"]
+a|audio::{sounds}/gon2.wav[title="stem:[\Large{gon^2                  \over 趕}]"]
+a|audio::{sounds}/keoi1_gon2.wav[title="stem:[\Large{keoi^1_gon^2     \over 驅趕}]"]
+a|audio::{sounds}/gong2.wav[title="stem:[\Large{gong^2                \over 講}]"]
+a|audio::{sounds}/syun1_gong2.wav[title="stem:[\Large{syun^1_gong^2   \over 宣講}]"]
+|===
+
+
+=== 韻母混讀：t 韻尾、k 韻尾
+
+韻尾指韻母除去主要元音後，剩下來收音的部分，位於主元音之後。粵語的塞音韻尾有 -p、-t、-k。
+
+塞音韻尾 -k 和 -t 經常被误用，将 -k 唸成 -t。例如「黑」（hak1）讀成「乞」(hat1)、「北」（bak1）讀成「不」（bat1）、「則」（zak1）讀成「質」（zat1）等等。
+
+• 發 t 入聲韻尾時，舌尖要上翹，抵住上齒背。stem:[baat^3] icon:play-circle[role="ac_baat3"]
+• 發 k 入聲韻尾時，舌根部位抵住軟顎，而且要張開口。stem:[baak^3] icon:play-circle[role="ac_baak3"]
+
+［懒音诊疗室］网站 stem:[\Large{mak^6  zi^2 \over 墨子}] 一词音频缺失。
+
+[cols="4*",subs=normal,frame=ends,grid=rows]
+|===
+a|audio::{sounds}/dat6.wav[title=stem:[\Large{dat^6                \over 突}]]
+a|audio::{sounds}/dat6_ceot1.wav[title=stem:[\Large{dat^6  ceot^1  \over 突出}]]
+a|audio::{sounds}/dak6.wav[title=stem:[\Large{dak^6                \over 特}]]
+a|audio::{sounds}/dak6_bit6.wav[title=stem:[\Large{dak^6  bit^6    \over 特別}]]
+a|audio::{sounds}/mat6.wav[title=stem:[\Large{mat^6                \over 襪}]]
+a|audio::{sounds}/mat6_zi2.wav[title=stem:[\Large{mat^6  zi^2      \over 襪子}]]
+a|audio::{sounds}/mak6.wav[title=stem:[\Large{mak^6                \over 墨}]]
+a|audio::{sounds}/mak6_zi2.wav[title=stem:[\Large{mak^6  zi^2      \over 墨子}]]
+a|audio::{sounds}/baat3.wav[title=stem:[\Large{baat^3              \over 八}]]
+a|audio::{sounds}/baat3_baai3.wav[title=stem:[\Large{baat^3 baai^3 \over 八拜}]]
+a|audio::{sounds}/baak3.wav[title=stem:[\Large{baak^3              \over 百}]]
+a|audio::{sounds}/baak3_baai3.wav[title=stem:[\Large{baak^3 baai^3 \over 百拜}]]
+a|audio::{sounds}/got3.wav[title=stem:[\Large{got^3                \over 割}]]
+a|audio::{sounds}/got3_lit6.wav[title=stem:[\Large{got^3  lit^6    \over 割裂}]]
+a|audio::{sounds}/gok3.wav[title=stem:[\Large{gok^3                \over 覺}]]
+a|audio::{sounds}/gok3_ng6.wav[title=stem:[\Large{gok^3  ng^6      \over 覺悟}]]
+a|audio::{sounds}/sat1.wav[title=stem:[\Large{sat^1                \over 失}]]
+a|audio::{sounds}/sat1_caak3.wav[title=stem:[\Large{sat^1  caak^3  \over 失策}]]
+a|audio::{sounds}/sak1.wav[title=stem:[\Large{sak^1                \over 塞}]]
+a|audio::{sounds}/sak1_zaak3.wav[title=stem:[\Large{sak^1  zaak^3  \over 塞責}]]
+a|audio::{sounds}/bat1.wav[title=stem:[\Large{bat^1                \over 筆}]]
+a|audio::{sounds}/baai6_bat1.wav[title=stem:[\Large{baai^6 bat^1   \over 敗筆}]]
+a|audio::{sounds}/bak1.wav[title=stem:[\Large{bak^1                \over 北}]]
+a|audio::{sounds}/baai6_bak1.wav[title=stem:[\Large{baai^6 bak^1   \over 敗北}]]
+a|audio::{sounds}/caat3.wav[title=stem:[\Large{caat^3              \over 察}]]
+a|audio::{sounds}/zing1_caat3.wav[title=stem:[\Large{zing^1 caat^3 \over 偵察}]]
+a|audio::{sounds}/caak3.wav[title=stem:[\Large{caak^3              \over 策}]]
+a|audio::{sounds}/zing3_caak3.wav[title=stem:[\Large{zing^3 caak^3 \over 政策}]]
+a|audio::{sounds}/zat1.wav[title=stem:[\Large{zat^1                \over 質}]]
+a|audio::{sounds}/sing3_zat1.wav[title=stem:[\Large{sing^3 zat^1   \over 性質}]]
+a|audio::{sounds}/zak1.wav[title=stem:[\Large{zak^1                \over 則}]]
+a|audio::{sounds}/sau2_zak1.wav[title=stem:[\Large{sau^2  zak^1    \over 守則}]]
+a|audio::{sounds}/hat1.wav[title=stem:[\Large{hat^1                \over 乞}]]
+a|audio::{sounds}/hang4_hat1.wav[title=stem:[\Large{hang^4 hat^1   \over 行乞}]]
+a|audio::{sounds}/hak1.wav[title=stem:[\Large{hak^1                \over 黑}]]
+a|audio::{sounds}/wu1_hak1.wav[title=stem:[\Large{wu^1   hak^1     \over 烏黑}]]
+a|audio::{sounds}/waat6.wav[title=stem:[\Large{waat^6              \over 滑}]]
+a|audio::{sounds}/jau4_waat6.wav[title=stem:[\Large{jau^4  waat^6  \over 油滑}]]
+a|audio::{sounds}/waak6.wav[title=stem:[\Large{waak^6              \over 劃}]]
+a|audio::{sounds}/mau4_waak6.wav[title=stem:[\Large{mau^4  waak^6  \over 謀劃}]]
+|===
+
+=== download wave files
+
+19 个重复文件，缺失一个 mak6_zi2.wav。
+
+// 3 aa1.wav    3 gok3.wav   2 gong2.wav  2 gwok3.wav  2 kok3.wav   3 kong3.wav  
+// 2 kwok3.wav  2 kwong3.wav 2 ngaa4.wav  2 ngaai6.wav 2 ngaak6.wav 
+// 2 ngau4.wav  2 o1.wav     2 oi1.wav    2 ok3.wav    2 ong1.wav   
+
+Bash 脚本支持异步执行，可以在命令行中后缀 & 符号将命令转换为 Job 对象放入后台运行，避免同步执行多命令，主进程不会被子进程阻塞，从而实现并发处理（注意不是并行处理）。对于小批量资源下载也可以采用此方法，当然这种并发处理也是相当耗费系统资源的，因为没个子命令都对应要向操作系统申请程序进程资源分配。如果采用 Node.js 或者 Python 中的单线程运行，采用异步 I/O 模型，将完全可以避免多余的系统资源分配（节省大量硬件资源）。
+
+[source,bash]
+----
+url=https://www.polyu.edu.hk/cbs/pronunciation/sound_file
+list=("
+fan1.wav         fan2.wav        fan3.wav        fan4.wav        fan5.wav       
+fan6.wav         fat1.wav        faat3.wav       fat6.wav        baa1.wav       
+baai3.wav        paa4.wav        paai3.wav       maa1.wav        maai5.wav      
+faa1.wav         faai3.wav       daa2.wav        daai3.wav       taa1.wav       
+taai3.wav        naa4.wav        naai5.wav       laa1.wav        laai3.wav      
+gaa1.wav         gaai3.wav       kaa1.wav        kaai2.wav       ngaa4.wav      
+ngaai6.wav       haa1.wav        haai4.wav       gwaa1.wav       gwaai1.wav     
+kwaa1.wav        kwaai3.wav      waa1.wav        waai1.wav       zaa1.wav       
+zaai1.wav        caa1.wav        caai2.wav       saa1.wav        saai2.wav      
+jaa5.wav         jaai2.wav       aa1.wav         aai3.wav        aa3.wav        
+aai1.wav         aau3.wav        aam1.wav        aan3.wav        ngaang6.wav    
+aap3.wav         aat3.wav        ngaak6.wav      ai3.wav         ngau4.wav      
+am1.wav          ngan4.wav       ang1.wav        jap1.wav        ngat6.wav      
+dak1.wav         de1.wav         dei6.wav        deng1.wav       dek6.wav       
+goe3.wav         joeng1.wav      joek3.wav       jeoi6.wav       jeon6.wav      
+leot6.wav        o1.wav          oi1.wav         ou3.wav         on1.wav        
+ong1.wav         hot3.wav        ok3.wav         ji1.wav         jiu1.wav       
+jim1.wav         jin1.wav        jing1.wav       jip6.wav        jit6.wav       
+jik1.wav         jyu1.wav        jyun1.wav       jyut6.wav       wu1.wav        
+bui1.wav         bun1.wav        ung3.wav        but6.wav        uk1.wav        
+m4.wav           ng4.wav         nei5.wav        lei5.wav        naam4.wav      
+naam4_fong1.wav  laam4.wav       laam4_tin1.wav  nap1.wav        nap1_dat6.wav  
+lap1.wav         lap1_saam1.wav  nin4.wav        nin4_seoi3.wav  lin4.wav       
+lin4_sing4.wav   naat6.wav       naat6_jan3.wav  laat6.wav       laat6_ziu1.wav 
+nai4.wav         nai4_tou2.wav   lai4.wav        lai4_ming4.wav  nok6.wav       
+sing4_nok6.wav   lok6.wav        faai3_lok6.wav  nim6.wav        jyun4_nim6.wav 
+lim6.wav         jyun4_lim6.wav  nou4.wav        gaa1_nou4.wav   lou4.wav       
+wai3_lou4.wav    nong4.wav       bui3_nong4.wav  long4.wav       ngo6_long4.wav 
+nung4.wav        mou6_nung4.wav  lung4.wav       jan4_lung4.wav  ngong4.wav     
+ngong4_gwai3.wav ong1.wav        ong1_zong1.wav  ngok6.wav       ngok6_hei3.wav 
+ok3.wav          ok3_hang6.wav   ngaa4.wav       ngaa4_ci2.wav   aa1.wav        
+aa1_tau4.wav     ngai5.wav       ngai5_man4.wav  ai2.wav         ai2_dang3.wav  
+ngaa5.wav        ngaa5_din2.wav  aa1.wav         aa1_zi1.wav     ngaak6.wav     
+cin4_ngaak6.wav  aak1.wav        hang4_aak1.wav  ngoi6.wav       zung1_ngoi6.wav
+oi3.wav          zung1_oi3.wav   ngo5.wav        mong4_ngo5.wav  o1.wav         
+naam4_o1.wav     ngau4.wav       sai1_ngau4.wav  au1.wav         sai1_au1.wav   
+ngaai6.wav       siu3_ngaai6.wav oi1.wav         can4_oi1.wav    gwo3.wav       
+gwo3_jan4.wav    go3.wav         go3_jan4.wav    gwok3.wav       gwok3_gaa1.wav 
+gok3.wav         gok3_gaa1.wav   gwong2.wav      gong2.wav       gong2_daai6.wav
+gwok3.wav        sing4_gwok3.wav gok3.wav        sing4_gok3.wav  gwong1.wav     
+daa2_gwong1.wav  gong1.wav       daai6_gong1.wav kwok3.wav       kwok3_gin3.wav 
+kok3.wav         gon1_kok3.wav   kwong3.wav      kwong3_sek6.wav kong3.wav      
+kwong3.wav       kwong3_fo3.wav  kong3.wav       kong3_cong4.wav kwong4.wav     
+kwong4_jit6.wav  kong3.wav       kong3_lai6.wav  kwok3.wav       leon4_kwok3.wav
+kok3.wav         dik1_kok3.wav   man4.wav        man4_gwok3.wav  mang4.wav      
+mang4_gwok3.wav  dan2.wav        dan2_syun4.wav  dang2.wav       dang2_hau6.wav 
+zan1.wav         zan1_sing4.wav  zang1.wav       zang1_syun1.wav pan4.wav       
+pan4_kung4.wav   pang4.wav       pang4_jau5.wav  wan4.wav        wan4_dyun1.wav 
+wang4.wav        wang4_gun1.wav  laan5.wav       faat3_laan5.wav laang5.wav     
+faat3_laang5.wav hon4.wav        bei6_hon4.wav   hong4.wav       ngan4_hong4.wav
+han6.wav         jyun3_han6.wav  hang6.wav       maan6_hang6.wav han2.wav       
+dau3_han2.wav    hang2.wav       sau2_hang2.wav  gon2.wav        keoi1_gon2.wav 
+gong2.wav        syun1_gong2.wav dat6.wav        dat6_ceot1.wav  dak6.wav       
+dak6_bit6.wav    mat6.wav        mat6_zi2.wav    mak6.wav        mak6_zi2.wav   
+baat3.wav        baat3_baai3.wav baak3.wav       baak3_baai3.wav got3.wav       
+got3_lit6.wav    gok3.wav        gok3_ng6.wav    sat1.wav        sat1_caak3.wav 
+sak1.wav         sak1_zaak3.wav  bat1.wav        baai6_bat1.wav  bak1.wav       
+baai6_bak1.wav   caat3.wav       zing1_caat3.wav caak3.wav       zing3_caak3.wav
+zat1.wav         sing3_zat1.wav  zak1.wav        sau2_zak1.wav   hat1.wav       
+hang4_hat1.wav   hak1.wav        wu1_hak1.wav    waat6.wav       jau4_waat6.wav 
+waak6.wav        mau4_waak6.wav")
+for it in $list
+do
+    if ! [[ -f "$it" ]]; then
+        curl -O "$url/$it"
+    fi
+done
+----
+
+
+== 五十音图
+
+• https://www.bilibili.com/video/BV16J411572i/[Yuka老師－内外概念 あげます／もらいます／くれます]
+• https://www.nhk.or.jp/lesson/ja/pdf/textbook_kana_all.pdf[日语假名书写方法]
+• https://www.bilibili.com/video/BV1Vm411m7N9/[Akkaruta：日语清音与浊音]
+• https://www.bilibili.com/video/BV1hN41127LH/[梁爽老师：送气音？其实是个伪命题|]
+• https://riyutool.com/50yinmp3/[日语五十音（mp3音频）]
+
+日语oo:五十音図[ごじゅうおんず]，是日语的假名（平假名、片假名）以元音、子音分类的一个图表。下表将平假名（单元格左侧）与片假名（单元格右侧）统一编排，表格横向为 aiueo 五个元音，纵向为 9 个清辅音。元音、清辅音两两组合，再加 5 个元音得到 50 个音节。其实，[ya] や 行还有 [wa] わ 行辅音各只有三个，没 [wi] 或者 [we] 两种组合，表格中分别使用两元音填充方便背诵记忆。所以总共有 46 个基本假名，分两种书写形式。拉丁字母标记为罗马音标记，相当于日语的“拼音”。所以，可以将五十音分两组背诵，[ka] か、[sa] さ、[ta] た、[na] な 为一组，[ha] は、[ma] ま、[ya] や、[ra] ら为一组。余下五个元音和三个“哇音”（[wa] わ、う ウ u、を ヲ o）另外处理。
+// （卡萨布兰卡的歌好听那，蛤蟆呀啦哇）
+
+[cols="m,5*",opts="header,autowidth",frame=ends,grid=rows,role=big]
+|===
+s|          |[a]あ 段   |[i]い 段   |[u]う 段   |[e]え 段   |[o]お 段 
+s|[a ] あ 行 |あ ア a    |い イ i    |う ウ u    |え エ e    |お オ o 
+s|[ka] か 行 |か カ ka   |き キ ki   |く ク ku   |け ケ ke   |こ コ ko
+s|[sa] さ 行 |さ サ sa   |し シ shi  |す ス su   |せ セ se   |そ ソ so
+s|[ta] た 行 |た タ ta   |ち チ chi  |つ ツ tsu  |て テ te   |と ト to
+s|[na] な 行 |な ナ na   |に ニ ni   |ぬ ヌ nu   |ね ネ ne   |の ノ no
+6+|
+s|[ha] は 行 |は ハ ha   |ひ ヒ hi   |ふ フ fu   |へ ヘ he   |ほ ホ ho
+s|[ma] ま 行 |ま マ ma   |み ミ mi   |む ム mu   |め メ me   |も モ mo
+s|[ya] や 行 |や ヤ ya   |*い イ i*  |ゆ ユ yu   |*え エ e*  |よ ヨ yo
+s|[ra] ら 行 |ら ラ ra   |り リ ri   |る ル ru   |れ レ re   |ろ ロ ro
+s|[wa] わ 行 |わ ワ wa   |*い イ i*  |う ウ u    |*え エ e*  |を ヲ o 
+|===
+
+平假名（平仮名，ひらがな）来源汉字草书演化（例：安→あ，以→い）曲线圆润。片假名（片仮名，カタカナ）来源汉字楷书偏旁简化（例：阿→ア，伊→イ），棱角分明。平假名与片假名是日语文字体系的“双翼”，平假名承载本土表达，片假名链接全球文化。前者用于日常书写、语法词（助词、动词活用等），后者用于外来语、拟声词、学术名词、强调表达。
+
+显然似乎只有五十音是不足够表达一种语言的，因为音节设计不够合理，导致无法覆盖大量发音。因此，日语注音设计方案添加了浊辅音（包括波音、啪音）、抝音、促音。浊辅音 [ka] か 行、[sa] さ 行、[ta] た 行，以及 [ha] は。行但是注音符号还是使用五十音图中的符号组合而成，此时，[ya] や（ゆ ユ yu，よ ヨ yo）行其中三个符号，与及 [ka] か 行、[sa] さ 行、[ha] は 行、[ma] ま 行还有浊辅音的 [i]い 段符号就大派用场。以下是五十音图衍生浊音、抝音。
+
+[cols="25,25,25,25,25",opts="header",frame=ends,grid=rows,role=big]
+|===
+5+s|十五个浊音 (濁音符，だくおんぷ)
+            |が ガ ga   |ぎ ギ gi   |ぐ グ gu   |げ ゲ ge   |ご ゴ go
+            |ざ ザ za   |じ ジ ji   |ず ズ zu   |ぜ ゼ ze   |ぞ ゾ zo
+            |だ ダ da   |ぢ ヂ ji   |づ ヅ zu   |で デ de   |ど ド do
+5+s|十个半浊音 Voiced Sounds (with ゛) Plosive Sounds (with ゜)
+            |ば バ  ba  |び ビ bi   |ぶ ブ  bu  |べ ベ  be  |ぼ ボ  bo 
+            |ぱ パ  pa  |ぴ ピ pi   |ぷ プ  pu  |ぺ ペ  pe  |ぽ ポ  po
+5+s|三十三个拗音（ようおん，glide）
+            |きゃ  キャ  kya    ||きゅ  キュ  kyu     ||きょ  キョ  kyo
+            |しゃ  シャ  sha    ||しゅ  シュ  shu     ||しょ  ショ  sho
+            |ちゃ  チャ  cha    ||ちゅ  チュ  chu     ||ちょ  チョ  cho
+            |にゃ  ニャ  nya    ||にゅ  ニュ  nyu     ||にょ  ニョ  nyo
+            |ひゃ  ヒャ  hya    ||ひゅ  ヒュ  hyu     ||ひょ  ヒョ  hyo
+            |みゃ  ミャ  mya    ||みゅ  ミュ  myu     ||みょ  ミョ  myo
+            |ぎゃ  ギャ  gya    ||ぎゅ  ギュ  gyu     ||ぎょ  ギョ  gyo
+            |じゃ  ジャ  ja     ||じゅ  ジュ  ju      ||じょ  ジョ  jo 
+            |びゃ  ビャ  bya    ||びゅ  ビュ  byu     ||びょ  ビョ  byo
+            |ぴゃ  ピャ  pya    ||ぴゅ  ピュ  pyu     ||ぴょ  ピョ  pyo
+            |りゃ  リャ  rya    ||りゅ  リュ  ryu     ||りょ  リョ  ryo
+|===
+
+oo:振[ふ]りoo:仮名[がな]，亦有注音假名之称，指日语中主要为表示别国字如汉字读音而在其上方或周围附注的假名表音符号。送仮名（おくりがな） 是日语中汉字后面标注的假名，用于标示汉字的读音或明确词性（如动词、形容词的活用），是日语书写的重要规则之一。
+
+五十音图还有一个特殊的拨音（ん ン n，撥音，はつおん），日语中唯一的鼻音音节，独立成拍，不与其他假名拼读。发音受后续假名影响，呈现 /n/、/m/、/ŋ/ 三种变体。可以尝试跟读 NHK 发音库模仿含拨音，如「てんき（天気）」或者「せんせい（先生）」。比如日本相机品牌：キヤノン（Canon）、ニコン（Nikon）。又如“不吃了”「食べん」，这是方言/古语缩略形（未然形+ん）。标准日语表达为「食べない」，这是标准否定形（未然形+ない）。「食べない」与「食べん」虽语义相同，但分别承载标准语与方言的文化印记。
+
+日语注音纠结的规则还有“清化”、促音（っ，小号つ，そくおん）、长音（ー，ちょうおん）、外来音、音读、训读，还有一些字母作助词时读音变化等等。例如，は 读作 ha，但是一般作为助词读作 wa。
+
+「が」行假名用在词首作清晰浊音 /ga/、/gi/、/gu/、/ge/、/go/，词中/词尾鼻浊音化为 /ŋa/、/ŋi/、/ŋu/、/ŋe/、/ŋo/（类似粵語拼音“nga”）。比如，Jobs 仕事（Shigoto），应该读作 Shiŋoto；音楽（おんがく）读作「Onŋaku」。「が」行鼻浊音（びだくおん）是日语语音体系的重要遗产，其存在既有历史合理性，也有实际语音功能。其中的 /ŋa/ /ŋo/ 和粤语的 stem:[{ngaa^1\over雅} {ngo^5\over我}] 发音是较为像似的。学术上使用小圆圈在右上角标记，か゚き゚く゚け゚こ゚，实际书写中罕见，这里使用了 UNICODE 组合符号。link:https://www.unicode.org/charts/PDF/U3040.pdf[​Hiragana Range: 3040–309F]。
+
+    "Tomorrow, do you have time?"
+    「明日ですけど、時間ありますか？」
+    Ashita desu kedo, jikan arimasu ka?
+
+    更正式版本：「明日ですが、お時間はございますでしょうか？」
+
+外来语、音读、训读也是常见规则。“外来語”（がいらいご）或者“カタカナ語”，比如，mail 「メール」 读音需连贯延长：/meːru/（“e”拖长一拍）。又如 camera 「カメラ」、“数码相机”在日语中是「デジタルカメラ」。音读“音読み”（おんよみ），则是汉字在日语中的发音，源自古代汉语的读音，比如“先生”的读音“せんせい”。训读“訓読み”（くんよみ）是日语固有的发音，用汉字来表达日语原有的词汇，比如“山”读作“やま”。
+
+还有两组读音一样的假名，分别是「じ」「ぢ」（都读“ji”），「ず」「づ」（都读“zu”）。其实这两组假名在古代日语里的读音并不相同，但后来随着时代的发展慢慢变成了一样的读音。1986年，日本内阁发布了《现代假名使用方法》（「oo:現代仮名遣い[げんだいかなづかい]」），里面规定：原则上不再使用「づ」「ぢ」，而是统一为「じ」「ず」。
+
+我的理解，日语 ka ga 本身设计是有缺陷的，尽管按 ka 要求发声，它的发音听起来也像 ga，如果不注意发音，那就更像 ga 的发音了。同樣的還有ただ，都是在听觉上较难区分的，应该多听。因为日语语音设计上的缺陷，通常不能用来拟音外来语言的词汇。譬如我印象最深的就 camera 这个单词的日语发音「カメラ」，亿股浓郁的和风味道。因此，日语母语者创造出「有気音（ゆうきおん）ど無気音（どむきおん）」两种概念，来解决遇到的外语发音问题。中文学习者不存在这种问题，但是存在较多元音清化不正确的问题。可以用音乐中的节奏“动次打次”来有形象比喻这个清化过程，有声音（ゆうせいおん）ど無声音（むせいおん）。元音清化就是 stem:[［{ばいんのmusei ka\over母音の無声化}」]。其中「きくしすちつひふぴぷ」等后面出现「かさたはば」行假名时清化处理，这是自然规律，就是让发音变得舒服，所以说清化常出现在 [i]い 段和[u]う 段。比如说，stem:[「{su ki\over好き}」]，清化处理后上并听不到清晰的 su 发音。
+
+日语口语有亿点点烫嘴，研究表明日语音节率是中文的将近一倍，世界各国人信息表达的速度约为 39bit/s。也就是说，语言上表达同样的信息量，日语就需要比中文快一倍。比如“早上好”「こんにちわ」。日语与中文四声调或者英语重音不同，它的语音特点是要保持平稳状态，需要将音调变化用于不同语句。以下是滑舌练习，其实就是简单发声练习中加上ら行假名，一般在配音学校会要求特地练习这些。
+
+    あ（ら）い（り）う（る）え（れ）お（ろ）
+    か（ら）き（り）く（る）け（れ）こ（ろ）
+    さ（ら）し（り）す（る）せ（れ）そ（ろ）
+    た（ら）ち（り）つ（る）て（れ）と（ろ）
+    な（ら）に（り）ぬ（る）ね（れ）の（ろ）
+    な（ら）に（り）ぬ（る）ね（れ）の（ろ）
+    は（ら）ひ（り）ふ（る）へ（れ）ほ（ろ）
+    ま（ら）み（り）む（る）め（れ）も（ろ）
+    や（ら）      ゆ（る）       よ（ろ）
+    わ（ら）      う（る）       を（ろ）
+
+
+== 日语汉字
+
+单词是句子的骨肉，掌握一定数量的词汇和简单句是学习任何语言的基本功（多听，一定要多听）。日语作为一个借鉴汉字的发展起来的语言系统，使用了大量汉语符号，因此掌握基本日语汉字显得非常重要。日语中的汉字词汇数量难以精确统计，但可以从几个维度进行估算：官方统计基准《常用汉字表》（2010年改定）收录汉字：2,136字，覆盖日常使用率：99%。《日本国语大辞典》（最大规模辞典）约收录汉语词 48,000 个，实际使用高频词：12,000-15,000 个。
+
+.日语词汇构成分类
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|类型				|比例	|示例								|特点
+|和制汉语		|35%	|oo:電話[でんわ]				|日本自创的汉字组合
+|中国古典词	|25%	|oo:哲学[てつがく]			|直接继承自古代汉语
+|近代新造词	|30%	|oo:空港[くうこう]			|明治维新后创造的科技词汇
+|现代简化词	|10%	|oo:図書館[としょかん]	|战后简化的汉字形态
+|===
+
+.历史演变数据
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|时期						|新增汉语词量	|代表词汇
+|奈良时代(710)	|800+				|oo:仏教[ぶっきょう]，佛陀所说的教义
+|江户时代(1603)	|2,000+			|oo:蘭学[らんがく]，オランダoo:語[ご]によりoo:西洋[せいよう]のoo:学術[がくじゅつ]・oo:文化[ぶんか]をoo:研究[けんきゅう]するoo:学問[がくもん]のoo:総称[そうしょう]。
+|明治维新(1868)	|5,000+			|oo:化学[かがく]，oo:自然科学[しぜんかがく]のoo:一分野[いちぶんや]。
+|战后(1945)			1,200+			|oo:電子[でんし]，oo:素粒子[そりゅうし]のoo:一[いち]。
+|===
+
+稍微了解日本历史的人都知道荷兰在日本历史中的重要地位，oo:和蘭[オランダ]是日本早期引入西方文化最重要的来源，这对于日本的发展起到了相当大的作用。17 世纪时的荷兰商船队异军突起，靠着两条古老的商贸航线，他们用成本低廉的三桅商船运输货物，在1600年时就拥有10000艘船，荷兰当时被称为“海上马车夫”，海外贸易非常发达，这也极大增强了荷兰的国力。oo:江戸時代[えどじだい]的日本虽然锁国，但与同时期的清王朝（1636～1911）并不一样。日本虽然出于维护封建统治的目的进行了锁国，但在文化上并不傲慢。对于远方的先进文化日本仍然是高度重视。1720年，幕府将军oo:德川吉宗[とくがわ よしむね]放宽引进外国书籍的限制，准许引入外国书籍，并把它们翻译成日文。在与荷兰的交往过程中，日本学到了非常多，早期日本将西方的文化和科学称为“兰学”。17-18 世纪，荷兰可说是当时欧洲经济富裕和科技先进的国家之一，日本人从荷人购买和翻译了许多有关科学的书籍，获得了西方珍奇和工业制品。数千部有关兰学的刊物得以出版，并在日本人之间传阅。欧洲崛起，至少有四轮历程。分别是 12-13 世纪的初始商业贸易，14-15 世纪的富农阶层兴起，16-17 世纪的原工业化，18-19 世纪的工业革命。这四轮环环相扣，彼此紧密联系。而德川幕府的开放文化交流让日本与世界最先进的欧洲国家一同进步。
+
+[mermaid]
+----
+timeline
+    title 日本三大时期关键节点
+    section 奈良时代
+    710年 : 元明天皇迁都平城京
+    752年 : 东大寺大佛开光
+    794年 : 迁都平安京（进入平安时代）
+    section 江户时代
+    1603年 : 德川家康就任征夷大将军
+    1639年 : 锁国令完成（仅留长崎出岛）
+    1853年 : 佩里黑船来航
+    section 明治维新
+    1868年 : 明治天皇颁布《五条御誓文》
+    1871年 : 废藩置县
+    1889年 : 颁布《大日本帝国宪法》
+----
+
+建议优先掌握《常用汉字表》：覆盖 98% 的报纸用字。重点记忆构词能力强的汉字：生・学・行・発・気・力・心・体・用・感，前 10 位高产汉字可构成 3,000+ 词汇。据日本国立国语研究所测算，普通日本人掌握的汉字词汇量约为：大学生：6,000-8,000 个；社会人士：4,000-6,000 个；报纸理解：需掌握 3,500 个核心词汇。
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|oo:漢字[かんじ] |oo:語彙[ごい]
+|生    |oo:先生[せん せい]・oo:産生[さんせい]・ +
+        oo:生[いく]「いきいきとしている」（生机勃勃、鲜活）・ +
+        oo:生きる[いきる]：自动词，主体自身活着。・ +
+        oo:生かす[いかす]：他动词，使某物存活或发挥作用（例：oo:経験[けいけん]を生かす）。・ +
+        oo:生[なま]：强调“未经处理”。例：oo:生肉[なまにく]・oo:生放送[なまほうそう]・ +
+        oo:生[き]：强调“纯粹性”（例：oo:生粋[キッスイ]＝纯血统）。・ +
+|学    |oo:学[がく]・oo:国文学[こくぶんがく]・oo:国語学[こくごがく]
+|行    |oo:行[ぎょう]・
+|発    |oo:発[はつ]・
+|気    |oo:気[き]・
+|力    |oo:力[ちから]・
+|心    |oo:心[こころ]・
+|体    |oo:体[からだ]・
+|用    |oo:用[よう]・
+|感    |oo:感[かん]・
+|前    |oo:前[まえ]・
+|===
+
+oo:漢籍[かん せき]，oo:中国[ちゅうごく]のoo:書籍[しょせき]。oo:中国人[ちゅうごくじん]がoo:漢文[かんぶん]でoo:書い[かい]たoo:書物[しょもつ]。
+
+发音同为「はっか」的词汇：【八卦】【発火】【白化】【白禍】【白華】【薄荷】。还有类似的「はっかい」：【八戒】【発会】【白海】。
+
+特殊现象解析：和制汉字、复合造词能力、同形异义词（日中差异），还要注意新旧字体差异。
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|词汇                |日语含义      |汉字原意
+|oo:手紙[てがみ]       |信件         |卫生纸
+|oo:勉強[べんきょう]    |学习         |勉强
+
+3+s|和制汉字/复合造词/新旧字体
+|oo:峠[とうげ]  2+|山岭
+|oo:込[こむ]    2+|包含
+|「超」         2+|oo:超能力[ちょうのうりょく] oo:超現実[ちょうげんじつ]
+|「非」         2+|oo:非常識[ひじょうしき] oo:非公開[ひこうかい]
+|圖→図        2+|
+|櫻→桜        2+|
+|===
+
+表示场所的助詞「を vs に」，它们都可以表示场所，但是「を」有离开的含义，「に」则有“来到”的含义。对比一下正确例句的助词用法：
+
+[source,role=bit]
+       「大学を卒業する」              「大学に入ったあと」
+    Daigaku o sotsugyō suru    Daigaku ni haitta ato
+
+「ひやむぎ、そーめん、時々うどん」说到三种不同口感的面，“ひやむぎ”是“冷麦”，也就是冷吃的麦面；“そーめん”是“素麺”，即素面，通常是很细的面条，夏天常吃；“うどん”是乌冬面，比较粗，有弹性。但是，同时这也是一首音乐名称 https://www.bilibili.com/video/BV1KJ411b74z[⏯]。这是一种高度依赖语境的口语化省略句式，通过名词并列与副词补充，简洁传达选择偏好。正式场合需补全动词，非正式场景则可灵活使用以增强交流效率。“oo:時々[ときどき]” 是一个副词，基本意思是“有时，偶尔”，其中的 々 符号表示重复前面的字符。同类型副词，比如“たまに”（偶尔）或者“よく”（经常）。
+
+// 言おうと思ったんだ。お前が世界のどこにいても、俺が必ず、もう一度逢いに行くって。
+oo:言お[いお]うとoo:思[おも]ったんだ。おoo:前[まえ]がoo:世界[せかい]のどこにいても、oo:俺[おれ]がoo:必ず[かならず]、もうoo:一度[いちど]oo:逢い[あい]にoo:行く[いく]って。
+
+
+== 动词体系
+
+• https://www.sigure.tw/learn-japanese/grammar/n5/[N5文法]
+• https://www.bilibili.com/video/av23573520/[日语动词12种变形]
+
+标准的日语书面语没有问号，比较正式的文书里不会出现“？”符号。但是日常生活中使用问号、惊叹号的情况越来越普及了，虽然不是标准用法但是也是默许的，这个符号也算是国际通用符号。
+
+日语动词也和英语一样将动词分为及物动词 transitive oo:他動詞[たどうし] 以及不及物动词 intransitive oo:自動詞[じどうし]。
+
+日语中的不规则动词数量较少，通常只有 2个 被公认为严格意义上的不规则动词：「する」（做） 和 「oo:来る[くる]」（来）。另外，ある用于表示无生命物体的存在性。它们的活用形式不遵循一段动词或五段动词的规则。以下是详细说明：
+
+する核心特点：活用形变化完全不规则，且可构成大量复合动词（如「勉強する」「旅行する」）。
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|活用形   |变化      |例词
+|ます形   |します     |勉強します
+|否定形   |しない     |旅行しない
+|过去形   |した      |勉強した
+|可能形   |できる     |勉強できる
+|て形    |して       |勉強して
+|命令形   |しろ／せよ  |勉強しろ！
+|被动形   |される     |批判される
+|===
+
+oo:来る[くる]核心特点：活用形与其他动词完全不同，且无法归类到一段或五段动词。
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|活用形   |变化      |例词
+|ます形   |きます     |明日来ます
+|否定形   |こない     |彼は来ない
+|过去形   |きた      |昨日きた
+|可能形   |こられる    |ここに来られる？
+|て形    |きて      |早くきて！
+|命令形   |こい      |すぐにこい！
+|被动形   |こられる    |（较少用）
+|===
+
+首个必学基础动词：ある 表示「无生命存在/拥有/事件存在」，如果是有生物使用「いる」。动词「ある」主要用于两种核心含义（礼貌体ます形「あります」），其各种使用形式参考如下：
+
+• 表示存在：表示生命体用「います」。
+  ** oo:猫[ねこ]がoo:庭[にわ]にいます。（院子里有猫。）
+  ** oo:幽霊[ゆうれい]がいるとoo:言わ[いわ]れる。（据说有幽灵。）
+  ** oo:冷蔵庫[れいぞうこ]にoo:ビール[beer]があります。（冰箱里有啤酒。）
+  ** oo:本[ほん]があります。（有书。）
+  ** oo:公園[こうえん]にoo:木[き]があります。（公园里有树。）
+  ** 本はoo:机[つくえ]のoo:上[うえ]にあります。（书在桌上。→ 强调书的位置）
+  ** 机の上に本があります。（桌上有书。→ 强调存在某物）
+• 拥有或发生：表示拥有某物或事件/状态的存在。
+  ** oo:時間[じかん]がありますか？（有时间吗？）
+  ** oo:明日[あした]oo:会議[かいぎ]があります。（明天有会议。）
+• 否定形式：ありません（礼貌体否定）／ない（普通体否定）
+  ** oo:お金[おかね]がありません。（没有钱。）
+  ** 時間がない。（没时间。）
+• 疑问句：〜がありますか？（有...吗？）
+  ** oo:質問[しつもん]がありますか？（有问题吗？）
+
+日语动词根据活用方式分为三类，以假名分段：
+
+• 一类动词（五段动词），词尾为「う段」假名（う、く、ぐ、す、つ、ぬ、ぶ、む、る）。
+** oo:書く[かく]（写）
+** oo:話す[はなす]（说）
+** oo:待つ[まつ]（等待）
+• 二类动词（一段动词），词尾为「る」，且倒数第二个假名为「い段」或「え段」。
+** oo:見る[みる]，（看）→ 倒数第二音「み」为い段
+** oo:食べる[たべる]，（吃）→ 倒数第二音「べ」为え段
+• 三类动词（变格动词，包括「サ変、カ変」）
+** する（做）：可接名词构成复合动词（例：oo:勉強[べん きょう]する，学习）。
+** oo:来る[くる]（来）：唯一不规则动词。
+
+注意特殊一类动词形式：oo:帰る[かえる]（回家）、oo:知る[しる]（知道）、oo:滑る[すべる]（滑）。い段/え段➕る中如果是汉字➕る的都是一类动词，除了oo:寝る[ねる]、oo:見る[みる]、oo:着る[きる]、いる、てる。比如：oo:入[はい]る 入[い]る oo:走[はし]る oo:帰[かえ]る oo:知[し]る oo:要[い]る oo:切[き]る oo:蹴[け]る oo:減[へ]る oo:oo:焦[あせ]る oo:返[かえ]る oo:限[かぎ]る oo:茂[しげ]る oo:喋[しゃべ]る oo:滑[すべ]る oo:散[ち]る。
+
+动词名称中的“五段”“一段”的命名和动词或用有关，分类可以帮助系统掌握活用规则，但需注意例外和特殊动词：
+
+• 五段动词：活用覆盖五个假名段，词尾为「う段」假名（除部分例外）。
+• 一段动词：活用仅在一个段内，词尾为「る」且倒数第二音为「い/え段」。
+
+oo:五段活用[ごだん かつよう]指动词词尾在未然形、连用形、终止形、连体形、假定形、命令形等活用形中，会跨越「あ・い・う・え・お」五个假名段。可以在词典中也看到这种表达方法，使用“お・きる”（上一段）这样的一个假名加圆点的形式。
+
+所谓「上一段」，是以五十音图的「う」段为中心段，「い」段位于中心段上一段，故以「い」段假名作词尾的动词称之为「上一段」动词。「え」段位于五十音图中心段下一段，故以「え」段假名词尾的动词称为「下一段」动词。和五段或用一样，也有oo:一段活用[いちだんかつよう]，并且分oo:上一段活用[かみいちだん かつよう]和oo:下一段活用[しもいちだん かつよう]。
+
+• 上一段动词举例：いる、oo:起きる[お・きる]、oo:落ちる[お・ちる]、oo:似る[にる]、oo:浴びる[あ・びる]。
+• 下一段动词举例：oo:寝る[ねる]、oo:見える[み・える]、oo:受ける[う・ける]、oo:出る[でる]、oo:食べる[た・べる]。
+
+动词的归类是方便对动词变形再活用，动词变形涉及假名段位变换。变形规则如下：
+
+• 五段动词变形：词尾变「え段」，例：oo:話す[はな・す] → 話せ！
+• 一段动词变形：替换词尾的「る」为「ろ/よ」，例：oo:見る[みる] → 見ろ/見よ
+
+活用形对比表（以五段动词「oo:書く[かく]」、一段动词「oo:食べる[た・べる]」为例）
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|活用形              |五段动词  |一段动词　　　　|主要功能
+|oo:未然形[みぜんけい]  |書か      |食べ         |否定、被动、使役。否定与衍生形态的基础
+|oo:连用形[れんようけい] |書き      |食べ         |连接其他成分的中枢活用：ます形、て形、た形。
+|oo:终止形[しゅうしけい] |書く      |食べる       |句子终结的核心形式。
+|oo:连体形[れんたいけい] |書く      |食べる       |名词修饰的桥梁。
+|oo:假定形[かていけい]   |書け      |食べれ       |假设条件（＋ば）。条件句的构建关键。
+|oo:命令形[めいれいけい] |書け      |食べろ/食べよ |命令，直接表达要求。
+|===
+
+• oo:早く[はやく]oo:書け[かけ]！（直接命令：快写！）
+• 食べろ／食べよ（委婉命令（一段动词）：吃吧！）
+
+
+[cols=",,,",opts="autowidth",frame=ends,grid=rows]
+|===
+|Base  |oo:五段[ごだん] |oo:一段[いちだん] |verbal adjectives
+|stem (oo:語幹[ごかん]) |remove う—row syllable |remove る |remove い
+|未然形 |stem + あ—row syllable |stem             |stem + く
+|連用形 |stem + い—row syllable |stem             |stem + く
+|連体形 |stem + う—row syllable |stem + る        |stem + い
+|已然形 |stem + え—row syllable |stem + れ        |stem + けれ
+|命令形 |stem + え—row syllable |stem (+ ろ/よ *) |(stem + かれ*)
+|===
+
+[cols=",,,,",opts="autowidth",frame=ends,grid=rows]
+|===
+|Base  |～く form   |～かり form |～し form |～しかり form
+|未然形 |-          |stem + から |-        |stem + しから
+|連用形 |stem + く   |stem + かり |stem+しく |stem + しかり
+|終止形 |stem + し   |-          |stem+し   |-
+|連体形 |stem + き   |stem + かる |stem+しき |stem + しかる
+|已然形 |stem + けれ |-          |stem + しけれ |-
+|命令形 |-          |stem + かれ |-         |stem + しかれ
+|===
+
+[cols=",,,,,",opts="autowidth",frame=ends,grid=rows]
+|===
+|五段 verb   |未然形 |連用形 |連体形 |已然形 |命令形
+|oo:会[あ]う   |会わ  |会い   |会う  |会え   |会え
+|oo:歩[ある]く |歩か  |歩き   |歩く  |歩け   |歩け
+|oo:急[いそ]ぐ |急が  |急ぎ   |急ぐ  |急げ   |急げ
+|oo:話[はな]す |話さ  |話し   |話す  |話せ   |話せ
+|oo:待[ま]つ   |待た  |待ち   |待つ  |待て   |待て
+|oo:死[し]ぬ   |死な  |死に   |死ぬ  |死ね   |死ね
+|oo:学[まな]ぶ |学ば  |学び   |学ぶ  |学べ   |学べ
+|oo:読[よ]む   |読ま  |読み   |読む  |読め   |読め
+|oo:分[わ]かる |分から |分かり |分かる |分かれ |分かれ
+|oo:切[き]る   |切ら  |切り   |切る  |切れ   |切れ
+|oo:売[う]る   |売ら  |売り   |売る  |売れ   |売れ
+|oo:帰[かえ]る |帰ら  |帰り   |帰る  |帰れ   |帰れ
+|oo:怒[おこ]る |怒ら  |怒り   |怒る  |怒れ   |怒れ
+|===
+
+
+「起きる」和「起こる」的差別：「起きる」最早是用於人或動物的行為（從躺著的狀態起身），後來衍伸為事件的發生，而「起こる」則是專指事件的發生，因此現在兩者都可以用於事件的發生，意思也完全一樣。要注意的是，「起こる」只有事件發生的意思，並不會用於人或動物的行為，譬如起床。用於事件發生時兩者皆可互換即可，並且語感都差不多，使用頻率也差不多。
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|       |oo:起[お]きる                   |起こる
+|起床   |✔ oo:6時[ろくじ]に起きる。         |✖
+|事件   |✔ oo:地震[じしん]が起きる。        |✔ oo:火災[かさい]が起こる。
+|病痛   |✔ oo:頭痛[ずつう]が起きる。 　　　　|✔　頭痛が起こる。
+|情感   |✖       |✔ oo:悲しみ[かなしみ]がoo:沸き[わき]起こる。oo:悪心[あくしん]が起こる。
+|===
+
+
+== 文の構造
+
+世界流行的英语、汉语都使用“SVO”句式，这种句式可以让听者有一种“流式解码”的体验，不管说话者讲到句子的什么位置，即使中断，也能理解已经说出来的部分。譬如“我要...”这句话虽然中断了，但是听者还是可以知道对方“要”做什么，譬如“我要读书”。而日本语oo:文[ぶん]のoo:構造[こうぞう]采用 SOV 语序，要求动词居末。譬如“oo:私[わたし]はoo:本[ほん]をoo:読[よみ]みです”这句话，如果中断在动词结构前面，“私は本...”，“我书”缺失语言最核心的动词信息，就会让听者不知所谓。日语为何会采用“倒转”句式？日本语言含有的含蓄、舒缓、敬语、残缺等特色表达方式，可能和日本暧昧文化、和文化、耻文化和等级文化等多种民族文化心理相关。动词后置的核心原因：日语通过句尾动词表达时态、语气等关键信息，形成“悬念感”。与其他 SOV 语言（如韩语、土耳其语）相比，日语的“倒转”更依赖助词而非屈折变化，依靠「を」「が」「は」等助词标记明确成分关系，无需依赖固定语序。助词在日语句式种起重要作用，如果用错、读错将完全改变语句意思。以下两句话含义相同强调对象不同，仅变换主语位置，无动词屈折变化。
+
+• リンゴを私はoo:食[たべ]た。（苹果 我 吃了）
+• 私はリンゴをoo:食[たべ]た。（我 苹果 吃了）
+
+需重点掌握日语通过助词（は、が、を）和动词变形实现句式变化：
+
+• 助词功能（如「は」提示主题，「を」标记宾语）。
+• 动词活用（时态、被动、使役等）。
+• 敬语体系（礼貌体、尊敬语、谦让语）。
+
+助词“は”、“が”和“を”的基本用法：“は”通常用于话题标记，强调说话者想要讨论的主题；“が”主要用于主语和宾语的识别，突出强调某个特定的名词；而“を”则用于标记直接宾语，通常放在动词前，指明动作的对象。但是它们常常让人困惑，有时两者可以互换使用，理解它们各自的功能对于准确表达句子意义至关重要。
+
+• oo:昨日[きのう]はoo:公園[こうえん]でoo:彼[かれ]にoo:会っ[あっ]た。（昨天 在公园 见到了他）
+• oo:公園[こうえん]でoo:昨日[きのう]はoo:彼[かれ]にoo:会っ[あっ]た。（在公园 昨天 见到了他）
+
+「は、が、で、に、の、を」归类篇
+
+• 「ここはoo:教室[kyoushitsu]です。」强调这是一间教室。
+• 「ここがoo:教室[kyoushitsu]です。」强调只有这间是教室。
+• 「どこがoo:教室[kyoushitsu]ですか。」哪间是教室？（“...が...か”疑问句式）
+
+• 「教室にoo:机[つくえ]があります。」（教室里有桌子。）
+• 「oo:机[つくえ]は教室にあります。」（桌子在教室里。）
+• 私は本を読みます（我读书），“本”作为直接宾语，动词接在“を”之后。
+• 本は私に読まれています（这本书被我读），突出主语“我”。
+• oo:猫[ねこ]がoo:魚[さかな]をoo:食べ[たべ]ました（猫吃了鱼）。主语和宾语以“が”分隔，“猫”作主语在前，“鱼”作宾语在后。
+
+“は”、“が”和“を”的正确使用不仅能够准确表达句子的意思，还能够强调说话者想要突出的部分。掌握它们的使用规则，有助于提升日语表达的准确性和地道性。当然，熟练使用这些助词需要大量的练习和实际应用，多加练习才能更好地理解和运用。
+
+以下是日语中常见句式的分类与表达示例，涵盖基本结构和实用句型：
+
+1. 判断句（oo:判断[はんだん]oo:文[ぶん]）结构：oo:名詞[めい し] + は／が + 名詞 + です／だ
+  ** これは本です。（这是书。）
+  ** oo:彼は[かれは]oo:医者[いしゃ]だ。（他是医生。）
+2. 存在句（oo:存在[そん ざい]oo:文[ぶん]）结构： +
+  oo:无生命[むせいめい]物/植物：oo:場所[ばしょ] + に + oo:物[ぶつ] + が あります  +
+  oo:有生命体[ゆうせいめいたい]：場所 + に + oo:人[ひと]/oo:動物[どう ぶつ] + が います  +
+  ** oo:机[つくえ]のoo:上に[うえに]oo:ペン[pen]があります。（桌上有笔。）
+  ** oo:公園[こうえん]にoo:子供[こども]がいます。（公园里有孩子。）
+3. 描写句（oo:描写[びょうしゃ]oo:文[ぶん]）结构：名词 + は／が + 形容词/形容动词 + です
+  ** このoo:ケーキ[cake]はおいしいです。（这个蛋糕很好吃。）
+  ** oo:空[そら]がoo:青く[あおく]oo:綺麗[きれい]です。（天空湛蓝美丽。）
+4. 动作句（oo:動作[どう さ]oo:文[ぶん]）结构：主语 + は／が + 宾语 + を + 动词
+  ** 私はご飯を食べます。（我吃饭。）
+  ** 彼は本を読みました。（他读了书。）
+5. 疑问句（疑問文）结构：句尾加「か」或疑问词（何、どこ、誰等）。
+  ** これは何ですか？（这是什么？）
+  ** どこへoo:行き[いき]ますか？（你去哪里？）
+  ** 昨日どこへ行きましたか？（昨天去了哪里？）
+6. 比较句（比較文）结构：A は B より～です／A より B の方が～です
+  ** 東京は大阪より暑いです。（东京比大阪热。）
+  ** コーヒーより紅茶の方が好きです。（比起咖啡，更喜欢红茶。）
+7. 条件句（条件文）结构：一般条件：～たら／～なら；假设条件：～ば／～と
+  ** 雨が降ったら、家にいます。（如果下雨，我就待在家。）
+  ** 勉強すれば、合格できます。（只要学习，就能通过。）
+8. 被动句（受身文）结构：主语 + は／が + 动作主 + に + 动词被动形（～られる／～れる）
+  ** oo:私[わたし]はoo:友達[ともだち]にoo:笑わ[わらわ]れました。（我被朋友笑了。）
+  ** oo:本[ほん]はoo:彼[かれ]にoo:読[どく]まれました。（书被他读了。）
+  ** このoo:本[ほん]はoo:多く[おおく]のoo:人[にん]にoo:読ま[よま]れています。（这本书被许多人阅读。）
+9. 使役句（使役文）结构：主语 + は／が + 对象 + に + 动词使役形（～せる／～させる）
+  ** oo:母[はは]はoo:私[わたし]にoo:野菜[やさい]をoo:食べ[たべ]させます。（妈妈让我吃蔬菜。）
+  ** oo:母[はは]はoo:私[わたし]にoo:勉強[べんきょう]させます。（妈妈让我学习。）
+  ** oo:先生[せんせい]はoo:学生[がくせい]にoo:本[ほん]をoo:読ま[よま]せました。（老师让学生读书。）
+10. 敬语句（敬語文）礼貌体（です／ます形）；尊敬语（お～になる／～れる）；谦让语（お～する／いたす）：
+  ** 私は映画を見ます。（我看电影。）
+  ** 社長はお帰りになりました。（社长回去了。）
+  ** 私がお持ちします。（我来拿。）
+11. 感叹句（感嘆文）结构：句尾用「ね」「よ」「わ」或「なんて～！」
+  ** 今日は暑いね！（今天好热啊！）
+  ** なんて美しい景色だ！（多美的景色啊！）
+12. 并列句（並列文）结构：使用「と」「や」「たり～たり」连接
+  ** りんごとバナナを買いました。（买了苹果和香蕉。）
+  ** 週末は映画を見たり、散歩したりします。（周末看电影、散步等。）
+
+教材参考：
+
+• 皆さん日本語，《大家日本语》是日本国内教材 《新日语基础教程》 的姊妹篇教材。后者是日本经济发展迎来了世界各地的劳动力（日本称“海外技术者”），为了让他们在短期内掌握日语进行交流而编写的教材。
+• https://guidetojapanese.org/learn/[https://guidetojapanese.org/learn/]
+• https://riyutool.com/jpgrammar/index.html[Japanese Grammar Guide by Tae Kim]
+• https://vscode.dev/github/pizzamx/jpgramma[Japanese Grammar Guide by Tae Kim]
+• https://github.com/koenol/japanese-learning[Japanese learning resource]
+• https://pomax.github.io/nrGrammar/[An introduction to Japanese]
+• https://kanjivg.tagaini.net/viewer.html[KanjiVG Viewer]
+
+
+== 日语词典
+
+免费在线词典：
+
+• https://jisho.org/[Jisho.org]：支持日英互译、汉字拆分及例句。
+• https://www.weblio.jp/[Weblio]：集成多词典，含专业术语（多广警告）。
+• https://www.gavo.t.u-tokyo.ac.jp/ojad/[OJAD]：动词活用形查询。
+• https://kotobank.jp/[KotoBank]：コトバンク，大辞林、缩编版的日本国语大辞典（相当于OED）。
+
+.笑话一则
+[role=right]
+****
+谁知道“oo:三省堂[さんせいどう]oo:スーパー[すーぱー]oo:大辞林[だいじりん]”什么意思？
+
+百度翻译：我知道，意思是“三省堂超市大辞林”。
+****
+
+
+oo:辞林[じ りん]::
+  oo:言葉[ことば]をoo:多く[おおく]oo:集め[あつめ]てoo:解釈[かいしゃく]したoo:書物[しょもつ]。
+
+oo:辞書[じ しょ]::
+  多くの言葉や文字を一定の基準によって配列し，その表記法・発音・語源・意味・用法などを記した書物。国語辞書・漢和辞書・外国語辞書・百科辞書のほか，ある分野の語を集めた特殊辞書，ある専門分野の語を集めた専門辞書などの種類がある。辞典。辞彙じい。語彙。字書。字引。
+
+日语词典的主要类型：
+
+1. 国語辞典（针对母语者），为日本人设计，不标注所有汉字读音（默认使用者已掌握基础）。解释词汇含义、用法及语源，注重语义辨析和文化背景。代表词典：《広辞苑》（岩波書店）：权威性高，收录约24万词条。《大辞林》（三省堂）：释义简明，适合快速查询。《新明解国語辞典》（三省堂）：以独特的主观释义著称（例：「愛」的解释充满哲学色彩）。
+
+2. 学習者向け辞典（针对非母语者），定位：帮助外国人学习日语，注重易用性。全词条标注假名（含汉字读音）。提供例句、语法说明及对比辨析。代表词典：《日本語文型辞典》（专门针对语法句型）。《プログレッシブ和英中辞典》渐进（progressive）日英词典。《Oxford Japanese Grammar and Verbs》（适合英语母语者）。
+
+3. 漢和辞典（汉字专用词典），定位：解析汉字字形、音训读及汉语词源。特点：按部首或笔画检索汉字。标注音读（音読み）和训读（訓読み）。代表词典：《新漢語林》（大修館書店）：收录约1.4万汉字，适合中高级学习者。《漢字源》（学研）：附汉字演变图解。
+
+4. 専門分野辞典（专业领域词典），法律、医学、IT等特定领域术语。代表词典：《IT用語辞典》（技术术语）。《医学大辞典》（临床与学术词汇）。
+
+.三省堂スーパー大辞林 3.1 词汇解析
+[role=right]
+****
+ふ きゅう —きう  0 【不朽】
+すぐれていて，いつまでも朽ちないこと。oo:後世[こうせい]までoo:長く[ながく]oo:残る[のこる]こと。「━の名作」
+
+「三省堂 スーパー大辞林 3.1」是一本专业日语词典，词条结构包含基础信息模块
+
+[opts="header,autowidth",frame=ends,grid=rows]
+|===
+|标识符号 | 含义解析                       | 示例
+|【】    | 词性标注（含古语标记）            | 【名】＝名词 【動五】＝五段动词
+|〘〙    | 语源/词源说明                   | 〘ラテン語「～」より〙
+|〖〗    | 专业领域限定                    | 〖生物〗〖コンピュータ〗
+|⇔      | 参见关联词                      | →「類似語」参照
+|0      | 平板型发音标注：音调平坦，没有起伏   |
+|1      | 起伏型发音标注：头高型（第一拍高）        |
+|2      | 起伏型发音标注：中高型（第二拍高，后续下降）|
+|3      | 起伏型发音标注：尾高型（词尾保持高音）第 3 音节后音调下降  |
+|===
+
+// https://nihongokyoiku-shiken.com/japanese-accent-type/
+日语虽然是“平调”型语音，但是其单词也有音调核（アクセント，accent）位置，即音调下降点的位置。音调规则基于「東京式アクセント」（东京方言标准音调）。例子：“はかり  0  3 【計り・量り】”标注了 0 3 两种音调，表示这个词有两种不同的发音方式，对应不同的汉字写法“計り”和“量り”。日语中的音调分为平板型和起伏型。同一词有不同音调是因有多种差异：方言或时代差异，东京与关西地区对同一词可能有不同音调；语义微调通过音调变化区分「計り」与「量り」的语感（但实际使用中常混用）。词典收录全面性也会有影响，《大辞林》会标注该词在不同语境下的可能音调。常见尾高型词汇示例：
+
+• oo:家族[かぞく]　1 「か↗ぞ↗く↘が]」
+• oo:学生[がくせい] 0　「が↗く↗せ↗い↘が]」
+• oo:電気[でんき]　1 「で↗ん↗き↘が]」
+• oo:公園[こうえん] 0　「こ↗う↗え↗ん↘が]」
+
+古语发音标记：かうぢやう（カウデャウ） → 历史假名遣转写。
+
+语义网络图构建，通过同义词、反义词、常见搭配标记建立词汇关系：
+
+• oo:類義語[るいぎ ご]：例：oo:美しい[うつくし・い]→oo:麗しい[きれい]
+• oo:対義語[たいぎ ご]：例：oo:肯定[こう てい]⇔oo:否定[ひ てい]；麗しい⇔醜い
+• oo:共起[きょう き]oo:表現[ひょう げん]：例：oo:実施[じっ し]共→oo:計画[けい かく]を～する」）
+
+观察词义编号的时空维度了解历时语义演变：
+
+❶ 古义（平安时代用法）
+❷ 中世语义扩展
+❸ 现代新义（明治后产生）
+
+古文中使用的假名遣即为「oo:歴史的[れきしてき]oo:仮名遣い[かなづかい]」，是二战前日语的正字法，二战后被 1946 年制定的「oo:現代仮名遣い[げんだいかなづかい]」取代。和现代五十音图相比，历史假名遣ヤ行多了「ゐヰ (wi)、ゑヱ(we)」两组假名，发音分别等同“い”和“え”。
+****
+
+
+== 情景对话
+
+=== 回应谢过
+
+最通用的“不客气”，适用于大部分正式与非正式场合。
+
+A：:: おoo:世話[せわ]になりました！（承蒙关照！）
+B：:: いいえ、とんでもないです！（不，哪里的话！）
+
+回应对方过度感谢或长辈/上级致谢。
+
+A：:: oo:手伝っ[てつだっ]てくれてありがとう！（谢谢你的帮助！）
+B：:: どういたしまして！（不客气！）
+
+非正式场合（朋友/平辈）
+
+• ううん、oo:全然[ぜんぜん]！（不，完全没有！朋友间小忙后的回应）
+• oo:気に[きに]しないで！（不要在意）
+• オッケー！（👌ok）
+
+A：:: oo:宿題[しゅくだい]oo:教え[おしえ]てくれてoo:サンキュー[thank you]！（请告诉我作业！）
+B：:: ううん、全然！ またoo:困っ[こまっ]たoo:時言[じげん]ってね！
+    （不，完全没有！下次有困难的时候再说！）
+
+• おoo:役に立て[やくにたて]てoo:嬉しい[うれしい]です（很高兴能帮到您）
+• おoo:役に立て[やくにたて]てoo:光栄[こうえい]です（能帮上忙是我的荣幸）
+
+A：:: oo:迅速[じんそく]なoo:対応[たいおう]ありがとうございました！（谢谢您迅速的应对！）
+B：:: oo:恐縮[きょうしゅく]です。またoo:何か[なにか]あればおoo:申し付け[もうしつけ]ください。
+    （不好意思，如果还有什嚒事的话请告诉我。）
+
+A：:: 資料作成助かりました！ありがとう！（）
+B：:: どういたしまして！次は一緒にランチでもどうですか？（）
+
+A：:: 傘貸してくれてありがと～！（）
+B：:: いいえ、いいえ～！また必要な時いつでも言ってね！（）
+
+
+== Say No! 就是省事
+
+Nirvana principle oo:涅槃原理[ねはんげんそく]
+
+拒绝必备缓冲短语
+
+• あいにく（强调客观冲突，日程、规则等）
+• 残念ながら（表达遗憾情绪）
+• せっかくですが（肯定对方好意后转折拒绝）
+• 恐縮ですが（谦逊语气铺垫）
+
+行きたいのですが、あいにく先約があります。またの機会にぜひ！
+（很想去，但不巧已有安排。下次一定参加！）
+
+お気持ち嬉しいですが、今はお付き合いを考えられないです。ごめんなさい。
+（您的心意让我高兴，但目前无法考虑交往。对不起。）
+
+せっかくのお申し出ですが、あいにく他の案件を抱えており…
+（承蒙您特意提出，但不巧我手头有其他工作…）
+
+現状の業務に集中する必要があるため、お手伝いできかねます。ご理解ください。
+（因需专注现有工作，无法协助。请您理解。）
+
+他部署にご相談いただけると幸いです。」（建议您咨询其他部门。）
+
+拒绝同事加班请求
+
+A：:: 明日の残業、手伝ってもらえないかな？
+B：:: 申し訳ありませんが、家族との約束がありまして…。次回以降で可能な時は協力します！
+
+直接但礼貌型，适用商务场合、正式请求。
+
+• oo:申し訳[もうしわけ]ありませんが、おoo:受け[うけ]できかねます。（非常抱歉，我无法接受。）
+• oo:今回[こんかい]はoo:見送ら[みおくら]せていただきます。（这次请允许我婉拒。）
+• おoo:誘い[さそい]いただきありがとうございます。
+  あいにくoo:予定[よてい]がoo:入っ[いっっ]ており、oo:参加[さんか]できません。
+  （感谢您的邀请。不巧我已有安排，无法参加。）
+
+不同亲密度下的拒绝方式
+
+• ゴメン、ちょっと無理かも…	（抱歉，可能有点难…）轻松略带歉意应对朋友/平辈
+• 検討させていただきます（请容我考虑一下）委婉拖延（实际为拒绝）应对同事/客户或不重要人事
+• 力不足でお役に立てず申し訳ありません（能力不足未能帮上忙，非常抱歉）谦逊自贬式拒绝应对长辈/上级
+
+
+== oo:糸[いと] - ruby:中島[なかじま]みゆき
+
+https://www.bilibili.com/video/BV1hA411n7rg/[Live 2007 歌旅]
+
+http://www.rockinsuit.cn/2485.html[35th Single「命の別名」]
+
+____
+oo:何故[なぜ]　めぐりoo:逢う[あう]のかを oo:私[わたし]たちは　なにもoo:知ら[しら]ない +
+oo:何時[いつ]　めぐりoo:逢う[あう]のかを oo:私[わたし]たちは　いつもoo:知ら[しら]ない
+
+どこにいたの　oo:生き[いき]てきたの +
+oo:遠い[とおい]oo:空[そら]のoo:下[した]　ふたつのoo:物語[ものがたり]
+
+oo:縦[たて]のoo:糸[いと]はあなた　oo:横[よこ]のoo:糸[いと]はoo:私[わたし] +
+oo:織り[おり]なすoo:布[ぬの]は　いつかoo:誰か[だれか]を +
+oo:暖め[あたため]うるかもしれない
+
+
+oo:何故[なぜ]　oo:生き[いき]てゆくのかを oo:迷っ[まよっ]たoo:日[にち]のoo:跡[あと]の　ささくれ +
+oo:夢[ゆめ]oo:追い[おい]かけoo:走っ[はしっ]て ころんだoo:日[にち]のoo:跡[あと]の　ささくれ
+
+こんなoo:糸[いと]が　なんになるの +
+oo:心[こころ]oo:許[もと]なくて　ふるえてたoo:風[かぜ]のoo:中[なか]
+
+oo:縦[たて]のoo:糸[いと]はあなた　oo:横[よこ]のoo:糸[いと]はoo:私[わたし] +
+oo:織り[おり]なすoo:布[ぬの]は　いつかoo:誰か[だれか]の +
+oo:傷[きず]をかばうかもしれない
+
+oo:縦[たて]のoo:糸[いと]はあなた　oo:横[よこ]のoo:糸[いと]はoo:私[わたし] +
+oo:逢う[あう]べきoo:糸[いと]に　oo:出逢[であ]えることを +
+oo:人[にん]は　oo:仕合[しあい]わせとoo:呼び[よび]ます
+
+ruby:作詞[さくし]：ruby:中島[なかじま]みゆき
+____
+
+
+摘录： https://saluteproject.com/2020/08/25/ito/
+
+1. シェアする 字面翻译："分享"（Share），源自英语"Share"的片假名表记。
+2. スポンサーリンク 字面翻译："赞助商链接"（Sponsored Links）。
+
+日本《景品表示法》规定必须明确标注广告属性。典型标注方式：
+
+• 🔶「PR」标记（紫色方框内白字PR）
+• 🔷「この記事はスポンサーリンクを含みます」（本文含赞助链接）
+
+oo:歌詞[かし]のoo:意味[いみ]をoo:徹底[てってい]oo:解釈[かいしゃく]！oo:不朽[ふきゅう]のoo:名作[めいさく]のoo:魅力[みりょく]をoo:今[いま]こそプレイバック（playback）。
+
+[link=https://www.bilibili.com/video/BV1hA411n7rg/]
+image::https://i0.wp.com/saluteproject.com/wp-content/uploads/2020/08/yarn-1615526_1280-e1598309409350.jpg?resize=480%2C207&ssl=1[thread]
+
+中島みゆきの「糸」について、歌詞の意味を徹底的に考察および解説していきたいと思います。
+
+注目ポイント
+
+* ✔　映画化・カバーで再注目の名作
+* ✔　実はかなり残酷な歌詞…？
+* ✔　微かに見える希望の光
+
+
+今や誰もが知る不朽の名作。改めてその歌詞に注目して楽曲について考察いたしましたので、是非最後までお読みください…！
+
+目次
+
+* 映画化で再注目の名曲
+* 楽曲名「糸」とは
+* 歌詞
+* 歌詞の意味・解釈
+** １番
+** サビ１
+** ２番
+** サビ２
+** ラストサビ
+* 感想
+
+=== 映画化で再注目の名曲
+
+今回紹介していく「糸」は中島みゆきさんの不朽の名曲。その発売は1992年まで遡りますが、ドラマでの起用や2004年のBank Bandによるカバー、各種テレビ番組での起用、2014年の紅白歌合戦でのクリスハートさんによるカバーなどを経て、今日では誰もが耳にしたことのある中島みゆきさんの代表曲となりました。
+
+2020年には菅田将暉 × 小松奈々のW主演で『糸』をモチーフとして映画化。
+
+菅田将暉さんと石崎ひゅーいさんによる楽曲のカバーが公開されるなど、以前にもまして楽曲への注目が高まっています。
+
+そんな「糸」は一体何を歌った楽曲なのか。改めて歌詞を見ながら考察してみましょう。
+
+=== 楽曲名「糸」とは
+
+楽曲中では「縦の糸はあなた　横の糸は私」というサビからも明らかなように、自分自身や他の人間の比喩として「糸」が用いられています。
+
+そして人間同士の出会いによって生み出される物、糸と糸が織りなす物こそが「布」であって、それが誰かを温めるかもしれない。というのが楽曲の中心的なテーマです。
+
+人間の出会いを肯定しつつ、どこか温かみを感じられる美しいメタファーですね。
+
+タイトルについて確認したところで、さっそく歌詞全体を眺めていきます。
+
+
+=== 歌詞の意味・解釈
+
+==== １番
+
+____
+なぜ　めぐり逢うのかを +
+私たちは　なにも知らない +
+いつ　めぐり逢うのかを +
+私たちは　いつも知らない
+____
+
+今や誰もが知る名曲「糸」ですが、この曲を**単なる明るいラブソング**だと思って歌詞を眺めていると、何か大きな違和感があることにすぐに気が付きます。
+
+*なぜめぐり逢うのか、いつめぐり逢うのか、私たちは何も知らない。*
+
+楽曲冒頭で描かれているのは、「君に出会えてうれしい」とか「君と出会えるのは必然だった」のような温かくて優しいものでは決してありません。
+
+*そこにあるのは、運命を前にした時の私たち人間の無力さに他ならないのです。*
+
+この出会いに意味があるのかは定かではないし、果たして出会えるかどうかすらもわからない。
+
+理想論を歌うわけではなく、何も断言されていない状態から楽曲はスタートします。
+
+一見すると親しみやすい楽曲ですが、よくよく歌詞を見ていくと**現実的で残酷な側面**を抱えているのです。
+
+____
+どこにいたの　生きてきたの +
+遠い空の下　ふたつの物語
+____
+
+出会いは偶然であって、奇跡的なものなのだ。
+
+*「どこにいたの　生きてきたの」*
+
+という歌詞からは中島みゆきさんのそんな考え方が垣間見えます。
+
+今でこそインターネットが普及してどこの誰とであっても関係を持てる時代ではありますが、時代背景を考えれば遠く離れた二人がお互いを正確に把握する術などありません。
+
+連絡する術を持たなければ、何処にいるかもわからないし生きているかすらも確かではないはずです。
+
+*そんな二人の人生が直接交わることは、本当に天の定めとしか言いようがないものであって私たちは無力なんだ*。
+
+そんなことを言われているような気がします。
+
+==== サビ１
+
+____
+縦の糸はあなた　横の糸は私 +
+織りなす布は　いつか誰かを +
+暖めうるかもしれない
+____
+
+ここまでの歌詞での悲観的ともいえるスタンスは、よく見るとサビでも変わっていません。
+
+*「いつか誰かを　暖めうるかもしれない」*
+
+**「暖めうる」**であっても確実ではないのに、**暖めうるかもしれない#」**なんてもっと可能性としては低いもの。
+
+もはやこれは限りなく憶測や勘に近い話です。
+
+言い換えてしまえば、二人の出会いには何の意味もないのかもしれない。
+
+直接的にはそんなことは歌われていませんが、そのくらいの*残酷さ*を秘めた歌詞なのです。
+
+*しかしそんな楽曲が今なお多くの人に愛されるのは、その歌詞が現実を見つめながらもどこか希望を感じさせるものだからでしょう。*
+
+*「いつか誰かを暖めうるかもしれない」*
+
+そんなのはただの可能性に過ぎないけれど、**もしかしたらこの出会いが誰かを救うかもしれない**。
+
+暗い現実の中に、柔らかく温かい歌声で微かな希望を与えてくれるからこそ、いつの時代の人々もこの曲の光に引き寄せられるのです。
+
+==== ２番
+
+____
+なぜ　生きてゆくのかを +
+迷った日の跡の　ささくれ +
+夢追いかけ走って +
+ころんだ日の跡の　ささくれ
+____
+
+2番でも楽曲の基本的な態度は変わりません。
+
+*何故生きるのかに思い悩んでは苦しむし、夢を追いかけては転んで傷つく。*
+
+保証されたことなんか何一つなくて、人間はどこまでも脆くて弱い存在です。
+
+出会いはおろか、**「命そのものすらもずっと不確かなものである」**という言い回しがいつの時代でも普遍性をもって胸に突き刺さってきます。
+
+災害の最中や、何か惨憺たる事件が起こった後に。
+
+ひょっとしたら楽曲が制作された時よりも、今の薄暗くて不安な時代の中でこそ輝く楽曲なのかもしれません。
+
+____
+こんな糸が　なんになるの +
+心許なくて　ふるえてた風の中
+____
+
+*そんなささくれだらけの糸が一体何になるのだろう。*
+
+*脆くて不確かなこの命が一体何になるのだろう。*
+
+そうした不安に、時に私たちは打ちひしがれます。
+
+この曲で描かれているのは「恋」や「愛」というよりも、**私たちの命の灯そのものなのです*。
+
+サビの歌詞では、そんな不確かな命をそっと肯定してくれます。
+
+
+ruby:[ひっ しゃ|筆者] https://twitter.com/music_honesuke[をフォローする]
+
+
+=== コメント（comment）
+
+taomin より:
+
+https://saluteproject.com/2020/08/25/ito/#comment-80871[2022年1月29日 12:58 AM]
+
+今はもうほとんど彼女の歌を聞かない。 +
+この糸もしらない。
+
+帯広の中島みゆきの住んでいた場所を訪問したことがあった。 +
+そこはすでにテニスコートになっていた。
+
+鉄道のすぐそばで、、、。 +
+そんな歌もあった。
+
+たての糸とよこの糸が交じる瞬間はあったが、 +
+やがて切れた。
+
+糸は縁ある人と交わるだけでなく、縁なき人とも交わる。
+
+遠い記憶をたどったとき、僕は帯広にいた。
+
+彼女が見た風景と僕が見た風景は時代の中で交錯する。 +
+糸とはそんな気がする。
+
+
+== このoo:世に[よに]oo:二人[ふたり]だけ - oo:中島[なかじま]みゆき
+
+[link=http://www.rockinsuit.cn/1228.html]
+image::http://www.rockinsuit.cn/wp-content/uploads/2019/04/only_2_of_us_la_ppt.jpg[]
+
+https://www.bilibili.com/video/BV1d4411E7Xk[live at Sony Pictures Studios in L.A.]
+
+2004年9月，在洛杉矶的电影音乐摄影棚，有一个“特殊”的表演，就是“中島みゆきライヴ！Live at Sony Pictures Studios in L.A.”，别看名字叫做Live，但是观众却无缘现场去观看，想要领略这次表演中美雪的风采，只能通过随后在2005年发行的 CD、DVD 和之后发行的 BD 来欣赏了。
+
+还记得中島美雪的第四张专辑『愛していると云ってくれ』的第一首「元気ですか」（你好吗）里面他那个会画画的情人吗？在10张专辑『予感』里面的第一首「この世に二人だけ」（这世间只剩你我二人）又提到他那擅长绘画的女友，女人还无意间翻到了情敌的画册，真是感慨啊。在「元気ですか」里面还记得她人真的很好，了解到这一点的女人如今也已经看开了。真的、真的是已经死心了，重点不是比不上人家，而是“就算这世界只剩你我二人独存，除了你我其他人都消逝在世间好了，而且祈祷能有别的选择也不知道求神拜卜几次了，就是这么无奈的状况你也不会选择我吧。”心酸的觉悟，悲哀的觉悟，与经过绝望洗涤的豁达交织，美雪的嗓音有如微微吹过的风沙，悄悄磨平心中的疮疤。在轻摇滚的鼓点中，刚刚跌倒的女人又站起来，也捡起他女友的画册继续走下去。
+
+____
+I find myself hoping in spite of myself +
+That only the two of us be left in the this world +
+While everyone else dies out  +
+But even then you wouldn’t choose me +
+我不禁这样期望 +
+这世间只剩你我二人 +
+其他人都死去也无妨 +
+但即便如此 +
+你还是不会选择我
+____
+
+[cols=2,opts="autowidth",subs=normal,frame=ends,grid=rows]
+|===
+a|
+[source,subs=normal,role=big]
+----
+あなたのoo:彼女[かのじょ]がoo:描[か]いたoo:絵[え]の
+oo:載[の]ったoo:本[ほん]をみつけた
+やわらかなoo:パステル[pastel]のoo:色[いろ]は
+そのままにあなたのoo:好[この]みのoo:色[いろ]
+あなたはoo:教[おし]えてくれない
+oo:私[わたし]もたずねたくはない
+oo:夕暮[ゆうぐ]れのoo:本屋[ほんや]はoo:風[かぜ]まかせ
+つらいoo:名前[なまえ]のoo:ページ[page]をめくる
+
+oo:二人[ふたり]だけ　このoo:世[よ]にoo:残[のこ]し
+oo:死[し]にoo:絶[た]えてしまえばいいと
+oo:心[こころ]ならずもoo:願[ねが]ってしまうけど
+それでもあなたは　oo:私[わたし]をoo:選[えら]ばない
+
+oo:クラクション[Klaxon]がoo:怒鳴[どな]ってゆく
+つまずいてoo:私[わたし]はころぶ
+oo:放[ほう]りoo:出[だ]されたoo:本[ほん]をoo:拾[ひろ]いよせ
+oo:私[わたし]はひとり　ひざをはらう
+oo:嫌[きら]いになどなれるはずない
+あなたのoo:愛[あい]したoo:女[おんな]だもの
+oo:夕暮[ゆうぐ]れのoo:凩[こがらし]にあおられて
+あなたとoo:同[おな]じoo:苗字[みょうじ]が　oo:滲[にじ]む
+
+oo:二人[ふたり]だけ　このoo:世[よ]にoo:残[のこ]し
+oo:死[し]にoo:絶[た]えてしまえばいいと
+oo:心[こころ]ならずもoo:願[ねが]ってしまうけど
+それでもあなたは　oo:私[わたし]をoo:選[えら]ばない
+
+oo:二人[ふたり]だけ　このoo:世[よ]にoo:残[のこ]し
+oo:死[し]にoo:絶[た]えてしまえばいいと
+oo:心[こころ]ならずもoo:願[ねが]ってしまうけど
+それでもあなたは　oo:私[わたし]をoo:選[えら]ばない
+----
+a|
+[source,subs=normal,role=big]
+----
+发现那本有手绘图画的书
+那是你的她亲手绘涂
+柔和的粉蜡笔色调
+正是你喜欢的颜料
+你不想让我知道
+我也不想看到
+傍晚的书店任凉风吹
+带着伤感名字的一页反复来回
+
+这世界只剩你我二人
+其他人都死去了也无妨
+我不禁这样期望
+就算这样你还是不会选择我
+
+鸣叫的电气警笛像在哭
+跌倒的我完全没有痛楚
+独自捡起地上散落的书
+独自掸干净膝盖上的沙土
+我恐怕注定讨厌不起
+毕竟曾经深爱她的是你
+向晚的寒风又吹开了书
+泪水沾湿了你姓名一样的字
+
+这世界只剩你我二人
+其他人都死去了也无妨
+我不禁这样期望
+就算这样你还是不会选择我
+
+这世界只剩你我二人
+其他人都死去了也无妨
+我不禁这样期望
+就算这样你还是不会选择我
+----
+|===
+
+== 未来へ - Kiroro
+
+https://www.bilibili.com/video/BV1VC4y1q7rf/[Video]
+
+《未来へ》是玉城千春、金城绫乃演唱的一首歌曲，由玉城千春填词谱曲，收录在专辑《未来へ》中。未来へ是“向未来”或“迈向未来”的意思，助词「へ」表示「移动方向或目标的大致方位，带有空间延展性的语感」，强调 方向性 而非精确终点，主要搭配 移动动词（oo:行く[いく]、oo:来る[くる]、oo:向かう[むかう]、oo:帰る[かえる] 等）。
+
+《未来へ》阐述了母女之间感人的故事：懵懂的小女生，在那段成长、叛逆的时光里面，逐渐厌倦了母亲的爱，时光飞逝，小女生变成了小女人，逐渐开始离开家，离开母亲，离开母亲温暖的双手，为了自己的将来而在外闯荡并且开始害怕未来的路，开始怀念母亲温暖的双手，这个时候才真正体会到母亲对自己的爱。
+
+刘若英改编的《后来》标题不仅在读音上非常像似，意思也有“呼应”，原曲“向未来”，改编则是“在未来”回看过去。
+
+[cols=2,opts="autowidth",subs=normal,frame=ends,grid=rows]
+|===
+a|
+[source,subs=normal,role=big]
+----
+ほらoo:足元[あしもと]をoo:見[み]てごらん これがあなたのoo:歩[あゆ]むoo:道[みち]
+ほらoo:前[まえ]をoo:見[み]てごらん あれがあなたのoo:未来[みら]
+oo:母[はは]がくれた oo:沢山[たくさん]のoo:優し[やさし]さ
+oo:愛[あい]をoo:抱い[いだい]て oo:歩[あゆ]めとoo:繰り[くり]oo:帰[かえ]した
+あのoo:时[とき]はまだoo:幼[おさな]くて oo:意味[いみ]などoo:知ら[しら]ない
+そんなoo:私[わたし]のoo:手[て]をoo:握り[にぎり] oo:一绪[いっしょ]にoo:歩[あゆ]んできた
+oo:梦[ゆめ]はいつも oo:空高[そらたか]くあるから
+oo:届か[とどか]なくてoo:恐い[こわい]ね だけどoo:追い[おい]oo:続け[つづけ]るの
+oo:自分[じぶん]のoo:ストーリー[story] だからこそ oo:谛め[あきらめ]たくない
+oo:不安[ふあん]になるとoo:手[て]をoo:握り[にぎり] oo:一绪[いっしょ]にoo:歩[あゆ]んできた
+そのoo:優し[やさし]さを oo:时[とき]にはoo:嫌[いや]がり oo:離れ[はなれ]た oo:母[はは]へoo:素直[すなお]になれず
+ほらoo:足元[あしもと]をoo:見[み]てごらん これがあなたのoo:歩[あゆ]むoo:道[みち]
+ほらoo:前[まえ]をoo:見[み]てごらん あれがあなたのoo:未来[みら]
+
+そのoo:優し[やさし]さを oo:时[とき]にはoo:嫌[いや]がり
+oo:離れ[はなれ]た oo:母[はは]へoo:素直[すなお]になれず
+ほらoo:足元[あしもと]をoo:見[み]てごらん これがあなたのoo:歩[あゆ]むoo:道[みち]
+ほらoo:前[まえ]をoo:見[み]てごらん あれがあなたのoo:未来[みら]
+ほらoo:足元[あしもと]をoo:見[み]てごらん これがあなたのoo:歩[あゆ]むoo:道[みち]
+ほらoo:前[まえ]をoo:見[み]てごらん あれがあなたのoo:未来[みら]
+oo:未来[みら]へoo:向か[むか]って ゆっくりと oo:歩[あゆ]いてoo:行こ[ゆこ]う
+----
+a|
+[source,subs=normal,role=big]
+----
+来看看你的脚下 这就是你要走的路
+来看看你的前方 那就是你的未来
+妈妈带给了我那么多的温暖
+她告诉我要拥有着爱前进
+那时候的我还年幼无知
+她拉着那样的我的手 一起走到今天
+梦想似乎总是在天空的远方
+很害怕我达不到 但我一直不停的追逐着
+因为是自己的故事 所以不想放弃
+不安的时候她就握住了我的手 一起走到今天
+那种温柔亲切 有时也会让我讨厌
+分开以後，就不能向母亲袒露心声了啊！
+来看看你的脚下 这就是你要走的路
+来看看你的前方 那就是你的未来
+
+那种温柔亲切 有时也会让我讨厌
+离开了 我一定会听妈妈的话
+来看看你的脚下 这就是你要走的路
+来看看你的前方 那就是你的未来
+来看看你的脚下 这就是你要走的路
+来看看你的前方 那就是你的未来
+向着未来 一步一步地走去
+----
+|===
+
+
+
+
+// [cols=2,opts="autowidth",subs=normal,frame=ends,grid=rows]
+// |===
+// a|
+// [source,subs=normal,role=big]
+// ----
+// ----
+// a|
+// [source,subs=normal,role=big]
+// ----
+// ----
+// |===

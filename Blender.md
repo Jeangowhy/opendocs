@@ -5402,6 +5402,132 @@ Track 追踪面板
 ```
 
 
+## 👉 Grease Pencil 3.0
+
+[Blender 4.2 Grease Pencil 3.0 Overview](https://www.bilibili.com/video/BV196UXYKEZ5/)  
+[House of Chores: testing Grease Pencil 3.0](https://studio.blender.org/blog/house-of-chores-testing-grease-pencil-30/)  
+[Grease Pencil Integration into Geometry Nodes](https://devtalk.blender.org/t/grease-pencil-integration-into-geometry-nodes/31220)  
+[Grease Pencil Status Update](https://code.blender.org/2018/07/grease-pencil-status-update/)  
+[Draw Mode - Fill Tool](https://docs.blender.org/manual/en/latest/grease_pencil/modes/draw/tools/fill.html)  
+[Geometry Nodes - Curve Nodes](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/index.html)  
+[Grease Pencil Blender Free Samples](https://cloud.blender.org/p/gallery/5b642e25bf419c1042056fc6)  
+[Brush Pack_v2_Blender2-90+ by Daniel Martinez Lara](https://cloud.blender.org/p/gallery/5f235cc297f8815e74ffb90b)  
+[Brush_pack_V1 only for Blender 2.82](https://cloud.blender.org/p/gallery/5ccfe64353b85e279cf72acd)  
+[Grease Pencil Resources](https://pillar.blender.cloud/p/grease-pencil-fundamentals/resources)  
+[Brushstroke Tools](https://extensions.blender.org/add-ons/brushstroke-tools/versions/)  
+[Stylized Rendering with Brushstrokes](https://studio.blender.org/training/stylized-rendering-with-brushstrokes/)  
+[SVG output for Blender 2.72 Freestyle](https://github.com/hvfrancesco/freestylesvg)  
+
+Bledner 4.3 版本终于发布，蜡笔系统完全改写，Grease Pencil 3.0 的许多功能做了调整，其中一个重大改进
+是可以和几何节点一起工作。
+
+|    |    |
+| -- | -- |
+| **Read**                      | **Sample**                 |
+| Curve Handle Positions Node   | Sample Curve Node          |
+| Curve Length Node             | **Write**                  |
+| Curve Tangent Node            | Set Curve Normal Node      |
+| Curve Tilt Node               | Set Curve Radius Node      |
+| Endpoint Selection Node       | Set Curve Tilt Node        |
+| Handle Type Selection Node    | Set Handle Positions Node  |
+| Is Spline Cyclic Node         | Set Handle Type Node       |
+| Spline Length Node            | Set Spline Cyclic Node     |
+| Spline Parameter Node         | Set Spline Resolution Node |
+| Spline Resolution Node        | Set Spline Type Node       |
+| **Operations**                | **Primitives**             |
+| Curve to Mesh Node            | Arc Node                   |
+| Curve to Points Node          | Bézier Segment Node        |
+| Curves to Grease Pencil Node  | Curve Circle Node          |
+| Deform Curves on Surface Node | Curve Line Node            |
+| Fill Curve Node               | Curve Spiral Node          |
+| Fillet Curve Node             | Quadratic Bézier Node      |
+| Grease Pencil to Curves Node  | Quadrilateral Node         |
+| Interpolate Curves Node       | Star Node                  |
+| Merge Layers Node             | **Topology**               |
+| Resample Curve Node           | Curve of Point Node        |
+| Reverse Curve Node            | Offset Point in Curve Node |
+| Subdivide Curve Node          | Points of Curve Node       |
+| Trim Curve Node
+
+Grease 对象是一个复杂的 3D 环境中的绘画/建模工具，它至少可以在编辑模式（Edit Mode）、雕刻模式（Sculpt Mode）
+以及绘画模式（Draw Mode）三种模式中进行处理，其中绘画模式是主要的创作模式，编辑、雕刻是协助模式。Bledner 4.3
+升级后，蜡笔对象与几何节点（几何修改器）联系更密切，可以通过节点化编程实现程序化的。蜡笔绘画或者建模
+需要理解以下几个重要概念：
+
+**图层**（Data -> Layers）：通过给笔迹分层，可以按层来设置几何变换、混合模式、色彩修正、笔画粗细、是否激活光照效果、
+调整层与层之间的顺序（堆叠顺序决定笔迹之间的覆盖）等等。删除图层也同时删除图层内的所有矢量路径。已经绘制的矢量路径
+可以在编辑模式下通过菜单移动到指定图层上：Stroke -> Move to Layer。可以虎都使用两个图层分开管理需要填充的图形和
+只有线条的图形。
+
+**笔刷**（Brush）：笔刷决定了绘画的笔迹效果，笔刷是一种渲染程序模型配置，决定笔触呈现出的外观。Blender 只提供的
+十多种笔刷，例如 Airbrush、Ink Pen、Pencil。笔刷包含了材质、绘画模式、笔迹粗细、强度（压感）、笔迹在 3D 环境
+中对齐方式（Stroke Placement 与 Drawing Planes）、颜色（材质指定或者指定颜色）。笔刷绘画模式（Material、
+Color Attribute）决定了是使用材质、还是什么指定颜色，笔刷设置 Pin Mode 来固定模式。通过配置笔刷半径（Radius）
+和强度（Strength）可以改变笔触的粗细和透明度，这些都是 Blender 中特有的矢量图形特性。用户修改后笔刷配置后会
+在笔刷名称中后缀一个 * 号表示配置改动，可以在绘画模式中，通过笔刷右键菜单，或者侧栏面板的笔刷预览图右侧的下拉菜单
+Revert to Asset 进行复原。也可以将配置保存为新的笔刷配置。
+
+**材质**（Materal）：笔刷材质是非常重要的属性，笔刷材质与其它模型（Mesh）中使用的材质有较大区别。笔刷材质决定
+笔迹的线形（Line Type）、基本颜色、笔触样式（纹理或实线）、填充样式（纯色、渐变色、纹理）。材质中使用图像纹理，
+与纹理对象有所区别。已经绘制的笔迹可以更改其所使用的材质，在编辑模式下，材质属性面板中的材质列表下会显示三个功能
+按钮：赋予材质（Assign）、选择使用了当前材质的矢量路径（Select）、取消选择（Deselect）。注意，设置笔刷材质
+的笔触颜色或者填充颜色时，Alpha 通道可能设置为 0 值，此时是透明状态，可能因此看不到效果。另外，视图的渲染模式
+也会影响到当前设置的纹理是否可见，默认的 Solid 渲染模式并不呈现材质的纹理，需要修改为 Material Preview 或者
+Rendered 模式才能看到笔触的纹理效果。Blend 属性用于调整 Base Color 混合量，0 表示 100% 纹理不混合基本色。
+如果设置为 1.0 则表示不使用纹理，100% 使用基本颜色。为了绘画中不同类型的画面元素使用相应的材质是推荐的蜡笔配置，
+这样做的好处是方便随时通过材质修改画面，而不必再修改笔刷。
+
+**纹理**（Texture）：纹理对象，有多种类型，最基本的就是图形或视频，还有各种程序化纹理，比如 Voronoi 细胞纹理。
+进入蜡笔绘画模式（Draw Mode）才会显示纹理属性面板，每个笔刷有两个纹理设置，Brush 和 Brush Mask 纹理，对应
+的是绘画到场景中的纹理，以及用于遮罩处理的纹理。可以创建多个纹理并命名，按需要从纹理列表中选择需要使用的纹理。
+蜡笔笔刷的纹理通过材质设置，使用的是图像纹理。Mesh 模型的 Textrue Paint 模式可以使用笔刷纹理对象。
+
+以上这些因素的综合决定了蜡笔对象上的绘画效果，比如，同样的笔刷，因此使用了不同的材质就会呈现不同的效果。因此笔刷
+对应的是一个程序模型，它决定了笔迹的基本效果。而具体的笔刷配置、材质设置等等又影响了笔刷的呈现效果。Grease 笔刷
+纹理的基本绘画原理是：在绘画路径上按笔刷参数（重复间隔、强度、半径大小等等）重复叠加纹理图形，并按混成（Blend）
+比例调整纹理与基本色的比例。无论笔触（Stroke）还是填充（Fill）的纹理，都是在矢量路径上重复叠加纹理图形。路径上
+的笔迹类型（Line Type）决定了纹理的轮廓，有线条（Line）、圆点（Dots）或者方块（Square）三种基本笔触类型，其中
+线条相当于连续的圆点。笔刷配置还包含一组可随机化（Randomize）的属性，包括半径、强度、旋转，以及颜色分量等等。
+这些随机化属性都可以配置数位板的压感笔使用。绘画过程中，Blender 会对运动路径进行采样，并记录下顶点坐标信息，
+每个顶点对应了一个顶点色（Color Attribute）和一张叠加的纹理图。Blender 2.93 等旧版本中可能在笔刷配置属性面板
+Tool -> Brush Settings -> Advanced -> Input Samples 修改采样率。新版本已经从侧栏面板移除了些选项。
+
+渐变填充除了在材质中的统一参数，还可以在编辑模式下使用渐变工具（Gradient）进行编辑、修正。渐变填充的参考坐标
+与路径的起始两个顶点相关。注意，渐变工具是配合材质中的填充属性使用的，所以材质没有设置填充属性时使用不会有效果。
+因此，编辑模式下的“渐变工具”其实不完全是处理渐变的工具，它还可以调整材质中的纹理映射。注意，这些 Blender 矢量
+绘画特性无法导出到 SVG 图像文档中，导出时会使用基本色替换图形中的纹理填充。压感笔画导出后，会使用 `<polyline>`
+来模拟粗细变化的笔迹。
+
+另外，绘画模式下的填充工具（Fill）需要说明一下，其功能虽然是 Fill，但与一般上的颜色填充工具不同，Blender 蜡笔
+的填充工具用于封闭路径（closed strokes），不仅使用材质设置的颜色或者纹理填充，还会根据视图角度将封闭的矢量路径
+投影到当前视图平面上。填充后得到一个新的封闭矢量路径，旧的矢量路径保持不变。路径封闭与否，与所设置的边界图层设置有关，
+当设置 Advanced -> Layers = Visible 时，表示蜡笔中的可见图层都当作边界检测用途，这时通过视图投影判断路径封闭，
+通过调整视图让路径的缺口处于重合状态即可看作为封闭路径，即便没有使用线段连接的路径。可以在编辑模式封闭蜡笔中的路径，
+菜单位置：Stroke -> Close 或者 Toggle Cyclic。填充生成的矢量路径将对齐到视图平面上，和摄像机的镜头焦距相关，
+可以通过侧栏面板进行调整：View -> Focal Length。
+
+对于缺口较大的情况，官方文档表示还可以使用临时边界线（Boundary Strokes）来封闭路径。但是按指示却无法通过
+Alt-LMB 来画边界线，Alt 其实是约束画线的方向对齐到轴线。此功能只在旧版本中出现，新版本中添加了一个自动封闭
+路径功能（Automatic Gap Closure），支持 “Radius” 和 “Extend” 两种封闭方法，前者会以开放路径的两个端点
+为圆心创建两个圆形，通调整半径以相互触达圆心完成路径闭合。后者则是直接按末端切线方向延伸线来完成路径闭合。
+在填充工具第一次点击后，使用鼠标滚轮或者 PageUp、PageDown 调整辅助线的长短。填充工具的第二次点击才是执行
+填充生成新的封闭路径，第二次点击的位置所在的路径为被填充对象。
+
+![Automatic Gap Closure by Radius](https://docs.blender.org/manual/en/latest/_images/grease-pencil_modes_draw_tools_fill_radius-02.png)
+
+填充工具其它配置（Brush Settings）如下：
+
+- Direction 填充方向：
+	+ Normal: Fills the area inside the shape under the cursor.
+	- Inverted: Fills the area outside the shape under the cursor.
+- Precision 精度：值越大，填充得到的路径顶点越密集，顶点间距均匀分布。
+- Dilate/Contract 扩大/收缩：设置正值、负值分别进行扩充、收缩填充，相对于 Stroke 边界。
+- Thickness 粗细：填充得到的路径 Stroke 宽度值。
+- Advanced -> Boundary 填充边界限制计算的类型设置，勾选右侧的 Show Lines 会以红色线条显示边界。
+- Advanced -> Layers 设置可用作填充边界的图层类型。
+- Advanced -> Simplify 设置路径简化等级，过度简化会导致清除填充路径中所有顶点。 
+
+
 ## 👉 Grease Pencil 2D绘图蜡笔
 1. Grease Pencil https://docs.blender.org/manual/en/3.0/grease_pencil/index.html
 2. [Grease Pencil Fundamentals](https://cloud.blender.org/p/grease-pencil-fundamentals/)
@@ -5508,7 +5634,9 @@ Crease threshold，小于这个角度的边角就当作折痕处理，即产生�
 - *Multiply* 相乘，与下面的混合图层像素相乘再除以 255，白色部分保持，黑色部分保持黑色；
 - *Divide* 除去，这种模式会将上下图层的像素相乘，再除于 255，产生较暗的效果； 
 
-默认情况下，视窗中图层的视图顺序为从上到下。每个图层都对应于摄影表编辑器 Dope Sheet 中的一个通道(在蜡笔模式下)。图层也可以与修改器一起使用，仅影响部分绘图。在 Dope Sheet 编辑器中，选择 Grease Pencil 模式即可查看蜡笔对象的帧动画。
+默认情况下，视窗中图层的视图顺序为从上到下。每个图层都对应于摄影表编辑器 Dope Sheet 中的一个通道
+(在蜡笔模式下)。图层也可以与修改器一起使用，仅影响部分绘图。在 Dope Sheet 编辑器中，选择 Grease 
+Pencil 模式即可查看蜡笔对象的帧动画。
 
 Onion Skinning 洋葱皮显示当前帧之前和之后的关键帧鬼影，给动画制作者当前动画序列的前后帧关系参考。
 
@@ -6014,8 +6142,7 @@ Grease Pencil 对象动画有多种方式：
 曲线建模与曲线建模虽然现实上差别较大，但是基本的数据还是顶点，所以它们都只可以使用顶点组
 （Vertex Group）来管理顶点，并且用于修改器、骨骼动画系统。
 
-**Interpolate tool** 笔迹插值工具，在关键帧之间产生新的分解帧 breakdown keyframe。
-
+**Interpolate** 编辑模式下的笔迹插值工具，在关键帧之间产生新的分解帧 breakdown keyframe。
 笔迹插值工具在两个关键帧之间产生插值笔划，并产生相应的分解关键帧 breakdown keyframe。
 先将游标置于两个关键帧之间时操作，单击并拖动，到指定的插值百分值，将添加一个新的细分关键帧。
 比如，在第一帧绘制一个 S 符号，在第三帧绘制一个 Y 符号，注意笔数要一致，然后在第二帧进行
@@ -6921,7 +7048,7 @@ Bake Sound to F-Curve 可以将声音烘焙成函数曲线，先选择要修改�
 
 通过表达式添加驱动器的快速方法，首先单击要添加驱动器的属性，然后键入 # 和表达式内容即可以给属性添加驱动器。 为了优化性能，最好尽可能使用简单表达式。
 
-Pytond 表达式驱动属性的例子：
+Python 表达式驱动属性的例子：
 
 	#frame
 	#frame / 20.0

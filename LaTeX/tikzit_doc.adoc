@@ -1,0 +1,722 @@
+:stem: latexmath
+:icons: font
+:experimental:
+:source-highlighter: highlight.js
+:bash: pandoc -tasciidoc -rhtml https://tikzit.github.io/index.html
+== TikZiT
+
+TikZiT is a super simple GUI editor for graphs and string diagrams. Its
+native file format is a subset of PGF/TikZ, which means TikZiT files can
+be included directly in papers typeset using
+https://www.latex-project.org/[LaTeX]. Pre-built versions are available
+for systems running Windows, Linux, or macOS. <<install, Packages>>
+are available for some Linux distributions, or you can
+https://github.com/tikzit/tikzit[build from source].
+
+https://github.com/tikzit/tikzit/releases/download/v2.1.6/tikzit-win.zip[Windows (exe)]
+• https://github.com/tikzit/tikzit/releases/download/v2.1.6/tikzit-linux.tar.gz[Linux (portable binary)]
+• https://github.com/tikzit/tikzit/releases/download/v2.1.6/tikzit-osx.dmg[macOS (dmg)]
+• https://github.com/tikzit/tikzit[GitHub Project »]
+
+== Contents
+
+* <<install, Install>>
+* <<quickstart, Quickstart>>
+** <<editing, Basic node and edge editing>>
+** <<styles, Adding styles>>
+** <<typesetting, Typesetting in LaTeX>>
+** <<preview, Previewing diagrams in TikZiT>>
+*** <<custom, Adding custom LaTeX code to previews>>
+*** <<custom, Exporting images>>
+* <<tips, Tips and Tricks>>
+** <<paths, Paths and filled shapes>>
+** <<bend, Keyboard shortcuts for edge bending>>
+** <<source, Editing TikZ source (e.g. node and edge properties)>>
+** <<label, Adding labels next to nodes>>
+** <<merge, Merging nodes>>
+** <<boxes, Making boxes with multiple input/output wires>>
+** <<texopen, Using texopen.py to open TiKZ from PDFs>>
+* <<formats, File Formats>>
+
+[[install]]
+
+== Install
+
+*Windows:* Click 'Windows (exe)' above to download a zip file and
+extract it to a convenient place (e.g. `+C:\tikzit+`). If you wish to
+associate `+.tikz+` files with TikZiT, run the included `+.reg+` file
+(optional). Note you may need to edit the `+.reg+` file with a text
+editor if you place TikZiT in a different location. You can also install
+with https://chocolatey.org/[Chocolatey] via `+choco install tikzit+`.
+
+*Linux:* If you do not wish to https://github.com/tikzit/tikzit[build
+from source], click 'Linux (portable binary)' above to download a
+tarball and extract it to a convient place (e.g. your home directory).
+Then, launch the application with `+~/tikzit/bin/tikzit+` (assuming you
+extracted into your home directory). You may wish to add
+`+~/tikzit/bin+` to your PATH and install the application launcher and
+file associations by running `+./install-local.sh+` from inside the
+TikZiT directory.
+
+There are also packages available for several Linux distributions,
+maintained by volunteers in the open source community. Here are the ones
+I know about:
+
+* https://ubuntu.com/[Ubuntu] 19.10+, Debian
+  https://www.debian.org/releases/buster[testing] /
+  https://www.debian.org/releases/sid[unstable]: `+apt install tikzit+`
+* https://aur.archlinux.org/[arch linux]: `+pacman -S tikzit+`
+* https://nixos.org[NixOS]: `+nix-env -i tikzit+`
+* https://getfedora.org/[Fedora] 32: `+yum install tikzit+`
+
+If you are a package maintainer for another distro, get in touch and I
+will add instructions here.
+
+*macOS:* Click 'macOS (dmg)' above to download a dmg file. Open this
+file and copy `+tikzit.app+` to your Applications folder. Depending on
+your system settings, the first time you run TikZiT, you may need to
+right-click the `+.app+` file and select `+Open+` from the menu to get
+the option to run it. After this, you can run TikZiT like a normal
+application. You can also install with https://brew.sh/[HomeBrew] by
+running `+brew install tikzit+` in a terminal.
+
+NOTE: The version of TikZiT above requires at least macOS version
+10.11 (Yosemite). If you are running an older version of macOS
+(10.8-10.10), use
+https://github.com/tikzit/tikzit/releases/download/v2.0/tikzit-osx-mountain.dmg[this
+version] instead. However, to get the latest version of TikZiT, it is
+recommended to update your operating system.
+
+[[quickstart]]
+
+== Quickstart
+
+While TikZiT is easy to use, a few things might not be obvious the first
+time you run the program. This guide should get you going as quickly as
+possible. *For mac users:* throughout this tutorial, substitute
+kbd:[ctrl] = kbd:[command] and kbd:[alt] = kbd:[option], as
+usual.
+
+This tutorial will cover basic editing all the way up to building a
+LaTeX paper with TikZiT figures in it. Create a new, empty folder
+somewhere on your computer (which I will refer to as `+tikzpaper+`
+throughout this tutorial). Download tikzit.sty and place it in the
+folder. Also, create a new sub-directory called `+figures+`, which we
+will use later.
+
+[[editing]]
+
+=== Basic node and edge editing
+
+When you open TikZiT for the first time, you will see something that
+looks like this:
+
+image:https://tikzit.github.io/images/screenshots/fresh.png[images/screenshots/fresh]
+
+The window is divided into two parts: the main part is the *graph
+editor* and the part along the side is the *style palette*. For editing
+graphs, there are 3 tools: the *select* tool, the add *node* tool, and
+the add *edge* tool. These can be selected quickly by pressing
+kbd:[s], kbd:[n], or kbd:[e] while the graph editor is in focus.
+
+Pick the *node* tool and click on the graph a few times to add some
+nodes. You will notice these appear in TikZiT as dashed circles with a
+small dot in the middle. These are called *invisible nodes*. These will
+not appear in the actual typeset output. However, they can be labelled
+with pieces of LaTeX code (see below), which will appear in your figure,
+or used to attach edges. To add edges, select the *edge* tool and click
+and drag from one node to another.
+
+image:https://tikzit.github.io/images/screenshots/add-edge.png[images/screenshots/add-edge]
+
+Pick the *select* tool again. You can select individual nodes or edges
+by clicking on them. You can select multiple nodes by dragging a box
+around the, and you can select multiple nodes or edges by clicking while
+holding down the kbd:[ctrl] key.
+
+Selected nodes can be moved by dragging the mouse, or by pressing
+kbd:[ctrl] + arrow keys. Nodes are locked on a grid, so they normally
+only move in increments of 0.25 in TikZ coordinates. However, they can
+be "nudged" by increments of 0.025 by pressing kbd:[ctrl] +
+kbd:[shift] + arrow keys. This is convenient e.g. for centering nodes
+between others (5 nudges = 1/2 normal grid cell).
+
+Double-clicking a node gives the ability to set a label, which can
+contain LaTeX code:
+
+image:https://tikzit.github.io/images/screenshots/node-label.png[images/screenshots/node-label]
+
+Clicking on an edge reveals extra controls for bending the edge. There
+are two kinds of bend-modes in TikZiT, the _basic bend_ mode (blue
+controls). Dragging either of the control points will cause the edge to
+bend to the left or the right:
+
+image:https://tikzit.github.io/images/screenshots/basic-bend.png[images/screenshots/basic-bend]
+
+Double-clicking the edge will change it to _bezier bend_ mode (green
+controls). Now, each of the control points can be dragged independently:
+
+image:https://tikzit.github.io/images/screenshots/bezier-bend.png[images/screenshots/bezier-bend]
+[[styles]]
+
+=== Adding styles
+
+Before we can create non-invisible nodes, we will need some styles. To
+set up styles, we will first create a new *style file*. In the style
+palette, click the image:https://tikzit.github.io/images/document-new.png[images/document-new]
+button, go to the `+tikzpaper+` folder, and give the new style file a
+name, e.g. `+sample.tikzstyles+`. Now, we can edit the style file by
+clicking
+image:https://tikzit.github.io/images/text-x-generic_with_pencil.png[images/text-x-generic_with_pencil].
+This will open the style editor:
+
+image:https://tikzit.github.io/images/screenshots/nostyles.png[images/screenshots/nostyles]
+
+On the left side of the window, there is a list of node styles, followed
+by a list of edge styles. Currently, both lists contain only a single
+style, called "none". Click the "+" under the list of node styles to add
+a new node style, and call it `+red dot+`. Set the fill color to red,
+the draw color to black, and the shape to "circle". Then, click "+"
+again to add a new style called `+green dot+`. Set the fill color to
+green, the draw color to black, and again the shape to "circle".
+
+image:https://tikzit.github.io/images/screenshots/node-styles.png[images/screenshots/node-styles]
+
+NOTE: You can optionally set "in TikZiT" versions of the "draw",
+"fill", and "shape" properties. This will make nodes or edges look
+different in TikZiT, but have no effect on how they are typeset. This is
+useful for visually distinguishing similar styles.
+
+NOTE: Arrowhead expressions containing a dash (e.g. `+-+`, `+->+`,
+`+<-+`, `+|->+`, `+<->+`) play a special role in TikZiT. If you change
+them manually or use them as style names, you might get some strange
+behaviour. To customise the appearance of arrow heads/tails, try adding
+a property in the style editor called `+>+` or `+<+` and setting it to
+`+stealth+`, `+latex+`, etc. (see the
+https://www.bu.edu/math/files/2013/08/tikzpgfmanual.pdf[PGF/TiKZ manual]
+for possible arrowhead styles).
+
+You may also wish to add some edge styles by clicking the "+" under the
+list of edge styles. If you have many styles, you can also organise them
+into categories by setting the "Category" field. When you are done
+adding styles, click "Save and Close" to return to the graph editor.
+
+Next is the "Properties" box. Here, you can add properties to the style
+which will affect the way a node or edge appears when you typeset it,
+but may not affect its appearance in the TikZiT GUI. Properties come in
+two flavours: normal properties, which have a name and a value (e.g.
+`+line width=1pt+`) and atoms, which only have a name (e.g.
+`+ultra thick+`). You can add a normal property by clicking "+" under
+the Properties box and an atom by clicking "+a".
+
+Any valid PGF/TikZ is fair game for properties, and there are tons of
+ways to customise the appearance of nodes and edges this way (e.g.
+making them thick or thin, have crazy shapes, gradients, dashes and
+dots, brackets, ...). The best way to find what you need is by looking
+in the https://www.bu.edu/math/files/2013/08/tikzpgfmanual.pdf[PGF/TiKZ
+manual] or finding examples on
+https://texample.net/tikz/examples/[texample.net], the
+https://tex.stackexchange.com/[TeX StackExchange], etc.
+
+Now, you will see your new styles in the style palette on the right. To
+apply a style to a node (or edge), select the node (or edge) it and
+double-click on the style. If you create new nodes and edges with a
+certain style selected, they will automatically get that style. To turn
+nodes these back into invisible nodes, select them and double-click on
+the "none" style.
+
+image:https://tikzit.github.io/images/screenshots/fig.png[images/screenshots/fig]
+
+The above figure was created with 5 invisible nodes (2 inputs, 2
+outputs, and 1 for the equals sign), 2 "red dot" nodes, and 2 "green
+dot" nodes.
+
+[[typesetting]]
+
+=== Typesetting in LaTeX
+
+We can now save the figure we created and include it directly in a
+paper. At the beginning of the tutorial, we created a new folder called
+`+tikzpaper+` containing nothing but tikzit.sty a sub-directory called
+`+figures+`. In TikZiT, click `+File > Save As...+`, navigate to
+`+tikzpaper/figures+`, and save or newly-created figure as
+`+fig1.tikz+`.
+
+In a tex(t) editor, create a new file in the `+tikzpaper+` folder called
+`+paper.tex+`, and add the following tex:
+
+[source,latex]
+----
+% paper.tex
+
+\documentclass{article}
+\usepackage{tikzit}
+\input{sample.tikzstyles}
+
+\begin{document}
+
+A tikz picture as an equation:
+\begin{equation}
+  \tikzfig{fig1}
+\end{equation}
+
+A centered tikz picture:
+\ctikzfig{fig1}
+
+\end{document}
+----
+
+`+tikzfig.sty+` provides two macros for including `+.tikz+` files:
+`+\tikzfig+` and `+\ctikzfig+`. They both take as an argument the name
+of a figure (without the `+.tikz+` extension), and will search for that
+figure either in the same directory or in a subdirectly called
+`+figures+` if it exists. Use `+\tikzfig{FIG}+` to include `+FIG.tikz+`
+inline or as part of an equation. Use `+\ctikzfig{FIG}+` to include
+`+FIG.tikz+` centered on its own line.
+
+NOTE: Inline TikZ figures align the origin (0,0) to the center of the
+text line by default, so it's a good idea to always center TikZ pictures
+on the origin (as indicated by the slightly darker grid lines). This can
+be tweaked by setting the `+baseline+` or `+yshift+` properties of the
+TikZ figure, e.g. `+\begin{tikzpicture}[yshift=-1mm] ...+`.
+
+Use `+pdflatex+` to build `+paper.tex+`, and you should get something
+that looks like this:
+
+image:https://tikzit.github.io/images/screenshots/pdf.png[images/screenshots/pdf]
+[[preview]]
+
+=== Previewing diagrams in TikZiT
+
+Starting with TikZiT 2.1, it is possible to preview your figures
+directly in TikZiT by pressing kbd:[ctrl + r].
+
+image:https://tikzit.github.io/images/screenshots/preview.png[images/screenshots/preview]
+
+If you get a green checkmark, the preview was generated successfully.
+Otherwise, you can click on the `+Output+` tab in the Preview window to
+see what went wrong.
+
+NOTE: TikZiT will try to find `+pdflatex+` automatically by first
+searching your system path then common installation locations for TeX.
+If it fails, you can set the location of `+pdflatex+` manually in
+`+Tools > Preferences+` (Windows/Linux) or `+tikzit > Preferences+`
+(macOS).
+
+[[custom]]
+
+==== Adding custom LaTeX code to previews
+
+TikZiT automatically includes tikzit.sty and the active `+*.tikzstyles+`
+file when it generates its preview. So, in the example above,
+`+sample.tikzstyles+` is included automatically. TikZiT will also search
+the same directory for a `+*.tikzdefs+` file with the same name as the
+active TikZ style file and include it, if it exists. This file can be
+used to include extra packages, define macros, set up custom PGF/TikZ
+shapes, etc.
+
+For example, if the active TikZ style file is called
+`+sample.tikzstyles+`, create a new file called `+sample.tikzdefs+` in
+the same directory as `+sample.tikzstyles+` with the following LaTeX
+source:
+
+[source,latex]
+----
+% sample.tikzdefs
+
+\usepackage{bm}
+\newcommand{\param}[1]{\ensuremath{\vec{\bm{#1}}}}
+----
+
+This file loads the LaTeX package `+bm+` and defines a new macro
+`+\param+`, which can be used TikZ pictures. Back in TikZiT,
+double-click a node and set the label to, e.g. `+\param{\alpha}+`, and
+hit kbd:[ctrl + r] again. TikZiT will automaticall find
+`+sample.tikzdefs+` and include it when it makes the preview:
+
+image:https://tikzit.github.io/images/screenshots/preview-macro.png[images/screenshots/preview-macro]
+
+To make this macro available in your paper, as well as the preview, add
+`+\input{sample.tikzdefs}+` to the preamble:
+
+[source,latex]
+----
+% paper.tex
+
+\documentclass{article}
+\usepackage{tikzit}
+\input{sample.tikzstyles}
+\input{sample.tikzdefs}
+
+\begin{document}
+
+% ...
+----
+
+NOTE: The use of `+*.tikzstyles+` and `+*.tikzdefs+` files in the
+preview replaces the 'Custom Preambles' feature from TikZiT 1.
+
+[[export]]
+
+==== Exporting images
+
+After you generate a preview, you can export the image to a file or the
+clipboard by right-clicking on the preview itself and selecting the
+appropriate option.
+
+image:https://tikzit.github.io/images/screenshots/export.png[images/screenshots/export]
+
+If you select `+Export Image...+`, the Export Image dialog will be
+shown, where you can choose where to save the file, as well as its size
+and format. For the format, you can choose to save either PNG, JPG, or
+the original PDF file generated by `+pdflatex+`. To obtain SVG output,
+it is recommended that you export to PDF, then use a vector graphics
+utility such as https://inkscape.org/[Inkscape] to convert to SVG.
+
+[[tips]]
+
+== Tips and Tricks
+
+There are quite a few tricks to getting things to look nice in TikZiT,
+usually using a combination of PGF/TikZ hackery and invisible nodes.
+Here are a quick tips:
+
+* Right-clicking on blank space with the `+Select+` tool active will
+create a node. Right-clicking and dragging between nodes will create
+edges.
+* To get dashed edges, add the atom "dashed" to an edge style. That is,
+select an edge style in the style editor, click "+a" under properties
+and change the text "new atom" to "dashed".
+* For very large or unusual shapes, sometimes it is easier to just draw
+the shape with invisible nodes and bezier edges.
+* Hold down kbd:[shift] while moving the mouse wheel or two-finger
+scrolling to pan and hold down kbd:[ctrl] to zoom. If your mouse wheel
+only scrolls vertically, hold down kbd:[alt + shift] while
+moving the wheel to scroll horizontally.
+* TikZiT style files can be edited in a text editor. The format is very
+simple: just a list of commands of the form
+`+\tikzstyle{NAME}=[PROPERTIES]+` (see below). This is convenient for
+bulk editing or merging sets of styles. After you edit a style file,
+click image:https://tikzit.github.io/images/refresh.png[images/refresh] in the style palette to
+refresh the styles.
+* You can mix math and TikZ figures on the same line, e.g.
+`+\[ \tikzfig{fig-lhs} \ =\ \tikzfig{fig-rhs} \]+`. This is useful if
+you have long strings of equalities or re-use figures many times.
+* To scale a whole TikZ figure up or down uniformly (including text),
+wrap the `+\tikzfig+` command in a `+\scalebox+`. To just scale
+coordinates, use the `+scale+`, `+xscale+`, or `+yscale+` TikZ
+properties.
+
+The following sections give some more detailed tips.
+
+[[paths]]
+
+=== Paths and filled shapes
+
+Sometimes it is useful to treat a sequence of adjacent edges as one
+continuous path. For example, dashes and dots may look strange if they
+are applied to adjacent edges that are not part of a single path.
+Suppose we create an edge style called `+big dashes+` in the style
+editor with the following properties:
+
+image:https://tikzit.github.io/images/screenshots/big-dashes-style.png[images/screenshots/big-dashes-style]
+
+Then, we can make a complex shape using blank nodes and edges.
+Unfortunately the output doesn't look so good:
+
+image:https://tikzit.github.io/images/screenshots/path-bad.png[images/screenshots/path-bad]
+
+Yuck! The super-long dashes happen because TikZ doesn't know these edges
+are all part of one path. To fix this, select all of the edges by
+holding the `+CTRL+` key and clicking each of them, then go to
+`+Edit > Path > Make Path+` or hit `+CTRL+P+`. Now, you should notice
+two things. First, if you click on any of the edges, the whole path
+becomes selected. Second, the output looks a lot better:
+
+image:https://tikzit.github.io/images/screenshots/path-good.png[images/screenshots/path-good]
+
+Perhaps more importantly, you can use edge styles to create *filled
+paths*. To do this, go to an edge style in the style editor, uncheck
+`+none+` next to fill colour, and set the colour just like you would for
+a node:
+
+image:https://tikzit.github.io/images/screenshots/edge-fill.png[images/screenshots/edge-fill]
+
+The fill colour is shown in the bottom half of the edge style's icon in
+the style palette. If we save the style and preview again, this is the
+result:
+
+image:https://tikzit.github.io/images/screenshots/path-fill.png[images/screenshots/path-fill]
+
+If you want to split a path back into individual edges, go to
+`+Edit > Path > Split Path+` or hit `+CTRL+SHIFT+P+`. Note that if a
+fill colour is set, it may still appear under curved edges in the
+output, even though it doesn't show up in TikZiT.
+
+[[bend]]
+
+=== Keyboard shortcuts for edge bending
+
+If you select an edge and hold down the kbd:[ctrl] key, you will
+notice a `+<>+` symbol appear above one endpoint of the edge. If you use
+the left and right arrow keys, this adjust the in-angle of the edge. If
+you hold kbd:[ctrl + shift], the other end of the edge will
+highlight and you can adjust the out-angle similarly. In either case,
+the up and down arrows adjust the looseness of the edge.
+
+[[source]]
+
+=== Editing TikZ source (e.g. node and edge properties)
+
+With a node/edge selected, press kbd:[ctrl + j] to jump to
+that line of the TikZ source.
+
+image:https://tikzit.github.io/images/screenshots/tikz-source.png[images/screenshots/tikz-source]
+
+You can edit this by hand, and press kbd:[ctrl + t] to update
+the graph editor with the new TikZ code. You need to be a bit careful,
+since TikZiT only understands a subset of TikZ, but adding and removing
+TikZ properties on nodes or edges works just fine. For this, the
+http://www.texample.net/media/pgf/builds/pgfmanualCVS2012-11-04.pdf[PGF/TikZ
+manual] is your friend.
+
+If you can't get the TikZ code to parse again, or you decide you didn't
+want to make a change after all, you can revert your changes to the TikZ
+code by pressing kbd:[ctrl + alt + t].
+
+[[label]]
+
+=== Adding labels next to nodes
+
+Normally labels added by double-clicking a node will appear inside the
+node. However, you can add a label next to a node by selecting the node,
+pressing kbd:[ctrl + j] and adding a `+label+` property to the
+node in the TikZ source. Once you set a label this way, it will be shown
+above the node in TikZiT:
+
+image:https://tikzit.github.io/images/screenshots/outer-label.png[images/screenshots/outer-label]
+
+The label property is typically given in the form
+`+label={POSITION:TEXT}+`, where `+TEXT+` can be any LaTeX code, just
+like with normal labels. The label property in the example above is set
+to `+label={above:1}+`. This places the text `+1+` directly above the
+node. Possiblities for `+POSITION+` include `+above+`, `+below+`,
+`+left+`, `+right+`, and `+auto+` (see the PGF manual for details). Note
+the `+POSITION+` only affects where the label will be typeset. For
+simplicity, TikZiT always shows the label above the node.
+
+[[merge]]
+
+=== Merging nodes
+
+Press kbd:[ctrl + m] to merge selected nodes with any nodes
+that are at the same location. A particularly handy use-case is in
+making symmetric figures. For example, suppose we want to make a box
+with two, symmetric input wires. Make the first input wire, then select
+the box and the first input:
+
+image:https://tikzit.github.io/images/screenshots/merge1.png[images/screenshots/merge1]
+
+Then, make a copy of this part of the diagram using the clipboard, and
+vertically with kbd:[alt + ▼]:
+
+image:https://tikzit.github.io/images/screenshots/merge3.png[images/screenshots/merge3]
+
+Drag the duplicated part into place, and press kbd:[ctrl + m]:
+
+image:https://tikzit.github.io/images/screenshots/merge4.png[images/screenshots/merge4]
+
+...and we have one node with 2 inputs. Note that you might not visually
+see any change when you merge, but jumping to the TikZ source, we see
+there is indeed only one node in the middle.
+
+[[boxes]]
+
+=== Making boxes with multiple input/output wires
+
+For string diagrams, flowcharts, etc. one often wants to create boxes
+with multiple input and output wires. While TikZ has a notion of
+"anchors" which support this, I find the following technique more
+convenient.
+
+TikZiT always draws nodes on top of edges, so to draw boxes with
+multiple inputs and outputs, first create one or more node styles for
+boxes. To get large boxes, click the "+" button under the property list
+and set the `+minimum width+` and `+minimum height+` properties.
+(Double-click a property or its value to change it.)
+
+For example: a medium-sized box (2-3 inputs and outputs), drawn
+horizontally, looks pretty good with `+minimum width+` set to `+0.75cm+`
+and `+minimum height+` set to `+1cm+`.
+
+image:https://tikzit.github.io/images/screenshots/box.png[images/screenshots/box]
+
+Now, add nodes with the `+medium box+` style where you wish to put
+boxes. For example, here are two such boxes, labeled `+$f$+` and
+`+$g$+`:
+
+image:https://tikzit.github.io/images/screenshots/nowires.png[images/screenshots/nowires]
+
+Then, create invisible nodes for inputs and outputs and draw edges to
+wire them together, getting a figure that looks like this:
+
+image:https://tikzit.github.io/images/screenshots/wires.png[images/screenshots/wires]
+
+The final typeset figure will then come out like this:
+
+image:https://tikzit.github.io/images/screenshots/typeset-boxes.png[images/screenshots/typeset-boxes]
+
+While it might seem a bit awkward to create styles for every possible
+size, in practice this isn't too bad, for 2 reasons:
+
+. If you need a custom size as a one-off, you can use the kbd:[ctrl + j] 
+trick from before to set the property on a single node.
+. Having only a few sizes to choose from (e.g. `+small box+`,
+`+medium box+`, `+large box+`) imposes some discipline on how you make
+your figures, and creates more consistent-looking papers overall. (This
+made a big difference http://cambridge.org/pqp[here]!)
+
+Suppose later on we come to our senses and decide to draw figures from
+bottom-to-top rather than left-to-right. To do this, first swap the
+minimum height/width values in the style editor. That is, set
+`+minimum width+` to `+1cm+` and `+minimum height+` to `+0.75cm+`. Then,
+with our figure open, hit kbd:[ctrl + a] to select everything
+and kbd:[alt + shift + ◂] to rotate counter-clockwise.
+Then we get this:
+
+image:https://tikzit.github.io/images/screenshots/boxfig-ccw.png[images/screenshots/boxfig-ccw]
+
+which typesets as:
+
+image:https://tikzit.github.io/images/screenshots/typeset-boxes2.png[images/screenshots/typeset-boxes2]
+
+Then, suppose _even_ later on our annoying co-author insists figures go
+from top-to-bottom rather than bottom-to-top. To fix this, hit
+kbd:[ctrl + a] to select everything again and kbd:[alt + ▼] to flip 
+vertically. Then we get a new TikZ figure, which typesets as:
+
+image:https://tikzit.github.io/images/screenshots/typeset-boxes3.png[images/screenshots/typeset-boxes3]
+[[texopen]]
+
+=== Using texopen.py to open TiKZ from PDFs
+
+Many PDF readers have a _reverse lookup_ feature, which enables you to
+jump to a line of Tex code when e.g. double-clicking a point in the
+generated PDF document. Normally, you want the line of TeX to be
+displayed in your main text editor or LaTeX editor, but if you click on
+a part of the PDF which came from a `+\tikzfig+`, it is convenient for
+this to open directly in TikZiT.
+
+This can be done via the following python script, texopen.py:
+
+[source,python]
+----
+#!/usr/bin/python
+
+import sys
+import subprocess
+
+if len(sys.argv) >= 3:
+  file = sys.argv[1]
+  line = sys.argv[2]
+
+  print(file)
+  print(line)
+
+  if file.endswith('.tikz'):
+    subprocess.call(['tikzit', file])
+  else:
+    subprocess.call(['subl', file + ':' + line])
+----
+
+Note this script uses https://www.sublimetext.com[Sublime Text] as the
+default editor (hence `+subl+` in the last line above). Obviously you
+can customise this to use your preferred editor.
+
+To use this script, place it somewhere that your PDF viewer can find,
+and set it up as your 'editor'. For example, in Okular, go to
+`+Settings > Configure Okular...+`. Click on the Editor tab, select
+'Custom Text Editor' and add the following as the command:
+`+texopen.py %f %l+`. Here, the `+%f+` is a placeholder for the active
+file, and `+%l+` the line of code.
+
+Configuration in other popular PDF editors (e.g. Preview, Skim, Sumatra)
+should be similar. On Windows systems, you will probably want to set the
+editor as something like
+`+C:\path\to\python.exe C:\path\to\texopen.py %f %l+`.
+
+For reverse lookups to work, make sure you are building with synctex
+enabled. This happens automatically if you are using a tool like
+https://mg.readthedocs.io/latexmk.html[Latexmk] or various GUI LaTeX
+editors or plugins. You will typically see a file with an extension like
+`+*.synctex.gz+` being generated when you build.
+
+[[formats]]
+
+== File Formats
+
+TikZiT's `+.tikz+` and `+.tikzstyle+` file formats are both subsets of
+PGF/TikZ's TeX-based format. TikZ style files have a very simple format.
+They are just a list of `+\tikzstyle+` commands. Here is the full
+grammar:
+
+[source,xml]
+----
+<tikzstyles>   ::= ("\tikzstyle" DELIMITED_STRING "=" "[" <properties> "]")*
+
+<properties>   ::= "[" <property> ("," <property>)* "]"
+
+<property>     ::= <value> "=" <value> | <value>
+
+<value>        ::= SIMPLE_STRING | DELIMITED_STRING
+----
+
+Where `+SIMPLE_STRING+` means a string consisting of letters, numbers,
+and whitespace and `+DELIMITED_STRING+` means a string inside of curly
+braces. The latter can contain nested curly braces, provided they occur
+in matched pairs.
+
+TikZ figure files consist of a `+{tikzpicture}+` environment, in which
+there is a list of `+\node+` commands, followed by a list of `+\edge+`
+commands. Nodes and edges, as well as the figure as a whole can have
+properties. Here is the full grammar:
+
+[source,xml]
+----
+<tikzpicture>  ::= "\begin{tikzpicture}" <properties>?
+                   <expression>*
+                   "\end{tikzpicture}"
+
+<expression>   ::= <ignore> | <node> | <edge> | <boundingbox>
+
+<ignore>       ::= "\begin{pgfonlayer}" DELIMITED_STRING |
+                    "\end{pgfonlayer}"
+
+<properties>   ::= "[" <property> ("," <property>)* "]"
+
+<property>     ::= <value> "=" <value> | <value>
+
+<value>        ::= SIMPLE_STRING | DELIMITED_STRING
+
+<node>         ::= "\node" <properties>? <nodename>
+                      "at" <coords> DELIMITED_STRING ";"
+
+<nodename>     ::= "(" (SIMPLE_STRING) (".center")? ")"
+
+<coords>       ::= "(" NUMBER "," NUMBER ")"
+
+<edge>         ::= "\draw" <properties>? <nodename>
+                      "to" <edgenode>? (<nodename> | "()") ";"
+
+<edgenode>     ::= "node" <properties>? DELIMITED_STRING
+
+<boundingbox>  ::= "\path" "[use as bounding box]" <coords>
+                      "rectangle" <coords> ";"
+----
+
+NOTE: TikZiT 2.x currently does not use the bounding box command, but
+it is allowed for compatibility with TikZiT 1 files.
+
+'''''
+
+_Copyright © 2019. TikZiT project._

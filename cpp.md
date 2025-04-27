@@ -12390,7 +12390,7 @@ Output:
         D(int i) :C{i} { /* ... */ }; // error : no default constructor for V
         D(int i, int j) :V{i}, C{j} { /* ... */ } // OK
     };
-    // The C++ Programming Language, Forth Edition
+    // The C++ Programming Language, Fourth Edition
     // 21.3.5.1 Constructing Virtual Bases
 ```
 

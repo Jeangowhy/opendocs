@@ -7978,7 +7978,7 @@ zₙ+1 ＝ zₙ² + c，重复该步骤直到：
 - [GAMES105-计算机角色动画基础-刘利斌](https://www.bilibili.com/video/BV1GG4y1p7fF/)
 - [08.游戏引擎的动画技术基础 GAMES104-现代游戏引擎：从入门到实践](https://www.bilibili.com/video/BV1jr4y1t7WR?t=3794.3)
 
-![Hamilton plaque at Broombridge, Cabra](https://ingeniousireland.ie/wp-content/uploads/2011/10/Broombridge-plaque-BDolan-2010-web-600x450.jpg)
+![Hamilton plaque at Broombridge, Cabra](http://www.irelandtravelkit.com/wp-content/uploads/2013/02/hamilton.jpg)
 
 相比矩阵，用四元数处理 3D 旋转的优势是毋庸置疑的，但是 Quaternions 四元数概念复杂，难于理解。
 四元数的定义和复数非常类似，唯一的区别就是四元数有三个虚部，而复数只有一个．所有的四元数 𝑞 ∈ ℍ，
@@ -14114,6 +14114,27 @@ Gridmaps 是用于创建 3D 关卡的节点，相当于 2D 关卡中使用 TileM
 - [Real Time Navigation (3D)](https://docs.godotengine.org/en/3.6/tutorials/navigation/real_time_navigation_3d.html)
 - [Godot导航系统详解:导航基础](https://www.bilibili.com/video/BV1CG411g7P9/)
 
+- [比A*寻路算法快百倍的JPS跳点搜索](https://www.bilibili.com/video/BV18z421i7s8/)
+- [寻路算法可视化演示](https://qiao.github.io/PathFinding.js/visual/)
+- [GDC - JPS+: Over 100x Faster than A*](https://www.gdcvault.com/play/1022094/JPS-Over-100x-Faster-than)
+- [JPS (Jump Point Search)](http://grastien.net/ban/articles/hg-aaai11.pdf)
+
+JPS 算法有和我设想的一个会叫做 eyesight looking path 算法有点相似。ELP 算法设想是通过模拟视觉
+对空间的可到达区域进行检测，并且以靠近目标位置方向为优先，并按照当前可达路径作深度搜索，直到完成处理。
+
+It has been said that "pathfinding is a solved problem." Just because something 
+is "solved" doesn't mean it can't be improved especially with regards to execution 
+time. Normally, a speed gain of 10x or 100x over a traditional algorithm is unheard 
+of. Recently, a method has been devised that is capable of doing just that to A*. 
+
+In 2011, Harabor and Grastien introduced Jump Point Search (JPS) that achieves 
+up to a 10x speed improvement over A* on uniform cost grids. In the last year, 
+an additional 10x speed improvement to JPS, called JPS+ was independently developed 
+by Steve Rabin as well as Harabor and Grastien. This improved algorithm is over 
+100x faster than A* on maps with open areas and over 2x faster than A* on worst-case 
+maps. This incredible speed-up is due to pre-computation, eliminating the recursion 
+in JPS and focusing only on touching select relevant nodes during the search.
+
 Godot 中的 AI 寻路方案大概有以下几种：
 
 - AStar 寻路算法，对于自动生成的网格地图非常有用，结合多线程效率也高；
@@ -14375,9 +14396,9 @@ func draw_path(path_array):
 提到游戏 AI 就不得不说 Pacman 经典吃豆人游戏，作为经典游戏，其最有特色的部分就是带有 AI 原型的四个幽灵对手：
 
 - 红色的幽灵 Blinky 代表执着，它会一直跟着玩家走，并且随着玩家吃的豆越多移动速度会变的越快。
-- 粉色的幽灵 Clyde 代表预知，它会以玩家路径的前方为目的地，经常会围堵玩家，官方的名称叫做“埋伏者”。
-- 青色的幽灵 Linky 代表变化，它有时候会追着玩家走，有时候又会提前堵在玩家必经的路上，善于变化。
-- 黄色的幽灵 Pinky 代表随意，它的行动路线完全随机，甚至大多数时间它会完全不理会玩家，一个人自己在地图上漫游。
+- 粉色的幽灵 Pinky 代表预知，它会以玩家路径的前方为目的地，经常会围堵玩家，官方的名称叫做“埋伏者”。
+- 青色的幽灵 Inky 代表变化，它有时候会追着玩家走，有时候又会提前堵在玩家必经的路上，善于变化。
+- 橙色的幽灵 Clyde 代表随意，它的行动路线完全随机，甚至大多数时间它会完全不理会玩家，一个人自己在地图上漫游。
 
 - [Play Pacman Online](https://jimboyeah.github.io/pacman/)
 

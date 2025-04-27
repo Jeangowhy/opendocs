@@ -1,0 +1,2037 @@
+:source-highlighter: highlight.js
+:icons: font
+
+== README
+
+An introductory workshop to learn Elm.
+https://sporto.github.io/elm-workshop/
+
+*_Contributing_*
+
+All content for the worshop is in `+/content+`
+
+*_Building_*
+
+Install https://gohugo.io[Hugo] Min 0.25 required.
+
+Install the theme:
+
+....
+git clone git@github.com:vjeantet/hugo-theme-docdock.git themes/docdock
+....
+
+*_Preview_*
+
+....
+hugo serve
+....
+
+*_Build_*
+
+....
+hugo
+....
+
+Workshop will be build in the `+docs+` directory.
+
+:api: http://package.elm-lang.org/packages/elm-lang/core/latest/
+:api-Time-now: http://package.elm-lang.org/packages/elm-lang/core/5.1.1/Time#now
+:api-Task-perform: http://package.elm-lang.org/packages/elm-lang/core/5.1.1/Task#perform
+:api-Time-time: http://package.elm-lang.org/packages/elm-lang/core/5.1.1/Time#Time
+:api-Basics: http://package.elm-lang.org/packages/elm-lang/core/5.1.1/Basics
+:api-Date: http://package.elm-lang.org/packages/elm-lang/core/5.1.1/Date
+:api-String-padLeft: http://package.elm-lang.org/packages/elm-lang/core/5.1.1/String#padLeft
+:api-Time-every: http://package.elm-lang.org/packages/elm-lang/core/5.1.1/Time#every
+:api-Http: http://package.elm-lang.org/packages/elm-lang/http/1.0.0/Http
+:api-Navigation: http://package.elm-lang.org/packages/elm-lang/navigation/2.1.0/Navigation
+:api-Dom-Scroll: http://package.elm-lang.org/packages/elm-lang/dom/1.1.1/Dom-Scroll
+:api-Mouse: http://package.elm-lang.org/packages/elm-lang/mouse/1.0.1/Mouse
+:api-http-progress: http://package.elm-lang.org/packages/elm-lang/http/1.0.0/http-progress
+:api-AnimationFrame: http://package.elm-lang.org/packages/elm-lang/animation-frame/1.0.1/AnimationFrame
+
+
+== Elm Workshop
+
+Welcome to the Elm Workshop
+
+=== What you will learn
+
+This workshop should take a couple of hours to complete, in this time
+you will learn:
+
+* What is Elm
+* Why use Elm
+* Basic syntax of Elm
+* How to build a basic Elm application
+
+=== Requirements
+
+* You need to install the Elm Platform from
+https://guide.elm-lang.org/install.html[here].
+
+* Install Elm syntax highlighting for your editor.
+
+* And Elm Format is highly recommended
+https://github.com/avh4/elm-format/releases.
+
+== 01 Introduction
+
+This chapter covers:
+
+* What Elm is
+* Why you might use Elm
+* The basic syntax of functions in Elm
+
+=== 1.1 What is Elm
+
+Elm is a pure functional programming language that compiles to
+JavaScript.
+
+* Elm is statically typed. But it has type inference, so it is not
+necessary to manually write the types.
+
+* All functions are pure. Meaning that given the same arguments they
+always return the same result.
+
+* All data is immutable. Functions always return a new version of the
+data instead of mutating the data given.
+
+* There is no null in Elm. Instead in Elm we represent the absence of a
+value by using a type called Maybe.
+
+=== 1.2 Why Elm
+
+==== Safe and Robust
+
+It is very hard to get runtime errors in Elm. This is because of the
+great type system and the abscence of null. So programs in Elm are more
+robust.
+
+==== Better errors handling
+
+In JavaScript it is easy to ignore possible errors. You can’t do this in
+Elm. The compiler pushes us to explicitly think about and deal with all
+possible values of any expression.
+
+==== A great type system
+
+All core and third party packages in Elm conform to the Elm type system.
+This means that the compiler can catch all type issues (unlike
+TypeScript or Flow).
+
+==== Confident refactoring experience
+
+Because of the robust type system, refactoring a program in Elm is much
+easier. When you make a change, the compiler will let you know about
+every place in your code that is affected.
+
+==== Less setup
+
+There is not a lot to set up and decide when starting an Elm project. A
+single installer provides everything you need, and there are no tools
+that need to be configured to work together.
+
+==== Easier to test
+
+Because all Elm functions are pure, they are easier to test as they
+don’t rely on side effects. Building a whole program from pure functions
+makes it much easier to test, and Elm guarantees this for every program
+you write.
+
+==== Guaranteed immutable data
+
+Elm has only one way to update data. It doesn’t let us modify data
+values that other parts of our code assume will remain unchanged, which
+is an easy mistake to make in Javascript.
+
+==== Terse functional programming
+
+If you like *lodash*, *ramda* or *sanctuary*, Elm offers an even simpler
+syntax for functional programming, which includes partial application
+and the pipeline operator.
+
+=== 1.3 Functions
+
+In Elm functions are a bit different than in languages like JavaScript,
+so it is worth familiarising yourself with how they are written and
+called in Elm.
+
+Let’s create a function in the Elm repl (read-evaluate-print loop). In
+your terminal, start a repl session:
+
+....
+elm-repl
+....
+
+The first time you use the repl Elm needs to download the core modules,
+so it can take a little while. Try:
+
+[source,elm]
+----
+1 + 1
+----
+
+It should print `+2 : number+` after a few seconds. From that point on,
+responses should be immediate.
+
+Create a function `+add+`:
+
+[source,elm]
+----
+add a b = a + b
+----
+
+This is a function called `+add+` that takes two arguments `+a+` and
+`+b+`. In Elm you use spaces to separate the arguments, not parentheses
+or commas. In JavaScript this is equivalent to:
+
+[source,js]
+----
+// ES5
+function add(a, b) {
+  return a + b
+}
+
+// ES6 arrow function
+const add = (a, b) => a + b
+----
+
+You can call this function like so:
+
+[source,elm]
+----
+add 1 2
+----
+
+Note how we use spaces to pass arguments to the function.
+
+==== Partial application
+
+Partial application is very common in Elm so is important to explain
+early.
+
+If you pass only one argument to this function you will get back a
+partially applied function:
+
+[source,elm]
+----
+add2 = add 2
+----
+
+Then you can pass the missing argument to get the final result:
+
+[source,elm]
+----
+add2 3  -- 5 : number
+----
+
+==== Exercise
+
+[arabic]
+. Write a function that takes two words and concatenates them with a
+space in the middle. e.g.
+
+....
+join "Hello" "World"
+....
+
+Should return `+Hello World+`. The string concatenation operator in Elm
+is `pass:[++`].
+
+[arabic, start=2]
+. Using this function, create a partially applied function where the
+first word is always "`Hello`". e.g.
+
+[source,elm]
+----
+sayHello "Sam"
+----
+
+Should return `+Hello Sam+`.
+
+{{% panel %}}Type `+:exit+` to exit the repl.{{% /panel %}}
+
+== 02 hello world
+
+This chapter covers how to set up, create and run a basic Elm application.
+
+=== 2.1 Setup
+
+In an empty directory run:
+
+[source,bash]
+----
+elm-package install -y
+----
+
+This does a few things:
+
+* Installs core Elm modules for building applications: `+html+`,
+`+core+` and `+virtual-dom+`
+
+* Creates a file called `+elm-package.json+`. This file contains a list
+of dependecies for your project. Take a minute to look at it.
+
+* Adds a subfolder named `+elm-stuff+`. This folder contains the
+downloaded packages and compilation artifacts.
+
+When tracking an Elm project in source control, you should ignore the
+`+elm-stuff+` folder (e.g. by adding it to your project’s `+.gitignore+`
+file).
+
+=== 2.2 Your first app
+
+In your project folder, create a new file named `+Hello.elm+`:
+
+[source,elm]
+----
+module Hello exposing (..)
+
+import Html exposing (div, text)
+
+
+main =
+    div [] [ text "Hello" ]
+----
+
+Back at the terminal prompt, run:
+
+....
+elm-reactor
+....
+
+Then open http://localhost:8000 and click on `+Hello.elm+`. This should
+display the text "`Hello`" on an otherwise blank page. Excellent – we
+have our first Elm app!
+
+'''''
+
+Let’s break it down:
+
+[source,elm]
+----
+module Hello exposing (..)
+----
+
+This file defines an Elm module, and this line states the module’s name.
+The module name must match the file name; so in this case, the file must
+be named `+Hello.elm+`.
+
+[source,elm]
+----
+import Html exposing (div, text)
+----
+
+This imports functions from the `+Html+` module. `+div+` and `+text+`
+are functions that produce HTML nodes.
+
+[source,elm]
+----
+main =
+----
+
+Programs in Elm start with the `+main+` function. The Elm runtime uses
+this its entry point.
+
+[source,elm]
+----
+div [] [ text "Hello" ]
+----
+
+This is the body of our `+main+` function. It returns a `+div+`
+containing some plain text, equivalent to the following HTML:
+
+[source,html]
+----
+<div>Hello</div>
+----
+
+The `+div+` function takes two arguments:
+
+[arabic]
+. a list of attributes (e.g. `+class+`, `+id+`, etc.)
++
+In this example, we have passed in an empty list (`+[]+`), so the
+`+div+` will have no attributes.
+. a list of HTML child nodes
++
+In this example, we have passed a list with a single entry: a text node.
+To create the text node, we called the `+text+` function, passing it a
+string (`+"Hello"+`).
+
+=== 2.3 Exercise
+
+In the following program, implement the commented parts:
+
+[source,elm]
+....
+module Hello exposing (..)
+
+import Html exposing (div, text)
+
+
+main =
+    div []
+        [ text "Hello"
+
+        -- Add another text node with the word "World"
+        ]
+....
+
+NOTE: In Elm, `+--+` signals the start of a comment, running to the
+end of the line (just like `+//+` in JavaScript).
+
+*Hint:* Although Elm doesn’t use commas between function arguments, it
+_does_ use commas between the items in a list.
+
+== 03 TEA
+
+This chapter covers:
+
+* What the Elm Architecture is
+* How to write a basic app using this architecture
+
+=== 3.1 The Elm Architecture
+
+Most Elm applications are built using a pattern called *The Elm Architecture*
+(TEA). If you have used Redux, this architecture will be very familiar. This
+is not a coincidence – Redux was heavily inspired by Elm!
+
+[svgbob]
+----
+                            .----------.     
+                   _.-''''' |   View   | '''''-._        
+                 ,'         `----------'         `.      
+                /    ➊           ➋          ➌      \     
+               .   Model                  Message   .    
+               |                                    |    
+               |                                    |    
+    .-----------------------------------------------------------.
+    |          ^                                    |           |
+    |          | ➑           Elm Runtime          ➍ |           |
+    |          |                                    v           |
+    `-----------------------------------------------------------'
+               |                                    |    
+               |  New model +         Message +     |    
+               |  Side efects         Current model |    
+                \    ➐           ➏          ➎      /     
+                 `._        .----------.        _.'      
+                    '-..... |  Update  | .....-'         
+                            `----------'    
+
+----
+
+This is the Elm architecture:
+
+* ➊ When our application first starts, we have an initial model that is
+passed to our program’s `+view+` function.
+
+* ➋ The `+view+` function renders the current model to produce our
+program’s user interface (typically as HTML).
+
+* ➌ When the user interacts with the rendered view, a message is sent to
+the Elm Runtime (➍) e.g. `+ExpandDetails+`.
+
+* ➎ The Elm Runtime calls our program’s `+update+` function, passing in
+the message and the current model.
+
+* ➏ The `+update+` function returns an updated model, and optionally a
+list of side effects to run (➐).
+
+* ➑ The Elm Runtime calls our `+view+` function again to render our
+interface with the updated model. It also performs any side effects
+requested by our program.
+
+==== Terminology in Elm vs Redux
+
+[cols=",,",options="header,autowidth",freme=ends,grid=rows]
+|===
+|Concept                            |Elm        |Redux
+
+|Application state                  |Model      |State
+|Application events                 |Message    |Action
+|Function that transforms the state |Update     |Reducer
+|===
+
+==== elm-package.json
+
+[source,json]
+----
+{
+    "version": "1.0.0",
+    "summary": "helpful summary of your project, less than 80 characters",
+    "repository": "https://github.com/user/project.git",
+    "license": "BSD3",
+    "source-directories": [
+        "."
+    ],
+    "exposed-modules": [],
+    "dependencies": {
+        "elm-lang/core": "5.1.1 <= v < 6.0.0",
+        "elm-lang/html": "2.0.0 <= v < 3.0.0"
+    },
+    "elm-version": "0.18.0 <= v < 0.19.0"
+}
+----
+
+==== Main.elm
+
+[sourc,elm]
+----
+module Main exposing (..)
+
+import Html exposing (Html, div, text)
+
+
+-- Application Model
+
+
+type alias Model =
+    String
+
+
+init : ( Model, Cmd msg )
+init =
+    ( "Hello", Cmd.none )
+
+
+
+-- Messages
+
+
+type Msg
+    = NoOp
+
+
+
+-- VIEWS
+
+
+view : Model -> Html Msg
+view model =
+    div [] [ text model ]
+
+
+
+-- Update
+
+
+update : Msg -> Model -> ( Model, Cmd msg )
+update msg model =
+    ( model, Cmd.none )
+
+
+subscriptions model =
+    Sub.none
+
+
+
+-- Main
+
+
+main =
+    Html.program
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+        }
+----
+
+
+=== 3.2 Structure
+
+Here is a basic application using the Elm architecture.
+
+[source,elm]
+----
+module Main exposing (..)
+
+import Html exposing (Html, div, text)
+
+
+-- MODEL
+
+
+type alias Model =
+    String
+
+
+init : ( Model, Cmd Msg )
+init =
+    ( "Hello", Cmd.none )
+
+
+-- MESSAGES
+
+
+type Msg
+    = NoOp
+
+
+-- VIEW
+
+
+view : Model -> Html Msg
+view model =
+    div [] [ text model ]
+
+
+-- UPDATE
+
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    ( model, Cmd.none )
+
+
+-- SUBSCRIPTIONS
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Sub.none
+
+
+-- MAIN
+
+
+main =
+    Html.program
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+        }
+----
+
+Copy this into a `+Main.elm+` file (you can either overwrite the file
+from the previous chapter, or start a new project folder with
+`+elm-package install -y+`), and open it using elm-reactor. You should
+see "`Hello`". Admittedly, this is a lot of code to do very little, but
+it’s a really solid foundation to build real-world applications upon.
+Let’s break this down in the next section.
+
+=== 3.3 TEA Breakdown
+
+==== Application Model
+
+[source,elm]
+----
+type alias Model =
+    String
+----
+
+Here we define what our application’s model will look like. In this
+case, we are aliasing the built-in `+String+` type. So our whole
+application’s model is simply a string.
+
+Our application’s model can be any type of value supported by Elm,
+including:
+
+* a record (effectively a JSON object with a fixed set of fields)
+* a list (what we call an array in JavaScript)
+* a number
+* a boolean (true or false)
+* a tuple (a fixed-length list of values of specific types)
+* a union type (more on this later)
+
+==== Initial model
+
+[source,elm]
+----
+init : ( Model, Cmd Msg )
+init =
+    ( "Hello", Cmd.none )
+----
+
+`+init+` is a function that returns the initial state of the
+application. The first line `+init : ( Model, Cmd msg )+` is the
+function’s type signature. This is saying that `+init+` returns a tuple,
+containing a `+Model+` and a `+Cmd Msg+`.
+
+===== Commands (`+Cmd+`)
+
+A command is how we tell the Elm runtime to perform a side effect. Here
+are some of the side effects supported by the Elm Runtime:
+
+* Send an HTTP request (Ajax)
+* Get the current time
+* Generate a random number
+* Access local storage
+* A batch of commands to be performed in parallel
+
+Each of these is represented by a value with a type of `+Cmd+`.
+
+Our program’s `+init+` function has an opportunity to return a command
+to be performed when our program first starts. In this example, we don’t
+need Elm to do anything at start-up, so we return `+Cmd.none+`.
+
+=== 3.4 Messages
+
+The next part are the messages in our application:
+
+[source,elm]
+----
+type Msg
+    = NoOp
+----
+
+We have only listed one message that our program can receive, which
+we’ve named `+NoOp+` (meaning "`no operation`"). Our program doesn’t yet
+have any features that would require responding to a message, so we’re
+just providing a dummy message here as a placeholder.
+
+A `+type+` declaration defines a *union type* in Elm (also known as an
+algebraic data type , or ADT). Note that this is different from
+`+type alias+`, which simply gives a new, more convenient name to some
+existing type (as we did with our `+Model+` above).
+
+Our message type above defines only a single message (`+NoOp+`), but in
+general a union type defines a list of possible values. Here’s a quick
+example:
+
+[source,elm]
+----
+type Answer = Yes | No
+----
+
+Here we’re adding a whole new type of value to Elm, called an
+`+Answer+`. In our program, any value with a type of `+Answer+` is
+guaranteed to have one of two values: `+Yes+` or `+No+`.
+
+To learn more about union types, check out the relevant section of the official 
+https://guide.elm-lang.org/types/union_types.html[Elm language tutorial].
+
+
+=== 3.5 View
+
+The next part is the `+view+` function:
+
+[source,elm]
+----
+view : Model -> Html Msg
+view model =
+    div [] [ text model ]
+----
+
+This is a function that takes a `+Model+` argument and returns `+Html+`.
+
+If you’re curious, here’s a little explanation about `+Html Msg+`. Elm’s
+`+Html+` type takes an argument that indicates the type of messages the
+user interface will generate. In this example, we pass it `+Msg+` to
+indicate that the `+Html+` that our `+view+` returns will only ever emit
+the messages specified by our program’s `+Msg+` type. Being specific
+about this enables the Elm compiler to guarantee that our program
+handles every message it can produce.
+
+If you’re familiar with a language like TypeScript, Java or Rust that
+supports generic types, and you’re wondering if `+Html+` might be a
+generic, you’re absolutely right. If you’ve never heard of generic
+types, don’t sweat it.
+
+
+=== 3.6 Update
+
+The next part is the `+update+` function, which is equivalent to a
+*reducer* in Redux:
+
+[source,elm]
+----
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    ( model, Cmd.none )
+----
+
+This function is responsible for updating your program’s model in
+response to the messages it receives; the Elm Runtime calls it
+automatically when it receives a message. This function takes two
+arguments: the *incoming message* (which will be a value of the `+Msg+`
+type we defined above), and the *current model*. It should return an
+*updated model* and a *command to run* if you need to kick off a side
+effect such as an HTTP request (or `+Cmd.none+` if you don’t).
+
+In this example, we just return the existing model without modification,
+and we perform no command. At this point, the only message we’ve said we
+can receive is a `+NoOp+`, so it makes sense that our `+update+`
+function that responds to these messages will effectively "`do
+nothing`". Once again, this function is effectively a placeholder that
+we’ll expand as we add features to our program.
+
+
+=== 3.7 Program
+
+Lastly we have:
+
+[source,elm]
+----
+-- SUBSCRIPTIONS
+
+
+subscriptions model =
+    Sub.none
+
+
+-- MAIN
+
+
+main =
+    Html.program
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+        }
+----
+
+==== Subscriptions
+
+Subscriptions is how Elm programs listen for external events, for
+example:
+
+* Mouse movement
+* Window resizing
+* Time increments
+* Animation frames
+* Messages from JavaScript code
+
+The `+subscriptions+` function takes the program’s current model as an
+argument, and returns a list of the subscriptions we wish to receive
+messages from. The Elm Runtime calls this function automatically every
+time our program’s model changes, to give our program an opportunity to
+change its subscriptions in response.
+
+In this simple example, we have no need to receive messages from the
+outside world, so we simply return `+Sub.none+` regardless of the value
+of our model.
+
+==== Html.program
+
+Finally, our program’s `+main+` function calls `+Html.program+` to
+connect everything together. `+Html.program+` takes a single argument, a
+record specifying our `+init+`, `+view+`, `+update+` and
+`+subscriptions+` functions, and wires them all together to produce an
+application that is ready for the Elm Runtime to run.
+
+Here again is the diagram that shows how these parts all work together:
+
+[svgbob]
+----
+                            .----------.     
+                   _.-''''' |   View   | '''''-._        
+                 ,'         `----------'         `.      
+                /    ➊           ➋          ➌      \     
+               .   Model                  Message   .    
+               |                                    |    
+               |                                    |    
+    .-----------------------------------------------------------.
+    |          ^                                    |           |
+    |          | ➑           Elm Runtime          ➍ |           |
+    |          |                                    v           |
+    `-----------------------------------------------------------'
+               |                                    |    
+               |  New model +         Message +     |    
+               |  Side efects         Current model |    
+                \    ➐           ➏          ➎      /     
+                 `._        .----------.        _.'      
+                    '-..... |  Update  | .....-'         
+                            `----------'    
+
+----
+
+=== 3.8 Exercise
+
+The program we just wrote is structured according to TEA (The Elm
+Architecture), which should make it easy to extend. To begin, we might
+alter the representation of our model so that it can store more than
+just a single string.
+
+Instead, let’s use a *record*. Much like a JSON object, Elm records
+store values for a number of keys. Let’s move our model’s string into a
+record key, so that we can later add more keys with other values as
+needed.
+
+[arabic]
+. Change the `+Model+` to a record, like this:
++
+[source,elm]
+----
+type alias Model = {
+    message: String
+}
+----
+. Create a function called `+initialModel+` that returns a record that
+conforms to the type above, to be used as the program’s initial state.
+Add a function signature to `+initialModel+`.
++
+A concrete record of this type could look like this:
++
+[source,elm]
+----
+{ message = "Hello" }
+----
+. In `+init+`, call `+initialModel+` to obtain the initial model, rather
+than using a hard-coded value.
+. Change the view so it uses `+model.message+` to get the text to be
+displayed in the user interface.
+
+
+== 04 Interaction
+
+This chapter covers adding user interaction to an Elm application.
+
+=== 4.1 Start
+
+For this chapter we will create a simple counter application. Copy this
+into `+Counter.elm+`:
+
+[source,elm]
+----
+module Counter exposing (..)
+
+import Html exposing (Html, div, button, text)
+
+
+-- MODEL
+
+
+type alias Model =
+    { count : Int
+    }
+
+
+initialModel : Model
+initialModel =
+    { count = 0
+    }
+
+
+init : ( Model, Cmd Msg )
+init =
+    ( initialModel, Cmd.none )
+
+
+-- MESSAGES
+
+
+type Msg
+    = NoOp
+
+
+-- VIEW
+
+
+view : Model -> Html Msg
+view model =
+    let
+        count =
+            toString model.count
+    in
+        div [] [ text count, btnIncrease ]
+
+
+btnIncrease =
+    button [] [ text "Increase" ]
+
+
+-- UPDATE
+
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    ( model, Cmd.none )
+
+
+-- SUBSCRIPTIONS
+
+
+subscriptions model =
+    Sub.none
+
+
+-- MAIN
+
+
+main =
+    Html.program
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+        }
+----
+
+==== `+let+` expressions
+
+Note the use of `+let … in+` in `+view+`:
+
+....
+view model =
+    let
+        count =
+            toString model.count
+    in
+        div [] [ text count, btnIncrease ]
+....
+
+`+let+` allows you to break a function into smaller, reusable parts. You
+can think of this as declaring a local variable in a function in
+JavaScript e.g.
+
+....
+function view(model) {
+    const count = ...
+
+    ... use count ...
+}
+....
+
+'''''
+
+Take some time to understand this app then open this in Elm Reactor, you
+will see '`0`' as the current count and an '`Increase`' button that
+doesn’t do anything yet.
+
+
+=== 4.2 Flow
+
+Here’s what we want to happen when a user clicks that '`Increase`'
+button:
+
+// [mermaid]
+// ----
+// ---
+// config:
+//   layout: elk
+//   look: handDrawn
+//   theme: forest
+// ---
+// sequenceDiagram
+//     participant View
+//     participant Runtime
+//     participant Update
+//     View    ->>  Runtime: ChangeCount
+//     Runtime ->>  Update: ChangeCount and Current Model
+//     Update  -->> Runtime: (Updated model, Commands)
+//     Runtime ->>  View: Updated model
+// ----
+
+[svgbob]
+----
+     .--.               .--.                  .--.
+     |  |               |  |                  |  |
++----+--+---+       +---+--+----+         +---+--+----+
+|   View    |       |  Runtime  |         |  Update   |
++----+--+---+       +---+--+----+         +---+--+----+
+     |  |-------------->|  |                  |  |
+     |  | ChangeCount   |  | ChangeCount and  |  |
+     |  |               |  | Current Model    |  |
+     |  |               |  |----------------->|  |
+     |  |               |  | (Updated model,  |  |
+     |  |               |  |  Commands)       |  |
+     |  |               |  |<-----------------|  |
+     |  | Updated model |  |                  |  |
+     |  |<--------------|  |                  |  |
+     |  |               |  |                  |  |
+     `--'               `--'                  `--'
+,-----------------------------------------------------.
+|                         {pw}                        |
+`-----------------------------------------------------'
+
+# Legend:
+pw = {
+    fill: papayawhip;
+}
+----
+
+[arabic]
+. The *View* generates a message, *ChangeCount*
+. The Elm runtime calls our *Update* function with the message and the
+current model
+. *Update* returns an updated model and commands to run
+. The Elm runtime renders the *View* again with the updated model
+
+
+=== 4.3 Messages
+
+To get this button to do something we need our view to trigger a message
+when the button is clicked.
+
+First thing we need is to add a message to our application. Add a new
+*constructor* to `+Msg+`:
+
+[source,elm]
+----
+type Msg
+    = NoOp
+    | ChangeCount Int
+----
+
+Note how this *constructor* `+ChangeCount Int+` takes a payload, in this
+case an integer.
+
+NOTE: Since we aren’t actually using our `+NoOp+` message constructor
+anywhere, you could actually remove it, but I’ve left it in here to make
+it clear how to support more than one kind of message in your program.
+
+==== View
+
+Let’s trigger this new message from the view. Add a second import next
+to the existing one near the top of the file:
+
+[source,elm]
+----
+import Html.Events exposing (onClick)
+----
+
+Now update the `+btnIncrease+` function with an `+onClick+` attribute:
+
+[source,elm]
+----
+btnIncrease =
+    button [ onClick (ChangeCount 1) ] [ text "Increase" ]
+----
+
+Now this view when clicked will produce the message `+ChangeCount 1+`.
+
+
+=== 4.4 Update
+
+Our application is still not doing anything as we are ignoring the
+message we added. We need to do respond to it. Change `+update+` to:
+
+[source,elm]
+----
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        ChangeCount howMuch ->
+            ( { model | count = model.count + howMuch }, Cmd.none )
+
+        NoOp ->
+            ( model, Cmd.none )
+----
+
+Here we have introduced a `+case+` condition. We pattern-match on the
+`+msg+` argument. Note how we extract the message payload into
+`+howMuch+` in the first pattern.
+
+==== Update syntax
+
+In the first branch of our `+case+` expression, we want to produce an
+updated model, with the `+count+` increased by `+howMuch+`. In Elm, you
+update a record with the following syntax:
+
+[source,elm]
+----
+{ model | count = model.count + howMuch }
+----
+
+This returns a new version of `+model+` where `+count+` has been
+updated. Any other fields that might be present in `+model+` will remain
+unmodified in the new record.
+
+'''''
+
+Try this in your browser. Clicking the button should update the count now.
+
+
+=== 4.5 Exercise
+
+* Add a decrease button.
+* Prevent the count going below zero when clicking decrease.
+* Add another `+div+` that displays the counter multiplied by 10.
+
+
+=== Counter.elm
+
+[source,elm]
+----
+module Counter exposing (..)
+
+import Html exposing (Html, div, button, text)
+import Html.Events exposing (onClick)
+
+
+-- MODEL
+
+
+type alias Model =
+    { count : Int
+    }
+
+
+initialModel : Model
+initialModel =
+    { count = 0
+    }
+
+
+init : ( Model, Cmd Msg )
+init =
+    ( initialModel, Cmd.none )
+
+
+
+-- MESSAGES
+
+
+type Msg
+    = NoOp
+    | ChangeCount Int
+
+
+
+-- VIEW
+
+
+view : Model -> Html Msg
+view model =
+    let
+        count =
+            toString model.count
+    in
+        div [] [ text count, btnIncrease ]
+
+
+btnIncrease =
+    button [ onClick (ChangeCount 1) ] [ text "Increase" ]
+
+
+
+-- UPDATE
+
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        ChangeCount howMuch ->
+            ( { model | count = model.count + howMuch }, Cmd.none )
+
+        NoOp ->
+            ( model, Cmd.none )
+
+
+
+-- SUBSCRIPTIONS
+
+
+subscriptions model =
+    Sub.none
+
+
+
+-- MAIN
+
+
+main =
+    Html.program
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+        }
+----
+
+
+=== counter/elm-package.json
+
+[souce,json]
+----
+{
+    "version": "1.0.0",
+    "summary": "helpful summary of your project, less than 80 characters",
+    "repository": "https://github.com/user/project.git",
+    "license": "BSD3",
+    "source-directories": [
+        "."
+    ],
+    "exposed-modules": [],
+    "dependencies": {
+        "elm-lang/core": "5.1.1 <= v < 6.0.0",
+        "elm-lang/html": "2.0.0 <= v < 3.0.0"
+    },
+    "elm-version": "0.18.0 <= v < 0.19.0"
+}
+----
+
+
+== 05 Effects
+
+In this chapter, we’ll learn to use information from the outside world
+in our Elm application.
+
+=== 5.1 The Outside World
+
+So far, the Elm programs we have written have all been self-contained.
+They started with a static model (like the number zero) and updated it
+in response to user interaction with your view (like a button click). In
+real-world projects, you will usually want to fetch data from or send
+data to an outside source (like a server API), or respond to other
+events (like the passage of time).
+
+Elm is very simple partly because it’s a pure functional language, where
+every function always returns the same value given the same arguments.
+This makes Elm functions very easy to reason about, to compose into
+complex programs, and to write automated tests for. But a function like
+JavaScript’s `+Date.now+`, which returns the current date and time
+(always a different value), can’t exist in Elm. If you’re used to
+JavaScript, you might find Elm’s approach to accessing the outside world
+unfamiliar, even convoluted at first.
+
+Let’s write a program that deals with the current time to see how Elm
+does it.
+
+=== 5.2 Start the Clock
+
+Create a new Elm program, `+Stopwatch.elm+`.
+
+____
+NOTE: If you find typing all this out tedious, most Elm language
+support packages for popular editors include a snippet for a new
+program. In Visual Studio Code, for example, with the Elm extension
+installed, you can type `+Html.program+` in an empty file, hit Tab, and
+have all of this code generated for you automatically.
+____
+
+[source,elm]
+----
+module Stopwatch exposing (..)
+
+import Html exposing (Html, div, button, text)
+
+
+main : Program Never Model Msg
+main =
+    Html.program
+        { init = init
+        , update = update
+        , subscriptions = subscriptions
+        , view = view
+        }
+
+
+type Msg
+    = Todo
+
+
+type alias Model =
+    {}
+
+
+init : ( Model, Cmd Msg )
+init =
+    ( {}, Cmd.none )
+
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    ( model, Cmd.none )
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Sub.none
+----
+
+All that’s missing from this program is a `+view+` function (the Elm
+compiler will point this out helpfully if you try to run it).
+
+Although our ultimate aim is to create a fully-functional stopwatch,
+we’ll start simple. Let’s make this program display the current time
+when it starts. Since Elm requires the `+view+` function to render our
+program using nothing but the current model, let’s assume our model will
+contain the current time, which we’ll convert to a string with
+`+toString+`:
+
+[source,elm]
+----
+view : Model -> Html Msg
+view model =
+    text (toString model.time)
+----
+
+Compile the program now (if you’re using elm-reactor, just refresh your
+browser). The compiler will complain that our model doesn’t have a field
+named `+time+`. So, it’s clear what we need to do next: add that field
+to our `+Model+` type.
+
+[source,elm]
+----
+type alias Model =
+    { time : Time }
+----
+
+In order to use the `+Time+` type, we’ll need to add an `+import+` for
+it to the top of this module:
+
+[source,elm]
+----
+import Time exposing (Time)
+----
+
+This process of pretending that something exists (in this example,
+`+model.time+` in our `+view+`) and then following the compiler’s
+directions to add it is a really nice way to add features to an Elm
+program. Try to think of every compiler error as helpful guidance about
+what to do next, not a complaint that you’re doing something wrong.
+
+With these changes in place, the compiler will have a new direction for
+us: the model returned by our `+init+` function is missing the `+time+`
+field. Let’s fix it!
+
+[source,elm]
+----
+init : ( Model, Cmd Msg )
+init =
+    ( { time = Time.now }, Cmd.none )
+----
+
+
+When our program starts up, we want the `+init+` function to set the
+`+time+` in our model to the current time. Looking at the 
+link:{api}[Elm Core API reference], we can see that
+link:{api-Time-now}[the `+Time+` module] has a `+now+` function, 
+so it seems natural to use that here. But the Elm compiler points out that 
+`+Time.now+` doesn’t return a `+Time+`; it returns a `+Task.Task x Time+`. 
+What is a `+Task.Task x Time+`?
+
+Remember that as a pure functional language, Elm doesn’t have functions
+that return different values at different times as we might expect
+`+Time.now+` to do. Instead, `+Time.now+` returns a _task_ that we can
+_command_ the Elm runtime to perform. When it completes this task, the
+Elm runtime will send our `+update+` function a _message_ with the
+current time.
+
+We’ll see how to perform tasks like this shortly, but right now we need
+to get our `+init+` function to compile. If we’re going to command Elm
+to obtain the current time, that means our program’s initial model must
+represent the state where we are still waiting to receive that time.
+
+
+=== 5.3 Maybes
+
+If this were JavaScript, and we wanted to represent the state where we
+are waiting to get the current time, we might write this `+init+`
+function:
+
+[source,elm]
+----
+init : ( Model, Cmd Msg )
+init =
+    ( { time = null }, Cmd.none )
+----
+
+But Elm doesn’t let you set any old variable to a "`nothing`" value like
+this. The ability to do this in JavaScript is by far the greatest source
+of bugs in JavaScript programs. When a variable that you expect to hold
+a value actually contains a "`nothing`" value like `+null+` or
+`+undefined+`, your program crashes with an "`undefined is not a
+function`" error.
+
+By preventing you from setting any variable to `+null+`, Elm can
+guarantee that this kind of error will never happen in your Elm
+programs.
+
+But of course, sometimes you really do have "`nothing`"! Until we are
+able to get the current time, our program simply can’t tell what time it
+is. To represent this, Elm has the `+Maybe+` type:
+
+[source,elm]
+----
+type Maybe something
+    = Nothing
+    | Just something
+----
+
+(Don’t add this type to your program! It’s already built into Elm.)
+
+A `+Maybe+` type represents a value that is either not present
+(`+Nothing+`) or present (`+Just something+`). Whenever you use a
+`+Maybe+`, you get to choose what the `+something+` type is. In our
+program, we have need of a value that is either "`nothing`" or "`just`"
+a `+Time+` value. So what we want is a `+Maybe Time+`.
+
+Let’s update our `+Model+` type to contain a `+Maybe Time+` instead of a
+`+Time+`:
+
+[source,elm]
+----
+type alias Model =
+    { time : Maybe Time }
+----
+
+Now we can get our `+init+` function to compile by setting the initial
+value of the `+time+` field to `+Nothing+`:
+
+[source,elm]
+----
+init : ( Model, Cmd Msg )
+init =
+    ( { time = Nothing }, Cmd.none )
+----
+
+Compile and run the program to make sure everything is working. Our
+`+view+` function will display this initial value (`+Nothing+`).
+
+Since this doesn’t look great, let’s improve our `+view+` function a
+little to better handle this "`nothing`" case.
+
+We can use a `+case+` statement in our `+view+` function to handle
+separately the different possible values of our `+Model+`. Since our
+program only contains a `+Nothing+` value so far, let’s start by
+handling that:
+
+[source,elm]
+----
+view : Model -> Html Msg
+view model =
+    case model.time of
+        Nothing ->
+            text "Loading…"
+----
+
+Save and run this, and the compiler will tell you that you haven’t
+accounted for all possible values of `+model.time+`. We have told Elm
+that `+model.time+` is a `+Maybe Time+`, so it requires us to handle
+every possible value of that type. Again, Elm is making sure that our
+programs will never crash as a result of a value being something other
+than we expect it to be.
+
+The error message says that the value we have failed to handle is
+`+Maybe.Just _+`. So we could add this branch to our `+case+` statement,
+using the previous code we had written to output the time:
+
+[source,elm]
+----
+        Maybe.Just _ ->
+            text (toString model.time)
+----
+
+This is a little more verbose than necessary, though. Elm automatically
+makes all values in the `+Maybe+` module available to us in every module
+that we write. So instead of `+Maybe.Just+`, we can just say `+Just+`:
+
+[source,elm]
+----
+        Just _ ->
+            text (toString model.time)
+----
+
+That underscore (`+_+`) represents the `+Time+` value that is wrapped in
+this `+Maybe+` type. The underscore tells Elm that we aren’t interested
+in this value. We’ll come back and tweak this once we have an actual
+`+Time+` value for our program to display.
+
+For now, our `+view+` function should look like this:
+
+[source,elm]
+----
+view : Model -> Html Msg
+view model =
+    case model.time of
+        Nothing ->
+            text "Loading…"
+
+        Just _ ->
+            text (toString model.time)
+----
+
+Run the program and confirm that it shows "`Loading…`".
+
+Now we’re ready to get back to the task of fetching the current time.
+
+
+=== 5.4 Tasks
+
+Let’s return to our `+init+` function, which so far just creates a
+`+Model+` with a `+time+` value of `+Nothing+`:
+
+[source,elm]
+----
+init : ( Model, Cmd Msg )
+init =
+    ( { time = Nothing }, Cmd.none )
+----
+
+`+init+` doesn’t just return that initial `+Model+` value, however. It
+also returns `+Cmd.none+`, just like every other `+init+` function we
+have written so far. `+Cmd.none+` tells Elm we don’t have a command for
+it to run right now. But there _is_ something that we want Elm to do for
+us when our program first starts: we want it to fetch the current time
+for us!
+
+As we learned in [an earlier section]({{< ref "`02-start.md`" >}}),
+functions like `+Time.now+` that fetch information from the outside
+world return a task that you can command Elm to perform.
+
+To do this, we’ll use the `+Task.perform+` function. First, let’s
+`+import+` the `+Task+` module at the top of our program:
+
+[source,elm]
+----
+import Task
+----
+
+
+If we look at the documentation for link:{api-Task-perform}[`+Task.perform+`], 
+you’ll see that it conveniently shows how to use it to fetch the current 
+time from an `+update+` function. Using this as a guide, we can make our 
+`+init+` function issue the same command.
+
+[source,elm]
+----
+init : ( Model, Cmd Msg )
+init =
+    ( { time = Nothing }, Task.perform NewTime Time.now )
+----
+
+We’re getting close, but the compiler has a new #+error message+#
+piece of guidance for us. It doesn’t recognise `+NewTime+`, our
+first argument to `+Task.perform+`. This argument is the message we are
+asking Elm to send us when it finishes the task we are commanding it to
+perform. Elm doesn’t recognise it because we haven’t included
+`+NewTime+` as one of the possible values of our `+Msg+` type:
+
+[source,elm]
+----
+type Msg
+   = Todo
+----
+
+All we have there now is a `+Todo+` value that we aren’t using. Let’s
+replace it with `+NewTime+`, a message that we will expect to contain a
+`+Time+` value:
+
+[source,elm]
+----
+type Msg
+    = NewTime Time
+----
+
+Great, we’re giving Elm a command! Once it has retrieved the current
+time, Elm will call our `+update+` function with a `+NewTime+` message
+containing the current `+Time+`. Let’s make our `+update+` function
+handle this message in the a `+case+` statement:
+
+[source,elm]
+----
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        NewTime time ->
+            ( { model | time = Just time }, Cmd.none )
+----
+
+Using pattern matching, we extract the `+Time+` value contained in the
+message and store it in a variable `+time+`. We then return an updated
+`+model+` with its time field set to `+Just time+` (a `+Maybe+`
+containing an actual `+Time+` value), replacing the `+Nothing+` value
+set by `+init+`.
+
+Notice that we still return `+Cmd.none+` here, too. Every time our
+`+update+` function is called, we have the option to give Elm another
+command, but for now we have nothing else that needs doing.
+
+Run our program now, and you’ll see it displays an interesting value:
+the word '`Just`' followed by a large number. Before you proceed to the
+next section, can you guess why it’s showing this?
+
+
+=== 5.5 Format Time
+
+We can understand why our program is currently displaying '`Just`'
+followed by a large number by looking again at our `+view+` function:
+
+[source,elm]
+----
+view : Model -> Html Msg
+view model =
+    case model.time of
+        Nothing ->
+            text "Loading…"
+
+        Just _ ->
+            text (toString model.time)
+----
+
+Since `+model.time+` no longer contains `+Nothing+`, the second branch
+of the `+case+` is now generating our view. That branch says to convert
+the value of `+model.time+` to a `+String+` and display it as HTML text.
+
+Remember, `+model.time+` isn’t just a `+Time+` value; it’s a
+`+Maybe Time+`, which means that its value is either `+Nothing+` or it’s
+`+Just Time+` (a `+Time+` value tagged with the `+Just+` constructor).
+So the word '`Just`' in the output is just that tag, and the large
+number must be the `+Time+`. Indeed, if you refresh the page repeatedly,
+you’ll see the large number gets larger each time!
+
+We can use pattern matching in our `+case+` statement again to extract
+just the `+Time+` from `+model.time+`’s `+Just Time+` value. Replace the
+underscore (which tells Elm we aren’t interested in the value) in
+`+Just _+` with a variable name:
+
+[source,elm]
+----
+        Just time ->
+            text (toString model.time)
+----
+
+With the unwrapped `+Time+` value in `+time+`, we can now display _that_
+instead of `+model.time+`:
+
+[source,elm]
+----
+        Just time ->
+            text (toString time)
+----
+
+
+Now our program displays just the large number that represents the
+current time. The link:{api-Time-time}[documentation
+for the `+Time+` type] reveals that `+Time+` is just an alias for
+`+Float+` – a floating point number. In fact, a `+Time+` is just a
+number of milliseconds since midnight on 1 January, 1970 UTC.
+
+We can use some of the other functions in link:{api-Time-time}[the `+Time+` module]
+to convert such a value in to the hours, minutes and
+seconds we need for our clock. Let’s write a function to do this. If
+you’re feeling confident, go ahead and try writing it yourself before
+you read on.
+
+Here’s what a reasonable first attempt might look like:
+
+[source,elm]
+----
+toClock : Time -> String
+toClock time =
+    let
+        hours =
+            Time.inHours time
+
+        minutes =
+            Time.inMinutes time
+
+        seconds =
+            Time.inSeconds time
+    in
+        hours ++ ":" ++ minutes ++ ":" ++ seconds
+----
+
+Here we’ve used a `+let+` block to calculate the `+hours+`, `+minutes+`
+and `+seconds+` separately, then we’ve tried to return these in a single
+`+String+`.
+
+If we try to run this, the compiler reminds us that `pass:[++]` only works
+with ``String``s and we’ve given it a `+Float+`. We can use `+toString+`
+to perform the necessary conversions:
+
+[source,elm]
+----
+toClock : Time -> String
+toClock time =
+    let
+        hours =
+            toString (Time.inHours time)
+
+        minutes =
+            toString (Time.inMinutes time)
+
+        seconds =
+            toString (Time.inSeconds time)
+    in
+        hours ++ ":" ++ minutes ++ ":" ++ seconds
+----
+
+This will run, but the numbers aren’t quite what we’re after. First of
+all, because the `+Time+` functions return floating point numbers
+(`+Float+`) and not integers (`+Int+`), our values are fractional hours,
+minutes and seconds (with digits after the decimal point). We can round
+these down with `+floor+`:
+
+[source,elm]
+----
+toClock : Time -> String
+toClock time =
+    let
+        hours =
+            toString (floor (Time.inHours time))
+
+        minutes =
+            toString (floor (Time.inMinutes time))
+
+        seconds =
+            toString (floor (Time.inSeconds time))
+    in
+        hours ++ ":" ++ minutes ++ ":" ++ seconds
+----
+
+____
+NOTE: Documentation for built-in functions like `+floor+` and
+`+toString+` may be found in link:{api-Basics}[the `+Basics+` module].
+____
+
+And then to get just the number of hours in the current day, the number
+of minutes in the current hour, and the number of seconds in the current
+minute, we can use the `+%+` operator (remainder):
+
+[source,elm]
+----
+toClock : Time -> String
+toClock time =
+    let
+        hours =
+            toString (floor (Time.inHours time) % 24)
+
+        minutes =
+            toString (floor (Time.inMinutes time) % 60)
+
+        seconds =
+            toString (floor (Time.inSeconds time) % 60)
+    in
+        hours ++ ":" ++ minutes ++ ":" ++ seconds
+----
+
+
+If you run the program now, you’ll probably notice that our `+Time+`
+value actually represents the current UTC time, not the time in your
+local time zone. If we were actually trying to build a boring, old clock
+(and not a totally awesome stopwatch) we could use Elm’s 
+link:{api-Date}[`+Date+` module] to perform a `+Date.now+` task to fetch 
+a current `+Date+` (which like JavaScript’s `+Date.now+` returns a local 
+date and time). The current UTC time is all we need for our stopwatch, though.
+
+Finally, we want to format each of the three numbers with a leading zero
+if it happens to be a single digit. We can use 
+link:{api-String-padLeft}[`+String.padLeft+`] for this:
+
+[source,elm]
+----
+toClock : Time -> String
+toClock time =
+    let
+        hours =
+            String.padLeft 2 '0' (toString (floor (Time.inHours time) % 24))
+
+        minutes =
+            String.padLeft 2 '0' (toString (floor (Time.inMinutes time) % 60))
+
+        seconds =
+            String.padLeft 2 '0' (toString (floor (Time.inSeconds time) % 60))
+    in
+        hours ++ ":" ++ minutes ++ ":" ++ seconds
+----
+
+If you’re starting to find those three expressions difficult to read
+with all those parentheses, congratulations – you’re a human being (not
+a compiler)! We can use Elm’s *pipeline operator* (`+|>+`) to make these
+expressions much more readable.
+
+[source,elm]
+----
+        hours =
+            Time.inHours time
+                |> floor
+                |> (\hours -> hours % 24)
+                |> toString
+                |> String.padLeft 2 '0'
+----
+
+`+|>+` passes the value on its left into the function on its right. This
+lets us build a complex expression as a series of transformations. We
+start with `+Time.inHours time+` (the number of hours in `+time+`, as a
+`+Float+`) then we pass that value as an argument to `+floor+` to round
+it down to the nearest integer.
+
+We now have a whole number of hours, as an `+Int+`. To get the number of
+hours in the current day, we want the value of the expression
+`+hours % 24+`. To use this expression as a function in our pipeline, we
+write an *anonymous function* (just like a JavaScript arrow function)
+that takes an `+hours+` argument and returns `+hours % 24+`. In Elm, we
+write this as `+\hours -> hours % 24+`.
+
+Next, we convert our `+Int+` to a `+String+` with `+toString+`, and
+finally we pad it with a leading zero if necessary with
+`+String.padLeft 2 '0'+`. Note that `+String.padLeft+` takes three
+arguments, so the expression `+String.padLeft 2 '0'+` (with just two
+arguments) acts as a function that takes a single argument (the value
+provided by the pipeline operator). This technique of giving a function
+only some of its arguments is called *partial application*, and it’s
+especially handy when used within a pipeline like this.
+
+Go ahead and repeat the same pattern for minutes and seconds. There
+should be no surprises here, so see if you can do it on your own before
+you refer to the finished function:
+
+[source,elm]
+----
+toClock : Time -> String
+toClock time =
+    let
+        hours =
+            Time.inHours time
+                |> floor
+                |> (\hours -> hours % 24)
+                |> toString
+                |> String.padLeft 2 '0'
+
+        minutes =
+            Time.inMinutes time
+                |> floor
+                |> (\minutes -> minutes % 60)
+                |> toString
+                |> String.padLeft 2 '0'
+
+        seconds =
+            Time.inSeconds time
+                |> floor
+                |> (\seconds -> seconds % 60)
+                |> toString
+                |> String.padLeft 2 '0'
+    in
+        hours ++ ":" ++ minutes ++ ":" ++ seconds
+----
+
+____
+NOTE: These three pipelines are very similar. You might like to try to
+find a way to eliminate the repitition, say by writing a
+`+toClockComponent+` function. You might decide that you prefer the
+clarity of this version, though, and that’s fine too.
+____
+
+Our clock’s looking pretty good now, but if we’re going to turn it into
+a stopwatch, we’ll need to learn to make it count up!
+
+
+=== 5.6 Subscriptions
+
+Rather than a static view of the time at which we loaded the page, we’d
+like our clock to update as the seconds tick by. We already know how to
+command Elm to fetch the current time, but we can only issue commands in
+our `+init+` function (when our program starts up), and in our
+`+update+` function (in response to a message).
+
+What we need is a way to command Elm to send you not just a _single_
+message with the current `+Time+`, but to send you a new message once
+every second. This is what *subscriptions* are for.
+
+Every Elm program we’ve written so far has contained a `+subscriptions+`
+function that returns `+Sub.none+`:
+
+[source,elm]
+----
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Sub.none
+----
+
+Just as `+Cmd.none+` means "`I don’t have a command for Elm right now`",
+`+Sub.none+` means "`There’s nothing I want Elm to subscribe me to right
+now.`"
+
+Elm’s core modules offer several functions for creating subscriptions.
+link:{api-Time-ever}[`+Time.every+`],
+for example, lets us subscribe to receive a message with the current
+`+Time+` every second:
+
+[source,elm]
+----
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Time.every Time.second NewTime
+----
+
+Run your program now, and our clock should be ticking!
+
+`+Time.every+` uses JavaScript’s `+setInterval+` function. As you may
+know, `+setInterval+` isn’t guaranteed to run exactly on time, so to
+make sure our clock doesn’t skip any seconds, we can subscribe to more
+frequent events, say one every 100 milliseconds:
+
+[source,elm]
+----
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Time.every (100 * Time.millisecond) NewTime
+----
+
+To confirm this change is working, look at the message count on the Elm
+debugger at the bottom of your browser window. It should be counting up
+roughly ten times per second.
+
+Notice that the `+subscriptions+` function receives your program’s
+current model as an argument. Elm calls `+subscriptions+` whenever your
+program makes a change to its model. This gives you the freedom to vary
+your subscriptions in response to changes in the state of your program.
+
+For example, we could wait until our program had received the first
+`+Time+` value (from the command issued by our `+init+` function) before
+subscribing to further time updates:
+
+[source,elm]
+----
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    case model.time of
+        Nothing ->
+            Sub.none
+
+        Just _ ->
+            Time.every (100 * Time.millisecond) NewTime
+----
+
+Now that we have a ticking clock, it’s time to turn it into a stopwatch!
+
+
+=== 5.7 Exercise
+
+With the power of subscriptions, we now have a running clock!
+
+More importantly, we understand how to issue commands to the outside
+world (like "`tell me what time it is`"). Other commands include
+link:{api-Http}[sending an HTTP request], 
+link:{api-Navigation}[navigating to a URL], and even
+link:{api-Dom-Scroll}[scrolling the document].
+
+We also undersand how to subscribe to things happening outside our
+program (such as time passing). Other subscriptions include
+link:{api-Mouse}[mouse gestures], 
+link:{api-http-progress}[the progress of an HTTP request], and even
+link:{api-AnimationFrame}[the browser’s readiness to render a new animation frame].
+
+With these new tools in hand, you have everything you need to turn this
+boring clock into a super cool stopwatch! That’s why you won’t find the
+code for the finished stopwatch here. It’s up to you to write it.
+
+Here’s a recommended roadmap to follow:
+
+[arabic]
+. Add the number of milliseconds to the clock display (e.g. 23:59:59.999).
+. Make the clock update as frequently as the browser can render
+animation frames. (Hint: See above.)
+. Make the clock start counting from 00:00:00. (Hint: Your model will
+need two `+Time+` values.)
+. Add a Start button. Wait until the user clicks it to start counting.
+(Hint: A http://elm-lang.org/docs/syntax#literals[`+Bool+` value] in
+your model might be useful.)
+. Add a Reset button to set the count back to 00:00:00.
+. While the clock is running, replace the Start button with a Stop
+button that pauses the count. (Hint: The hard part is not resetting to
+zero when you click Start again.)
+. *Bonus points:* Render the view as an analogue watch face using SVG.
+
+
+== 06 Conclusion
+
+This is the end. We hope you enjoyed this workshop. Please send
+corrections and feedback to https://github.com/sporto/elm-workshop.
+
+=== Further Learning
+
+Here are some recommended resources to keep learning Elm:
+
+* https://guide.elm-lang.org/[The official guide]
+* https://www.elm-tutorial.org/[Elm Tutorial]
+* https://pragmaticstudio.com/elm[Pragmatic Studio (Video)]
+* http://elmprogramming.com/[Beginning Elm]
+* https://www.manning.com/books/elm-in-action[Elm in Action (Book)]

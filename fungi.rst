@@ -70,6 +70,13 @@ TOC
     https://www.britannica.com/topic/tree-of-life-religion
 
 *   iTOL: Interactive Tree Of Life https://itol.embl.de/itol.cgi
+*   三十二个临床症状—发热 https://www.bilibili.com/video/BV1x341187MH/
+
+细菌（0.2-10微米）是一种原核生物，它们的细胞没有真正的细胞核，而是有一条裸露的DNA分子，叫做拟核。
+病毒（10-300纳米）是一种非细胞形态的有机物种，它们的结构非常简单，只有一个核酸分子（DNA或RNA）和一个蛋白质外壳。
+支原体（0.2-0.8微米）是最小的原核细胞型微生物，没有细胞壁，只有细胞膜，形状不固定，可以变化。
+​它们作用于人体的机制差别非常大：细菌通过皮肤、粘膜入侵人体。病毒只是遗传物质，自身无代谢能力，
+需要感染（进入）宿主细胞，利用宿主细胞的机制来复制自己的核酸和蛋白质，最后组装成新的病毒颗粒，释放出来感染其他细胞。
 
 黏菌是一群类似霉菌的生物，类真菌原生生物 (Fungus-like Protists)，它既像真菌又不完全一样， 
 国际上没有一个被普遍公认的对原生生物的分类体系，这是一个临时性归类。
@@ -161,7 +168,13 @@ Li S, Chen H, Wang M, et al. Slime mould algorithm: A newmethod for stochastic o
 ======================
 真菌 fungus
 ======================
-真菌 `fungus`_ 是地球上最神奇的生物（organism）分类之一，它们隐秘又无处不在！ 
+
+真菌 `fungus`_ 是地球上最神奇的生物（organism）分类之一，它们隐秘又无处不在！真菌是世界上最大
+形的生物，菌丝（hypha）就像长在地下的森林。人类常见的脚气（香港脚）就是感染真菌，让真菌长在脚上
+导致的病情。
+
+*  `为什么这种真菌最喜欢在人的手脚上扎根? 林林Eileen <https://www.bilibili.com/video/BV1Kw4m1D7Wg/>`__
+*  `50%的人都会得的皮肤病！为什么你的脚气反反复复？ 皮科医生魏小博 <https://www.bilibili.com/video/BV1Yz411v7go/>`__
 
 .. _fungus: https://www.britannica.com/science/fungus
 
@@ -760,7 +773,7 @@ A Community Science and Education Network for the Identification and Research of
 =======================================================
 
 ===============   ===============
- |trichia2|     |trichia3| 
+ |trichia2|         |trichia3| 
 ===============   ===============
 
 .. |trichia2| image:: https://img.fotocommunity.com/trichia-decipiensverbunden-fa43063d-2e01-4b79-96b3-d534193453a2.jpg?height=1080

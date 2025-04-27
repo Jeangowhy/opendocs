@@ -1,0 +1,2597 @@
+//; pandoc -tasciidoc -rhtml https://peggyjs.org/documentation.html >>$0; exit
+:icons: font
+:stem: asciimath
+:source-highlighter: highlight.js
+
+:authors: https://github.com/peggyjs/peggy/blob/main/AUTHORS
+:peggy_github: https://github.com/peggyjs/peggy
+:peggy_source: https://vscode.dev/github/peggyjs/peggy
+:peggy_online: https://peggyjs.org/index.html
+:peggy_dev: https://peggyjs.org/development/index.html
+:peggy_doc: https://peggyjs.org/documentation.html
+:peggy_npm: https://www.npmjs.com/package/peggy
+:source_map: https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Use_a_source_map
+:wiki: https://github.com/peggyjs/peggy/wiki/Online-Environments
+
+== Programming Language Grammar
+
+编译器原理是编程技术的核心课程，并且编译器技术有着广泛的应用，特别是在通用语言井喷的现代，领域特定
+语言 DSL (domain-specific language) 拥有巨大的应用场景与需求。LLVM 编译器平台创始人称现在
+是编译器的黄金时代。2021 ASPLOS Keynote - The Golden Age of Compiler Arcitectures。
+Chris Lattner 无疑是一个传奇人物。作为 LLVM 项目的主要发起人和作者之一，Clang 编译器的创造者，
+以及苹果 Swift 编程语言的缔造者，他为我们带来了许多革命性的技术。2017 年 8 月，Chris Lattner
+领导 Google Brain 团队开展 TensorFlow 基础设施工作，包括一系列硬件支持（CPU、GPU、TPU），
+底层运行时和编程语言工作。作为 Modular AI 公司的创始人和首席执行官，Lattner 发布最新的 AI
+编程语言：Mojo Language。其设计目标是提高编程效率和性能，尤其是在 AI 领域，据称 Mojo 比 Python
+快 35000 倍。
+
+ASPLOS 即 ACM 国际编程语言和操作系统架构支持会议，是 CCF（计算机学会）推荐的 A 类会议，
+也是涵盖硬件、软件及其交互的多学科应用计算机系统研究的首要学术论坛。
+
+____
+ASPLOS, the ACM International Conference on Architectural Support for 
+Programming Languages and Operating Systems, is the premier academic forum 
+for multidisciplinary applied computer systems research spanning hardware, 
+software, and their interaction. It focuses on practical aspects of computer 
+architecture, programming languages, operating systems, and associated areas 
+such as networking and storage. ASPLOS 2025 will take place in March-April 
+2025 in Rotterdam, co-located with EuroSys 2025.
+____
+
+参考材料：
+link:https://hpc.llnl.gov/documentation/tutorials/introduction-parallel-computing-tutorial[Introduction to Parallel Computing Tutorial]
+link:https://matklad.github.io/2020/04/13/simple-but-powerful-pratt-parsing.html[Simple but Powerful Pratt Parsing]
+link:https://matklad.github.io/2020/04/15/from-pratt-to-dijkstra.html[From Pratt to Dijkstra]
+link:https://st1020.com/simple-but-powerful-pratt-parsing/[简单但强大的 Pratt Parsing【译】]
+link:https://vscode.dev/github/matklad/minipratt[source]
+
+2018 年，图灵奖获得者 John Hennessey 和 David Patterson 在一次演讲上更是直言，几十年来的
+精简指令集（RISC）和 复杂指令集（CISC）孰优孰劣之争可以终结，新一轮计算机架构的黄金时代已经到来。
+两位在 2018 年 7 月发表 A New Golden Age for Computer Architecture 演讲，通过 20 世纪
+60 年代以来计算机架构的发展，介绍当前的难题与未来的机遇。他预测未来十年计算机架构领域将会迎来下一个
+黄金时代，就像 20 世纪 80 年代一样。目前这两位学者都供职于谷歌，前者是谷歌母公司 Alphabet 董事会
+主席，David 任谷歌杰出工程师，致力于研究机器学习和 AI。他们联手完成《计算机体系结构：量化研究方法》
+这一计算机领域巨著。
+
+尽管硬件正在蓬勃发展，芯片加速器 (Accelerator or Offload Engine) 和新技术不断涌现，但软件业
+却很难真正利用它们。比如 AI 和结构化计算技术发展领域，出现了标量加速和向量加速等多种层面的加速，
+就像 CPU 领域也分为标量处理器和向量处理器一样，当然还有多核 CPU。这样一来就会出现多种硬件组合，
+不同的硬件安装在同一个数据中心，那这些硬件就必须相互通信。
+
+当前，AI 编译器的发展阶段似乎回到了 GCC 出现之前的时代。每家 AI 芯片公司都在推出自己的 AI 编译器、
+框架甚至软件栈，市场上出现了极度碎片化的现象。很多时候没有一致性的内存，导致写一个 C 语言程序来运行
+所有东西是不可行的，这样的组合运行有点像超级计算机使用多个 CPU 一样。硬件技术的不断进步开创了一个
+新的计算加速时代，这个时代的硬件平台变得越来越复杂和多层次。现代计算加速平台采用多层架构，包括标量、
+向量、多核、多包、多机架等不同层次的并行处理能力。这种设计不仅提高了性能，也增加了硬件设计的复杂性。
+同时，现代计算平台的架构设计是明确的，意味着开发者可以清楚地识别和利用不同层次的计算资源。
+
+异构计算（Heterogeneous computing）技术起源自 80 年代中期，由于它能经济有效地获取高性能计算
+能力、可扩展性好、计算资源利用率高、发展潜力巨大，目前已成为并行、分布计算领域中的研究热点之一。
+计算机行业需要更好的硬件抽象，硬件抽象是允许软件创新的方式，不需要让每种不同设备变得过于专用化。
+其次，需要支持异构计算，因为要在一个混合计算矩阵里做矩阵乘法、解码 JPEG、非结构化计算等等。然后，
+还需要适用专门领域的语言，以及普通人也可以用的编程模型。最后，需要具备高质量、高可靠、高延展架构。
+
+作为驱动计算机架构革新的重要组成部分，编译器也在迎来它的黄金时代。2021 年 4 月 19 日的 ASPLOS
+会议上，编译器大牛 Chris Lattner 在主题演讲中分享了关于编译器的发展现状和未来、编程语言、加速器
+和摩尔定律失效论，并且讨论业内人士如何去协同创新，推动行业发展，实现处理器运行速度的大幅提升。
+
+回到编译器技术，业界通用的做法是先定义这个领域相关的语法，使用语法形式化描述言语特征，就像使用正则
+表达式来描述内容一样。实事上，正则语言（正规式，正则表达式）也是上下文无关语言的一种简单实现。然后，
+根据语法（文法）实现一个 Parser 将代码转成抽象语法树（AST），再解析和运行这颗抽象语法树。
+
+整个过程听起来就很复杂，事实上要重造一个轮子也比较费时，因此需要使用自动化工具根据文法描述来生成
+解析器。这些工具有 Lex (Flex)、Yacc (Bison)、Antlr、或者使用 JavaScript 实现的：
+link:https://gerhobbelt.github.io/jison/docs/[Jison]、
+link:https://docs.esprima.org/en/latest/[parsimmon]、
+link:https://github.com/peggyjs/peggy[Peggy]、
+link:https://nearley.js.org/docs/[Nearley] 等等。
+
+以下是学习编译器实现的理想教材，我称之为编译原理填坑三步曲：
+
+- Introduction to the Theory of Computation third Edition Michael Sipser
+- Formal Languages and Compilation (Texts in Computer Science) 3rd ed. 2019 Edition
+- Writing Compilers and Interpreters: A Modern Software Engineering Approach Using Java ® , Third Edition
+- Compilers Principles, Techniques, & Tools (Second Edition)
+  link:./Compilers_Principles_techniques_tools_2nd.md[Markdown]
+
+Bryan Ford PEG (2004) 算法论文：
+Parsing expression grammars: a recognition-based syntactic foundation by Bryan Ford
+link:https://bford.info/pub/lang/peg/[paper]
+link:https://bford.info/pub/lang/peg-slides.pdf[slides]
+
+在乔姆斯基的生成式文法的理论指导下，计算机语言划分为上下文无关方法（Context-Free Grammar）。
+常用的文法表示方法有 CFG 范式、EBNF (Extended Backus-Naur Form) 扩展巴科斯范式，以及
+解析表达式文法 PEG (Parsing Expression Grammar) ，也就是描述上下文无关语言的三种文法形式。
+它们与计算机语言的关系就如同英语语法与英语的关系。当然，计算机语言的文法在定义上更严格，英文的
+语法更贴近自然语言。
+
+上下文无关文法（CFG）是一种形式文法，用于描述上下文无关语言的结构。其核心特征是：
+**规则与上下文无关**：每个产生式的左侧是单个非终结符，且替换时不受周围符号（上下文）的影响。
+**表达能力**：强于正则文法（如能描述嵌套结构），弱于上下文相关文法（如无法处理变量声明与使用的依赖关系）。
+CFG 是形式语言理论的核心工具，广泛用于描述编程语言、协议格式等。核心优势在于简洁性和表达能力，
+但需结合其他技术处理复杂约束。学习 CFG 文法进一步是下推自动机、语法分析算法（LL/LR）及编译器设计。
+大多数编程语言的语法规则基于 CFG 文法设计（如 C、Java 的 BNF 描述）。CFG 的歧义性问题需额外
+规则或工具来解决（如 Yacc/Bison 的优先级声明）。
+
+Chomsky 形式文法理论中用 G 表示形式语法，将其表示为四元组：
+
+\[ G = (V_n, V_t, S, P) \]
+
+其中各符号含义如下：
+
+  \(V_n\)：:: 非终结符的有限集合，Non-Terminal，不能处于生成式的终点。在推导中起变量作用，相当于语言中的语法范畴；
+  \(V_t\)：:: 终结符的有限集合，Terminal，只处于生成过程的终点，是句子中实际出现的符号，相当于单词表。
+  \(S  \)：:: 初始符号 Start Symbol，属于 \(V_n\) 集合中的元素，相当于语法范畴中的句子。
+  \(P  \)：:: 重写规则，也称为生成规则或文法的产生式（Prduction rules）。生成式一般可用正则表达式
+             （正规式）表示为 α → β，其中 α、β 都是符号串，α 至少含有 \(V_n\) 集合中的一个元素符号。
+
+Parsing Expression Grammars: A Recognition-Based Syntactic Foundation 论文发表于
+2004 年，Bryan Ford 首次提出了解析表达式文法（PEG） 的概念，并系统阐述了其理论基础与解析机制。
+Bryan Ford 是耶鲁大学计算机科学系教授，研究方向涵盖分布式系统、点对点网络、区块链技术、隐私增强
+技术、操作系统和编程语言等。他的工作以创新性和对实际系统的深刻影响著称，知名工作包括“可逆调试”和
+“懒惰初始化的分布式系统”。
+
+Bryan Ford 的论文为语法解析领域提供了一种新的范式，通过 PEG 的确定性、无歧义性和 Packrat 解析
+的高效性，解决了传统 CFG 在实践中的诸多痛点。尽管存在内存消耗和左递归处理等挑战，PEG 已成为现代
+编程语言工具链中不可或缺的组成部分。Packrat 解析与线性时间解析是一种用于解析表达式文法（PEG）的
+高效解析技术，核心是记忆化（Memoization），通过存储中间结果来避免重复计算，从而显著提升解析效率。
+CFG、BNF 与 PEG 等文法解析技术（Context-Free Grammar Representations）的区别与特点如下：
+
+. **BNF (Backus-Naur Form) 巴科斯范式**
+
+  基本结构:: 由非终结符（用尖括号包裹，如 `<expr>`）、终结符（如 "+"）和产生式组成。
+  产生式形式:: `<符号> ::= 表达式`，其中“表达式”由终结符、非终结符和选择符 `|` 组成。
+  特点:: 仅支持序列、选择和递归等基本操作。需通过递归处理重复结构，可能产生冗长的规则。
+  示例:: 定义整数和四则运算表达式：
++
+[source,bnf]
+-------
+<digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+<integer> ::= <digit> | <integer> <digit>
+<expr>    ::= <term> | <expr> "+" <term> | <expr> "-" <term>
+<term>    ::= <factor> | <term> "*" <factor> | <term> "/" <factor>
+-------
+
+. **EBNF (Extended Backus-Naur Form) 扩展巴科斯范式**
+
+  扩展特性::
+          `{}` 表示重复(零次或多次)；
+          `[]` 表示可选(零次或一次)；
+          `()` 表示分组；
+          `|` 仍表示选择；
+          `...` 表示连续重复的终结符；
+          `+` 和 `*` 有时用于表示重复（视具体标准而定）。
+  特点:: 语法更紧凑，减少递归需求。支持直接表达重复、可选和分组，提升可读性。
+        EBNF 非常适合描述形式语言的语法结构。
+  示例::
++
+[source,ebnf]
+-------
+digit  = "0" | "1" | ... | "9" ;
+number = ["-"] digit {digit} ["." digit {digit}] ;
+-------
+
+  是一种新型的形式文法,由Bryan Ford于2004年提出
+  主要特点是有序选择和贪婪匹配
+
+. **CFG (Context-Free Grammar) 上下文无关文法**
+
+  基本结构:: 
+      非终结符（Non-terminals）用大写字母或尖括号标记（如 `<Expr>`, `S`）。
+      终结符（Terminals）表示语言中的基本符号（无相应的产生式表示），比如 `+`, `if`, `3.14`。
+      产生式规则（Production Rules）形式为：<非终结符> → 符号序列（如 S → aSb | ε），
+      定义了非终结符如何被终结符、非终结符替换，
+      开始符号（Start Symbol）是文法的起点，通常记为 `S` 或 `<Start>`。
+  示例:: 
+      以下是简单算术表达式的 CFG 文法，描述的语言功能包含加法、乘法和括号的算术表达式。
+      比如 num + num * num。语法树推导示例：E → T → F → num 对应数值 `num`；
+      E → E + T → T + T → F + F → num + num 对应数值相加 `num + num`。
++
+[source,ebnf]
+-------
+非终结符：E, T, F
+终结符：+, *, (, ), num
+开始符号：E
+产生式：
+    E → E + T | T
+    T → T * F | F
+    F → ( E ) | num
+-------
+
+. **PEG (Parsing Expression Grammar) 解析表达文法**
+
+  基本结构:: 
+          `*` 表示贪婪匹配的零次或多次重复；
+          `+` 表示一次或多次重复；
+          `?` 表示可选；
+          `&` 表示正向预测；
+          `!` 表示负向预测；
+          `/` 表示有序地优先选择左边的规则，这是 PEG 引入的优先选择运算符号
+          （Prioritized choice operator），提供非二义的选择，即有限回溯的文法替代。
+  特点:: PEG 通过有序选择避免了歧义，解决 EBNF 可能产生歧义的问题。
+        PEG 不仅能描述语法，比起 EBNF 还更易于直接用于实现解析器，常用递归下降解析。
+        而 EBNF 通常需要额外的解析算法，比如 LL、LR 等算法。
+  示例::
++
+[source,ebnf]
+-------
+Digit  <- [0-9]
+Number <- '-'? Digit+ ('.' Digit+)?
+-------
+
+关于 CFG 文法与 PEG 文法差异的说明可以参考 AsciiDoc 教程中相关的章节：
+link:./AsciiDoc-Overview.adoc#parsing_expression_grammars[Parsinging Expression Grammar]
+
+
+== Peggy - Parser Generator for JavaScript
+
+
+[TIP]
+--
+Peggy 是解析表达式文法（Parsing Expression Grammar, PEG）解析器生成工具，开发者通过
+定义自己的语言文法规则，就可以使用 Peggy 生成相应的解析器。旧版本号是 Pegjs。
+
+Peggy 的主要特点包括：
+
+- 灵活性：支持自定义语法规则，适用于各种复杂的解析需求。
+- 高性能：生成的解析器执行效率高，适用于大规模数据处理。
+- 易用性：提供简洁的 API 和丰富的文档，方便开发者快速上手。
+
+最佳实践
+
+- 模块化设计：将复杂的语法规则拆分为多个模块，便于维护和扩展。
+- 错误处理：在解析过程中添加错误处理机制，提高解析器的健壮性。
+- 性能优化：通过优化语法规则和解析逻辑，提高解析器的执行效率。
+--
+
+[TIP]
+*****
+默认生成的解析器使用 CommonJS 模块结构，像以下这样导出解析器模块符号：
+
+echo "foo = '1' { return 42 }" | npx peggy --o parser.mjs --format=es --test 1
+
+[source,js]
+-----------
+module.exports = {
+  StartRules: ["foo"],
+  SyntaxError: peg$SyntaxError,
+  parse: peg$parse
+};
+-----------
+
+可以编写类似以下的脚本调用解析器，运行于 Node 环境。解析函数 `parser()` 接受代码流输入，
+以及用户选项：
+
+[source,js]
+-----------
+#!/usr/bin/env -S node
+// const peggy = require("./parser.js")
+const {parse, StartRules, SyntaxError} = require("./parser.js")
+
+const output = parse("foobar")
+console.log({parse, StartRules, SyntaxError, output})
+-----------
+*****
+
+
+Quick installation
+
+[source,install]
+----
+npm install -g pegjs # old version
+npm install -g peggy # new version
+----
+
+— or —
+
+Download browser version
+https://unpkg.com/peggy@4.2.0/browser/peggy.min.js[minified]
+
+Peggy is a simple parser generator for JavaScript that produces fast
+parsers with excellent error reporting. You can use it to process
+complex data or computer languages and build transformers, interpreters,
+compilers and other tools easily.
+
+=== Migrating from PEG.js
+
+Peggy version 1.x.x is API compatible with the most recent PEG.js release.
+Follow these steps to upgrade:
+
+1. Uninstall `pegjs` (and `@types/pegjs` if you're using the DefinitelyTyped 
+   type definitions - we now include type definitions as part of peggy itself).
+2. Replace all `require("pegjs")` or `import ... from "pegjs"` with 
+   `require("peggy")` or `import ... from "peggy"` as appropriate.
+3. Any scripts that use the `pegjs` cli should now use `peggy` instead.
+4. That's it!
+
+=== Features
+
+* Simple and expressive grammar syntax.
+* Integrates both lexical and syntactical analysis.
+* Parsers have excellent error reporting out of the box.
+* Based on PEG (parsing expression grammar) formalism — more powerful 
+  than traditional LL(_k_) and LR(_k_) parsers.
+* Usable from your browser, from the command line, or via JavaScript API.
+* link{source_map}[Source map] support.
+
+Copyright © 2024 
+link:{authors}[The Peggy Authors] • link:{peggy_source}[Source code]
+
+
+== Development
+
+* https://github.com/peggyjs/peggy/wiki[Wiki]
+* https://github.com/peggyjs/peggy[Source code]
+* link:https://peggyjs.org/development/benchmark.html[Benchmark Suite]
+* link:https://peggyjs.org/development/test.html[Test Suite]
+* link:https://peggyjs.org/online.html[Try Development Version online]
+* https://github.com/peggyjs/peggy/issues[Issue tracker]
+* https://groups.google.com/group/pegjs[Google Group]
+
+Starting in April 2021, Peggy has been maintained by
+https://github.com/hildjj[Joe Hildebrand]
+(https://twitter.com/hildjj/[@hildjj]). It was previously known as
+https://github.com/pegjs/pegjs[PEG.js], but had fallen into
+https://github.com/pegjs/pegjs/issues/639[limbo] before a
+community-desired fork.
+
+Since its https://www.google.com/search?q=inception+meaning[inception]
+in 2010, PEG.js was maintained by https://majda.cz/[David Majda]
+(https://twitter.com/dmajda[@dmajda]), until
+https://github.com/pegjs/pegjs/issues/503[May 2017] when
+https://github.com/futagoza[Futago-za Ryuu] took over.
+
+You are welcome to contribute code. Unless your contribution is really
+trivial you should https://github.com/peggyjs/peggy/discussions[get in touch]
+with us first — this can prevent wasted effort on both sides.
+
+
+To get started, check out peggy, install the dependencies, and run build:
+
+```bash
+git clone https://github.com/peggyjs/peggy.git
+cd peggy
+npm install
+(cd docs && npm install)
+(cd web-test && npm install)
+npm run build
+npm run test:web
+```
+
+Please see the Contribution Guidelines for details on how to contribute code.
+
+
+
+== Peggy Wiki
+
+- https://github.com/peggyjs/peggy/wiki/Editor-Extensions[Editor Extensions]
+- https://github.com/peggyjs/peggy/wiki/Online-Environments[Online Environments]
+- https://github.com/peggyjs/peggy/wiki/Plugins[Plugins]
+- https://github.com/peggyjs/peggy/wiki/Projects-Using-Peggy[Projects Using Peggy]
+- https://github.com/peggyjs/peggy/wiki/Roadmap[Roadmap]
+- https://github.com/peggyjs/peggy/wiki/Run-Book[Run Book]
+- https://github.com/peggyjs/peggy/wiki/Tools[Tools]
+- https://github.com/peggyjs/peggy/wiki/Tutorials[Tutorials]
+- https://github.com/peggyjs/peggy/wiki/Useful-Grammars[Useful Grammars]
+
+**Online Environments**
+
+This is a list of online environments that help with authoring PEG.js 
+parsers or experimenting with languages. Feel free to extend it if you 
+know about more (just keep the list sorted alphabetically).
+
+* link:http://tmcnab.github.io/Hyperglot/[Hyperglot] — language experimentation platform
+* link:http://peg.arcanis.fr/[PEG.js – Grammar Editor] — alternative PEG.js 
+  grammar editor (2019-Dec page requires  login-credentials ?)
+* link:http://codepen.io/anon/pen/xRKXqz?editors=1012[Codepen made in 5 minutes] — 
+  enables you to resize the the windows the grammar/console windows and verify 
+  your grammar against multiple inputs since grammar is specified in the HTML 
+  whereas input/check is done in JS window.
+* link:https://codepen.io/jcubic/pen/jOyWVEr[PEG.js based, to JavaScript transpiler] — 
+  demo of experimenting with language that compiles to JavaScript.
+* link:https://gaiman.js.org/[Gaiman Playground] — This playground is also a 
+  development editor for the language that compiles into JavaScript (based on 
+  the previous Codepen demo). It's a full language created using Peggy, it has 
+  Dev mode where you can modify the parser and see your program running with new syntax.
+
+**Editor Extensions**
+
+This is a list of extensions for editors/IDEs that help with authoring PEG.js parsers. Feel free to extend it if you know about more (just keep the list sorted alphabetically).
+
+* link:https://marketplace.visualstudio.com/items?itemName=PeggyJS.peggy-language[Visual Studio Code]
+* link:http://codemirror.net/mode/pegjs/index.html[CodeMirror PEG.js Mode]
+* link:https://github.com/TheGrandmother/peggy-vim[Syntax highlighting for vim/neovim]
+* link:https://github.com/alexstrat/PEGjs.tmbundle[TextMate/Sublime Text 2 bundle]
+* link:https://github.com/telyn/Sublime-PEGjs[Another TextMate/Sublime Text 2 bundle]
+* link:https://github.com/kwesibrunee/ace[Ace Editor PEG.js mode] 
+  (link:http://www.cablemo.net/pegjsaceeditor/editor.html[demo])
+* link:https://github.com/Seb35/gtksourceview-pegjs[Syntax highlighting for GtkSourceView/gedit]
+
+**List of articles about using PEG.js**
+
+* link:https://dev.to/nwpointer/intro-to-peg-js-1d2f[Intro to peg.js]
+* link:https://coderwall.com/p/316gba/beginning-parsers-with-peg-js[Beginning parsers with PEG.js]
+* link:https://www.rajeeshcv.com/2015/10/13/build-parsers-using-peg-js/[Build Parsers using PEG.js]
+* link:http://blog.mi-ernst.de/2012/05/14/javascript-parser-generators/[JavaScript Parser Generators]
+* link:https://hackernoon.com/creating-your-own-javascript-based-programming-language-has-never-been-easier-wju33by[How to create programming language that compiles to JavaScript]
+* link:https://jakub.jankiewicz.org/blog/markdown-parser/[How to Implement a Simple Markdown Parser]
+* link:https://zuplo.com/blog/2024/04/27/building-a-stripe-like-search-language-parser[Building a Stripe-like Search Language from Scratch]
+
+**Useful Grammars**
+
+Pointers to grammars you may find useful for your own projects. Feel free to 
+extend the list if you know about more.
+
+The link:https://github.com/for-GET/core-pegjs[core-pegjs] project provides 
+a collection of reusable grammars:
+
+* link:https://vscode.dev/github/for-GET/core-pegjs/tree/master/src/iso[Grammars based on ISO standards]
+* link:https://vscode.dev/github/for-GET/core-pegjs/tree/master/src/ietf[Grammars based on RFCs and other IETF documents]
+* link:https://vscode.dev/github/for-GET/core-pegjs/tree/master/src/for-get[Other grammars]
+
+PEG.js Example Grammars
+
+Peggy itself contains some useful grammars as examples:
+
+* link:https://vscode.dev/github/peggyjs/peggy/blob/master/examples/json.pegjs[JSON]
+* link:https://vscode.dev/github/peggyjs/peggy/blob/master/examples/css.pegjs[CSS]
+* link:https://vscode.dev/github/peggyjs/peggy/blob/master/examples/javascript.pegjs[JavaScript]
+
+
+== Intro to peg.js
+
+https://dev.to/nwpointer/intro-to-peg-js-1d2f
+
+PEG.js is a really neat javascript library that takes a PEG and generates a 
+parser program that can be called directly from javascript. From their website:
+
+____
+"PEG.js is a simple parser generator for JavaScript that produces fast parsers 
+with excellent error reporting. You can use it to process complex data or 
+computer languages and build transformers, interpreters, compilers and other 
+tools easily."
+____
+
+I'm planning on doing a full series on how to write a programming language using 
+PEG.js so I thought I provide an introduction to PEG.js here for people who 
+haven't used it before. Most people probably aren't writing language parsers on 
+the regular though so Ill also talk about peg in the context of solving some 
+problems one might also utilize regular expressions for. If you're here to learn 
+about Peg specifically or are familiar with what a grammar is feel free to skip 
+down to the getting started section.
+
+=== motivating example: regex hell
+
+I feel most people have a love hate relationship with regular expressions. 
+Writing complicated regex is almost always a bad idea as in my opinion it 
+creates a huge readability problem for other developers or your future self. 
+That said when used judiciously regex can obviously be exceeding useful.
+
+Finding files with grep for example is usually a great use case of regex. 
+However there are somethings regex can't parse (eg. HTML) and then theres 
+a even larger category of things that probably shouldn't be solved regex alone.
+
+If you find yourself wanting to write yet another unreadable regex maybe 
+consider an alternative, PEGs for example.
+
+Being overly reductive PEGs are kinda like regex++. A Peg or Parser expression 
+grammar is quite similar to a context free grammar and it allows you to compose 
+together regex like rules into a larger parser. It does this in a declarative, 
+recursive fashion.
+
+=== Wait whats a grammar?
+
+[TIP]
+--
+Daniel Shiffman 是纽约大学 Tisch 艺术学院助理艺术教授，“代码本色”便是其主讲课程之一。他在耶鲁大学获得了数学与哲学学士学位和交互通讯的硕士学位。多年来，他一直用自研的对艺术家友好的一门开源语言
+https://processing.org/exhibition/[Processing] 来开发推广教程、教学示例和代码库。他以
+教授一门名为“计算媒体导论”的课程内容为基础，撰写了 Learning Processing，这本书广受读者好评。
+Daniel 在 Kickstarter 上集资出版了他的第二本书《代码本色：用编程模拟自然系统》，他集合了多年
+开发和教学经验，希望借由此书让大家真正了解如何用代码模拟自然现象。
+
+https://p5js.org[p5.js] 是 Processing 的延伸，基于 JavaScript 语言的创意编程库，旨在
+让编程更易于使用，特别是面向艺术家、设计师、教育家和初学者。它，专注于在浏览器中实现绘图功能。
+p5.js 提供了丰富的绘图功能，可以处理 HTML5 元素，如文字、输入框、视频、摄像头和音频。
+--
+
+A grammar is a 'language of languages' in that it is a way of expressing what a 
+language is. English for example has a grammar but it is a much looser type of 
+grammar than a context free grammar. If you'd like to learn more Daniel Shiffman 
+from The coding train does a great job describing context free grammars. Pegs 
+are very similar to context free grammars except they are non ambiguous ie for a 
+given input there is exactly one valid way to parse it.
+
+Peg.js can be a great solution to 'regex hell' and can be used in the building 
+of more sophisticated tools such as dsl parser, a custom query language or even 
+new programming languages. I've been super interested in how language parsers 
+work and I think its a great example so in this article we'll get introduced to 
+PEG.JS and go over some basic challenges you might run into trying to parse a 
+query language.
+
+=== how to install / get started
+
+If you want to get started quickly and play around with PEG.js they have a 
+really cool interactive editor online at https://pegjs.org/online although 
+sadly theres no dark mode ;)
+
+The first section of their docs do a pretty good of showing you how to install 
+and setup peg on your machine but essentially just
+
+[source,bash]
+----
+npm install -g pegjs
+----
+
+you then should be able to pass a valid pegjs grammar to the peg cli to 
+generate a grammar:
+
+[source,bash]
+----
+pegjs hello.pegjs
+----
+
+or if you need to generate a parser at run time:
+
+[source,javascript]
+----
+var peg = require("pegjs");
+var grammar = "start = ('a' / 'b')+";
+var parser = peg.generate(grammar);
+
+parser.parse("abba"); // returns ["a", "b", "b", "a"]
+----
+
+this generates a grammar that matches any number or a characters or b 
+characters. eg: abb aabbbabab and bbbbbba would all parse but cabbbbabbbcccc 
+would not.
+
+**Ground rules:**
+
+A peg grammar is a list of rules and it is interpreted from top to bottom. 
+This is super important - the starting rule is the 'root' of your grammar so 
+any rules that can't be reached from the root are effectively not part of the 
+grammar.
+
+Rules look like variable declarations and they consist of a name and a parsing 
+expression. A simple parsing expression looks a lot like a regex but importantly 
+they can also include other rules.
+
+simple string matching
+
+[source]
+---
+start = 'hello world' // returns 'hello world'
+---
+
+Note this matches `hello world` exactly, missing or extra character will cause 
+an error to be thrown by the parser
+
+simple expressions:
+
+[source]
+---
+integer = [0-9] // "1"
+---
+
+This will match a single character 0-9 and similar to regex we can use + and * 
+to match 'at least one' and 'zero or more' respectively:
+
+[source]
+---
+integer = [0-9]+ // parsing 1 returns ['1']
+integer = [0-9]+ // parsing '' throws error
+integer = [0-9]*') // parsing '124' returns ['1','2','4'],
+---
+
+Note that with the addition of * or + the parser returns an array of single 
+values that matched and unlike regular expressions we can use these quantity 
+modifiers on rules as well:
+
+[source]
+---
+float = integer+ '.' integer+
+integer = [0-9]
+---
+
+=== formatting
+
+One of the coolest features of Peg.js is the ability to use javascript adjacent 
+to a rule to control its return value. It works by tagging a part of the 
+expression with a variable name and appending a js function to the end of the 
+rule like so:
+
+[source]
+---
+integer = digits:[0-9] { return digits.join() }
+// parsing '124' now returns '124' instead of ['1','2','4'],
+---
+
+=== or expression
+
+The or expression '/' is quite useful in rules. T
+
+[source]
+---
+number = float / integer / bigint / imaginary
+---
+
+To avoid ambiguity Peg resolved a rule to the first valid parser expression. Eg: if start=a/b and our input could match both a and b PEG.js will use a to parse the sub expression.
+
+=== recursive definitions
+
+recursion has a couple of uses in peg.js. Firstly we can use it to describe 
+nested or tree like structures such as HTML or JSON but we can also use it to 
+describe flat lists of things - this is very similar to how functional languages 
+such as haskell define lists in terms of recursive pairs of head & tail values:
+
+[source]
+---
+commaSeparatedIntegerList
+    = integer ',' commaSeparatedIntegerList
+    / integer
+integer = [0-9]
+---
+
+examples:
+
+parse '1': it lacks a comma so the text can not match the first parser 
+expression but it does match the second one (integer).
+
+parse '1,2' it matches the first expression 'consuming the 1, it then 
+recursively tries to match the 2. 2 is a valid commaSeparatedIntegerList 
+because it is a integer so 1,2 parses.
+
+this process can continue indefinitely or more accurately until the stack 
+overflows.
+
+Putting everything together we can easily construct a poor mans json parser:
+
+[source]
+---
+object       = "{" keyValueList? "}"
+keyValueList = keyValue ',' keyValueList / keyValue
+keyValue     = key ":" value
+key          = [a-zA-Z]+
+value        = string / intArray / object
+string       = "'"[a-zA-Z]+ "'"
+intArray
+             = '[' integer ',' intArray ']'
+             / integer
+integer      = [0-9]+
+---
+
+This will successfully work on input such as "{foo:'bar',fip:1,goo:1,a:{a:[1,2,3]}}" 
+but fails on some obviously valid inputs such as ones that include spaces or 
+newlines between keys / values and will require some additional formatting to 
+produce useful output, I'll leave that as an exercise for the reader.
+
+Syntactically comparing it to regex for a moment - sure it takes up more space 
+but pegs are still fairly concise and allow us to:
+
+- name things and
+- recursively build up more complicated parsers.
+
+This lets you focus on smaller parts of the program at a time, reducing the 
+overall demand places on your brain's working memory. I hope you'll agree that 
+PEGs are an awesome tool for generating parsers and consider using them next 
+time your looking to simplify a complex regular expression.
+
+Thanks so much for reading!
+
+If enjoyed it let me know by applauding the article and follow me on youtube 
+and twitter to stay updated on all my latest content.
+
+== Documentation
+
+**Table of Contents**
+
+* link:#installation[Installation]
+** link:#installation-node-js[Node.js]
+** link:#installation-browser[Browser]
+* link:#supported-runtimes[Supported Runtimes]
+* link:#generating-a-parser[Generating a Parser]
+** link:#generating-a-parser-command-line[Command Line]
+** link:#generating-a-parser-javascript-api[JavaScript API]
+*** link:#error-reporting[Error Reporting]
+** link:#typescript-types[Generating TypeScript Types]
+* link:#using-the-parser[Using the Parser]
+* link:#grammar-syntax-and-semantics[Grammar Syntax and Semantics]
+** link:#importing-external-rules[Importing External Rules]
+** link:#parsing-expression-types[Parsing Expression Types]
+** link:#action-execution-environment[Action Execution Environment]
+** link:#parsing-lists[Parsing Lists]
+** link:#examples[Peggy Expression Examples]
+* link:#identifiers[Peggy Identifiers]
+* link:#error-messages[Error Messages]
+* link:#locations[Locations]
+* link:#plugins-api[Plugins API]
+** link:#session-api[Session API]
+* link:#compatibility[Compatibility]
+
+[[installation]]
+== Installation
+
+Note: When you pre-generate a grammar using the
+link:#generating-a-parser-command-line[Peggy Command Line Interface], no
+runtime is required, and Peggy can be a development-only dependency.
+
+[[installation-node-js]]
+=== Node.js
+
+To use the `peggy` command:
+
+[source,bash]
+----
+$ npm install --save-dev peggy
+----
+
+[source,bash]
+----
+$ npx peggy --help
+----
+
+In your `package.json` file, you can do something like:
+
+[source,json]
+----
+{
+  "scripts": {
+    "parser": "peggy -o lib/parser.js --format es src/parser.peggy"
+  }
+}
+----
+
+[[installation-browser]]
+=== Browser
+
+NOTE: For most uses of Peggy, use the command line version at build
+time, outputting the generated parser to a static JavaScript file that
+you can import later as needed. The API is most useful for tooling that
+needs to process user-edited grammar source, such as the
+link:https://peggyjs.org/online.html[online Peggy editor]. Generating the parser at runtime
+can be much slower than executing pre-generated code.
+
+The easiest way to use Peggy from the browser is to pull the latest
+version from a CDN. Either of these should work:
+
+[source,html]
+----
+<script src="https://unpkg.com/peggy"></script>
+<script src="https://cdn.jsdelivr.net/npm/peggy"></script>
+----
+
+Both of those CDNs support pinning a version number rather than always
+taking the latest. Not only is that good practice, it will save several
+redirects, improving performance. See their documentation for more
+information:
+
+* https://unpkg.com/[unpkg]
+* https://www.jsdelivr.com/[jsDelivr]
+
+When your document is done loading, there will be a global `peggy` object.
+
+[[supported-runtimes]]
+== Supported Runtimes
+
+Browsers and JS runtimes that pass the following
+https://github.com/browserslist/browserslist#readme[Browserslist] query
+at the time of release are supported:
+
+[source]
+....
+defaults, maintained node versions, not op_mini all
+....
+
+Opera Mini can't be bothered to implement `URL` of all things, so it's
+not worth our time to support.
+
+Deno issues will be fixed if possible, but we are not currently testing
+on Deno.
+
+All versions of Internet Explorer are _EXPLICITLY_ unsupported, for both
+generating and running generated parsers.
+
+[[generating-a-parser]]
+== Generating a Parser
+
+Peggy generates a parser from a grammar that describes the expected
+input and can specify what the parser returns (using semantic actions on
+matched parts of the input). The generated parser itself is a JavaScript
+object with a link:#using-the-parser[small API].
+
+[[generating-a-parser-command-line]]
+=== Command Line
+
+To generate a parser from your grammar, use the `peggy` command:
+
+[source,bash]
+----
+$ npx peggy --help
+Usage: peggy [options] [input_file...]
+
+Arguments:
+  input_file                       Grammar file(s) to read.  Use "-" to read
+                                   stdin.  If multiple files are given, they
+                                   are combined in the given order to produce a
+                                   single output.  Use
+                                   npm:"<packageName>/file.peggy" to import
+                                   from an npm dependency. (default: ["-"])
+
+Options:
+  -v, --version                    output the version number
+  --allowed-start-rules <rules>    Comma-separated list of rules the generated
+                                   parser will be allowed to start parsing
+                                   from.  Use '*' if you want any rule to be
+                                   allowed as a start rule.  (Can be specified
+                                   multiple times) (default: the first rule in
+                                   the grammar)
+  --ast                            Output a grammar AST instead of a parser
+                                   code (default: false)
+  --cache                          Make generated parser cache results
+                                   (default: false)
+  -d, --dependency <dependency>    Comma-separated list of dependencies, either
+                                   as a module name, or as `variable:module`.
+                                   (Can be specified multiple times)
+  -D, --dependencies <json>        Dependencies, in JSON object format with
+                                   variable:module pairs. (Can be specified
+                                   multiple times).
+  --dts                            Create a .d.ts to describe the generated
+                                   parser.
+  -e, --export-var <variable>      Name of a global variable into which the
+                                   parser object is assigned to when no module
+                                   loader is detected.
+  --extra-options <options>        Additional options (in JSON format as an
+                                   object) to pass to peggy.generate
+  -c, --extra-options-file <file>  File with additional options (in JSON as an
+                                   object or commonjs module format) to pass to
+                                   peggy.generate
+  --format <format>                Format of the generated parser (choices:
+                                   "amd", "bare", "commonjs", "es", "globals",
+                                   "umd", default: "commonjs")
+  -o, --output <file>              Output file for generated parser. Use '-'
+                                   for stdout (the default is a file next to
+                                   the input file with the extension change to
+                                   '.js', unless a test is specified, in which
+                                   case no parser is output without this
+                                   option)
+  --plugin <module>                Comma-separated list of plugins. (can be
+                                   specified multiple times)
+  -m, --source-map [mapfile]       Generate a source map. If name is not
+                                   specified, the source map will be named
+                                   "<input_file>.map" if input is a file and
+                                   "source.map" if input is a standard input.
+                                   If the special filename `inline` is given,
+                                   the sourcemap will be embedded in the output
+                                   file as a data URI.  If the filename is
+                                   prefixed with `hidden:`, no mapping URL will
+                                   be included so that the mapping can be
+                                   specified with an HTTP SourceMap: header.
+                                   This option conflicts with the `-t/--test`
+                                   and `-T/--test-file` options unless
+                                   `-o/--output` is also specified
+  --return-types <typeInfo>        Types returned for rules, as JSON object of
+                                   the form {"ruleName": "type"}
+  -S, --start-rule <rule>          When testing, use the given rule as the
+                                   start rule.  If this rule is not in the
+                                   allowed start rules, it will be added.
+  -t, --test <text>                Test the parser with the given text,
+                                   outputting the result of running the parser
+                                   instead of the parser itself. If the input
+                                   to be tested is not parsed, the CLI will
+                                   exit with code 2
+  -T, --test-file <filename>       Test the parser with the contents of the
+                                   given file, outputting the result of running
+                                   the parser instead of the parser itself. If
+                                   the input to be tested is not parsed, the
+                                   CLI will exit with code 2. A filename of '-'
+                                   will read from stdin.
+  --trace                          Enable tracing in generated parser (default:
+                                   false)
+  -w,--watch                       Watch the input file for changes, generating
+                                   the output once at the start, and again
+                                   whenever the file changes.
+  -h, --help                       display help for command
+----
+
+[source,bash]
+----
+$ npx peggy arithmetics.pegjs
+----
+
+This writes parser source code into a file with the same name as the
+grammar file but with “.js” extension. You can also specify the output
+file explicitly:
+
+[source,bash]
+----
+$ npx peggy -o arithmetics-parser.js arithmetics.pegjs
+----
+
+If you omit both input and output file, standard input and standard
+output are used.
+
+If you specify multiple input files, they will be folded together in the
+order specified before generating a parser. If generating the "es"
+format, `import` statements in the top-level initializers from each of
+the inputs will be moved to the top of the generated code in reverse
+order of the inputs, and all other top-level initializers will be
+inserted directly after those imports, also in reverse order of the
+inputs. This approach can be used to keep libraries of often-used
+grammar rules in link:#importing-external-rules[separate files].
+
+By default, the generated parser is in the commonjs module format. You
+can override this using the `--format` option.
+
+You can tweak the generated parser with several options:
+
+`--allowed-start-rules <rules>`::
+  Comma-separated list of rules the parser will be allowed to start
+  parsing from. Use '*' if you want any rule to be allowed as a start
+  rule. (default: only the first rule in the grammar).
+
+`--ast`::
+  Outputting an internal AST representation of the grammar after all
+  optimizations instead of the parser source code. Useful for plugin
+  authors to see how their plugin changes the AST. This option cannot be
+  mixed with the `-t/--test`, `-T/--test-file` and
+  `-m/--source-map` options.
+
+`--cache`::
+  Makes the parser cache results, avoiding exponential parsing time in
+  pathological cases but making the parser slower.
+
+`-d`, `--dependency <[name:]module>`::
+  Makes the parser require a specified dependency (can be specified
+  multiple times). A variable name for the import/require/etc. may be
+  given, followed by a colon. If no name is given, the module name will
+  also be used for the variable name.
+
+`-D`, `--dependencies <json>`::
+  Dependencies, in JSON object format with variable:module pairs. (Can
+  be specified multiple times).
+
+`--dts`::
+  Generate a .d.ts file next to the output .js file containing
+  TypeScript types for the generated parser. See
+  link:#typescript-types[Generating TypeScript Types] for more
+  information.
+
+`-e`, `--export-var <variable>`::
+  Name of a global variable into which the parser object is assigned to
+  when no module loader is detected.
+
+`--extra-options <options>`::
+  Additional options (in JSON format, as an object) to pass to
+  `peg.generate`.
+
+`-c`, `--extra-options-file <file>`::
+  File with additional options (in JSON format, as an object) to pass to
+  `peg.generate`.
+
+`--format <format>`::
+  Format of the generated parser: `amd`, `commonjs`, `globals`,
+  `umd`, `es` (default: `commonjs`).
+
+`-o`, `--output <file>`::
+  File to send output to. Defaults to input file name with extension
+  changed to `.js`, or stdout if no input file is given.
+
+`--plugin`::
+  Makes Peggy use a specified plugin (can be specified multiple times).
+
+`-m`, `--source-map <file>`::
+  Generate a source map. If name is not specified, the source map will
+  be named "<input_file>.map" if input is a file and "source.map" if
+  input is a standard input. If the special filename `inline` is
+  given, the sourcemap will be embedded in the output file as a data
+  URI. If the filename is prefixed with `hidden:`, no mapping URL will
+  be included so that the mapping can be specified with an HTTP
+  SourceMap: header. This option conflicts with the `-t/--test` and
+  `-T/--test-file` options unless `-o/--output` is also specified
+
+`--return-types <JSON object>`::
+  If `--dts` is specified, the `typeInfo` provided will be used to
+  specify the return type of the given rules. `typeInfo` should be
+  specified as a JSON object whose keys are rule names and whose values
+  are strings containing the return type for that rule. See
+  link:#typescript-types[Generating TypeScript Types] for more
+  information.
+
+`-S`, `--start-rule <rule>`::
+  When testing, use this rule as the start rule. Automatically added to
+  the allowedStartRules.
+
+`-t`, `--test <text>`::
+  Test the parser with the given text, outputting the result of running
+  the parser against this input. If the input to be tested is not
+  parsed, the CLI will exit with code 2.
+
+`-T`, `--test-file <text>`::
+  Test the parser with the contents of the given file, outputting the
+  result of running the parser against this input. If the input to be
+  tested is not parsed, the CLI will exit with code 2.
+
+`--trace`::
+  Makes the parser trace its progress.
+
+`-w,--watch`::
+  Watch the input file for changes, generating the output once at the
+  start, and again whenever the file changes.
+
+`-v`, `--version`::
+  Output the version number.
+
+`-h`, `--help`::
+  Display help for the command.
+
+If you specify options using `-c <file>` or `--extra-options-file <file>`, you 
+will need to ensure you are using the correct types. In particular, you may 
+specify "plugin" as a string, or "plugins" as an array of objects that have a 
+`use` method. Always use the long (two-dash) form of the option, without the 
+dashes, as the key. Options that contain internal dashes should be specified in 
+camel case. You may also specify an "input" field instead of using the command 
+line. For example:
+
+[source,javascript]
+----
+// config.js or config.cjs
+module.exports = {
+  allowedStartRules = ["foo", "bar"],
+  format: "umd",
+  exportVar: "foo",
+  input: "fooGrammar.peggy",
+  plugins: [require("./plugin.js")],
+  testFile: "myTestInput.foo",
+  trace: true,
+};
+----
+
+You can test generated parser immediately if you specify the
+`-t/--test` or `-T/--test-file` option. This option conflicts with
+the `--ast` option, and also conflicts with the `-m/--source-map`
+option unless `-o/--output` is also specified.
+
+The CLI will exit with the code:
+
+* `0`: if successful
+* `1`: if you supply incorrect or conflicting parameters
+* `2`: if you specified the `-t/--test` or `-T/--test-file` option
+  and the specified input fails parsing with the specified grammar
+
+Examples:
+
+[source,bash]
+----
+# - write test results to stdout (42)
+# - exit with the code 0
+echo "foo = '1' { return 42 }" | npx peggy --test 1
+
+# - write a parser error to stdout (Expected "1" but "2" found)
+# - exit with the code 2
+echo "foo = '1' { return 42 }" | npx peggy --test 2
+
+# - write an error to stdout (Generation of the source map is useless if you don't
+#   store a generated parser code, perhaps you forgot to add an `-o/--output` option?)
+# - exit with the code 1
+echo "foo = '1' { return 42 }" | npx peggy --source-map --test 1
+echo "foo = '1' { return 42 }" | npx peggy --source-map --test 2
+
+# - write an output to `parser.js`,
+# - write a source map to `parser.js.map`
+# - write test results to stdout (42)
+# - exit with the code 0
+echo "foo = '1' { return 42 }" | npx peggy --output parser.js --source-map --test 1
+
+# - write an output to `parser.js`,
+# - write a source map to `parser.js.map`
+# - write a parser error to stdout (Expected "1" but "2" found)
+# - exit with the code 2
+echo "foo = '1' { return 42 }" | npx peggy --output parser.js --source-map --test 2
+----
+
+[[generating-a-parser-javascript-api]]
+=== JavaScript API
+
+==== Importing
+
+Note again: this is an advanced usage of Peggy. Most of the core use
+cases of Peggy should prefer to generate a grammar at build time using
+the CLI.
+
+In Node.js, require the Peggy parser generator module:
+
+[source,javascript]
+----
+const peggy = require("peggy");
+----
+
+or:
+
+[source,javascript]
+----
+import peggy from "peggy";
+----
+
+With some configurations of TypeScript or other tools, you might need:
+
+[source,javascript]
+----
+import * as peggy from "peggy";
+----
+
+For use in browsers, include the Peggy library in your web page or
+application using the `<script>` tag. If Peggy detects an
+https://requirejs.org/docs/whyamd.html[AMD] loader, it will define
+itself as a module, otherwise the API will be available in the `peg`
+global object.
+
+In deno, you can import through a CDN like this:
+
+[source,javascript]
+----
+import peggy from "https://esm.sh/peggy"; // Note: add @version in production
+----
+
+[[generating-api]]
+==== Generating a parser with the API
+
+To generate a parser, call the `peggy.generate` method and pass your
+grammar as a parameter:
+
+[source,javascript]
+----
+const parser = peggy.generate("start = ('a' / 'b')+");
+----
+
+The method will return a generated parser object or its source code as a
+string (depending on the value of the `output` option — see below). It
+will throw an exception if the grammar is invalid. The exception will
+contain a `message` property with more details about the error.
+
+If your grammar is split across multiple files, instead of passing a
+string as the first parameter of `peggy.generate`, pass an array
+containing objects with `"source"` and `"text"` keys:
+
+[source,javascript]
+----
+const parser = peggy.generate([
+  { source: "file1.peggy", text: "numbers = number|.., ','|" },
+  { source: "lib.peggy", text: "number = n:$[0-9]+ { return parseInt(n, 10) }" },
+]);
+----
+
+Note that this is the same format the link:#error-format[`GrammarError.format()`] 
+function expects.
+
+You can tweak the generated parser by passing a second parameter with an
+options object to `peg.generate`. The following options are supported:
+
+`allowedStartRules`::
+  Rules the parser will be allowed to start parsing from (default: the
+  first rule in the grammar). If any of the rules specified is "*", any
+  of the rules in the grammar can be used as start rules.
+
+`cache`::
+  If `true`, makes the parser cache results, avoiding exponential
+  parsing time in pathological cases but making the parser slower
+  (default: `false`).
+
+`dependencies`::
+  Parser dependencies. The value is an object which maps variables used
+  to access the dependencies in the parser to module IDs used to load
+  them; valid only when `format` is set to `"amd"`, `"commonjs"`,
+  `"es"`, or `"umd"`. Dependencies variables will be available in
+  both the _global initializer_ and the _per-parse initializer_. Unless
+  the parser is to be generated in different formats, it is recommended
+  to rather import dependencies from within the _global initializer_
+  (default: `{}`).
+
+`error`::
+  Callback for errors. See link:#error-reporting[Error Reporting]
+
+`exportVar`::
+  Name of a global variable into which the parser object is assigned to
+  when no module loader is detected; valid only when `format` is set
+  to `"globals"` or `"umd"` (default: `null`).
+
+`format`::
+  Format of the generated parser (`"amd"`, `"bare"`, `"commonjs"`,
+  `"es"`, `"globals"`, or `"umd"`); valid only when `output` is
+  set to `"source"`, `"source-and-map"`, or
+  `"source-with-inline-map"`. (default: `"bare"`).
+
+`grammarSource`::
+  A string or object representing the "origin" of the input string being
+  parsed. The `location()` API returns the supplied `grammarSource`
+  in the `source` key. As an example, if you pass in `grammarSource`
+  as "main.js", then errors with locations include
+  `{ source: 'main.js', ... }`. +
+   +
+  If you pass an object, the location API returns the entire object in
+  the `source` key. If you format an error containing a location with
+  link:#error-format[`format()`], the formatter stringifies the
+  object. If you pass an object, we recommend you add a `toString()`
+  method to the object to improve error messages.
+
+`info`::
+  Callback for informational messages. See link:#error-reporting[Error
+  Reporting]
+
+`output`::
+  A string, one of:
++
+  * `"source"` - return parser source code as a string.
+  * `"parser"` - return a generated link:#using-the-parser[parser
+    object]. This is just the "source" output that has had `eval` run on
+    it. As such, some formats, such as "es" may not work.
+  * `"source-and-map"` - return a
+    https://github.com/mozilla/source-map#sourcenode[`SourceNode`]
+    object; you can get source code by calling `toString()` method or
+    source code and mapping by calling `toStringWithSourceMap()` method,
+    see the https://github.com/mozilla/source-map#sourcenode[`SourceNode`]
+    documentation.
+  * `"source-with-inline-map"` - return the parser source along with
+    an embedded source map as a `data:` URI. This option leads to a
+    larger output string, but is the easiest to integrate with developer
+    tooling.
+  * `"ast"` - return the internal AST of the grammar as a JSON string.
+    Useful for plugin authors to explore internals of Peggy and for
+    automation.
++
+  (default: `"parser"`)
++
+[NOTE]
+--
+You should also set `grammarSource` to a not-empty string if
+you set this value to `"source-and-map"` or
+`"source-with-inline-map"`. The path should be relative to the
+location where the generated parser code will be stored. For example,
+if you are generating `lib/parser.js` from `src/parser.peggy`,
+then your options should be: `{ grammarSource: "../src/parser.peggy" }`
+--
+
+`plugins`::
+  Plugins to use. See the link:#plugins-api[Plugins API] section.
+
+`trace`::
+  Makes the parser trace its progress (default: `false`).
+
+`warning`::
+  Callback for warnings. See link:#error-reporting[Error Reporting]
+
+[[error-reporting]]
+==== Error Reporting
+
+While generating the parser, the compiler may throw a `GrammarError`
+which collects all of the issues that were seen.
+
+There is also another way to collect problems as fast as they are
+reported — register one or more of these callbacks:
+
+[source,js]
+----
+error(stage: Stage, message: string, location?: LocationRange, notes?: DiagnosticNote[]): void
+warning(stage: Stage, message: string, location?: LocationRange, notes?: DiagnosticNote[]): void
+info(stage: Stage, message: string, location?: LocationRange, notes?: DiagnosticNote[]): void
+----
+
+All parameters are the same as the parameters of the
+link:#session-api[reporting API] except the first. The `stage`
+represent one of possible stages during which execution a diagnostic was
+generated. This is a string enumeration, that currently has one of three
+values:
+
+* `check`
+* `transform`
+* `generate`
+
+[[typescript-types]]
+=== Generating TypeScript Types
+
+If you are consuming the generated parser from TypeScript, it is useful
+for there to be a .d.ts file next to the generated .js file that
+describes the types used in the parser. To enable this, use a
+configuration file such as:
+
+[source,js]
+----
+// MJS
+export default {
+  input: "foo.peggy",
+  output: "foo.js",
+  dts: true,
+  returnTypes: {
+    foo: "string",
+  },
+};
+----
+
+If a rule name is in the allowedStartRules, but not in returnTypes,
+`any` will be used as the return type for that rule.
+
+Note that `--return-types <JSON object>` can be specified on the
+command line; the use of a config file just makes quoting easier to get
+correct.
+
+[[using-the-parser]]
+== Using the Parser
+
+To use the generated parser, import it using your selected module approach if 
+needed, then call its `parse` method and pass an input string as a parameter. 
+The method will return a parse result (the exact value depends on the grammar 
+used to generate the parser) or throw an exception if the input is invalid. 
+The exception will contain `location`, `expected`, `found`, `message`, and 
+`diagnostic` properties with more details about the error. The error will 
+have a link:#error-format[`format(SourceText[])`] function, to which you pass 
+an array of objects that look like `{ source: grammarSource, text: string }`; 
+this will return a nicely-formatted error suitable for human consumption.
+
+[source,javascript]
+----
+parser.parse("abba"); // returns ["a", "b", "b", "a"]
+
+parser.parse("abcd"); // throws an exception
+----
+
+You can tweak parser behavior by passing a second parameter with an
+options object to the `parse` method. The following options are
+supported:
+
+`startRule`::
+  Name of the rule to start parsing from.
+
+`tracer`::
+  Tracer to use. A tracer is an object containing a `trace()`
+  function. `trace()` takes a single parameter which is an object
+  containing "type" ("rule.enter", "rule.fail", "rule.match"), "rule"
+  (the rule name as a string), "location", and, if the type is 
+  "rule.match", "result" (what the rule returned).
+
+`...` (any others)::
+  Made available in the `options` variable
+
+As you can see above, parsers can also support their own custom options.
+For example:
+
+[source,javascript]
+----
+const parser = peggy.generate(`
+{
+  // options are available in the per-parse initializer
+  console.log(options.validWords);  // outputs "[ 'boo', 'baz', 'boop' ]"
+}
+
+validWord = @word:$[a-z]+ &{ return options.validWords.includes(word) }
+`);
+
+const result = parser.parse("boo", {
+  validWords: [ "boo", "baz", "boop" ]
+});
+
+console.log(result);  // outputs "boo"
+----
+
+[[grammar-syntax-and-semantics]]
+== Grammar Syntax and Semantics
+
+The grammar syntax is similar to JavaScript in that it is not
+line-oriented and ignores whitespace between tokens. You can also use
+JavaScript-style comments (`// ...` and `/* ... */`).
+
+Let's look at example grammar that recognizes simple arithmetic
+expressions like `2*(3+4)`. A parser generated from this grammar
+computes their values.
+
+[source,peggy]
+----
+start
+  = additive
+
+additive
+  = left:multiplicative "+" right:additive { return left + right; }
+  / multiplicative
+
+multiplicative
+  = left:primary "*" right:multiplicative { return left * right; }
+  / primary
+
+primary
+  = integer
+  / "(" additive:additive ")" { return additive; }
+
+integer "simple number"
+  = digits:[0-9]+ { return parseInt(digits.join(""), 10); }
+----
+
+On the top level, the grammar consists of _rules_ (in our example, there
+are five of them). Each rule has a _name_ (e.g. `integer`) that
+identifies the rule, and a _parsing expression_ (e.g.
+`digits:[0-9]+ { return parseInt(digits.join(""), 10); }`) that
+defines a pattern to match against the input text and possibly contains
+some JavaScript code that determines what happens when the pattern
+matches successfully. A rule can also contain _human-readable name_ that
+is used in error messages (in our example, only the `integer` rule has
+a human-readable name). The parsing starts at the first rule, which is
+also called the _start rule_.
+
+A rule name must be a Peggy link:#identifiers[identifier]. It is
+followed by an equality sign (“=”) and a parsing expression. If the rule
+has a human-readable name, it is written as a JavaScript string between
+the rule name and the equality sign. Rules need to be separated only by
+whitespace (their beginning is easily recognizable), but a semicolon
+(“;”) after the parsing expression is allowed.
+
+The first rule can be preceded by a _global initializer_ and/or a
+_per-parse initializer_, in that order. Both are pieces of JavaScript
+code in double curly braces (“\{\{” and “}}”) and single curly braces
+(“\{” and “}”) respectively. All variables and functions defined in both
+_initializers_ are accessible in rule actions and semantic predicates.
+Curly braces in both _initializers_ code must be balanced.
+
+The _global initializer_ is executed once and only once, when the
+generated parser is loaded (through a `require` or an `import`
+statement for instance). It is the ideal location to require, to import,
+to declare constants, or to declare utility functions to be used in rule
+actions and semantic predicates.
+
+The _per-parse initializer_ is called before the generated parser starts
+parsing. The code inside the _per-parse initializer_ can access the
+input string and the options passed to the parser using the `input`
+variable and the `options` variable respectively. It is the ideal
+location to create data structures that are unique to each parse or to
+modify the input before the parse.
+
+Let's look at the example grammar from above using a _global
+initializer_ and a _per-parse initializer_:
+
+[source,peggy]
+----
+{{
+  function makeInteger(o) {
+    return parseInt(o.join(""), 10);
+  }
+}}
+
+{
+  if (options.multiplier) {
+    input = `(${input})*(${options.multiplier})`;
+  }
+}
+
+start
+  = additive
+
+additive
+  = left:multiplicative "+" right:additive { return left + right; }
+  / multiplicative
+
+multiplicative
+  = left:primary "*" right:multiplicative { return left * right; }
+  / primary
+
+primary
+  = integer
+  / "(" additive:additive ")" { return additive; }
+
+integer "simple number"
+  = digits:[0-9]+ { return makeInteger(digits); }
+----
+
+The parsing expressions of the rules are used to match the input text to
+the grammar. There are various types of expressions — matching
+characters or character classes, indicating optional parts and
+repetition, etc. Expressions can also contain references to other rules.
+See link:#parsing-expression-types[detailed description below].
+
+If an expression successfully matches a part of the text when running
+the generated parser, it produces a _match result_, which is a
+JavaScript value. For example:
+
+* An expression matching a literal string produces a JavaScript string
+  containing matched text.
+* An expression matching repeated occurrence of some subexpression
+  produces a JavaScript array with all the matches.
+
+The match results propagate through the rules when the rule names are
+used in expressions, up to the start rule. The generated parser returns
+start rule's match result when parsing is successful.
+
+One special case of parser expression is a _parser action_ — a piece of
+JavaScript code inside curly braces (“\{” and “}”) that takes match
+results of the preceding expression and returns a JavaScript value. This
+value is then considered match result of the preceding expression (in
+other words, the parser action is a match result transformer).
+
+In our arithmetics example, there are many parser actions. Consider the
+action in expression `digits:[0-9]+ { return parseInt(digits.join(""), 10); }`. 
+It takes the match result of the expression [0-9]+, which is an array of 
+strings containing digits, as its parameter. It joins the digits together to
+form a number and converts it to a JavaScript `number` object.
+
+[[importing-external-rules]]
+=== Importing External Rules
+
+Sometimes, you want to split a large grammar into multiple files for
+ease of editing, reuse in multiple higher-level grammars, etc. There are
+two ways to accomplish this in Peggy:
+
+. From the link:#generating-a-parser-command-line[Command Line], include
+  multiple source files. This will generate the least total amount of
+  code, since the combined output will only have the runtime overhead
+  included once. The resulting code will be slightly more performant, as
+  there will be no overhead to call between the rules defined in different
+  files at runtime. Finally, Peggy will be able to perform better checks
+  and optimizations across the combined grammar with this approach, since
+  the combination is applied before any other rules. For example:
++
+`csv.peggy`:
++
+[source,peggy]
+----
+a = number|1.., "," WS|
+WS = [ \t]*
+----
++
+`number.peggy`:
++
+[source,peggy]
+----
+number = n:$[0-9]+ { return parseInt(n, 10); }
+----
++
+Generate:
++
+[source,bash]
+----
+$ npx peggy csv.peggy number.peggy
+----
+. The downside of the CLI approach is that editor tooling will not be
+  able to detect that rules coming from another file -- references to such
+  rules will be shown with errors like `Rule "number" is not defined`.
+  Furthermore, you must rely on getting the CLI or API call correct, which
+  is not possible in all workflows.
++
+The second approach is to use ES6-style `import` statements at the top
+of your grammar to import rules into the local rule namespace. For
+example:
++
+`csv_imp.peggy`:
++
+[source,peggy]
+----
+import {number} from "./number.js"
+a = number|1.., "," WS|
+WS = [ \t]*
+----
++
+Note that the file imported from is the compiled version of the grammar,
+NOT the source. Grammars MUST be compiled by a version that supports
+imports in order to be imported. Only rules that are allowed start rules
+are valid. It can be useful to specify `--allowed-start-rules *` (with
+appropriate escaping for your shell!) in library grammars. Imports are
+only valid in output formats "es" and "commonjs". If you use imports,
+you should use `{ output: "source" }`; the default output of "parser"
+will call `eval` on the source which fails immediately for some formats
+(e.g. "es") and will not find modules in the expected places for others
+(e.g. "commonjs"). The https://github.com/peggyjs/from-mem/[from-mem]
+project is used by the Peggy CLI to resolve these issues, but note well
+its relatively severe limitations.
++
+All of the following are valid:
++
+[source,javascript]
+----
+import * as num from "number.js"     // Call with num.number
+import num from "number.js"          // Calls the default rule
+import {number, float} "number.js"   // Import multiple rules by name
+import {number as NUM} "number.js"   // Rename the local rule to NUM to avoid colliding
+import {"number" as NUM} "number.js" // Valid in ES6
+import integer, {float} "number.js"  // The default rule and some named rules
+import {} "number.js"                // Just the top-level initializer side-effects
+import from "number.js"              // Just the top-level initializer side-effects
+----
+
+[[parsing-expression-types]]
+=== Parsing Expression Types
+
+There are several types of parsing expressions, some of them containing
+subexpressions and thus forming a recursive structure. Each example
+below is a part of a link:https://peggyjs.org/js/examples.peggy[full grammar], 
+which produces an object that contains `match` and `rest`. `match` is
+the part of the input that matched the example, `rest` is any
+remaining input after the match.
+
+`"_literal_"`::
+`'_literal_'`::
+  Match exact literal string and return it. The string syntax is the
+  same as in JavaScript. Appending `i` right after the literal makes
+  the match case-insensitive.
++
+[source,peg,subs=normal]
+----
+  _Example:_ `literal = "foo"`
+
+  _Matches:_ `"foo"`
+
+  _Does not match:_ `"Foo"`, `"fOo"`, `"bar"`, `"fo"`
+----
++
+[source,peg,subs=normal]
+----
+  _Example:_ `literal_i = "foo"i`
+
+  _Matches:_ `"foo"`, `"Foo"`, `"fOo"`
+
+  _Does not match:_ `"bar"`, `"fo"`
+----
+
+`.` (U+002E: FULL STOP, or "period")::
+  Match exactly one character and return it as a string.
++
+[source,peg,subs=normal]
+----
+  _Example:_ `any = .`
+
+  _Matches:_ `"f"`, `"."`, `" "`
+
+  _Does not match:_ `""`
+----
+
+`!.` (END OF INPUT)::
+  Match END OF INPUT. This _Bang Dot_ sequence will specify that the end
+  of input should be matched. `"f" !.` will test for end of input
+  after the character "f".
++
+[source,peg,subs=normal]
+----
+  _Example:_ `no_input = !.`
+
+  _Matches:_ `""`
+
+  _Does not match:_ `"f"`
+----
++
+[source,peg,subs=normal]
+----
+  _Example:_ `end_of_input = "f" !.`
+
+  _Matches:_ `"f[EOI]"`
+
+  _Does not match:_ `"f [EOI]"`, `""`
+----
+
+`[_characters_]`::
+  Match one character from a set and return it as a string. The
+  characters in the list can be escaped in exactly the same way as in
+  JavaScript string. The list of characters can also contain ranges
+  (e.g. `[a-z]` means “all lowercase letters”). Preceding the
+  characters with `^` inverts the matched set (e.g. `[^a-z]` means
+  “all character but lowercase letters”). Appending `i` right after
+  the class makes the match case-insensitive.
++
+[source,peg,subs=normal]
+----
+  _Example:_ `class = [a-z]`
+
+  _Matches:_ `"f"`
+
+  _Does not match:_ `"A"`, `"-"`, `""`
+----
++
+[source,peg,subs=normal]
+----
+  _Example:_ `not_class_i = [^a-z]i`
+
+  _Matches:_ `"="`, `" "`
+
+  _Does not match:_ `"F"`, `"f"`, `""`
+----
+
+`_rule_`::
+  Match a parsing expression of a rule (perhaps recursively) and return
+  its match result.
++
+[source,peg,subs=normal]
+----
+  _Example:_ `rule = child; child = "foo"`
+
+  _Matches:_ `"foo"`
+
+  _Does not match:_ `"Foo"`, `"fOo"`, `"bar"`, `"fo"`
+----
+
+`(_expression_)`::
+  Match a subexpression and return its match result. Parentheses create
+  a new local context for the link:#action-execution-environment[Action
+  Execution Environment] as well as link:#pluck[plucks] with the `@`
+  operator. Note that the action block in the following example returns
+  `2` from the parenthesized expression, NOT from the rule -- the rule
+  returns an array of `2`'s due to the `+` operator.
++
+[source,peg,subs=normal]
+----
+  _Example:_ `paren = ("1" { return 2; })+`
+
+  _Matches:_ `"11"`
+
+  _Does not match:_ `"2"`, `""`
+----
++
+Similarly, in the next example, the link:#pluck[pluck] operator
+applies to the return value of the parentheses, not the rule:
++
+[source,peg,subs=normal]
+----
+  _Example:_ `paren_pluck = (@[0-9] ",")+`
+
+  _Matches:_ `"1,"`, `"2,3,"`
+
+  _Does not match:_ `"2"`, `","`
+----
+
+`_expression_ *`::
+  Match zero or more repetitions of the expression and return their
+  match results in an array. The matching is greedy, i.e. the parser
+  tries to match the expression as many times as possible. Unlike in
+  regular expressions, there is no backtracking.
++
+[source,peg,subs=normal]
+----
+  _Example:_ `star = "a"*`
+
+  _Matches:_ `"a"`, `"aaa"`
+
+  _Does not match:_ (always matches)
+----
+
+`_expression_ +`::
+  Match one or more repetitions of the expression and return their match
+  results in an array. The matching is greedy, i.e. the parser tries to
+  match the expression as many times as possible. Unlike in regular
+  expressions, there is no backtracking.
++
+[source,peg,subs=normal]
+----
+  _Example:_ `plus = "a"+`
+
+  _Matches:_ `"a"`, `"aaa"`
+
+  _Does not match:_ `"b"`, `""`
+----
+
+`_expression_ |count|`::
+`_expression_ |min..max|`::
+`_expression_ |count, delimiter|`::
+`_expression_ |min..max, delimiter|`::
+  Match exact `count` repetitions of `expression`. If the match
+  succeeds, return their match results in an array.
++
+_-or-_
++
+Match expression at least `min` but not more then `max` times. If
+the match succeeds, return their match results in an array. Both
+`min` and `max` may be omitted. If `min` is omitted, then it is
+assumed to be `0`. If `max` is omitted, then it is assumed to be
+infinity. Hence
++
+* `expression |..|` is equivalent to `expression |0..|` and `expression *`
+* `expression |1..|` is equivalent to `expression +`
+* `expression |..1|` is equivalent to `expression ?`
++
+Optionally, `delimiter` expression can be specified. The delimiter
+is a separate parser expression, its match results are ignored, and it
+must appear between matched expressions exactly once.
++
+`count`, `min` and `max` can be represented as:
++
+* positive integer:
++
+[source,peggy]
+----
+start = "a"|2|;
+----
+* name of the preceding label:
++
+[source,peggy]
+----
+start = count:n1 "a"|count|;
+n1 = n:$[0-9] { return parseInt(n); };
+----
+* code block:
++
+[source,peggy]
+----
+start = "a"|{ return options.count; }|;
+----
++
+Any non-number values, returned by the code block, will be interpreted as `0`.
++
+[source,peg,subs=normal]
+----
+  _Example:_ `repetition = "a"|2..3, ","|`
+
+  _Matches:_ `"a,a"`, `"a,a,a"`
+
+  _Does not match:_ `"a"`, `"b,b"`, `"a,a,a,"`, `"a,a,a,a"`
+----
+
+`_expression_ ?`::
+  Try to match the expression. If the match succeeds, return its match
+  result, otherwise return `null`. Unlike in regular expressions,
+  there is no backtracking.
++
+[source,peg,subs=normal]
+----
+  _Example:_ `maybe = "a"?`
+
+  _Matches:_ `"a"`, `""`
+
+  _Does not match:_ (always matches)
+----
+
+`& _expression_`::
+  This is a positive assertion. No input is consumed.
++
+Try to match the expression. If the match succeeds, just return
+`undefined` and do not consume any input, otherwise consider the
+match failed.
++
+[source,peg,subs=normal]
+----
+  _Example:_ `posAssertion = "a" &"b"`
+
+  _Matches:_ `"ab"`
+
+  _Does not match:_ `"ac"`, `"a"`, `""`
+----
+
+`! _expression_`::
+  This is a negative assertion. No input is consumed.
++
+Try to match the expression. If the match does not succeed, just
+return `undefined` and do not consume any input, otherwise consider
+the match failed.
++
+[source,peg,subs=normal]
+----
+  _Example:_ `negAssertion = "a" !"b"`
+
+  _Matches:_ `"a"`, `"ac"`
+
+  _Does not match:_ `"ab"`, `""`
+----
+
+`& { _predicate_ }`::
+  This is a positive assertion. No input is consumed.
++
+The predicate should be JavaScript code, and it's executed as a
+function. Curly braces in the predicate must be balanced.
++
+The predicate should `return` a boolean value. If the result is
+truthy, it's match result is `undefined`, otherwise the match is
+considered failed. Failure to include the `return` keyword is a
+common mistake.
++
+The predicate has access to all variables and functions in the
+link:#action-execution-environment[Action Execution Environment].
++
+[source,peg,subs=normal]
+----
+  _Example:_ +
+  `posPredicate = @num:$[0-9]+ &{return parseInt(num, 10) < 100}`
+
+  _Matches:_ `"0"`, `"99"`
+
+  _Does not match:_ `"100"`, `"-1"`, `""`
+----
+
+`! { _predicate_ }`::
+  This is a negative assertion. No input is consumed.
++
+The predicate should be JavaScript code, and it's executed as a
+function. Curly braces in the predicate must be balanced.
++
+The predicate should `return` a boolean value. If the result is
+falsy, it's match result is `undefined`, otherwise the match is
+considered failed.
++
+The predicate has access to all variables and functions in the
+link:#action-execution-environment[Action Execution Environment].
++
+[source,peg,subs=normal]
+----
+  _Example:_ +
+  `negPredicate = @num:$[0-9]+ !{ return parseInt(num, 10) < 100 }`
+
+  _Matches:_ `"100"`, `"156"`
+
+  _Does not match:_ `"56"`, `"-1"`, `""`
+----
+
+`$ _expression_`::
+  Try to match the expression. If the match succeeds, return the matched
+  text instead of the match result.
++
+If you need to return the matched text in an action, you can use the
+link:#action-execution-environment[`text()`] function, but returning
+a labeled `$` expression is sometimes more clear..
++
+[source,peg,subs=normal]
+----
+  _Example:_ `dollar = $"a"+`
+
+  _Matches:_ `"a"`, `"aa"`
+
+  _Does not match:_ `"b"`, `""`
+----
+
+`_label_` : `_expression_`::
+  Match the expression and remember its match result under given label.
+  The label must be a Peggy link:#identifiers[identifier].
++
+Labeled expressions are useful together with actions, where saved
+match results can be accessed by action's JavaScript code.
++
+[source,peg,subs=normal]
+----
+  _Example:_ `label = foo:"bar"i { return {foo}; }`
+
+  _Matches:_ `"bar"`, `"BAR"`
+
+  _Does not match:_ `"b"`, `""`
+----
+
+`_@_ ( _label_ : )? _expression_`::
+  Match the expression and if the label exists, remember its match
+  result under given label. The label must be a Peggy
+  link:#identifiers[identifier], and must be valid as a function
+  parameter in the language that is being generated (by default,
+  JavaScript). Labels are only useful for later reference in a semantic
+  predicate at this time.
++
+Return the value of this expression from the rule, or "pluck" it. You
+may not have an action for this rule. The expression must not be a
+semantic predicate (link:#-predicate-[`&{ predicate }`] or
+link:++#--predicate-++[`!{ predicate }`]). There may be multiple
+pluck expressions in a given rule, in which case an array of the
+plucked expressions is returned from the rule.
++
+Pluck expressions are useful for writing terse grammars, or returning
+parts of an expression that is wrapped in parentheses.
++
+[source,peg,subs=normal]
+----
+  _Example:_ `pluck_1 = @$"a"+ " "+ @$"b"+`
+
+  _Matches:_ `"aaa bb"`, `"a "`
+
+  _Does not match:_ `"b"`, `" "`
+----
++
+[source,peg,subs=normal]
+----
+  _Example:_
+  `pluck_2 = @$"a"+ " "+ @two:$"b"+ &{ return two.length < 3 } `
+
+  _Matches:_ `"aaa b"`, `"a bb"`
+
+  _Does not match:_ `"a bbbb"`, `"b"`, `" "`
+----
+
+`_expression~1~_` `_expression~2~_` ... `_expression~n~_`::
+  Match a sequence of expressions and return their match results in an
+  array.
++
+[source,peg,subs=normal]
+----
+  _Example:_ `sequence = "a" "b" "c"`
+
+  _Matches:_ `"abc"`
+
+  _Does not match:_ `"b"`, `" "`
+----
+
+`_expression_` { `_action_` }`::
+  If the expression matches successfully, run the action, otherwise
+  consider the match failed.
++
+The action should be JavaScript code, and it's executed as a function.
+Curly braces in the action must be balanced.
++
+The action should `return` some value, which will be used as the
+match result of the expression.
++
+The action has access to all variables and functions in the
+link:#action-execution-environment[Action Execution Environment].
++
+[source,peg,subs=normal]
+----
+  _Example:_ `action = " "+ "a" { return location(); }`
+
+  _Matches:_ `" a"`
+
+  _Does not match:_ `"a"`, `" "`
+----
+
+`_expression~1~_` / `_expression~2~_` / ... / `_expression~n~_`::
+  Try to match the first expression, if it does not succeed, try the
+  second one, etc. Return the match result of the first successfully
+  matched expression. If no expression matches, consider the match
+  failed.
++
+[source,peg,subs=normal]
+----
+  _Example:_ `alt = "a" / "b" / "c"`
+
+  _Matches:_ `"a"`, `"b"`, `"c"`
+
+  _Does not match:_ `"d"`, `""`
+----
+
+[[action-execution-environment]]
+=== Action Execution Environment
+
+Actions and predicates have these variables and functions available to
+them.
+
+* All variables and functions defined in the initializer or the
+  top-level initializer at the beginning of the grammar are available.
+* Note, that all functions and variables, described below, are
+  unavailable in the global initializer.
+* Labels from preceding expressions are available as local variables,
+  which will have the match result of the labelled expressions.
++
+A label is only available after its labelled expression is matched:
++
+[source,peggy]
+----
+rule = A:('a' B:'b' { /* B is available, A is not */ } )
+----
++
+A label in a sub-expression is only valid within the sub-expression:
++
+[source,peggy]
+----
+rule = A:'a' (B:'b') (C:'b' { /* A and C are available, B is not */ })
+----
+* `input` is a parsed string that was passed to the `parse()` method.
+* `options` is a variable that contains the parser options. That is
+  the same object that was passed to the `parse()` method.
+* `error(message, where)` will report an error and throw an exception.
+  `where` is optional; the default is the value of `location()`.
+* `expected(message, where)` is similar to `error`, but reports
++
+____
+Expected _message_ but "_other_" found.
+____
++
+where `other` is, by default, the character in the
+`location().start.offset` position.
+* `location()` returns an object with the information about the parse
+  position. Refer to link:#locations[the corresponding section] for the
+  details.
+* `range()` is similar to `location()`, but returns an object with
+  offsets only. Refer to link:#locations[the "Locations" section] for the
+  details.
+* `offset()` returns only the start offset, i.e.
+  `location().start.offset`. Refer to link:#locations[the "Locations"
+  section] for the details.
+* `text()` returns the source text between `start` and `end`
+  (which will be `""` for predicates). Instead of using that function as
+  a return value for the rule consider using the link:#-expression-2[`$`
+  operator].
+
+[[parsing-lists]]
+=== Parsing Lists
+
+One of the most frequent questions about Peggy grammars is how to parse
+a delimited list of items. The cleanest current approach is:
+
+[source,peggy]
+----
+list
+  = word|.., _ "," _|
+word
+  = $[a-z]i+
+_
+  = [ \t]*
+----
+
+If you want to allow a trailing delimiter, append it to the end of the rule:
+
+[source,peggy]
+----
+list
+  = word|.., delimiter| delimiter?
+delimiter
+  = _ "," _
+word
+  = $[a-z]i+
+_
+  = [ \t]*
+----
+
+In the grammars created before the repetition operator was added to the
+peggy (in 3.0.0) you could see that approach, which is equivalent of the
+new approach with the repetition operator, but less efficient on long
+lists:
+
+[source,peggy]
+----
+list
+  = head:word tail:(_ "," _ @word)* { return [head, ...tail]; }
+word
+  = $[a-z]i+
+_
+  = [ \t]*
+----
+
+Note that the `@` in the tail section link:#pluck[plucks] the word out
+of the parentheses, NOT out of the rule itself.
+
+
+[[examples]]
+=== Peggy Expression Examples
+
+https://vscode.dev/github.com/peggyjs/peggy/blob/main/docs/js/examples.peggy[examples.peggy]
+
+[source,peg]
+------------
+literal      = match:"foo"                rest:rest { return {match, rest}; }
+literal_i    = match:"foo"i               rest:rest { return {match, rest}; }
+any          = match:.                    rest:rest { return {match, rest}; }
+class        = match:[a-z]                rest:rest { return {match, rest}; }
+not_class_i  = match:[^a-z]i              rest:rest { return {match, rest}; }
+rule         = match:child                rest:rest { return {match, rest}; }; child = "foo"
+paren        = match:("1" { return 2; })+ rest:rest { return {match, rest}; }
+paren_pluck  = match:(@[0-9] ",")+        rest:rest { return {match, rest}; }
+star         = match:"a"*                 rest:rest { return {match, rest}; }
+plus         = match:"a"+                 rest:rest { return {match, rest}; }
+repetition   = match:"a"|2..3, ","|       rest:rest { return {match, rest}; }
+maybe        = match:"a"?                 rest:rest { return {match, rest}; }
+posAssertion = match:"a" &"b"             rest:rest { return {match, rest}; }
+negAssertion = match:"a" !"b"             rest:rest { return {match, rest}; }
+posPredicate = match:(@num:$[0-9]+ &{ return parseInt(num, 10) < 100 }) 
+                                          rest:rest { return {match, rest}; }
+negPredicate = match:(@num:$[0-9]+ !{ return parseInt(num, 10) < 100 }) 
+                                          rest:rest { return {match, rest}; }
+dollar       = match:$"a"+                rest:rest { return {match, rest}; }
+label        = match:(foo:"bar"i { return {foo}; }) 
+                                          rest:rest { return {match, rest}; }
+pluck_1      = match:(@$"a"+ " "+ @$"b"+) rest:rest { return {match, rest}; }
+pluck_2      = match:(@$"a"+ " "+ @two:$"b"+ &{ return two.length < 3 }) 
+                                          rest:rest { return {match, rest}; }
+sequence     = match:("a" "b" "c")        rest:rest { return {match, rest}; }
+action       = match:(" "+ "a" { return location(); }) 
+                                          rest:rest { return {match, rest}; }
+alt          = match:("a" / "b" / "c")    rest:rest { return {match, rest}; }
+no_input     = match:!.                   rest:rest { return {match, rest}; }
+end_of_input = match:("f" !.)             rest:rest { return {match, rest}; }
+
+rest "The rest of the input" = $.*
+------------
+
+
+[[identifiers]]
+== Peggy Identifiers
+
+Peggy Identifiers are used as rule names, rule references, and label
+names. They are used as identifiers in the code that Peggy generates (by
+default, JavaScript), and as such, must conform to the limitations of
+the Peggy grammar as well as those of the target language.
+
+:BMP: https://en.wikipedia.org/wiki/Plane_(Unicode)#Basic_Multilingual_Plane
+
+Like all Peggy grammar constructs, identifiers MUST contain only
+codepoints in the link:{BMP}[Basic Multilingual Plane]. 
+They must begin with a codepoint whose Unicode
+General Category property is Lu, Ll, Lt, Lm, Lo, or Nl (letters), "_"
+(underscore), or a Unicode escape in the form `\uXXXX`. Subsequent
+codepoints can be any of those that are valid as an initial codepoint,
+"$", codepoints whose General Category property is Mn or Mc (combining
+characters), Nd (numbers), Pc (connector punctuation), "\u200C" (zero
+width non-joiner), or "\u200D (zero width joiner)"
+
+:reserved_words: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words
+
+Labels have a further restriction, which is that they must be valid as a
+function parameter in the language being generated. For JavaScript, this
+means that they cannot be on the limited set of
+link:{reserved_words}[JavaScript reserved words]. Plugins can modify 
+the list of reserved words at compile time.
+
+Valid identifiers:
+
+* `Foo`
+* `Bär`
+* `_foo`
+* `foo$bar`
+
+*Invalid* identifiers:
+
+* `const` (reserved word)
+* `𐓁𐒰͘𐓐𐓎𐓊𐒷` (valid in JavaScript, but not in the Basic Multilingual Plane)
+* `$Bar` (starts with "$")
+* `foo bar` (invalid JavaScript identifier containing space)
+
+[[error-messages]]
+== Error Messages
+
+As described above, you can annotate your grammar rules with
+human-readable names that will be used in error messages. For example,
+this production:
+
+[source,peggy]
+----
+integer "simple number"
+  = digits:[0-9]+
+----
+
+will produce an error message like:
+
+____
+Expected simple number but "a" found.
+____
+
+when parsing a non-number, referencing the human-readable name "simple
+number." Without the human-readable name, Peggy instead uses a
+description of the character class that failed to match:
+
+____
+Expected [0-9] but "a" found.
+____
+
+Aside from the text content of messages, human-readable names also have
+a subtler effect on _where_ errors are reported. Peggy prefers to match
+named rules completely or not at all, but not partially. Unnamed rules,
+on the other hand, can produce an error in the middle of their
+subexpressions.
+
+For example, for this rule matching a comma-separated list of integers:
+
+[source,peggy]
+----
+seq
+  = integer ("," integer)*
+----
+
+an input like 1,2,a produces this error message:
+
+____
+Expected integer but "a" found.
+____
+
+But if we add a human-readable name to the seq production:
+
+[source,peggy]
+----
+seq "list of numbers"
+  = integer ("," integer)*
+----
+
+then Peggy prefers an error message that implies a smaller attempted
+parse tree:
+
+____
+Expected end of input but "," found.
+____
+
+There are two classes of errors in Peggy:
+
+* `SyntaxError`: Syntax errors, found during parsing the input. This
+  kind of errors can be thrown both during _grammar_ parsing and during
+  _input_ parsing. Although name is the same, errors of each generated
+  parser (including Peggy parser itself) has its own unique class.
+* `GrammarError`: Grammar errors, found during construction of the
+  parser. These errors can be thrown only in the parser generation phase.
+  This error signals a logical mistake in the grammar, such as having two
+  rules with the same name in one grammar, etc.
+
+By default, stringifying these errors produces an error string without
+location information. These errors also have a
+link:#error-format[`format()`] method that produces an error string
+with location information. If you provide an array of mappings from the
+link:#grammar-source[`grammarSource`] to the input string being
+processed, then the formatted error string includes ASCII arrows and
+underlines highlighting the error(s) in the source.
+
+[source,javascript]
+----
+let source = ...;
+try {
+  peggy.generate( , { grammarSource: 'recursion.pegjs', ... }); // throws SyntaxError or GrammarError
+  parser.parse(input, { grammarSource: 'input.js', ... }); // throws SyntaxError
+} catch (e) {
+  if (typeof e.format === "function") {
+    console.log(e.format([
+      { source: 'main.pegjs', text },
+      { source: 'input.js', text: input },
+      ...
+    ]));
+  } else {
+    throw e;
+  }
+}
+----
+
+Messages generated by `format()` look like this
+
+[source,bash]
+----
+Error: Possible infinite loop when parsing (left recursion: start -> proxy -> end -> start)
+ --> .\recursion.pegjs:1:1
+  |
+1 | start = proxy;
+  | ^^^^^
+note: Step 1: call of the rule "proxy" without input consumption
+ --> .\recursion.pegjs:1:9
+  |
+1 | start = proxy;
+  |         ^^^^^
+note: Step 2: call of the rule "end" without input consumption
+ --> .\recursion.pegjs:2:11
+  |
+2 | proxy = a:end { return a; };
+  |           ^^^
+note: Step 3: call itself without input consumption - left recursion
+ --> .\recursion.pegjs:3:8
+  |
+3 | end = !start
+  |        ^^^^^
+  Error: Expected ";" or "{" but "x" found.
+--> input.js:1:16
+  |
+1 | function main()x {}
+  |                ^
+----
+
+A plugin may register additional passes that can generate
+`GrammarError`s to report about problems, but they shouldn't do that
+by throwing an instance of `GrammarError`. They should use the
+link:#session-api[session API] instead.
+
+[[locations]]
+== Locations
+
+During the parsing you can access to the information of the current
+parse location, such as offset in the parsed string, line and column
+information. You can get this information by calling `location()`
+function, which returns you the following object:
+
+[source,javascript]
+----
+{
+  source: options.grammarSource,
+  start: { offset: 23, line: 5, column: 6 },
+  end: { offset: 25, line: 5, column: 8 }
+}
+----
+
+`source` is the a string or object that was supplied in the
+link:#grammar-source[`grammarSource`] parser option.
+
+For certain special cases, you can use an instance of the
+`GrammarLocation` class as the `grammarSource`. `GrammarLocation`
+allows you to specify the offset of the grammar source in another file,
+such as when that grammar is embedded in a larger document.
+
+If `source` is `null` or `undefined` it doesn't appear in the
+formatted messages. The default value for `source` is `undefined`.
+
+For actions, `start` refers to the position at the beginning of the
+preceding expression, and `end` refers to the position after the end
+of the preceding expression.
+
+For semantic predicates, `start` and `end` are equal, denoting the
+location where the predicate is evaluated.
+
+For the per-parse initializer, the location is the start of the input, i.e.
+
+[source,javascript]
+----
+{
+  source: options.grammarSource,
+  start: { offset: 0, line: 1, column: 1 },
+  end: { offset: 0, line: 1, column: 1 }
+}
+----
+
+`offset` is a 0-based character index within the source text. `line`
+and `column` are 1-based indices.
+
+The line number is incremented each time the parser finds an end of line
+sequence in the input.
+
+Line and column are somewhat expensive to compute, so if you just need
+the offset, there's also a function `offset()` that returns just the
+start offset, and a function `range()` that returns the object:
+
+[source,javascript]
+----
+{
+  source: options.grammarSource,
+  start: 23,
+  end: 25
+}
+----
+
+(i.e. difference from the `location()` result only in type of
+`start` and `end` properties, which contain just an offset instead
+of the `Location` object.)
+
+All of the notes about values for `location()` object are also
+applicable to the `range()` and `offset()` calls.
+
+Currently, Peggy grammars may only contain codepoints from the
+link:{BMP}[Basic Multilingual Plane (BMP)] of Unicode. This means that all 
+offsets are measured in UTF-16 code units. If you include characters outside 
+this Plane (for example, emoji, or any surrogate pairs), you may get an
+offset inside a code point.
+
+Changing this behavior might be a breaking change, so it will likely
+cause a major version number increase if it happens. You can join to the
+discussion for this topic on the
+https://github.com/peggyjs/peggy/discussions/15[GitHub Discussions page].
+
+[[plugins-api]]
+== Plugins API
+
+A plugin is an object with the `use(config, options)` method. That
+method will be called for all plugins in the `options.plugins` array,
+supplied to the `generate()` method.
+
+Plugins suitable for use on the command line can be written either as
+CJS or MJS modules that export a "use" function. The CLI loads plugins
+with `await(plugin_name)`, which should correctly load from
+node_modules, a local file starting with "/" or "./", etc. For example:
+
+[source,js]
+----
+// CJS
+exports.use = (config, options) => {
+}
+----
+
+[source,js]
+----
+// MJS
+export function use(config, options) => {
+}
+----
+
+`use` accepts these parameters:
+
+=== `config`
+
+Object with the following properties:
+
+`parser`::
+  `Parser` object, by default the `peggy.parser` instance. That
+  object will be used to parse the grammar. Plugin can replace this
+  object
+
+`passes`::
+  Mapping `{ [stage: string]: Pass[] }` that represents compilation
+  stages that would applied to the AST, returned by the `parser`
+  object. That mapping will contain at least the following keys:
++
+  * `check` — passes that check AST for correctness. They shouldn't
+  change the AST
+  * `transform` — passes that performs various optimizations. They can
+  change the AST, add or remove nodes or their properties
+  * `generate` — passes used for actual code generating
++
+A plugin that implements a pass should usually push it to the end of
+the correct array. Each pass is a function with the signature
+`pass(ast, options, session)`:
++
+  * `ast` — the AST created by the `config.parser.parse()` method
+  * `options` — compilation options passed to the
+  `peggy.compiler.compile()` method. If parser generation is started
+  because `generate()` function was called that is also an options,
+  passed to the `generate()` method
+  * `session` — a link:#session-api[`Session`] object that allows
+  raising errors, warnings and informational messages
+
+`reservedWords`::
+  String array with a list of words that shouldn't be used as label
+  names. This list can be modified by plugins. That property is not
+  required to be sorted or not contain duplicates, but it is recommend
+  to remove duplicates.
++
+  Default list contains
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words[JavaScript
+  reserved words], and can be found in the `peggy.RESERVED_WORDS`
+  property.
+
+=== `options`
+
+Build options passed to the `generate()` method. A best practice for a
+plugin would look for its own options under a `<plugin_name>` key:
+
+[source,js]
+----
+// File: foo.mjs
+export function use(config, options) => {
+  const mine = options['foo_mine'] ?? 'my default';
+}
+----
+
+=== Session API
+
+Each compilation request is represented by a `Session` instance. An
+object of this class is created by the compiler and given to each pass
+as a 3rd parameter. The session object gives access to the various
+compiler services. At the present time there is only one such service:
+reporting of diagnostics.
+
+All diagnostics are divided into three groups: errors, warnings and
+informational messages. For each of them the `Session` object has a
+method, described below.
+
+All reporting methods have an identical signature:
+
+[source,typescript]
+----
+(message: string, location?: LocationRange, notes?: DiagnosticNote[]) => void;
+----
+
+* `message`: a main diagnostic message
+* `location`: an optional location information if diagnostic is
+  related to the grammar source code
+* `notes`: an array with additional details about diagnostic, pointing
+  to the different places in the grammar. For example, each note could be
+  a location of a duplicated rule definition
+
+`error(...)`::
+  Reports an error. Compilation process is subdivided into pieces called
+  _stages_ and each stage consist of one or more _passes_. Within the
+  one stage all errors, reported by different passes, are collected
+  without interrupting the parsing process.
++
+When all passes in the stage are completed, the stage is checked for
+errors. If one was registered, a `GrammarError` with all found
+problems in the `problems` property is thrown. If there are no
+errors, then the next stage is processed.
++
+After processing all three stages (`check`, `transform` and
+`generate`) the compilation process is finished.
++
+The process, described above, means that passes should be careful
+about what they do. For example, if you place your pass into the
+`check` stage there is no guarantee that all rules exists, because
+checking for existing rules is also performed during the `check`
+stage. On the contrary, passes in the `transform` and `generate`
+stages can be sure that all rules exists, because that precondition
+was checked on the `check` stage.
+
+`warning(...)`::
+  Reports a warning. Warnings are similar to errors, but they do not
+  interrupt a compilation.
+
+`info(...)`::
+  Report an informational message. This method can be used to inform
+  user about significant changes in the grammar, for example, replacing
+  proxy rules.
+
+[[compatibility]]
+== Compatibility
+
+Both the parser generator and generated parsers should run well in the
+following environments:
+
+* Node.js 14+
+* Edge
+* Firefox
+* Chrome
+* Safari
+* Opera
+
+The generated parser is intended to run in older environments when the
+format chosen is "globals" or "umd". Extensive testing is NOT performed
+in these environments, but issues filed regarding the generated code
+will be fixed.
+
+Copyright © 2024 
+https://github.com/peggyjs/peggy/blob/main/AUTHORS[The Peggy Authors] • 
+https://github.com/peggyjs/peggy[Source code]

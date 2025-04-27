@@ -976,11 +976,21 @@ JavaScript 函数按用途及结构可以分为两类：
 - JavaScript Object Layout http://www.mollypages.org/tutorials/js.mp
 - Deep JavaScript - 10 Protecting objects from being changed https://exploringjs.com/deep-js/ch_protecting-objects.html
 
-在复杂的对象数据类型中，又以 `Function` 类型为特殊，关键字 `function` 可以定义一个函数，同时它又定义了一个对象，像类一样的对象。
+参考材料：[ECMA262](https://vscode.dev/github/tc39/ecma262) 规范文档。
 
-这一切很容易产生歧义，也让这门语言的使用者困惑。
+[27.3 GeneratorFunction Objects](https://tc39.es/ecma262/#sec-generatorfunction-objects)
 
-因为 JavaScript 的函数概念相当混沌，有很长一段时间，我无法清晰的理解 function 和 object 之间的暧昧关系，就像这样：
+GeneratorFunctions are functions that are usually created by evaluating 
+GeneratorDeclarations, GeneratorExpressions, and GeneratorMethods. They may 
+also be created by calling the %GeneratorFunction% intrinsic.
+
+Figure 6 (Informative): Generator Objects Relationships
+
+![](https://tc39.es/ecma262/img/figure-2.svg)
+
+在复杂的对象数据类型中，又以 `Function` 类型为特殊，关键字 `function` 可以定义一个函数，同时
+它又定义了一个对象，像类一样的对象。这一切很容易产生歧义，也让这门语言的使用者困惑。因为 JavaScript
+的函数概念相当混沌，有很长一段时间，我无法清晰的理解 function 和 object 之间的暧昧关系，就像这样：
 
 	Function instanceof Object // 返回 true
 	Object instanceof Function // 依然返回 true
@@ -996,7 +1006,12 @@ JavaScript 函数按用途及结构可以分为两类：
 
 	Object.prototype === Function.prototype.__proto__
 
-Function 是最顶层的构造器，Object 是最顶层的对象，Function 继承自 Object，但又构造构造 Object。先有的 Object 原型对象，后造出 Function 的原型对象，然后 Function 又是 Object 和 Function 的构造器，真的是鸡与蛋的关系。
+用一句说明 instanceof 的机制：通过枚举左值对象的原型链，如果任意原型对象等于右值的原型，那么就
+判定左值对象是右值对象的子类型。
+
+Function 是最顶层的构造器，Object 是最顶层的对象，Function 继承自 Object，但又构造 Object。
+先有的 Object 原型对象，后造出 Function 的原型对象，然后 Function 又是 Object 和 Function
+的构造器，真的是鸡与蛋的关系。
 
 作为顶层构造器，Function 可以直接用来定义函数，就像使用 `function` 关键字一样：
 
@@ -1011,7 +1026,6 @@ Function 是最顶层的构造器，Object 是最顶层的对象，Function 继�
 - Function 是除了原型对象外所有类型的构造器，也是其本身及其原型对象的构造器，同时也是 Object 的构造器。
 - 原型对象的构造器就是使用 `function` 关键字定义的函数对象，所以，很明显 `function` 是用来定义原型对象构造器的。
 
-
 前面已经解析过 function 单纯作为函数意义的使用，在这里来学习 function 作为面向对象编程的使用。
 
 那么先从以下两点开始：
@@ -1020,8 +1034,9 @@ Function 是最顶层的构造器，Object 是最顶层的对象，Function 继�
 - `function` 关键字定义一个函数对象，这个对象和内容的 `Function` 对象类型没有本质区别，同样可以使用 `new` 进行实例化；
 
 还好，ES2015 新规范治好了这个旧版本的混沌 Bug，可以直接使用 `class` 关键字来定义一个类型了。
-
-灵活地将 JavaScript 的 `function` 当作函数同时又当作类型看待，这是学好这门脚本语言的一个要点。具体是作 function 函数使用还是作为 Class 类型使用，取决于使用它的方式。直接加圆括号调用，那就是一个函数，而结合 `new` 使用就是一个类型。
+灵活地将 JavaScript 的 `function` 当作函数同时又当作类型看待，这是学好这门脚本语言的一个要点。
+具体是作 function 函数使用还是作为 Class 类型使用，取决于使用它的方式。直接加圆括号调用，那就
+是一个函数，而结合 `new` 使用就是一个类型。
 
 而根据 function 定义的对象使用方式差异，`typeof` 操作符号会返回不同的值：
 
@@ -1037,9 +1052,13 @@ JavaScrript 是基于原型扩展的脚本语言，function 定义的类型对�
 - 应该将原型对象 `prototype` 当作内部类型的实例看待，因为它也有 `__proto__` 成员指定父级原型对象。
 - 通过追溯整条原型链，可以获得所有类型继承信息。
 
-与继承相关的一个操作符号 `instanceof` 可以判断一个对象是否是一个类型的实例，它是通过原型链进行检测的，比如 `{} instanceof Object` 为 true。此操作符右侧是一个类型对象，不可以是原始类或才实例，如 `[] instanceof []`。
-
-另外注意，为了遵循 ECMAScript 标准，有些教材或资料使用 `someObject.[[Prototype]]` 这样的符号表示指向 someObject 的原型。从 ECMAScript 6 开始，`[[Prototype]]` 可以通过 Object.getPrototypeOf() 和 Object.setPrototypeOf() 访问器来获取实例的原型对象。这个等同于 JavaScript 的非标准但许多浏览器实现的属性 `__proto__`，这个由 Firefox 最先开创使用的属性成为今天的事实标准，所有浏览器都跟着实现它。
+与继承相关的一个操作符号 `instanceof` 可以判断一个对象是否是一个类型的实例，它是通过原型链进行检测的，
+比如 `{} instanceof Object` 为 true。此操作符右侧是一个类型对象，不可以是原始类或实例，比如
+`[] instanceof []` 这种是错误语法。另外注意，为了遵循 ECMAScript 标准，有些教材或资料使用 
+`someObject.[[Prototype]]` 这样的符号表示指向 someObject 的原型。从 ECMAScript 6 开始，
+`[[Prototype]]` 可以通过 Object.getPrototypeOf() 和 Object.setPrototypeOf() 访问器
+来获取实例的原型对象。这个等同于 JavaScript 的非标准但许多浏览器实现的属性 `__proto__`，这个由
+Firefox 最先开创使用的属性成为今天的事实标准，所有浏览器都跟着实现它。
 
 	function f() {}
 	// f is instance of Function
@@ -1047,7 +1066,8 @@ JavaScrript 是基于原型扩展的脚本语言，function 定义的类型对�
 	f.__proto__ === Object.getPrototypeOf(f);
 	f.prototype.__proto__ === Object.prototype
 
-但它不应该与构造函数 func 的 prototype 属性相混淆。被构造函数创建的实例对象的 `[[Prototype]]` 指向 func 的 prototype 属性。Object.prototype 属性表示 Object 的原型对象。
+但它不应该与构造函数 func 的 prototype 属性相混淆。被构造函数创建的实例对象的 `[[Prototype]]`
+指向 func 的 prototype 属性。Object.prototype 属性表示 Object 的原型对象。
 
 任意定义一个类型：
 
@@ -1091,13 +1111,17 @@ JavaScrript 是基于原型扩展的脚本语言，function 定义的类型对�
 	console.log("Person.getName()", Person.getName())	// undefined not empty string
 	console.log("person.getName()", person.getName())
 
-其中，`Person.getName()` 这里直接对 Function 对象进行扩展，相应于类型的静态成员，所以在这个方法里是不能通过 `this` 指针引用到数据成员的。注意，返回值为 undefined 而不是空字符串。
+其中，`Person.getName()` 这里直接对 Function 对象进行扩展，相应于类型的静态成员，所以在这个
+方法里是不能通过 `this` 指针引用到数据成员的。注意，返回值为 undefined 而不是空字符串。通过
+原型扩展的 `Person.prototype.getName()` 则不同，它是为实例提供的一个方法，可以通过 `this`
+指针引入类型成员。
 
-而通过原型扩展的 `Person.prototype.getName()` 则不同，它是为实例提供的一个方法，可以通过 `this` 指针引入类型成员。
+另外注意一点，这里使用了箭头函数，`()=>{}`，这里 ES2015 新规范的语法，它方便了定义函数，但同时
+它使用得函数的 `this` 指针变为箭头函数所在作用域中 this 引用的对象。
 
-另外注意一点，这里使用了箭头函数，`()=>{}`，这里 ES2015 新规范的语法，它方便了定义函数，但同时它使用得函数的 `this` 指针变为箭头函数所在作用域中 this 引用的对象。
-
-对于非严格模式，浏览器环境下，示范代码中的箭头函数内，`this` 引用的就 window 对象，而在严格模式下引用的是空对象。这就说，如果原型链上的 `getName()` 方法也使用箭头函数的方式定义时，也照样不能获取到类型的成员信息。
+对于非严格模式，浏览器环境下，示范代码中的箭头函数内，`this` 引用的就 window 对象，而在严格模式
+下引用的是空对象。这就说，如果原型链上的 `getName()` 方法也使用箭头函数的方式定义时，也照样不能
+获取到类型的成员信息。
 
 当然，除了原型链的扩展方式，新规范有许多方法，直接扩展实例对象也可以：
 
@@ -1140,33 +1164,34 @@ JavaScript 有三种方式来避免对象被修改：
 ## ⚡ Equality comparisons and sameness
 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Equality_comparisons_and_sameness
 
-| x	| y	| ==	| ===	| Object.is	| SameValueZero
-| undefined	| undefined	| ✅ true	| ✅ true	| ✅ true	| ✅ true
-| null	| null	| ✅ true	| ✅ true	| ✅ true	| ✅ true
-| true	| true	| ✅ true	| ✅ true	| ✅ true	| ✅ true
-| false	| false	| ✅ true	| ✅ true	| ✅ true	| ✅ true
-| 0	| 0	| ✅ true	| ✅ true	| ✅ true	| ✅ true
-| +0	| -0	| ✅ true	| ✅ true	| ❌ false	| ✅ true
-| +0	| 0	| ✅ true	| ✅ true	| ✅ true	| ✅ true
-| -0	| 0	| ✅ true	| ✅ true	| ❌ false	| ✅ true
-| 0n	| -0n	| ✅ true	| ✅ true	| ✅ true	| ✅ true
-| 0	| false	| ✅ true	| ❌ false	| ❌ false	| ❌ false
-| ""	| false	| ✅ true	| ❌ false	| ❌ false	| ❌ false
-| ""	| 0	| ✅ true	| ❌ false	| ❌ false	| ❌ false
-| '0'	| 0	| ✅ true	| ❌ false	| ❌ false	| ❌ false
-| '17'	| 17	| ✅ true	| ❌ false	| ❌ false	| ❌ false
-| 'foo'	| 'foo'	| ✅ true	| ✅ true	| ✅ true	| ✅ true
-| [1, 2]	| '1,2'	| ✅ true	| ❌ false	| ❌ false	| ❌ false
-| null	| false	| ❌ false	| ❌ false	| ❌ false	| ❌ false
-| null	| undefined	| ✅ true	| ❌ false	| ❌ false	| ❌ false
-| undefined	| false	| ❌ false	| ❌ false	| ❌ false	| ❌ false
-| { foo: 'bar' }	| { foo: 'bar' }	| ❌ false	| ❌ false	| ❌ false	| ❌ false
-| new String('foo')	| 'foo'	| ✅ true	| ❌ false	| ❌ false	| ❌ false
-| new String('foo')	| new String('foo')	| ❌ false	| ❌ false	| ❌ false	| ❌ false
-| 0	| null	| ❌ false	| ❌ false	| ❌ false	| ❌ false
-| 0	| NaN	| ❌ false	| ❌ false	| ❌ false	| ❌ false
-| 'foo'	| NaN	| ❌ false	| ❌ false	| ❌ false	| ❌ false
-| NaN	| NaN	| ❌ false	| ❌ false	| ✅ true	| ✅ true
+|     x           | y              | ==       | ===      | Object.is | SameValueZero |
+|-------------------|-------------------|----------|----------|----------|-----------|
+| undefined         | undefined         | ✅ true  | ✅ true  | ✅ true  | ✅ true  |
+| null              | null              | ✅ true  | ✅ true  | ✅ true  | ✅ true  |
+| true              | true              | ✅ true  | ✅ true  | ✅ true  | ✅ true  |
+| false             | false             | ✅ true  | ✅ true  | ✅ true  | ✅ true  |
+| 0                 | 0                 | ✅ true  | ✅ true  | ✅ true  | ✅ true  |
+| +0                | -0                | ✅ true  | ✅ true  | ❌ false | ✅ true  |
+| +0                | 0                 | ✅ true  | ✅ true  | ✅ true  | ✅ true  |
+| -0                | 0                 | ✅ true  | ✅ true  | ❌ false | ✅ true  |
+| 0n                | -0n               | ✅ true  | ✅ true  | ✅ true  | ✅ true  |
+| 0                 | false             | ✅ true  | ❌ false | ❌ false | ❌ false |
+| ""                | false             | ✅ true  | ❌ false | ❌ false | ❌ false |
+| ""                | 0                 | ✅ true  | ❌ false | ❌ false | ❌ false |
+| '0'               | 0                 | ✅ true  | ❌ false | ❌ false | ❌ false |
+| '17'              | 17                | ✅ true  | ❌ false | ❌ false | ❌ false |
+| 'foo'             | 'foo'             | ✅ true  | ✅ true  | ✅ true  | ✅ true  |
+| [1, 2]            | '1,2'             | ✅ true  | ❌ false | ❌ false | ❌ false |
+| null              | false             | ❌ false | ❌ false | ❌ false | ❌ false |
+| null              | undefined         | ✅ true  | ❌ false | ❌ false | ❌ false |
+| undefined         | false             | ❌ false | ❌ false | ❌ false | ❌ false |
+| { foo: 'bar' }    | { foo: 'bar' }    | ❌ false | ❌ false | ❌ false | ❌ false |
+| new String('foo') | 'foo'             | ✅ true  | ❌ false | ❌ false | ❌ false |
+| new String('foo') | new String('foo') | ❌ false | ❌ false | ❌ false | ❌ false |
+| 0                 | null              | ❌ false | ❌ false | ❌ false | ❌ false |
+| 0                 | NaN               | ❌ false | ❌ false | ❌ false | ❌ false |
+| 'foo'             | NaN               | ❌ false | ❌ false | ❌ false | ❌ false |
+| NaN               | NaN               | ❌ false | ❌ false | ✅ true  | ✅ true  |
 
 Compare by reference not by value:
 
@@ -3060,11 +3085,184 @@ ES6 引入了 `new.target` 属性，该属性一般用在构造函数之中。�
 	james.perform(); // "Etta James performs [At last]"
 
 
-## ⚡ Modules 模块化
+## ⚡ Modules 模块化规范
+
+参考材料：[ECMA262](https://vscode.dev/github/tc39/ecma262) 规范文档。
+[16 ECMAScript Language: Scripts and Modules](https://tc39.es/ecma262/#sec-ecmascript-language-scripts-and-modules)
+
+    ImportDeclaration : import ImportClause FromClause ;
+    ImportDeclaration : import ImportClause FromClause WithClause ;
+    ImportDeclaration : import ModuleSpecifier ;
+    ImportDeclaration : import ModuleSpecifier WithClause ;
+
+    ExportDeclaration : export ExportFromClause FromClause ;
+    ExportDeclaration : export ExportFromClause FromClause WithClause ;
+    ExportDeclaration :
+        export NamedExports ;
+        export VariableStatement
+        export Declaration
+        export default HoistableDeclaration
+        export default ClassDeclaration
+        export default AssignmentExpression ;
+
+Table 59 (Informative): Import Forms Mappings to ImportEntry Records
+
+|Import Statement Form          |[[ModuleRequest]] |[[ImportName]]    |[[LocalName]] |
+|-------------------------------|------------------|------------------|-----|
+|import v from "mod";           |"mod"             |"default"         |"v"  |
+|import * as ns from "mod";     |"mod"             |namespace-object  |"ns" |
+|import {x} from "mod";         |"mod"             |"x"               |"x"  |
+|import {x as v} from "mod";    |"mod"             |"x"               |"v"  |
+|import "mod";                  |An ImportEntry Record is not created.      |
+
+Table 61 (Informative): Export Forms Mappings to ExportEntry Records
+
+|Export Statement Form          |[[ExportName]]    |[[ModuleRequest]] |[[ImportName]] |[[LocalName]] |
+|-------------------------------|------------------|------------------|---------------|--------------|
+|export var v;                  |"v"               |null              |null           |"v"
+|export default function f() {} |"default"         |null              |null           |"f"
+|export default function () {}  |"default"         |null              |null           |"*default*"
+|export default 42;             |"default"         |null              |null           |"*default*"
+|export {x};                    |"x"               |null              |null           |"x"
+|export {v as x};               |"x"               |null              |null           |"v"
+|export {x} from "mod";         |"x"               |"mod"             |"x"            |null
+|export {v as x} from "mod";    |"x"               |"mod"             |"v"            |null
+|export * from "mod";           |null              |"mod"             |all-but-default|null
+|export * as ns from "mod";     |"ns"              |"mod"             |all            |null
+
+
+16.2.2 Imports Syntax
+
+    ImportDeclaration :
+        import ImportClause FromClause WithClauseopt ;
+        import ModuleSpecifier WithClauseopt ;
+
+    ImportClause :
+        ImportedDefaultBinding
+        NameSpaceImport
+        NamedImports
+        ImportedDefaultBinding , NameSpaceImport
+        ImportedDefaultBinding , NamedImports
+
+    ImportedDefaultBinding :
+        ImportedBinding
+
+    NameSpaceImport :
+        * as ImportedBinding
+
+    NamedImports :
+        { }
+        { ImportsList }
+        { ImportsList , }
+
+    FromClause :
+        from ModuleSpecifier
+
+    ImportsList :
+        ImportSpecifier
+        ImportsList , ImportSpecifier
+
+    ImportSpecifier :
+        ImportedBinding
+        ModuleExportName as ImportedBinding
+
+    ModuleSpecifier :
+        StringLiteral
+
+    ImportedBinding :
+        BindingIdentifier[~Yield, +Await]
+
+    WithClause :
+        with { }
+        with { WithEntries ,opt }
+
+    WithEntries :
+        AttributeKey : StringLiteral
+        AttributeKey : StringLiteral , WithEntries
+
+    AttributeKey :
+        IdentifierName
+        StringLiteral
+
+16.2.3 Exports Syntax
+
+    ExportDeclaration :
+        export ExportFromClause FromClause WithClauseopt ;
+        export NamedExports ;
+        export VariableStatement[~Yield, +Await]
+        export Declaration[~Yield, +Await]
+        export default HoistableDeclaration[~Yield, +Await, +Default]
+        export default ClassDeclaration[~Yield, +Await, +Default]
+        export default [lookahead ∉ { function, async [no LineTerminator here] function, class }] AssignmentExpression[+In, ~Yield, +Await] ;
+
+    ExportFromClause :
+        *
+        * as ModuleExportName
+        NamedExports
+
+    NamedExports :
+        { }
+        { ExportsList }
+        { ExportsList , }
+
+    ExportsList :
+        ExportSpecifier
+        ExportsList , ExportSpecifier
+
+    ExportSpecifier :
+        ModuleExportName
+        ModuleExportName as ModuleExportName
+
+
+## ⚡ Modules 模块化应用
 - https://exploringjs.com/impatient-js/ch_modules.html
 - https://exploringjs.com/es6/ch_modules.html#sec_overview-modules
 
-模块化作为第一生产力的代码组织方式，是一个事实。
+模块化作为第一生产力的代码组织方式，是一个事实。下表总结了模块化规范的使用方法，内容摘抄自 
+[Exploring ES6](https://exploringjs.com/es6.html) 一书。
+
+16.1.3 Browsers: scripts versus modules
+
+| Features                | Scripts       | Modules                    |
+|-------------------------|---------------|----------------------------|
+| HTML element            | ``<script>``  | ``<script type="module">`` |
+| Default mode            | non-strict    | strict                     |
+| Top-level               | global        | local to module            |
+| Top level ``this``      | ``window``    | ``undefined``              |
+| Executed                | synchronously | asynchronously             |
+| Declarative ``import``  | no            | yes                        |
+| Promise-based API       | yes           | yes                        |
+| File extension          | ``.js``       | ``.js``                    |
+
+脚本标签模块化用法还可以直接通过 import 属性指定要导入模块的路径：
+
+    <script type="module" import="impl/main"></script>
+
+|  Statement                       | Loca name       | Export name     |
+|----------------------------------|-----------------|-----------------|
+|``export {v};``                   | ``'v'``         |``'v'``          |
+|``export {v as x};``              | ``'v'``         |``'x'``          |
+|``export const v = 123;``         | ``'v'``         |``'v'``          |
+|``export function f() {}``        | ``'f'``         |``'f'``          |
+|``export default function f() {}``| ``'f'``         |``'default'``    |
+|``export default function () {}`` | ``'default'``   |``'default'``    |
+|``export default 123;``           | ``'default'``   |``'default'``    |
+
+16.7.4 Imports as views in the spec
+
+Table 42 (Informative) — Export Forms Mappings to ExportEntry Records
+
+| Export Statement Form | ExportName | ModuleRequest | ImportName | LocalName |
+|-------------------------------|-----------|-------|------|-----------|
+|export var v;                  | "v"       | null  | null | "v"       |
+|export default function f(){}; | "default" | null  | null | "f"       |
+|export default function(){};   | "default" | null  | null | "default" |
+|export default 42;             | "default" | null  | null | "default" |
+|export {x};                    | "x"       | null  | null | "x"       |
+|export {v as x};               | "x"       | null  | null | "v"       |
+|export {x} from "mod";         | "x"       | "mod" | "x"  | null      |
+|export {v as x} from "mod";    | "x"       | "mod" | "v"  | null      |
+|export * from "mod";           | null      | "mod" | "*"  | null      |
 
 在标准化之前，ES5 脚本通过以下方式来模拟模块：
 
@@ -3096,10 +3294,10 @@ ES6 引入了 `new.target` 属性，该属性一般用在构造函数之中。�
 	})(); // Close IIFE
 
 
-ES6 的内置模块功能 ESM 借鉴了 CommonJS 和 AMD 模块规范各自的优点：
+ES6 的内置模块功能 ESM 借鉴了 Node 平台下使用的 CommonJS 模块，以及 AMD 模块规范各自的优点：
 
-(1).具有 CommonJS 的精简语法、唯一导出出口(single exports)和循环依赖(cyclic dependencies)的特点。
-(2).类似 AMD，支持异步加载和可配置的模块加载。
+(1). 具有 CommonJS 的精简语法、唯一导出出口(single exports)和循环依赖(cyclic dependencies)的特点。
+(2). 类似 AMD，支持异步加载和可配置的模块加载。
 
 	// lib/math.js
 	export function sum(x, y) {
@@ -3126,7 +3324,10 @@ Module Loaders:
 	System.get('jquery');
 	System.set('jquery', Module({$: $})); // WARNING: not yet finalized
 
-每一个 ES6 模块都是一个包含 JS 代码的文件，模块本质上就是一段脚本，而不是用 module 关键字定义一个模块，默认情况下模块都是在严格模式下运行。模块功能主要由两个命令构成：export 和 import。export 导出定义对外接口；import 导入其他模块提供的功能，同时创造命名空间（namespace），防止函数名冲突。
+每一个 ES6 模块都是一个包含 JS 代码的文件，模块本质上就是一段脚本，而不是用 module 关键字定义
+一个模块，默认情况下模块都是在严格模式下运行。模块功能主要由两个命令构成：export 和 import。
+export 导出定义对外接口；import 导入其他模块提供的功能，同时创造命名空间（namespace），防止
+函数名冲突。
 
 27.1.1 Exporting 
 
@@ -4816,24 +5017,22 @@ let 块级赋值解决了之前for循环定义的变量造成全局污染的问�
 `零宽` zero with 表示这此匹配模式都不消耗字符串，也就是说，符合零宽部分的匹配规则的内容不会
 出现在 $1 $2 ... 等等反向引用变量中，并且还可以继续被其它匹配模式使用。
 
-`负向`和`正向` negative & positive 这里的“向”不是指方向，而是取向，负面、正面取向。区别就在于该位置之后的
-字符能否匹配括号中的表达式，禁止匹配称之为负，允许匹配称之为正。
+`负向`和`正向` negative & positive 这里的“向”是指方向，而是取向，负面、正面取向。
+也就是字符能否匹配括号中的表达式，禁止匹配称之为负，允许匹配称之为正。
 
-`后行`和`前行` lookbehind & lookahead 的区别就在于，满足自身匹配规则后，该 zero width 
-位置的左侧、右侧的字符序列能否匹配。
+`后行`和`前行` lookbehind & lookahead 对应的是正则解析程序的扫描方向，从头到尾为后行（从左到右）。
 
-**Zero width 正则规则的两组性质简化记忆就是：后行表达式中的 < 箭头表示 zero with 要放置在目标匹配规则的左侧，正面、负面取向是允许或不允许出现匹配，负向-即不能出现和 zero with 匹配，正向则是必须和 zero with 匹配。**
+**Zero width 正则规则的两组性质简化记忆就是：后行表达式中的 < 箭头表示扫描方向。**
 
 整个零宽匹配规则始终代表字符串中的一个位置，或是匹配的 positive，或是禁匹配的 negative，
 但是不获取匹配的内容，也不消耗字串，其中的圆括号不是匹配分组，不会获取内容供 $1 $2 ... 
-等反向引用变量使用。
+等反向引用变量使用。可以将零宽规则放在主体规则的前面或者后面。
 
 通常正则表达式引擎在匹配字符串和表达式时，是从前向后逐个扫描字符串中的字符，并判断是否与表达式符合。
 当在表达式中遇到`后行断言`，正则表达式引擎需要往字符串前端检测已扫描过的字符，相对于扫描方向是向后。
 
 如同 ^ 代表开头，$ 代表结尾，\b 代表单词边界一样，前行断言和后行断言也有类似的作用，它们只匹配
-某些位置，在匹配过程中，不占用字符，所以被称为零宽。所谓位置，是指字符串中(每行)第一个字符的左边、
-最后一个字符的右边以及相邻字符的中间（假设文字方向是头左尾右）。
+某些位置，在匹配过程中，不占用字符，所以被称为零宽。
 
 使用以下“示范字符串”来演示四种 zero width 匹配规则的使用：
 
