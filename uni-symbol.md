@@ -3340,8 +3340,9 @@ Box Drawing Range: 2500–257F https://www.unicode.org/charts/PDF/U2500.pdf
 ╌ ╎ ╍ ╏
 ┄ ┆ ┊ ┈
 ┅ ┇ ┉ ┋
-╭ ╮
-╰ ╯ ╱ ╲ ╳
+╭─╮
+│ │
+╰─╯ ╱ ╲ ╳
 ╴ ╶ ╵ ╷
 ╸ ╺ ╹ ╻
 ╼ ╾ ╽ ╿

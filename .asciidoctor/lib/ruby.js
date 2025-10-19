@@ -1,10 +1,15 @@
 /**
- * Ruby Annotation Extension for Asciidoctor.s
+ * Ruby Annotation Extension for Asciidoctor.js
  * 
  * Install::
  * 
  * Just save this script (ruby.js) in you vscode project:
  *  .asciidoctor/lib/ruby.js
+ * 
+ * Setting AsciiDoctor.js to enabled "Extensions: Register Workspace Extensions"
+ * 
+ * [Optional] Then open an asciidoc document, and set to Trusted Mode
+ * >AsciiDoc: Manage Asciidoctor.js Extensions Trust 
  * 
  * Test::
  * 
@@ -48,3 +53,4 @@ module.exports.register = function register (registry) {
     }
     return registry
 }
+console.log("==> .asciidoc/ruby.js load.")

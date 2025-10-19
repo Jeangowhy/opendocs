@@ -555,10 +555,10 @@ reg_bash_4_shebang()
     # REG DELETE  'HKCR\Directory\shell\bash'
     # REG DELETE  'HKCR\Directory\Background\shell\bash'
 
-    REG ADD     'HKCR\.sh' -f -ve -t REG_SZ -d ".sh_auto_file"
-    REG ADD     'HKCR\.sh_auto_file\shell\open\command' -f -ve -t REG_SZ -d "$cmd"
+    REG ADD     'HKCR\.sh' -f -ve -t REG_SZ -d "sh_auto_file"
+    REG ADD     'HKCR\sh_auto_file\shell\open\command' -f -ve -t REG_SZ -d "$cmd"
     REG QUERY   'HKCR\.sh' -s
-    REG QUERY   'HKCR\.sh_auto_file' -s
+    REG QUERY   'HKCR\sh_auto_file' -s
 
     # REG ADD     'HKCR\*\shell\Open with bash...' -f
     REG ADD     'HKCR\*\shell\Open with bash...\command' -f -ve -t REG_SZ -d "$cmd"

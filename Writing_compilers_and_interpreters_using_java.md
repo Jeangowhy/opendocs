@@ -1768,8 +1768,8 @@ Chapter 2 Framework I: Compiler and Interpreter
    工具或者 rsync 同步工具的 dry-run 模式来检查每个章节更新的代码文件：
 
       rsync --verbose --dry-run --checksum --stats --recursive --delete Chapter04/ Chapter03/
-   
-   注意，目录使用结尾的斜杠，否则会将目录当作目标目录下的子目录进行处理。同时使用 --verbose 选项
+
+   注意，源目录使用结尾的斜杠，否则会将源目录当作目标目录下的子目录进行备份。同时使用 --verbose 选项
    才会在控制台输出 dry-run 模式产生的信息。使用 --checksum 比较方式可以避免内容相同的文件因为
    日期差异而被当作有变动的文件被处理。
 

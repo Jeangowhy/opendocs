@@ -1,5 +1,126 @@
 
 
+# 🚩 Linux 常见缩写含义总结
+
+== 系统组件与进程
+- **PID**  
+  - 全称: Process ID  
+  - 说明: 进程的唯一标识符。
+
+- **UID/GID**  
+  - 全称: User ID / Group ID  
+  - 说明: 用户和用户组的唯一标识符。
+
+- **TTY/PTY**  
+  - TTY: Teletype（物理终端）  
+  - PTY: Pseudo Terminal（伪终端，如 SSH 或终端模拟器会话）。
+
+- **Daemon**  
+  - 全称: Disk And Execution MONitor  
+  - 说明: 后台运行的服务进程（如 `sshd`、`cron`）。
+
+- **Zombie Process**  
+  - 说明: 已终止但未被父进程回收的进程（资源未释放）。
+
+== 文件系统相关
+- **Inode**  
+  - 说明: 文件系统中存储元数据（权限、大小等）的结构。
+
+- **ext4/XFS/Btrfs**  
+  - ext4: Extended File System 4  
+  - XFS: eXtents File System  
+  - Btrfs: B-tree File System  
+  - 说明: Linux 支持的文件系统类型。
+
+- **/proc, /sys, /dev**  
+  - `/proc`: Process information（进程信息虚拟文件系统）  
+  - `/sys`: System information（内核和硬件信息）  
+  - `/dev`: Devices（设备文件，如 `/dev/sda`）。
+
+- `/bin`: Binary（系统命令）  
+- `/etc`: Etcetera（配置文件）  
+- `/usr`: Unix Software Resources（用户程序）  
+- `/lib`: Library（共享库文件）  
+- `/mnt`: Mount（临时挂载点）
+
+== 网络协议与工具
+- **TCP/UDP**  
+  - TCP: Transmission Control Protocol  
+  - UDP: User Datagram Protocol  
+  - 说明: 面向连接和无连接的传输协议。
+
+- **HTTP/HTTPS**  
+  - HTTP: HyperText Transfer Protocol  
+  - HTTPS: Secure  
+  - 说明: 用于网页传输的协议。
+
+- **SSH/SCP**  
+  - SSH: Secure Shell  
+  - SCP: Secure Copy  
+  - 说明: 加密远程连接和文件传输工具。
+
+- **ICMP/ARP**  
+  - ICMP: Internet Control Message Protocol  
+  - ARP: Address Resolution Protocol  
+  - 说明: 网络诊断协议（如 `ping` 使用 ICMP）。
+
+== 命令行工具
+- **ls/cd/mv/cp/rm**  
+  - ls: list  
+  - cd: change directory  
+  - mv: move  
+  - cp: copy  
+  - rm: remove  
+  - 说明: 基础文件操作命令。
+
+- **grep/sed/awk**  
+  - grep: Global Regular Expression Print  
+  - sed: Stream Editor  
+  - awk: Aho, Weinberger, Kernighan  
+  - 说明: 文本搜索、流编辑和高级文本处理工具。
+
+- **ps/top**  
+  - ps: Process Status  
+  - top: Table of Processes  
+  - 说明: 查看进程状态和实时系统监控。
+
+== 系统管理与配置
+- **cron/at**  
+  - cron: Chronos（时间）  
+  - at: at（一次性任务）  
+  - 说明: 定时任务调度工具。
+
+- **chmod/chown**  
+  - chmod: change mode  
+  - chown: change owner  
+  - 说明: 修改文件权限和所有者。
+
+- **man/strace/lsof**  
+  - man: Manual  
+  - strace: System Call Trace  
+  - lsof: List Open Files  
+  - 说明: 手册页、系统调用跟踪和文件描述符查看工具。
+
+== 其他关键术语
+- **RAID**  
+  - 全称: Redundant Array of Independent Disks  
+  - 说明: 磁盘冗余阵列技术。
+
+- **OOM Killer**  
+  - 全称: Out Of Memory Killer  
+  - 说明: 内存不足时终止进程的内核机制。
+
+- **UUID**  
+  - 全称: Universally Unique Identifier  
+  - 说明: 唯一标识符，用于磁盘分区或网络资源。
+
+- **YAML/JSON**  
+  - YAML: YAML Ain't Markup Language  
+  - JSON: JavaScript Object Notation  
+  - 说明: 数据序列化格式（如配置文件）。
+
+
+
 # 🚩 Linux 族谱
 
 *   [Linux 族谱](https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg)
@@ -457,13 +578,15 @@ rsync daemon 默认监听 TCP 873 端口。自带的 rsync:// 协议认证是默
 SSH 认证方式下，可通过系统用户进行认证，rsync 通过 ssh 隧道进行传输，类似于 scp 工具。同步操作
 不局限于 rsync 中定义的同步文件夹，也不需要用 873 端口进行传输，而使用 SSH 端口传输数据。也不需
 要 rsync 服务和配置文件。例如，以下命令启用 SSH 通道同步文件，使用压缩数据传输（-z）和保持文件
-归档属性（-a）：
+归档（-a 等价 -rlptgoD 等多个选项）：
 
     rsync -avz /SRC -e ssh root@192.168.100.10:/DEST 
 
     rsync -avz /SRC -e "ssh -p22" root@192.168.100.10:/DEST  
 
     rsync -avz --delete --exclude=**/stats --exclude=**/error -e "ssh -i /root/rsync/mirror-rsync-key" someuser@example.com:/var/www/
+
+    rsync -avh --delete --rsh 'ssh -p 8022' /d/opendocs/ u0_a202@192.168.0.111:opendocs/
 
 命令基本用法：
 
@@ -486,6 +609,8 @@ SSH 认证方式下，可通过系统用户进行认证，rsync 通过 ssh 隧�
 
 The ':' usages connect via remote shell, while '::' & 'rsync://' usages connect
 to an rsync daemon, and require SRC or DEST to start with a module name.
+
+注意，--port 参数用来指定 rsync: 协议的端口。指定 SSH 端口需要使用  -e (--rsh) 参数指定。
 
 同时包含服务端，因此可以支持 rsync:// 协议进行文件传输。访问的资源使用 module name 指定，
 在执行命令时省略 module name 可以获取 rsync 守护程序分配的所有 module 名称列表，就像
@@ -2730,28 +2855,20 @@ Special Parameters
 
 The shell treats several parameters specially. These parameters may only be referenced; assignment to them is not allowed.
 
-*
 (`$*`) Expands to the positional parameters, starting from one. When the expansion is not within double quotes, each positional parameter expands to a separate word. In contexts where it is performed, those words are subject to further word splitting and filename expansion. When the expansion occurs within double quotes, it expands to a single word with the value of each parameter separated by the first character of the IFS special variable. That is, `$*` is equivalent to `$1c$2c…`, where c is the first character of the value of the IFS variable. If IFS is unset, the parameters are separated by spaces. If IFS is null, the parameters are joined without intervening separators.
 
-@
 (`$@`) Expands to the positional parameters, starting from one. In contexts where word splitting is performed, this expands each positional parameter to a separate word; if not within double quotes, these words are subject to word splitting. In contexts where word splitting is not performed, this expands to a single word with each positional parameter separated by a space. When the expansion occurs within double quotes, and word splitting is performed, each parameter expands to a separate word. That is, `"$@"` is equivalent to `"$1" "$2" …`. If the double-quoted expansion occurs within a word, the expansion of the first parameter is joined with the beginning part of the original word, and the expansion of the last parameter is joined with the last part of the original word. When there are no positional parameters, `"$@"` and `$@` expand to nothing (i.e., they are removed).
 
-#
 (`$#`) Expands to the number of positional parameters in decimal.
 
-?
 (`$?`) Expands to the exit status of the most recently executed foreground pipeline.
 
--
 (`$-`, a hyphen.) Expands to the current option flags as specified upon invocation, by the set builtin command, or those set by the shell itself (such as the -i option).
 
-$
 (`$$`) Expands to the process ID of the shell. In a () subshell, it expands to the process ID of the invoking shell, not the subshell.
 
-!
 (`$!`) Expands to the process ID of the job most recently placed into the background, whether executed as an asynchronous command or using the bg builtin (see Job Control Builtins).
 
-0
 (`$0`) Expands to the name of the shell or shell script. This is set at shell initialization. If Bash is invoked with a file of commands (see Shell Scripts), $0 is set to the name of that file. If Bash is started with the -c option (see Invoking Bash), then $0 is set to the first argument after the string to be executed, if one is present. Otherwise, it is set to the filename used to invoke Bash, as given by argument zero.
 
 两个类似的特殊变量区别在于使用双引号：

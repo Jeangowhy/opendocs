@@ -1085,6 +1085,59 @@ A. M. Turing 1950 年在 Mind 杂志上发表的《计算机器与智能》是�
     6. Contrary Views on the Main Question
     7. Learning Machines
 
+AI 技术的发展离不开硬件算力的爆发式增长。21 世纪初，GPU 的浮点计算能力飞速增长，但其能力被束缚在图形 API 中，这是由当时的 PC 市场决定的。NVIDIA 看到了将其释放给通用计算的巨大潜力，CUDA 应运而生，它是 GPGPU 理念最成功的商业化实践。并行运算平台是 AI 技术革命的基石，可以说，没有 CUDA，就没有 2010 年代开始的第三次 AI 技术浪潮。深度学习需要处理海量数据和进行巨量矩阵运算，这正是 CUDA 和 GPU 的绝对优势领域。
+
+CUDA (Compute Unified Device Architecture) 是一种基于 CPU 并行能力的计算架构，正如其名，是一种并行计算平台和编程模型。CUDA 语境下，"Unified" 最常指 Unified Memory，这是 CUDA 编程模型中一个里程碑式的特性。CUDA 平台工具包含有编译器、调试器、性能分析器和函数库。NVCC 编译器将代码中适合并行的部分编译成在 GPU 上执行的指令。CUDA Toolkit 提供了高度优化的库，如 cuBLAS（线性代数）、cuFFT（傅里叶变换）、cuDNN（深度学习）等，使得开发者无需从零开始，就能直接调用业界顶尖的并行算法。
+
+CUDA 深层次的内涵是从“顺序执行”到“并行处理”的思维范式转移。CUDA 的灵魂在于 SIMD 思想，它最擅长对海量数据中的每一个元素，执行完全相同的操作。例如，对图像中的每一个像素进行滤波，或对矩阵中的每一个元素进行加法。传统 CPU 编程关注于一步步执行指令的流程。CUDA 编程则关注于如何将一个大问题分解成数百万个可以同时执行的、完全相同的微小任务。问题需要被分解为 Grid -> Block -> Thread 的层次结构，并仔细考虑线程间的通信（通过共享内存）和同步，这需要精心的设计。
+
+CUDA 本身在不断更新，支持新的硬件特性（如 Tensor Cores）、新的编程范式（如统一内存）和新的应用领域（如光线追踪）。CUDA 只能在 NVIDIA 的 GPU 上运行，通过其 Tesla、Quadro、GeForce 和现代的 Data Center GPU 等产品线，提供了从消费级到企业级的完整硬件支持。也可以看作是事实上的垄断。
+
+
+AI 技术的发展离不开数据集，数据集是 AI 技术，尤其是现代机器学习与深度学习发展的核心驱动力之一。数据和能源（电力）是 AI 的燃料，数据集是精炼过的燃料库。当前绝大多数成功的 AI 应用（如图像识别、语音助手、机器翻译）都基于监督学习 (supervised learning)。这类算法需要通过大量 “输入-输出” 配对数据（即带标签的数据集）来训练 AI 算法，让算法拟合（学习）其中的映射关系。通俗地理解就是让 AI 寻找一个复杂的函数 f(x)，使得 f(x) ≈ tag，数据集中包含的标本 (x) 与对应的标签 (tag) 作为监督 AI 学习的依据。
+
+典型数据集：
+
+MNIST (Modified National Institute of Standards and Technology)::
+    计算机视觉，深度学习入门的“Hello World”。MNIST 是一个包含手写数字的数据集，里面有上万张数字图片，每张图片都标注了对应的数字标签（0 ~ 9）。MNIST 包含 60,000 张手写数字训练图像和 10,000 张测试图像，规格为 28x28 像素的灰度图像。MNIST 广泛用于机器学习领域的训练和测试，尤其是图像分类任务。可以直接在 link:https://burn.dev/[Burn] 主页体验手写数字的识别效果，这是一个基于 Rust 语言开发的「深度学习」框架。示例代码参考 link:https://github.com/tracel-ai/burn/tree/main/examples/mnist-inference-web[MNIST Inference Demo]。
+ImageNet::
+    计算机视觉，深度学习革命的催化剂。拥有超过1400万张标注图片，涵盖2万多个类别。它的规模和质量使得深度神经网络的优势得以充分发挥。2012年AlexNet的横空出世，错误率大幅降低，开启了深度学习的新时代。
+COCO::
+    计算机视觉，推动了目标检测、实例分割等更复杂任务的发展。其标注不仅包括类别，还有物体的精确边界框和像素级分割掩码。
+LibriSpeech::
+    语音识别，一个包含约1000小时英语朗读语音的大规模语料库，极大地促进了端到端语音识别模型的发展。
+WikiText、The Pile::
+    自然语言处理，大规模、高质量的文本语料库，是训练BERT、GPT等大型语言模型的基石。没有海量文本数据，就不会有今天强大的LLM。
+Atari 游戏环境::
+    强化学习，提供了一套标准化的游戏环境，使得不同的强化学习算法（如DQN）可以在同一基准下进行比较和评估，推动了深度强化学习的快速发展。
+
+* https://playground.tensorflow.org/[Neural Network Playground]
+* https://archive.ics.uci.edu/dataset/53/iris[Iris Dataset]
+* https://yann.lecun.com/exdb/mnist/[THE MNIST DATABASE of handwritten digits]
+* https://www.cs.toronto.edu/~kriz/cifar.html[The CIFAR-10 dataset]
+* https://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html[ConvNetJS CIFAR-10 demo]
+* https://wordnet.princeton.edu[WordNet A Lexical Database for English]
+* https://image-net.org/download.php[ImageNet Data]
+
+鸢尾花数据集 (Iris Dataset) 在人工智能（尤其是机器学习和深度学习）领域有着极其特殊和重要的地位。由著名的统计学家和遗传学家费舍（Ronald Fisher）提出，作者 1890 年出生于英国伦敦。鸢尾花数据集最初由 Edgar Anderson 测量得到，而后费舍于 1936 年发表的文章 link:https://repository.rothamsted.ac.uk/item/9914w/the-use-of-multiple-measurements-in-taxonomic-problems[The use of multiple measurements in taxonomic problems] 中，用其作为线性判别分析 (Linear Discriminant Analysis) 的一个例子，证明分类的统计方法，从此而被众人所知，尤其是在机器学习这个领域。它可以说是AI界的“Hello World”。数据集包含三个鸢尾花品种（类别）：山鸢尾 (Setosa)、变色鸢尾 (Versicolor) 和维吉尼亚鸢尾 (Virginica)，每个类别都有 50 条记录。根据四个生物学特征分辨：花萼长度 (sepal length)、花萼宽度 (sepal width)、花瓣长度 (petal length)、花瓣宽度 (petal width)。数据结构以表格形式组织，整个数据集可以看作一个 150 行 x 5 列的表格。每行代表 150 个样本，每个样本包含 5 列数据，前 4 列是特征（花萼长、花萼宽、花瓣长、花瓣宽），最后一列是标签（花的品种）。
+
+Iris Dataset 提供了最纯粹的 AI 学习体验，是完美的 AI 领域的 “Hello World”，掌握它的门槛极低，并排除大量的“技术噪声”干扰。数据集小巧（150 个样本，4 个特征）、干净、结构清晰。学习者可以完全专注于算法原理和编程实现，而无需被大数据量、数据清洗、特征工程等复杂问题分散精力。几乎所有经典的机器学习算法都可以在 Iris 数据集上进行首次验证和比较：
+
+•   「线性回归」(Linear Regression) 用于预测连续值（拟合一条直线），比如父母身高与子女身高的正相关性，或根据历史数据预测房价、温度等等。
+•   逻辑回归 (Logistic Regression)：「线性逻辑回归」（简称逻辑回归）利用线性模型（直线/平面/超平面）解决分类问题，而且是二分类算法，比如在一个平面中画直线分割出二分类。应用更加普遍的是「非线性逻辑回归」，无法用一条直线或一个平面分割，就需要曲线或曲面来做分类切割，比如用一个圆、椭圆、曲线等把两组数据分开。逻辑回归的本质是：用一个线性模型 z 去学习并逼近分类问题的“决策边界”，再通过一个 Sigmoid 函数将这个边界“翻译”成人类容易理解的概率形式，最终完成分类。
+•   K-近邻算法 (K-nearest neighbors, k-nn)：通过距离度量进行分类，概念极其直观。
+•   支持向量机：可以演示线性 SVM 如何分离山鸢尾，以及非线性 SVM（如带 RBF 核）如何分离更复杂的变色鸢尾和维吉尼亚鸢尾。
+•   决策树与随机森林：生成的决策规则（如“花瓣长度 <= 2.45”）就像一本植物鉴定手册，非常易于理解。
+•   聚类算法（无监督学习）：即使不使用标签，K-Means 等算法也能很好地将数据聚成三类，可以与真实标签对比，理解无监督与监督学习的区别。
+
+参考书籍：
+
+*   Deep Learning Foundations and Concepts (Christopher M. Bishop, Hugh Bishop) 
+*   Probabilistic machine learning: a book series by Kevin P. Murphy
+**  Book 0: Machine Learning: A Probabilistic Perspective (2012)
+**  link:https://github.com/probml/pml-book[Book 1: Probabilistic Machine Learning: An Introduction (2022)]
+**  link:https://github.com/probml/pml2-book/[Book 2: Probabilistic Machine Learning: Advanced Topics (2023)]
+
 2016 年，Yann LeCun, Yoshua Bengio & Geoffrey Hinton 联合推出 Deep learning，这是机器
 学习的一个分支，三人也因此共同获得 2018 年的图灵奖。深度学习（Deep Learning）使用深度神经网络
 （Deep Neural Networks, DNNs）实现机器学习。DNN 由多层非线性处理单元（即神经元）组成，能够
@@ -1505,12 +1558,6 @@ A Simple Neural Network
 期望的误差的平方和作为目标函数，转入反向传播，逐层求出目标函数对各神经元权值的偏导数，构成目标函数对权值
 向量的梯量，作为修改权值的依据，网络的学习在权值修改过程中完成。误差达到所期望值时，网络学习结束。
 
-* https://playground.tensorflow.org/[Neural Network Playground]
-* https://yann.lecun.com/exdb/mnist/[THE MNIST DATABASE of handwritten digits]
-* https://www.cs.toronto.edu/~kriz/cifar.html[The CIFAR-10 dataset]
-* https://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html[ConvNetJS CIFAR-10 demo]
-* https://wordnet.princeton.edu[WordNet A Lexical Database for English]
-* https://image-net.org/download.php[ImageNet Data]
 
 由于训练神经网络需要处理大量的数据，并且，CNN 这种输入节点、输出节点并联的网络结构非常适合做并行计算，
 因此，高效的神经网络训练都基于 GPU 硬件进行，这也就给开发了 CUDA 的 Nvidia 公司成为暴发户的机会。

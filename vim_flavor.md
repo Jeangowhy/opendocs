@@ -363,6 +363,11 @@ Vim 受上世纪 90 年代的 Amiga 个人计算机系统上的 Manx's Aztec C c
     :lvimgrep   :lgrep   :lhelpgrep   :lmake    :[nr]ll[!]  :lli[st] 
      :vimgrep    :grep    :helpgrep    :make    :[nr]cc[!]  :cl
 
+Vim 提供了 'grepprg' 和 'makeprg' 两个选项来指定对应的外部 grep 程序和 make 程序，配合
+各自的 'grepformat' 和 'errorformat' 设置消息格式，这样 Vim 就可以过滤出它们输出的数据
+中包含的文件路径、行列号等信息用于 Vim 快速跳转到相应的文件中，这种特性称之为 QuickFix。
+比如 :grep foo *.c 是一般使用方式，表示搜索当前目录下所有 C 语言代码文件中包含的 foo 符号。
+然后通过 :cn 或 :cp 等命令进行跳转，也可以 :copen 打开 QuickFix 列表将其当作文本文件处理，
 其它相关命令可以查阅快速参考文档 Quickfix commands。
 
 Vim 帮助文档自带 tag 标记，也就是文本中使用 * 星号包裹的、由字母和连字符号组成的字符串标记，
@@ -825,7 +830,10 @@ TIP: Vim 秉承一题多解的理论，提供了多种设置方式，在脚本�
 
 Vim 还集成了 `:grep` 命令，它调用同名 shell 命令，用于搜索文件中与正则表达式匹配的内容。
 类似的还有用于自动化构建项目的 `:make` 命令，它们都通过相应的选项 ('grepprg', 'makeprg')
-指定外部程序，以及使用 'grepformat' 或者'errorformat' 属性指定错误消息格式。
+指定外部程序，以及使用 'grepformat' 或者 'errorformat' 属性指定错误消息格式，用于配合
+quickfix 列表的信息处理。也就是 Vim 会通过指定的格式处理外部程序的输出内容，比如编译器的
+报错信息，通常包含文件路径、行号、列号和错误代码信息等等，这样 Vim 就可以通过 quicklist
+提供“快速修复”的功能。
 
 在阅读 Bash 编程书籍或资料的过程中，接触到一个 *useless cat* 的说法。意思是无效或胡乱使用
 cat 这个日常必备命令。正因为它太常见了，所以很多情况下用户不关心是否真的的需要它，只要是在
@@ -4906,7 +4914,7 @@ Expression evaluation 文档，eval.txt 就是 Vim 脚本语言参考手册：
     13. Textlock                |textlock|
 
 
-Vim 提供的 :term 内置终端，和专家模式 Ex mode 是专门为脚本编程准备的，使用 Q 或 gQ 进入专家模式，使用 vi 或 visual 命令退出专家模式。
+Vim 提供的 :term 内置终端，和专家模式 Ex mode 是专门为脚本编程准备的，使用 Q 或 gQ 进入专家模式，使用 vi 或 visual 命令退出专家模式。可以通过命令启动指定的 shell，比如 `:term bash` 或 `:term zsh`。
 
 Ex mode 就像是自动帮你输入了 : 符号，让你不专心编写脚本，有以下功能差异：
 

@@ -1,0 +1,1897 @@
+:bash: ;pandoc --wrap=none -tasciidoc -rhtml https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/what-is-aerospace-engineering/ >> $0; exit
+:source-highlighter: highlight.js
+:stem: latexmath
+:icons: font
+:pdf_512mb: https://commons.erau.edu/cgi/viewcontent.cgi?article=1066&context=oer-main
+
+== Introduction to Aerospace Flight Vehicles
+
+[.text-center]
+image:https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/olive_textbook.png[Cover] +
+Author: J. Gordon Leishman +
+Illustrated by J. Gordon Leishman +
+Subject: Aerospace and aviation technology +
+Title: Introduction to Aerospace Flight Vehicles +
+Last updated: January 1, 2025 +
+
+
+License: Creative Commons Attribution NonCommercial NoDerivatives
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/front-matter/4811/[Read Book]
+
+
+== Contents
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/front-matter/4811/[Welcome!]
+
+.. <<front-matter-4811-section-1, Introduction to Aerospace Flight Vehicles>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/front-matter/using-a-pressbooks-webbook/[Using a Pressbooks eBook]
+
+.. <<front-matter-19-section-1, Basic Navigation>>
+.. <<front-matter-19-section-2, Download Options>>
+.. <<front-matter-19-section-3, Search Feature>>
+.. <<front-matter-19-section-4, Special Features in this ebook>>
+.. <<front-matter-19-section-5, Errors & Corrections>>
+.. <<front-matter-19-section-6, Copyrighted Content>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/front-matter/introduction/[Proemium]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/front-matter/forward/[Foreword by Dr. Mark J. Lewis]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/front-matter/preface-to-the-2025-edition/[Preface to the 2025 Edition]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/front-matter/preface-to-the-2024-edition/[Preface to the 2024 Edition]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/front-matter/attention-ae201-students-at-erau/[Attention! AE201 Students at ERAU]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/front-matter/acknowledgements/[Acknowledgements]
+
+.. <<front-matter-12221-section-1, Editorial Acknowledgments>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/front-matter/about-the-author/[About the Author]
+
+I. Introductory
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/what-is-aerospace-engineering/[1. What is Aerospace Engineering?]
+
+... <<chapter-701-section-1, Introduction>>
+... <<chapter-701-section-2, So, You Want to Be an Aerospace Engineer?>>
+... <<chapter-701-section-3, Roles of Aerospace Engineers>>
+... <<chapter-701-section-4, Engineering Problem Solving>>
+... <<chapter-701-section-5, Aerodynamics: The Underpinning of Flight>>
+... <<chapter-701-section-6, Propulsion Systems: The Power for Flight>>
+... <<chapter-701-section-7, Structures and Materials: Carrying the Loads>>
+... <<chapter-701-section-8, Flight Dynamics & Control: Flying on Course>>
+... <<chapter-701-section-9, Systems Integration: Putting It All Together>>
+... <<chapter-701-section-10, Thinking Toward the Future>>
+... <<chapter-701-section-11, Being a Successful Engineer>>
+... <<chapter-701-section-12, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/history-of-aircraft-and-aviation/[2. History of Aircraft & Aviation]
+
+... <<chapter-57-section-1,  Introduction>>
+... <<chapter-57-section-2, Early Ideas of Flight>>
+... <<chapter-57-section-3, Invention of the Airplane>>
+... <<chapter-57-section-4, First in Flight>>
+... <<chapter-57-section-5, Period 1910–1930>>
+... <<chapter-57-section-6, Period 1930–1950>>
+... <<chapter-57-section-7, Competitions Drive Aeronautical Developments>>
+... <<chapter-57-section-8, Development of Jet-Powered Aircraft>>
+... <<chapter-57-section-9, Helicopters & V/STOL>>
+... <<chapter-57-section-10, Supersonic Aircraft>>
+... <<chapter-57-section-11, Regional Aircraft>>
+... <<chapter-57-section-12, General Aviation>>
+... <<chapter-57-section-13, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/history-of-space-flight/[3. History of Rockets & Space Flight]
+
+... <<chapter-76-section-1, Introduction>>
+... <<chapter-76-section-2, The Quest for Space>>
+... <<chapter-76-section-3, First Steps into Space>>
+... <<chapter-76-section-4, To the Moon!>>
+... <<chapter-76-section-5, Exploring the Planets>>
+... <<chapter-76-section-6, Communication & Earth Observation Satellites>>
+... <<chapter-76-section-7, Era of the Space Shuttle>>
+... <<chapter-76-section-8, Space Stations>>
+... <<chapter-76-section-9, NASA Space Launch System (SLS)>>
+... <<chapter-76-section-10, Artemis Program>>
+... <<chapter-76-section-11, Commercial Space Ventures>>
+... <<chapter-76-section-12, Air-Launched Rockets>>
+... <<chapter-76-section-13, SpaceX Starship>>
+... <<chapter-76-section-14, Non-U.S. Space Activities>>
+... <<chapter-76-section-15, Deep Space & Beyond>>
+... <<chapter-76-section-16, Space Tourism>>
+... <<chapter-76-section-17, Summary & Closure>>
+
+PART II. Preparations
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/review-of-important-mathematics/[4. Mathematics for Engineering]
+
+... <<chapter-179-section-1, Introduction>>
+... <<chapter-179-section-2, Algebra>>
+... <<chapter-179-section-3, Calculus>>
+... <<chapter-179-section-4, Integration>>
+... <<chapter-179-section-5, Working with Vectors>>
+... <<chapter-179-section-6, Scalar and Vector Fields>>
+... <<chapter-179-section-7, Scalar Products>>
+... <<chapter-179-section-8, Vector Products>>
+... <<chapter-179-section-9, Differentiating a Vector>>
+... <<chapter-179-section-10, Line Integrals>>
+... <<chapter-179-section-11, Surface Integrals>>
+... <<chapter-179-section-12, Unit Normal Vector>>
+... <<chapter-179-section-13, Volume Integrals>>
+... <<chapter-179-section-14, Integral Relations>>
+... <<chapter-179-section-15, Gradient of a Scalar Field>>
+... <<chapter-179-section-16, Divergence of a Vector Field>>
+... <<chapter-179-section-17, Curl of a Vector Field>>
+... <<chapter-179-section-18, Physical Laws in Engineering>>
+... <<chapter-179-section-19, Other Mathematical Operators>>
+... <<chapter-179-section-20, Ordinary Differential Equations (ODEs)>>
+... <<chapter-179-section-21, Partial Differential Equations (PDEs)>>
+... <<chapter-179-section-22, Other Coordinate Systems>>
+... <<chapter-179-section-23, Transformations>>
+... <<chapter-179-section-24, Matrices and Systems of Linear Equations>>
+... <<chapter-179-section-25, Working with Numbers>>
+... <<chapter-179-section-26, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/units-conversion-factors/[5. Units & Conversion Factors]
+
+... <<chapter-21406-section-1, Introduction>>
+... <<chapter-21406-section-2, Physical Quantities>>
+... <<chapter-21406-section-3, CGS Units>>
+... <<chapter-21406-section-4, USC Units>>
+... <<chapter-21406-section-5, Angular Units>>
+... <<chapter-21406-section-6, Mass & Weight>>
+... <<chapter-21406-section-7, Units of Temperature>>
+... <<chapter-21406-section-8, Unit Rules and Style Conventions>>
+... <<chapter-21406-section-9, Working with Units>>
+... <<chapter-21406-section-10, Aviation Units>>
+... <<chapter-21406-section-11, Unit Conversion Factors>>
+... <<chapter-21406-section-12, Unit Conventions in U.S. Engineering Systems>>
+... <<chapter-21406-section-13, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/ethics-professional-responsibilities/[6. Professional Responsibilities, Ethics, & Copyright]
+
+... <<chapter-149-section-1, Introduction>>
+... <<chapter-149-section-2, Differences Between Morals and Ethics>>
+... <<chapter-149-section-3, Aerospace Code of Ethics>>
+... <<chapter-149-section-4, Facing Ethical Issues>>
+... <<chapter-149-section-5, Other Examples of Ethical Concerns>>
+... <<chapter-149-section-6, Ethics for Students>>
+... <<chapter-149-section-7, Copyright Matters>>
+... <<chapter-149-section-8, Ethical Scenarios to Consider>>
+... <<chapter-149-section-9, Using ChatGPT>>
+... <<chapter-149-section-10, Summary & Closure>>
+
+PART III. Design Aspects of Flight Vehicles
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/aircraft-classifications-aviation-regulations/[7. Aircraft Classifications & Regulations]
+
+... <<chapter-146-section-1, Introduction>>
+... <<chapter-146-section-2, Overview of Aircraft Classifications>>
+... <<chapter-146-section-3, Uses of Aircraft>>
+... <<chapter-146-section-4, Civil Aircraft Types & Classifications>>
+... <<chapter-146-section-5, Unoccupied Aircraft>>
+... <<chapter-146-section-6, Aviation & Aeronautical Regulations>>
+... <<chapter-146-section-7, Details of the Federal Aviation Regulations>>
+... <<chapter-146-section-8, Other Airworthiness Documents>>
+... <<chapter-146-section-9, Regulations for Unoccupied Aircraft & Drones>>
+... <<chapter-146-section-10, Regulations for Commercial Space Operations>>
+... <<chapter-146-section-11, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/anatomy-of-aircraft-and-spacecraft/[8. Anatomy of Aircraft & Spacecraft]
+
+... <<chapter-113-section-1, Introduction>>
+... <<chapter-113-section-2, Anatomy of Flight Vehicles>>
+... <<chapter-113-section-3, Airplane Anatomy>>
+... <<chapter-113-section-4, Forces of Flight & Flight Axes>>
+... <<chapter-113-section-5, Flight Controls>>
+... <<chapter-113-section-6, Flaps & Slats>>
+... <<chapter-113-section-7, Specific Flap Designs>>
+... <<chapter-113-section-8, Main Wing Designs>>
+... <<chapter-113-section-9, Tail or Empennage Designs>>
+... <<chapter-113-section-10, Engine Placement>>
+... <<chapter-113-section-11, Undercarriage Designs>>
+... <<chapter-113-section-12, Anatomy of a Helicopter>>
+... <<chapter-113-section-13, Anatomy of a Tiltrotor>>
+... <<chapter-113-section-14, Anatomy of an Airship>>
+... <<chapter-113-section-15, Anatomy of Spacecraft>>
+... <<chapter-113-section-16, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/aerospace-structures/[9. Aerospace Structures]
+
+... <<chapter-28248-section-1, Introduction>>
+... <<chapter-28248-section-2, Brief History of Aerospace Structures>>
+... <<chapter-28248-section-3, Types of Structural Loads & Stresses>>
+... <<chapter-28248-section-4, Structural Stress & Strain Relationships>>
+... <<chapter-28248-section-5, Trusses & Shear Webs>>
+... <<chapter-28248-section-6, Wing Structures>>
+... <<chapter-28248-section-7, Fuselage Structures>>
+... <<chapter-28248-section-8, Empennage Structures>>
+... <<chapter-28248-section-9, Flight Control Structures>>
+... <<chapter-28248-section-10, Winglets>>
+... <<chapter-28248-section-11, Stress Analyses>>
+... <<chapter-28248-section-12, Fail-Safe & Safe-Life Structural Designs>>
+... <<chapter-28248-section-13, Buckling>>
+... <<chapter-28248-section-14, Thermal Considerations>>
+... <<chapter-28248-section-15, Airframe Weight Estimation>>
+... <<chapter-28248-section-16, Spacecraft Structures>>
+... <<chapter-28248-section-17, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/aerospace-materials/[10. Aerospace Materials]
+
+... <<chapter-28250-section-1, Introduction>>
+... <<chapter-28250-section-2, Types of Materials>>
+... <<chapter-28250-section-3, Strength of Materials>>
+... <<chapter-28250-section-4, Young’s Modulus>>
+... <<chapter-28250-section-5, Materials Selection Charts>>
+... <<chapter-28250-section-6, Composite Materials>>
+... <<chapter-28250-section-7, Sandwich Materials>>
+... <<chapter-28250-section-8, Material Fatigue>>
+... <<chapter-28250-section-9, Thermal Protection Materials>>
+... <<chapter-28250-section-10, Additive Manufacturing & 3D Printing>>
+... <<chapter-28250-section-11, Future Aerospace Materials>>
+... <<chapter-28250-section-12, Summary & Closure>>
+
+PART IV. Fluid Properties & Hydrostatics
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/fundamental-properties-of-fluids/[11. Fundamental Properties of Fluids]
+
+... <<chapter-165-section-1, Introduction>>
+... <<chapter-165-section-2, What is a Fluid?>>
+... <<chapter-165-section-3, Concept of a Continuum>>
+... <<chapter-165-section-4, Fluid Pressure>>
+... <<chapter-165-section-5, Fluid Density>>
+... <<chapter-165-section-6, Fluid Temperature>>
+... <<chapter-165-section-7, Combined Gas Equation & Equation of State>>
+... <<chapter-165-section-8, Bulk Modulus>>
+... <<chapter-165-section-9, Fluid Viscosity>>
+... <<chapter-165-section-10, Flow Velocity>>
+... <<chapter-165-section-11, Streamtubes>>
+... <<chapter-165-section-12, Speed of Sound in Fluid Media>>
+... <<chapter-165-section-13, Diffusion & Effusion>>
+... <<chapter-165-section-14, Surface Tension & Capillary Action>>
+... <<chapter-165-section-15, Summary of Properties of Air at MSL Standard>>
+... <<chapter-165-section-16, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/fluid-statics/[12. Fluid Statics & the Hydrostatic Equation]
+
+... <<chapter-194-section-1, Introduction>>
+... <<chapter-194-section-2, Pascal’s Law>>
+... <<chapter-194-section-3, Aerostatic/Hydrostatic Pressure Field>>
+... <<chapter-194-section-4, Effects of Gravity Alone>>
+... <<chapter-194-section-5, Solutions to the Aero-Hydrostatic Equation>>
+... <<chapter-194-section-6, Hydrostatic Paradox>>
+... <<chapter-194-section-7, Archimedes’ Principle>>
+... <<chapter-194-section-8, Pressure Forces on Submerged Surfaces>>
+... <<chapter-194-section-9, Piezometer Tube>>
+... <<chapter-194-section-10, U-Tube Manometer>>
+... <<chapter-194-section-11, Pressure Transducers>>
+... <<chapter-194-section-12, Hydraulic Press>>
+... <<chapter-194-section-13, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/international-standard-atmosphere-isa/[13. Atmospheric Properties & the ISA]
+
+... <<chapter-202-section-1, Introduction>>
+... <<chapter-202-section-2, Composition of the Atmosphere>>
+... <<chapter-202-section-3, General Properties of the Atmosphere>>
+... <<chapter-202-section-4, Reasons for the ISA model>>
+... <<chapter-202-section-5, Geopotential Altitude vs Geometric Altitude>>
+... <<chapter-202-section-6, Equations of the ISA in the Troposphere>>
+... <<chapter-202-section-7, Pressure Altitude and Density Altitude>>
+... <<chapter-202-section-8, Density Corrections for Humidity>>
+... <<chapter-202-section-9, Other Atmospheric Models>>
+... <<chapter-202-section-10, Tables of ISA Properties>>
+... <<chapter-202-section-11, Interpolation of ISA Table Values>>
+... <<chapter-202-section-12, Satellite Drag>>
+... <<chapter-202-section-13, Summary & Closure>>
+
+PART V. Introduction to Fluid Dynamics
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/types-of-fluid-flows/[14. Types of Fluid Flows]
+
+... <<chapter-213-section-1, Introduction>>
+... <<chapter-213-section-2, Laminar & Turbulent Flows>>
+... <<chapter-213-section-3, Single Versus Multi-Dimensional Flow>>
+... <<chapter-213-section-4, External Versus Internal Flows>>
+... <<chapter-213-section-5, Steady Versus Unsteady Flows>>
+... <<chapter-213-section-6, Compressible Versus Incompressible Flows>>
+... <<chapter-213-section-7, Swirling & Vortex Flows>>
+... <<chapter-213-section-8, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/dimensional-analysis/[15. Dimensional Analysis]
+
+... <<chapter-221-section-1, Introduction>>
+... <<chapter-221-section-2, Physical Quantities>>
+... <<chapter-221-section-3, Aerodynamic Force on a Wing>>
+... <<chapter-221-section-4, Basis of Dimensional Analysis>>
+... <<chapter-221-section-5, The Buckingham Π Method>>
+... <<chapter-221-section-6, Π Method Applied to the Drag on a Sphere>>
+... <<chapter-221-section-7, Π Method Applied to a Wing>>
+... <<chapter-221-section-8, Practicing Exemplars>>
+... <<chapter-221-section-9, Other Dimensionless Quantities>>
+... <<chapter-221-section-10, When Things Go Wrong in the Buckingham Π Method>>
+... <<chapter-221-section-11, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/mach-number-and-reynolds-number/[16. Mach Number & Reynolds Number]
+
+... <<chapter-230-section-1, Introduction>>
+... <<chapter-230-section-2, Definition of Mach Number>>
+... <<chapter-230-section-3, Significance of the Speed of Sound>>
+... <<chapter-230-section-4, Mach Number Regimes>>
+... <<chapter-230-section-5, Physical Interpretation of Mach Number>>
+... <<chapter-230-section-6, Compressible Flows about an Airfoil>>
+... <<chapter-230-section-7, Supersonic Flow Around an Aircraft>>
+... <<chapter-230-section-8, Why Wing Sweep is Important>>
+... <<chapter-230-section-9, Supersonic Airfoils>>
+... <<chapter-230-section-10, Definition of Reynolds Number>>
+... <<chapter-230-section-11, Physical Interpretation of Reynolds Number>>
+... <<chapter-230-section-12, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/dynamic-similarity/[17. Dynamic Similarity]
+
+... <<chapter-236-section-1, Introduction>>
+... <<chapter-236-section-2, Similarity Criteria>>
+... <<chapter-236-section-3, Navier-Stokes Equations>>
+... <<chapter-236-section-4, Aerodynamic Similarity>>
+... <<chapter-236-section-5, Helpful Scaling Laws>>
+... <<chapter-236-section-6, Partial Similarity>>
+... <<chapter-236-section-7, Similitude in Other Engineering Fields>>
+... <<chapter-236-section-8, Summary of Similarity Parameters>>
+... <<chapter-236-section-9, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/problem-solving-and-mathematical-models/[18. Problem Solving & Modeling]
+
+... <<chapter-248-section-1, Introduction>>
+... <<chapter-248-section-2, Hypothetico-Deductive Method>>
+... <<chapter-248-section-3, Starting Out>>
+... <<chapter-248-section-4, Setting Up Aerodynamic Models>>
+... <<chapter-248-section-5, Verification and Validation>>
+... <<chapter-248-section-6, Multi-Disciplinary Problems>>
+... <<chapter-248-section-7, Problem-Solving Process>>
+... <<chapter-248-section-8, Generalization of Data & Data Fitting>>
+... <<chapter-248-section-9, Ockham’s Razor – The KIS2 Principle>>
+... <<chapter-248-section-10, Approaching Homework Problems>>
+... <<chapter-248-section-11, All those Equations!>>
+... <<chapter-248-section-12, What is Brainstorming?>>
+... <<chapter-248-section-13, Summary & Closure>>
+
+PART VI. Modeling of Fluid Motion
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/equations-of-fluid-motion/[19. Equations of Fluid Motion]
+
+... <<chapter-15928-section-1, Introduction>>
+... <<chapter-15928-section-2, Setting Up Flow Models>>
+... <<chapter-15928-section-3, Conservation Equations>>
+... <<chapter-15928-section-4, Flow Models>>
+... <<chapter-15928-section-5, Finite Control Volume Approach>>
+... <<chapter-15928-section-6, Mass Flow and Mass Flux>>
+... <<chapter-15928-section-7, Momentum & Energy Flow Rates>>
+... <<chapter-15928-section-8, Extensive & Intensive Properties>>
+... <<chapter-15928-section-9, Reynolds Transport Theorem>>
+... <<chapter-15928-section-10, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/conservation-of-mass-continuity-equation/[20. Continuity Equation]
+
+... <<chapter-255-section-1, Introduction>>
+... <<chapter-255-section-2, Continuity Equation – Integral Form>>
+... <<chapter-255-section-3, Conservation of Mass>>
+... <<chapter-255-section-4, Simplifications of the Continuity Equation>>
+... <<chapter-255-section-5, Flow Through a Converging/Diverging Duct>>
+... <<chapter-255-section-6, Flow Through a Branched Pipe>>
+... <<chapter-255-section-7, Flow Through Parallel Pipes>>
+... <<chapter-255-section-8, Continuity Equation – Differential Form>>
+... <<chapter-255-section-9, Continuity Equation from the RTE>>
+... <<chapter-255-section-10, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/conservation-of-momentum-momentum-equation/[21. Momentum Equation]
+
+... <<chapter-260-section-1, Introduction>>
+... <<chapter-260-section-2, Momentum Equation – Integral Approach>>
+... <<chapter-260-section-3, Simplifications to the Momentum Equation>>
+... <<chapter-260-section-4, Learning the Exemplars>>
+... <<chapter-260-section-5, Angular Momentum>>
+... <<chapter-260-section-6, Linear Momentum Equation from the RTE>>
+... <<chapter-260-section-7, Momentum Equation – Differential Form>>
+... <<chapter-260-section-8, Navier Stokes Equations>>
+... <<chapter-260-section-9, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/conservation-of-energy-energy-equation-bernoullis-equation/[22. Energy Equation & Bernoulli’s Equation]
+
+... <<chapter-265-section-1, Introduction>>
+... <<chapter-265-section-2, Setting Up the Energy Equation>>
+... <<chapter-265-section-3, Simplifications of the Energy Equation>>
+... <<chapter-265-section-4, Bernoulli’s Equation>>
+... <<chapter-265-section-5, Another Derivation of Bernoulli’s Equation>>
+... <<chapter-265-section-6, Other Forms of the Bernoulli Equation>>
+... <<chapter-265-section-7, Energy Equation from the RTE>>
+... <<chapter-265-section-8, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/applications-of-the-conservation-laws/[23. Applications of the Conservation Laws]
+
+... <<chapter-279-section-1, Introduction>>
+... <<chapter-279-section-2, Flow in a Venturi>>
+... <<chapter-279-section-3, Applications of a Venturi>>
+... <<chapter-279-section-4, Total, Static, & Dynamic Pressures>>
+... <<chapter-279-section-5, Pitot Tube & Pitot-Static Tube>>
+... <<chapter-279-section-6, Flow Speed in a Wind Tunnel>>
+... <<chapter-279-section-7, Force on a Pipe Bend>>
+... <<chapter-279-section-8, Jet Engine Performance>>
+... <<chapter-279-section-9, Forces on a Two-Dimensional body>>
+... <<chapter-279-section-10, Summary & Closure>>
+
+PART VII. Other Types of Flows
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/introduction-to-boundary-layers/[24. Boundary Layer Flows]
+
+... <<chapter-336-section-1, Introduction>>
+... <<chapter-336-section-2, History>>
+... <<chapter-336-section-3, Laminar & Turbulent Boundary Layers>>
+... <<chapter-336-section-4, Shear Stresses & Skin Friction>>
+... <<chapter-336-section-5, Development of a Boundary Layer>>
+... <<chapter-336-section-6, Other Properties of Boundary Layers>>
+... <<chapter-336-section-7, Pressure Gradients & Flow Separation>>
+... <<chapter-336-section-8, Summary of Boundary Layer Characteristics>>
+... <<chapter-336-section-9, Flow Separation on an Airfoil>>
+... <<chapter-336-section-10, Boundary Layer Equations>>
+... <<chapter-336-section-11, Laminar Boundary Layer – The Blasius Solution>>
+... <<chapter-336-section-12, Turbulent Boundary Layers>>
+... <<chapter-336-section-13, Visualizing the Boundary Layer>>
+... <<chapter-336-section-14, Skin Friction Drag on an Airfoil>>
+... <<chapter-336-section-15, Laminar Separation Bubbles>>
+... <<chapter-336-section-16, Effects of Surface Roughness>>
+... <<chapter-336-section-17, Boundary Layer Flow Control>>
+... <<chapter-336-section-18, Thermal Boundary Layers>>
+... <<chapter-336-section-19, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/turbulent-flows/[25. Turbulent Flows]
+
+... <<chapter-22516-section-1, Introduction>>
+... <<chapter-22516-section-2, Visualizing Turbulent Flows>>
+... <<chapter-22516-section-3, Reynolds Decomposition>>
+... <<chapter-22516-section-4, Navier-Stokes Equations>>
+... <<chapter-22516-section-5, Including Turbulent Flow Effects>>
+... <<chapter-22516-section-6, Eddy Viscosity Models>>
+... <<chapter-22516-section-7, Turbulence Scales & Turbulent Kinetic Energy>>
+... <<chapter-22516-section-8, Wall-Bounded Turbulent Flows>>
+... <<chapter-22516-section-9, Turbulence Models>>
+... <<chapter-22516-section-10, Numerical Solution of the RANS Equations>>
+... <<chapter-22516-section-11, Turbulence & Combustion>>
+... <<chapter-22516-section-12, Reducing Turbulence>>
+... <<chapter-22516-section-13, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/bluff-body-flows/[26. Bluff Body Flows]
+
+... <<chapter-412-section-1,  Introduction>>
+... <<chapter-412-section-2, Drag Coefficients>>
+... <<chapter-412-section-3, Drag Coefficients of Simple Shapes>>
+... <<chapter-412-section-4, Flow Patterns Around a Circular Cylinder>>
+... <<chapter-412-section-5, Drag of Circular Cylinders & Spheres>>
+... <<chapter-412-section-6, Why Do Golf Balls Have Dimples?>>
+... <<chapter-412-section-7, Aerodynamics of Spinning Balls>>
+... <<chapter-412-section-8, Complex Three-Dimensional Bluff Bodies>>
+... <<chapter-412-section-9, Vortex-Induced Vibration>>
+... <<chapter-412-section-10, Wakes Shed from Bridges>>
+... <<chapter-412-section-11, Streamlining>>
+... <<chapter-412-section-12, Streamlining of Terrestrial Vehicles>>
+... <<chapter-412-section-13, Creating Drag – Parachutes>>
+... <<chapter-412-section-14, Bluff Bodies at Supersonic Speeds>>
+... <<chapter-412-section-15, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/internal-flows/[27. Internal Flows]
+
+... <<chapter-428-section-1, Introduction>>
+... <<chapter-428-section-2, Internal Versus External Flows>>
+... <<chapter-428-section-3, Internal Flow Problems>>
+... <<chapter-428-section-4, Categories of Internal Flow Problems>>
+... <<chapter-428-section-5, Fluid Dynamics of Internal Flows>>
+... <<chapter-428-section-6, Entrance Length>>
+... <<chapter-428-section-7, Hydraulic Diameter>>
+... <<chapter-428-section-8, Laminar Flow in Pipes>>
+... <<chapter-428-section-9, Quantifying the Pressure Drop>>
+... <<chapter-428-section-10, Turbulent Flows in Pipes>>
+... <<chapter-428-section-11, Colebrook-White Equation>>
+... <<chapter-428-section-12, Moody Chart>>
+... <<chapter-428-section-13, Roughness Values>>
+... <<chapter-428-section-14, Pressure Drop Over a Tapered Pipe>>
+... <<chapter-428-section-15, Pumps>>
+... <<chapter-428-section-16, Pressure Drops Over Bends & Corners>>
+... <<chapter-428-section-17, Wind Tunnels>>
+... <<chapter-428-section-18, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/unsteady-flows/[28. Time-Dependent Flows]
+
+... <<chapter-21750-section-1, Introduction>>
+... <<chapter-21750-section-2, Classification of Time-Dependent Flows>>
+... <<chapter-21750-section-3, Strouhal Number>>
+... <<chapter-21750-section-4, Reduced Frequency>>
+... <<chapter-21750-section-5, Time-Dependent Fluid Flows>>
+... <<chapter-21750-section-6, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/viscous-dominated-flows/[29. Viscous-Dominated Flows]
+
+... <<chapter-35442-section-1, Introduction>>
+... <<chapter-35442-section-2, Reynolds Number>>
+... <<chapter-35442-section-3, Stokes Flow Around a Sphere>>
+... <<chapter-35442-section-4, Stokes’ Equation>>
+... <<chapter-35442-section-5, Linearity of Stokes Flow>>
+... <<chapter-35442-section-6, Stokes’s Drag Law for Spheres>>
+... <<chapter-35442-section-7, Oseen Equations>>
+... <<chapter-35442-section-8, Comparison of Stokes Flow & Potential Flow>>
+... <<chapter-35442-section-9, Particle Motion>>
+... <<chapter-35442-section-10, Taylor–Couette Flow>>
+... <<chapter-35442-section-11, Summary & Closure>>
+
+PART VIII. Airfoil & Wing Aerodynamics
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/airfoil-geometries/[30. Airfoil Shapes]
+
+... <<chapter-318-section-1, Introduction>>
+... <<chapter-318-section-2, History of Airfoils>>
+... <<chapter-318-section-3, Design Requirements>>
+... <<chapter-318-section-4, Airfoil Geometry>>
+... <<chapter-318-section-5, NACA Method of Drawing Airfoil Shapes>>
+... <<chapter-318-section-6, Symmetrical NACA Airfoils>>
+... <<chapter-318-section-7, Cambered NACA Airfoils>>
+... <<chapter-318-section-8, Other NACA Airfoils>>
+... <<chapter-318-section-9, Grid Generation for CFD>>
+... <<chapter-318-section-10, Other Types of Airfoils>>
+... <<chapter-318-section-11, Examples to Try>>
+... <<chapter-318-section-12, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/airfoil-characteristics/[31. Aerodynamics of Airfoil Sections]
+
+... <<chapter-368-section-1, Introduction>>
+... <<chapter-368-section-2, Origin of Aerodynamic Forces>>
+... <<chapter-368-section-3, Two-Dimensional Flow>>
+... <<chapter-368-section-4, Dynamic Pressure>>
+... <<chapter-368-section-5, Airfoil Forces and Moments>>
+... <<chapter-368-section-6, Force and Moment Coefficients>>
+... <<chapter-368-section-7, Representative Force & Moment Coefficients>>
+... <<chapter-368-section-8, Lift Characteristics>>
+... <<chapter-368-section-9, Effect of Flaps>>
+... <<chapter-368-section-10, Drag Characteristics>>
+... <<chapter-368-section-11, Drag Polars>>
+... <<chapter-368-section-12, Effects of Reynolds Number>>
+... <<chapter-368-section-13, Effects of Mach Number>>
+... <<chapter-368-section-14, Pitching Moments>>
+... <<chapter-368-section-15, Center of Pressure & Aerodynamic Center>>
+... <<chapter-368-section-16, Pressure & Shear Stress Coefficients>>
+... <<chapter-368-section-17, Integration of Pressures & Shear Stresses>>
+... <<chapter-368-section-18, Typical Pressure Distributions>>
+... <<chapter-368-section-19, Numerical Integration of Pressure>>
+... <<chapter-368-section-20, Supersonic Airfoils>>
+... <<chapter-368-section-21, Supercritical Airfoils>>
+... <<chapter-368-section-22, Inverse Airfoil Design and Shape Optimization>>
+... <<chapter-368-section-23, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/wing-shapes-and-nomenclature/[32. Wing Shapes & Nomenclature]
+
+... <<chapter-300-section-1, Introduction>>
+... <<chapter-300-section-2, Geometric Definition of a Wing>>
+... <<chapter-300-section-3, Calculation of Wing Area>>
+... <<chapter-300-section-4, Calculation of Aspect Ratio>>
+... <<chapter-300-section-5, Calculation of Mean Chords>>
+... <<chapter-300-section-6, Winglets>>
+... <<chapter-300-section-7, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/finite-wing-characteristics/[33. Aerodynamics of Finite Wings]
+
+... <<chapter-387-section-1, Introduction>>
+... <<chapter-387-section-2, Origin of Trailing Vortices>>
+... <<chapter-387-section-3, Effects of Trailing Vortices>>
+... <<chapter-387-section-4, Wing Force & Moment Coefficients>>
+... <<chapter-387-section-5, Drag Polar for a Finite Wing>>
+... <<chapter-387-section-6, Calculating the Lift & Drag on a Finite Wing>>
+... <<chapter-387-section-7, Drag Polar for an Airplane>>
+... <<chapter-387-section-8, Thrust Required for Flight>>
+... <<chapter-387-section-9, Generalization of the Airplane Drag Polar>>
+... <<chapter-387-section-10, Winglets>>
+... <<chapter-387-section-11, Effects of Compressibility & Wing Sweep>>
+... <<chapter-387-section-12, Examples of Airplane Drag Polars>>
+... <<chapter-387-section-13, Center of Pressure & Aerodynamic Center>>
+... <<chapter-387-section-14, Vortex Wake Upsets>>
+... <<chapter-387-section-15, Summary & Closure>>
+
+PART IX. Introduction to Airfoil & Wing Theory
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/potential-flows/[34. Potential Flows]
+
+... <<chapter-35452-section-1, Introduction>>
+... <<chapter-35452-section-2, History>>
+... <<chapter-35452-section-3, Definition of a Potential Flow>>
+... <<chapter-35452-section-4, Potential Flow Equation>>
+... <<chapter-35452-section-5, Velocity Potential & Stream Function>>
+... <<chapter-35452-section-6, Superposition of Elementary Flows>>
+... <<chapter-35452-section-7, Method of Images>>
+... <<chapter-35452-section-8, Three-Dimensional Potential Flow Around a Sphere>>
+... <<chapter-35452-section-9, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/thin-airfoil-theory/[35. Thin Airfoil Theory]
+
+... <<chapter-35455-section-1, Introduction>>
+... <<chapter-35455-section-2, History>>
+... <<chapter-35455-section-3, Thin Airfoil Assumption>>
+... <<chapter-35455-section-4, Force & Moment Conventions>>
+... <<chapter-35455-section-5, Theory of Vortex Sheets>>
+... <<chapter-35455-section-6, Thin Airfoil Theory>>
+... <<chapter-35455-section-7, Airfoil with a Flap>>
+... <<chapter-35455-section-8, Modeling Drag>>
+... <<chapter-35455-section-9, Inverse Airfoil Design>>
+... <<chapter-35455-section-10, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/lifting-line-theory/[36. Lifting Line Theory]
+
+... <<chapter-35459-section-1, Introduction>>
+... <<chapter-35459-section-2, History>>
+... <<chapter-35459-section-3, Helmholtz’s Vortex Theorems>>
+... <<chapter-35459-section-4, Theory of Vortex Lines>>
+... <<chapter-35459-section-5, Lifting Line Theory>>
+... <<chapter-35459-section-6, Numerical Solution to the Monoplane Wing Equation>>
+... <<chapter-35459-section-7, Wing Shape & Loading Distributions>>
+... <<chapter-35459-section-8, Induced Drag Reduction Using Winglets>>
+... <<chapter-35459-section-9, Biplane Wing Theory>>
+... <<chapter-35459-section-10, Note on Triplane Configurations>>
+... <<chapter-35459-section-11, Introduction to Lifting Surface Theory>>
+... <<chapter-35459-section-12, Summary & Closure>>
+
+PART X. Basis of Airplane Performance
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/airplane-equations-of-motion/[37. Airplane Equations of Motion]
+
+... <<chapter-439-section-1, Introduction>>
+... <<chapter-439-section-2, Assumptions>>
+... <<chapter-439-section-3, The Earth is Flat!>>
+... <<chapter-439-section-4, Curvilinear Flight in a Vertical Plane>>
+... <<chapter-439-section-5, Steady Climb>>
+... <<chapter-439-section-6, Straight & Level Flight>>
+... <<chapter-439-section-7, Pull-Up Maneuver>>
+... <<chapter-439-section-8, Turning Flight>>
+... <<chapter-439-section-9, Summary of the Equations of Motion>>
+... <<chapter-439-section-10, Limiting Airspeeds & Load Factors>>
+... <<chapter-439-section-11, Physiological Effects on Pilots>>
+... <<chapter-439-section-12, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/introduction-to-propulsion-systems/[38. Fundamentals of Propulsion Systems]
+
+... <<chapter-463-section-1, Introduction>>
+... <<chapter-463-section-2, Types of Propulsion Systems>>
+... <<chapter-463-section-3, Air-Breathing Propulsion Fundamentals>>
+... <<chapter-463-section-4, Rocket Propulsion Fundamentals>>
+... <<chapter-463-section-5, Electric Propulsion>>
+... <<chapter-463-section-6, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/determination-of-airspeed/[39. Airspeed Definitions & Measurement]
+
+... <<chapter-470-section-1, Introduction>>
+... <<chapter-470-section-2, Airspeed & Mach Number>>
+... <<chapter-470-section-3, Definitions of Airspeeds>>
+... <<chapter-470-section-4, Pitot-Static System>>
+... <<chapter-470-section-5, Airspeed Measurement at Higher Mach Numbers>>
+... <<chapter-470-section-6, Summary of Airspeed Definitions>>
+... <<chapter-470-section-7, Optical Airspeed Measurements>>
+... <<chapter-470-section-8, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/determination-of-altitude/[40. Altitude Definitions & Measurement]
+
+... <<chapter-474-section-1, Introduction>>
+... <<chapter-474-section-2, What is an Altimeter?>>
+... <<chapter-474-section-3, Review of ISA Pressure & Density Variations>>
+... <<chapter-474-section-4, Pressure Altitude>>
+... <<chapter-474-section-5, Density Altitude>>
+... <<chapter-474-section-6, Relating Density Altitude & Pressure Altitude>>
+... <<chapter-474-section-7, Measuring Outside Air Temperature>>
+... <<chapter-474-section-8, Practical Use of Density Altitude>>
+... <<chapter-474-section-9, Altimetry in the Stratosphere>>
+... <<chapter-474-section-10, Electronic Flight Displays (EFD)>>
+... <<chapter-474-section-11, Summary & Closure>>
+
+PART XI. Propulsion Systems
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/reciprocating-engine-propeller/[41. Piston Engines]
+
+... <<chapter-493-section-1, Introduction>>
+... <<chapter-493-section-2, Piston Engine Types>>
+... <<chapter-493-section-3, Principle of Operation>>
+... <<chapter-493-section-4, Effects on Power>>
+... <<chapter-493-section-5, Engine Performance Charts>>
+... <<chapter-493-section-6, Brake Specific Fuel Consumption (BSFC)>>
+... <<chapter-493-section-7, Fuel Types for Piston Aeroengines>>
+... <<chapter-493-section-8, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/propellers/[42. Aircraft Propellers]
+
+... <<chapter-33855-section-1, Introduction>>
+... <<chapter-33855-section-2, Propeller Fundamentals>>
+... <<chapter-33855-section-3, Momentum Theory of the Single Propeller>>
+... <<chapter-33855-section-4, Propeller Coefficients>>
+... <<chapter-33855-section-5, Momentum Theory of the Tandem Propeller>>
+... <<chapter-33855-section-6, General Propeller Performance>>
+... <<chapter-33855-section-7, Propeller Performance Charts>>
+... <<chapter-33855-section-8, Further Discussion of Propeller Performance>>
+... <<chapter-33855-section-9, Helical Tip Mach Number>>
+... <<chapter-33855-section-10, Speed Power Coefficient (Weick) Method>>
+... <<chapter-33855-section-11, Low Reynolds Number Propellers>>
+... <<chapter-33855-section-12, Selecting Propellers for a Drone>>
+... <<chapter-33855-section-13, Proprotors>>
+... <<chapter-33855-section-14, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/turbojet-engines/[43. Turbojet Engines]
+
+... <<chapter-504-section-1, Introduction>>
+... <<chapter-504-section-2, Design of a Turbojet>>
+... <<chapter-504-section-3, Operational Principle>>
+... <<chapter-504-section-4, Basis of Thrust Production>>
+... <<chapter-504-section-5, Thrust-Specific Fuel Consumption (TSFC)>>
+... <<chapter-504-section-6, Afterburning>>
+... <<chapter-504-section-7, Ramjets>>
+... <<chapter-504-section-8, Fuels for Turbojet Engines>>
+... <<chapter-504-section-9, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/turbofan-turboprop-engines/[44. Turbofan & Turboprop Engines]
+
+... <<chapter-515-section-1, Introduction>>
+... <<chapter-515-section-2, Design Characteristics of a Turbofan>>
+... <<chapter-515-section-3, Afterburning Turbofans>>
+... <<chapter-515-section-4, Design Characteristics of a Turboprop>>
+... <<chapter-515-section-5, Turboshaft Engines>>
+... <<chapter-515-section-6, Open Rotor Design>>
+... <<chapter-515-section-7, How Many Engines?>>
+... <<chapter-515-section-8, Differences in Fuels for Turbofans vs Turbojets>>
+... <<chapter-515-section-9, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/rocket-engines/[45. Rocket Engines]
+
+... <<chapter-20120-section-1, Introduction>>
+... <<chapter-20120-section-2, Rocket Propulsion Fundamentals>>
+... <<chapter-20120-section-3, Types of Rocket Engines>>
+... <<chapter-20120-section-4, High-Thrust Propulsion Systems>>
+... <<chapter-20120-section-5, Total Impulse & Specific Impulse>>
+... <<chapter-20120-section-6, More About Solid-Fuel Rockets>>
+... <<chapter-20120-section-7, Summary & Closure>>
+
+PART XII. Atmospheric Flight Performance
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/steady-level-flight-performance/[46. Steady Level-Flight Operations]
+
+... <<chapter-534-section-1, Introduction>>
+... <<chapter-534-section-2, Performance Characteristics of an Airplane>>
+... <<chapter-534-section-3, Jet-Propelled Airplane>>
+... <<chapter-534-section-4, Propeller-Driven Airplane>>
+... <<chapter-534-section-5, Drag Polar Estimation>>
+... <<chapter-534-section-6, Avian Flight>>
+... <<chapter-534-section-7, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/performance-envelopes/[47. Airplane Performance Envelopes]
+
+... <<chapter-553-section-1, Introduction>>
+... <<chapter-553-section-2, Flight Envelopes>>
+... <<chapter-553-section-3, Trimmed Flight>>
+... <<chapter-553-section-4, Stalling Airspeeds>>
+... <<chapter-553-section-5, Limiting (Maximum) Cruise Speeds>>
+... <<chapter-553-section-6, Supercritical Flows & Drag Rise>>
+... <<chapter-553-section-7, Reducing Compressibility Drag>>
+... <<chapter-553-section-8, Crescent Wing>>
+... <<chapter-553-section-9, Flight Ceilings>>
+... <<chapter-553-section-10, Representative Flight Envelopes>>
+... <<chapter-553-section-11, Other Possible Limiting Factors>>
+... <<chapter-553-section-12, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/takeoff-landing-performance/[48. Takeoff & Landing Performance]
+
+... <<chapter-595-section-1, Introduction>>
+... <<chapter-595-section-2, Takeoff Performance>>
+... <<chapter-595-section-3, Landing Performance>>
+... <<chapter-595-section-4, Physics of “Ground Effect”>>
+... <<chapter-595-section-5, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/flight-range-endurance/[49. Flight Range & Endurance]
+
+... <<chapter-563-section-1, Introduction>>
+... <<chapter-563-section-2, Fuel Flow & Specific Fuel Consumption>>
+... <<chapter-563-section-3, Fuel Flow Curves – Propeller Airplanes>>
+... <<chapter-563-section-4, Fuel Flow Curves – Jet Airplanes>>
+... <<chapter-563-section-5, Total Fuel Burn>>
+... <<chapter-563-section-6, Breguet Equations>>
+... <<chapter-563-section-7, Payload-Range & Endurance Charts>>
+... <<chapter-563-section-8, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/climbing-ceiling-gliding/[50. Climbing, Ceiling & Gliding]
+
+... <<chapter-576-section-1, Introduction>>
+... <<chapter-576-section-2, Steady Climbing Flight>>
+... <<chapter-576-section-3, Rate of Climb & Excess Power>>
+... <<chapter-576-section-4, Hodograph Method>>
+... <<chapter-576-section-5, Effects of Altitude>>
+... <<chapter-576-section-6, Determining Rates of Climb>>
+... <<chapter-576-section-7, Accelerated Climb>>
+... <<chapter-576-section-8, Time to Climb>>
+... <<chapter-576-section-9, Ceiling>>
+... <<chapter-576-section-10, Gliding Flight>>
+... <<chapter-576-section-11, Sailplanes & Gliders>>
+... <<chapter-576-section-12, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/maneuvers-gusts/[51. Flight Maneuvers & Gusts]
+
+... <<chapter-584-section-1, Introduction>>
+... <<chapter-584-section-2, Equations of Motion>>
+... <<chapter-584-section-3, Maneuvers in a Vertical Plane>>
+... <<chapter-584-section-4, Looping Maneuver>>
+... <<chapter-584-section-5, Zero-g Flight Maneuvers>>
+... <<chapter-584-section-6, Maneuvers in a Horizontal Plane>>
+... <<chapter-584-section-7, Airspeed-Load Factor Diagram>>
+... <<chapter-584-section-8, Gust-Induced Airloads>>
+... <<chapter-584-section-9, Summary & Closure>>
+
+PART XIII. Faster, Higher, & Into Space
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/flying-fast/[52. Supersonic & Hypersonic Flight]
+
+... <<chapter-660-section-1, Introduction++[++footnote++]++The author gratefully acknowledges his teacher, Professor Bryan Edward Richards. After graduating in 1960, Professor Richards joined the British Aircraft Corporation (BAC), where he contributed to the design of Concorde and its supersonic aerodynamics. He earned his Ph.D. in 1966 with research on hypersonic film cooling. He later became a professor at the Von Kármán Institute in Belgium, where he led research in hypersonic aerodynamics until 1979. He then served as the Mechan Chair of Aeronautics at the University of Glasgow, where he taught and conducted research in high-speed aerodynamics and computational fluid dynamics until his retirement in 2003.++[++/footnote++]++>>
+... <<chapter-660-section-2, History>>
+... <<chapter-660-section-3, Compression & Expansion in Supersonic Flow>>
+... <<chapter-660-section-4, Supersonic Airfoil Characteristics>>
+... <<chapter-660-section-5, Supersonic Finite Wings>>
+... <<chapter-660-section-6, Supersonic Delta Wings>>
+... <<chapter-660-section-7, Variable Sweep Supersonic Wing Designs>>
+... <<chapter-660-section-8, Engines for Supersonic Flight>>
+... <<chapter-660-section-9, Supersonic Transport (SST) Airplanes>>
+... <<chapter-660-section-10, Slender Delta Concept>>
+... <<chapter-660-section-11, Kinetic Heating>>
+... <<chapter-660-section-12, Sonic Booms>>
+... <<chapter-660-section-13, Any Future for SSTs?>>
+... <<chapter-660-section-14, Hypersonic Flight>>
+... <<chapter-660-section-15, Hypersonic Flow Modeling>>
+... <<chapter-660-section-16, Hypersonic Aircraft Design>>
+... <<chapter-660-section-17, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/rocket-performance/[53. Rockets & Launch Vehicle Performance]
+
+... <<chapter-20123-section-1, Introduction>>
+... <<chapter-20123-section-2, Types of Rockets>>
+... <<chapter-20123-section-3, Rocket Equation>>
+... <<chapter-20123-section-4, Launching into Orbit>>
+... <<chapter-20123-section-5, Steering a Rocket>>
+... <<chapter-20123-section-6, Staged Rocket Vehicles>>
+... <<chapter-20123-section-7, Burnout Conditions for Non-Vertical Launch>>
+... <<chapter-20123-section-8, Variable Thrust (Throttling) Conditions>>
+... <<chapter-20123-section-9, Missiles & Ballistics>>
+... <<chapter-20123-section-10, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/astronautics/[54. Astronautics, Space & Astrodynamics]
+
+... <<chapter-2448-section-1, Introduction++[++footnote++]++The author is indebted to his teacher, Professor Archie Roy, who inspired many generations of engineering students about astronomy, space, and the future possibilities of space flight. ++[++/footnote++]++>>
+... <<chapter-2448-section-2, Definition of Space>>
+... <<chapter-2448-section-3, What is Out There?>>
+... <<chapter-2448-section-4, Defining Space>>
+... <<chapter-2448-section-5, What is Astrodynamics?>>
+... <<chapter-2448-section-6, Getting into Space>>
+... <<chapter-2448-section-7, Gravitational Laws of Attraction>>
+... <<chapter-2448-section-8, Circular Orbits>>
+... <<chapter-2448-section-9, Orbit Equation>>
+... <<chapter-2448-section-10, Kepler’s Laws of Orbital Motion>>
+... <<chapter-2448-section-11, Determining the Mass of a Planet>>
+... <<chapter-2448-section-12, Orbital Energy>>
+... <<chapter-2448-section-13, Energy Considerations of Changing Orbits>>
+... <<chapter-2448-section-14, Hohmann Transfer Orbit>>
+... <<chapter-2448-section-15, Escape Velocity>>
+... <<chapter-2448-section-16, Gravity Assist & Velocity Gain>>
+... <<chapter-2448-section-17, Mission to Mars?>>
+... <<chapter-2448-section-18, Aerobraking>>
+... <<chapter-2448-section-19, Orbital Decay>>
+... <<chapter-2448-section-20, Atmospheric Re-entry>>
+... <<chapter-2448-section-21, Deep Space & Beyond>>
+... <<chapter-2448-section-22, What is a Black Hole?>>
+... <<chapter-2448-section-23, Theory of General Relativity>>
+... <<chapter-2448-section-24, Summary & Closure>>
+
+PART XIV. Advanced Topics
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/maximum-lift-stalling-spinning/[55. Stalling & Spinning]
+
+... <<chapter-618-section-1, Introduction>>
+... <<chapter-618-section-2, Stalling Airspeeds & Angles of Attack>>
+... <<chapter-618-section-3, General Flow Physics of Stall>>
+... <<chapter-618-section-4, Two-Dimensional Stall Characteristics>>
+... <<chapter-618-section-5, Three-Dimensional Stall>>
+... <<chapter-618-section-6, Importance of High-Lift Devices>>
+... <<chapter-618-section-7, Stall Control Devices>>
+... <<chapter-618-section-8, Spinning>>
+... <<chapter-618-section-9, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/aircraft-stability-control/[56. Aircraft Stability & Control]
+
+... <<chapter-635-section-1, Introduction++[++footnote++]++The author acknowledges his teacher, Arthur W. Babister. Dr. Babister was a flight dynamics engineer at the Blackburn Aircraft Company and contributed to designing the Buccaneer fighter bomber and the Beverly transport airplane. He became a professor of aeronautical engineering at the University of Glasgow in 1965. Using his well-known book, "Aircraft Dynamic Stability and Response," he taught countless student engineers the intricacies of flight dynamics, always appreciating that it was not the most straightforward subject to master. ++[++/footnote++]++>>
+... <<chapter-635-section-2, Forces & Moments of Flight>>
+... <<chapter-635-section-3, Stability Definitions>>
+... <<chapter-635-section-4, Trimmed Flight>>
+... <<chapter-635-section-5, Stability Derivatives>>
+... <<chapter-635-section-6, Longitudinal Static Stability>>
+... <<chapter-635-section-7, Dynamic Stability>>
+... <<chapter-635-section-8, Longitudinal (Pitch) Stability>>
+... <<chapter-635-section-9, Lateral (Roll) Stability>>
+... <<chapter-635-section-10, Directional Stability>>
+... <<chapter-635-section-11, Evaluating Stability & Control Characteristics>>
+... <<chapter-635-section-12, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/noise-of-flight-vehicles/[57. Acoustics of Flight Vehicles]
+
+... <<chapter-20398-section-1, Introduction++[++footnote++]++The author would like to acknowledge Professor James Baeder at the University of Maryland for allowing me to participate in his graduate course on acoustics.++[++/footnote++]++>>
+... <<chapter-20398-section-2, History of Aircraft Noise>>
+... <<chapter-20398-section-3, Introduction to Acoustics>>
+... <<chapter-20398-section-4, Sources of Airplane Noise>>
+... <<chapter-20398-section-5, Measuring Aircraft Noise>>
+... <<chapter-20398-section-6, Noise Propagation>>
+... <<chapter-20398-section-7, Helicopter Noise>>
+... <<chapter-20398-section-8, Noise Concerns for Military Aircraft>>
+... <<chapter-20398-section-9, UAV & Drone Noise>>
+... <<chapter-20398-section-10, Rocket Noise>>
+... <<chapter-20398-section-11, Internal Noise>>
+... <<chapter-20398-section-12, Aircraft Noise Mitigation & Control>>
+... <<chapter-20398-section-13, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/advanced-computational-methods/[58. Introduction to Advanced Computational Methods]
+
+... <<chapter-30478-section-1, Introduction>>
+... <<chapter-30478-section-2, Aerodynamics>>
+... <<chapter-30478-section-3, Rarefied Gas Flows>>
+... <<chapter-30478-section-4, Aerospace Structures>>
+... <<chapter-30478-section-5, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/unsteady-aerodynamics-flutter/[59. Unsteady Aerodynamics, Aeroelasticity, & Flutter]
+
+... <<chapter-37541-section-1, Introduction>>
+... <<chapter-37541-section-2, History>>
+... <<chapter-37541-section-3, Unsteady Airfoil Behavior>>
+... <<chapter-37541-section-4, Frequency Domain – Theodorsen’s Theory>>
+... <<chapter-37541-section-5, Time-Domain – The Indicial Response>>
+... <<chapter-37541-section-6, Aeroelastic Analysis>>
+... <<chapter-37541-section-7, Flutter Using FEM/CFD Coupling>>
+... <<chapter-37541-section-8, Flutter Occurrences in Practice>>
+... <<chapter-37541-section-9, Flight Control Reversal>>
+... <<chapter-37541-section-10, Dynamic Stall & Stall Flutter>>
+... <<chapter-37541-section-11, Buffeting & Buzzing>>
+... <<chapter-37541-section-12, Summary & Closure>>
+
+PART XV. Other Types of Flight Vehicles
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/gliders-sailplanes/[60. Gliders & Sailplanes]
+
+... <<chapter-14134-section-1, Introduction>>
+... <<chapter-14134-section-2, History>>
+... <<chapter-14134-section-3, Anatomy of Sailplanes>>
+... <<chapter-14134-section-4, Sailplane Aerodynamics>>
+... <<chapter-14134-section-5, Gliding Polars>>
+... <<chapter-14134-section-6, Airfoils for Sailplanes>>
+... <<chapter-14134-section-7, Hang Gliders>>
+... <<chapter-14134-section-8, Atmospheric Energy Sources for Soaring Flight>>
+... <<chapter-14134-section-9, So You Want to be A Glider Pilot?>>
+... <<chapter-14134-section-10, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/helicopters-vtol/[61. Helicopters & Vertical Flight]
+
+... <<chapter-4653-section-1, Introduction++[++footnote++]++The author is indebted to his teachers, Professor Alfred Gessow, who was an American pioneer in the field of helicopter aerodynamics and co-author of the book "Aerodynamics of the Helicopter," and F. John Perry, Chief Aerodynamicist for Westland Helicopters.++[++/footnote++]++>>
+... <<chapter-4653-section-2, History>>
+... <<chapter-4653-section-3, Helicopter Configurations>>
+... <<chapter-4653-section-4, Basis of Helicopter Flight>>
+... <<chapter-4653-section-5, Rotor Flow Environment>>
+... <<chapter-4653-section-6, Hovering Flight Analysis>>
+... <<chapter-4653-section-7, Axial Climbing & Descending Flight>>
+... <<chapter-4653-section-8, Hovering Coaxial Rotor>>
+... <<chapter-4653-section-9, Forward Flight Analysis>>
+... <<chapter-4653-section-10, Coaxial Rotor in Forward Flight>>
+... <<chapter-4653-section-11,  Controlling the Helicopter>>
+... <<chapter-4653-section-12, Autorotation>>
+... <<chapter-4653-section-13, Limitations of the Helicopter>>
+... <<chapter-4653-section-14, Future Helicopters?>>
+... <<chapter-4653-section-15, VTOL Jet-Thrust Airplanes>>
+... <<chapter-4653-section-16, Drones & eVTOL>>
+... <<chapter-4653-section-17, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/autogiros-and-gyroplanes/[62. Autogiros & Gyroplanes]
+
+... <<chapter-38496-section-1, Introduction>>
+... <<chapter-38496-section-2, History>>
+... <<chapter-38496-section-3, Autorotation as an Energy Balance>>
+... <<chapter-38496-section-4, Quantifying Autorotation>>
+... <<chapter-38496-section-5, Autorotation at the Blade Element Level>>
+... <<chapter-38496-section-6, Prerotating the Rotor>>
+... <<chapter-38496-section-7, Autogiros vs. Helicopters>>
+... <<chapter-38496-section-8, Airfoils for Autogiros>>
+... <<chapter-38496-section-9, Lagging Hinges>>
+... <<chapter-38496-section-10, Giving Better Control>>
+... <<chapter-38496-section-11, Jump and Towering Takeoffs>>
+... <<chapter-38496-section-12, Ground & Air Resonance>>
+... <<chapter-38496-section-13, The Demise of Autogiros>>
+... <<chapter-38496-section-14, Renaissance of the Gyroplane?>>
+... <<chapter-38496-section-15, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/lth/[63. Airships, Blimps, & Aerostats]
+
+... <<chapter-13311-section-1, Introduction>>
+... <<chapter-13311-section-2, History>>
+... <<chapter-13311-section-3, Anatomy of LTA Aircraft>>
+... <<chapter-13311-section-4, Buoyant (Lifting) Gases>>
+... <<chapter-13311-section-5,  Principle of Buoyancy>>
+... <<chapter-13311-section-6, Geometric Characteristics of Aerostats>>
+... <<chapter-13311-section-7, Aerostatic Trim>>
+... <<chapter-13311-section-8, Other Factors Affecting Performance>>
+... <<chapter-13311-section-9, Aerodynamic Effects>>
+... <<chapter-13311-section-10, Power Required for Flight>>
+... <<chapter-13311-section-11, Stability Characteristics>>
+... <<chapter-13311-section-12, Tethered Aerostats>>
+... <<chapter-13311-section-13, Airships of the Future?>>
+... <<chapter-13311-section-14, Regulatory Frameworks>>
+... <<chapter-13311-section-15, Airship Drones>>
+... <<chapter-13311-section-16, Environmental Considerations>>
+... <<chapter-13311-section-17, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/hovercraft/[64. Ground Effect Vehicles]
+
+... <<chapter-22570-section-1,  Introduction>>
+... <<chapter-22570-section-2, History>>
+... <<chapter-22570-section-3, Anatomy of GEVs>>
+... <<chapter-22570-section-4, Hovercraft Performance>>
+... <<chapter-22570-section-5, WIGE Vehicle Performance>>
+... <<chapter-22570-section-6, Summary & Closure>>
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/electric-aircraft/[65. Electrically-Powered Aircraft]
+
+... <<chapter-11182-section-1,  Introduction>>
+... <<chapter-11182-section-2, Why Electric Propulsion?>>
+... <<chapter-11182-section-3, Energy Density of Batteries>>
+... <<chapter-11182-section-4, Comparison with Fossil Fuels>>
+... <<chapter-11182-section-5, Considerations for Electric Propulsion>>
+... <<chapter-11182-section-6, Electric Motors>>
+... <<chapter-11182-section-7, Batteries>>
+... <<chapter-11182-section-8, Battery Concerns for Aviation>>
+... <<chapter-11182-section-9, Future of Battery Technology>>
+... <<chapter-11182-section-10, Power Chain Efficiency & Weights>>
+... <<chapter-11182-section-11, Net System Efficiency>>
+... <<chapter-11182-section-12, Aircraft Weight Considerations>>
+... <<chapter-11182-section-13, Flight Profiles & Missions>>
+... <<chapter-11182-section-14, Power Required for an Electric Aircraft>>
+... <<chapter-11182-section-15, Payload & Range of Electric Aircraft>>
+... <<chapter-11182-section-16, Hybrid-Electric Propulsion>>
+... <<chapter-11182-section-17, Solar-Electric Propulsion>>
+... <<chapter-11182-section-18, Electrifying a Turbofan?>>
+... <<chapter-11182-section-19, Assessing Costs>>
+... <<chapter-11182-section-20, Electrically-Powered VTOL Aircraft>>
+... <<chapter-11182-section-21, Regulation & Certification of Electric Aircraft>>
+... <<chapter-11182-section-22, Looking to the Future>>
+... <<chapter-11182-section-23, Small-Scale Electric Propulsion for UAVs>>
+... <<chapter-11182-section-24, Summary & Closure>>
+
+PART XVI. Worked Problems & Examples
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/worked-examples-introductory/[66. Worked Examples: Introductory]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/8103/[67. Worked Examples: Anatomy, Structures, & Regulations]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/worked-examples-hydrostatics/[68. Worked Examples: Fluid Properties & Hydrostatics]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/worked-examples-in-dimensional-analysis/[69. Worked Examples: Units, Conversion Factors & Dimensional Analysis]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/worked-examples-fluid-flows/[70. Worked Examples: Fluid Flows & Fluid Dynamics]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/worked-examples-bluff-body-flows/[71. Worked Examples: Bluff Body Flows]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/worked-examples-internal-flows/[72. Worked Examples: Internal Flows]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/worked-examples-airfoils-wings/[73. Worked Examples: Airfoils & Wings]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/worked-examples-propulsion/[74. Worked Examples: Propulsion Systems]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/worked-examples-aircraft-rockets/[75. Worked Examples: Airplane, Rocket, & Spacecraft Performance]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/back-matter/essential-formulae/[Essential Formulae]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/back-matter/media-attributions/[Media Attributions]
+
+.. <<back-matter-2091-section-1, Introductory>>
+.. <<back-matter-2091-section-2, Preparations>>
+.. <<back-matter-2091-section-3, Flight Vehicle Design>>
+.. <<back-matter-2091-section-4, Fluid Properties & Hydrostatics>>
+.. <<back-matter-2091-section-5, Introduction to Fluid Dynamics>>
+.. <<back-matter-2091-section-6, Models of Fluid Motion>>
+.. <<back-matter-2091-section-7, Other Types of Flow>>
+.. <<back-matter-2091-section-8, Airfoil & Wing Aerodynamics>>
+.. <<back-matter-2091-section-9, Basis of Airplane Performance>>
+.. <<back-matter-2091-section-10, Details of Propulsion Systems>>
+.. <<back-matter-2091-section-11, Atmospheric Flight Performance>>
+.. <<back-matter-2091-section-12, Advanced Topics>>
+.. <<back-matter-2091-section-13, Faster, Higher & Into Space>>
+.. <<back-matter-2091-section-14, Other Flight Vehicles>>
+.. <<back-matter-2091-section-15, Worked Examples>>
+
+
+== Book Description
+
+The overarching concept of this eTextbook is to give students a broad-based introduction to the aerospace field, emphasizing technical content while making the material attractive and digestible.  This eTextbook is structured and split into lessons centered around a 50-minute lecture period. Each lesson includes text content with detailed illustrations, application problems, a self-assessment quiz, and topics for further discussion. In addition, hyperlinks to additional resources are provided to support students who want to delve deeper into each topic. At the end of the eTextbook, there are many more worked examples and application problems for the student.  While many lessons will be covered entirely in the classroom by the instructor, in the interest of time, some lessons may be covered in less detail or other parts assigned for self-study. The more advanced topics at the end of this eTextbook are intended chiefly for self-study and to provide a primer for the continuing student on important technical subjects such as high-speed flight, stability and control, vertical flight, and space flight. This approach can help students build a stronger foundation for their future careers in aerospace engineering.
+
+
+Introduction to Aerospace Flight Vehicles Copyright © 2022–2025 by J. Gordon Leishman is licensed under a https://creativecommons.org/licenses/by-nc-nd/4.0/[Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License], except where otherwise noted.
+
+The eTextbook may contain links to external websites that are not provided or maintained by or in any way affiliated with the Author. The Author does not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites.
+
+Many figures and images in this book are under their own licenses. For details on specific images, see the https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/back-matter/media-attributions/[Media Attributions] at the end of the book.
+
+The information given by the eTextbook is for general guidance on matters of interest only. Even if the Author takes every precaution to ensure that the eTextbook’s content is current and accurate, errors can occur. Plus, given the changing nature of laws, rules, and regulations, there may be delays, omissions, or inaccuracies in the information contained in the eTextbook. The Author is not responsible for any errors or omissions or for the results obtained from using this information.
+
+The Author may use copyrighted material that the copyright owner has not explicitly authorized. The Author is making such material available for criticism, comment, news reporting, teaching, scholarship, or research. The Author believes this constitutes a “fair use” of any such copyrighted material as provided for in section 107 of the United States Copyright law. If You wish to use copyrighted material from the eTextbook for your own purposes that go beyond fair use, you must obtain permission from the copyright owner.
+
+The eTextbook may contain views and opinions that are those of the Author and do not necessarily reflect the official policy or position of any other author, agency, organization, or employer.
+
+Comments published by users are their sole responsibility, and the users will take full responsibility, liability, and blame for any libel or litigation that results from something written in or as a direct result of something written in a comment. The Author is not liable for any comment published by users and reserves the right to delete any comment for any reason whatsoever.
+
+The information on the Author is provided with the understanding that the Author is not here to help render legal, accounting, tax, or other professional advice. As such, it should not be used as a substitute for consultation with professional accounting, tax, legal, or other competent advisers.
+
+In no event shall the Author be liable for any special, incidental, indirect, or consequential damages whatsoever arising out of or in connection with your access or use or inability to access or use the eTextbook
+
+All information in the eTextbook is provided “as is, “with no guarantee of completeness, accuracy, timeliness, or of the results obtained from the use of this information, and without warranty of any kind, express or implied, including, but not limited to warranties of performance, merchantability, and fitness for a particular purpose.
+
+The Author will not be liable to You or anyone else for any decision made or action taken in reliance on the information given by the eTextbook or for any consequential, special, or similar damages, even if you think about the possibility of such damages.
+
+If you have any questions, You can contact:
+
+  • By email: Leishman_ebook@erau.edu
+  • By visiting this page: https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/front-matter/4811/
+  • By phone number: 386.481.9087
+  • By mail: 1 Aerospace Boulevard Daytona Beach, FL 32114
+
+Primary Subject:: Aerospace and aviation technology
+       Publisher:: Embry-Riddle Aeronautical University
+  Publisher City:: Daytona Beach, Florida
+Publication Date:: January 1, 2023
+Digital Object Identifier (DOI):: https://doi.org/10.15394/eaglepub.2022.1066
+Ebook ISBN:: 979-8-9852614-0-0
+
+
+== Welcome!
+
+
+=== Introduction to Aerospace Flight Vehicles
+
+January 2025 Release
+
+This ebook provides a comprehensive introduction to aerospace engineering, covering various topics in an interactive and engaging format. It uses evidence-based teaching practices such as scaffolded learning to help students and other interested individuals understand and apply the material to multiple problems. The ebook includes detailed text and illustrations, worked examples, self-assessment quizzes, and opportunities for further discussion in and out of the classroom. Hyperlinks to additional resources are also provided for those who want to explore the topics further. It concludes with many worked examples and application problems to reinforce the covered technical concepts.
+
+=== LICENSE
+
+Introduction to Aerospace Flight Vehicles  ISBN 979-8-9852614-0-0  © 2022–2025 by J. Gordon Leishman is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, except where otherwise noted. Other content may be included based on fair use. Fair use is permitted by copyright statute – the Copyright Disclaimer under Section 107 of the Copyright Act of 1976 states that the fair use allowance is made for teaching, scholarship, and research. This free, open-access educational resource is available to all students at universities, colleges, and schools and everyone interested in the content. Individuals can use any content, including text and figures, in any other application. Please cite the source as “Introduction to Aerospace Flight Vehicles” by J. Gordon Leishman under the terms of a Creative Commons, non-commercial, and non-derivative (CC NC, CC BY-NC) license and/or by citation to an individual chapter or figure. For questions, comments, suggestions, dialog, advice, teaching resources, etc., please contact the author via email at LeishmanEbook@gmail.com
+
+
+== Using a Pressbooks eBook
+
+Welcome to the world of electronic textbooks, often called etextbooks, ebooks, or webbooks! This particular ebook has been created using the https://pressbooks.com[Pressbooks] platform, which fully supports the Open Educational Resources (OER) endevor and Creative Commons (CC) licensing. If this is your first time using a Pressbooks ebook, this chapter will provide some basic information on navigation, download options, and special features in this particular ebook.
+
+[[front-matter-19-section-1]]
+=== Basic Navigation
+
+There are multiple ways to navigate through an ebook, either from the main title page or within the ebook itself. You do not have to register or have login credentials to use an ebook! Starting from the title page, you can read the ebook on page 1 using the “Read Book” button. This is like opening a physical book to the first page! You can also scroll down to see all the ebook’s contents and go directly into any section or chapter by clicking on the chapter or section title. Some chapters may have a “lock symbol” next to them, indicating they are not publicly visible on the internet or password-protected; e.g., they may be designated for ERAU class use only. If you think you should have access to the content and do not, then you should contact mailto:leishmaj@erau.edu[Dr. J. Gordon Leishman] for more information about how to proceed or to gain access.
+
+Once inside an ebook, you have a few other options for navigation. You can return to the title page by selecting the ebook’s title or see all book contents using the “Contents” drop-down in the upper left corner. For example, clicking on any chapter or section title on the title page will take you to that part of the ebook. Finally, you can use the navigation bar at the bottom of the page to move forward and backward in the ebook (like reading a physical book in order).
+
+Sections with the header or subhead in RED are suitable for more advanced students. For students taking AE201 at ERAU, these parts are separate from the formal course material and from an examination perspective. However, all students should still pay attention to the content because it will likely give a broadened perspective on the course material.
+
+
+[[front-matter-19-section-2]]
+=== Download Options
+
+This ebook may be available to download in various formats, such as a .pdf for offline reading or other uses. You can return to the ebook’s title page to see what formats are available for download. In addition, download options will be available in a drop-down under the ebook’s cover image. Some interactive features are only visible in web-enabled versions of this ebook. Therefore, components removed in offline formats should be replaced with a warning and link to the online-only content.
+
+[[front-matter-19-section-3]]
+=== Search Feature
+
+Above the ebook’s title will be a search box with a magnifying glass symbol or a menu button that looks like three parallel lines in the upper right of the ebook. The search function will be available if you open the drop-down menu. This then gives a full-text search of the ebook and will return the chapters where the word appears. Put the term in quotations if you need to find a specific phrase. For example, “lift capability” will search for the phrase rather than the words “lift” and “capability” separately.
+
+[[front-matter-19-section-4]]
+=== Special Features in this ebook
+
+This ebook includes unique features that only work, or work best, within the ebook version.
+
+•  Links: This ebook has been enhanced with links to other web pages and resources. These are designed to enrich your learning of the material and provide additional content. Generally, additional content outside this ebook is not owned or maintained by ERAU, the ebook author, or your instructor.
+
+•  H5P Activities: This ebook includes interactive quizzes using the H5P software package. They are only available in the ebook version.
+
+[[front-matter-19-section-5]]
+=== Errors & Corrections
+
+Because this is an ebook, it is possible to quickly address any errors that may have arisen after publication. If you have any corrections to suggest, please submit them to LeishmanEbook@gmail.com. Such errors may include:
+
+. A typographical error.
+. A broken URL link.
+. Needed addition(s), such as for clarification or deeper learning.
+. Factual inaccuracy in content.
+. Incorrect calculation or solution.
+. General/pedagogical suggestion or question.
+
+[[front-matter-19-section-6]]
+=== Copyrighted Content
+
+This ebook contains copyrighted material that the copyright owners may not have specifically authorized. In all good faith, the ebook author, J. Gordon Leishman, believes that reusing these materials constitutes academic “fair use” as described in https://www.copyright.gov/title17/92chap1.html#107[Section 107 of the Copyright Act]. Users of this ebook who wish to use any copyrighted material beyond that authorized by the fair use doctrine for academic purposes must refer to and obtain permission from the copyright owner(s) of the original content. Unless noted otherwise, all figures used in the text are the intellectual property of J. Gordon Leishman and are licensed for use by others under a https://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International] license.
+
+== Proemium
+
+Preparing students for courses in aerospace engineering has many challenges. The depth and breadth of material that prospective aerospace engineers are expected to know as they enter the workplace has grown substantially in recent decades. Therefore, designing an introductory course that provides a strong foundation and prepares students for further study and future careers in the industry is essential. Furthermore, the emphasis on life-long learning has never been more critical.
+
+Over the decades, many discussions and debates have been about what course material constitutes a thorough introduction to the subject matter relevant to aeronautical and aerospace engineering. Many possible answers have been given, including by distinguished academics, and many applicable and valuable books have been written. However, it still seems that nobody knows how to teach engineering, and everyone else thinks that each new engineering book or revised course is no better than the previous one; _Plerosque discipulos aliquando satisfactory potes, sed nanomoles discipulos semper satisfactory potes_.
+
+Interestingly, the modern industry’s perspective differs somewhat from academia’s, as the industry emphasizes the need for more practical skills such as programming and computer-aided design. However, it is unarguable that the root requirement for success as an engineer is a solid grounding in all fundamental technical principles, including core subjects such as mathematics, physics, and chemistry. Striving for a good balance between theory and practical skills is crucial for a successful aerospace engineer; one must support the other. This balance fosters engineering innovation, critical thinking, and the ability to tackle new challenges effectively. This approach can also help students build a stronger foundation, enabling them to excel in their future studies and careers.
+
+This ebook (or webbook) was initially written for AE201 Aerospace Flight Vehicles students at Embry-Riddle Aeronautical University (ERAU) in Daytona Beach, Florida. It is a resource for ERAU students, students at other colleges and universities, and anyone who might be interested and find it helpful. It is freely distributed worldwide under a Creative Commons, non-commercial, and non-derivative (CC NC, CC BY-NC) license. By being freely accessible and distributed, it has the potential to reach a wider audience and provide educational opportunities for those who might not otherwise have access to such resources. This CC NC, CC BY-NC license also ensures that the core material will remain unaltered and available for future generations to use and build upon rather than to modify it based on their self-predilections or to commercialize it for corporate or personal profit, all severe failings of the modern world.
+
+The AE201 course was first introduced into the Aerospace Engineering program at ERAU in Fall 2017. This new course was designed to cover, at an introductory level, a broad range of fundamental technical topics relevant to aerospace engineering. The course was also intended to bring aerospace topics into the 4-year aerospace program earlier and cover essential prerequisites for later studies. Based on student and faculty feedback, the success of this course has been remarkable, indicating that it has effectively fulfilled its intended purpose. Students have benefitted from the early exposure to aerospace topics, allowing them to comprehensively understand critical concepts and principles. It has better prepared them for the rigors of an aerospace engineering curriculum.
+
+The first part of this ebook is structured and split into lessons centered around a 1-hour lecture period. Individual instructors will inevitably choose more specific content aligned with their own syllabus – covering all the content in one lecture will not be possible. Still, students will have an opportunity to read further or be assigned content for self-study. Students eventually realize that self-learning is essential and that relying solely on classroom instruction is necessary but insufficient for long-term success. The ebook has an attractive, interactive design that promotes evidence-based teaching practices such as scaffolded learning.
+
+Each lesson includes text content with detailed illustrations, application problems, a self-assessment quiz, and topics for further discussion inside or outside the classroom. In addition, hyperlinks to additional resources are provided to support students who want to delve deeper into each topic. At the end of the ebook, there are many more worked examples and application problems for the student, mostly all former homework or exam questions.
+
+The overarching concept of this ebook is to give students a broad-based introduction to the aerospace field, emphasizing technical content while making the material attractive and digestible. The latter parts of this ebook are intended chiefly for self-study and to provide a primer for the continuing student on other important technical topics in aerospace engineering.
+
+Join me on the https://www.facebook.com/groups/377533484812061[Facebook page] with your questions and comments!
+
+Much success and best wishes in your future studies!
+
+**J. Gordon Leishman**, D.Sc.(Eng.), Ph.D., F.R.Ae.S. +
+Distinguished Professor of Aerospace Engineering, ERAU, Daytona Beach, FL. +
+Professor Emeritus of Aerospace Engineering, University of Maryland, College Park, MD.
+
+Contact the author via email at LeishmanEbook@gmail.com.
+
+
+
+
+== Foreword by Dr. Mark J. Lewis
+
+Airplanes and spacecraft are genuinely wonderful machines. They use the energy contained in chemical bonds and other sources to overcome the relentless pull of gravity. In doing so, aerospace vehicles have shaped our modern world practically and profoundly.
+
+Aerospace engineers have designed and built flight vehicles that can ship cargo or people between any two places on Earth in a matter of hours. They have devised machines that can deliver patients to hospital emergency rooms faster than any other means, and they have enabled humans to walk on the moon and peer into the farthest reaches of our universe. Aerospace engineers have changed the nature of warfare, but they have also enabled worldwide communications, weather monitoring, and global navigation in ways that previous generations could never have fathomed.
+
+As Professor J. Gordon Leishman describes in the following digital pages, the field of aerospace engineering includes many subdisciplines, all with the goal of designing, building, and operating flight vehicles. Those flight vehicles can be as large as a Saturn V moon rocket, an 800-passenger jetliner, or as small as a pocket-sized uncrewed aerial vehicle. They can hover like helicopters at zero relative velocity over a fixed point or fly at many times the speed of sound in the realm of supersonic and hypersonic flight. A successful aerospace engineering student thus has to master a wide range of topics, building on the foundations of advanced mathematics, chemistry, and physics, including the more applied topics of fluid dynamics, structures, propulsion, and control. Professor Leishman’s text is an excellent starting point for the beginning of that educational journey.
+
+_Introduction to Aerospace Flight Vehicles_ provides a broad overview of the technical aspects of flight vehicles while also mapping out what a beginning student should expect to encounter in the course of their studies and their careers beyond. In the following pages, you will understand the various parts and subsystems that go into an aerospace vehicle, and how such vehicles are characterized, and how their performance is described. Other topics include the mathematical skills required to be a successful aerospace engineer, professional conduct and ethical responsibilities, and an overview of the history of flight. Along the way, Professor Leishman discusses job opportunities available for an individual with an aerospace education, including how aerospace engineers can apply their skills to other related fields.
+
+Professor J. Gordon Leishman, one of the world’s leading aerodynamicists, is the author of this ebook. His research has significantly advanced our understanding of the field. But beyond his academic achievements, he is also an acclaimed educator and pilot, bringing a unique perspective to the study of aerospace engineering. As you read through the pages of this ebook, you will not only gain a deeper understanding of the science and engineering concepts behind aerospace vehicles but also share in Professor Leishman’s passion and wonder for all things related to flight.
+
+*Dr. Mark J. Lewis* +
+President & CEO +
+Purdue Applied Research Institute LLC
+
+Mark J. Lewis is a senior aerospace and defense executive with particular expertise in hypersonics. At the Massachusetts Institute of Technology, Mark Lewis received two Bachelor of Science degrees (in Aeronautics and Astronautics and Earth and Planetary Science) and M.S and Sc.D. degrees in Aeronautics and Astronautics. He is an Honorary Fellow of the AIAA, a Fellow of the American Society of Mechanical Engineers, and a President’s Fellow of the Royal Aeronautical Society. He was named an Aerospace Laureate by the editors of Aviation Week and Space Technology. He was the acting U.S. Deputy Under Secretary of Defense for Research and Engineering and, before that, the Director of Defense Research and Engineering for Modernization. He was the Chief Scientist of the U.S. Air Force from 2004 to 2008. He has served as chief scientific adviser to the Chief of Staff and Secretary of the Air Force. Dr. Lewis was formerly the Willis Young Jr. Professor and Chair of the Department of Aerospace Engineering at the University of Maryland at College Park. He has also served as the president of the American Institute of Aeronautics and Astronautics (AIAA).
+
+
+== Preface to the 2025 Edition
+
+The continuing success of this ebook in 2024 is significant. Access statistics for 2024 show 356,537 unique visitors to the ebook (up by 226% over 2024) and over 667,000 unique page views (up by 117%). Over the last year, there was an average of 800 chapter views per hour, with over 6,000 chapter views per hour at peak times. Google “hits” to the ebook are at the top of the list. If this is not a success for an engineering book, I’m not sure what is.
+
+This 2025 release of the ebook has seen another round of updates and improvements, many of which originated from comments and suggestions made by ERAU students. This edition also includes numerous additions and some reformatting, including revised and new figures and many new worked examples/solved problems, which should help students better understand the material we teach them. A few chapters have been better organized regarding content and ordering, which should help both students and course instructors.
+
+The ebook’s additions for the 2025 edition include chapters on potential flows, airfoil, and wing theory, as well as some “advanced” content for graduate study including non-steady flows, viscous-dominated flows, as well as aeroelasticity and flutter.
+
+Suggestions for additions and improvements are always welcome.
+
+Much success and best wishes in your future studies!
+
+**J. Gordon Leishman** +
+Distinguished Professor of Aerospace Engineering, ERAU, Daytona Beach, FL. +
+Professor Emeritus of Aerospace Engineering, University of Maryland, College Park, MD.
+
+
+
+
+
+== Preface to the 2024 Edition
+
+The continuing success of this ebook during 2023, the second year of its release, has been quite remarkable. Student feedback has been overwhelmingly positive, and course adoptions from all over the world continue to increase. Access statistics for 2023 show 109,000 unique visitors to the ebook and over 310,000 unique page (chapter) views, a uniform increase of over 100% since 2022. Over the last year, there was an average of 70 chapter views per hour, with over 4,000 chapter views per hour at peak times.
+
+This 2024 release of the ebook has seen the inevitable round of typographical fixes and other corrections, with numerous updates and some reformatting, including revised and new figures. Some chapters have been better organized regarding content and order, which should help both students and instructors. Additions to the ebook for the 2024 edition include chapters on SI and USC units, unsteady flows, turbulent flows, acoustics and noise, astrodynamics and orbital mechanics, helicopters and VTOL, lighter-than-air (LTA) vehicles, gliders and sailplanes, electric aircraft, and ground-effect aircraft.
+
+Join me on the https://www.facebook.com/groups/377533484812061[Facebook page] with your questions and comments!
+
+Much success and best wishes in your future studies!
+
+**J. Gordon Leishman** +
+Distinguished Professor of Aerospace Engineering, ERAU, Daytona Beach, FL. +
+Professor Emeritus of Aerospace Engineering, University of Maryland, College Park, MD.
+
+
+
+
+
+== Attention! AE201 Students at ERAU
+
+Notice: Only a *portion* of this ebook is covered in AE201. Please refer to the list below for the chapters and topics generally covered. Within each chapter, the headings for specific topics may be highlighted in RED – although relevant content, these are NOT examinable topics in AE201.
+
+=== I Introductory
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/what-is-aerospace-engineering/[1. What is Aerospace Engineering?]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/history-of-aircraft-and-aviation/[2. History of Aircraft & Aviation]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/history-of-space-flight/[3. History of Rockets & Space Flight]
+
+=== II. Preparations
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/review-of-important-mathematics/[4. Mathematics for Engineering] (Not covered in class – review as needed.)
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/units-conversion-factors/[5. Units & Conversion Factors] (Covered continuously throughout the semester.)
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/ethics-professional-responsibilities/[6. Professional Responsibilities, Ethics, & Copyright] (Study on your own and follow along with the ethics scenarios discussed in class.)
+
+=== III. Design Aspects of Flight Vehicles
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/aircraft-classifications-aviation-regulations/[7. Aircraft Classifications & Regulations]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/anatomy-of-aircraft-and-spacecraft/[8. Anatomy of Aircraft & Spacecraft]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/aerospace-structures/[9. Aerospace Structures]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/aerospace-materials/[10. Aerospace Materials]
+
+=== IV. Fluid Properties & Hydrostatics
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/fundamental-properties-of-fluids/[11. Fundamental Properties of Fluids]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/fluid-statics/[12. Fluid Statics & the Hydrostatic Equation]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/international-standard-atmosphere-isa/[13. Atmospheric Properties]
+
+=== V. Introduction to Fluid Dynamics
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/types-of-fluid-flows/[14. Types of Fluid Flows]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/dimensional-analysis/[15. Dimensional Analysis]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/mach-number-and-reynolds-number/[16. Mach & Reynolds Numbers]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/dynamic-similarity/[17. Dynamic Similarity]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/problem-solving-and-mathematical-models/[18. Problem Solving & Modeling]
+
+=== VI. Modeling of Fluid Motion
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/equations-of-fluid-motion/[19. Equations of Fluid Motion]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/conservation-of-mass-continuity-equation/[20. Continuity Equation]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/conservation-of-momentum-momentum-equation/[21. Momentum Equation]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/conservation-of-energy-energy-equation-bernoullis-equation/[22. Energy Equation & Bernoulli’s Equation]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/applications-of-the-conservation-laws/[23. Applications of the Conservation Laws]
+
+=== VII. Other Types of Flows
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/introduction-to-boundary-layers/[24. Boundary Layer Flows]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/bluff-body-flows/[26. Bluff Body Flows]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/internal-flows/[27. Internal Flows]
+
+=== VIII. Airfoil & Wing Aerodynamics
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/airfoil-geometries/[30. Airfoil Shapes]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/airfoil-characteristics/[31. Aerodynamics of Airfoil Sections]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/wing-shapes-and-nomenclature/[32. Wing Shapes & Nomenclature]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/finite-wing-characteristics/[33. Aerodynamics of Finite Wings]
+
+=== IX. Basis of Airplane Performance
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/airplane-equations-of-motion/[37. Airplane Equations of Motion]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/introduction-to-propulsion-systems/[38. Fundamentals of Propulsion Systems]
+
+=== X. Propulsion Systems
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/reciprocating-engine-propeller/[41. Piston Engines]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/propellers/[42. Aircraft Propellers]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/turbojet-engines/[43. Turbojet Engines]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/turbofan-turboprop-engines/[44. Turbofan & Turboprop Engines]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/rocket-engines/[45. Rocket Engines]
+
+=== XI. Atmospheric Flight Performance
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/steady-level-flight-performance/[46. Steady Level-Flight Operations]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/performance-envelopes/[47. Performance Envelopes]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/flight-range-endurance/[49. Flight Range & Endurance]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/climbing-ceiling-gliding/[50. Climbing, Ceiling & Gliding]
+
+=== XII. Faster, Higher, & Into Space
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/rocket-performance/[53. Rockets & Launch Vehicle Performance]
+
+=== Worked Examples 
+
+This section contains many worked examples, most of which are either former exam questions or homework problems. Study them independently. Remember, you do not need dozens of examples to grasp a topic in AE201. Start by selecting one exemplar from a topic and focus on understanding the steps involved. Once you feel confident, choose another example and test yourself to ensure you can complete the steps successfully from start to finish.
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/worked-examples-introductory/[64. Worked Examples: Introductory]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/8103/[65. Worked Examples: Anatomy, Regulations & Structures]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/worked-examples-hydrostatics/[66. Worked Examples: Fluid Properties & Hydrostatics]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/worked-examples-in-dimensional-analysis/[67. Worked Examples: Units, Conversion Factors & Dimensional Analysis]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/worked-examples-fluid-flows/[68. Worked Examples: Fluid Flows & Fluid Dynamics]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/worked-examples-bluff-body-flows/[69. Worked Examples: Bluff Body Flows]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/worked-examples-internal-flows/[70. Worked Examples: Internal Flows]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/worked-examples-airfoils-wings/[71. Worked Examples: Airfoils & Wings]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/worked-examples-propulsion/[72. Worked Examples: Propulsion Systems]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/worked-examples-aircraft-rockets/[73. Worked Examples: Airplane, Rocket, & Spacecraft Performance]
+
+https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/back-matter/essential-formulae/[Essential Formulae]
+
+
+
+== Acknowledgements
+
+I would foremost like to thank the Hunt Library and the Center for Teaching and Learning Excellence (CTLE) at Embry-Riddle Aeronautical University (ERAU) for allowing me to participate in its Open Education Initiative (OEI). In particular, I would like to thank Cassandra Konz from the Hunt Library, who helped me with technical support and advice. She also had a team of students working in the background to review the content as it was developed and to keep the source content and attributions in close check. In addition, it is often said that you can’t teach old dogs new tricks, so I am very grateful to Dr. Claudia Cornejo Happel from CTLE for opening my eyes to how millennial students learn and how to use some new educational tools, some of which are included in this ebook. Finally, I would also like to thank my department chair, Dr. Tasos Lyrintzis, for his advice and continuous support and for reading and commenting on the initial drafts.
+
+Writing a book, especially one of this magnitude, doesn’t happen over a semester or even a summer. Indeed, it is a slowly converging process that takes many years. The origins of this ebook go back to 2018, the notes for which were fielded on students in a new introductory course, __Aerospace Flight Vehicle__s, which is course number AE201 at ERAU. I was unsure what to expect from the students, but the response was overwhelmingly good, their enthusiasm for all things aeronautical and space-related being infectious!
+
+One only truly understands technical material once you have to teach it to someone else. So, each time I teach the material in AE201, I learn something new or a better way to explain it. Students inevitably ask questions, forcing one to reexamine the material from different angles and also much more critically, so I am very grateful for their feedback. The advantage of having an ebook like this is instantaneous gratification in that edits, updates, and more lucid explanations can be applied immediately!
+
+Future students will continue their treasure hunt to find mistakes in their professor’s book. I have discovered that the eye and brain are an interesting combination, a great interpolator, filling in the gaps between what is there and what is not there with what it thinks should be there. I continue to be humbled by my students’ diligence, honesty, and accomplishments, proving that they read and learn in the process. Long may that continue!
+
+**J. Gordon Leishman** +
+Distinguished Professor of Aerospace Engineering, ERAU, Daytona Beach, FL. +
+Professor Emeritus of Aerospace Engineering, University of Maryland, College Park, MD.
+
+[[front-matter-12221-section-1]]
+== Editorial Acknowledgments
+
+This ebook was made possible by the Hunt Library and the Center for Teaching and Learning Excellence (CTLE) at Embry-Riddle Aeronautical University through its Open Education Initiative (OEI) to support student learning and reduce educational costs.
+
+*Editorial Team* +
+Editorial Team Lead / Project Manager: Cassandra Konz +
+CTLE Lead: Claudia Cornejo Happe +
+Cover Design: Olivia Ratliff
+
+*Special thanks to:* +
+Dr. Zheng Zhang +
+Dr. Tasos Lyrintzis +
+Dr. Ebenezer Gnanamanickam +
+Dr. Dhuree Seth +
+Nicholas Zhu +
+Patrick Downs
+
+
+
+== About the Author
+
+**J. Gordon Leishman**, B.Sc. (Hons.), Ph.D., D.Sc.(Eng.), F.R.Ae.S. is a Distinguished Professor of Aerospace Engineering at Embry-Riddle Aeronautical University (ERAU) in Daytona Beach, Florida. He is best known for his work on unsteady aerodynamics and has contributed to understanding rotorcraft and wind turbine aerodynamics. Dr. Leishman has written three books and has been recognized with numerous awards and honors for his work. At ERAU, Dr. Leishman teaches classes and performs research in aerodynamics and is Director Emeritus of the subsonic wind tunnel facility.
+
+[role="text-center"]
+image:https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/Leishman_tunnel-copy-2-scaled.jpg[Leishman,width=450,height=613]
+
+Dr. Leishman’s main areas of interest and expertise include unsteady aerodynamics, dynamic stall, aeroacoustics, two-phase fluid dynamics, advanced flow measurement methods and diagnostics, wind tunnel testing, and aircraft flight testing. Dr. Leishman was an aerodynamicist for Westland Helicopters in England from 1983 to 1986. He joined the University of Maryland faculty in 1986 and retired in 2014 as the Minta Martin Chair of Engineering after 28 years. He is Professor Emeritus in the Department of Aerospace Engineering at the University of Maryland.
+
+****
+NOTE: 利什曼博士的主要研究领域与专业方向包括「非定常空气动力学」、「动态失速」、「气动声学」、「两相流体动力学」、「先进流动测量」与「诊断技术」、「风洞试验」及「飞机飞行测试」。他于 1983 至 1986 年间在英国韦斯特兰直升机公司担任空气动力学家，1986 年加入马里兰大学教职，并于 2014 年以明塔·马丁工程学教授身份退休，任教长达 28 年。目前，他是马里兰大学航空航天工程系的荣誉退休教授。在同行评审期刊方面的工作也有成果。
+****
+
+Dr. Leishman has authored more than 300 technical papers and reports, with over 100 publications in peer-reviewed journals. He is ranked #25 out of 1165 prominent aerospace engineers for career impact in Elsevier’s elite top 2% list of the world’s scientists. Dr. Leishman has also advised over 100 students for their M.S. and Ph.D. degrees, many of whom now hold leadership positions in government and industry or faculty positions at other universities.
+
+Most of Dr. Leishman’s mathematical modeling techniques for helicopter rotor aerodynamics are widely used and have been incorporated into many helicopter and wind turbine design methodologies. In addition, his experimental measurements on rotor wakes, rotor blade tip vortices, and rotor/airframe interactions have also formed benchmark validation test cases for computational model validation. He was a contributing designer to the world’s first electric rotorcraft concept, the Agusta-Westland _Project Zero_, which flew successfully in 2011.
+
+Dr. Leishman is the author of three books: _Principles of Helicopter Aerodynamics_, published by Cambridge University Press in 2000 and its second edition in 2006, _The Helicopter –Thinking Forward, Looking Back_, published in 2009, and an ebook _Introduction to Aerospace Flight Vehicles_, first published in 2022.
+
+Dr. Leishman has consulted on technical and advisory committees, including NASA, DARPA, DoD, DoE, and GAO. He was the Editor-in-Chief of the _Journal of the American Helicopter Society_ from 2004 to 2007 and is currently an Associate Editor for the AIAA _Journal of Aircraft_. Dr. Leishman is a Member of ASEE, an Associate Fellow of the AIAA, a Technical Fellow of the American Helicopter Society, and a Fellow of the Royal Aeronautical Society.
+
+Dr. Leishman is a private pilot with ratings in airplanes and gliders and has over 1,600 hours of flight time. In gliding, he holds a Fédération Aéronautique Internationale (FAI) Gold Award with two diamonds. In his leisure time, he restores and rides vintage motorcycles over 50 years old and has 30 American and British motorcycles in his local collection in Florida, the oldest dating to 1911. He has received numerous national and regional awards for his Concours-standard motorcycle restorations.
+
+[role="text-center"]
+image:https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/JGLonBSAWM20-e1673486978726.jpg[JGLonBSAWM20,width=450,height=444]
+
+
+
+== 1 What is Aerospace Engineering?
+
+[[chapter-701-section-1]]
+=== Introduction
+
+The word __engineering __is derived from the Latin words _ingeniare_ (“to create, generate, contrive, devise”) and _ingenium _(“cleverness”). https://en.wikipedia.org/wiki/Aerospace_engineering[Aerospace engineering] is a field concerned with designing, constructing, testing, and operating all types of _flight vehicles_, including how they are propelled. Engineers in this field focus mainly on problems related to designing strong but lightweight vehicles that can achieve successful and efficient atmospheric or space flight.
+
+Aerospace engineering comprises two primary branches: aeronautical engineering (aeronautics) and astronautical engineering (astronautics). Aerospace engineers typically specialize in either field.
+
+* Aeronautical engineering or aeronautics is the field associated with designing and building https://en.wikipedia.org/wiki/Aircraft[atmospheric flight vehicles], i.e., aircraft that fly within the normal confines of the Earth’s atmosphere and are propelled by air-breathing engines.
+* Astronautical engineering or astronautics is the field associated with designing and building various types of https://en.wikipedia.org/wiki/Spacecraft[exo-atmospheric vehicles], i.e., rockets or other launch vehicles, missiles, satellites, and other spacecraft. These flight vehicles are designed primarily to fly beyond the limits of the Earth’s atmosphere or in outer space and are propelled by rocket engines, i.e., non-airbreathing engines.
+
+Learning Objectives
+
+* Understand some of the primary disciplines and activities pursued by engineers working in aeronautics and astronautics.
+* Know more about the myriad of multidisciplinary technical problems that aerospace engineers face.
+* Better appreciate some of the roles and responsibilities of an aerospace engineer.
+
+[[chapter-701-section-2]]
+=== So, You Want to Be an Aerospace Engineer?
+
+Newcomers must appreciate that aerospace engineering is a highly applied field focused on the practical aspects of designing, building, and operating flight vehicles. Aerospace engineers work on a broad range of technical tasks, including designing aircraft and spacecraft, selecting materials and propulsion systems, and testing and operating these vehicles. Goals in aerospace engineering also include making flight vehicles safer, more efficient, and more cost-effective.
+
+According to the https://www.bls.gov/oes/current/oes172011.htm[U.S. Bureau of Labor Statistics,] aerospace engineers with degrees or other professional qualifications are employed in many businesses and organizations, including private industry and government labs. In addition, aerospace engineers are performing a diverse range of engineering activities related to:
+
+* The design and construction of airframes, engines, and various aircraft or spacecraft products.
+* Other types of sub-component parts manufacturing.
+* Engineering services and other support services.
+* Research and development.
+* Government and military labs, e.g., at NASA, the Army, and the Air Force.
+
+Many practicing aerospace engineers transition into education and training roles, sharing their expertise with students and training the next generation of engineers. These engineers may also continue to conduct research and development work to advance the field and provide specialized training to graduate engineers to help them become future leaders in their respective fields. Through their career in academia and research, they help to ensure the continued growth and development of the aerospace industry.
+
+To successfully design any aircraft or spacecraft requires a detailed understanding of many fundamental engineering disciplines, which will include (but are not limited to):
+
+* Fluid dynamics and aerodynamics.
+* Propulsion systems, both air-breathing and rockets.
+* Structures, materials, structural dynamics, and aeroelasticity.
+* Electronics, electrical systems, and avionics.
+* Acoustics (noise), both external and internal.
+* Flight dynamics and flight control systems.
+* Orbital mechanics.
+* Software and software engineering.
+* Other things include economics, human factors engineering, safety matters, regulations, airworthiness, certification, etc.
+
+Therefore, it becomes immediately apparent that aerospace engineering is multifaceted, multidisciplinary, and interdisciplinary, and successful engineers must deeply understand many subjects. In this context, the term multi__disciplinary__ means that engineers work in many disciplines that involve aerospace problem-solving. The word _interdisciplinary_ means synergistically combining or applying several fields or specializations to solve these problems.
+
+Aeroelasticity is just one interdisciplinary subject important for all flight vehicles because their structures elastically deform under aerodynamic and inertial loads, i.e., the consideration of aerodynamic/structure interactions. Specifically, https://en.wikipedia.org/wiki/Aeroelasticity[flutter] is an example of undesirable aeroelastic behavior of lightweight and flexible elastic structures that must be avoided during airframe design. Similarly, acoustics is another interdisciplinary field relevant to flight vehicles. It involves the study of sound generation, propagation, and interaction originating from aerodynamic loads, which is critical in understanding noise control, passenger comfort, and structural responses in aerospace systems.
+
+While it can be appreciated that aeronautical and astronautical engineers usually face different specific problems and design challenges (i.e., those associated with aircraft versus spacecraft), the two fields overlap considerably. This overlap arises because both specialties depend on a detailed understanding of the same fundamental engineering principles. Understanding these essential disciplines and using them effectively requires that aerospace engineers have a deep knowledge of physics, chemistry, mathematics, numerical methods, and computer programming. It also needs a good understanding of statics, mechanics, kinematics, fluid dynamics, acoustics, thermodynamics, materials, electronics, and other disciplines.
+
+Today, understanding computer languages such as MATLAB, C{plus}{plus}, FORTRAN, and https://www.python.org[Python] is essential for all aerospace engineers. In addition, routine engineering problem-solving often centers around computer programming and specialist software to display results and seek understanding, e.g., with the help of https://www.tecplot.com/[Tecplot], https://www.fieldviewcfd.com/[FieldView], etc.
+
+*What is the difference between MATLAB and FORTRAN?*
+
+MATLAB is a medium-level programming language with subroutine libraries and many built-in tools. Still, it is proprietary software, which significantly restricts the portability and sharing of the code. FORTRAN is a high-level programming language, and the compiler is open-source. Developing FORTRAN code may take a bit longer, but the final executable may be orders of magnitude faster than what is possible with MATLAB. Many production-level engineering codes use FORTRAN.
+
+[[chapter-701-section-3]]
+=== Roles of Aerospace Engineers
+
+Aerospace engineers have the training and skills to lead the development of new aircraft and spacecraft and improve their numerous sub-systems. The https://www.bls.gov/oes/current/oes172011.htm[U.S. Bureau of Labor Statistics] tells us that aerospace engineers “primarily design aircraft, spacecraft, satellites, and missiles.” Also, they test aircraft prototypes and their subsystems to ensure they function according to their design specifications. Aerospace engineers are usually considered to have the following roles and responsibilities:
+
+* Direct and coordinate the design, manufacture, and testing of all types of aircraft and spacecraft and their associated components and systems.
+* Determine through engineering analysis that the proposed projects will result in safe aircraft, spacecraft, and all associated parts.
+* Evaluate designs to ensure the products comply with sound engineering principles, customer requirements, regulations, and environmental challenges.
+* Conduct ground, flight, and wind tunnel testing of new designs.
+* Develop acceptance criteria for design methods, quality standards, sustainment after delivery, and completion deadlines.
+* Ensure that projects meet quality control and certification authority standards.
+* Inspect malfunctioning or damaged products to identify sources of in-service problems and possible airworthiness solutions.
+* Assess project proposals to determine if they are technically and financially feasible.
+* Lead and direct research to better understand and advance the field.
+
+An aerospace engineer’s role is much broader than just traditional engineering tasks. They may also be involved in consulting, education and teaching, management, legal and regulatory issues, and advising on future aerospace goals or long-term research strategies. The field is constantly evolving, and aerospace engineers may find themselves taking on a diverse range of responsibilities and opportunities.
+
+.This Boeing 787, shown here on the production line, is the culmination of multiple scientific and engineering disciplines and represents just one example of advancements in aeronautical technology.
+[#attachment_748]
+image::https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/787_production_line.jpg[JetStar Boeing 787 in final assembly.,width=550,height=367]
+
+The aerospace industry has evolved rapidly over the last century, with technological advances leading to the development of increasingly complex aerospace systems. Today’s aerospace systems must meet a broad range of demands, including customer specifications, operational requirements, and regulations. These systems can range from large airliners to small personal and autonomous aircraft, and they must be designed and manufactured to meet these demands while ensuring safety and reliability. The evolution of technology and customer needs drives continued innovation and growth in the aerospace industry.
+
+While autonomous or semi-autonomous drones, often called https://en.wikipedia.org/wiki/Unmanned_aerial_vehicle[Uncrewed Aerial Vehicles] or Unoccupied Aerial Vehicles (UAVs), still face many design and operational challenges, they will likely see widespread adoption in the coming decades. Aviation and space activities will still need many innovations and advances in engineering technologies to meet the growing requirements for more functional, efficient, and environmentally friendly flight vehicles.
+
+Aerospace engineers play a vital role in developing new technologies for aircraft and spacecraft. Still, they often work in teams with other types of engineers, such as mechanical and electrical engineers. After graduation, aerospace engineers may specialize in one or more sub-disciplines of the field, including aerodynamics, computational fluid dynamics, structural design, materials and metallurgy, performance, stability and control, flight control systems, propulsion systems, aeroelasticity, acoustics, wind tunnel testing, flight testing, non-destructive testing, and system integration. These specializations allow them to gain in-depth expertise in specific areas of aerospace engineering and contribute to developing new technologies and solutions that advance the field.
+
+Developing new flight vehicle designs requires a significant investment in testing and verification to ensure they meet or exceed certification requirements. Over-designing can be a considerable cost factor for companies, so aerospace engineers must balance the need for safety and reliability with cost considerations. Additionally, aerospace engineers can specialize in different types of aerospace products, such as commercial or military airplanes, helicopters or other rotorcraft, UAVs and drones, spacecraft such as launch vehicles and satellites, and engines or other propulsive power systems. This specialization allows them to gain in-depth knowledge and experience in a specific area of aerospace engineering, which can lead to more effective and efficient designs and innovations.
+
+.Wind tunnel testing is integral to improving the aerodynamics of existing flight vehicle designs and developing new ones for the future. This is a model of the Space Launch System (SLS) installed in a wind tunnel at NASA.
+[#attachment_8447]
+image::https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/acd17-0218-015-1024x672.jpg[https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/acd17-0218-015-1024x672,width=550,height=361]
+
+[[chapter-701-section-4]]
+=== Engineering Problem Solving
+
+Problem-solving is an essential skill for aerospace engineers. Aerospace engineers must be able to identify, formulate, and solve complex problems systematically and effectively. This requires a strong foundation in engineering fundamentals, mathematics, experimentation, and a deep understanding of the relevant rules and principles that can be applied to find a solution.
+
+Developing problem-solving skills is an integral part of an aerospace engineering education. Students can improve these skills by practicing and solving homework problems, working on projects, and completing assignments that require them to apply their knowledge and skills to real-world situations. They can hone their problem-solving abilities by continuously challenging themselves so they can become skilled and confident aerospace engineers.
+
+Sometimes, the problems engineers encounter are so new and different that they require https://en.wikipedia.org/wiki/Basic_research[fundamental] or https://www.linkedin.com/learning/ux-deep-dive-foundational-research/what-is-foundational-research-and-why-does-it-matter[foundational research], so they may only have a longer-term solution. Aerospace engineers must take a holistic and interdisciplinary approach to problem-solving. They must be able to consider not just the technical aspect of a problem but also the broader implications and trade-offs of their solutions. Practical oral and written communication skills are also critical in this field, as aerospace engineers often work in teams and must present their ideas and findings to technical and non-technical audiences alike. Furthermore, in today’s world, understanding the impact of any engineering solutions in a global, economic, environmental, and societal context is also needed. Not all engineering solutions may prove to be practical for these latter reasons.
+
+The complexity of modern aircraft and spacecraft requires the traditionally separate engineering disciplines to be more fully integrated during the design process to obtain a more optimized outcome, a process known as multihttps://en.wikipedia.org/wiki/Multidisciplinary_design_optimization[_disciplinary design_]. All new engineers must acquire a deeper and broader engineering background and be effective as part of an engineering problem-solving team.
+
+As aerospace technology continues to advance, the role of aerospace engineers will continue to evolve. In addition to developing new technologies, they will ensure that the systems they design are safe, efficient, and environmentally friendly. With a continued emphasis on interdisciplinary collaboration and the integration of technology and design, the future of aerospace engineering is bright and holds tremendous potential for innovation and progress. The aerospace industry will continue to require highly skilled and motivated engineers who can meet the ever-increasing challenges of designing and manufacturing the most advanced aircraft and spacecraft possible.
+
+[[chapter-701-section-5]]
+=== Aerodynamics: The Underpinning of Flight
+
+Aerodynamics is a crucial aspect of aerospace engineering and the foundation of all atmospheric flight. It deals with the motion of air and how it affects the performance of aircraft and other aerospace systems. The word “aerodynamics” is derived from the Greek words “aero,” meaning air, and “dynamis,” meaning the study of matter in motion. Aerodynamics plays a critical role in the design and optimization of aerospace vehicles.
+
+Aerodynamics is an important field for both aeronautical and astronautical engineers to learn. Aeronautical engineers focus on understanding the aerodynamic effects produced on objects moving through the air, such as wings and complete aircraft. In contrast, astronautical engineers concentrate on all aspects of propulsion, the dynamic loads produced on rockets, satellites, and spacecraft, and their guidance and control. However, astronautical engineers must also address aerodynamic issues during the spacecraft’s launch and re-entry phases. A thorough understanding of aerodynamics is essential for designing efficient, stable, and safe aerospace vehicles.
+
+More specifically, the types of problems encountered in the field of aerodynamics may include:
+
+* The prediction and measurement of aerodynamic forces on airfoils, wings, fuselages, engine nacelles, and entire airplanes. These types of problems are classified as external aerodynamics.
+* The prediction and measurement of the aerodynamic loads and kinetic heating on high-speed flight vehicles, ranging from supersonic and hypersonic aircraft to rockets, spacecraft, satellites, re-entry vehicles, as well as probes entering the atmospheres of other planets.
+* Determining the characteristics of flows moving through ducts, pipes, and channels, e.g., through hydraulic or pneumatic systems, or the flow conditions produced in wind tunnels. The preceding are examples of problems in internal aerodynamics.
+* Understanding and predicting flow properties into and inside rockets and air-breathing jet engines, such as calculating thrust values, pressures, temperatures, etc.
+
+https://eaglepubs.erau.edu/app/uploads/sites/4/2024/01/2560px-DLR_2007_A380_sim_hires.jpg[image:https://eaglepubs.erau.edu/app/uploads/sites/4/2024/01/2560px-DLR_2007_A380_sim_hires.jpg[https://eaglepubs.erau.edu/app/uploads/sites/4/2024/01/2560px-DLR++_++2007++_++A380++_++sim++_++hires,width=550,height=312]]
+
+[[chapter-701-section-6]]
+=== Propulsion Systems: The Power for Flight
+
+Propulsion involves studying the design and operation of propulsive systems, including air-breathing and rocket engines. All flight vehicles require a source of power to achieve flight. Aerospace engineers continuously strive to develop engines with greater thrust, power, and efficiency, making them more durable and reliable. Engineers also want to build as small and lightweight engines as possible, a goal that continues to provide many engineering challenges from both the design and manufacturing perspectives. So naturally, propulsion engineers must be well-versed in thermodynamics, fluid mechanics, combustion, heat transfer, dynamics and vibration, and materials science.
+
+Until the beginning of the 20th century, sustained, powered, heavier-than-air flight remained impossible because of the lack of suitable engines. The development of the internal combustion engine in the piston (or reciprocating) engine soon led to rapid advances in engines, including increases in their power-to-weight ratio, allowing them to be developed for aeronautical use. Developments in high-strength and high-temperature metals suitable for use in engines, as well as supercharging, soon led to improvements in reliability and power output, and better-performing aircraft followed quickly. Turbojet engine developments during WWII revolutionized aviation, allowing new aircraft to fly increasingly faster and higher.
+
+Propulsion systems for today’s aircraft have evolved significantly, even during the last two decades. Advanced turbofan engines produce massive amounts of thrust with excellent fuel efficiency. They can operate continuously for tens of thousands of flight hours at transonic Mach numbers, seven or more miles high, without mechanical problems.
+
+More specifically, the types of engineering problems encountered in the field of propulsion systems may include:
+
+* The design, development, and improvement of all types of air-breathing engines, such as new generations of piston engines, turbojets, turbofans, and turboprops.
+* Predicting the fluid dynamics of high-speed internal flows, including the effects of thermodynamics and the combustion processes associated with engine operations.
+* The design, testing, and manufacturing of engine components such as inlets, compressors, combustion chambers, turbine blades, and various types of nozzles.
+* Research into the use of new types of fuels, such as biofuels, hydrogen fuel cells, or hybrid fuel systems, and ways of improving an engine’s fuel efficiency.
+* The design of fans, nozzles, and other engine components to ensure efficiency and low external noise levels.
+* The design of electric propulsion systems, including lightweight, high-torque electric motors and advanced propellers with high propulsive efficiency and low noise.
+* Improvements in rocket propulsion systems, including solid rocket engines, liquid rocket engines, hybrid rockets, and possibly advanced nuclear propulsion systems.
+
+.The Pratt &​ Whitney Advanced Ducted Propulsor (ADP) engine is being tested in the large NASA Ames 40-by-80 ft low-speed wind tunnel. The engineers are aligning a laser light sheet for a flow visualization test.
+[#attachment_754]
+image::https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/1280px-Pratt__Whitney_Advanced_Ducted_Propulsor_engine_test-1024x799-1.jpeg[Pratt & Whitney Advanced Ducted Propulsor Engine Test,width=550,height=429]
+
+[[chapter-701-section-7]]
+=== Structures and Materials: Carrying the Loads
+
+In the field of structures and structural mechanics, aerospace engineers study the mechanical behavior of aircraft and spacecraft structures. Aerospace structures differ from other engineering structures because they need high strength and extreme lightness. To this end, aerospace engineers deal with thin-walled metallic structures made of aluminum and other lightweight metallic alloys, advanced composite materials, and perhaps various types of multifunctional or “smart” materials.
+
+Composite materials have the main advantage of tailoring their fibers in the direction of the load paths, allowing a structure to be built with a higher strength-to-weight ratio. Composite materials also have a much better fatigue life compared to metallic structures. A https://en.wikipedia.org/wiki/Multi-function_structure[multifunctional material] is a hybrid material with parts that can perform several functions, e.g., a load-carrying structure and energy storage ability, or load-carrying plus electrical or thermal conductivity. Multifunctional materials in aerospace applications offer better structural weight and volume efficiency.
+
+A thorough understanding of material properties and their limitations is essential for achieving the desired performance levels in aerospace flight structures. Both aeronautical and astronautical engineers need to be knowledgeable in the theory of structures and the characteristics of materials. They use advanced numerical methods such as the finite element method (FEM) to perform various computations and experiments on structures. They may also encounter practical implementation challenges with structural parts on aircraft and spacecraft. In this area of specialization, a thorough knowledge of material properties, structural analysis, and practical implementation is required to design and maintain safe and effective aerospace flight structures.
+
+.Structural analysis involves calculating stresses on component parts and complete aircraft, in this case, a finite-element method (FEM) analysis of the critical attachment points for an airplane’s wing spar.
+[#attachment_756]
+image::https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/Structures_icon_Replacement-1024x596-1.png[Diagram of critical attachment points of an airplane wing spar.,width=650,height=378]
+
+The types of problems encountered in the field of aerospace structures and structural mechanics may include the following:
+
+* The selection and characterization of advanced materials and material/structural design for new aircraft, spacecraft, and engine designs.
+* Understanding the material and structural stability under diverse loading conditions, particularly under combinations of high bending, torsion, and compression combined with aero-thermal loads, may require careful design optimization of the structure.
+* Developing methods to predict and understand structural dynamics and aeroelasticity, which deals with time-varying structural deformations and their interactions with aerodynamics, is essential for very light and potentially flexible aircraft.
+* The development of various shape-changing or morphing structures may use embedded actuators within the structure to progressively change its shape to meet the varying and diverse flight requirements. Deploying wing flaps for takeoff and landing is an excellent example of where the wing shape needs to be changed or morphed.
+* The development of structural health monitoring and management systems, where sensors and data processing algorithms are used to verify the integrity of critical flight structures, and indicate the actual locations of internal structural damage, such as fatigue cracks. The main advantage of health monitoring is that it gives ample warning of any impending mechanical or structural malfunction or failure.
+
+[[chapter-701-section-8]]
+=== Flight Dynamics & Control: Flying on Course
+
+The field of flight dynamics and control concerns the motion of all flight vehicles, whether in the atmosphere or space. Aerospace engineers specializing in atmospheric flight dynamics and control must have a solid multidisciplinary systems background and an in-depth understanding of aerodynamics. They use their expertise to design, analyze, and improve flight vehicles’ performance, stability, and safety. This field is crucial for ensuring flight vehicles can operate effectively and efficiently.
+
+Such engineers are often involved in developing advanced digital “fly-by-wire” flight control systems, as shown in the figure below, and they also require significant experience in computer programming and software engineering. Limiters can be included for “care-free” handling so that the pilot cannot inadvertently fly the aircraft outside its aerodynamic or structural flight envelopes. Measurements of aircraft motions during flight are essential to advancing and understanding this field. To this end, dynamics and control engineers are deeply involved in all aspects of flight testing, as well as certification/flight verification programs.
+
+.A fly-by-wire system for a fighter aircraft, where the pilot’s control inputs connect to a flight control computer that provides electrical signals to actuate the flight controls.
+[#attachment_5459]
+image::https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/Aircraft_FBW-1024x490.png[https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/Aircraft++_++FBW-1024x490,width=650,height=311]
+
+The types of problems and challenges encountered by engineers in the field of aerospace dynamics and control may include the following:
+
+* Understanding and predicting configuration effects on aerodynamics, performance, and stability, as well as predicting aircraft motions in response to different types of control inputs.
+* Estimating an aircraft’s flight dynamics characteristics and handling qualities from its estimated geometric and inertial properties is critical in developing flight simulators, especially before a new aircraft makes its first flight.
+* The analysis of the linear and nonlinear dynamic representations of all flight vehicles and the development of suitable flight control systems, stability augmentation systems, autopilots, etc.
+* Measure and evaluate aircraft handling qualities from flight testing and suggest improvements to the aircraft’s design and flight control systems.
+* The design and development of suitable control systems for spacecraft for guidance and navigation.
+
+[[chapter-701-section-9]]
+=== Systems Integration: Putting It All Together
+
+Testing is a crucial aspect of aerospace engineering, and both individual components and complete systems are tested to ensure their functionality and performance. System integration is the process of bringing together all sub-systems to work synergistically to achieve the system’s overall functionality. This approach requires extensive testing and failure analysis to guarantee the integrity of all components, including structural, mechanical, electrical, electronic, hydraulic, and other components that comprise the complete system. Testing and system integration play a vital role in ensuring the reliability and safety of aerospace systems, and aerospace engineers are responsible for designing and conducting these tests.
+
+Over the last three decades, aircraft and aerospace systems have become much more complicated, with sophisticated, co-dependent components. Consequently, the engineering design process now requires a complete “systems engineering” approach to testing, evaluation, qualification, and certification. The systems engineering discipline generally addresses the complex processes of ensuring engineering functionality, satisfying safety requirements, meeting costs and schedules, and solving reliability challenges.
+
+Aerospace systems integration is undoubtedly among the most challenging and demanding industry disciplines. System engineers typically have broad aerospace, mechanical, or electrical engineering backgrounds with many years of experience; they may or may not be subsystem specialists or experts. However, a common goal for these engineers is to evaluate aerospace components as part of a unified system, which may require a myriad of tests and other types of analysis, including fault tolerance, redundancy, etc., and assessing the risks associated with various types of component failures.
+
+.A proposed mission to another planet, such as the Moon or Mars, requires carefully integrating many individual engineering systems to work in totality. NASA’s Artemis program will lay the foundation for a sustained, long-term presence on the Moon.
+[#attachment_760]
+image::https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/surface-1024x576-1.jpeg[An illustration of NASA's Artemis Basecamp near the Moon's South Pole.,width=550,height=309]
+
+The specific problems and challenges encountered by aerospace systems engineers may include the following:
+
+* Defining methodologies, processes, and other tools to enable the successful definition, development, certification, implementation, and operation of co-dependent aerospace technology components and systems.
+* Managing and reducing risks associated with complex technology systems, identifying possible failure modes, and searching for the “unknown unknowns” are key to finding a cost-effective technology systems solution that can meet all design requirements.
+* Managing the “Risk-Cost-Safety” balance ensures the final system is fully validated and contains verified hardware and software components.
+* Ensuring all systems are adequately certified and meet airworthiness standards.
+* Monitoring, operating, and maintaining fielded systems, providing spares, monitoring for obsolescence management, and promoting long-term system safety.
+
+[[chapter-701-section-10]]
+=== Thinking Toward the Future
+
+The future of aerospace engineering offers many challenges and exciting opportunities for those pursuing careers in this field. As students begin to study their chosen field by taking courses in the fundamentals, they will also develop from their instructors a knowledge of contemporary issues and the methods being used to solve them.
+
+Key technical aeronautical thrusts for the future will be to continue to develop new technologies that further improve aerodynamic efficiencies, reduce airframe weight, lead to better fuel efficiency, and limit all types of pollution. Key astronautical thrusts will help to solve space exploration problems, such as revisiting the Moon, developing deep space capabilities, and improving human life support systems. Commercializing space activities by the private sector continues to show that innovative technology solutions can significantly reduce flight costs.
+
+The leading aerospace companies continue to invest in research facilities to develop new technologies that will lead to advancements in performance, reduced manufacturing costs, and improved competitive pricing for their aircraft and spacecraft. The aerospace industry’s future also lies in the better training and technical competency of its engineering workforce, which colleges and universities strive hard to provide in the education of their students. It is expected that the new graduates of the aerospace field will bring their vision and innovative ideas to make the advances in engineering needed for the future.
+
+==== Aerodynamics
+
+Aircraft organizations will continue to refine aircraft shapes to improve aerodynamic efficiency. They also research low-drag, smooth “laminar” flow wings, as well as active flow control technology to improve aerodynamic efficiency. In addition, a deeper understanding of the thin boundary layer on the aircraft’s surface may reduce skin friction drag and improve fuel efficiency. “Non-stick” wings are being investigated to prevent insects from accumulating on wings and help minimize the aircraft’s drag in regular service. More ambitious efforts, which are still at the basic research stage, include the morphing or “shapeshifting” of wings to optimize their aerodynamic performance over different parts of the flight envelope.
+
+.Future commercial aircraft may look quite different from today’s and include https://en.wikipedia.org/wiki/Blended_wing_body[blended-wing] concepts to achieve the lowest possible aerodynamic drag.
+[#attachment_767]
+image::https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/111206413_henriwerijflyingvflyingabovesea.jpg[Flying-V in flight, showing off a distinctive V-shaped aircraft design.,width=550,height=309]
+
+==== Composite Materials
+
+Large composite structural parts are now used for primary aircraft components such as tails, fuselages, wings, helicopter rotor blades, propellers, and the fan blades on jet engines, the latter being shown in the figure below. However, durability, reparability, longevity, and other issues with composites continue to pose challenges for engineers in the quest for ever stronger and lighter airframes. In addition, composite materials themselves are somewhat lighter than conventional metals. Still, the structures from which they are built can be tailored to be more structurally efficient for carrying the same loads.
+
+https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/2048px-Fan_blades_and_inlet_guide_vanes_of_GEnx-2B.jpg[image:https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/2048px-Fan_blades_and_inlet_guide_vanes_of_GEnx-2B-1024x768.jpg[https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/2048px-Fan++_++blades++_++and++_++inlet++_++guide++_++vanes++_++of++_++GEnx-2B-1024x768,width=550,height=413]]
+
+==== Supersonic Aircraft
+
+Government research labs and the aerospace industry have continued to push for developing new generations of supersonic transport (SST) aircraft. NASA’s latest program calls for the design and flight testing of a new X-plane to support the development of future generations of SST. However, one main problem is the formation of “sonic booms” from aircraft flying supersonically, leading to a loud “boom-boom” sound. This startling type of noise is so intense that regulatory aviation authorities currently prohibit the flight of supersonic aircraft over land. That may change when engineers learn how to mitigate the sonic boom problem, for which significant inroads have already been achieved. Another problem is the kinetic heating of the airframe at supersonic speeds, which needs special considerations in the airframe design and the type of materials being used for its construction.
+
+.The appeal of vastly reduced traveling time for flights at supersonic speeds remains intriguing to engineers and passengers alike.
+[#attachment_762]
+image::https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/supersonic.jpg[Lockheed Martin's future quiet supersonic aircraft design.,width=550,height=413]
+
+==== Air-breathing Propulsion
+
+Jet engine design will also see changes in the future. Engine manufacturers already use additive manufacturing technologies (i.e., three-dimensional printing) to make more complex and intricate metal parts that go into an engine. Research and development will continue into hybrid-electric jet engines, making engines smaller, lighter, and more efficient. More fuel-efficient and “greener” (low pollution) propulsion systems continue to receive much interest from the aviation community. All types of internal combustion engines produce carbon dioxide, various kinds of small particulate matter, nitrous oxides, and other pollutants that can all have significant long-term effects on the atmosphere. Research and development efforts are underway to explore and implement sustainable aviation fuels (SAFs). These fuels are derived from renewable sources such as biofuels, hydrogen, and synthetic fuels. SAFs have the potential to significantly reduce carbon emissions compared to traditional jet fuels.
+
+==== Rocket Engines
+
+More powerful rocket engines with greater efficiency will continue to be developed, as well as with the use of alternative fuels. Traditional fuels, such as Rocket Propellant No. 1 or RP-1 (a type of densified kerosene) and liquid hydrogen, are being replaced by liquid methane or propane, which are attractive because of their excellent availability and performance. Methane and propane are also better for the environment and are easier to store than cryogenic liquid hydrogen. Liquid oxygen is generally used as the oxidizer for rocket engines. The SpaceX _Raptor_ rocket engine, for example, as shown below, uses methane and liquid oxygen and will be used in both stages of the two-stage-to-orbit, super heavy-lift launch vehicle called _Starship_.
+
+.The SpaceX Raptor is a methane-fueled rocket engine that will be used for future generations of launch vehicles.
+[#attachment_764]
+image::https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/1280px-Raptor-test-9-25-2016.jpg[SpaceX Raptor rocket engine test fire.,width=550,height=367]
+
+==== Unoccupied Aerial Vehicles
+
+An Unoccupied Aerial Vehicle (UAV), commonly known as a _drone_, is an aircraft without a human pilot, crew, or passengers. Unlike crewed aircraft, UAVs are often preferred for “dull, dirty, and dangerous” (D3) missions. As shown below, many are rotorcraft or S/VTOL capable of providing the required mission flexibility. While UAVs were initially developed for military applications, their use is rapidly expanding into many civil applications. This field will likely see significant growth in the coming decades.
+
+.A military MQ-8B Fire Scout UAV uses a turboshaft engine running on a combination of JP-5 aviation jet fuel and https://www.energy.gov/eere/bioenergy/biofuel-basics[biofuel].
+[#attachment_766]
+image::https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/US_Navy_110930-N-JQ696-401_An_MQ-8B_Fire_Scout_unmanned_aerial_vehicle_cropped-scaled-1.jpeg[MQ-8B Fire Scout uncrewed aerial vehicle flying on first uncrewed biofuel flight.,width=550,height=332]
+
+==== Noise
+
+Millions of people worldwide are affected by aircraft noise, especially those who live and work near airports. Most aircraft noise comes from their engines. Military aircraft (especially those using afterburners) can produce extremely high noise levels. The effects of aircraft noise can even cause vibrations in buildings and structures or disrupt various human activities.
+
+https://eaglepubs.erau.edu/app/uploads/sites/4/2023/12/Noise_CFDnoisepropagation.png[image:https://eaglepubs.erau.edu/app/uploads/sites/4/2023/12/Noise_CFDnoisepropagation.png[https://eaglepubs.erau.edu/app/uploads/sites/4/2023/12/Noise++_++CFDnoisepropagation,width=550,height=309]]
+
+While the noise levels produced by civil aircraft have been significantly reduced in recent years to meet increasingly stringent noise regulations, many technical issues remain to be solved to make future aircraft quieter. Advancements in aircraft design, including quieter engines and improved aerodynamics, help mitigate the noise impact on communities near airports. Noise is the main issue stifling major airport expansion or new construction; in the U.S., https://en.wikipedia.org/wiki/Denver_International_Airport[Denver International] has been the only major airport built in the last 40 years.
+
+==== Sustainability
+
+Sustainability is a much-used word in today’s aerospace industry, but what does it mean? Sustainability means following practices that can meet the needs of the present generation without compromising the needs of future generations. This responsible approach means following sustainable practices and considering the long-term impact on the environment, society, and the economy. Because aerospace is one of the most technologically advanced and resource-intensive industries, aerospace sustainability must continue to focus on minimizing the environmental impact of aircraft manufacturing, operations, and end-of-life disposal while continuing to address social and economic considerations.
+
+Aerospace organizations continue to develop environmental management systems to monitor and continuously improve their sustainability performance. These systems help identify areas of improvement, set targets, and ensure compliance with environmental regulations. Evaluating the environmental impact of aircraft throughout their life cycle is essential, and factors such as raw material manufacturing processes, operational efficiency, and end-of-life disposal must be considered. Aerospace companies increasingly focus on recycling materials, reducing waste generation during manufacturing processes, and implementing proper disposal methods for end-of-life aircraft components.
+
+*Sustainability for Students*
+
+Engineering students can significantly impact sustainability by adopting environmentally responsible practices and principles into their education and lifestyle. Students should gain a deeper understanding of the environmental challenges facing the aerospace industry and society. Studying topics like carbon emissions, noise pollution, and resource depletion, including aviation-related issues, is critical. Students should also learn about and advocate for integrating renewable energy sources into aviation, such as electric propulsion or alternative fuels like hydrogen and biofuels. Staying informed about environmental policies and regulations is essential for engineers joining the aerospace industry because these will become increasingly important issues in the decades to come. In the short term, students can learn about applying sustainability principles in their daily lives by reducing their carbon footprint through energy conservation and recycling plastics and other products. In particular, never drop batteries into the trash – put tape over the terminals and place the batteries in a recycling container at your institution or the nearest recycling station.
+
+[[chapter-701-section-11]]
+=== Being a Successful Engineer
+
+https://en.wikipedia.org/wiki/William_Rankine[William J. M. Rankine], known as Macquorn Rankine, was the first https://en.wikipedia.org/wiki/Regius_Professor_of_Civil_Engineering_and_Mechanics[Regius Professor of Civil Engineering and Mechanics] at the https://www.gla.ac.uk[University of Glasgow] from 1855 until 1872. He campaigned to have engineering recognized as a degree subject in its own right, the first Bachelor of Science (B.Sc.) degree in engineering in the world being awarded in 1876.  Professor Rankine, during a lecture in 1856 entitled “On the Science of the Engineer,” announced:
+
+____
+“_Let the young engineer then be convinced that the profession which he studies is not a mere profitable business, but a liberal and noble art, tending towards great and good ends, and that to strive to the utmost to perfect himself in that art, and in the sciences on which it depends, is not merely a matter of inclination or policy, but a sacred duty._“
+____
+
+==== Formula for Success
+
+Becoming a successful engineer takes hard work and lots of practice. It can perhaps be described by the following formula, after https://en.wikipedia.org/wiki/Patrick_Winston[Professor Winston] at MIT, i.e.,
+
+// image:https://eaglepubs.erau.edu/app/uploads/quicklatex/quicklatex.com-49adf0e3227b7d7ac119c495d48b9a4b_l3.svg[title="Rendered by QuickLaTeX.com",width=202,height=63]
+
+[stem]
+++++
+\huge
+S_\text{uccess} = T \int_\text{now}^\text{lifetime} ( K, P ) dt
+++++
+
+where one’s success, stem:[S_\text{uccess}], depends on the cumulative sum of one’s engineering knowledge, stem:[K], over time, stem:[t], the practice one undertakes with that knowledge, stem:[P], and one’s innate talent stem:[T]. While the formula above conceptualizes success, measuring it will involve many practical metrics tailored to individual goals and career aspirations. For example, obtaining a degree or a professional qualification can be viewed as one measure of success. Ultimately, however, measuring one’s success will often rest on the judgment of others.
+
+* Notice that the stem:[T] term in the foregoing formula is small because most people are not genetically predisposed to be engineers. However, many people who get this far will have some innate talent in math and the sciences. This term underscores that while natural aptitude is beneficial, it is not the most critical factor in achieving success. See: Richard Feynman – “link:https://www.youtube.com/watch?v=bAX27XRHMH8[I was an ordinary person who studied hard].” Feynman argues that there’s no such thing as talent; you can achieve whatever you want by working and studying hard. In this regard, stem:[T] should be outside the time integral.
+* Practice, represented by the stem:[P] term, starts in college or university with homework problems, where one begins to learn the exemplars of the field. Continued practice applying the fundamentals to new and more challenging problems refines skills, builds experience, and strengthens overall problem-solving abilities.
+* The acquisition of knowledge, represented by stem:[K], forms the theoretical foundation and technical expertise gained through education and learning. Continual learning over a lifetime is key because engineering fields are dynamic, with constant advancements and innovations.
+
+Therefore, a measure of a person’s success, however measured, is what they learn and what knowledge they acquire over time, stem:[t]. This journey starts now and will continue for the remainder of one’s career. Success is a marathon, not a sprint. To this end, what matters most is what one writes, how one speaks, and the overall quality of one’s work.link:#footnote-701-1[^++[1]++^]
+
+There is no one path to follow, but there are established steps to success that countless generations of engineers have followed.  To this end, some general goals are:
+
+* Start early: Build foundational knowledge and get comfortable with problem-solving.
+* Embrace lifelong learning: Keep up-to-date with advancements in one’s field.
+* Focus on communication: Writing, speaking, and presenting ideas effectively are crucial for career growth.
+* Quality of work: Consistently aim for excellence in all projects and endeavors.
+
+By embracing this formula and its components, success becomes not a goal but a journey fueled by curiosity, dedication, and a commitment to growth.
+
+==== Pyramid of Success
+
+The https://engineering.purdue.edu/ME/Undergraduate/PyramidOfSuccess[Pyramid of Success], shown in the figure below and advocated by Professor James D. Jones at Purdue University, suggests good practices for engineering students.
+
+https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/PyramidOfSuccessImage.png[image:https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/PyramidOfSuccessImage.png[https://eaglepubs.erau.edu/app/uploads/sites/4/2022/07/PyramidOfSuccessImage,width=675,height=521]]
+
+ERAU’s Dr. James Ladesic’s “Tenets of Success” for engineers is also important to follow; it applies equally to students taking courses and practicing engineers in the workplace. These tenets follow the general theme of the pyramid of success.
+
+*Dr. Ladesic’s Tenets of Success*
+
+. Volunteering for assignments.
+. Planning ahead.
+. Sharing workloads equitably.
+. Maintaining and projecting a positive attitude.
+. Working diligently.
+. Participating productively in group and class activities.
+. Responding to project demands in a timely fashion.
+. Behaving ethically.
+. Generally, take responsibility for yourself, your work, and your spoken and written statements in a professional engineering manner.
+
+==== Goal Setting
+
+Goal setting is also an essential part of professional development. An aerospace/aeronautical/astronautical engineer’s career goals might be the following.
+
+===== Shorter-Term Goals:
+
+. Gain hands-on experience in the aerospace industry by working as an engineer at a large aerospace company or a startup.
+. Develop expertise in a specific area of aerospace engineering, such as aerodynamics, structures, propulsion systems, or spacecraft design.
+. Attend industry conferences and events to network with other engineers and stay up-to-date on the latest developments in the field.
+. Participate in continuing education courses to expand knowledge and stay current with new technologies and best practices.
+
+===== Longer-Term Goals
+
+. Obtain an advanced degree in aerospace engineering, such as a Master’s or Ph.D., to increase expertise and improve career opportunities.
+. Work on high-profile aerospace projects, such as human spaceflight missions or developing new aircraft technologies.
+. Take a leadership role in an aerospace company, such as a team leader, project manager, or department head.
+. Contribute to developing new technologies and advancements by conducting research and publishing papers.
+
+==== Internships
+
+Internships offer aerospace engineering students many advantages, providing hands-on experience to apply theoretical knowledge in real-world contexts. Exposure to industry practices enhances understanding of classroom material, while skill development in CAD and CFD software prepares students for professional challenges. The networking opportunities foster connections with industry professionals, contributing to future job prospects and mentorship possibilities. Internships also help develop proactive attitudes and the ability to apply classroom knowledge. Additionally, they allow for career exploration, helping students discover specific interests within the broad field of aerospace engineering, and provide insights into industry trends, ensuring that they are well-prepared to enter the workplace when they graduate.
+
+==== Advanced Degrees
+
+Obtaining an advanced degree in aerospace engineering can offer significant advantages to an engineer’s career, including increased expertise, improved job opportunities, and the ability to take on more challenging and high-profile projects. Additionally, advanced degrees can open up opportunities for leadership and research positions, allowing engineers to contribute to the advancement of the field and shape the future of aerospace engineering. The decision to undertake the education and training for an advanced degree is difficult, but it is never too early to plan ahead.
+
+[[chapter-701-section-12]]
+=== Summary & Closure
+
+Aerospace engineering is a complex and interdisciplinary field that requires a comprehensive understanding of many core subjects. Aerospace engineers must continuously expand their knowledge and expertise to keep up with this evolving field. Engineers apply scientific and mathematical principles to tackle complex challenges and create innovative new designs and design improvements. The key aeronautical advancements include aerodynamic efficiency, airframe weight reduction, fuel efficiency, and reduced pollution. Recent developments have led to new aeronautical technologies like electric and hybrid propulsion systems.
+
+Aerospace engineering offers many opportunities for growth and innovation, making it an exciting career choice for those interested in this field. With increasing focus on space exploration, missions to revisit the Moon and perhaps even Mars are expected to accelerate. Moreover, commercializing space flight activities has shown that cost-effective technology solutions can enable much broader access to space. The field of astronautics is expected to be marked by numerous exciting new developments, increasing the understanding of the universe.
+
+5-Question Self-Assessment Quickquiz
+
+[[h5p-33]]
+
+For Further Thought or Discussion
+
+* Think more about how quickly aeronautical engineering has evolved in the last century. Where do you think the field of aeronautical engineering will be in another century? What types of new aircraft do you think will be flying then?
+* Human colonization of space remains a hugely ambitious goal. NASA’s return to the Moon has begun with its Artemis program. Make a list of some of the technical and other challenges in sending humans back to the moon, Mars, and perhaps even deep space. You may also explore the need for power generation, human life support systems, and resource management in the harsh Mars environment. Remember also that Mars is over 250 times farther away than the Moon.
+* How have competitions and monetary awards historically influenced the pace and direction of innovation in aviation, and what lessons can modern aerospace industries learn from these examples to foster future advancements?
+* Explore and discuss the engineering challenges and advancements in designing aircraft capable of supersonic and hypersonic speeds. Discuss potential applications, such as high-speed travel and military surveillance. How are such problems as “sonic booms” from supersonic flight vehicles being addressed?
+* Do some research and discuss the development of electric propulsion systems for aircraft. Explore the potential for electric aircraft to reduce environmental impact and increase efficiency. Why might the realization of electrically powered airliners traveling over large distances be decades away, if at all?
+* Discuss the impact of the COVID-19 pandemic on the aerospace and aviation industry. For example, the pandemic led to a significant decrease in the demand for air travel, resulting in grounded fleets of airliners. Lockdowns also disrupted global supply chains, affecting the production of aircraft and aerospace components.
+* Goal setting is an essential part of professional development. Think about your goals as a future aerospace engineer and where you might want to position yourself in the workforce five, ten, or even twenty years from now.
+* Aerospace engineers inevitably specialize in one field, such as aerodynamics, controls and flight mechanics, structures and materials, propulsion, etc. Think about what area of specialization might interest you the most and list the specific courses of study you believe are needed for that specialization.
+* Many aerospace employers prefer to recruit a fraction of new engineers with a Master’s degree or suggest that their engineers pursue online graduate courses. Consider some potential advantages and disadvantages of being in the workforce with an advanced degree. Hint: An advanced degree may not necessarily be in the engineering field.
+
+Other Useful Online Resources
+
+For more information on aerospace engineering and what aerospace engineers do:
+
+* https://www.youtube.com/watch?v=M6PTJptKZhI[Video] on “What is Aerospace Engineering?”
+* https://www.youtube.com/watch?v=JHfI5JbiWhE[Video] on “What is Aerospace Engineering (Aeronautics).
+* https://www.youtube.com/watch?v=qbsYELrhvks[Video] on “What is Aerospace Engineering (Astronautics).
+* Why, yes, actually, it is rocket science – watch these fun https://www.ted.com/playlists/492/why_yes_actually_it_is_rocket[TED videos]
+* The U.S. Bureau of Labor Statistics runs a good https://www.bls.gov/ooh/architecture-and-engineering/aerospace-engineers.htm[website] about the field of aerospace engineering.
+
+'''''
+
+. [#footnote-701-1]#Winston, Patrick Henry, _Make It Clear: Speak and Write to Persuade and Inform,_ The MIT Press, 2020. link:#return-footnote-701-1[↵]#
+

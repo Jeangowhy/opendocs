@@ -1,0 +1,45 @@
+// To include tagged region:
+// include::./header.adoc[tag=head-setting]
+
+// tag::head-setting[]
+:revnumber: 1.1
+// :reproducible:
+:source-highlighter: highlightjs
+:table-frame: none
+:table-grid: rows
+:table-stripes: odd
+:stem: latexmath
+:icons: font
+:experimental:
+:NB4:     
+:BR:  {empty} + \
+      {empty}
+:doctype: book
+:toc: auto
+:toclevels: 2
+:toc-title: TOC
+:chapter-number: 0
+// :sectnums: |,all|
+:part-signifier: Part
+:chapter-signifier: C.
+:chapter-refsig: Ch.
+:section-refsig: Sec.
+:appendix-refsig: App.
+:sectnumstart: 3
+[pass]
+++++
+<style>
+em { color: olive; font-size: 1.1em; }
+.listingblock.olive { color: olive; }
+pre {font-family: "FiraCode Nerd Font Mono", Consolas, monospace;}
+.hljs { background: #c5dbc2; }
+h1 {text-align:right; border-bottom: 7px solid #28885848;}
+h2 {text-align:right; border-bottom: 6px solid #28885848;}
+h3 {text-align:right; border-bottom: 5px solid #28885848;}
+h4 {text-align:right; border-bottom: 4px solid #28885848;}
+h5 {text-align:right; border-bottom: 3px solid #28885848;}
+h6 {text-align:right; border-bottom: 2px solid #28885848;}
+</style>
+++++
+// end::head-setting[]
+

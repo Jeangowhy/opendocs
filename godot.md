@@ -15,6 +15,16 @@ https://vdoc.pub/documents/how-games-move-us-emotion-by-design-6cmokovujao0
 Game Design Workshop : A Playcentric Approach To Creating Innovative Games 4th [PDF]
 https://vdoc.pub/download/game-design-workshop-a-playcentric-approach-to-creating-innovative-games-32v1pb3t0aag
 
+Game Development Patterns With Godot4
+https://github.com/PacktPublishing/Game-Development-Patterns-with-Godot-4
+https://pan.baidu.com/share/init?surl=V_5MeRIrxqOVnHJy6Kz89g&pwd=u59a
+
+The Essential Guide to Creating Multiplayer Games with Godot 4.0
+https://github.com/PacktPublishing/The-Essential-Guide-to-Creating-Multiplayer-Games-with-Godot-4.0
+
+Learning GDScript by Developing a Game with Godot 4, published by Packt
+https://github.com/PacktPublishing/Learning-GDScript-by-Developing-a-Game-with-Godot-4
+
 
 
 ## 🟡 各大平台游戏上架流程

@@ -2603,23 +2603,251 @@ Johnston和Thomas特别希望避免的一点是“双胞胎”：人物的左右
 即使广告打着零基础。那些声称速成的培训班想想都可怕，别人成年累月才能达到的成就，凭什么你可以速成？
 特别有些营销做的好的培训班或网络培训，不要看广告软文，看自己有多少基础，能学到什么。
 
+
+### 课程参考
+
 Glenn Vilppu Drawing Essentials 基础教程中的课程安排：
 
-    Week1 绘画基础：材料、线条和明度的基础
-    Week2 Drawing as a Tool
-    Week3 如何学习
-    Week4 观察
-    Week5 描绘并分析形体：结合调子和间接光源描绘形体
-    Week6 构建真实感：直接光源、阴影、反射光、投影
+• Week1 绘画基础：材料、线条和明度的基础  
+• Week2 Drawing as a Tool  
+• Week3 如何学习  
+• Week4 观察  
+• Week5 描绘并分析形体：结合调子和间接光源描绘形体  
+• Week6 构建真实感：直接光源、阴影、反射光、投影  
+
+绘画是脑子在作画，而不是手。更准确地说，是用右脑在作画。学习绘画的过程就是在训练右脑的过程。现代脑科学表明，大脑的左右半脑具有不同的主要功能，左脑主要处理语言、逻辑，右脑负责想象、创造。左右半脑通过胼胝体连接，胼胝体断裂或切开的病人称为裂脑人（Split-Brain Patients）。由于大脑连接肢体神经通路呈现“倒像”关系，通常左脑控制右半身、右脑控制左半身。裂脑人的视觉实验表明，左眼视觉信号只传输到右脑，右眼的视觉信号只传递到左脑，而正常人的视觉信号会交叉传递。裂脑人右眼看到 “Face” 单词时，其左脑可以正确发出指令，控制嘴巴读出来；反之，左眼看到“Face”单词，右脑可以发出指令，控制左手绘画出一张脸的图形。由于长久的学习，左脑记忆有对世界中各种物体的理解，这种记忆信息会在绘画时产生影响。比如端坐的人，正面看其大腿，由于视觉上的折叠关系，它看起来是比实际短的，但是左脑的理解是比小腿长一点点的，绘画时就会画出来特别长的大腿，远远长与视觉透视上正确的长度。要摆脱左脑的理性刻板影响，可以将参考画面倒转，或旋转到大脑不能识别的角度，再根据其轮廓合结构线绘画。Drawing on the Right Side of the Brain 一书强调了左右脑的这种训练。
+
+Drawing on the Right Side of the Brain - The Definitive edition by Betty Edwards
+​https://jonathanpaulwheeler.com/wp-content/uploads/2021/06/brains-and-drawing-theory.pdf
+
+DRAWING
+
+• Drawing is a global or "whole" skill requiring only a limited set of basic components.  
+• Once you have learned the components and have integrated them, you can draw  
+
+THEORY: The relationship of drawing to visual perceptual brain processes and to provide methods of accessing and controlling these processes.
+
+FIVE BASIC COMPONENT SKILLS OF DRAWING
+
+• 1: the perception of edges  
+• 2: the perception of spaces  
+• 3: the perception of relationships  
+• 4: the perception of lights and shadows  
+• 5: the perception of the whole, or gestalt  
+
+THE RIGHT AND LEFT BRAIN
+
+The two halves are called the "left hemisphere" and the "right hemisphere." The left hemisphere controls the right side of the body; the right hemisphere controls the left side.
+
+Most scientists agree that for a majority of individuals, information-processing based primarily on linear, sequential data is mainly located in the left hemisphere, while global, perceptual data is mainly processed in the right hemisphere. 
+
+LEFT DOMINATE BRAINS
+
+• Because speech and language are such vitally important human capabilities, nineteenth-century scientists named the left hemisphere the "dominant," "leading," or "major" hemisphere. Scientists named the right brain the "subordinate" or "minor" hemisphere. 
+
+• Tests provided surprising new evidence that each hemisphere, in a sense, perceives its own reality—or perhaps better stated, perceives reality in its own way. The verbal half of the brain—the left half—dominates most of the time in individuals with intact brains as well as in the split-brain patients.
+
+SPLIT BRAIN PATIENTS
+
+OF TWO MINDS Experiments with split-brain patients have helped to illuminate the lateralized nature of brain function.
+
+Split-brain patients hae undergone surgery to cut the corpus callosum, the main bundle of neuronal fibres connecting the two sides of the brain.
+
+Input from the left field of view is processed by the right hemisphere and vice versa.
+
+Both hemispheres are involved in higher cognitive functioning, with each half of the brain specialized in complementary fashion for different modes of thinking, both highly complex.
+
+THE DIFFERENCE
+
+• Nevertheless, as each of our hemispheres gathers in the same sensory information, each half of our brains may handle the information in different ways:
+
+• The left hemisphere analyzes, abstracts, counts, marks time, plans step-by-step procedures, verbalizes, and makes rational statements based on logic.
+
+• The right-hemisphere mode: the intuitive, subjective, relational, holistic, time-free mode. 
+
+HOW OUR BRAIN HANDLES VISUAL INFORMATION
+
+• In a manner of speaking, each of us has two minds, two consciousness's, mediated and integrated by the connecting cable of nerve fibers between the hemispheres.  
+
+• What is important is that incoming information can be handled in two fundamentally different ways and that the two modes can apparently work together in a vast array of combinations.
+
+DRAWING ABILITY: From Eyesign TO Drawing
+
+• Seems to be, in part at least, an ability to make a shift in brain state to a different mode of seeing/perceiving. When you see in the special way in which experienced artists see, then you can draw. 
+
+• Time and again, creative individuals have recognized the differences between the two processes of gathering data and transforming those data creatively.
+
+L- MODE AND R-MODE
+
+• Terms L-mode and R-mode are used to try to avoid the location controversy. The terms are intended to differentiate the major modes of cognition, regardless of where they are located in the individual brain. 
+
+• In order to cause shift we need to set up conditions that cause you to make a mental shift to a different mode of information processing the slightly altered state of consciousness that enables you to see well. 
+
+DRAWING EXERCISE
+
+The basic assumption of the exercises is that the nature of the task can influence which mode will "take up" the job while inhibiting the other hemisphere. 
+
+• Which hemisphere gets to the job the quickest? 
+
+A second way is motivation:  
+
+• Which hemisphere cares most or likes the task the best?  
+
+And conversely:  
+
+• Which hemisphere cares least and likes the job the least?
+
+Try drawing this image in your sketchbook.
+
+Try drawing it with each of your hands: Left and Right. 
+
+LEFT HANDED vs. RIGHT HANDED
+
+DRAWING CONCLUSIONS
+
+• You probably found that naming the parts such as forehead, nose, or mouth seemed to confuse you. It was better not to think of the drawing as a face. It was easier to use the shape of the space between the two profiles as your guide. Stated differently, it was easiest not to think at all.
+
+• "Where does that curve start?"  
+
+• "How deep is that curve?"  
+
+• "What is that angle relative to the edge of the paper?” 
+
+• "How long is that line relative to the one I've just drawn?” 
+
+• "Where is that point as I scan across to the other side—where is that point relative to the distance from the top (or bottom) edge of the paper?” 
+
+• These are R-mode questions: spatial, relational, and comparative.
+
+• For, in upright orientation, we can recognize familiar things, name them, and categorize them by matching what we see with our stored memories and concepts. When an image is upside down, the visual clues don't match.
+
+• The message is strange, and the brain becomes confused. We see the shapes and the areas of light and shadow. We don't particularly object to looking at upside-down pictures unless we are called on to name the image. Then the task becomes exasperating.
+
+
+We will use this gap in the abilities of the left hemisphere to allow R-mode to have a chance to take over for a while by drawing pictures using methods we are not used to using such as Blind Contour Drawing, Grid Drawing, and Upside Down Drawing.
+
+
+https://www.tsinghua.edu.cn/jxjywj/bksjywj/62-77meiyuan.pdf[清华大学本科培养方案的课程参考]
+
+一年级基础课：艺术设计各专业（染织、服装、视传、环艺、工业、信息、动画）24学分；造型艺术各专业
+(摄影、绘画、工艺美术、雕塑)30学分；艺术史论专业25学分。
+
+专业主修课程：艺术设计各专业（染织、服装、视传、环艺、工业、信息、动画）55学分；
+造型艺术各专业(摄影、绘画、工艺美术)49学分；雕塑专业88学分；艺术史论专业58学分。
+
+    艺术设计（染织、服装、视传、环艺、工业、信息、动画）24学分，
+    30806093    3学分   视觉语言(1) 
+    30805743    3学分   视觉语言(2) 
+    30806103    3学分   三维造型基础(1) 
+    30806173    3学分   三维造型基础(2) 
+    30806203    3学分   综合造型基础（1）
+    30800123    3学分   色彩
+    00804723    3学分   图案
+    00804733    3学分   书法
+    00804753    3学分   速写
+    00804763    3学分   工笔花鸟
+    00804783    3学分   摄影
+    00804773    3学分   构成
+    00803233    3学分   素描写生
+    00803243    3学分   色彩写生
+    00804803    3学分   艺用人体解剖
+    00804743    3学分   线描
+    00804683    3学分   写意花鸟
+
+    造型艺术(摄影、绘画、工艺美术) 30学分
+    30806163    3学分   素描(1)
+    30806183    3学分   素描(2)
+    30803083    3学分   色彩（1）
+    30803093    3学分   色彩（2）
+    30800743    3学分   白描
+    30806123    3学分   塑造(1)
+    30806193    3学分   塑造(2)
+    30806223    3学分   影像与视频
+    00804723    3学分   图案
+    00804733    3学分   书法
+    00804753    3学分   速写
+    00804763    3学分   工笔花鸟
+    00804783    3学分   摄影
+    00804773    3学分   构成
+    00803233    3学分   素描写生
+    00803243    3学分   色彩写生
+    00804803    3学分   艺用人体解剖
+    00804743    3学分   线描
+    00804683    3学分   写意花鸟
+
+    动画专业 55学分
+    40807142    2学分   视听语言
+    30803961    1学分   动画艺术概论
+    40807683    3学分   动画美术设计
+    40809976    6学分   动画运动规律
+    40807222    2学分   表演基础
+    40809956    6学分   原动画技法
+    40807473    3学分   动画编剧
+    30806812    2学分   动画速写
+    40802332    2学分   动画前期创意
+    40806922    2学分   动画分镜头
+    40809463    3学分   三维动画设计
+    40807423    3学分   虚拟现实动画设计
+    30807448    8学分   动画创作(1) 
+    40807212    2学分   声音表现
+    40809541    1学分   后期合成
+    40808036    6学分   动画创作(2) 
+    40808573    3学分   动漫周边设计
+
+    绘画专业（油画）49学分
+    30807195    5学分   素描(1) 
+    30807154    4学分   色彩(1) 
+    30803162    2学分   创作练习(1) 
+    30805723    3学分   素描(2) 
+    40808412    2学分   综合材料
+    40800692    2学分   创作练习(2) 
+    40807782    2学分   色彩(2) 
+    30807343    3学分   素描(3) 
+    40808844    4学分   油画(1) 
+    30806712    2学分   综合材料训练
+    40801182    2学分   创作练习(3) 
+    40807243    3学分   素描(4) 
+    40807093    3学分   色彩(3) 
+    40809002    2学分   视觉语言训练
+    40809012    2学分   创作练习(4) 
+    30807624    4学分   油画(2) 
+    30807613    3学分   素材与创作
+    40809791    1学分   毕业论文选题与写作
+
+    中国画 49学分
+    30806833    3学分   线性素描
+    30807363    3学分   白描人物（1）
+    30807422    2学分   笔墨基础（1）
+    40808252    2学分   色彩构成
+    40808522    2学分   构图练习
+    30803162    2学分   创作练习（1）
+    30806843    3学分   中国画形态表现
+    40807163    3学分   书法
+    30807542    2学分   笔墨基础（2）
+    30807532    2学分   白描人物（2）
+    30807563    3学分   水墨人物（1）
+    30807553    3学分   山水画（1）
+                3学分   工笔人物（1）
+                3学分   水墨人物（2）
+                2学分   山水画（2）
+    40800692    2学分   创作练习（2）
+                2学分   篆刻
+                2学分   工笔花鸟
+                2学分   工笔人物（2）
+    40809562    2学分   实验水墨
+    40809791    1学分   毕业论文选题与写作
+
+### 准备工作
 
 素描入门步骤：
 
-1. 素描工具：铅笔（硬软差别）、炭笔（软碳、中碳、硬炭）、橡皮（擦除或提高光）、棉球或面纸（擦除或模糊）；
+1. 认识工具：铅笔（硬软差别）、炭笔（软碳、中碳、硬炭）、橡皮（擦除或提高光）、棉球或面纸（擦除或模糊）；
 2. 纸张选择：素描纸以耐摩擦不起纤维为好，价格和克重正相关，一般使用 120 克即可；普通 A4 打印纸反复涂抹容易反光（不容易画出明暗）；
 3. 素描理论：主次关系、虚实关系、比例关系、透视（Perspective，远小近大）、明暗关系；
 4. 基础练习：正确握笔姿势（高、低把位），基本线条、排线，灰度递进色阶（疏密度或轻重实现）；
-5. 几何体练习：通过规则几何体（用于简化复杂对象的模型）练习形准（轮廓线）、光线、透视等基础观察能力；
-6. 写生速写：通过大量的速写（准确捕捉人体动态或景观键要素）积累素描基础；
+5. 写生速写：通过大量的速写（准确捕捉人体动态或景观键要素）积累素描基础；
+
+建立抽象概念是非常重要的一个基础：画的本源来自真实世界，是混沌（chaose）系统中的一块截面，画家需要通过抽象模型（简洁）重现在有尺寸限制的画布上或者纸张上，作画工具也是一种限制，不同的铅笔能绘制的色阶是有限的，无法完全对应真实世界的高动态环境。教学中最常用的是石膏模型，通过规则几何体（用于简化复杂对象的模型）练习形准（轮廓线）、光线、透视等基础观察能力。因此，最佳抽象模型是盒子和球体，所有物体都可以简化成这些简单几何体（不断重复细化就可以逼近真实物体）。
 
 铅笔主要成为是石墨和粘合剂，石墨含量越高颜色越黑也越软。石墨本身最大特性是润滑剂，越用力涂抹，
 就越容易形成致密的石墨层，特别容易反光。因此，因为根据画面要求选择合适硬度的铅笔，尽量避免
@@ -2684,7 +2912,7 @@ Glenn Vilppu Drawing Essentials 基础教程中的课程安排：
 素描画开始应该先把握物体的主要、整体结构，细节不要在构图阶段考虑。比如画头像，先需要确定面部朝向、
 五官分布、面块比例及方向，不应该在构图时刻画眼睛、耳朵、嘴唇细节部位，这些应该在构图完成后逐步进行。
 构图之前应该先分析好画面结构，并且大胆地按基本色调分割画面，平涂基本色调，然后再逐步深入刻画。
-《素描的诀窍》中称这种按光线强度平铺的基本色调为映射（Mapping）。传统印刷技术的半色调（Halftone）
+《素描的诀窍》中称这种按光线强度平铺的基本色调为映射（Mapping）。传统印刷技术的半调法（Halftone）
 用来处理阶调并模拟连续调 (Continue tone) 的方法，处理方式很类似。
 
 通过观察到的物体是有颜色的，石膏像是一种简化物体，它剔除了复杂的颜色信息，先从简单的亮度进行训练。
@@ -3894,7 +4122,7 @@ https://www.bilibili.com/video/BV1yt411L72Y?p=4
 先从全局、整体结构进行分解，再逐级细分局部结构，但依然不要纠结于最终的细节表现，而应该将重心
 放到造型、结构的简化、概括形态表达准确。一幅画是否和谐，在整体结构关系把握上是关系。尽量使用直线、
 规则几何体等基础图形元素表达造型结构，大小、方向，以及相应的明度概括，只需要确立基本的黑、白、灰，
-甚至可以使用 Halftone 半调色起形。西方历来有方格取景、Sight Size 等辅助手段来保证
+甚至可以使用 Halftone 半调法起形。西方历来有方格取景、Sight Size 等辅助手段来保证
 整体结构的准确性，先确定外轮廓，再在其内部确定各个部分的分割比例。
 要点：不要纠结当下的细节，而始终将当前细分级别的造型结构的简化、概括形态表达准确。
 细分作画思想与 Blender Multiresolution 多级细分修改器雕刻技法精髓完全契合。
@@ -3956,6 +4184,14 @@ https://www.bilibili.com/video/BV1yt411L72Y?p=4
 色彩要素：明度 Brightness/Value/Intensity、色相 Hue、饱和度 Saturation。黑白灰是最简单的颜色，它们也是最能体现明度这一色彩要素的基础色，在不同的色彩模型下使用不同的单词表达。在同一明度的条件下，也可以对同一色相不同饱和度的识别，但是加入明度变化后，饱和度就不太容易辨别确认。绘画软件中常用 HSL 色彩模型，通常使用色环表达不同的色相，0° - 360°分别对应红、橙、黄、绿、青、蓝、紫，循环。饱和度和亮度通常由一个二维的色块表示，并且通常左右方向调整饱和度，上下方向调整亮度。
 
 明度作为最基本的色彩要素，它在体现了素描画中最重要的关系：明暗关系。明暗关系正确，配上任何颜色都不会难看。美院基础教学法：五明度法，只需考虑形状，明度和形状之间的边缘。一套简单而规范的方法论，非常适合初学者。对于有色弱的情况，应该先从简单颜色开始训练，再到复杂颜色。
+
+可以先给色彩理论下个通俗的结论：色彩的根本是明度（调子），它是决定画面中物体造型的主要因素。可以说明暗关系即造型，“形转色变”，就是因为明度的改变造成的物体形状的变化。明度是相对的，根据视觉的对比敏感原理，同样的明度在不同明度环境下呈现不同的效果，直接的证明是棋盘错觉现象。正因为色彩属性（明度、色相、饱和度）中的明度如此重要，它和颜色同等看作基础的绘画艺术元素（Elements of Art）。1
+
+一个有趣的实验：在一个黑盒中，布置一个点光源，将一张不透白纸面朝向光源，此时获得最大的漫反射光，偏转 10° 时，其漫反射光依然可以保留 99%。但是，如果将纸张的侧面对着光源，此时几乎没有漫反射光，偏转 10° 时就可以获得最大时的 50% 漫反射光。这种非线性的漫反射对造型的影响非常大，Proko 有教程专门解析这个现象，The Shading Course – Fundamentals of Realism, Light & Shadow https://www.proko.com/course/the-shading-course[Module 5 - How to Create Realistic Shading - Inclination & Brightness]，视频参考 https://www.bilibili.com/video/BV1Pu4m1P7is?t=342.0[怎样画光影明暗] 或者 https://online-courses.club/proko-the-shading-course-fundamentals-of-realism-light-shadow/[Online Courses]。
+
+基于明度的重要性，需要选择合适的作画工具来呈现所需要的灰度，这也是入门必须的训练项目。所选择的作画工具以及熟练使用它们的程度决定了你所能绘制的、可以被视觉分辨的色阶数，精细程度取决于视觉敏感度、使用的作画材料。可以尝试绘制十级色阶，熟练地在不同的色阶间过度，可以尝试单个色块逐次绘制，完成后再排列在一起，测试看看自己对明度的把握程度。对于铅笔，选择越软的铅笔可以更轻松绘制更深的颜色。素描绘画基本技法中，半调法（half-tone）是最基本的技法之一，它是一种二分法：将画面整体按亮部、暗部一分为，再循环将亮部、暗部二分细化，直到达到目标要求。
+
+准备绘画前，需要将铅笔芯削到非常尖细的程度，这个是基本要求。因为，两种基本笔法（中锋、侧锋）需要又尖又细的笔锋，这样才能用尖端刻画锐利的细节，同时又可以用侧锋平铺块面。运笔方向也有学问，中锋由于接触点非常小，各个方向都差不多。但是侧锋接触面大，不同运笔方向出来的效果差别极大：顺着笔芯方向画出来锐利的细线，照笔芯平移绘画则结果是块面、或者有渐变的过度，可以高效地完成铺色。一般使用美工刀或削笔工具，但是推荐使用砂纸打磨笔芯，并且打磨出来的石墨粉可以用来涂抹画面，还能提升绘画深色阶的能力。比如，常用的 2B 铅笔，如果使用石墨粉作画可以比不使用的情况扩展至少 50% 的色阶范围，而且还不容易破坏纸面引起反光问题。由于不同软度的铅笔石墨粉的配方不同，其本身具有的黑色程度也不同，软度相差较大的铅笔因有其独有的灰度色彩特性（颗粒度、极限黑度），不可相互替代。至于更柔软的炭笔，硬炭笔因细节刻画深入，需要削尖笔尖，软炭笔质地软就不要削尖。
 
 颜色本质是眼睛能观察到的电磁波，波长越长能量越低，波长越短能量越高，但是长波的热辐射效率更高，与人类体感冷热相关。从长波到短波依次按红、澄、黄、绿、青、蓝、紫排列，在绘画中主要是区分颜色对心理有冷暖感觉的影响。色彩心理作用是人类生活中积累的热辐射体验，因为经常接触到火光照射，从而产生红、黄的暖感，同理冰雪或冷天的蓝色给人冰凉感觉。特定波长的能量可以被物体吸收，现实中的火光看起来越偏红、黄，它是属于可以被人体吸收的热辐射光，这是暖色调。而能量更低的绿色、蓝色使心理感觉显得冷，比如雪天的环节，又比如植物也会吸收能量而过滤掉非绿色的光线。还有早晨的天空多呈现蓝色，因为无云层，大气对太阳光主要起散射作用。紫光的波长最短，散射能力最大，在没有到达地面之前就在外层大气中散射掉了，接近地面的紫光很少。而蓝光最多，所以我们在地面看天空是蓝色，而在高空则逐渐变成紫色。而傍晚天空多是火红色，因为日间太阳的能量使得空气上升造成云层密集，并且对短波长的蓝、绿光线有更强的过滤作用，而红、黄光则更容易穿透云层。这些日积月累的自然现象已经是刻进 DNA 的信息，就如自然的条件反射，即是冬天，眼睛看到红色就会有暖意。
 

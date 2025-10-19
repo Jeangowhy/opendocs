@@ -445,7 +445,10 @@ jq -c -n '[1,2,3].[]' | jq -c --stream '.'  # ==> [[],1] ==> [[],2]  ==> [[],3]
 中的顺序。
 
 在不混淆的前提下，jq 中提供的所有功能都可以称为函数或过滤器，或者函数过滤器，它们的目标
-就是过滤 JSON 数据。
+就是过滤 JSON 数据。作为一个 JSON 字符串处理工具，jq 内置的 <<gsub>> 函数可以利用正则
+表达式功能，比如 `gsub(".*/(?<x>.*?)/"; "\(.x)")` 用于提取文件路径中最后一级目录名称。
+这个正则定义了一个名为 x 的变量用于引用圆括号中的分组内容，定义变量表达式为 `(?<x>)`，
+引用这个变量表达式为 `\(.x)`。
 
 这里需要对 jq 的语法有一个基本了角，`.|keys` 和 `'.keys'` 的差别在于，后者是过滤
 当前数据对象的 keys 属性，而前者是通过 <<pipe>> 过滤器进一步调用了 <<keys>> 过滤器，
@@ -1127,7 +1130,7 @@ JOIN(INDEX(.categories[]; .name); .weigths[]; .name; add)
 
 2+|*More Advance Features*
   | jq -n -c '[1,2,3] \| map(select(. >= 2))'             | [2,3]
-  | jq -c -n '{a:1,b:2} | map_values(.+1)'                | {"a":2,"b":3}
+  | jq -c -n '{a:1,b:2} \| map_values(.+1)'               | {"a":2,"b":3}
   | jq -n -c '[{id: "A", prop:{id: "B", "val": 1}}] \| .. \| select(.id == "B")?' | {"id": "B", "val": 1}
   | jq -n '"String" \| "\(.) interpolation"'              | "String interpolation"
   | jq -n '[0, false, [], {}, null, "hello"] \|map(type)' | ["number", "boolean", "array", "object", "null", "string"]

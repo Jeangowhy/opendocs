@@ -1,259 +1,14 @@
-Command Line Interpreters: POSIX Shell, Cmd.exe, PowerShell
-https://hyperpolyglot.org/shell
-
-Hyperpolyglot Unix Shells: Bash, Fish, Ksh, Tcsh, Zsh
-https://hyperpolyglot.org/unix-shells
-
-
-# TS m3u8 视频流切片文件下载
-
-deno run --unstable -A C:\coding\md-code\deno\demos\src\douyin\douyin.ts m3u8 index.m3u8
-
-使用脚本获取网页清单文件内容：
-
-```js
-var server = /.{4,5}:\/\/[^\/]+/.exec(videoUrl)[0];
-var resource = null;
-function get(url){
-    return fetch(url).then((res)=>{
-        return res.text();
-    }).then((res)=>{
-        //console.log(res,{ content: res.body});
-        var list = [];
-        var lines = res.split("\n");
-        resource = res;
-        for(var idx in lines){
-            var it = lines[idx];
-            if(!it.trim() || it.startsWith("#")) continue;
-            //console.log({it, server, len:lines.length});
-            list.push((it.startsWith("http")? "":server)+it);
-        }
-        return list;
-    });
-}
-get(videoUrl).then(res=>{
-    console.log(`
-["no/inden.m3u8",
-"${document.title}", 
-"${litImgUrl}", 
-"${res[0]}",
-"${location.href}"],`);
-    get(res[0]).then(res => {
-        res.forEach((it,k) => {res[k] = 
-            `"${it.split("/").pop()}"`});
-        console.log(res.join(","));
-    });
-});
-```
-
-文件下载完成率统计：
-
-```sh
-$ds = dir vjs/* -Directory;
-foreach($d in $ds){
-    $dn = $d.Name;
-    $lo = (dir "$d\*.ts").Length;
-    if((dir "$d\*.ts") -is [System.IO.FileSystemInfo]){
-        $lo = 1;
-    }
-    if(Test-Path "$d\index.m3u8"){
-        $ro = ((Get-Content "$d\index.m3u8") -match ".ts$").Length;
-        if($lo -eq 0){
-            $p = 0;
-        }else{
-            $p = $lo/$ro;
-        }
-        "{0,8} download percent {1,12} {2:0.00%}" -f $dn,"[$lo/$ro]", $p;
-    }else{
-        #echo "Directory $dn has no index.m3u8 list file.";
-    }
-}
-# .\doreports.ps1 | sort { [Double]::Parse((($_ -split " +")[5] -replace "%",""))}
-# .\doreports.ps1 > .\report.txt
-# $sorted = Get-Content report.txt | sort { [Double]::Parse((($_ -split " +")[5] -replace "%",""))}
-# Out-File "report.txt" -InputObject $sorted
-# $sorted
-```
-
-
-对文件大小进行二次确认下载：
-
-```sh
-param(
-    [string]$Target="vjs\*\index.m3u8"
-    )
-echo "Target = $Target"
-
-dir $target | 
-% {
-    echo $_.DirectoryName;
-    cd $_.DirectoryName;
-    $m3u = Get-Content index.m3u8;
-    $items = $m3u -match "\.ts$";
-
-    $iCOUNT = $items.Length;
-    echo "Items count: $iCOUNT";
-    $url = $m3u[0].SubString(1) -replace "\w+\.m3u8?", "";
-    $count = 1000;
-    $nextfix = 0;
-    if(Test-Path "all.verify"){ 
-        echo "All Verified [$iCOUNT] $vt";
-        return;
-    }
-
-    foreach($it in $items){
-        $count ++;
-        $verify = "$count.ts.verify";
-        if(Test-Path "$verify"){ 
-            echo "Varified $count.ts <== $it";
-            continue;
-        }
-        if(Test-Path "$count.ts"){
-            $len = (dir "$count.ts").Length;
-            $size = (curl -Method Head "$url$it").Headers["Content-Length"];
-
-            $next = $count + 1;
-            $nextlen = (dir "$next.ts").Length;
-            if ($nextlen -eq $size) {
-                echo "🗨Next file size fit with $next.ts <== $it $size";
-                $nextfix ++
-            }else {
-                $nextfix = 0;
-            }
-
-            if($nextlen -eq $size -and $nextfix -ge 3){
-                echo "⚡Next file size fit with: $next.ts <== $it $size";
-                if(Test-Path "$count.ts.bak") { 
-                    rm "$count.ts";
-                }else{
-                    ren "$count.ts" "$count.ts.bak";
-                }
-                cp "$next.ts" "$count.ts";
-                Out-File "$verify" -InputObject "$it $size";
-                continue;
-            }
-
-            if($len -eq $size){
-                echo "$count.ts $len 👈✔👉 $size $url$it";
-                Out-File "$verify" -InputObject "$it $len";
-            }else{
-                echo "$count.ts $len 👈❌👉 $size $url$it";
-                if(Test-Path "$count.ts.bak") { 
-                    rm "$count.ts";
-                }else{
-                    ren "$count.ts" "$count.ts.bak";
-                }
-                curl -O "$count.ts" "$url$it";
-                $newsize = (dir "$count.ts").Length;
-                echo "$count.ts $len 👈<== $newsize $url$it";
-                if($size -eq $newsize){
-                    Out-File "$verify" -InputObject "$it $newsize";
-                }
-            }
-        }
-    }
-
-    $v = (dir *.ts.verify).Length;
-    if($v -eq $items.Length){
-        echo "All Verified [$iCOUNT] $vt";
-        Out-File "all.verify" -InputObject $items;
-        rm *.ts.verify, *.bak;
-    }
-}
-```
-
-Powershell Download file script：
-
-```sh
-function DownloadTS(){
-    if(!(Test-Path index.m3u8)){
-        return 
-    }
-
-    $m3u = Get-Content index.m3u8
-    $url = $m3u[0].SubString(1)
-    $server = ($url -Split "(/)")[0..4] -join ""
-    $path = ($url -Split "(/)")[5..12] -join ""
-    $items = ($m3u.Replace("$$path/","") -split "`n") -match '.ts$'
-
-    if(!(Test-Path inden.m3u8)){
-        $count = 1000
-        $m3u | % {
-            if($_ -match '.ts$'){
-                $count++
-                echo "$count.ts" >> inden.m3u8
-            }else{
-                echo $_ >> inden.m3u8
-            }
-        }
-    }
-
-    # $items = @("z2CoViuX.ts", "18Hk225w.ts")
-    $count = 1000
-    foreach($it in $items){
-        $count ++
-        #$web.DownloadFile("$server$path/$it", "$count.ts")
-        if(!(Test-Path "$count.ts")){ echo "$count.ts <= $server$path/$it"; curl -O "$count.ts" "$server$path/$it" }
-        # break;
-    }
-}
-
-function DownloadM3u8(){
-    param($url)
-    echo "Download m3u8 $url"
-    # $agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"
-    if(!(Test-Path index.m3u8)){
-        $web = new-object System.Net.WebClient
-        # $web.Headers["user-agent"] = $agent
-        # $web.Headers["referer"] = "https://www.rtmm6.com/"
-        $m3u = $web.DownloadString("$url")
-        # $m3u = (curl "$url").RawContent
-
-        $server = ($url -Split "(/)")[0..4] -join ""
-        $path = ($url -Split "(/)")[5..12] -join ""
-        $items = ($m3u.Replace("$$path/","") -split "`n") -match '.ts$'
-        
-        $keytag = "#EXT-X-KEY:METHOD=AES-128,URI="
-        if($m3u -match $keytag){
-            $keyuri = ($m3u.split("`n") -match $keytag).Replace($keytag, "")
-            $keyuri = $keyuri.SubString(1, $keyuri.Length-2)
-            $keyfile = $keyuri.Split("/")[-1]
-            if(!(Test-Path "$keyfile")){ echo "$keyfile <= $server$keyuri"; curl -O "$keyfile" "$server$keyuri" }
-        }
-        echo "#$url" > index.m3u8
-        echo (($m3u -split "(#EXTM3U)")[1..2] -join "").Replace("$path/", "") >> index.m3u8
-    }
-
-    DownloadTS
-}
-
-echo "ARGS(URL, Limit): $args"
-try{
-    $limit = 0
-    echo "Try type-casting args[0] or args[1] to be a number:"
-    echo $args
-    if($limit -eq 0 -and $args.Length -eq 1){
-        $limit = [int]$args[0]
-    }
-    if(($limit -eq 0) -and ($args.Length -gt 1)){
-        $limit = [int]$args[1]
-    }
-    DownloadTS
-}catch{
-    echo "It is Not a Number"
-    if($args) {
-        DownloadM3u8($args)
-    }else{
-        DownloadTS
-    }
-}
-```
 
 
 # 🚩 PowerShell 脚本编程语言
 - https://docs.microsoft.com/zh-cn/powershell/
 - https://docs.microsoft.com/en-us/powershell/
 - https://github.com/PowerShell/PowerShell
+- Command Line Interpreters: POSIX Shell, Cmd.exe, PowerShell
+  https://hyperpolyglot.org/shell
+- Hyperpolyglot Unix Shells: Bash, Fish, Ksh, Tcsh, Zsh
+  https://hyperpolyglot.org/unix-shells
+
 
 克隆 PowerShell 源代码及文档：
 
@@ -263,7 +18,9 @@ try{
     https://github.com/PowerShell/PowerShell/releases/download/v7.3.7/PowerShell-7.3.7-win-x64.msi
     https://github.com/PowerShell/PowerShell/releases/download/v7.3.7/PowerShell-7.3.7-win-x64.zip
     https://github.com/PowerShell/PowerShell/archive/refs/tags/v7.3.7.zip
-    
+
+2002 年，微软工程师 Jeffrey Snover 构思了一个名为 Monad 的新命令行环境，这是 PowerShell 的起源，Monad Manifesto – the Origin of Windows PowerShell，其设计目标是创建一个全新的自动化框架和脚本语言，以统一 Windows 的管理体验。
+
 PowerShell 是跨平台的，带有面向对象的管道，能够调用 .NET 的脚本编程环境即 .NET CLI 接口交互，所以不要将 PowerShell 当作命令控制台。
 
 PowerShell 是一种跨平台的任务自动化和配置管理框架，由命令行管理程序和脚本语言组成。 与大多数接受并返回文本的 shell 不同，PowerShell 构建在 .NET 公共语言运行时 (CLR) 的基础之上，接受并返回 .NET 对象。 这一根本上的改变引入了全新的自动化工具和方法。
@@ -281,6 +38,87 @@ Windows 的 chocolatey 依赖包管理工具，相当于 Linux 的 apt-get，基
 PowerShell 别名和旧命令的名称有冲突是个常见的问题，服务控制命令 SC.EXE 与 Set-Content 的别名 SC 冲突，但它优先于 SC.EXE 文件。
 
 Windows 10 自带最新版本是 PowerShell 5.1，使用 Get-Host 命令或 $host.version 直接查看当前脚本宿主版本，使用 $args 接收脚本参数。
+
+PowerShell 5.1 执行以 UTF-8 编码保存的 ps1 文件时会显示中文乱码。在简体中文环境下不能识别 UTF-8 编码的脚本，因此，文件仍会以 GBK 方式读取，导致乱码。升级后可以正常运行 UTF-8 编码（不带 BOM ）的 .ps1 脚本。
+
+Bash 脚本在文件 I/O 处理上的效率不入 PowerShell，这是由于软件设计架构决定的：Bash 需要利用外部程序处理数据，每运行一次外部程序都需要向操作系统申请进程资源。因此，Bash 脚本存在较大的潜在性能缺陷，典型的就有“useless cat”，即随手使用 cat 命令来读取文件，而事实上配合使用的其它命令本身支持文件 I/O 操作，这个额外的 cat 操作需要花费操作系统的进程资源。优化 bash 脚本的原则是减少 I/O 操作，整合脚本，使用基于内存的文件系统 Temporary File System (tmpfs) 或者 Shared Virtual Memory (/dev/shm)，使用 & 和 wait 进行多进程并行处理，或者使用 parallel 命令提供的并行处理。以下是一段 Bash 测试脚本，分别使用 bash 数值表达式、bash 算术表达式，以及 awk 结构化文本处理语言，效率逐个提升：
+
+```bash
+time (sum=0;for((i=0;i<=100000;i++)); do sum=$[sum+i]; done ; echo $sum); \
+time (sum=0;for((i=0;i<=100000;i++)); do ((sum+=i)); done ; echo $sum)  ; \
+time awk 'BEGIN{while(i++<100000)sum+=i; printf "%d", sum;}' 
+
+# PowerShell
+# Measure-Command { $sum=0; foreach ($number in 1..100000) { $sum+=$number ; $sum} }
+
+# 5000050000
+
+# real    0m0.539s
+# user    0m0.531s
+# sys     0m0.015s
+# 5000050000
+
+# real    0m0.748s
+# user    0m0.750s
+# sys     0m0.000s
+# 5000050000
+# real    0m0.055s
+# user    0m0.031s
+# sys     0m0.000s
+```
+
+PowerShell版本演进里程碑
+
+    版本	发布年份	操作系统	主要特性与改进
+    v1.0	2006	Windows XP SP2+/Server 2003 SP1+	首次发布，命令行 Shell、基本脚本能力、管道、提供程序模型
+    v2.0	2009	Windows 7/Server 2008 R2	远程处理、后台作业、脚本调试、模块系统、ISE 图形化开发环境
+    v3.0	2012	Windows 8/Server 2012	工作流功能、改进的帮助系统、计划任务、CIM 会话
+    v4.0	2013	Windows 8.1/Server 2012 R2	Desired State Configuration(DSC)、改进的调试功能、新 cmdlet
+    v5.0/5.1	2016	Windows 10/Server 2016	类支持、包管理 (PackageManagement/PowerShellGet)、新的安全功能
+    v6.0 (Core)	2018	跨平台	基于 .NET Core 的开源跨平台版本、舍弃部分 Windows 特定功能
+    v7.0+	2020-2022	跨平台	统一Windows PowerShell 和 Core、并行 ForEach-Object、错误视图增强
+
+PowerShell 最重要的转折点在 2016 年，微软决定将 PowerShell 开源并支持跨平台，关键变化如下:
+
+• 重构为 .NET Core: PowerShell Core 基于跨平台的 .NET Core 框架重建；  
+• GitHub 托管: 完整源代码在 GitHub 上开放，接受社区贡献；  
+• 跨平台支持: 正式支持 Linux 和 macOS 系统；  
+• 双轨发展: Windows PowerShell 5.1 继续维护，同时开发 PowerShell Core 和后续的 PowerShell 7；  
+
+PowerShell 7 代表了微软统一 PowerShell 体验的努力，旨在成为所有平台的单一 PowerShell 版本，同时尽可能保持与 Windows PowerShell 5.1 的兼容性。
+
+PowerShell 与 .NET 框架深度集成是其最重要的架构特性之一:
+
+• 完全访问 .NET 类库: 可以实例化使用 .NET 类，包括祖传 Component Object Model (COM) 组件；  
+• 对象流管道: 管道传输的是完整 .NET 对象，而非纯文本（Bash 将所以数据看作文本，遵从逐行处理原则）；  
+• 类型系统继承: PowerShell 使用 .NET 类型系统，包括类型转换机制；  
+• 性能优势: 可以在单进程中调用以及编译好的 .NET 方法获得更高执行效率；  
+
+以下这段示例脚本演示如何调用 MS Office（需要安装此软件）提供的 COM 组件，相当于 VBA 脚本提供的功能。
+
+```powershell
+# create new excel instance
+ $objExcel = New-Object -comobject Excel.Application
+ $objExcel.Visible = $True
+ $objWorkbook = $objExcel.Workbooks.Add()
+ $objWorksheet = $objWorkbook.Worksheets.Item(1)
+
+ # write information to the excel file
+$i = 0
+$first10 = (ps | sort ws -Descending | select -first 10)
+$first10 | foreach -Process {$i++; $objWorksheet.Cells.Item($i,1) = $_.name; $objWorksheet.Cells.Item($i,2) = $_.ws}
+$otherMem = (ps | measure ws -s).Sum - ($first10 | measure ws -s).Sum
+$objWorksheet.Cells.Item(11,1) = "Others"; $objWorksheet.Cells.Item(11,2) = $otherMem
+
+# draw the pie chart
+$objCharts = $objWorksheet.ChartObjects()
+$objChart = $objCharts.Add(0, 0, 500, 300)
+$objChart.Chart.SetSourceData($objWorksheet.range("A1:B11"), 2)
+$objChart.Chart.ChartType = 70
+$objChart.Chart.ApplyDataLabels(5)
+```
+
+$form = New-Object [System.Windows.Forms.Form]
 
 对于已经安装 .Net Core SDK 的用户可以直接使用命令安装最新版 PowerShell，或者下载安装包进行安装：
 
@@ -302,36 +140,84 @@ Major  Minor  Build  Revision
 # https://github.com/PowerShell/PowerShell/releases
 ```
 
-通过环境变量 Providers 临时读写环境变量使用，比如读取 JAVA_HOME，或临时设置 PATH 环境变量，变量名不区分大小写：
+PowerShell 随附数百个预安装命令。 PowerShell 命令称为 cmdlet（读作 command-let）。
 
-```sh
-$Env:JAVA_HOME
-del env:windir
-$Env:Path+=";C:\"
+每个 cmdlet 的名称都包含一个“谓词-名词”对。 例如 Get-Process。 其中的谓词 Get 表明此命令用于获取某些信息，而名词 Process 表进程信息，这种命名约定便于人们了解 cmdlet 的作用。 还能让你更轻松地找到所查找的命令。 当你查找要使用的 cmdlet 时，可以根据谓词或名词进行筛选。
+
+谓词是 PowerShell 中的一个重要概念。 它是大多数 cmdlet 都遵循的一种命名标准。 你在编写自己的命令时，也应遵循此命名标准。 其中的思路是，谓词表示你尝试执行的操作，例如读取数据或更改数据。 PowerShell 有一个标准化的谓词列表，使用 Get-Verb 命令就可以获取。 
+
+PowerShell 命令虽然遵从 verb-noun 的命名格式，但是也和 Bash 一样可以定义命令的别名，方便用户使用，可以使用以下命令查询各个别名及其对应的原始命令。
+
+```powershell
+Get-Alias | Select-Object -First 1 | Get-Member
+Get-Alias | Select-Object -Property Name,DisplayName
+Get-Alias | where {$_.Name -eq "ls"}
+Get-Alias | where {$_.DisplayName -match ".*-Alias"}
 ```
 
-上述对于环境变量的操作只对当前命令窗口的副本有效，影响当前 powershell 会话。 要更新到系统设置，使用 .NET System.Environment 的静态方法读写：
+通过使用以下命令可帮助你探索 PowerShell，了解有哪些命令可用、这些命令执行什么操作，以及它们在什么类型上运行。
 
-```sh
-[environment]::SetEnvironmentvariable("TestPath", ";c:\powershellscript", "User")
-[environment]::GetEnvironmentvariable("TestPath", "User")
-;c:\powershellscript
+• Get-Verb  命令将返回大多数命令遵循的谓词的列表，以及有关这些谓词的功能的说明。  
+• Get-Command  命令会检索计算机上安装的所有命令的列表。  
+• Get-Member  获取输入对象的成员信息，发现可用于命令的对象、属性和方法，比如 ps | gm -Static。  
+• Get-Help  以命令名称为参数调用此命令，比如 help help，将显示命令的帮助内容，包括命令的各个参数。  
+
+PowerShell Cmdlet Alias 参考：
+
 ```
-
-```C#
-// https://github.com/dotnet/runtime 
-// src\libraries\System.Private.CoreLib\src\System\Environment.cs
-// https://github.com/dotnet/corefx 
-// src\System.Private.CoreLib\shared\System\Environment.cs
-public enum EnvironmentVariableTarget
-{
-    Process = 0,
-    User = 1,
-    Machine = 2,
-}
-public static void SetEnvironmentVariable(string variable, string? value, EnvironmentVariableTarget target);
-public static string? GetEnvironmentVariable(string variable, EnvironmentVariableTarget target);
-public static IDictionary GetEnvironmentVariables(EnvironmentVariableTarget target);
+| %       ->        ForEach-Object| ?       ->           Where-Object| ac      ->           Add-Content  
+| asnp    ->          Add-PSSnapin| cat     ->            Get-Content| cd      ->          Set-Location  
+| CFS     ->    ConvertFrom-String| chdir   ->           Set-Location| clc     ->         Clear-Content  
+| clear   ->            Clear-Host| clhy    ->          Clear-History| cli     ->            Clear-Item  
+| clp     ->    Clear-ItemProperty| cls     ->             Clear-Host| clv     ->        Clear-Variable  
+| cnsn    ->     Connect-PSSession| compare ->         Compare-Object| copy    ->             Copy-Item  
+| cp      ->             Copy-Item| cpi     ->              Copy-Item| cpp     ->     Copy-ItemProperty  
+| curl    ->     Invoke-WebRequest| cvpa    ->           Convert-Path| dbp     ->  Disable-PSBreakpoint  
+| del     ->           Remove-Item| diff    ->         Compare-Object| dir     ->         Get-ChildItem  
+| dnsn    ->  Disconnect-PSSession| ebp     ->    Enable-PSBreakpoint| echo    ->          Write-Output  
+| epal    ->          Export-Alias| epcsv   ->             Export-Csv| epsn    ->      Export-PSSession  
+| erase   ->           Remove-Item| etsn    ->        Enter-PSSession| exsn    ->        Exit-PSSession  
+| fc      ->         Format-Custom| fhx     ->             Format-Hex| fl      ->           Format-List  
+| foreach ->        ForEach-Object| ft      ->           Format-Table| fw      ->           Format-Wide  
+| gal     ->             Get-Alias| gbp     ->       Get-PSBreakpoint| gc      ->           Get-Content  
+| gcb     ->         Get-Clipboard| gci     ->          Get-ChildItem| gcm     ->           Get-Command  
+| gcs     ->       Get-PSCallStack| gdr     ->            Get-PSDrive| ghy     ->           Get-History  
+| gi      ->              Get-Item| gin     ->       Get-ComputerInfo| gjb     ->               Get-Job  
+| gl      ->          Get-Location| gm      ->             Get-Member| gmo     ->            Get-Module  
+| gp      ->      Get-ItemProperty| gps     ->            Get-Process| gpv     -> Get-ItemPropertyValue  
+| group   ->          Group-Object| gsn     ->          Get-PSSession| gsnp    ->          Get-PSSnapin  
+| gsv     ->           Get-Service| gtz     ->           Get-TimeZone| gu      ->            Get-Unique  
+| gv      ->          Get-Variable| gwmi    ->          Get-WmiObject| h       ->           Get-History  
+| history ->           Get-History| icm     ->         Invoke-Command| iex     ->     Invoke-Expression  
+| ihy     ->        Invoke-History| ii      ->            Invoke-Item| ipal    ->          Import-Alias  
+| ipcsv   ->            Import-Csv| ipmo    ->          Import-Module| ipsn    ->      Import-PSSession  
+| irm     ->     Invoke-RestMethod| ise     ->     powershell_ise.exe| iwmi    ->      Invoke-WmiMethod  
+| iwr     ->     Invoke-WebRequest| kill    ->           Stop-Process| lp      ->           Out-Printer  
+| ls      ->         Get-ChildItem| man     ->                   help| md      ->                 mkdir  
+| measure ->        Measure-Object| mi      ->              Move-Item| mount   ->           New-PSDrive  
+| move    ->             Move-Item| mp      ->      Move-ItemProperty| mv      ->             Move-Item  
+| nal     ->             New-Alias| ndr     ->            New-PSDrive| ni      ->              New-Item  
+| nmo     ->            New-Module| nsn     ->          New-PSSession| npssc   -> New-PSSessionConfigurationFile
+| nv      ->          New-Variable| ogv     ->           Out-GridView| oh      ->              Out-Host  
+| popd    ->          Pop-Location| ps      ->            Get-Process| pushd   ->         Push-Location  
+| pwd     ->          Get-Location| r       ->         Invoke-History| rbp     ->   Remove-PSBreakpoint  
+| rcjb    ->           Receive-Job| rcsn    ->      Receive-PSSession| rd      ->           Remove-Item  
+| rdr     ->        Remove-PSDrive| ren     ->            Rename-Item| ri      ->           Remove-Item  
+| rjb     ->            Remove-Job| rm      ->            Remove-Item| rmdir   ->           Remove-Item  
+| rmo     ->         Remove-Module| rni     ->            Rename-Item| rnp     ->   Rename-ItemProperty  
+| rp      ->   Remove-ItemProperty| rsn     ->       Remove-PSSession| rsnp    ->       Remove-PSSnapin  
+| rujb    ->            Resume-Job| rv      ->        Remove-Variable| rvpa    ->          Resolve-Path  
+| rwmi    ->      Remove-WmiObject| sajb    ->              Start-Job| sal     ->             Set-Alias  
+| saps    ->         Start-Process| sasv    ->          Start-Service| sbp     ->      Set-PSBreakpoint  
+| sc      ->           Set-Content| scb     ->          Set-Clipboard| select  ->         Select-Object  
+| set     ->          Set-Variable| shcm    ->           Show-Command| si      ->              Set-Item  
+| sl      ->          Set-Location| sleep   ->            Start-Sleep| sls     ->         Select-String  
+| sort    ->           Sort-Object| sp      ->       Set-ItemProperty| spjb    ->              Stop-Job  
+| spps    ->          Stop-Process| spsv    ->           Stop-Service| start   ->         Start-Process  
+| stz     ->          Set-TimeZone| sujb    ->            Suspend-Job| sv      ->          Set-Variable  
+| swmi    ->       Set-WmiInstance| tee     ->             Tee-Object| trcm    ->         Trace-Command  
+| type    ->           Get-Content| wget    ->      Invoke-WebRequest| where   ->          Where-Object  
+| wjb     ->              Wait-Job| write   ->           Write-Output| 
 ```
 
 执行命令带有空格路径时，使用 & 号及引号进行调用，即 Invoke-Expression，参数要另传，因为它相当于将变量内容加双引后执行：
@@ -382,14 +268,86 @@ Path
 C:\vulkan\imgui
 ```
 
+## ⚡ Environment Variables
+
+由于 PowerShell 是基于 .Net 对象的通用脚本编程语言，所以它和传统的 shell 脚本有较大的脚本编程逻辑差异。比如，环境变量，传统的批处理命令 cmd /c set 可以打印环境变量列表，输出结果是字符串。但是 PowerShell 中不是这样的处理逻辑，环境变量通过 $env 这个自动变量引用，当作字符串。可以使用 ls env: 命令打印变量列表，也就是 Get-Childitem env:。
+
+($Env).GetType()
+
+Windows 环境变量可以在三个作用域内定义：
+
+• Machine (or System) scope  
+• User scope  
+• Process scope  
+
+Process 作用域包含当前进程或 PowerShell 会话中可用的环境变量。 该变量列表继承自父进程，并由 Machine 和 User 作用域中的变量构造而成。
+
+在 PowerShell 中更改环境变量时，更改仅影响当前会话。 此行为类似于 Windows Command Shell 中的 set 命令的行为，以及基于 Unix 的环境中的 setenv 命令的行为。 要更改 Machine 或 User 作用域中的值，必须使用 System.Environment 类的方法。
+
+要更改计算机作用域的变量，还必须拥有相应权限。 如果你尝试在没有足够权限的情况下更改值，该命令将失败并且 PowerShell 将显示错误。
+
+PowerShell 提供了几种不同的方法来使用和管理环境变量。
+
+• 变量语法，比如 $Env:JAVA_HOME 通过指定的 JAVA_HOME 这个变量读取相应的环境变量值；  
+• 环境供应器和 *-Item 命令，比如设置一个新的临时变量：New-Item -Path Env:\Foo -Value 'Bar'；  
+• .NET System.Environment 类，可以持久保持变量的修改，可以通过「高级系统设置」看到变量的改动；  
+
+在变量语法中，美元符号 ($) 指示变量，驱动器名称 (Env:) 指示环境变量后跟变量名称 (JAVA_HOME)。环境变量驱动器（Env：）与磁盘驱动器不同点在于提供环境变量字符串，数据来源（Provider）是注册表（Registry）。注意，$Env 或者 $Env: 本身不是自动变量（Automatic Variables），所以不能使用 ($env:).GetType() 这样的表达式来查询器类型信息。类似的还有基本变量驱动器（Variable Driver），可以使用 ls Variable: 打印当前脚本作用域下的所有变量。访问一般变量可以使用带有驱动前缀方，$abc 等价 $Variable:abc，它们都可以访问到名为 abc 的这个变量。使用 Get-PSDrive 命令查询可用的驱动（PowerShell drives），注意区别驱动程序（driver）。
+
+要更改 Machine 或 User 作用域中的值，必须使用 System.Environment 类的方法。
+
+通过环境变量 Providers 可以读写环境变量，临时改变环境变量值。PowerShell 中环境变量可以设置为空字符串，环境变量设置为 $null 或空字符串会将其从当前会话中删除。比如读取 JAVA_HOME，或临时设置 PATH 环境变量，变量名不区分大小写：
+
+```sh
+$Env:JAVA_HOME
+del Env:windir
+$Env:Path+=";C:\"
+Get-WindowsDriver -online -all
+$env:abc=""  # Causes InvalidOperationException
+$env:abc | Get-Member -MemberType Properties
+
+Get-PSDrive
+Get-Command -Name New-PSDrive -Syntax
+
+ls Env:      # List all environment variables
+ls Variable: # List all normal variables
+```
+
+上述对于环境变量的操作只对当前命令窗口的副本有效，影响当前 powershell 会话。 要更新到系统设置，使用 .NET System.Environment 的静态方法读写：
+
+```sh
+[Environment] | gm -Static # 查询环境对象提供的静态成员信息
+[Environment]::SetEnvironmentVariable("Varible_to_be_remove", $null, "User")
+[environment]::SetEnvironmentvariable("TestPath", ";c:\powershellscript", "User")
+[environment]::GetEnvironmentvariable("TestPath", "User")
+;c:\powershellscript
+```
+
+```C#
+// https://github.com/dotnet/runtime 
+// src\libraries\System.Private.CoreLib\src\System\Environment.cs
+// https://github.com/dotnet/corefx 
+// src\System.Private.CoreLib\shared\System\Environment.cs
+public enum EnvironmentVariableTarget
+{
+    Process = 0,
+    User = 1,
+    Machine = 2,
+}
+public static void SetEnvironmentVariable(string variable, string? value, EnvironmentVariableTarget target);
+public static string? GetEnvironmentVariable(string variable, EnvironmentVariableTarget target);
+public static IDictionary GetEnvironmentVariables(EnvironmentVariableTarget target);
+```
 
 
 ## ⚡ PowerShell ISE Keybord shortcut
 - https://powershellmagazine.com/2013/01/29/the-complete-list-of-powershell-ise-3-0-keyboard-shortcuts/
 - https://docs.microsoft.com/zh-cn/powershell/scripting/windows-powershell/ise/keyboard-shortcuts-for-the-windows-powershell-ise
 
+PowerShell ISE 运行时会提供 $psISE 变量引用 ObjectModelRoot，这是 ISE 对象模型的根对象：
+
 ```sh
-$gps = $psISE.GetType().Assembly
+$gps = $ISE.GetType().Assembly
 $rm = New-Object System.Resources.ResourceManager GuiStrings,$gps
 $rs = $rm.GetResourceSet((Get-Culture),$true,$true)
 $rs | where Name -match 'Shortcut\d?$|^F\d+Keyboard' | Sort-Object Value | Format-Table -AutoSize
@@ -618,7 +576,7 @@ C1 C2     C3
 
 
 
-# /🚩 PowerShell Language Specification 3.0
+# 🚩 PowerShell Language Specification 3.0
 
 克隆 PowerShell 源代码及文档：
 
@@ -646,7 +604,7 @@ PowerShell Language Specification 3.0 官方文档参考：
 - [ C. References](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/docs-conceptual/lang-spec/chapter-16.md)
 
 
-## //⚡ About PS
+## ⚡ About PS
 
 About Topics
 
@@ -765,7 +723,7 @@ About Topics
 - [about_Wildcards](https://github.com/MicrosoftDocs/PowerShell-Docs/tree/main/reference/5.1/Microsoft.PowerShell.Core/About/about_Wildcards.md)
 
 
-## //⚡ Lexical & Syntactic grammar
+## ⚡ Lexical & Syntactic grammar
 - [ 2. Lexical Structure](lang-spec/chapter-02.md)
 - [ 3. Basic concepts](lang-spec/chapter-03.md)
 - [ 4. Types](lang-spec/chapter-04.md)
@@ -849,7 +807,7 @@ keyword: one of
     var            while          workflow
 ```
 
-## //==⚡ Special Characters
+## ⚡ Special Characters
 - [about_Special_Characters](about_Special_Characters.md)
 - [about_Splatting](Microsoft.PowerShell.Core/About/about_Splatting.md)
 - [about_Wildcards](Microsoft.PowerShell.Core\About\about_Wildcards.md)
@@ -895,7 +853,7 @@ Special parsing token:
 | `--%`    | Stop parsing anything that follows |
 
 
-### //===🗝 splatting operator '@'
+### splatting operator '@'
 
 Splatting is a method of passing a collection of parameter values to a command
 as a unit. PowerShell associates each value in the collection with a command
@@ -958,7 +916,7 @@ Hello World!
 
 
 
-## //⚡ signature block
+## ⚡ signature block
 - [Add Credential support to PowerShell functions](deep-dives\add-credentials-to-powershell-functions.md)
 
 签名块起止标记为 `# SIG # Begin signature block`，`# SIG # End signature block`，包括换行符号，签名内容是 base64 编码的字符串，每行都使用注解符号，签名用来验证脚本的完整性防止加入恶意代码。
@@ -1018,7 +976,7 @@ Set-AuthenticodeSignature -FilePath myscript.ps1 -Certificate $cert -TimeStampSe
 Get-AuthenticodeSignature -FilePath myscript.ps1 | Select-Object -Property *
 ```
 
-## //⚡ Variables & Providers and Drives
+## ⚡ Variables & Providers and Drives
 
 ```yaml
 variable:
@@ -1195,7 +1153,7 @@ Variable                               Variable
 WSMan                                  WSMan                                              
 ```
 
-## //⚡ Numeric/Real literals
+## ⚡ Numeric/Real literals
 
 字面量有 3 种：
 
@@ -1285,7 +1243,7 @@ dash:
     Horizontal bar character (U+2015)
 ```
 
-## //⚡ Strings literals
+## ⚡ Strings literals
 - [Everything about variable substitution in strings](deep-dives\everything-about-string-substitutions.md)
 - [ 2. Lexical Structure](lang-spec/chapter-02.md)
 - [Appendix A - Grammar](lang-spec\chapter-15.md)
@@ -1470,7 +1428,7 @@ verbatim-here-string-part:
 ```
 
 
-## //⚡ Operators and punctuators
+## ⚡ Operators and punctuators
 https://github.com/MicrosoftDocs/PowerShell-Docs/blob/main/reference/docs-conceptual/lang-spec/chapter-07.md
 
 Use PowerShell’s arithmetic operators:
@@ -1642,7 +1600,7 @@ format-operator:
 ```
 
 
-## //⚡ Builtin Automatic Variables
+## ⚡ Builtin Automatic Variables
 - [about_automatic_variables](module/microsoft.powershell.core/about/about_automatic_variables.md)
 - [SpecialVariables](src\System.Management.Automation\engine\SpecialVariables.cs)
 - [MutableTuple](src\System.Management.Automation\engine\runtime\MutableTuple.cs)
@@ -1665,8 +1623,8 @@ PowerShell 内置的自动变量：
 5. $Args    此变量包含未声明参数的值的数组，这些值传递给脚本，函数或脚本块，使用 PARAM 时无效。
 6. $ConsoleFileName     此变量用于表示控制台文件的路径，该文件最近在会话中使用。
 7. $Error   此变量用于包含代表最新错误的错误对象数组。
-8. $Event   此变量用于包含PSEventArgs的对象。PSEventArgs是用于表示正在处理的事件的对象。
-9. $EventSubscriber     此变量用于包含PSEventSubscriber的对象。该对象包含正在处理的事件的事件订阅者。
+8. $Event   此变量用于包含 PSEventArgs 的对象，它是用于表示正在处理的事件的参数对象。
+9. $EventSubscriber     此变量用于包含 PSEventSubscriber 的对象。该对象包含正在处理的事件的事件订阅者。
 10. $EventArgs  此变量用于包含一个对象，该对象表示第一个事件的参数。
 11. $false  此变量用于表示False。
 12. $foreach    此变量用于包含ForEach循环的枚举数。该变量仅在执行ForEach循环时存在。
@@ -1786,7 +1744,7 @@ As of PowerShell 7.2 you can now access the $PSStyle automatic variable to view 
 
 
 
-## //⚡ Types - Numbers/Strings/Datetime
+## ⚡ Types - Numbers/Strings/Datetime
 - 4. Types https://docs.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04
 - 5. Variables https://docs.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-05
 - 6. Conversions https://docs.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-06
@@ -2042,7 +2000,7 @@ Alias           ac -> Add-Content
 ```
 
 
-## //⚡ ArrayList & Hashtable & PSCustomObject
+## ⚡ ArrayList & Hashtable & PSCustomObject
 - [7. Expressions](lang-spec/chapter-07.md)
 - [9. Arrays](lang-spec/chapter-09.md)
 - [10. Hashtables](lang-spec/chapter-10.md)
@@ -2237,7 +2195,7 @@ $ageList.GetEnumerator() | ForEach-Object{
 
 
 
-## //⚡ Flow Control
+## ⚡ Flow Control
 - [8. Statements](lang-spec/chapter-08.md)
 - [about_Switch](Microsoft.PowerShell.Core/About/about_Switch.md)
 - [about_If](Microsoft.PowerShell.Core/About/about_If.md)
@@ -2346,7 +2304,7 @@ Write-Host -Object 'Correct!'
 # Listing 4-15: Using a do/until loop
 ```
 
-### ===🗝 Break Continue Return
+### Break Continue Return
 - [about_Break](microsoft.powershell.core/about/about_break.md)
 - [about_Continue](microsoft.powershell.core/about/about_continue.md)
 - [about_Return](microsoft.powershell.core/about/about_return.md)
@@ -2380,7 +2338,7 @@ foreach( $i in (1..5)){
 -->
 ```
 
-### ===🗝 For For-Each Statement
+### For For-Each Statement
 - [about_For](microsoft.PowerShell.Core/About/about_For.md)
 - [about_Foreach](microsoft.PowerShell.Core/About/about_Foreach.md)
 - [ForEach-Object](Microsoft.PowerShell.Core\ForEach-Object.md)
@@ -2479,7 +2437,7 @@ For PowerShell 3.0 and later, there is one built in :)
     0..($letters.count-1) | foreach { "Value: {0}, Index: {1}" -f $letters[$_],$_}
 
 
-### ===🗝 Switch Statement
+### Switch Statement
 - [about_Switch](microsoft.PowerShell.Core/About/about_Switch.md)
 - [Everything about the switch statement](learn\deep-dives\everything-about-switch.md)
 
@@ -2557,7 +2515,7 @@ switch -Wildcard -File $path
 在各个匹配块中，如果不使用 `continue` 可以有多个匹配的情况，使用它可以避免多重匹配。而使用 `break` 可以打断后续的其它数据处理。
 
 
-### ===🗝 Try_Catch_Finally 
+### Try_Catch_Finally 
 - [about_Try_Catch_Finally](Microsoft.PowerShell.Core/About/about_Try_Catch_Finally.md)
 - [about_Throw](microsoft.powershell.core/about/about_Throw.md)
 - [about_Trap](microsoft.powershell.core/about/about_Trap.md)
@@ -2620,7 +2578,7 @@ keywords used in the C\# programming language.
 
 
 
-## //⚡ Function
+## ⚡ Function
 - [12. Atributes](https://docs.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-12)
 - [A. Comment-Based Help](https://docs.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-14)
 - [ 8. Statements](lang-spec/chapter-08.md)
@@ -2684,8 +2642,8 @@ function Test-Args($list, $tag){
   echo "tag = $tag"
   echo "==================="
 }
-Test-Args({1,2,3,4}, "ABC")
-Test-Args {1,2,3,4}  "ABC"
+Test-Args({1,2,3,4}, "ABC") # Wrong Way!
+Test-Args {1,2,3,4}  "ABC"  # Right Way! 
 
 # Expected Output:
 9
@@ -2805,7 +2763,7 @@ Function Remove-ByForce {
 Remove-ByForce test
 ```
 
-## //⚡ Paramerters & Attributes
+## ⚡ Paramerters & Attributes
 - [12. Atributes](reference\docs-conceptual\lang-spec\chapter-12.md)
 - [ValidateRangeAttribute](System.Management.Automation\engine\Attributes.cs)
 - [Advanced Parameters](Microsoft.PowerShell.Core\About\about_Functions_Advanced_Parameters.md)
@@ -2877,7 +2835,7 @@ Optional named parameter. Specifies the location where resource identifiers resi
 Optional named parameter.Specifies the resource identifier for a Help message.
 
 
-### ===🗝 HelpMessage & Comment Based Help
+### HelpMessage & Comment Based Help
 - [about Comment Based Help](Microsoft.PowerShell.Core\About\about_Comment_Based_Help.md)
 
 The `HelpMessage` argument specifies a string that contains a brief description
@@ -2959,7 +2917,7 @@ Comment-based help for a function can appear in one of three locations:
   between the last line of the function help and the `function` keyword.
 
 
-### ===🗝 Parameter Example
+### Parameter Example
 
 The following example function counts the number lines, characters, and words
 in a text file. Using parameters, you can specify which values you want
@@ -3080,7 +3038,7 @@ LiteralPath      -LiteralPath <string> [-Lines] [-Words] [-Characters] [<CommonP
 LiteralPathAll   -LiteralPath <string> -All [<CommonParameters>]
 ```
 
-## //⚡ Scopes
+## ⚡ Scopes
 - [about_Scopes](microsoft.powershell.core/about/about_Scopes.md)
 
 PowerShell 支持三种作用域：
@@ -3173,7 +3131,7 @@ $test
 $global:test
 ```
 
-## //⚡ ScriptBlocks
+## ⚡ ScriptBlocks
 - [ScriptBlocks](Microsoft.PowerShell.Core\About\about_Script_Blocks.md)
 - [about_Return](Microsoft.PowerShell.Core\About\about_Return.md)
 - [about_Functions](Microsoft.PowerShell.Core\About\about_Functions.md)
@@ -3504,7 +3462,7 @@ At line:1 char:23
 可以给脚本文件、函数、Cmdlet 或模块设置帮助信息，并且通过 help 命令查询帮助信息内容，但脚本块不可以。
 
 
-## //⚡ Scripts & Arguments
+## ⚡ Scripts & Arguments
 - [about_Scripts](microsoft.powershell.core/about/about_Scripts.md)
 - [about_Script_Internationalization](about/about_Script_Internationalization.md)
 - [about_Scopes](microsoft.powershell.core/about/about_Scopes.md)
@@ -3710,665 +3668,8 @@ Please be here next time
 # Listing 8-14: Variable values remain over subsequent session connections.
 ```
 
-## //==⚡ Hosting
-- [Windows PowerShell Host Quickstart](hosting\windows-powershell-host-quickstart.md)
-- System.Management.Automation\engine\hostifaces\RunspacePool.cs
 
-创建 PowerShell 脚本宿主来运行脚本：
-
-```sh
-$ps = [PowerShell]::Create()
-$ps.AddScript("dir c:/videos")
-$ps.Invoke()
-$ps.Dispose()
-```
-
-## //⚡ Start-Job Async & Parallel
-- https://devblogs.microsoft.com/powershell/powershell-foreach-object-parallel-feature/
-- https://triveniglobalsoft.com/parallel-processing-with-powershell/
-- [PowerShell Docs - About jobs](Microsoft.PowerShell.Core\About\about_Jobs.md)
-- [about_Job_Details](Microsoft.PowerShell.Core\About\about_Job_Details.md)
-- [about_Remote](Microsoft.PowerShell.Core\About\about_Remote.md)
-- [about_Remote_Variables](Microsoft.PowerShell.Core\About\about_Remote_Variables.md)
-- [Invoke-Command](Microsoft.PowerShell.Core\Invoke-Command.md)
-- [Get-Job](Microsoft.PowerShell.Core\Get-Job.md)
-- [Remove-Job](Microsoft.PowerShell.Core\Remove-Job.md)
-- [Start-Job](Microsoft.PowerShell.Core\Start-Job.md)
-- [Stop-Job](Microsoft.PowerShell.Core\Stop-Job.md)
-- [Wait-Job](Microsoft.PowerShell.Core\Wait-Job.md)
-- [Receive-Job](Microsoft.PowerShell.Core\Receive-Job.md)
-- [Start-ThreadJob](7.0\ThreadJob\Start-ThreadJob.md)
-- [ForEach-Object](Microsoft.PowerShell.Core\ForEach-Object.md)
-
-*Start-Job* Starts a PowerShell background job.
-
-*Invoke-Command* cmdlet to run a Start-Job command on the remote computer.
-
-The job cmdlets
-
-|Cmdlet          |Description                                            |
-|----------------|-------------------------------------------------------|
-|`Start-Job`     |Starts a background job on a local computer.           |
-|`Get-Job`       |Gets the background jobs that were started in the      |
-|                |current session.                                       |
-|`Receive-Job`   |Gets the results of background jobs.                   |
-|`Stop-Job`      |Stops a background job.                                |
-|`Wait-Job`      |Suppresses the command prompt until one or all jobs are|
-|                |complete.                                              |
-|`Remove-Job`    |Deletes a background job.                              |
-|`Invoke-Command`|The **AsJob** parameter creates a background job on a  |
-|                |remote computer. You can use `Invoke-Command` to run   |
-|                |any job command remotely, including `Start-Job`.       |
-
-创建一个多线程工作，注意：
-
-- Wait-Job 必需在接收数据前执行以等待数据已经准备好，发生 Timeout 的情况下没有返回 Jobs；
-    - 注意，时间是整数，大于 0.5 会当作一秒看待，可以使用 Start-Sleep 来模块更短时间的等待；
-- Receive-Job 会自动移除已经完成的任务，如果和 Wait-Job -Timeout 管道连接使用会导致数据丢失；
-    - 和 *Get-Job | Receive-Job* 通过管道连接接收当下的输出的数据，可以随时监测 Jobs 的状态；
-    - 和 *Get-Job -State Completed | Receive-Job* 连接使用只接收使用已经完成的 Jobs 数据；
-- Remove-Job 在接收完数据后依然要执行，否任务会在内存中保持；
-- Job 代码块中可以返回任意数量的值，每个 echo 和直接输出到管道的数据都可以被捕获；
-- `-Keep` 可以保持数据可以被重复捕获；
-
-```sh
-$code = {sleep $args[1]; echo "JOB: $args"; echo "EXTRA_DATA_$args"; }
-1..100 | %{
-  $sleep = ((Get-Random 10)/10)
-  Write-Host "[JOB_$_T$sleep] " -NoNewline
-  $jobs = Start-ThreadJob -ThrottleLimit 8 -ScriptBlock $code -ArgumentList $_,$sleep
-}
-Echo "Jobs ongoing"
-$result = @{}
-$jobs = (Get-Job).Count
-while ($sum -lt $jobs){
-  Get-Job | Wait-Job -Timeout 1
-  $Completed = Get-Job -State Completed
-  $sum = $Completed.Count
-  echo "Has Jobs $sum/$jobs"
-  # Get-Job | Wait-Job -Timeout 0.3 | Receive-Job | %{ 
-  $Completed | Receive-Job | %{ 
-    $result.Add($_, "Received")
-  };
-  # $Completed | remove-job
-}
-Get-Job | remove-job
-$result | Format-Table
-"$($result.Count) jobs data received."
-```
-
-创建一个工作分派器，$materials 为要处理的工作，直到它被 4 个 Jobs 进程处理完或者时间超出 $life 时结束，每个 Jobs 具体功由 $tasks 指定：
-
-```sh
-$id = 0
-$result = @{}
-$life = (Get-Date) + [TimeSpan]::FromSeconds(30)
-$total = 0
-$materials = [System.Collections.ArrayList](0..10)
-$uri = "http://olympus.realpython.org/dice"
-$tasks = @{
-  "Task-A" = { (curl.exe $args[0] | Select-String -pattern ">(\d)<") -replace ".+>(\d)<.+","[Dice-$($args[1])-`$1]" }
-  "Task-B" = { Sleep ((Get-Random 30)/10); "[DATA-B]" }
-  "Task-C" = { Sleep ((Get-Random 50)/10); "[DATA-C]" }
-  "Task-D" = { Sleep ((Get-Random 70)/10); "[DATA-D]" }
-}
-Get-Job | remove-job -Force
-while ($life -gt (Get-Date) -and $materials.Count){
-  $names = (Get-Job).Name
-  foreach($task in $tasks.Keys){
-    if ($task -in $names){ continue }
-    if ($task -eq "Task-A"){
-      $mat = $materials[0];
-      $materials.RemoveAt(0)
-    }
-    $job = Start-Job -Name $task -ScriptBlock $tasks[$task] -ArgumentList $uri,$mat
-    Write-Host "$task created! [$names]"
-    $total += 1
-  }
-  $jobs = (Get-Job).Count
-  $wait = Get-Job | Wait-Job -Timeout 1
-  $Completed = Get-Job -State Completed
-  echo "Has Jobs $($Completed.Count)/$jobs"
-  $Completed | Receive-Job | %{ 
-    $result.Add($id++, $_)
-  };
-  $Completed | remove-job
-}
-
-if ($left = Get-Job){
-  $running = "$($left.Count) stil runing, "
-  $left | Wait-Job -Timeout 5 | Receive-Job | %{ 
-    $result.Add($id++, $_)
-  };
-  $left | remove-job
-}
-$result | Format-Table
-"Total jobs: $total, $running$($result.Count) datas received."
-```
-
-PowerShell currently supports parallelism in three main categories.
-
-1. PowerShell *remoting*. Here PowerShell sends script to external machines to run, using PowerShell’s remoting system.
-2. PowerShell *jobs*. This is the same as remoting except that script is run in separate processes on the local machine, rather than on external machines.
-3. PowerShell *runspaces*. Here script is run on the local machine within the same process but on separate threads.
-
-This new feature uses the third method for running scripts in parallel. It has the least overhead of the other two methods and does not use the PowerShell remoting system. So it is generally much faster than the other two methods.
-
-PowerShell 中要高效执行任务脚本，现在通常使用 Runspace，效率很高；任务比较多时，用 Runspace pool 来执行异步操作，可以控制资源池数量，就像 C# 中的线程池一样。runspace 使用的频率越来越高，由于他的高效率，基本上很多时候已经取代了传统的 Job 后台操作。
-
-PowerShell 3.0 引入 Jobs，是一种后台执行的任务，Background Jobs，通过创建新 PowerSHell 进程来执行，这是比较消耗系统资源的并发模型，但好处是在当前进行出现问题时，不影响其它进行的任务。
-
-和 Invoke-Command 不同，Start-Job 是异步执行的，不会阻塞。 
-
-PowerShell 6.0 引入 ThreadJob，多线程执行任务，创建线任务比创建进程要轻松，所以更快，但是缺点是在当前进行出现问题时，所以线程都会受到影响。
-
-This is a thread based job. This is a lighter weight solution compared to Jobs. Unlike traditional PS Jobs which spawn a whole new host process for each running job, PS ThreadJobs run in multiple threads on the same process which vastly increases performance by lowering overhead.
-
-There are a few drawbacks to using a ThreadJob over a background job. If a background job hangs, only that process hangs. All other jobs keep chugging away. If you have a job that hangs with ThreadJob the entire queue is affected.
-
-PowerShell 7.0 可以设置 ForEach 以并行方式运行脚本块，这是更轻量的并发实现，可以指定并发数 ThrottleLimit：
-
-```sh
-# function msg(){ Echo "Output: $args" }
-# $Message = $function:msg
-# ForEach-Object -Parallel using variable cannot be a script block.
-$Message = "Output:"
-1..8 | ForEach-Object -Parallel {
-    "$using:Message $_"
-    Start-Sleep 0.1
-} -ThrottleLimit 4
-```
-
-使用 Jobs 的基本流程，从创建、执行，等待作业完成，再到获取结果，最后还需要从工作空间中移除 Jobs 对象：
-
-- *Start-Job*: Create and execute job.
-- *Get-Job*: Get all jobs that are started with Start-Job cmd.
-- *Wait-Job*: Wait for all jobs to complete.
-- *Receive-Job*: To print output of job to console.
-- *Remove-Job*: To delete all jobs that were created with Start-Job command.
-
-```sh
-# Start-Job: Create and execute job.
-1..5 | % {Start-Job { echo "Hello" } }
-# Parallel Processing Start Job
-Get-Job | Wait-Job
-# Parallel Processing Wait Job
-Get-Job | Receive-Job
-# Parallel Processing Receive Job
-Get-Job | Remove-Job
-# *Jobs created must be removed with this command.
-```
-
-使用并行 ForEach 或 Job、ThreadJob 注意，循环内部的脚本块不能方法脚本中的其它函数等符号定义。
-
-ForeEach 并行脚本块可以访问管道 *$PSItem* 但不能使用 ArgumentsList 传递参数，需要通过 *$using:* Scope Modifier 引用外部符号，但是这种方式不支持函数符号，即不支持脚本块。
-
-而 Job、ThreadJob 可以传递参数但脚本块内部访问不到 *$PSItem*。使用 ArgumentList 可以往脚本块内传递参数，使用逗号或圆括号，并通过 *$args* 获取。
-使用 InputObject 可以信脚本块内传递输入对象，通过 *$input* 获取。
-
-其它注意事项：
-
-- 使用 Echo 输出的内容会被 Receive-Job 命令捕获，而 Write-Host 输出的内容直接到控制台，可以设置类型过滤处理。
-
-    ```sh
-    if($_.GetType() -eq [System.Management.Automation.PSCustomObject]){ ... }
-    # Remove the property
-    $MyCustomObject.PSObject.properties.remove('property')
-    ```
-
-- 如需要进行编码转换的操作，那么注意，Start-Job 会启动新的 PowerShell 进程，并且使用系统默认的编码方案设置，这意味着当前进程正确的输入、输出编码方案设置将不会被应用到新的进程，这很有可能导致 ConvertTo-Json 或 ConvertFrom-Json 这操作涉及编码转换的操作失败！
-
-根据脚本块中输出的内容不同，会在结果中出现不同的数据，例如，使用 *Format-Table* 就会出现这些数据类型：FormatStartData、GroupStartData、FormatEntryData、GroupEndData、FormatEndData。
-
-通过 Write-Host 输出流的数据直接到控制台输出，不会被捕捉到。
-
-
-如下，hello 不能被访问：
-
-```sh
-function hello($id){
-  echo "HELLO: $id"
-}
-
-$block = {
-  function hi($id){
-    echo "MSG: $id"
-  }
-
-  Start-Sleep 1
-  echo "`$args = $args `$_ = $_"
-  hi("PSItem is not visibled in ThreadJob")
-  # hello($_) # is not recognized
-}
-
-0..3 | % -ThrottleLimit 4 -Parallel $block
-
-1..5 | %{ 
-  echo "each ===>: $_";
-  $a = "a"
-  Start-ThreadJob -ThrottleLimit 5 -ScriptBlock $block -ArgumentList $_,"more..."
-}
-Get-Job | Wait-Job | Receive-Job
-Get-Job | Remove-Job -Force
-```
-
-在 ScriptBlock 中使用 param() 定义参数：
-
-```sh
-$block = {
-  param(
-    [String]$url,
-    )
-  # echo "args: $args"
-}
-```
-
-通过 *Dot Source* 将脚本加载到当前作用域就可以解决不能访问脚本块外部符号的问题，通过传递类到脚本也是一种不错的解决方法：
-
-- 创建一个 Transfer 并实例化后通过 -ArgumentList 传递到脚本块内部；
-- 在 -ScriptBlock 指定的脚本块中，接收参数的类型设置为 Transfer 会出现类型转换错误，可以使用 Object 基类；
-- 脚本普遍有多态能力，除标准静态成员访问方式 `[ClassName]::StaticMember`，还有 `$var::StaticMember`；
-- 使用 *Dot Source* 加载脚本文件到当前作用域，以使用类形及符号，可以在初始化脚本中操作；
-- 加载脚本意味执行它，Transfer 的静态成员的值会重新构建，所以在不同的运行空间上，它拥有不同的副本；
-- 另外，要防止脚本文件循环加载，可以设置一个标志以避免死循环；
-
-- 使用 *Start-Job* 会导致类实例不能被正确传递，Deserialized 结果会丢失类方法成员，需要变通在脚本块内部重新实例化处理；
-
-```sh
-Class Transfer {
-  static [Object] $config = [PSCustomObject]@{
-    Value = "Static Value: " + (Get-Date)
-  }
-  [String]$value
-
-  Transfer([String]$v){
-    $this.value = $v;
-  }
-
-  [String] Todo() {
-    return "Todo: " + $this.value;
-  }
-}
-
-$block = {
-  PARAM(
-    [int]$id,
-    [Object]$it
-    )
-  Write-Host "ID: $id"
-  Write-Host "IT: $it"
-  Write-Host "What type is config? $($it::config)"
-  $it.Todo()
-  # Write-Host [$([Transfer]::config.Value)]
-  Write-Host [$($it::config.Value)]
-  Return "Value from ScriptBlock"
-}
-
-$init = {
-  # Dot Source: add script to current scope
-  # . "./jobs.ps1" DONE
-  # Write-Host "Why is dead code here?"
-}
-
-$t = [Transfer]::new("ScriptBlock Test: $(Get-Date)")
-Write-Host "" -NoNewline
-Write-Host "Test" "$t" -BackgroundColor Yellow -ForegroundColor Black
-[Console]::ResetColor()
-$static = [Transfer]::config.Value
-Write-Host $static
-Start-Sleep .2
-
-
-if ($args[0] -eq $null){
-  Write-Host "Sentinal is null and go to run" $args[0]
-  1..2 | % {
-    Start-ThreadJob -ThrottleLimit 5 -InitializationScript $init -ScriptBlock $block -ArgumentList $_,$t
-  }
-}
-
-# "Wait then receive result..."
-$result = @{}
-Get-Job | Wait-Job | Receive-Job | % { 
-  # if ($_.GetType().Name -in "FormatStartData","GroupStartData","GroupEndData","FormatEndData")
-  # if ($_.GetType().Name -in "String","FormatEntryData")
-  { 
-    $id = $result.Count
-    $result.Add("$id-"+$_.GetType().Name, $_)
-  }.Invoke()
-}
-Get-Job | Remove-Job -Force
-
-$result|ft
-$result.Values|ft
-```
-
-Performance test，按效率从低到高排序：
-
-- 第一种，单线同步执行 ForEach，5 个任务理想状态合计 5s 时间；
-- 第二种，创建进程执行 Job，5 个任务执行时间受到进程创建的影响较大；
-- 第三种，使用 PowerShell 7.0 多单线执行 Job，5 个任务理想状态合计 1s 时间，但除去线程资源配置开销，不可能达到；
-- 第四种，并行 ForEach 执行，5 个任务理想状态合计 1s 时间，比线程方式更节省资源，更优化；
-
-```sh
-#% -> ForEach-Object
-Measure-Command {1..5 | % {Start-Sleep 1} } | Select-Object TotalSeconds
-#Job
-Measure-Command {1..5 | % {Start-Job {Start-Sleep 1}} | Wait-Job} | Select-Object TotalSeconds
-#Thread Job
-Measure-Command {1..5 | % {Start-ThreadJob -ThrottleLimit 5 {Start-Sleep 1}} | Wait-Job} | Select-Object TotalSeconds
-#ForEach-Object Parallel
-Measure-Command {1..5 | ForEach-Object -Parallel {Start-Sleep 1} -ThrottleLimit 5} | Select-Object TotalSeconds
-
-TotalSeconds
-------------
-   5.0311368
-   4.2587164
-   1.4038681
-   1.1093434
-```
-
-Powershell 是单线程程序且一次只能做一件事情，后台作业能额外增加并发处理能力。当需要程序同时运行且数据量不是很大时它能很好的解决问题。但从 Powershell 后台回传数据是一个非常麻烦的工作，它将浪费很多时间，并导致脚本更慢。
-
-这里有 3 个并发执行任务：
-
-```sh
-$start = Get-Date
- 
-# get all hotfixes
-$task1 = { Get-Hotfix }
- 
-# get all scripts in your profile
-$task2 = { Get-Service | Where-Object Status -eq Running }
- 
-# parse log file
-$task3 = { Get-Content -Path $env:windir\windowsupdate.log | Where-Object { $_ -like '*successfully installed*' } }
- 
-# run 2 tasks in the background, and 1 in the foreground task
-$job1 =  Start-Job -ScriptBlock $task1
-$job2 =  Start-Job -ScriptBlock $task2
-$result3 = Invoke-Command -ScriptBlock $task3
- 
-# wait for the remaining tasks to complete (if not done yet)
-$null = Wait-Job -Job $job1, $job2
- 
-# now they are done, get the results
-$result1 = Receive-Job -Job $job1
-$result2 = Receive-Job -Job $job2
- 
-# discard the jobs
-Remove-Job -Job $job1, $job2
- 
-$end = Get-Date
-Write-Host -ForegroundColor Red ($end - $start).TotalSeconds
-
-# $result1 | Format-Table
-# $result2 | FT
-# $result3
-```
-
-上面执行全部的任务消耗了 5.9 秒。三个任务的结果将分别存入 $result1, $result2, 和 $result3.
-让我们再继续查看相继在前台执行完命令需要多长时间：
-
-```sh
-$start = Get-Date
- 
-# get all hotfixes
-$task1 = { Get-Hotfix }
- 
-# get all scripts in your profile
-$task2 = { Get-Service | Where-Object Status -eq Running }
- 
-# parse log file
-$task3 = { Get-Content -Path $env:windir\windowsupdate.log | Where-Object { $_ -like '*successfully installed*' } }
- 
-# run them all in the foreground:
-$result1 = Invoke-Command -ScriptBlock $task1
-$result2 = Invoke-Command -ScriptBlock $task2
-$result3 = Invoke-Command -ScriptBlock $task3
- 
-$end = Get-Date
-Write-Host -ForegroundColor Red ($end - $start).TotalSeconds
-```
-
-结果，这次只花费了 5.05 秒。与后台作业几乎同时完成，所以后台作业更适合解决长时间执行的任务。从三个任务返回的数据观察，好处是这种按顺数在前台获得数据能减少了执行过程的开销。
-
-
-## //⚡ ThreadJob 多线程下载器
-- [Progress while multi-threading](learn/deep-dives/write-progress-across-multiple-threads.md)
-
-
-Displaying progress while multi-threading 文档演示了如何使用 synced hashtable 多线程同步对象来创建进度条，注意使用了 *$using:* 来引用外部符号：
-
-```sh
-# Create a hashtable for process.
-# Keys should be ID's of the processes
-$origin = @{}
-$dataset | Foreach-Object {$origin.($_.id) = @{}}
-
-# Create synced hashtable
-$sync = [System.Collections.Hashtable]::Synchronized($origin)
-
-$job = $dataset | Foreach-Object -ThrottleLimit 3 -AsJob -Parallel {
-    $syncCopy = $using:sync
-    $process = $syncCopy.$($PSItem.Id)
-
-    $process.Id = $PSItem.Id
-    $process.Activity = "Id $($PSItem.Id) starting"
-    $process.Status = "Processing"
-
-    # Fake workload start up that takes x amount of time to complete
-    start-sleep -Milliseconds ($PSItem.wait*5)
-
-    # Process. update activity
-    $process.Activity = "Id $($PSItem.id) processing"
-    foreach ($percent in 1..100)
-    {
-        # Update process on status
-        $process.Status = "Handling $percent/100"
-        $process.PercentComplete = (($percent / 100) * 100)
-
-        # Fake workload that takes x amount of time to complete
-        Start-Sleep -Milliseconds $PSItem.Wait
-    }
-
-    # Mark process as completed
-    $process.Completed = $true
-}
-```
-
-Programming Language Pragmatics by Michael L. Scott，这本书是讲解编译器语用论的，非常适合入门阅读，网站上提供了部分共享资源可以使用以下多线程睵脚本获取：
-
-- 脚本中使用 Start-ThreadJob 创建多线程任务；
-- 脚本中使用 `$MyInvocation.Line -NotLike "*=*"` 判断脚本运行状态，如果是赋值给变量跳过不必要的内容输出；
-
-
-```sh
-param([HashTable]$map, [String]$url)
-
-function RemapName([String]$ori, [Object]$map){
-  $type = $map.GetType()
-  Switch ($type) {
-    { $_ -eq [Boolean] } { $rename = $ori }
-    { $_ -eq [String]  }
-    {
-      $rename = ($map -replace "{NAME}", $ori)
-      $rename = ($rename -replace "{BASE}", $base)
-      Write-Host "--> Rename:[STR]: [$ori] ==> [$rename]"
-    } 
-    { $_ -eq [ScriptBlock] }
-    { 
-      $rename = $map.invoke($ori)
-      Write-Host "--> Rename:[SB]: [$ori] ==> [$rename]"
-    }
-    Default {
-      Write-Host "No matches [$type]"
-      $rename = $ori
-    }
-  }
-  return $rename
-}
-
-function Download([Object]$work){
-  [String]$name = $work["name"]
-  [String]$url = $work["url"]
-  $url = [System.Web.HttpUtility]::UrlPathEncode($url)
-  if($name){
-    curl.exe -L -o $name "$url"
-  }else{
-    curl.exe -L -O "$url"
-  }
-  # curl will be no progress write to stder if set --no-progress-meter
-  # Invoke-WebRequest -OutFile $name -Uri "$url"
-  if($LASTEXITCODE){
-    return "Donwlod Error $name : $url"
-  }else{
-    return "Donwlod Completed $name : $url"
-  }
-}
-
-function ReWriteProgress([System.Management.Automation.Job2]$Job)
-{
-  $b = $Job.Progress
-  $a = $Job.ChildJobs[0].Progress
-  $progress = $a ? $a : $b
-  if($Progress -ne $null)
-  {    $latest = $progress[-1];
-    $config = @{
-      ID = $job.Id
-      Activity = $latest.Activity+" Rewrited";
-      Status = $latest.StatusDescription;
-      PercentComplete = $latest.PercentComplete;
-      Complete = $false
-    }
-    $finished = $config.Status.StartsWith("Web request completed.")
-    if ($config.PercentComplete -ge 100 -or $finished){
-      $config.Complete = $true
-    }
-    Write-Progress @config
-  }
-}
-
-# ParseCurlProgress("100  192k  100  192k    0     0  23691      0  0:00:08...")
-function ParseCurlProgress([String]$progress){
-  $reg = "(\d+) +(\d+)[k] +(\d+) +(\d+)[k].+"
-  $json = '{"TP":$1, "Total":$2, "RP":$3, "Received":$4, "Unit":"KB"}'
-  $json = $progress -replace $reg,$json
-  if($json -ne $progress){
-    return ConvertFrom-Json $json
-  }else{
-    return $false
-  }
-}
-
-function StartJobs([System.Collections.ArrayList]$list, [ScriptBlock]$code, [int]$threads = 4){
-  $result = [System.Collections.ArrayList]@()
-  $done = 0
-  $count = $list.Count
-  Get-Job | Remove-Job -Force
-  while($list.Count -or (Get-Job)){
-    while ($list.Count -and (Get-Job).Count -lt $threads){
-      $work = $list[0];
-      $c = $list.RemoveAt(0);
-      $job = Start-ThreadJob -ThrottleLimit $threads -ScriptBlock $code -ArgumentList $work
-    }
-    $jobs = (Get-Job).Count
-    $p = $done/$count * 100
-    Write-Progress -ID 0 -Activity "Downloading $jobs threads" -Status "$done/$count jobs" -PercentComplete $p
-
-    Start-Sleep (1/30)
-    # Get-Job | Wait-Job -Timeout 1
-    $finished = Get-Job -State Completed 
-    $done += $finished.Count
-    # Get-Job | Receive-Job | % {
-    # $finished | % {
-    Get-Job | % {
-      # ReWriteProgress $_ # for Invoke-WebRequest
-      $progress = ParseCurlProgress($_.Error[-1])
-      if ($progress){
-        $Received = $progress.Received
-        $Total = $progress.Total
-        $Unit = $progress.Unit
-
-        $params = @{
-          Id = $_.Id
-          ParentId = 0
-          Activity = "Sub task #$($_.ID)"
-          Status = "$Received/$Total $unit"
-          PercentComplete = $Received/$Total * 100
-          Completed = $Received -ge $Total
-        }
-        Write-Progress @params
-      }
-      $c = $result.Add($_.Output[-1]) # save the last one
-    }
-    $finished | Remove-Job
-  }
-  return $result
-}
-
-function DownloadList([HashTable]$list, [String]$url){
-  $skip = 0
-  $works = [System.Collections.ArrayList]@()
-  $list.keys | % {
-    $map = $list[$_]
-    $ori = ("$_" -split "/")[-1]
-    $base = ("$ori" -split ".")[0]
-    $rename = RemapName $ori $map
-
-    $a = (Test-Path $ori)
-    $b = $rename -and (Test-Path "$rename")
-    if($a -or $b) {
-      $skip += 1
-      Write-Host "Skip $_ ==> $rename"
-      return # continue in % (for-each form)
-    }
-    if (!$url.EndsWith("/")){ $url += "/" }
-    $c = $works.Add(@{ name = $rename; url = "$url$_"})
-  }
-
-  $result = StartJobs $works $function:Download
-
-  $result | Format-Table
-
-  echo "================================="
-  echo "COUNT: $($list.Count) SKIP: $skip"
-  echo "================================="
-}
-
-if ($map -and ($map.GetType() -eq [HashTable])) {
-  DownloadList $map $url
-  Write-Host DONE!
-} else {
-
-  if ($MyInvocation.Line -NotLike "*=*") {
-    Write-Host "Usage:" -ForegroundColor Green
-    Write-Host ("="*80) -BackgroundColor Yellow
-    Write-Host @'
-  $do =  Downlist
-  Invoke-Expression $do
-
-  # Or
-  # ============================================================================
-
-'@}
-
-  Echo @'
-  $rename = { PARAM([String]$name); $name -replace "Chapter_","Figures of " }
-  $list = @{
-      "Code Samples/Scott 4e_Code.zip" = $false
-      "Sections and Sub-sections/Scott 4e_Supplementary Sections.pdf" = $false
-      "Chapters 5 and 17/Scott 4e_Chapter 05.pdf" = { PARAM([String]$name); $name -replace ".pdf"," Target Machine Architecture.pdf" }
-      "Chapters 5 and 17/Scott 4e_Chapter 17.pdf" = { PARAM([String]$name); $name -replace ".pdf"," Code Improvement.pdf" }
-      "Figures from the Text/PDF/Chapter_01.pdf"  = $rename
-      "Figures from the Text/PDF/Chapter_02.pdf"  = $rename
-  }
-  $root = "https://booksite.elsevier.com/9780124104099/content/"
-  downlist $list $root
-'@
-}
-```
-
-## //⚡ Workflows
+## ⚡ Workflows
 - [about_Remote_Disconnected_Sessions](Microsoft.PowerShell.Core/About/about_Remote_Disconnected_Sessions.md)
 - [about_WorkFlows](5.1\PSWorkflow\about_WorkFlows.md)
 - [about_ActivityCommonParameters](5.1\PSWorkflow\about_ActivityCommonParameters.md)
@@ -4376,6 +3677,29 @@ if ($map -and ($map.GetType() -eq [HashTable])) {
 - [about_ForEach-Parallel](5.1\PSWorkflow\about_ForEach-Parallel.md)
 - [about_WorkflowCommonParameters](5.1\PSWorkflow\about_WorkflowCommonParameters.md)
 - [about_Sequence](5.1\PSWorkflow\About\about_Sequence.md)
+
+PowerShell Workflow 是一种可以在分布式环境中并行执行的命令流程。通过使用 Parallel 和 Sequence 关键字，循环可以轻松地创建并行执行的工作流，从而实现多线程操作。其中 foreach -parallel 参数只能在工作流内部使用。
+
+```powershell
+#!/usr/bin/env powershell
+
+Get-Content -ReadCount 0 -Encoding utf8  $PSCommandPath | Write-Output
+
+workflow Resolve-Items {
+    param([string[]]$Items)
+
+    foreach -parallel ($item in $Items) {
+        Write-Output "Processing item: $item"
+        Start-Sleep -Seconds 1
+    }
+}
+
+$sw = New-Object System.Diagnostics.Stopwatch
+$sw.Start()
+$items = 1..10
+Resolve-Items -Items $items
+Write-Output ("Stopwatch Elapsed: {0}" -f  $sw.Elapsed.ToString())
+```
 
 Windows Workflow Foundation 建立工作流应用程序的编程模型、引擎和工具，对执行模型进行了活动自动控制方面的虚拟化。这使您能编写可以捕捉各种控制流模式的复合活动，范围包括多种连接和合并、状态机、图形、序列、交叉存取和非本地退出等。总之，它将使您能够通过“高保真”的复合活动对存在于现实世界中的控制流模式进行建模。
 
@@ -4419,7 +3743,7 @@ Get-Command -CommandType Workflow
 
 
 
-## //⚡ Write Output Stream
+## ⚡ Write Output Stream
 - [about_Output_Streams](Microsoft.PowerShell.Core/About/about_Output_Streams.md)
 - [about_Redirection](Microsoft.PowerShell.Core/About/about_Redirection.md)
 - [about_Return](Microsoft.PowerShell.Core/About/about_Return.md)
@@ -4518,7 +3842,7 @@ ColoredText "Green", " Red ", "Yellow" Green,Red,Yellow
 > [Console]::ResetColor()
 ```
 
-### //===🗝 ProgressBar
+### ProgressBar
 - [How to Display Job Progress](https://key2consulting.com/powershell-how-to-display-job-progress/)
 - [System.Management.Automation.Job](System.Management.Automation\engine\remoting\client\Job.cs)
 
@@ -4643,7 +3967,7 @@ return StartJobs $works $task
 
 
 
-## //⚡ Pipeline
+## ⚡ Pipeline
 - https://powershell.one/powershell-internals/scriptblocks/powershell-pipeline
 - [ValidateRangeAttribute](System.Management.Automation\engine\Attributes.cs)
 - [about Pipeline](Microsoft.PowerShell.Core/About/about_Pipelines.md)
@@ -4806,1185 +4130,6 @@ function Test-CollectData
 
 1..10 | Test-CollectData
 ```
-
-
-## ⚡ PowerShell Speeding-up
-
-本机映像生成器 (Ngen.exe) 是一种提高托管应用程序性能的工具。 Ngen.exe 创建本机映像（包含经编译的特定于处理器的机器代码的文件），并将它们安装到本地计算机上的本机映像缓存中。 运行时可从缓存中使用本机映像，而不必使用实时 (JIT) 编译器编译原始程序集，从而加速程序启动。
-
-Ngen.exe 编译仅面向 .NET Framework 的程序集的本机映像。 适用于 .NET Core 的等效本机映像生成器为 CrossGen。
-
-```sh
-# Set-Alias ngen (Join-Path ([System.Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()) ngen.exe)
-[AppDomain]::CurrentDomain.GetAssemblies() |
-    sort {Split-path $_.location -leaf} | 
-    %{
-        $Name = (Split-Path $_.location -leaf)
-        if ([System.Runtime.InteropServices.RuntimeEnvironment]::FromGlobalAccessCache($_))
-        {
-            Write-Host "Already GACed: $Name"
-        }else
-        {
-            Write-Host -ForegroundColor Yellow "NGENing      : $Name"
-            ngen $_.location | %{"`t$_"}
-         }
-      }
-```
-
-## ⚡ Sudo
-- https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/start-process
-- https://blog.walterlv.com/post/windows-user-account-control.html
-- https://nsudo.m2team.org/en-us/docs/#quick-start
-- Windows PowerShell Profiles https://docs.microsoft.com/en-us/previous-versions//bb613488(v=vs.85)
-
-
-Powershell 的 Start-Process -Verb RunAs 可以提出 UAC 授权请求，实现 Run As Administrator。
-
-完整性级别（Integrity Level）
-
-从 Windows Vista 开始，进程在创建的时候，可以得到一个访问令牌（Access Token），这个令牌有四个完整性级别：
-
-  - System（系统）
-  - High（高）
-  - Medium（中）
-  - Low（低）
-
-System 令牌是对系统完全操作的令牌，对应 SYSTEM 用户拥有的最高权限，可以对 Windows 操作系统做任何事。通常一个服务进程会以 SYSTEM 用户启动，拿到 System 令牌。
-
-使用 PowerShell 变量来定位：start $PSHome，使用 $Profile 变量获取配置文件路径：
-
-  - $PROFILE.CurrentUserCurrentHost “Current user, PowerShell ISE” 
-  - $PROFILE.AllUsersCurrentHost    “All users, PowerShell ISE” 
-  - $PROFILE.CurrentUserAllHosts    “Current user, All hosts” 
-  - $PROFILE.AllUsersAllHosts       “All users, All hosts” 
-
-```sh
-> $PROFILE.AllUsersAllHosts
-C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1
-> $PROFILE.AllUsersCurrentHost
-C:\Windows\System32\WindowsPowerShell\v1.0\Microsoft.PowerShell_profile.ps1
-> $PROFILE.CurrentUserAllHosts
-C:\Users\OCEAN\Documents\WindowsPowerShell\profile.ps1
-> $PROFILE; $PROFILE.CurrentUserCurrentHost
-C:\Users\OCEAN\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
-```
-
-创建配置脚本：
-
-```sh
-# mkdir (dir "$($PROFILE.CurrentUserCurrentHost)").Parent
-if (!(Test-Path $PROFILE.CurrentUserCurrentHost)){
-    echo "mkdir $($PROFILE.CurrentUserCurrentHost)"
-    mkdir $PROFILE.CurrentUserCurrentHost
-    del "$($PROFILE.CurrentUserCurrentHost)"
-    touch $PROFILE
-    notepad $PROFILE
-}
-
-if (!(Test-Path -Path $PROFILE ))
-{ New-Item -Type File -Path $PROFILE -Force }
-```
-
-添加以下脚本到 PowerShell 配置文件，并重新启动以加载配置脚本：
-
-    %USERPROFILE%\Documents\WindowsPowerShell\profile.ps1
-
-想要 PowerShell 启动时能成功的载入配置文件，还需要 Execution Policy（执行策略）中设置允许它这样做。否则，尝试载入配置文件将会失败，会显示无法加载配置文件。所以，需要在 PowerShell 执行 Set-ExecutionPolicy RemoteSigned 命令以启用脚本加载功能。
-
-```sh
-function SwitchUser-Do {
-    if($args.Length -lt 1) {
-        Write-Warning("program must be provided!")
-        Write-Output("Usage: sudo program [args...]")
-        return
-    }
-    $program = $args[0]
-    $prog_args = $args[1..($args.Count-1)]
-    Write-Output("Program: " + $program)
-    if ($args.Length -le 1) {
-        Start-Process -FilePath $program -Verb RunAs
-    }
-    else {
-        Write-Output("Arguments: " + $prog_args)
-        Start-Process -FilePath $program -Verb RunAs -ArgumentList $prog_args
-    }
-}
-
-Set-Alias sudo SwitchUser-Do
-echo ">>> ${PSScriptRoot}"
-echo ">>> $($MyInvocation.MyCommand)"
-```
-
-## ⚡ PowerShell Over SSH
-- OpenBSD manual page server https://man.openbsd.org/sshd
-- OpenSSH Manual Pages http://www.openssh.com/manual.html
-- https://github.com/PowerShell/Win32-OpenSSH/wiki
-
-为了方便使用，PowerShell 提供了数据供应器 Providers and drives，可以用来获取函数体：
-
-> function myfun{echo "my function"}
-> ${function:myfun}
-echo "my function"
-
-结合 ScriptBlock 对象实现程序化方式构建函数，注意函数的圆括号参考列表是可选的，调用没有参数的函数时不能使用圆括号：
-
-```sh
-function GetBar() {
-    $bar = "bar"
-    $bar
-}
-
-function GetFoo() {     
-    $foo = "foo"
-    $bar = GetBar
-    $foo
-    $bar
-}
-
-$fget = "function Get"
-$getbar = ${function:GetBar}
-$getfoo = ${function:GetFoo}
-$SBlock = [ScriptBlock]::Create("${fget}Bar() { $getbar } ${fget}Foo() { ${getfoo} } GetFoo")
-
-# Config WinRM first: "winrm quickconfig"
-Invoke-Command -ComputerName localhost -ScriptBlock $SBlock
-Invoke-Command -ComputerName localhost -ScriptBlock { Get-ChildItem C:\ } -credential Jeango
-```
-
-PowerShell 支持多种方式以远程方式运行脚本：
-
-  - Just Enough Administration (JEA)
-  - PowerShell remoting over SSH
-  - WS-Management (WSMan) remoting in PowerShell Core
-
-像 `New-PSSession`, `Enter-PSSession`, `Invoke-Command` 这些命令都支持以下用于远程执行脚本的参数：
-
-```sh
-[-HostName <string>]  [-UserName <string>]  [-KeyFilePath <string>]
-```
-
-双系统安装需要进行以下要求及步骤：
-
-- PowerShell 6 or higher, and SSH must be installed on all computers. 
-- Install both the SSH client (`ssh.exe`) and server (`sshd.exe`) so that you can remote to and from the computers.
-- OpenSSH for Windows is now available in Windows 10 build 1809 and Windows Server 2019.
-- For Linux, install SSH, including sshd server, that's appropriate for your platform. 
-- You also need to install PowerShell from GitHub to get the SSH remoting feature. 
-- The SSH server must be configured to create an SSH subsystem to host a PowerShell process on the remote computer. 
-- And, you must enable **password** or **key-based** authentication.
-
-基于 SSH 的远程处理依赖于 SSH 客户端和 SSH 服务之间的身份验证交换，PowerShell 本身不实现任何身份验证方案。任何配置的身份验证方案（包括多因素身份验证）都由 SSH 服务处理，并且独立于 PowerShell。
-
-确保配置文件设置了 `PasswordAuthentication yes`，可以使用密码登录，避免未配置公钥登录认证时不能登录，例如在 WSL Ubuntu 系统中修改配置文件 *sudo vi /etc/ssh/sshd_config*。
-
-首先是安装 SSH service，使用 Win32 OpenSSH。并生成密钥对，配置并启动服务，然后确保可以查询到有 SSHost 等信息：
-
-```sh
-> Restart-Service sshd
-> (Get-Command New-PSSession).ParameterSets.Name
-
-Name
-----
-SSHHost
-SSHHostHashParam
-
-# Generate CA keys (just like any other keys)
-ssh-keygen -t rsa -f ca_userkeys
-# Register above key as trusted CA for sshd. Add following entry in sshd_config
-TrustedUserCAKeys ca_userkeys.pub
-
-# Sign user keys using ssh-keygen
-ssh-keygen.exe -s ca_userkeys -I cert_identity -V -1w:+54w5d -n username id_rsa.pub
-# username should match the user to be authenticated
-```
-
-生成默认的密钥对：
-
-```sh
-$ sudo ssh-keygen -t rsa -f ssh_host_rsa_key
-$ sudo ssh-keygen -t ecdsa -f ssh_host_ecdsa_key
-$ sudo ssh-keygen -t ed25519 -f ssh_host_ed25519_key
-$ ls -l ssh_host*
--rw------- 1 root root  513 Apr 28 19:28 ssh_host_ecdsa_key
--rw-r--r-- 1 root root  182 Apr 28 19:28 ssh_host_ecdsa_key.pub
--rw------- 1 root root  411 Apr 28 19:30 ssh_host_ed25519_key
--rw-r--r-- 1 root root  102 Apr 28 19:30 ssh_host_ed25519_key.pub
--rw------- 1 root root 2610 Apr 28 19:20 ssh_host_rsa_key
--rw-r--r-- 1 root root  574 Apr 28 19:20 ssh_host_rsa_key.pub
-```
-
-
-
-注意，如果安装了 PowerShell 32-bit，而 OpenSSH 64-bit，那么将会访问不到 OpenSSH 的客户端，System32 目录不供 32-bit 应用访问，需要使用 SysNative 路径下的 32-bit SSH 程序：
-
-```sh
-Get-Item -Force C:\Windows\System32\OpenSSH\ssh.exe
-Get-Item: Cannot find path 'C:\Windows\System32\OpenSSH\ssh.exe' because it does not exist.
-# This would only work from a 32-bit PowerShell instance.
-# Access the 64-bit C:\Windows\System32 directory.
-Get-Item -Force C:\Windows\SysNative\OpenSSH\ssh.exe
-$Env:Path="C:\Windows\SysNative\OpenSSH;$($Env:Path)"
-```
-
-远程系统 WSL Ubuntu 充当，安装 OpenSSH 服务，并且需要为 PowerShell 创建子系统入口：
-
-```bash
-sudo apt install openssh-client
-sudo apt install openssh-server
-
-# Edit the `sshd_config` file at location `/etc/ssh`.
-# Make sure password authentication is enabled:
-#   PasswordAuthentication yes
-# Optionally, enable key authentication:
-#   PubkeyAuthentication yes
-# Add a PowerShell subsystem entry:
-#   Subsystem powershell /usr/bin/pwsh -sshs -NoLogo
-vim /etc/ssh/sshd_config
-```
-
-在 SSH 服务中配置 Subsystem entry 目的是让服务端 PowerShell 处理客户端的请求，注意名称大小定要匹配，参数 -sshs -NoLogo 不能少，可以使用 *sshd -d* 以调试方式运行服务。
-
-并且指定程序路径时不能有空格，所以在 Windows 系统上的带空格目录就要使用 8.3 格式的路径，最好是直接通过环境变量搜索到程序，这样就不用设置目录：
-
-    Subsystem powershell pwsh.exe -sshs -nologo
-    Subsystem powershell c:/progra~1/powershell/7/pwsh.exe -sshs -NoLogo
-
-可以使用以下命令查询是否正确设置，使用 ssh 连接时无输出内容是正确的，如果有内容输出，New-PSSession 连接时就会出错：
-
-```sh
-> sshd -T | grep 'subsystem'
-
-subsystem sftp /usr/lib/openssh/sftp-server
-subsystem powershell /usr/bin/pwsh -sshs -NoLogo -NoProfile
-
-> ssh root@localhost -s powershell
-PowerShell 7.2.2
-Copyright (c) Microsoft Corporation.
-
-https://aka.ms/powershell
-Type 'help' to get help.
-```
-
-注意 sshd -T 延申测试输出的信息中指示了密钥文件位置，配置文件对应是 %ProgramData%\ssh\sshd_config。
-
-PowerShell 需要使用 SSH 客户端来连接服务器，使用 *ssh user@localhost -p 22* 测试连接。确保 ssh 客户端程序可以被调用，否则会报错：A remote session might have ended.
-
-通过 Package Repository 安装 PowerShell：
-
-```sh
-# Update the list of packages
-sudo apt-get update
-# Install pre-requisite packages.
-sudo apt-get install -y wget apt-transport-https software-properties-common
-# Download the Microsoft repository GPG keys
-# wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
-wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
-# Register the Microsoft repository GPG keys
-sudo dpkg -i packages-microsoft-prod.deb
-# Update the list of packages after we added packages.microsoft.com
-sudo apt-get update
-# Install PowerShell
-sudo apt-get install -y powershell
-# Start PowerShell
-pwsh
-```
-
-或者直接下载安装包，根据系统选择版本：
-
-```sh
-# PowerShell 7.2.2 (universal package) for any support version of Ubuntu
-wget -q https://github.com/PowerShell/PowerShell/releases/download/v7.2.2/powershell-lts_7.2.2-1.deb_amd64.deb
-
-# Install the downloaded package
-sudo dpkg -i powershell-lts_7.2.2-1.deb_amd64.deb
-
-# Resolve missing dependencies and finish the install (if necessary)
-sudo apt-get install -f
-```
-
-连接测试，可以采取 Enter-PSSession -> 执行远程命令 -> Exit-PSSession -> Remove-PSSession 流程，也可以使用 Invoke-Command 行命令直接运行远程命令：
-
-```sh
-> $session = New-PSSession -HostName 127.0.0.1 -UserName root
-> $session
-
- Id Name       Transport ComputerName ComputerType    State   ConfigurationName  Availability
- -- ----       --------- ------------ ------------    -----   -----------------  ------------
-  3 Runspace2  SSH       127.0.0.1    RemoteMachine   Opened  DefaultShell       Available
-
-> Enter-PSSession $session
-[root@127.0.0.1]: PS /home/root> uname
-Linux
-[root@127.0.0.1]: PS /home/root> Invoke-Command $session -ScriptBlock { ps }
-Invoke-Command: Cannot validate argument on parameter 'Session'. The argument is null or empty..
-[root@127.0.0.1]: PS /home/root> Exit-PSSession
-
-> Invoke-Command $session -ScriptBlock { ps }
-  PID TTY          TIME CMD
- 8368 ?        00:00:00 sshd
- 8369 ?        00:00:04 pwsh
- 8704 ?        00:00:00 ps
-
-> Invoke-Command $session -ScriptBlock { Get-Process pwsh }
-
- NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName                        PSComputerName
- ------    -----      -----     ------      --  -- -----------                        --------------
-      0     0.00      99.02       4.57    8369 …69 pwsh                               127.0.0.1
-      0     0.00      65.48       0.90    8709   5 pwsh                               127.0.0.1
-
-> Get-PSSession | Remove-PSSession
-> $sess.State
-Closed
-```
-
-功能限制提示：
-
-- **sudo** 命令不能在 Linux 远程主机中运行；
-- 基于 SSH 的 PSRemoting 不支持访问 `$PROFILE` 也不载入配置文件，建议会话后，可以通过 Dot sourcing 加载它。
-- PowerShell 7.1 之前的版本，基于 SSH 远程执行不支持 second-hop 远程会话，此功能仅限于使用 WinRM。
-- PowerShell 7.1 允许在任何交互式远程会话中工作使用 `Enter-PSSession`、`Enter-PSHostProcess`。
-
-常见错误提示：
-
-- 不能运行 SSH 客户端程序：An error has occurred which PowerShell cannot handle. A remote session might have ended.
-- 未安装或 SSH 服务端未运行：Connecting to remote server localhost failed..
-- 未启用密码登录，且未配置好公钥认证登录：Permission denied (publickey)..
-- 公钥验证错误： Failed publickey for <user> from <host>
-- 服务主机上未安装 PowerShell 或未配置子系统入口，或者入口名字不匹配，或参数不正确，程序路径有误：
-    - The SSH client session has ended with error message: Permission denied, please try again.
-    - The SSH client session has ended with error message: subsystem request failed on channel 0.
-    - There is an error processing data from the background process. Error reported: PowerShell 7.2.2.
-
-处理数据报错，消息来源自服务端的 PowerShell 7.2.2，这可能是因为配置 SSH 子系统入口时，没有为 PowerShell 设置 -NoLogo 参数，导致建立会话时有额外数据传递，导致异常。
-
-连接期间打印 trying public key file .ssh/authorized_keys 表示服务器正在查询公钥认证文件，如果读取到公钥验证文件但又没有登录成功，那么就可能是公钥配置问题。重新在服务器端生成密钥对，将 id_rsa.pub 复制一份作为 authorized_keys，并且将密钥下载到本地系统用于登录。
-
-```sh
-# copy publickey on server
-sudo cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
-
-# download rsa privatekey to client, PowerShell or Bat
-scp jeango@localhost:~/.ssh/id_rsa $env:USERPROFILE\.ssh\id_rsa
-scp jeango@localhost:~/.ssh/id_rsa.pub $env:USERPROFILE\.ssh\id_rsa.pub
-scp jeango@localhost:~/.ssh/id_rsa %USERPROFILE%\.ssh\id_rsa
-```
-
-
-关于密钥保文件权限护，以及进行公钥验证登录的问题，服务端各个密钥文件不能给多个账户授权，即使没有授予访问权也不可，OpenSSH 不允许宽松的访问权限，但可以添加相关的用户组的权限，应该将管理员设置为密钥的所有者。
-
-```sh
-> sshd -d
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-Permissions for '__PROGRAMDATA__\\ssh/ssh_host_rsa_key' are too open.
-Permissions for '__PROGRAMDATA__\\ssh/ssh_host_ecdsa_key' are too open.
-Permissions for '__PROGRAMDATA__\\ssh/ssh_host_ed25519_key' are too open.
-...
-sshd: no hostkeys available -- exiting.
-```
-
-理解“管理员组”和管理员用户之间的区别很重要，User Account Control (UAC) 完全启用的情况下，登录管理员用户通常会在非提升模式下运行进程，Non-elevated，被称为受保护的管理员。这时进程处于最少权限状态，least-privileged state。
-
-在权限最低的状态下，尽管用户是管理员用户组的成员，但这些非提升进程无权访问仅限管理员组的资源。
-
-管理员账户可以通过 Consent UI 或 Credential UI 提升为拥有完全权限的状态，这两种 UI 窗口区别在于后者需要输入管理员账户密码。
-
-相比之下，标准用户无法自行提升，但他们可以要求管理员使用 Credential UI 提升他们，内置管理员帐户不需要提升。
-
-按以下方式修正密钥文件权限：
-
-```sh
-PS C:\ProgramData\ssh>(get-acl .\ssh_host_dsa_key).owner
-otheruser
-PS C:\ProgramData\ssh>icacls .\ssh_host_dsa_key
-ssh_host_dsa_key   NT AUTHORITY\SYSTEM:(F)
-                   BUILTIN\Administrators:(F)
-                   otheruser:(R) 
-
-# Steps to fix these permissions
-PS C:\ProgramData\ssh>icacls .\ssh_host_dsa_key /setowner system
-PS C:\ProgramData\ssh>icacls .\ssh_host_dsa_key /remove otheruser
-PS C:\ProgramData\ssh>get-acl .\ssh_host_dsa_key | Set-Acl ssh_host*key
-```
-
-客户端也添加 -v 参数显示连接过程的交互信息，以观察公钥认证过程，并通过 [preauth] 了角认证前期的状态：
-
-    ssh -v user@127.0.0.1 -s powershell
-
-根据 SSH2_MSG_NEWKEYS 消息可以了解决 sshd 服务建立连接过程传递的消息，还有当前可以进行的认证方式：Authentications that can continue: publickey,password,keyboard-interactive。
-
-另外，有两条比较重要的消息可以确定问题是否在于公钥数据，或文件路径，或者访问权限上。如果调试消息显示已经提供公钥，服务器在接收到公钥后直接给出 Authentication refused 可能就是文件权限大开开放导致 sshd 拒绝验证：
-
-- 客户端调试消息 ssh.exe: Offering public key
-- 服务端调试消息 sshd.exe: trying public key file
-
-对于启用 PubkeyAuthentication 以及配置授权密钥文件 *AuthorizedKeysFile* ，需要将客户的公钥登记到公钥认证记录文件内。
-
-对于用户的授权密钥文件，authorized_keys，只需要保证其用户的所有权，及单独访问权限即可以，多用户访问会导致 sshd 直接拒绝使用公钥验证，Authentication refused。
-
-而管理员组的授权密钥文件，administrators_authorized_keys，只提供管理员登录时使用，需要指定系统用户账户 SYSTEM 和 Administrators 管理员组权限。
-
-```sh
-# authorized_keys
-PS C:\>(get-acl .\users\thisuser\.ssh\authorized_keys).owner
-thisuser
-PS C:\>icacls .\users\thisuser\.ssh\authorized_keys
-ssh_host_dsa_key   BUILTIN\Administrators:(F)
-                   thisuser:(F) 
-                   otheruser1:(IR)
-                   otheruser2:(R)
-
-# Steps to fix these permissions - remove inheritance and inherited permissions
-PS C:\>icacls .\users\thisuser\.ssh\authorized_keys /inheritance:r
-PS C:\>icacls .\users\thisuser\.ssh\authorized_keys /remove otheruser2
-
-# administrators_authorized_keys
-# Default location for authorized keys file for users in administrators group is 
-# %programdata%\ssh\administrators_authorized_keys 
-# This file should only be accessible by SYSTEM and Administrators group.
-
-# Steps to fix permissions on this file:
-PS C:\>icacls administrators_authorized_keys /inheritance:r
-PS C:\>icacls administrators_authorized_keys /grant SYSTEM:"(F)"
-PS C:\>icacls administrators_authorized_keys /grant BUILTIN\Administrators:"(F)"
-```
-
-启用管理员授权密钥后，sshd 就进行 MATCH GROUP 比对，匹配的账户就读取相应的授权文件内容，可以指定命令行参数测试：
-
-    sshd -C user=administrators,host=127.0.0.1 -T
-
-
-给服务指定登录账户，注意需要给服务使用的账户设置 NETWORK SERVICE 安全主体策略以许可服务通过指定账户登录。
-
-类似的安全策略还有“允许通过远程桌面服务登录”，它默认许可远程桌面用户（Remote Desktop Users）进行远程登录。更多的安全策略设定可以使用本地用户组策略编辑器，gpedit.msc。
-
-打开本地安全策略面板 secpol.msc -> 本地策略 -> 用户权限分配 -> 作为服务登录，并将用户账户，或所属用户组添加到列表中。NT SERVICE\ALL SERVICES 安全主体是默认设置，它可以作为服务登录账户。
-
-空密码账户只需要将密码文本框的占位字符删除即可，选择了“本地服务”帐户或“网络服务”安全主体，NT AUTHORITY\LocalService & NT AUTHORITY\NetworkService 密码必须为空。要指定此服务使用“本地系统”帐户，请单击“本地系统帐户”。
-
-Windows 服务默认的登录账户是本地系统帐户，LocalSystem，是一个具有完全系统访问权并且在网络中担当计算机的超级帐户。如果一个服务在一台域控制器上用本地系统帐户登录，该服务就可以访问整个域。
-
-
-大多数服务都设计为不能更改默认帐户。当您更改了服务的默认帐户时，该服务可能无法启动。
-
-服务运行时，首先进行登录，然后再进行权限审核，任何一个环节出错都有相应提示。
-
-1. 账户登录问题会提示错误 1069: 由于登录失败而无法启动服务。
-2. 账户权限配置问题会提示错误 1297: 服务账户配置中不存在服务正常运行所需的特权。
-3. 服务程序遇到错误会提示错误 1067: 进程意外终止。
-
-最后一个问题很棘手，因为日志中无法获取到进程终止的原因，只是提示 Error 1067: 'The process terminated unexpectedly'。但有一个可能是，所有密钥文件的权限设置不正确导致 sshd 直接终止服务的执行。正确的权限应该是，Administrators 组和 SYSTEM 账户，但是配置文件可以给用户指定修改权限。
-
-```sh
- PS C:\ProgramData\ssh> icacls .\ssh_host_dsa_key
- .\ssh_host_dsa_key BUILTIN\Administrators:(F)
-                    NT AUTHORITY\SYSTEM:(F)
-
-get-acl *
-
-    Directory: C:\ProgramData\ssh
-
-Path                           Owner                  Access
-----                           -----                  ------
-logs                           NT AUTHORITY\SYSTEM    BUILTIN\Administrators Allow  ReadAndExecute, Synchronize
-administrators_authorized_keys NT AUTHORITY\SYSTEM    BUILTIN\Administrators Allow  ReadAndExecute, Synchronize
-ssh_host_dsa_key               NT AUTHORITY\SYSTEM    BUILTIN\Administrators Allow  ReadAndExecute, Synchronize
-ssh_host_dsa_key.pub           NT AUTHORITY\SYSTEM    BUILTIN\Administrators Allow  ReadAndExecute, Synchronize
-ssh_host_ecdsa_key             NT AUTHORITY\SYSTEM    BUILTIN\Administrators Allow  ReadAndExecute, Synchronize
-ssh_host_ecdsa_key.pub         NT AUTHORITY\SYSTEM    BUILTIN\Administrators Allow  ReadAndExecute, Synchronize
-ssh_host_ed25519_key           NT AUTHORITY\SYSTEM    BUILTIN\Administrators Allow  ReadAndExecute, Synchronize
-ssh_host_ed25519_key.pub       NT AUTHORITY\SYSTEM    BUILTIN\Administrators Allow  ReadAndExecute, Synchronize
-ssh_host_rsa_key               NT AUTHORITY\SYSTEM    BUILTIN\Administrators Allow  ReadAndExecute, Synchronize
-ssh_host_rsa_key.pub           NT AUTHORITY\SYSTEM    BUILTIN\Administrators Allow  ReadAndExecute, Synchronize
-sshd_config                    DESKTOP-CBSK60R\You  DESKTOP-CBSK60R\You Allow  FullControl…
-sshd.pid                       BUILTIN\Administrators DESKTOP-CBSK60R\You Allow  FullControl…
-```
-
-使用 PowerShell 脚本修正权限：
-
-```sh
-using namespace System.Security.AccessControl
-using namespace System.Security.Principal
-
-$acl = Get-Acl .
-$identity = New-Object NTAccount("System")
-$rights = [FileSystemRights]::FullControl
-$type = [AccessControlType]::Allow
-$accessRule = New-Object FileSystemAccessRule($identity,$rights,$type)
-$acl.SetAccessRule($accessRule)
-$acl.SetOwner($identity)
-
-$other = New-Object NTAccount("otherusers")
-$otherRule  = New-Object FileSystemAccessRule($other,$rights,$type)
-$acl.RemoveAccessRule($otherRule)
-Set-Acl -Path "ssh_host_*_key" -AclObject $acl
-Get-Acl * | Format-Table
-```
-
-日志配置 SyslogFacility 指定记录日志消息时使用的日志工具代码，UNIX Syslog Facilities，默认值 AUTH。
-
-Win32 OpenSSH v7.6.1.0 之前的版本只支持 LOCAL0 一种日志工作，基于文件 logs\sshd.log。新版本支持 ETW - Event Tracing for Windows，除了日志文件方式，其它日志类型设置都会将日志会记录到以下位置，可以使用日志查看器 eventvwr.msc 查看，归类于应用程序与服务日志：
-
-    %SystemRoot%\System32\Winevt\Logs\
-
-OpenSSH 在 Windows 中配置用户名和组名不区分大小写（与 Unix 不同）。无论原始大小写如何，在指定这些时都应始终使用小写字母。
-
-请注意域帐户的以下内容：
-
-在 v7.7.0.0 之前，没有明确定义的方式来指定域主体（用户和组）。为了以各种形式考虑域主体，建议在配置基于用户/组的规则时使用格式为 `user?domain*`。 注意 ? 代替 @ 以避免与 username@host 格式冲突并添加 * 以覆盖 FQDN。
-
-从 v7.7.0.0 起，工作组用户/组和连接互联网的帐户被严格解析为其本地帐户名称（无域部分，类似于标准 Unix 名称）。域用户和组被严格解析为 NameSamCompatible 格式，domain_short_name\user_name。所有基于用户/组的配置规则都需要遵守这种格式。
-
-    Ex. for domain users and groups
-    DenyUsers contoso\admin@192.168.2.23 : blocks contoso\admin from 192.168.2.23
-    DenyUsers contoso\* : blocks all users from contoso domain
-    AllowGroups contoso\sshusers : only allow users from contoso\sshusers group
-    AllowGroups "contoso\ssh users" : only allow users from "contoso\ssh users" group
-
-    Ex. for local users and groups
-    AllowUsers localuser@192.168.2.23
-    AllowGroups sshusers
-
-
-## ⚡ ACL/ACE/SID 与访问权限系统
-- https://docs.microsoft.com/en-us/windows/win32/secauthz/access-control-model
-- https://docs.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control
-- https://docs.microsoft.com/en-us/dotnet/api/system.security.accesscontrol.filesystemsecurity
-- https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/icacls
-- Windows SID & Integrity Level https://0xfocu5.github.io/posts/37e301d0/
-- .Net Core Libraries 项目开源地址 https://github.com/dotnet/corefx
-- Security in the .NET Framework - ACL Technology https://docs.microsoft.com/en-us/previous-versions/dotnet/netframework-4.0/ms229742(v=vs.100)
-
-Windows Active Directory 网络中，使用 ACL 访问控制列表定义有权访问相关对象的受信任方，以及他们拥有的访问类型，受信任方可以是任何安全主体，例如用户帐户、组或登录会话。
-
-Windows 系统使用 ACL 访问控制列表来实现安全权限管理，包括文件、文件夹的访问权限管理。
-
-对于任何可用的对象，例如文件、文件夹，都可以将其拥有的各种可能权限，如读、写等权限赋给指定的 ACL 对象，如计算机账户、用户组等等。为了方便管理员的操作，权限设计为可以被继承模式，例如文件可以通过继承获取与父目录所具有的权限设置。
-
-这个系统中涉及三个基本内容，一是被访问的对象，二是被访问对象可提供的权限或者是功能，三是获取相应权限的受信任方，即*安全主体* Security Principal。而 ACL/ACE 在这个系统中充当的是，这种信任关系管理系统中的数据结构。
-
-Windows 系统上的 Security Principals 包含以下几类：
-
-- Local Accounts
-- Active Directory Accounts
-- Microsoft Accounts
-- Service Accounts
-- Active Directory Security Groups
-
-
-安全系统涉及的高频名词：
-
-- Authentication 认证、验证、许可
-- Authorization 批准、授权
-- Permission 同意, 许可; 准许
-- Priviledge 特权
-- Audit 审计, 调查
-- Security 安全性
-
-Access Control Lists (ACL) 是数据表或简单列表，有两类，它们与 ACE 的关系如下：
-
-   - Discretionary Access Control List (DACL)
-       - Access denied ACE
-       - Access allowed ACE
-       - Access denied object ACE
-       - Access allowed object ACE
-   - System Access Control List (SACL)
-       - System audit ACEs
-       - System audit object ACEs
-
-DACL 为受信方定义相关安全对象的访问权，包含任意个 ACE。当受信方试图访问对象时，系统会检查 DACL，以了解对该对象授权的访问级别。如果一个安全对象没有任何与之关联的 DACL，那么系统将授予其完全访问权限。如果为对象定义了 DACL，但没有 ACE，则系统将拒绝所有受托人访问该对象。
-
-SACL 生成审核日志，指定受信者是否试图访问对象，是被授予还是被拒绝，以及如果被授予，受托人将获得何种类型的访问。
-
-Access Control Entry (ACE) 分为 6 类，所有安全对象都支持的有前面三个，后面三个根据对象类型使用，称为 object-specific ACEs：
-
-1. Access denied ACE (Used in a DACL)
-2. Access allowed ACE (Used in a DACL)
-3. System audit ACE (Used in a SACL)
-4. Access denied object ACE (Used in a DACL)
-5. Access allowed object ACE (Used in a DACL)
-6. System audit object ACE (Used in a SACL)
-
-每个 ACE 都命名一个受信者，并定义受信者对相关安全对象的访问类型。因此，ACE 列表决定了可保护对象的整个访问权限，从而使该对象不受任何可能产生灾难性后果的关键数据暴露威胁的影响。实施此类安全检查措施可确保组织免受潜在的数据泄露或黑客攻击。
-
-每个 ACE 都有以下要素构成：
-
-- The security identifier (SID) of a trustee.
-- An access mask, which is a 32-bit value that defines the operations that are either allowed or denied for the trustee.
-- A flag that indicates the type of ACE, such as whether it is an access denied ACE, access allowed ACE, or a system audit ACE.
-- A set of bit flags that determine if child containers or objects can inherit the ACE from their primary object or parent.
-
-
-### ===🗝 SID - Security ID
-
-安全标识符 SID 是二进制格式的数据结构，包含可变数量的值，是安全主体或安全组的唯一标识。*安全主体* Security Principal 是可由操作系统进行身份验证的任何实体，例如用户帐户、计算机帐户，或在用户或计算机帐户的安全上下文中运行的线程或进程。
-
-创建安全主体时，SID 就一并创建，并且这是唯一的，可用于确认一个安全主体。本地用户或组的 SID 由计算机的 Local Security Authority (LSA) 生成。域账户或组的 SID 由 Domain security authority (DSA) 生成，并且保存到 Active Directory Domain Services 用户或组属性中。
-
-SID 数据结构中的第一个部分包含有关 SID 结构的信息，如 Subauthority Count 和 SID Revision Version。
-
-其余的值按层次结构排列，类似于电话号码：
-
-- SID-issuing authority (for example, “NT Authority”), 
-- the SID-issuing domain, 
-- and a particular security principal or group.
-
-SID 第二部分是 Identifier authority，确定可以为特定类型的安全主体颁发 SID 的最高权限级别。例如，Everyone 用户组 SID 标识符权限值为 1 (World Authority)。特定 Windows Server 帐户或组 SID 标识符权限值为 5 (NT Authority)。
-
-其它可能的值为：
-
-     0 SECURITY_NULL_SID_AUTHORITY 空帐户 SID S-1-0-0
-     1 SECURITY_WORLD_SID_AUTHORITY EveryOne 组 只有一个 SID S-1-1-0
-     2 SECURITY_LOCAL_SID_AUTHORITY local group 只有一个 SID S-1-2-0
-     3 SECURITY_CREATOR_SID_AUTHORITY 创建者 SID S-1-3-0 ~ S-1-3-5
-     4 SECURITY_NON_UNIQUE_AUTHORITY 未使用
-     5 SECURITY_NT_AUTHORITY 拥有由 NT 安全子系统管理的帐户
-     9 SECURITY_RESOURCE_MANAGER_AUTHORITY 
-    16 SECURITY_MANDATORY_LABEL_AUTHORITY 完整性等级
-
-SID 第三部分是子权限系列 Subauthorities，有多个，这也是 SID 最重要的部分。系列中最后一个值称为相对标识符 relative identifier (RID)，用于标识相对于域的特定帐户或组。之前的所有值共同标识企业中的一个域，这一部分称为域标识符。
-
-SID 标识的转换为字符串后的格式如下：
-
-    S-R-X-Y1-Y2-Yn-1-Yn
-
-| Comment |                                 Description                                 |
-|---------|-----------------------------------------------------------------------------|
-| S       | Indicates that the string is a SID                                          |
-| R       | Indicates the revision level                                                |
-| X       | Indicates the identifier authority value                                    |
-| Y       | Represents a series of subauthority values, where n is the number of values |
-
-如前面所说，SID 最重要的信息是 Y 表示的一系列 subauthority values，其第一部分 (-Y1-Y2-Yn-1) 表示 domain identifier。这个元素在具有多个域的企业中变得非常重要，因为域标识符将一个域发布的 SID 与企业中所有其他域发布的 SID 区分开来，企业中没有两个域共享相同的域标识符。
-
-子权限值系列最后一项（-Yn）是相对标识符，它将一个帐户或组与域中的所有其他帐户和组区分开来，任何域中没有两个帐户或组共享相同的相对标识符。
-
-例如，以下是 Contoso\Domain Admins 的 SID:
-
-    S-1-5-21-1004336348-1177238915-682003330-512
-
-- A revision level (1)
-- An identifier authority (5, NT Authority)
-- A domain identifier (21-1004336348-1177238915-682003330, Contoso)
-- A relative identifier (512, Domain Admins)
-
-有些特殊的 SID 应于不同的场合，Universal Well-Known SID:
-
-- S-1-0-0 (Null SID): Assigned when the SID value is unknown, or for a group without any members.
-- S-1-1-0 (World): This is a group of every user (EveryOne).
-- S-1-2-0 (Local): This SID is assigned to users who log on to a local terminal.
-- S-1-2-1 Console Logon   A group that includes users who are logged on to the physical console.
-- S-1-5   NT Authority    A SID that represents an identifier authority.
-
-
-完整性级别表示正在运行的应用程序进程和对象的可信度，例如应用程序创建的文件，由一组特殊的 SID 和 ACL 条目实现的，它们代表五个不断增加的特权级别：
-
-Table 2-3: Integrity SIDs
-
-|    Integrity Levels   |     SID      |
-|-----------------------|--------------|
-| Untrusted(?)          | S-1-16-0     |
-| Low integrity (LW)    | S-1-16-4096  |
-| Medium integrity (ME) | S-1-16-8192  |
-| High integrity (HI)   | S-1-16-12288 |
-| System integrity (SI) | S-1-16-16384 |
-
-参考 Mario Hewardt, Daniel Pravat: Advanced Windows Debugging
-
-Integrity Level 完整性等级保护增加了一层防御，以帮助减少恶意软件损坏操作系统的机会。在各种 Windows 开发工具包中，完整性级别通常被称为强制标签，Mandatory Label。重要的是，完整性级别的目标是保护操作系统免受损坏，而不是阻止数据泄露，完整性保护只允许或禁止写操作，不允许读操作。
-
-完整性级别的原则非常简单，完整性级别较低的进程无法写入完整性级别较高的对象。当一个进程试图打开一个对象进行写访问时，首先检查完整性级别。如果该检查成功，则执行正常的 DACL 检查。
-
-
-一些常用用户组与账户的 SID，复数结尾的 s 表示这是一个用户组：
-
-| well-known SIDs  |                   Display Name                   |
-|------------------|--------------------------------------------------|
-| S-1-5-11         | Authenticated Users                              |
-| S-1-5-113        | Local account                                    |
-| S-1-5-114        | Local account and member of Administrators group |
-| S-1-5-domain-512 | Domain Admins                                    |
-| S-1-5-domain-513 | Domain Users                                     |
-| S-1-5-domain-514 | Domain Guests                                    |
-| S-1-5-32-544     | Administrators  (A built-in group)               |
-| S-1-5-32-545     | Users   (A built-in group)                       |
-| S-1-5-32-546     | Guests  (A built-in group)                       |
-| S-1-5-domain-501 | Guest                                            |
-
-The following table lists the predefined identifier authority constants. The first four values are used with universal well-known SIDs, and the rest of the values are used with well-known SIDs in Windows operating systems designated in the Applies To list.
-
-|        Identifier Authority       | Value | SID String Prefix |
-|-----------------------------------|-------|-------------------|
-| SECURITY_NULL_SID_AUTHORITY       |     0 | S-1-0             |
-| SECURITY_WORLD_SID_AUTHORITY      |     1 | S-1-1             |
-| SECURITY_LOCAL_SID_AUTHORITY      |     2 | S-1-2             |
-| SECURITY_CREATOR_SID_AUTHORITY    |     3 | S-1-3             |
-| SECURITY_NT_AUTHORITY             |     5 | S-1-5             |
-| SECURITY_AUTHENTICATION_AUTHORITY |    18 | S-1-18            |
-
-The following RID values are used with universal well-known SIDs. The Identifier authority column shows the prefix of the identifier authority with which you can combine the RID to create a universal well-known SID.
-
-| Relative Identifier Authority | Value | Identifier Authority |
-|-------------------------------|-------|----------------------|
-| SECURITY_NULL_RID             |     0 | S-1-0                |
-| SECURITY_WORLD_RID            |     0 | S-1-1                |
-| SECURITY_LOCAL_RID            |     0 | S-1-2                |
-| SECURITY_CREATOR_OWNER_RID    |     0 | S-1-3                |
-| SECURITY_CREATOR_GROUP_RID    |     1 | S-1-3                |
-
-
-### ===🗝 ICACLS & Get-Acl/Set-Acl
-
-icacls - Intergrity Control Access Control List 命令用来显示、修改指定文件的 DACL，或并将 DACL 应用于指定目录、文件。相当于 Linux 中的 chmod 命令，原命令 cacls 已经被废弃。
-
-例如，当设置文件或目录的所有者，就是在设置 DACL 列表，将用户账户相关的 ACE 添加到 ACL 列表，并将原所有者 ACE 记录移除。
-
-PowerShell 等价命令是 Get-Acl 和 Set-Acl，它们提供更完善的功能，例如 Get-Acl 可以直接查看到 Owner。
-
-```sh
-> Get-Acl .\logs\ | Format-List
-
-Path   : Microsoft.PowerShell.Core\FileSystem::C:\ProgramData\ssh\logs\
-Owner  : Everyone
-Group  : NT AUTHORITY\SYSTEM
-Access : NT AUTHORITY\SYSTEM Allow  FullControl
-         BUILTIN\Administrators Allow  FullControl
-         Everyone Allow  FullControl
-         CREATOR OWNER Allow  268435456
-         BUILTIN\Users Allow  ReadAndExecute, Synchronize
-         BUILTIN\Users Allow  Write
-Audit  :
-Sddl   : O:WDG:SYD:AI(A;OICIID;FA;;;SY)(A;OICIID;FA;;;BA)(A;ID;FA;;;WD)(A;OICIIOID;GA;;;CO)(A;OICIID;0
-         x1200a9;;;BU)(A;CIID;DCLCRPCR;;;BU)
-```
-
-计算机中的账户可以通过 compmgmt.msc 计算机管理控制台进行管理，也可以通过 *whoami.exe /groups* 查询现有账户信息。当一个账户被删除后，磁盘文件、目录可能还残留有旧的 ACL 数据，这就会在文件安全面板出现一些未知账户，以 SID 字符串替代账户显示出来。
-
-
-ICACLS 工具使用：
-
-```sh
-> ICACLS name /save aclfile [/T] [/C] [/L] [/Q]
-# 将 DACL 存储到 aclfile 中，后缀使用 /restore 还原。请注意，未保存 SACL、所有者或完整性标签。
-
-> ICACLS directory [/substitute SidOld SidNew [...]] /restore aclfile [/C] [/L] [/Q]
-# 将存储的 DACL 文件应用于目录中的文件。
-
-> ICACLS name /setowner user [/T] [/C] [/L] [/Q]
-# 更改新的所有者，该选项不会强制更改所有身份；使用 takeown.exe 实现该目的。
-
-> ICACLS name /findsid Sid [/T] [/C] [/L] [/Q]
-# 查找 ACL 中包含指定 Sid 的文件、目录。
-
-> ICACLS name /verify [/T] [/C] [/L] [/Q]
-# 查找其 ACL 不规范或长度与 ACE 计数不一致的所有文件。
-
-> ICACLS name /reset [/T] [/C] [/L] [/Q]
-# 为所有匹配文件使用默认继承的 ACL 替换 ACL。
-
-> ICACLS name [/grant[:r] Sid:perm[...]]
-       [/deny Sid:perm [...]]
-       [/remove[:g|:d]] Sid[...]] [/T] [/C] [/L] [/Q]
-       [/setintegritylevel Level:policy[...]]
-
-    # /grant[:r] Sid:perm 授予指定的用户访问权限。
-    #     使用 :r 用这些权限替换以前授予的所有显式权限。
-    #     不用 :r 将这些权限添加到以前授予的所有显式权限。
-
-    # /deny Sid:perm 显式拒绝指定的用户访问权限。
-    #     将为列出的权限添加显式拒绝 ACE，
-    #     并删除所有显式授予的权限中的相同权限。
-
-    # /remove[:[g|d]] Sid 删除 ACL 指定 SID 所有权限。
-    #     使用 :g 将删除授予该 SID 的所有权限。
-    #     使用 :d 将删除拒绝该 SID 的所有权限。
-
-    # /setintegritylevel [(CI)(OI)] 将完整性级别 ACE 显式添加到所有匹配文件。
-    #     完整性 ACE 的继承选项可以优先于级别，但只应用于目录。
-    #     Level 替换为以下级别之一:
-    #          L[ow]
-    #          M[edium]
-    #          H[igh]
-
-> ICACLS name /inheritance:e|d|r
-    #     e - 启用 (I) 继承
-    #     d - 禁用继承并复制 ACE
-    #     r - 删除所有继承的 ACE
-
-# Basic permissions:
-icacls * /grant:r EveryOne:"RW"; 
-icacls * /remove:g EveryOne; 
-
-icacls * /deny EveryOne:"RW"; 
-icacls * /remove:d EveryOne; 
-
-icacls * /grant EveryOne:"RW" /deny EveryOne:"R";
-
-# Advanced permissions:
-# A comma-separated list in parenthesis of specific rights 
-icacls * /grant EveryOne:"(D,WDAC)"
-icacls * /grant *S-1-5-21:"(D,WDAC)"
-
-# Inheritance rights may precede either <perm> form:
-ICACLS * /inheritance:e
-ICACLS * /inheritance:d
-ICACLS * /inheritance:r
-
-# To save the DACLs for all files in the C:\Windows and its subdirectories.
-icacls c:\windows\* /save aclfile /t
-
-# To restore the DACLs for every file within ACLFile 
-# that exists in the C:\Windows directory and its subdirectories.
-icacls c:\windows\ /restore aclfile
-
-# Set Owner of files
-icacls * /setowner OCEAN
-
-icacls * /remove "NT AUTHORITY\Authenticated Users" EveryOne
-icacls * /reset
-```
-
-注意:
-
-   - Sid 可以采用数字格式或友好的账户名称格式，如果给定数字格式，那么请在 SID 的数字开头添加一个 * 号。
-   - /T 指示在以该名称指定的目录下的所有匹配文件/目录上执行此操作。
-   - /C 指示此操作将在所有文件错误上继续进行，仍显示错误消息。
-   - /L 指示此操作在符号链接本身而不是其目标上执行。
-   - /Q 指示 icacls 应该禁止显示成功消息。
-
-文件安全属性面板与 icacls 命令内容有对应关系，安全选项卡分为两部分，上面用户组及账户对应访问控制列表（ACL），下方权限列表对应（ACE）。
-
-安全面板显示的是一般权限，读、写、执行等等，对应 icals 的 Basic permissions 选项。
-
-|      Basic Permissions       |   Types    |    Note    |
-|------------------------------|------------|------------|
-| F - Full access              | Grant/Deny | 完全控制   |
-| M - Modify access            | Grant/Deny | 修改(RXRW) |
-| RX - Read and execute access | Grant/Deny | 读取和运行 |
-| R - Read-only access         | Grant/Deny | 读取       |
-| W - Write-only access        | Grant/Deny | 写入       |
-
-在权限列表中还可能出现“特殊权限”，它指代的是在高级权限面板中的出现的其它特殊权限，比如读取、写入属性，读取、写入权限，遍历目录(X)，列出文件夹(RD) 等等。
-
-在高级权限面板中有更详细的 ACE 权限条目，包括权限类型、安全主体类型、继承性、访问属性，对应 icals 的 Advanced permissions 选项。
-
-|          Advanced Permissions         |
-|---------------------------------------|
-| D - Delete                            |
-| RC - Read control (read permissions)  |
-| WDAC - Write DAC (change permissions) |
-| WO - Write owner (take ownership)     |
-| S - Synchronize                       |
-| AS - Access system security           |
-| MA - Maximum allowed                  |
-| GR - Generic read                     |
-| GW - Generic write                    |
-| GE - Generic execute                  |
-| GA - Generic all                      |
-| RD - Read data/list directory         |
-| WD - Write data/add file              |
-| AD - Append data/add subdirectory     |
-| REA - Read extended attributes        |
-| WEA - Write extended attributes       |
-| X - Execute/traverse                  |
-| DC - Delete child                     |
-| RA - Read attributes                  |
-| WA - Write attributes                 |
-
-安全主体的 ACL 权限继承性选项有五种，以下是各种继承的功能，：
-
-| Inheritance   | Means                       | 说明                             |
-| ------------- | --------------------------- | :------------------------------- |
-| (I)           | Inherit.                    | 从父容器继承 ACE                  |
-| (OI)          | Object inherit.             | 此容器内的对象继承此 ACE           |
-| (CI)          | Container inherit.          | 此容器内的容器继承此 ACE           |
-| (IO)          | Inherit only.               | 从父容器继承此 ACE 嵌套继承但仅限于容器   |
-| (NP)          | Do not propagate inherit.   | 从父容器继承此 ACE 于子容器及对象但不嵌套 |
-
-注意，Containers 容器这个术语可以理解为目录，Object 对象这个术语理解为文件，但它不仅于文件和目录这种具体的对象。
-
-除了第一种 (I) 不局限用途，比如从父目录继承权限的子目录或者文件，其它四种只能用于目录权限的继承。
-
-使用 icacls 设置权限时，只支持 ICACLS name /inheritance:e 启用 (I) 这种继承，其它继承设置需要通过属性面板操作，继承权优先于其它权限。
-
-因为继承性的加入，权限管理就显得过分复杂，并且还有一些特殊的权限主体。
-
-Everyone 或者 World 是一个用户组，包含所有用户，所有用户都是这个组的成员，所以叫世界组。当为 EveryOne 这个组设置权限时，注意，所有用户都会获取相应的权限。
-
-CREATOR OWNER 也比较特殊，它是可继承 ACE 内的一个占位符。NTFS 磁盘文件的安全选项中都会有"所有者"一项，它代表的是文件、文件夹的拥有者。当 ACE 被继承，其 CREATOR OWNER SID 也随之改变为新的所有者的 SID。
-
-例如，当父目录设置了 (OI) 或 (CI) 继承，那么目录内的文件或目录就会继承其 ACE。父目录设置 CREATOR OWNER 的权限就会被继承到目录下的文件或目录上，它们的所有者就会继承到父目录 CREATOR OWNER 拥有的权限。
-
-要移除一个对象从父容器继承得到的权限，无法直接使用 /remove 从其本身移除，只能先使用 icacls /inheritance:r 命令将继承权限移除，或者使用  /inheritance:d 禁继承后，再 /remove 相应的权限。
-
-演示如下，ssh 目录的权限设置中可以看到：
-
-- 4 个账户都有设置 (I)，即从上一级目录继承了权限：
-- Users 账户设置 (CI)(WD,AD,WEA,WA)，这部分会继承给子目录，即 logs 目录才继承并拥有这一组权限；
-- Users 账户设置 (OI)(CI)(RX)，这部分会将 RX 读取和运行权限继承给子目录及文件，可以看到它们都有 (RX) 权限；
-- CREATOR OWNER 设置 (OI)(CI)(IO)(F)，这部分将会嵌套继承到子目录及文件，也就是它们的所有者会拥有 (F) 完全控制权；
-
-使用 Get-Acl 命令就可以查询到文件的所有者归属，并且输出的内容更直观。
-
-```sh
-> cd $Env:ProgramData\ssh\
-> icacls . /Remove CreatorOwner; icacls .; icacls logs; icacls ssh_host_dsa_key
-
-. NT AUTHORITY\SYSTEM:(I)(OI)(CI)(F)
-  BUILTIN\Administrators:(I)(OI)(CI)(F)
-  CREATOR OWNER:(I)(OI)(CI)(IO)(F)
-  BUILTIN\Users:(I)(OI)(CI)(RX)
-  BUILTIN\Users:(I)(CI)(WD,AD,WEA,WA)
-
-logs NT AUTHORITY\SYSTEM:(I)(OI)(CI)(F)
-     BUILTIN\Administrators:(I)(OI)(CI)(F)
-     Everyone:(I)(F)
-     CREATOR OWNER:(I)(OI)(CI)(IO)(F)
-     BUILTIN\Users:(I)(OI)(CI)(RX)
-     BUILTIN\Users:(I)(CI)(WD,AD,WEA,WA)
-
-ssh_host_dsa_key NT AUTHORITY\SYSTEM:(I)(F)
-                 BUILTIN\Administrators:(I)(F)
-                 Everyone:(I)(F)
-                 BUILTIN\Users:(I)(RX)
-```
-
-Get-Acl Set-Acl 使用示范，注意，PowerShell 会自动将字符串转换为枚举，也可以使用这样的转换表达式 *[AccessControlType]"Allowd"*：
-
-```sh
-# (".","logs",".\ssh_host_dsa_key")|Get-Acl|Format-List
-# https://docs.microsoft.com/en-us/dotnet/api/system.security.accesscontrol.objectsecurity
-# https://docs.microsoft.com/en-us/dotnet/api/system.security.accesscontrol.filesystemsecurity
-
-# Example 1: Copy a security descriptor from one file to another
-$DogACL = Get-Acl -Path "C:\Dog.txt"
-Set-Acl -Path "C:\Cat.txt" -AclObject $DogACL
-
-# Example 2: Use the pipeline operator to pass a descriptor
-Get-Acl -Path "C:\Dog.txt" | Set-Acl -Path "C:\Cat.txt"
-
-# Example 3: Apply a security descriptor to multiple files
-$NewAcl = Get-Acl File0.txt
-$files = Get-ChildItem -Path "C:\temp" -Recurse -Include "*.txt" -Force
- Set-Acl -InputObject $files -AclObject $NewAcl
-
-# Example 4: Disable inheritance and preserve inherited access rules
-$NewAcl = Get-Acl -Path "C:\Pets\Dog.txt"
-$isProtected = $true
-$preserveInheritance = $true
-$NewAcl.SetAccessRuleProtection($isProtected, $preserveInheritance)
-Set-Acl -Path "C:\Pets\Dog.txt" -AclObject $NewAcl
-
-# Example 5: Grant Administrators Full Control of the file
-using namespace System.Security.AccessControl #.FileSystemAccessRule ...
-$NewAcl = Get-Acl -Path "C:\Pets\Dog.txt"
-# Set properties
-$identity = "BUILTIN\Administrators"
-$rights = "FullControl" # or [AccessControlType]::Deny
-$type = "Allow"         # or [AccessControlType]::Deny
-# Create new rule
-$args = $identity, $rights, $type
-$fileSystemAccessRule = New-Object -TypeName FileSystemAccessRule -ArgumentList $args
-# Apply new rule
-$NewAcl.SetAccessRule($fileSystemAccessRule)
-Set-Acl -Path "C:\Pets\Dog.txt" -AclObject $NewAcl
-```
-
-换一种脚本写法，使用静态类型转换调用枚举数据，使用 New-Object 创建对象实例：
-
-```sh
-# ACL & ACE process
-using namespace System.Security.AccessControl
-using namespace System.Security.Principal
-
-$file = "sshd.pid"
-$NewAcl = Get-Acl -Path $file # get FileSecurity or DirectorySecurity
-$NewAcl | Format-List
-
-# Set properties
-# $identity = "BUILTIN\Administrators" 
-$identity = New-Object  NTAccount("Users")
-$rights = [FileSystemRights]::ExecuteFile -bor [FileSystemRights]::Write -bor [FileSystemRights]::Read
-$type = [AccessControlType]::Allow
-
-# Create new rule
-$args = $identity, $rights, $type
-$fileSystemAccessRule = New-Object FileSystemAccessRule($args)
-
-# Set new owner
-$NewAcl.SetOwner($identity)
-
-# Append new rule to ACL
-$NewAcl.AddAccessRule($fileSystemAccessRule)
-# Grant new rule
-$NewAcl.SetAccessRule($fileSystemAccessRule)
-# Remove rules
-#$NewAcl.RemoveAccessRule($fileSystemAccessRule)
-
-# Remove inheritance priveledges
-$isProtected = $true # Not allow inheritance if true
-$preservedInheritance = $false
-#$NewAcl.SetAccessRuleProtection($isProtected, $preservedInheritance)
-
-$files = (dir *.*) 
-$files = Get-ChildItem -Path "." -Recurse -Include "*" -Force
-#Set-Acl -InputObject $file -AclObject $NewAcl
-
-Set-Acl -Path "*" -AclObject $NewAcl
-$NewAcl | Format-List
-```
-
-创建访问权限规则对象 FileSystemAccessRule，有两类构造方法，一是创建包含安全主体、权限、访问类型这些基本信息，另一种是额外包含权限继承选项。要将所有者复制到子目录及文件，需要通过目录属性面板的高级安全属性中操作。
-
-现有继承权限还可以使用 SetAccessRuleProtection 方法单独处理，这个方法接收两个布尔值：
-
-- *isProtected* 指示是否保护 ACL 防止继承得到的其它 ACL，如果不保护，就会通过继承机制得到父级容器的 ACL；
-- *preservedInheritance* 指示是否保持继承权，如果不保持继承权，所有通过继承的权限将会失去；
-
-```cs
-public void SetAccessRuleProtection (bool isProtected, bool preserveInheritance);
-```
-
-InheritanceFlags 继承标志选项对应启用 CI 和 OI 两种继承方式：ContainerInherit、ObjectInherit，分别使子目录、文件拥有父级的权限。
-
-PropagationFlags 控制 ACE 如何传播到子对象，在启用继承标志时，以下这些值才有效：
-
-- *InheritOnly* - IO 传递方式，从父容器继承此 ACE 嵌套继承但仅限于容器；
-- *None* - 不设置继承标记；
-- *NoPropagateInherit* - NP 传递方式，从父容器继承此 ACE 于子容器及对象但不嵌套。
-
-Specifies how Access Control Entries (ACEs) are propagated to child objects.  These flags are significant only if inheritance flags are present.
-
-    Specifies that the ACE is propagated only to child objects. This includes both container and leaf child objects.
-
-    Specifies that no inheritance flags are set.
-
-    Specifies that the ACE is not propagated to child objects.
-
-ACE 传递是比较费解的，因为它要结合 InheritanceFlags 标志使用，一个容器设置继承标记位决定其 ACE 可否被子容器，或者子对象继承。而传递标志位决定了如何将 ACE 传递到子容器或子对象。
-
-不同的组合功能如下，ACL Propagation Rules，Target 是当前正在设置 ACE 的容器：
-
-| Flag combinations |                          Propagation results                          |
-|-------------------|-----------------------------------------------------------------------|
-| No Flags          | Target folder.                                                        |
-| OI                | Target folder, child object, grandchild object.                       |
-| OI and NP         | Target folder, child object.                                          |
-| OI and IO         | Child object, grandchild object.                                      |
-| OI, IO, and NP    | Child object.                                                         |
-| CI                | Target folder, child folder, grandchild folder.                       |
-| CI, and NP        | Target folder, child folder.                                          |
-| CI, and IO        | Child folder, grandchild folder.                                      |
-| CI, IO, and NP    | Child folder.                                                         |
-| CI, and OI        | Target folder, child folder and object, grandchild folder and object. |
-| CI, OI, and NP    | Target folder, child folder and object.                               |
-| CI, OI, and IO    | Child folder, child object, grandchild folder and object.             |
-| CI, OI, NP, IO    | Child folder, child object.                                           |
-
-注意，要实现特定的子目录及对象的权限继承，无法一次过实现，需要进行多次操作。
-
-
-API 用途总结：
-
-- SetAccessRule 设置对象的 ACL，以及控制是否要通过 CI 或 CI 方式继承到子级；
-- SetAccessRule 另一用法是通过 AccessRule 传入 accessMask 和 isInherited 来直接控制权限和继承；
-- SetAccessRuleProtection 控制当前对象的如何处理继承得来的 ACL；
-
-
-```sh
-using namespace System.Security.AccessControl
-using namespace System.Security.Principal
-
-$identity = New-Object NTAccount("Ocean")
-$acl = Get-Acl .
-#$acl.SetOwner($identity)
-
-# CI, and OI ==> Target folder, child folder and object, grandchild folder and object.
-$inheritance = [InheritanceFlags]::ContainerInherit -bor [InheritanceFlags]::ObjectInherit
-$propagation = [PropagationFlags]::None
-
-# OI, IO, and NP ==> Child object.
-# $inheritance = [InheritanceFlags]::ContainerInherit -bor [InheritanceFlags]::ObjectInherit
-# $propagation = [PropagationFlags]::NoPropagateInherit
-
-# CI  ==> Target folder, child folder, grandchild folder
-# $inheritance = [InheritanceFlags]::ContainerInherit
-# $propagation = [PropagationFlags]::None
-
-$rights = [FileSystemRights]::Modify
-$type = [AccessControlType]::Allow
-$args = $identity,$rights,$inheritance,$propagation,$type
-
-# $isInherited = $false
-# $accessMask = [int]0xffff
-# $args = $identity,$accessMask,$isInherited,$inheritance,$propagation,$type
-
-$rule = New-Object FileSystemAccessRule($args)
-$acl.SetAccessRule($rule)
-
-$isPretected = $true # Protece ACLs, don't inerit permissions from parent container
-$preservedInheritance = $false # Let permintions inherited go awawy
-$acl.SetAccessRuleProtection($isPretected,$preservedInheritance)
-
-Set-Acl -Path . -AclObject $acl
-
-# icacls . /remove otheruser1 /remove ...
-# icacls *
-Get-Acl . | Format-List
-Get-Acl * | Format-Table
-```
-
-“拒绝访问”是一个很多人都想知道的问题，为什么以管理员身份登录，即使是资源的所有者，却没法访问文件资源或服务呢？
-统限制了，在开启用户账户控制的情况下，管理员组的权限会被系统设置为“只用于拒绝的组”。
-
-也就是说，这个用户组只能用于设置 Deny 权限，系统并没有给你完整的权限。设置相应的 deny 权限后，因为它的优先级更高，被拒绝的权限就不能再使用，即使已经通过 grant 授予账户相应的权限。
-
-ICACLS 保留 ACE 项的规范顺序为显式拒绝 -> 显式授予 -> 继承的拒绝-> 继承的授予：
-
-- Explicit denials
-- Explicit grants
-- Inherited denials
-- Inherited grants
-
-所以，当管理员账户 deny 完全控制权时，这就很尴尬，自动放弃了权限导致资源不受控制，包括无法删除的文件。
-
-还有一种上诡异的现象，在用户目录下创建的目录是正常可以删除的，通过使用 git clone 产生了包含只读属性的 .git 目录，这会导致其上级目录无法被删除到回收站，并且总是提示需要管理员权限，但可以强制删除。
-
-解决方法是 Take Ownership of a File or Folder 或者使用 TAKEOWN 命令获取资源的所有权。
-
-操作路径 *Windows Explorer* 定位到文件，从右键菜单打开文件属性面板 *Properties*，选择安全选项卡 *Security*，进入高级面板 *Advanced* 并且点击所有权选项卡上的更改按钮，在弹出的选择用户组、账户面板中选择一个新的所有者。
-
-对于一个目录，还可以勾选*替换子容器及对象的所有者*，以设置子目录及文件为新的所有者所拥有。
-
-要获取所有权，可使用的命令有三个，takwown 最简单，其次是 icacls，最后是 Set-Acl：
-
-```sh
-> takeown /F .\sshd_config
-> icacls .\sshd_config /setowner YourAccount
-
-using namespace System.Security.AccessControl
-using namespace System.Security.Principal
-
-$identity = New-Object NTAccount("YourAccount")
-$acl = Get-Acl .\sshd_config
-$acl.SetOwner($identity)
-Set-Acl -Path .\sshd_config -AclObject $acl
-```
-
-而在 Linux 系统上，使用 chmod chgrp chown 三个命令，并且文件权限结构表达极简，三个 8 进入制数字就可以解决，0777 打满权限。
-
-Linux 文件有三种权限，对应值 1、2、4，全权相加为 7：
-
-- *read* 指示文件可否被读取，对于目录就是可否获取文件列表，或拷贝等操作；
-- *write* 指示文件可否被写入，对于目录就是可否创建文件，或删除等操作；
-- *execute* 指示文件可否执行，对于目录就是可否进入目录操作；
-
-有三种用户访问类型，对应文件权限的三个数值：
-
-- *owner* 是文件的所有者，默认是创建文件的账户；
-- *group* 是拥有文件的组，可以和所有者的用户组不同；
-- *others* 是其它用户，即不是 owning group 又不是 owner 的用户；
 
 
 
@@ -6990,7 +5135,7 @@ emits objects using only the `return` statement.
 
 类实例示范：
 
-```sh
+```powershell
 class TypeName
 {
    [ValidateSet("ABC", "XYZ")]
@@ -7021,11 +5166,14 @@ class TypeName
 
 $obj = [TypeName]::new("ABC")
 $obj.P1 = "XYZ"
+$obj::StaticMethod( @{"xyz"="XYZ"} )
+$obj::P2
+$obj.MemberMethod( 3 )
 ```
 
 To invoke a base class constructor from a subclass, add the `base` keyword.
 
-```C#
+```powershell
 class Person {
     [int]$Age
 
@@ -7052,7 +5200,7 @@ $littleone.Age
 To call base class methods from overridden implementations, cast to the
 base class (`[baseclass]$this`) on invocation.
 
-```C#
+```powershell
 class BaseClass
 {
     [int]days() {return 1}
@@ -7171,6 +5319,2080 @@ Available Type Accelerators
 |ValidateUserDrive            | System.Management.Automation.ValidateUserDriveAttribute             |
 |version                      | System.Version                                                      |
 |void                         | System.Void                                                         |
+
+
+# 🚩 PowerShell In Action
+
+## ⚡ Start-Job Async & Parallel
+- https://devblogs.microsoft.com/powershell/powershell-foreach-object-parallel-feature/
+- https://triveniglobalsoft.com/parallel-processing-with-powershell/
+- [PowerShell Docs - About jobs](Microsoft.PowerShell.Core\About\about_Jobs.md)
+- [about_Job_Details](Microsoft.PowerShell.Core\About\about_Job_Details.md)
+- [about_Remote](Microsoft.PowerShell.Core\About\about_Remote.md)
+- [about_Remote_Variables](Microsoft.PowerShell.Core\About\about_Remote_Variables.md)
+- [Invoke-Command](Microsoft.PowerShell.Core\Invoke-Command.md)
+- [Get-Job](Microsoft.PowerShell.Core\Get-Job.md)
+- [Remove-Job](Microsoft.PowerShell.Core\Remove-Job.md)
+- [Start-Job](Microsoft.PowerShell.Core\Start-Job.md)
+- [Stop-Job](Microsoft.PowerShell.Core\Stop-Job.md)
+- [Wait-Job](Microsoft.PowerShell.Core\Wait-Job.md)
+- [Receive-Job](Microsoft.PowerShell.Core\Receive-Job.md)
+- [Start-ThreadJob](7.0\ThreadJob\Start-ThreadJob.md)
+- [ForEach-Object](Microsoft.PowerShell.Core\ForEach-Object.md)
+
+*Start-Job* Starts a PowerShell background job.
+
+*Invoke-Command* cmdlet to run a Start-Job command on the remote computer.
+
+The job cmdlets
+
+|Cmdlet          |Description                                            |
+|----------------|-------------------------------------------------------|
+|`Start-Job`     |Starts a background job on a local computer.           |
+|`Get-Job`       |Gets the background jobs that were started in the      |
+|                |current session.                                       |
+|`Receive-Job`   |Gets the results of background jobs.                   |
+|`Stop-Job`      |Stops a background job.                                |
+|`Wait-Job`      |Suppresses the command prompt until one or all jobs are|
+|                |complete.                                              |
+|`Remove-Job`    |Deletes a background job.                              |
+|`Invoke-Command`|The **AsJob** parameter creates a background job on a  |
+|                |remote computer. You can use `Invoke-Command` to run   |
+|                |any job command remotely, including `Start-Job`.       |
+
+创建一个多线程工作，注意：
+
+- Wait-Job 必需在接收数据前执行以等待数据已经准备好，发生 Timeout 的情况下没有返回 Jobs；
+    - 注意，时间是整数，大于 0.5 会当作一秒看待，可以使用 Start-Sleep 来模块更短时间的等待；
+- Receive-Job 会自动排除已经接收完成的任务，如果和 Wait-Job -Timeout 管道连接使用会导致数据丢失；
+    - 和 *Get-Job | Receive-Job* 通过管道连接接收当下的输出的数据，可以随时监测 Jobs 的状态；
+    - 和 *Get-Job -State Completed | Receive-Job* 连接使用只接收使用已经完成的 Jobs 数据；
+- Remove-Job 在接收完数据后依然要执行，否任务会在内存中保持；
+- Job 代码块中可以返回任意数量的值，每个 echo 和直接输出到管道的数据都可以被捕获；
+- `-Keep` 可以保持数据可以被重复捕获；
+
+```sh
+$code = {sleep $args[1]; echo "JOB: $args"; echo "EXTRA_DATA_$args"; }
+1..100 | %{
+  $sleep = ((Get-Random 10)/10)
+  Write-Host "[JOB_$_T$sleep] " -NoNewline
+  $jobs = Start-ThreadJob -ThrottleLimit 8 -ScriptBlock $code -ArgumentList $_,$sleep
+}
+Echo "Jobs ongoing"
+$result = @{}
+$jobs = (Get-Job).Count
+while ($sum -lt $jobs){
+  Get-Job | Wait-Job -Timeout 1
+  $Completed = Get-Job -State Completed
+  $sum = $Completed.Count
+  echo "Has Jobs $sum/$jobs"
+  # Get-Job | Wait-Job -Timeout 0.3 | Receive-Job | %{ 
+  $Completed | Receive-Job | %{ 
+    $result.Add($_, "Received")
+  };
+  # $Completed | remove-job
+}
+Get-Job | remove-job
+$result | Format-Table
+"$($result.Count) jobs data received."
+```
+
+创建一个工作分派器，$materials 为要处理的工作，直到它被 4 个 Jobs 进程处理完或者时间超出 $life 时结束，每个 Jobs 具体功由 $tasks 指定：
+
+```sh
+$id = 0
+$result = @{}
+$life = (Get-Date) + [TimeSpan]::FromSeconds(30)
+$total = 0
+$materials = [System.Collections.ArrayList](0..10)
+$uri = "http://olympus.realpython.org/dice"
+$tasks = @{
+  "Task-A" = { (curl.exe $args[0] | Select-String -pattern ">(\d)<") -replace ".+>(\d)<.+","[Dice-$($args[1])-`$1]" }
+  "Task-B" = { Sleep ((Get-Random 30)/10); "[DATA-B]" }
+  "Task-C" = { Sleep ((Get-Random 50)/10); "[DATA-C]" }
+  "Task-D" = { Sleep ((Get-Random 70)/10); "[DATA-D]" }
+}
+Get-Job | remove-job -Force
+while ($life -gt (Get-Date) -and $materials.Count){
+  $names = (Get-Job).Name
+  foreach($task in $tasks.Keys){
+    if ($task -in $names){ continue }
+    if ($task -eq "Task-A"){
+      $mat = $materials[0];
+      $materials.RemoveAt(0)
+    }
+    $job = Start-Job -Name $task -ScriptBlock $tasks[$task] -ArgumentList $uri,$mat
+    Write-Host "$task created! [$names]"
+    $total += 1
+  }
+  $jobs = (Get-Job).Count
+  $wait = Get-Job | Wait-Job -Timeout 1
+  $Completed = Get-Job -State Completed
+  echo "Has Jobs $($Completed.Count)/$jobs"
+  $Completed | Receive-Job | %{ 
+    $result.Add($id++, $_)
+  };
+  $Completed | remove-job
+}
+
+if ($left = Get-Job){
+  $running = "$($left.Count) stil runing, "
+  $left | Wait-Job -Timeout 5 | Receive-Job | %{ 
+    $result.Add($id++, $_)
+  };
+  $left | remove-job
+}
+$result | Format-Table
+"Total jobs: $total, $running$($result.Count) datas received."
+```
+
+PowerShell currently supports parallelism in three main categories.
+
+1. PowerShell *remoting*. Here PowerShell sends script to external machines to run, using PowerShell’s remoting system.
+2. PowerShell *jobs*. This is the same as remoting except that script is run in separate processes on the local machine, rather than on external machines.
+3. PowerShell *runspaces*. Here script is run on the local machine within the same process but on separate threads.
+
+This new feature uses the third method for running scripts in parallel. It has the least overhead of the other two methods and does not use the PowerShell remoting system. So it is generally much faster than the other two methods.
+
+PowerShell 中要高效执行任务脚本，现在通常使用 Runspace，效率很高；任务比较多时，用 Runspace pool 来执行异步操作，可以控制资源池数量，就像 C# 中的线程池一样。runspace 使用的频率越来越高，由于他的高效率，基本上很多时候已经取代了传统的 Job 后台操作。
+
+PowerShell 3.0 引入 Jobs，是一种后台执行的任务，Background Jobs，通过创建新 PowerSHell 进程来执行，这是比较消耗系统资源的并发模型，但好处是在当前进行出现问题时，不影响其它进行的任务。
+
+和 Invoke-Command 不同，Start-Job 是异步执行的，不会阻塞。 
+
+PowerShell 6.0 引入 ThreadJob，多线程执行任务，创建线任务比创建进程要轻松，所以更快，但是缺点是在当前进行出现问题时，所以线程都会受到影响。
+
+This is a thread based job. This is a lighter weight solution compared to Jobs. Unlike traditional PS Jobs which spawn a whole new host process for each running job, PS ThreadJobs run in multiple threads on the same process which vastly increases performance by lowering overhead.
+
+There are a few drawbacks to using a ThreadJob over a background job. If a background job hangs, only that process hangs. All other jobs keep chugging away. If you have a job that hangs with ThreadJob the entire queue is affected.
+
+PowerShell 7.0 可以设置 ForEach 以并行方式运行脚本块，这是更轻量的并发实现，可以指定并发数 ThrottleLimit：
+
+```sh
+# function msg(){ Echo "Output: $args" }
+# $Message = $function:msg
+# ForEach-Object -Parallel using variable cannot be a script block.
+$Message = "Output:"
+1..8 | ForEach-Object -Parallel {
+    "$using:Message $_"
+    Start-Sleep 0.1
+} -ThrottleLimit 4
+```
+
+使用 Jobs 的基本流程，从创建、执行，等待作业完成，再到获取结果，最后还需要从工作空间中移除 Jobs 对象：
+
+- *Start-Job*: Create and execute job.
+- *Get-Job*: Get all jobs that are started with Start-Job cmd.
+- *Wait-Job*: Wait for all jobs to complete.
+- *Receive-Job*: To print output of job to console.
+- *Remove-Job*: To delete all jobs that were created with Start-Job command.
+
+```sh
+# Start-Job: Create and execute job.
+# Parallel Processing Start Job
+1..5 | % {Start-Job { echo "Hello" } }
+
+Get-Job | Wait-Job
+# Parallel Processing Wait Job
+
+Get-Job | Receive-Job
+# Parallel Processing Receive Job
+
+Get-Job | Remove-Job
+# *Jobs created must be removed with this command.
+```
+
+使用并行 ForEach 或 Job、ThreadJob 注意，循环内部的脚本块不能方法脚本中的其它函数等符号定义。
+
+ForeEach 并行脚本块可以访问管道 *$PSItem* 但不能使用 ArgumentsList 传递参数，需要通过 *$using:* Scope Modifier 引用外部符号，但是这种方式不支持函数符号，即不支持脚本块。
+
+而 Job、ThreadJob 可以传递参数但脚本块内部访问不到 *$PSItem*。使用 ArgumentList 可以往脚本块内传递参数，使用逗号或圆括号，并通过 *$args* 获取。
+使用 InputObject 可以信脚本块内传递输入对象，通过 *$input* 获取。
+
+其它注意事项：
+
+- 使用 Echo 输出的内容会被 Receive-Job 命令捕获，而 Write-Host 输出的内容直接到控制台，可以设置类型过滤处理。
+
+    ```sh
+    if($_.GetType() -eq [System.Management.Automation.PSCustomObject]){ ... }
+    # Remove the property
+    $MyCustomObject.PSObject.properties.remove('property')
+    ```
+
+- 如需要进行编码转换的操作，那么注意，Start-Job 会启动新的 PowerShell 进程，并且使用系统默认的编码方案设置，这意味着当前进程正确的输入、输出编码方案设置将不会被应用到新的进程，这很有可能导致 ConvertTo-Json 或 ConvertFrom-Json 这操作涉及编码转换的操作失败！
+
+根据脚本块中输出的内容不同，会在结果中出现不同的数据，例如，使用 *Format-Table* 就会出现这些数据类型：FormatStartData、GroupStartData、FormatEntryData、GroupEndData、FormatEndData。
+
+通过 Write-Host 输出流的数据直接到控制台输出，不会被捕捉到。
+
+
+如下，hello 不能被访问：
+
+```sh
+function hello($id){
+  echo "HELLO: $id"
+}
+
+$block = {
+  function hi($id){
+    echo "MSG: $id"
+  }
+
+  Start-Sleep 1
+  echo "`$args = $args `$_ = $_"
+  hi("PSItem is not visibled in ThreadJob")
+  # hello($_) # is not recognized
+}
+
+0..3 | % -ThrottleLimit 4 -Parallel $block
+
+1..5 | %{ 
+  echo "each ===>: $_";
+  $a = "a"
+  Start-ThreadJob -ThrottleLimit 5 -ScriptBlock $block -ArgumentList $_,"more..."
+}
+Get-Job | Wait-Job | Receive-Job
+Get-Job | Remove-Job -Force
+```
+
+在 ScriptBlock 中使用 param() 定义参数：
+
+```sh
+$block = {
+  param(
+    [String]$url,
+    )
+  # echo "args: $args"
+}
+```
+
+通过 *Dot Source* 将脚本加载到当前作用域就可以解决不能访问脚本块外部符号的问题，通过传递类到脚本也是一种不错的解决方法：
+
+- 创建一个 Transfer 并实例化后通过 -ArgumentList 传递到脚本块内部；
+- 在 -ScriptBlock 指定的脚本块中，接收参数的类型设置为 Transfer 会出现类型转换错误，可以使用 Object 基类；
+- 脚本普遍有多态能力，除标准静态成员访问方式 `[ClassName]::StaticMember`，还有 `$var::StaticMember`；
+- 使用 *Dot Source* 加载脚本文件到当前作用域，以使用类形及符号，可以在初始化脚本中操作；
+- 加载脚本意味执行它，Transfer 的静态成员的值会重新构建，所以在不同的运行空间上，它拥有不同的副本；
+- 另外，要防止脚本文件循环加载，可以设置一个标志以避免死循环；
+
+- 使用 *Start-Job* 会导致类实例不能被正确传递，Deserialized 结果会丢失类方法成员，需要变通在脚本块内部重新实例化处理；
+
+```sh
+Class Transfer {
+  static [Object] $config = [PSCustomObject]@{
+    Value = "Static Value: " + (Get-Date)
+  }
+  [String]$value
+
+  Transfer([String]$v){
+    $this.value = $v;
+  }
+
+  [String] Todo() {
+    return "Todo: " + $this.value;
+  }
+}
+
+$block = {
+  PARAM(
+    [int]$id,
+    [Object]$it
+    )
+  Write-Host "ID: $id"
+  Write-Host "IT: $it"
+  Write-Host "What type is config? $($it::config)"
+  $it.Todo()
+  # Write-Host [$([Transfer]::config.Value)]
+  Write-Host [$($it::config.Value)]
+  Return "Value from ScriptBlock"
+}
+
+$init = {
+  # Dot Source: add script to current scope
+  # . "./jobs.ps1" DONE
+  # Write-Host "Why is dead code here?"
+}
+
+$t = [Transfer]::new("ScriptBlock Test: $(Get-Date)")
+Write-Host "" -NoNewline
+Write-Host "Test" "$t" -BackgroundColor Yellow -ForegroundColor Black
+[Console]::ResetColor()
+$static = [Transfer]::config.Value
+Write-Host $static
+Start-Sleep .2
+
+
+if ($args[0] -eq $null){
+  Write-Host "Sentinal is null and go to run" $args[0]
+  1..2 | % {
+    Start-ThreadJob -ThrottleLimit 5 -InitializationScript $init -ScriptBlock $block -ArgumentList $_,$t
+  }
+}
+
+# "Wait then receive result..."
+$result = @{}
+Get-Job | Wait-Job | Receive-Job | % { 
+  # if ($_.GetType().Name -in "FormatStartData","GroupStartData","GroupEndData","FormatEndData")
+  # if ($_.GetType().Name -in "String","FormatEntryData")
+  { 
+    $id = $result.Count
+    $result.Add("$id-"+$_.GetType().Name, $_)
+  }.Invoke()
+}
+Get-Job | Remove-Job -Force
+
+$result|ft
+$result.Values|ft
+```
+
+Performance test，按效率从低到高排序：
+
+- 第一种，单线同步执行 ForEach，5 个任务理想状态合计 5s 时间；
+- 第二种，创建进程执行 Job，5 个任务执行时间受到进程创建的影响较大；
+- 第三种，使用 PowerShell 7.0 多单线执行 Job，5 个任务理想状态合计 1s 时间，但除去线程资源配置开销，不可能达到；
+- 第四种，并行 ForEach 执行，5 个任务理想状态合计 1s 时间，比线程方式更节省资源，更优化；
+
+```sh
+#% -> ForEach-Object
+Measure-Command {1..5 | % {Start-Sleep 1} } | Select-Object TotalSeconds
+#Job
+Measure-Command {1..5 | % {Start-Job {Start-Sleep 1}} | Wait-Job} | Select-Object TotalSeconds
+#Thread Job
+Measure-Command {1..5 | % {Start-ThreadJob -ThrottleLimit 5 {Start-Sleep 1}} | Wait-Job} | Select-Object TotalSeconds
+#ForEach-Object Parallel
+Measure-Command {1..5 | ForEach-Object -Parallel {Start-Sleep 1} -ThrottleLimit 5} | Select-Object TotalSeconds
+
+TotalSeconds
+------------
+   5.0311368
+   4.2587164
+   1.4038681
+   1.1093434
+```
+
+Powershell 是单线程程序且一次只能做一件事情，后台作业能额外增加并发处理能力。当需要程序同时运行且数据量不是很大时它能很好的解决问题。但从 Powershell 后台回传数据是一个非常麻烦的工作，它将浪费很多时间，并导致脚本更慢。
+
+这里有 3 个并发执行任务：
+
+```sh
+$start = Get-Date
+ 
+# get all hotfixes
+$task1 = { Get-Hotfix }
+ 
+# get all scripts in your profile
+$task2 = { Get-Service | Where-Object Status -eq Running }
+ 
+# parse log file
+$task3 = { Get-Content -Path $env:windir\windowsupdate.log | Where-Object { $_ -like '*successfully installed*' } }
+ 
+# run 2 tasks in the background, and 1 in the foreground task
+$job1 =  Start-Job -ScriptBlock $task1
+$job2 =  Start-Job -ScriptBlock $task2
+$result3 = Invoke-Command -ScriptBlock $task3
+ 
+# wait for the remaining tasks to complete (if not done yet)
+$null = Wait-Job -Job $job1, $job2
+ 
+# now they are done, get the results
+$result1 = Receive-Job -Job $job1
+$result2 = Receive-Job -Job $job2
+ 
+# discard the jobs
+Remove-Job -Job $job1, $job2
+ 
+$end = Get-Date
+Write-Host -ForegroundColor Red ($end - $start).TotalSeconds
+
+# $result1 | Format-Table
+# $result2 | FT
+# $result3
+```
+
+上面执行全部的任务消耗了 5.9 秒。三个任务的结果将分别存入 $result1, $result2, 和 $result3.
+让我们再继续查看相继在前台执行完命令需要多长时间：
+
+```sh
+$start = Get-Date
+ 
+# get all hotfixes
+$task1 = { Get-Hotfix }
+ 
+# get all scripts in your profile
+$task2 = { Get-Service | Where-Object Status -eq Running }
+ 
+# parse log file
+$task3 = { Get-Content -Path $env:windir\windowsupdate.log | Where-Object { $_ -like '*successfully installed*' } }
+ 
+# run them all in the foreground:
+$result1 = Invoke-Command -ScriptBlock $task1
+$result2 = Invoke-Command -ScriptBlock $task2
+$result3 = Invoke-Command -ScriptBlock $task3
+ 
+$end = Get-Date
+Write-Host -ForegroundColor Red ($end - $start).TotalSeconds
+```
+
+结果，这次只花费了 5.05 秒。与后台作业几乎同时完成，所以后台作业更适合解决长时间执行的任务。从三个任务返回的数据观察，好处是这种按顺数在前台获得数据能减少了执行过程的开销。
+
+
+## ⚡ ThreadJob 多线程下载器
+- [Progress while multi-threading](learn/deep-dives/write-progress-across-multiple-threads.md)
+
+
+Displaying progress while multi-threading 文档演示了如何使用 synced hashtable 多线程同步对象来创建进度条，注意使用了 *$using:* 来引用外部符号：
+
+```sh
+# Create a hashtable for process.
+# Keys should be ID's of the processes
+$origin = @{}
+$dataset | Foreach-Object {$origin.($_.id) = @{}}
+
+# Create synced hashtable
+$sync = [System.Collections.Hashtable]::Synchronized($origin)
+
+$job = $dataset | Foreach-Object -ThrottleLimit 3 -AsJob -Parallel {
+    $syncCopy = $using:sync
+    $process = $syncCopy.$($PSItem.Id)
+
+    $process.Id = $PSItem.Id
+    $process.Activity = "Id $($PSItem.Id) starting"
+    $process.Status = "Processing"
+
+    # Fake workload start up that takes x amount of time to complete
+    start-sleep -Milliseconds ($PSItem.wait*5)
+
+    # Process. update activity
+    $process.Activity = "Id $($PSItem.id) processing"
+    foreach ($percent in 1..100)
+    {
+        # Update process on status
+        $process.Status = "Handling $percent/100"
+        $process.PercentComplete = (($percent / 100) * 100)
+
+        # Fake workload that takes x amount of time to complete
+        Start-Sleep -Milliseconds $PSItem.Wait
+    }
+
+    # Mark process as completed
+    $process.Completed = $true
+}
+```
+
+Programming Language Pragmatics by Michael L. Scott，这本书是讲解编译器语用论的，非常适合入门阅读，网站上提供了部分共享资源可以使用以下多线程睵脚本获取：
+
+- 脚本中使用 Start-ThreadJob 创建多线程任务；
+- 脚本中使用 `$MyInvocation.Line -NotLike "*=*"` 判断脚本运行状态，如果是赋值给变量跳过不必要的内容输出；
+
+
+```sh
+param([HashTable]$map, [String]$url)
+
+function RemapName([String]$ori, [Object]$map){
+  $type = $map.GetType()
+  Switch ($type) {
+    { $_ -eq [Boolean] } { $rename = $ori }
+    { $_ -eq [String]  }
+    {
+      $rename = ($map -replace "{NAME}", $ori)
+      $rename = ($rename -replace "{BASE}", $base)
+      Write-Host "--> Rename:[STR]: [$ori] ==> [$rename]"
+    } 
+    { $_ -eq [ScriptBlock] }
+    { 
+      $rename = $map.invoke($ori)
+      Write-Host "--> Rename:[SB]: [$ori] ==> [$rename]"
+    }
+    Default {
+      Write-Host "No matches [$type]"
+      $rename = $ori
+    }
+  }
+  return $rename
+}
+
+function Download([Object]$work){
+  [String]$name = $work["name"]
+  [String]$url = $work["url"]
+  $url = [System.Web.HttpUtility]::UrlPathEncode($url)
+  if($name){
+    curl.exe -L -o $name "$url"
+  }else{
+    curl.exe -L -O "$url"
+  }
+  # curl will be no progress write to stder if set --no-progress-meter
+  # Invoke-WebRequest -OutFile $name -Uri "$url"
+  if($LASTEXITCODE){
+    return "Donwlod Error $name : $url"
+  }else{
+    return "Donwlod Completed $name : $url"
+  }
+}
+
+function ReWriteProgress([System.Management.Automation.Job2]$Job)
+{
+  $b = $Job.Progress
+  $a = $Job.ChildJobs[0].Progress
+  $progress = $a ? $a : $b
+  if($Progress -ne $null)
+  {    $latest = $progress[-1];
+    $config = @{
+      ID = $job.Id
+      Activity = $latest.Activity+" Rewrited";
+      Status = $latest.StatusDescription;
+      PercentComplete = $latest.PercentComplete;
+      Complete = $false
+    }
+    $finished = $config.Status.StartsWith("Web request completed.")
+    if ($config.PercentComplete -ge 100 -or $finished){
+      $config.Complete = $true
+    }
+    Write-Progress @config
+  }
+}
+
+# ParseCurlProgress("100  192k  100  192k    0     0  23691      0  0:00:08...")
+function ParseCurlProgress([String]$progress){
+  $reg = "(\d+) +(\d+)[k] +(\d+) +(\d+)[k].+"
+  $json = '{"TP":$1, "Total":$2, "RP":$3, "Received":$4, "Unit":"KB"}'
+  $json = $progress -replace $reg,$json
+  if($json -ne $progress){
+    return ConvertFrom-Json $json
+  }else{
+    return $false
+  }
+}
+
+function StartJobs([System.Collections.ArrayList]$list, [ScriptBlock]$code, [int]$threads = 4){
+  $result = [System.Collections.ArrayList]@()
+  $done = 0
+  $count = $list.Count
+  Get-Job | Remove-Job -Force
+  while($list.Count -or (Get-Job)){
+    while ($list.Count -and (Get-Job).Count -lt $threads){
+      $work = $list[0];
+      $c = $list.RemoveAt(0);
+      $job = Start-ThreadJob -ThrottleLimit $threads -ScriptBlock $code -ArgumentList $work
+    }
+    $jobs = (Get-Job).Count
+    $p = $done/$count * 100
+    Write-Progress -ID 0 -Activity "Downloading $jobs threads" -Status "$done/$count jobs" -PercentComplete $p
+
+    Start-Sleep (1/30)
+    # Get-Job | Wait-Job -Timeout 1
+    $finished = Get-Job -State Completed 
+    $done += $finished.Count
+    # Get-Job | Receive-Job | % {
+    # $finished | % {
+    Get-Job | % {
+      # ReWriteProgress $_ # for Invoke-WebRequest
+      $progress = ParseCurlProgress($_.Error[-1])
+      if ($progress){
+        $Received = $progress.Received
+        $Total = $progress.Total
+        $Unit = $progress.Unit
+
+        $params = @{
+          Id = $_.Id
+          ParentId = 0
+          Activity = "Sub task #$($_.ID)"
+          Status = "$Received/$Total $unit"
+          PercentComplete = $Received/$Total * 100
+          Completed = $Received -ge $Total
+        }
+        Write-Progress @params
+      }
+      $c = $result.Add($_.Output[-1]) # save the last one
+    }
+    $finished | Remove-Job
+  }
+  return $result
+}
+
+function DownloadList([HashTable]$list, [String]$url){
+  $skip = 0
+  $works = [System.Collections.ArrayList]@()
+  $list.keys | % {
+    $map = $list[$_]
+    $ori = ("$_" -split "/")[-1]
+    $base = ("$ori" -split ".")[0]
+    $rename = RemapName $ori $map
+
+    $a = (Test-Path $ori)
+    $b = $rename -and (Test-Path "$rename")
+    if($a -or $b) {
+      $skip += 1
+      Write-Host "Skip $_ ==> $rename"
+      return # continue in % (for-each form)
+    }
+    if (!$url.EndsWith("/")){ $url += "/" }
+    $c = $works.Add(@{ name = $rename; url = "$url$_"})
+  }
+
+  $result = StartJobs $works $function:Download
+
+  $result | Format-Table
+
+  echo "================================="
+  echo "COUNT: $($list.Count) SKIP: $skip"
+  echo "================================="
+}
+
+if ($map -and ($map.GetType() -eq [HashTable])) {
+  DownloadList $map $url
+  Write-Host DONE!
+} else {
+
+  if ($MyInvocation.Line -NotLike "*=*") {
+    Write-Host "Usage:" -ForegroundColor Green
+    Write-Host ("="*80) -BackgroundColor Yellow
+    Write-Host @'
+  $do =  Downlist
+  Invoke-Expression $do
+
+  # Or
+  # ============================================================================
+
+'@}
+
+  Echo @'
+  $rename = { PARAM([String]$name); $name -replace "Chapter_","Figures of " }
+  $list = @{
+      "Code Samples/Scott 4e_Code.zip" = $false
+      "Sections and Sub-sections/Scott 4e_Supplementary Sections.pdf" = $false
+      "Chapters 5 and 17/Scott 4e_Chapter 05.pdf" = { PARAM([String]$name); $name -replace ".pdf"," Target Machine Architecture.pdf" }
+      "Chapters 5 and 17/Scott 4e_Chapter 17.pdf" = { PARAM([String]$name); $name -replace ".pdf"," Code Improvement.pdf" }
+      "Figures from the Text/PDF/Chapter_01.pdf"  = $rename
+      "Figures from the Text/PDF/Chapter_02.pdf"  = $rename
+  }
+  $root = "https://booksite.elsevier.com/9780124104099/content/"
+  downlist $list $root
+'@
+}
+```
+
+## ⚡ TS m3u8 视频流切片文件下载
+
+deno run --unstable -A C:\coding\md-code\deno\demos\src\douyin\douyin.ts m3u8 index.m3u8
+
+使用脚本获取网页清单文件内容：
+
+```js
+var server = /.{4,5}:\/\/[^\/]+/.exec(videoUrl)[0];
+var resource = null;
+function get(url){
+    return fetch(url).then((res)=>{
+        return res.text();
+    }).then((res)=>{
+        //console.log(res,{ content: res.body});
+        var list = [];
+        var lines = res.split("\n");
+        resource = res;
+        for(var idx in lines){
+            var it = lines[idx];
+            if(!it.trim() || it.startsWith("#")) continue;
+            //console.log({it, server, len:lines.length});
+            list.push((it.startsWith("http")? "":server)+it);
+        }
+        return list;
+    });
+}
+get(videoUrl).then(res=>{
+    console.log(`
+["no/inden.m3u8",
+"${document.title}", 
+"${litImgUrl}", 
+"${res[0]}",
+"${location.href}"],`);
+    get(res[0]).then(res => {
+        res.forEach((it,k) => {res[k] = 
+            `"${it.split("/").pop()}"`});
+        console.log(res.join(","));
+    });
+});
+```
+
+文件下载完成率统计：
+
+```sh
+$ds = dir vjs/* -Directory;
+foreach($d in $ds){
+    $dn = $d.Name;
+    $lo = (dir "$d\*.ts").Length;
+    if((dir "$d\*.ts") -is [System.IO.FileSystemInfo]){
+        $lo = 1;
+    }
+    if(Test-Path "$d\index.m3u8"){
+        $ro = ((Get-Content "$d\index.m3u8") -match ".ts$").Length;
+        if($lo -eq 0){
+            $p = 0;
+        }else{
+            $p = $lo/$ro;
+        }
+        "{0,8} download percent {1,12} {2:0.00%}" -f $dn,"[$lo/$ro]", $p;
+    }else{
+        #echo "Directory $dn has no index.m3u8 list file.";
+    }
+}
+# .\doreports.ps1 | sort { [Double]::Parse((($_ -split " +")[5] -replace "%",""))}
+# .\doreports.ps1 > .\report.txt
+# $sorted = Get-Content report.txt | sort { [Double]::Parse((($_ -split " +")[5] -replace "%",""))}
+# Out-File "report.txt" -InputObject $sorted
+# $sorted
+```
+
+
+对文件大小进行二次确认下载：
+
+```sh
+param(
+    [string]$Target="vjs\*\index.m3u8"
+    )
+echo "Target = $Target"
+
+dir $target | 
+% {
+    echo $_.DirectoryName;
+    cd $_.DirectoryName;
+    $m3u = Get-Content index.m3u8;
+    $items = $m3u -match "\.ts$";
+
+    $iCOUNT = $items.Length;
+    echo "Items count: $iCOUNT";
+    $url = $m3u[0].SubString(1) -replace "\w+\.m3u8?", "";
+    $count = 1000;
+    $nextfix = 0;
+    if(Test-Path "all.verify"){ 
+        echo "All Verified [$iCOUNT] $vt";
+        return;
+    }
+
+    foreach($it in $items){
+        $count ++;
+        $verify = "$count.ts.verify";
+        if(Test-Path "$verify"){ 
+            echo "Varified $count.ts <== $it";
+            continue;
+        }
+        if(Test-Path "$count.ts"){
+            $len = (dir "$count.ts").Length;
+            $size = (curl -Method Head "$url$it").Headers["Content-Length"];
+
+            $next = $count + 1;
+            $nextlen = (dir "$next.ts").Length;
+            if ($nextlen -eq $size) {
+                echo "🗨Next file size fit with $next.ts <== $it $size";
+                $nextfix ++
+            }else {
+                $nextfix = 0;
+            }
+
+            if($nextlen -eq $size -and $nextfix -ge 3){
+                echo "⚡Next file size fit with: $next.ts <== $it $size";
+                if(Test-Path "$count.ts.bak") { 
+                    rm "$count.ts";
+                }else{
+                    ren "$count.ts" "$count.ts.bak";
+                }
+                cp "$next.ts" "$count.ts";
+                Out-File "$verify" -InputObject "$it $size";
+                continue;
+            }
+
+            if($len -eq $size){
+                echo "$count.ts $len 👈✔👉 $size $url$it";
+                Out-File "$verify" -InputObject "$it $len";
+            }else{
+                echo "$count.ts $len 👈❌👉 $size $url$it";
+                if(Test-Path "$count.ts.bak") { 
+                    rm "$count.ts";
+                }else{
+                    ren "$count.ts" "$count.ts.bak";
+                }
+                curl -O "$count.ts" "$url$it";
+                $newsize = (dir "$count.ts").Length;
+                echo "$count.ts $len 👈<== $newsize $url$it";
+                if($size -eq $newsize){
+                    Out-File "$verify" -InputObject "$it $newsize";
+                }
+            }
+        }
+    }
+
+    $v = (dir *.ts.verify).Length;
+    if($v -eq $items.Length){
+        echo "All Verified [$iCOUNT] $vt";
+        Out-File "all.verify" -InputObject $items;
+        rm *.ts.verify, *.bak;
+    }
+}
+```
+
+Powershell Download file script：
+
+```sh
+function DownloadTS(){
+    if(!(Test-Path index.m3u8)){
+        return 
+    }
+
+    $m3u = Get-Content index.m3u8
+    $url = $m3u[0].SubString(1)
+    $server = ($url -Split "(/)")[0..4] -join ""
+    $path = ($url -Split "(/)")[5..12] -join ""
+    $items = ($m3u.Replace("$$path/","") -split "`n") -match '.ts$'
+
+    if(!(Test-Path inden.m3u8)){
+        $count = 1000
+        $m3u | % {
+            if($_ -match '.ts$'){
+                $count++
+                echo "$count.ts" >> inden.m3u8
+            }else{
+                echo $_ >> inden.m3u8
+            }
+        }
+    }
+
+    # $items = @("z2CoViuX.ts", "18Hk225w.ts")
+    $count = 1000
+    foreach($it in $items){
+        $count ++
+        #$web.DownloadFile("$server$path/$it", "$count.ts")
+        if(!(Test-Path "$count.ts")){ echo "$count.ts <= $server$path/$it"; curl -O "$count.ts" "$server$path/$it" }
+        # break;
+    }
+}
+
+function DownloadM3u8(){
+    param($url)
+    echo "Download m3u8 $url"
+    # $agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"
+    if(!(Test-Path index.m3u8)){
+        $web = new-object System.Net.WebClient
+        # $web.Headers["user-agent"] = $agent
+        # $web.Headers["referer"] = "https://www.rtmm6.com/"
+        $m3u = $web.DownloadString("$url")
+        # $m3u = (curl "$url").RawContent
+
+        $server = ($url -Split "(/)")[0..4] -join ""
+        $path = ($url -Split "(/)")[5..12] -join ""
+        $items = ($m3u.Replace("$$path/","") -split "`n") -match '.ts$'
+        
+        $keytag = "#EXT-X-KEY:METHOD=AES-128,URI="
+        if($m3u -match $keytag){
+            $keyuri = ($m3u.split("`n") -match $keytag).Replace($keytag, "")
+            $keyuri = $keyuri.SubString(1, $keyuri.Length-2)
+            $keyfile = $keyuri.Split("/")[-1]
+            if(!(Test-Path "$keyfile")){ echo "$keyfile <= $server$keyuri"; curl -O "$keyfile" "$server$keyuri" }
+        }
+        echo "#$url" > index.m3u8
+        echo (($m3u -split "(#EXTM3U)")[1..2] -join "").Replace("$path/", "") >> index.m3u8
+    }
+
+    DownloadTS
+}
+
+echo "ARGS(URL, Limit): $args"
+try{
+    $limit = 0
+    echo "Try type-casting args[0] or args[1] to be a number:"
+    echo $args
+    if($limit -eq 0 -and $args.Length -eq 1){
+        $limit = [int]$args[0]
+    }
+    if(($limit -eq 0) -and ($args.Length -gt 1)){
+        $limit = [int]$args[1]
+    }
+    DownloadTS
+}catch{
+    echo "It is Not a Number"
+    if($args) {
+        DownloadM3u8($args)
+    }else{
+        DownloadTS
+    }
+}
+```
+
+
+## ⚡ PowerShell Speeding-up
+
+本机映像生成器 (Ngen.exe) 是一种提高托管应用程序性能的工具。 Ngen.exe 创建本机映像（包含经编译的特定于处理器的机器代码的文件），并将它们安装到本地计算机上的本机映像缓存中。 运行时可从缓存中使用本机映像，而不必使用实时 (JIT) 编译器编译原始程序集，从而加速程序启动。
+
+Ngen.exe 编译仅面向 .NET Framework 的程序集的本机映像。 适用于 .NET Core 的等效本机映像生成器为 CrossGen。
+
+```sh
+# Set-Alias ngen (Join-Path ([System.Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()) ngen.exe)
+[AppDomain]::CurrentDomain.GetAssemblies() |
+    sort {Split-path $_.location -leaf} | 
+    %{
+        $Name = (Split-Path $_.location -leaf)
+        if ([System.Runtime.InteropServices.RuntimeEnvironment]::FromGlobalAccessCache($_))
+        {
+            Write-Host "Already GACed: $Name"
+        }else
+        {
+            Write-Host -ForegroundColor Yellow "NGENing      : $Name"
+            ngen $_.location | %{"`t$_"}
+         }
+      }
+```
+
+## ⚡ Sudo
+- https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/start-process
+- https://blog.walterlv.com/post/windows-user-account-control.html
+- https://nsudo.m2team.org/en-us/docs/#quick-start
+- Windows PowerShell Profiles https://docs.microsoft.com/en-us/previous-versions//bb613488(v=vs.85)
+
+
+Powershell 的 Start-Process -Verb RunAs 可以提出 UAC 授权请求，实现 Run As Administrator。
+
+完整性级别（Integrity Level）
+
+从 Windows Vista 开始，进程在创建的时候，可以得到一个访问令牌（Access Token），这个令牌有四个完整性级别：
+
+  - System（系统）
+  - High（高）
+  - Medium（中）
+  - Low（低）
+
+System 令牌是对系统完全操作的令牌，对应 SYSTEM 用户拥有的最高权限，可以对 Windows 操作系统做任何事。通常一个服务进程会以 SYSTEM 用户启动，拿到 System 令牌。
+
+使用 PowerShell 变量来定位：start $PSHome，使用 $Profile 变量获取配置文件路径：
+
+  - $PROFILE.CurrentUserCurrentHost “Current user, PowerShell ISE” 
+  - $PROFILE.AllUsersCurrentHost    “All users, PowerShell ISE” 
+  - $PROFILE.CurrentUserAllHosts    “Current user, All hosts” 
+  - $PROFILE.AllUsersAllHosts       “All users, All hosts” 
+
+```sh
+> $PROFILE.AllUsersAllHosts
+C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1
+> $PROFILE.AllUsersCurrentHost
+C:\Windows\System32\WindowsPowerShell\v1.0\Microsoft.PowerShell_profile.ps1
+> $PROFILE.CurrentUserAllHosts
+C:\Users\OCEAN\Documents\WindowsPowerShell\profile.ps1
+> $PROFILE; $PROFILE.CurrentUserCurrentHost
+C:\Users\OCEAN\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+```
+
+创建配置脚本：
+
+```sh
+# mkdir (dir "$($PROFILE.CurrentUserCurrentHost)").Parent
+if (!(Test-Path $PROFILE.CurrentUserCurrentHost)){
+    echo "mkdir $($PROFILE.CurrentUserCurrentHost)"
+    mkdir $PROFILE.CurrentUserCurrentHost
+    del "$($PROFILE.CurrentUserCurrentHost)"
+    touch $PROFILE
+    notepad $PROFILE
+}
+
+if (!(Test-Path -Path $PROFILE ))
+{ New-Item -Type File -Path $PROFILE -Force }
+```
+
+添加以下脚本到 PowerShell 配置文件，并重新启动以加载配置脚本：
+
+    %USERPROFILE%\Documents\WindowsPowerShell\profile.ps1
+
+想要 PowerShell 启动时能成功的载入配置文件，还需要 Execution Policy（执行策略）中设置允许它这样做。否则，尝试载入配置文件将会失败，会显示无法加载配置文件。所以，需要在 PowerShell 执行 Set-ExecutionPolicy RemoteSigned 命令以启用脚本加载功能。
+
+```sh
+function SwitchUser-Do {
+    if($args.Length -lt 1) {
+        Write-Warning("program must be provided!")
+        Write-Output("Usage: sudo program [args...]")
+        return
+    }
+    $program = $args[0]
+    $prog_args = $args[1..($args.Count-1)]
+    Write-Output("Program: " + $program)
+    if ($args.Length -le 1) {
+        Start-Process -FilePath $program -Verb RunAs
+    }
+    else {
+        Write-Output("Arguments: " + $prog_args)
+        Start-Process -FilePath $program -Verb RunAs -ArgumentList $prog_args
+    }
+}
+
+Set-Alias sudo SwitchUser-Do
+echo ">>> ${PSScriptRoot}"
+echo ">>> $($MyInvocation.MyCommand)"
+```
+
+## ⚡ PowerShell Over SSH
+- OpenBSD manual page server https://man.openbsd.org/sshd
+- OpenSSH Manual Pages http://www.openssh.com/manual.html
+- https://github.com/PowerShell/Win32-OpenSSH/wiki
+
+为了方便使用，PowerShell 提供了数据供应器 Providers and drives，可以用来获取函数体：
+
+> function myfun{echo "my function"}
+> ${function:myfun}
+echo "my function"
+
+结合 ScriptBlock 对象实现程序化方式构建函数，注意函数的圆括号参考列表是可选的，调用没有参数的函数时不能使用圆括号：
+
+```sh
+function GetBar() {
+    $bar = "bar"
+    $bar
+}
+
+function GetFoo() {     
+    $foo = "foo"
+    $bar = GetBar
+    $foo
+    $bar
+}
+
+$fget = "function Get"
+$getbar = ${function:GetBar}
+$getfoo = ${function:GetFoo}
+$SBlock = [ScriptBlock]::Create("${fget}Bar() { $getbar } ${fget}Foo() { ${getfoo} } GetFoo")
+
+# Config WinRM first: "winrm quickconfig"
+Invoke-Command -ComputerName localhost -ScriptBlock $SBlock
+Invoke-Command -ComputerName localhost -ScriptBlock { Get-ChildItem C:\ } -credential Jeango
+```
+
+PowerShell 支持多种方式以远程方式运行脚本：
+
+  - Just Enough Administration (JEA)
+  - PowerShell remoting over SSH
+  - WS-Management (WSMan) remoting in PowerShell Core
+
+像 `New-PSSession`, `Enter-PSSession`, `Invoke-Command` 这些命令都支持以下用于远程执行脚本的参数：
+
+```sh
+[-HostName <string>]  [-UserName <string>]  [-KeyFilePath <string>]
+```
+
+双系统安装需要进行以下要求及步骤：
+
+- PowerShell 6 or higher, and SSH must be installed on all computers. 
+- Install both the SSH client (`ssh.exe`) and server (`sshd.exe`) so that you can remote to and from the computers.
+- OpenSSH for Windows is now available in Windows 10 build 1809 and Windows Server 2019.
+- For Linux, install SSH, including sshd server, that's appropriate for your platform. 
+- You also need to install PowerShell from GitHub to get the SSH remoting feature. 
+- The SSH server must be configured to create an SSH subsystem to host a PowerShell process on the remote computer. 
+- And, you must enable **password** or **key-based** authentication.
+
+基于 SSH 的远程处理依赖于 SSH 客户端和 SSH 服务之间的身份验证交换，PowerShell 本身不实现任何身份验证方案。任何配置的身份验证方案（包括多因素身份验证）都由 SSH 服务处理，并且独立于 PowerShell。
+
+确保配置文件设置了 `PasswordAuthentication yes`，可以使用密码登录，避免未配置公钥登录认证时不能登录，例如在 WSL Ubuntu 系统中修改配置文件 *sudo vi /etc/ssh/sshd_config*。
+
+首先是安装 SSH service，使用 Win32 OpenSSH。并生成密钥对，配置并启动服务，然后确保可以查询到有 SSHost 等信息：
+
+```sh
+> Restart-Service sshd
+> (Get-Command New-PSSession).ParameterSets.Name
+
+Name
+----
+SSHHost
+SSHHostHashParam
+
+# Generate CA keys (just like any other keys)
+ssh-keygen -t rsa -f ca_userkeys
+# Register above key as trusted CA for sshd. Add following entry in sshd_config
+TrustedUserCAKeys ca_userkeys.pub
+
+# Sign user keys using ssh-keygen
+ssh-keygen.exe -s ca_userkeys -I cert_identity -V -1w:+54w5d -n username id_rsa.pub
+# username should match the user to be authenticated
+```
+
+生成默认的密钥对：
+
+```sh
+$ sudo ssh-keygen -t rsa -f ssh_host_rsa_key
+$ sudo ssh-keygen -t ecdsa -f ssh_host_ecdsa_key
+$ sudo ssh-keygen -t ed25519 -f ssh_host_ed25519_key
+$ ls -l ssh_host*
+-rw------- 1 root root  513 Apr 28 19:28 ssh_host_ecdsa_key
+-rw-r--r-- 1 root root  182 Apr 28 19:28 ssh_host_ecdsa_key.pub
+-rw------- 1 root root  411 Apr 28 19:30 ssh_host_ed25519_key
+-rw-r--r-- 1 root root  102 Apr 28 19:30 ssh_host_ed25519_key.pub
+-rw------- 1 root root 2610 Apr 28 19:20 ssh_host_rsa_key
+-rw-r--r-- 1 root root  574 Apr 28 19:20 ssh_host_rsa_key.pub
+```
+
+
+
+注意，如果安装了 PowerShell 32-bit，而 OpenSSH 64-bit，那么将会访问不到 OpenSSH 的客户端，System32 目录不供 32-bit 应用访问，需要使用 SysNative 路径下的 32-bit SSH 程序：
+
+```sh
+Get-Item -Force C:\Windows\System32\OpenSSH\ssh.exe
+Get-Item: Cannot find path 'C:\Windows\System32\OpenSSH\ssh.exe' because it does not exist.
+# This would only work from a 32-bit PowerShell instance.
+# Access the 64-bit C:\Windows\System32 directory.
+Get-Item -Force C:\Windows\SysNative\OpenSSH\ssh.exe
+$Env:Path="C:\Windows\SysNative\OpenSSH;$($Env:Path)"
+```
+
+远程系统 WSL Ubuntu 充当，安装 OpenSSH 服务，并且需要为 PowerShell 创建子系统入口：
+
+```bash
+sudo apt install openssh-client
+sudo apt install openssh-server
+
+# Edit the `sshd_config` file at location `/etc/ssh`.
+# Make sure password authentication is enabled:
+#   PasswordAuthentication yes
+# Optionally, enable key authentication:
+#   PubkeyAuthentication yes
+# Add a PowerShell subsystem entry:
+#   Subsystem powershell /usr/bin/pwsh -sshs -NoLogo
+vim /etc/ssh/sshd_config
+```
+
+在 SSH 服务中配置 Subsystem entry 目的是让服务端 PowerShell 处理客户端的请求，注意名称大小定要匹配，参数 -sshs -NoLogo 不能少，可以使用 *sshd -d* 以调试方式运行服务。
+
+并且指定程序路径时不能有空格，所以在 Windows 系统上的带空格目录就要使用 8.3 格式的路径，最好是直接通过环境变量搜索到程序，这样就不用设置目录：
+
+    Subsystem powershell pwsh.exe -sshs -nologo
+    Subsystem powershell c:/progra~1/powershell/7/pwsh.exe -sshs -NoLogo
+
+可以使用以下命令查询是否正确设置，使用 ssh 连接时无输出内容是正确的，如果有内容输出，New-PSSession 连接时就会出错：
+
+```sh
+> sshd -T | grep 'subsystem'
+
+subsystem sftp /usr/lib/openssh/sftp-server
+subsystem powershell /usr/bin/pwsh -sshs -NoLogo -NoProfile
+
+> ssh root@localhost -s powershell
+PowerShell 7.2.2
+Copyright (c) Microsoft Corporation.
+
+https://aka.ms/powershell
+Type 'help' to get help.
+```
+
+注意 sshd -T 延申测试输出的信息中指示了密钥文件位置，配置文件对应是 %ProgramData%\ssh\sshd_config。
+
+PowerShell 需要使用 SSH 客户端来连接服务器，使用 *ssh user@localhost -p 22* 测试连接。确保 ssh 客户端程序可以被调用，否则会报错：A remote session might have ended.
+
+通过 Package Repository 安装 PowerShell：
+
+```sh
+# Update the list of packages
+sudo apt-get update
+# Install pre-requisite packages.
+sudo apt-get install -y wget apt-transport-https software-properties-common
+# Download the Microsoft repository GPG keys
+# wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
+# Register the Microsoft repository GPG keys
+sudo dpkg -i packages-microsoft-prod.deb
+# Update the list of packages after we added packages.microsoft.com
+sudo apt-get update
+# Install PowerShell
+sudo apt-get install -y powershell
+# Start PowerShell
+pwsh
+```
+
+或者直接下载安装包，根据系统选择版本：
+
+```sh
+# PowerShell 7.2.2 (universal package) for any support version of Ubuntu
+wget -q https://github.com/PowerShell/PowerShell/releases/download/v7.2.2/powershell-lts_7.2.2-1.deb_amd64.deb
+
+# Install the downloaded package
+sudo dpkg -i powershell-lts_7.2.2-1.deb_amd64.deb
+
+# Resolve missing dependencies and finish the install (if necessary)
+sudo apt-get install -f
+```
+
+连接测试，可以采取 Enter-PSSession -> 执行远程命令 -> Exit-PSSession -> Remove-PSSession 流程，也可以使用 Invoke-Command 行命令直接运行远程命令：
+
+```sh
+> $session = New-PSSession -HostName 127.0.0.1 -UserName root
+> $session
+
+ Id Name       Transport ComputerName ComputerType    State   ConfigurationName  Availability
+ -- ----       --------- ------------ ------------    -----   -----------------  ------------
+  3 Runspace2  SSH       127.0.0.1    RemoteMachine   Opened  DefaultShell       Available
+
+> Enter-PSSession $session
+[root@127.0.0.1]: PS /home/root> uname
+Linux
+[root@127.0.0.1]: PS /home/root> Invoke-Command $session -ScriptBlock { ps }
+Invoke-Command: Cannot validate argument on parameter 'Session'. The argument is null or empty..
+[root@127.0.0.1]: PS /home/root> Exit-PSSession
+
+> Invoke-Command $session -ScriptBlock { ps }
+  PID TTY          TIME CMD
+ 8368 ?        00:00:00 sshd
+ 8369 ?        00:00:04 pwsh
+ 8704 ?        00:00:00 ps
+
+> Invoke-Command $session -ScriptBlock { Get-Process pwsh }
+
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName                        PSComputerName
+ ------    -----      -----     ------      --  -- -----------                        --------------
+      0     0.00      99.02       4.57    8369 …69 pwsh                               127.0.0.1
+      0     0.00      65.48       0.90    8709   5 pwsh                               127.0.0.1
+
+> Get-PSSession | Remove-PSSession
+> $sess.State
+Closed
+```
+
+功能限制提示：
+
+- **sudo** 命令不能在 Linux 远程主机中运行；
+- 基于 SSH 的 PSRemoting 不支持访问 `$PROFILE` 也不载入配置文件，建议会话后，可以通过 Dot sourcing 加载它。
+- PowerShell 7.1 之前的版本，基于 SSH 远程执行不支持 second-hop 远程会话，此功能仅限于使用 WinRM。
+- PowerShell 7.1 允许在任何交互式远程会话中工作使用 `Enter-PSSession`、`Enter-PSHostProcess`。
+
+常见错误提示：
+
+- 不能运行 SSH 客户端程序：An error has occurred which PowerShell cannot handle. A remote session might have ended.
+- 未安装或 SSH 服务端未运行：Connecting to remote server localhost failed..
+- 未启用密码登录，且未配置好公钥认证登录：Permission denied (publickey)..
+- 公钥验证错误： Failed publickey for <user> from <host>
+- 服务主机上未安装 PowerShell 或未配置子系统入口，或者入口名字不匹配，或参数不正确，程序路径有误：
+    - The SSH client session has ended with error message: Permission denied, please try again.
+    - The SSH client session has ended with error message: subsystem request failed on channel 0.
+    - There is an error processing data from the background process. Error reported: PowerShell 7.2.2.
+
+处理数据报错，消息来源自服务端的 PowerShell 7.2.2，这可能是因为配置 SSH 子系统入口时，没有为 PowerShell 设置 -NoLogo 参数，导致建立会话时有额外数据传递，导致异常。
+
+连接期间打印 trying public key file .ssh/authorized_keys 表示服务器正在查询公钥认证文件，如果读取到公钥验证文件但又没有登录成功，那么就可能是公钥配置问题。重新在服务器端生成密钥对，将 id_rsa.pub 复制一份作为 authorized_keys，并且将密钥下载到本地系统用于登录。
+
+```sh
+# copy publickey on server
+sudo cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
+
+# download rsa privatekey to client, PowerShell or Bat
+scp jeango@localhost:~/.ssh/id_rsa $env:USERPROFILE\.ssh\id_rsa
+scp jeango@localhost:~/.ssh/id_rsa.pub $env:USERPROFILE\.ssh\id_rsa.pub
+scp jeango@localhost:~/.ssh/id_rsa %USERPROFILE%\.ssh\id_rsa
+```
+
+
+关于密钥保文件权限护，以及进行公钥验证登录的问题，服务端各个密钥文件不能给多个账户授权，即使没有授予访问权也不可，OpenSSH 不允许宽松的访问权限，但可以添加相关的用户组的权限，应该将管理员设置为密钥的所有者。
+
+```sh
+> sshd -d
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions for '__PROGRAMDATA__\\ssh/ssh_host_rsa_key' are too open.
+Permissions for '__PROGRAMDATA__\\ssh/ssh_host_ecdsa_key' are too open.
+Permissions for '__PROGRAMDATA__\\ssh/ssh_host_ed25519_key' are too open.
+...
+sshd: no hostkeys available -- exiting.
+```
+
+理解“管理员组”和管理员用户之间的区别很重要，User Account Control (UAC) 完全启用的情况下，登录管理员用户通常会在非提升模式下运行进程，Non-elevated，被称为受保护的管理员。这时进程处于最少权限状态，least-privileged state。
+
+在权限最低的状态下，尽管用户是管理员用户组的成员，但这些非提升进程无权访问仅限管理员组的资源。
+
+管理员账户可以通过 Consent UI 或 Credential UI 提升为拥有完全权限的状态，这两种 UI 窗口区别在于后者需要输入管理员账户密码。
+
+相比之下，标准用户无法自行提升，但他们可以要求管理员使用 Credential UI 提升他们，内置管理员帐户不需要提升。
+
+按以下方式修正密钥文件权限：
+
+```sh
+PS C:\ProgramData\ssh>(get-acl .\ssh_host_dsa_key).owner
+otheruser
+PS C:\ProgramData\ssh>icacls .\ssh_host_dsa_key
+ssh_host_dsa_key   NT AUTHORITY\SYSTEM:(F)
+                   BUILTIN\Administrators:(F)
+                   otheruser:(R) 
+
+# Steps to fix these permissions
+PS C:\ProgramData\ssh>icacls .\ssh_host_dsa_key /setowner system
+PS C:\ProgramData\ssh>icacls .\ssh_host_dsa_key /remove otheruser
+PS C:\ProgramData\ssh>get-acl .\ssh_host_dsa_key | Set-Acl ssh_host*key
+```
+
+客户端也添加 -v 参数显示连接过程的交互信息，以观察公钥认证过程，并通过 [preauth] 了角认证前期的状态：
+
+    ssh -v user@127.0.0.1 -s powershell
+
+根据 SSH2_MSG_NEWKEYS 消息可以了解决 sshd 服务建立连接过程传递的消息，还有当前可以进行的认证方式：Authentications that can continue: publickey,password,keyboard-interactive。
+
+另外，有两条比较重要的消息可以确定问题是否在于公钥数据，或文件路径，或者访问权限上。如果调试消息显示已经提供公钥，服务器在接收到公钥后直接给出 Authentication refused 可能就是文件权限大开开放导致 sshd 拒绝验证：
+
+- 客户端调试消息 ssh.exe: Offering public key
+- 服务端调试消息 sshd.exe: trying public key file
+
+对于启用 PubkeyAuthentication 以及配置授权密钥文件 *AuthorizedKeysFile* ，需要将客户的公钥登记到公钥认证记录文件内。
+
+对于用户的授权密钥文件，authorized_keys，只需要保证其用户的所有权，及单独访问权限即可以，多用户访问会导致 sshd 直接拒绝使用公钥验证，Authentication refused。
+
+而管理员组的授权密钥文件，administrators_authorized_keys，只提供管理员登录时使用，需要指定系统用户账户 SYSTEM 和 Administrators 管理员组权限。
+
+```sh
+# authorized_keys
+PS C:\>(get-acl .\users\thisuser\.ssh\authorized_keys).owner
+thisuser
+PS C:\>icacls .\users\thisuser\.ssh\authorized_keys
+ssh_host_dsa_key   BUILTIN\Administrators:(F)
+                   thisuser:(F) 
+                   otheruser1:(IR)
+                   otheruser2:(R)
+
+# Steps to fix these permissions - remove inheritance and inherited permissions
+PS C:\>icacls .\users\thisuser\.ssh\authorized_keys /inheritance:r
+PS C:\>icacls .\users\thisuser\.ssh\authorized_keys /remove otheruser2
+
+# administrators_authorized_keys
+# Default location for authorized keys file for users in administrators group is 
+# %programdata%\ssh\administrators_authorized_keys 
+# This file should only be accessible by SYSTEM and Administrators group.
+
+# Steps to fix permissions on this file:
+PS C:\>icacls administrators_authorized_keys /inheritance:r
+PS C:\>icacls administrators_authorized_keys /grant SYSTEM:"(F)"
+PS C:\>icacls administrators_authorized_keys /grant BUILTIN\Administrators:"(F)"
+```
+
+启用管理员授权密钥后，sshd 就进行 MATCH GROUP 比对，匹配的账户就读取相应的授权文件内容，可以指定命令行参数测试：
+
+    sshd -C user=administrators,host=127.0.0.1 -T
+
+
+给服务指定登录账户，注意需要给服务使用的账户设置 NETWORK SERVICE 安全主体策略以许可服务通过指定账户登录。
+
+类似的安全策略还有“允许通过远程桌面服务登录”，它默认许可远程桌面用户（Remote Desktop Users）进行远程登录。更多的安全策略设定可以使用本地用户组策略编辑器，gpedit.msc。
+
+打开本地安全策略面板 secpol.msc -> 本地策略 -> 用户权限分配 -> 作为服务登录，并将用户账户，或所属用户组添加到列表中。NT SERVICE\ALL SERVICES 安全主体是默认设置，它可以作为服务登录账户。
+
+空密码账户只需要将密码文本框的占位字符删除即可，选择了“本地服务”帐户或“网络服务”安全主体，NT AUTHORITY\LocalService & NT AUTHORITY\NetworkService 密码必须为空。要指定此服务使用“本地系统”帐户，请单击“本地系统帐户”。
+
+Windows 服务默认的登录账户是本地系统帐户，LocalSystem，是一个具有完全系统访问权并且在网络中担当计算机的超级帐户。如果一个服务在一台域控制器上用本地系统帐户登录，该服务就可以访问整个域。
+
+
+大多数服务都设计为不能更改默认帐户。当您更改了服务的默认帐户时，该服务可能无法启动。
+
+服务运行时，首先进行登录，然后再进行权限审核，任何一个环节出错都有相应提示。
+
+1. 账户登录问题会提示错误 1069: 由于登录失败而无法启动服务。
+2. 账户权限配置问题会提示错误 1297: 服务账户配置中不存在服务正常运行所需的特权。
+3. 服务程序遇到错误会提示错误 1067: 进程意外终止。
+
+最后一个问题很棘手，因为日志中无法获取到进程终止的原因，只是提示 Error 1067: 'The process terminated unexpectedly'。但有一个可能是，所有密钥文件的权限设置不正确导致 sshd 直接终止服务的执行。正确的权限应该是，Administrators 组和 SYSTEM 账户，但是配置文件可以给用户指定修改权限。
+
+```sh
+ PS C:\ProgramData\ssh> icacls .\ssh_host_dsa_key
+ .\ssh_host_dsa_key BUILTIN\Administrators:(F)
+                    NT AUTHORITY\SYSTEM:(F)
+
+get-acl *
+
+    Directory: C:\ProgramData\ssh
+
+Path                           Owner                  Access
+----                           -----                  ------
+logs                           NT AUTHORITY\SYSTEM    BUILTIN\Administrators Allow  ReadAndExecute, Synchronize
+administrators_authorized_keys NT AUTHORITY\SYSTEM    BUILTIN\Administrators Allow  ReadAndExecute, Synchronize
+ssh_host_dsa_key               NT AUTHORITY\SYSTEM    BUILTIN\Administrators Allow  ReadAndExecute, Synchronize
+ssh_host_dsa_key.pub           NT AUTHORITY\SYSTEM    BUILTIN\Administrators Allow  ReadAndExecute, Synchronize
+ssh_host_ecdsa_key             NT AUTHORITY\SYSTEM    BUILTIN\Administrators Allow  ReadAndExecute, Synchronize
+ssh_host_ecdsa_key.pub         NT AUTHORITY\SYSTEM    BUILTIN\Administrators Allow  ReadAndExecute, Synchronize
+ssh_host_ed25519_key           NT AUTHORITY\SYSTEM    BUILTIN\Administrators Allow  ReadAndExecute, Synchronize
+ssh_host_ed25519_key.pub       NT AUTHORITY\SYSTEM    BUILTIN\Administrators Allow  ReadAndExecute, Synchronize
+ssh_host_rsa_key               NT AUTHORITY\SYSTEM    BUILTIN\Administrators Allow  ReadAndExecute, Synchronize
+ssh_host_rsa_key.pub           NT AUTHORITY\SYSTEM    BUILTIN\Administrators Allow  ReadAndExecute, Synchronize
+sshd_config                    DESKTOP-CBSK60R\You  DESKTOP-CBSK60R\You Allow  FullControl…
+sshd.pid                       BUILTIN\Administrators DESKTOP-CBSK60R\You Allow  FullControl…
+```
+
+使用 PowerShell 脚本修正权限：
+
+```sh
+using namespace System.Security.AccessControl
+using namespace System.Security.Principal
+
+$acl = Get-Acl .
+$identity = New-Object NTAccount("System")
+$rights = [FileSystemRights]::FullControl
+$type = [AccessControlType]::Allow
+$accessRule = New-Object FileSystemAccessRule($identity,$rights,$type)
+$acl.SetAccessRule($accessRule)
+$acl.SetOwner($identity)
+
+$other = New-Object NTAccount("otherusers")
+$otherRule  = New-Object FileSystemAccessRule($other,$rights,$type)
+$acl.RemoveAccessRule($otherRule)
+Set-Acl -Path "ssh_host_*_key" -AclObject $acl
+Get-Acl * | Format-Table
+```
+
+日志配置 SyslogFacility 指定记录日志消息时使用的日志工具代码，UNIX Syslog Facilities，默认值 AUTH。
+
+Win32 OpenSSH v7.6.1.0 之前的版本只支持 LOCAL0 一种日志工作，基于文件 logs\sshd.log。新版本支持 ETW - Event Tracing for Windows，除了日志文件方式，其它日志类型设置都会将日志会记录到以下位置，可以使用日志查看器 eventvwr.msc 查看，归类于应用程序与服务日志：
+
+    %SystemRoot%\System32\Winevt\Logs\
+
+OpenSSH 在 Windows 中配置用户名和组名不区分大小写（与 Unix 不同）。无论原始大小写如何，在指定这些时都应始终使用小写字母。
+
+请注意域帐户的以下内容：
+
+在 v7.7.0.0 之前，没有明确定义的方式来指定域主体（用户和组）。为了以各种形式考虑域主体，建议在配置基于用户/组的规则时使用格式为 `user?domain*`。 注意 ? 代替 @ 以避免与 username@host 格式冲突并添加 * 以覆盖 FQDN。
+
+从 v7.7.0.0 起，工作组用户/组和连接互联网的帐户被严格解析为其本地帐户名称（无域部分，类似于标准 Unix 名称）。域用户和组被严格解析为 NameSamCompatible 格式，domain_short_name\user_name。所有基于用户/组的配置规则都需要遵守这种格式。
+
+    Ex. for domain users and groups
+    DenyUsers contoso\admin@192.168.2.23 : blocks contoso\admin from 192.168.2.23
+    DenyUsers contoso\* : blocks all users from contoso domain
+    AllowGroups contoso\sshusers : only allow users from contoso\sshusers group
+    AllowGroups "contoso\ssh users" : only allow users from "contoso\ssh users" group
+
+    Ex. for local users and groups
+    AllowUsers localuser@192.168.2.23
+    AllowGroups sshusers
+
+
+## ⚡ ACL/ACE/SID 与访问权限系统
+- https://docs.microsoft.com/en-us/windows/win32/secauthz/access-control-model
+- https://docs.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control
+- https://docs.microsoft.com/en-us/dotnet/api/system.security.accesscontrol.filesystemsecurity
+- https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/icacls
+- Windows SID & Integrity Level https://0xfocu5.github.io/posts/37e301d0/
+- .Net Core Libraries 项目开源地址 https://github.com/dotnet/corefx
+- Security in the .NET Framework - ACL Technology https://docs.microsoft.com/en-us/previous-versions/dotnet/netframework-4.0/ms229742(v=vs.100)
+
+Windows Active Directory 网络中，使用 ACL 访问控制列表定义有权访问相关对象的受信任方，以及他们拥有的访问类型，受信任方可以是任何安全主体，例如用户帐户、组或登录会话。
+
+Windows 系统使用 ACL 访问控制列表来实现安全权限管理，包括文件、文件夹的访问权限管理。
+
+对于任何可用的对象，例如文件、文件夹，都可以将其拥有的各种可能权限，如读、写等权限赋给指定的 ACL 对象，如计算机账户、用户组等等。为了方便管理员的操作，权限设计为可以被继承模式，例如文件可以通过继承获取与父目录所具有的权限设置。
+
+这个系统中涉及三个基本内容，一是被访问的对象，二是被访问对象可提供的权限或者是功能，三是获取相应权限的受信任方，即*安全主体* Security Principal。而 ACL/ACE 在这个系统中充当的是，这种信任关系管理系统中的数据结构。
+
+Windows 系统上的 Security Principals 包含以下几类：
+
+- Local Accounts
+- Active Directory Accounts
+- Microsoft Accounts
+- Service Accounts
+- Active Directory Security Groups
+
+
+安全系统涉及的高频名词：
+
+- Authentication 认证、验证、许可
+- Authorization 批准、授权
+- Permission 同意, 许可; 准许
+- Priviledge 特权
+- Audit 审计, 调查
+- Security 安全性
+
+Access Control Lists (ACL) 是数据表或简单列表，有两类，它们与 ACE 的关系如下：
+
+   - Discretionary Access Control List (DACL)
+       - Access denied ACE
+       - Access allowed ACE
+       - Access denied object ACE
+       - Access allowed object ACE
+   - System Access Control List (SACL)
+       - System audit ACEs
+       - System audit object ACEs
+
+DACL 为受信方定义相关安全对象的访问权，包含任意个 ACE。当受信方试图访问对象时，系统会检查 DACL，以了解对该对象授权的访问级别。如果一个安全对象没有任何与之关联的 DACL，那么系统将授予其完全访问权限。如果为对象定义了 DACL，但没有 ACE，则系统将拒绝所有受托人访问该对象。
+
+SACL 生成审核日志，指定受信者是否试图访问对象，是被授予还是被拒绝，以及如果被授予，受托人将获得何种类型的访问。
+
+Access Control Entry (ACE) 分为 6 类，所有安全对象都支持的有前面三个，后面三个根据对象类型使用，称为 object-specific ACEs：
+
+1. Access denied ACE (Used in a DACL)
+2. Access allowed ACE (Used in a DACL)
+3. System audit ACE (Used in a SACL)
+4. Access denied object ACE (Used in a DACL)
+5. Access allowed object ACE (Used in a DACL)
+6. System audit object ACE (Used in a SACL)
+
+每个 ACE 都命名一个受信者，并定义受信者对相关安全对象的访问类型。因此，ACE 列表决定了可保护对象的整个访问权限，从而使该对象不受任何可能产生灾难性后果的关键数据暴露威胁的影响。实施此类安全检查措施可确保组织免受潜在的数据泄露或黑客攻击。
+
+每个 ACE 都有以下要素构成：
+
+- The security identifier (SID) of a trustee.
+- An access mask, which is a 32-bit value that defines the operations that are either allowed or denied for the trustee.
+- A flag that indicates the type of ACE, such as whether it is an access denied ACE, access allowed ACE, or a system audit ACE.
+- A set of bit flags that determine if child containers or objects can inherit the ACE from their primary object or parent.
+
+
+### SID - Security ID
+
+安全标识符 SID 是二进制格式的数据结构，包含可变数量的值，是安全主体或安全组的唯一标识。*安全主体* Security Principal 是可由操作系统进行身份验证的任何实体，例如用户帐户、计算机帐户，或在用户或计算机帐户的安全上下文中运行的线程或进程。
+
+创建安全主体时，SID 就一并创建，并且这是唯一的，可用于确认一个安全主体。本地用户或组的 SID 由计算机的 Local Security Authority (LSA) 生成。域账户或组的 SID 由 Domain security authority (DSA) 生成，并且保存到 Active Directory Domain Services 用户或组属性中。
+
+SID 数据结构中的第一个部分包含有关 SID 结构的信息，如 Subauthority Count 和 SID Revision Version。
+
+其余的值按层次结构排列，类似于电话号码：
+
+- SID-issuing authority (for example, “NT Authority”), 
+- the SID-issuing domain, 
+- and a particular security principal or group.
+
+SID 第二部分是 Identifier authority，确定可以为特定类型的安全主体颁发 SID 的最高权限级别。例如，Everyone 用户组 SID 标识符权限值为 1 (World Authority)。特定 Windows Server 帐户或组 SID 标识符权限值为 5 (NT Authority)。
+
+其它可能的值为：
+
+     0 SECURITY_NULL_SID_AUTHORITY 空帐户 SID S-1-0-0
+     1 SECURITY_WORLD_SID_AUTHORITY EveryOne 组 只有一个 SID S-1-1-0
+     2 SECURITY_LOCAL_SID_AUTHORITY local group 只有一个 SID S-1-2-0
+     3 SECURITY_CREATOR_SID_AUTHORITY 创建者 SID S-1-3-0 ~ S-1-3-5
+     4 SECURITY_NON_UNIQUE_AUTHORITY 未使用
+     5 SECURITY_NT_AUTHORITY 拥有由 NT 安全子系统管理的帐户
+     9 SECURITY_RESOURCE_MANAGER_AUTHORITY 
+    16 SECURITY_MANDATORY_LABEL_AUTHORITY 完整性等级
+
+SID 第三部分是子权限系列 Subauthorities，有多个，这也是 SID 最重要的部分。系列中最后一个值称为相对标识符 relative identifier (RID)，用于标识相对于域的特定帐户或组。之前的所有值共同标识企业中的一个域，这一部分称为域标识符。
+
+SID 标识的转换为字符串后的格式如下：
+
+    S-R-X-Y1-Y2-Yn-1-Yn
+
+| Comment |                                 Description                                 |
+|---------|-----------------------------------------------------------------------------|
+| S       | Indicates that the string is a SID                                          |
+| R       | Indicates the revision level                                                |
+| X       | Indicates the identifier authority value                                    |
+| Y       | Represents a series of subauthority values, where n is the number of values |
+
+如前面所说，SID 最重要的信息是 Y 表示的一系列 subauthority values，其第一部分 (-Y1-Y2-Yn-1) 表示 domain identifier。这个元素在具有多个域的企业中变得非常重要，因为域标识符将一个域发布的 SID 与企业中所有其他域发布的 SID 区分开来，企业中没有两个域共享相同的域标识符。
+
+子权限值系列最后一项（-Yn）是相对标识符，它将一个帐户或组与域中的所有其他帐户和组区分开来，任何域中没有两个帐户或组共享相同的相对标识符。
+
+例如，以下是 Contoso\Domain Admins 的 SID:
+
+    S-1-5-21-1004336348-1177238915-682003330-512
+
+- A revision level (1)
+- An identifier authority (5, NT Authority)
+- A domain identifier (21-1004336348-1177238915-682003330, Contoso)
+- A relative identifier (512, Domain Admins)
+
+有些特殊的 SID 应于不同的场合，Universal Well-Known SID:
+
+- S-1-0-0 (Null SID): Assigned when the SID value is unknown, or for a group without any members.
+- S-1-1-0 (World): This is a group of every user (EveryOne).
+- S-1-2-0 (Local): This SID is assigned to users who log on to a local terminal.
+- S-1-2-1 Console Logon   A group that includes users who are logged on to the physical console.
+- S-1-5   NT Authority    A SID that represents an identifier authority.
+
+
+完整性级别表示正在运行的应用程序进程和对象的可信度，例如应用程序创建的文件，由一组特殊的 SID 和 ACL 条目实现的，它们代表五个不断增加的特权级别：
+
+Table 2-3: Integrity SIDs
+
+|    Integrity Levels   |     SID      |
+|-----------------------|--------------|
+| Untrusted(?)          | S-1-16-0     |
+| Low integrity (LW)    | S-1-16-4096  |
+| Medium integrity (ME) | S-1-16-8192  |
+| High integrity (HI)   | S-1-16-12288 |
+| System integrity (SI) | S-1-16-16384 |
+
+参考 Mario Hewardt, Daniel Pravat: Advanced Windows Debugging
+
+Integrity Level 完整性等级保护增加了一层防御，以帮助减少恶意软件损坏操作系统的机会。在各种 Windows 开发工具包中，完整性级别通常被称为强制标签，Mandatory Label。重要的是，完整性级别的目标是保护操作系统免受损坏，而不是阻止数据泄露，完整性保护只允许或禁止写操作，不允许读操作。
+
+完整性级别的原则非常简单，完整性级别较低的进程无法写入完整性级别较高的对象。当一个进程试图打开一个对象进行写访问时，首先检查完整性级别。如果该检查成功，则执行正常的 DACL 检查。
+
+
+一些常用用户组与账户的 SID，复数结尾的 s 表示这是一个用户组：
+
+| well-known SIDs  |                   Display Name                   |
+|------------------|--------------------------------------------------|
+| S-1-5-11         | Authenticated Users                              |
+| S-1-5-113        | Local account                                    |
+| S-1-5-114        | Local account and member of Administrators group |
+| S-1-5-domain-512 | Domain Admins                                    |
+| S-1-5-domain-513 | Domain Users                                     |
+| S-1-5-domain-514 | Domain Guests                                    |
+| S-1-5-32-544     | Administrators  (A built-in group)               |
+| S-1-5-32-545     | Users   (A built-in group)                       |
+| S-1-5-32-546     | Guests  (A built-in group)                       |
+| S-1-5-domain-501 | Guest                                            |
+
+The following table lists the predefined identifier authority constants. The first four values are used with universal well-known SIDs, and the rest of the values are used with well-known SIDs in Windows operating systems designated in the Applies To list.
+
+|        Identifier Authority       | Value | SID String Prefix |
+|-----------------------------------|-------|-------------------|
+| SECURITY_NULL_SID_AUTHORITY       |     0 | S-1-0             |
+| SECURITY_WORLD_SID_AUTHORITY      |     1 | S-1-1             |
+| SECURITY_LOCAL_SID_AUTHORITY      |     2 | S-1-2             |
+| SECURITY_CREATOR_SID_AUTHORITY    |     3 | S-1-3             |
+| SECURITY_NT_AUTHORITY             |     5 | S-1-5             |
+| SECURITY_AUTHENTICATION_AUTHORITY |    18 | S-1-18            |
+
+The following RID values are used with universal well-known SIDs. The Identifier authority column shows the prefix of the identifier authority with which you can combine the RID to create a universal well-known SID.
+
+| Relative Identifier Authority | Value | Identifier Authority |
+|-------------------------------|-------|----------------------|
+| SECURITY_NULL_RID             |     0 | S-1-0                |
+| SECURITY_WORLD_RID            |     0 | S-1-1                |
+| SECURITY_LOCAL_RID            |     0 | S-1-2                |
+| SECURITY_CREATOR_OWNER_RID    |     0 | S-1-3                |
+| SECURITY_CREATOR_GROUP_RID    |     1 | S-1-3                |
+
+
+### ICACLS & Get-Acl/Set-Acl
+
+icacls - Intergrity Control Access Control List 命令用来显示、修改指定文件的 DACL，或并将 DACL 应用于指定目录、文件。相当于 Linux 中的 chmod 命令，原命令 cacls 已经被废弃。
+
+例如，当设置文件或目录的所有者，就是在设置 DACL 列表，将用户账户相关的 ACE 添加到 ACL 列表，并将原所有者 ACE 记录移除。
+
+PowerShell 等价命令是 Get-Acl 和 Set-Acl，它们提供更完善的功能，例如 Get-Acl 可以直接查看到 Owner。
+
+```sh
+> Get-Acl .\logs\ | Format-List
+
+Path   : Microsoft.PowerShell.Core\FileSystem::C:\ProgramData\ssh\logs\
+Owner  : Everyone
+Group  : NT AUTHORITY\SYSTEM
+Access : NT AUTHORITY\SYSTEM Allow  FullControl
+         BUILTIN\Administrators Allow  FullControl
+         Everyone Allow  FullControl
+         CREATOR OWNER Allow  268435456
+         BUILTIN\Users Allow  ReadAndExecute, Synchronize
+         BUILTIN\Users Allow  Write
+Audit  :
+Sddl   : O:WDG:SYD:AI(A;OICIID;FA;;;SY)(A;OICIID;FA;;;BA)(A;ID;FA;;;WD)(A;OICIIOID;GA;;;CO)(A;OICIID;0
+         x1200a9;;;BU)(A;CIID;DCLCRPCR;;;BU)
+```
+
+计算机中的账户可以通过 compmgmt.msc 计算机管理控制台进行管理，也可以通过 *whoami.exe /groups* 查询现有账户信息。当一个账户被删除后，磁盘文件、目录可能还残留有旧的 ACL 数据，这就会在文件安全面板出现一些未知账户，以 SID 字符串替代账户显示出来。
+
+
+ICACLS 工具使用：
+
+```sh
+> ICACLS name /save aclfile [/T] [/C] [/L] [/Q]
+# 将 DACL 存储到 aclfile 中，后缀使用 /restore 还原。请注意，未保存 SACL、所有者或完整性标签。
+
+> ICACLS directory [/substitute SidOld SidNew [...]] /restore aclfile [/C] [/L] [/Q]
+# 将存储的 DACL 文件应用于目录中的文件。
+
+> ICACLS name /setowner user [/T] [/C] [/L] [/Q]
+# 更改新的所有者，该选项不会强制更改所有身份；使用 takeown.exe 实现该目的。
+
+> ICACLS name /findsid Sid [/T] [/C] [/L] [/Q]
+# 查找 ACL 中包含指定 Sid 的文件、目录。
+
+> ICACLS name /verify [/T] [/C] [/L] [/Q]
+# 查找其 ACL 不规范或长度与 ACE 计数不一致的所有文件。
+
+> ICACLS name /reset [/T] [/C] [/L] [/Q]
+# 为所有匹配文件使用默认继承的 ACL 替换 ACL。
+
+> ICACLS name [/grant[:r] Sid:perm[...]]
+       [/deny Sid:perm [...]]
+       [/remove[:g|:d]] Sid[...]] [/T] [/C] [/L] [/Q]
+       [/setintegritylevel Level:policy[...]]
+
+    # /grant[:r] Sid:perm 授予指定的用户访问权限。
+    #     使用 :r 用这些权限替换以前授予的所有显式权限。
+    #     不用 :r 将这些权限添加到以前授予的所有显式权限。
+
+    # /deny Sid:perm 显式拒绝指定的用户访问权限。
+    #     将为列出的权限添加显式拒绝 ACE，
+    #     并删除所有显式授予的权限中的相同权限。
+
+    # /remove[:[g|d]] Sid 删除 ACL 指定 SID 所有权限。
+    #     使用 :g 将删除授予该 SID 的所有权限。
+    #     使用 :d 将删除拒绝该 SID 的所有权限。
+
+    # /setintegritylevel [(CI)(OI)] 将完整性级别 ACE 显式添加到所有匹配文件。
+    #     完整性 ACE 的继承选项可以优先于级别，但只应用于目录。
+    #     Level 替换为以下级别之一:
+    #          L[ow]
+    #          M[edium]
+    #          H[igh]
+
+> ICACLS name /inheritance:e|d|r
+    #     e - 启用 (I) 继承
+    #     d - 禁用继承并复制 ACE
+    #     r - 删除所有继承的 ACE
+
+# Basic permissions:
+icacls * /grant:r EveryOne:"RW"; 
+icacls * /remove:g EveryOne; 
+
+icacls * /deny EveryOne:"RW"; 
+icacls * /remove:d EveryOne; 
+
+icacls * /grant EveryOne:"RW" /deny EveryOne:"R";
+
+# Advanced permissions:
+# A comma-separated list in parenthesis of specific rights 
+icacls * /grant EveryOne:"(D,WDAC)"
+icacls * /grant *S-1-5-21:"(D,WDAC)"
+
+# Inheritance rights may precede either <perm> form:
+ICACLS * /inheritance:e
+ICACLS * /inheritance:d
+ICACLS * /inheritance:r
+
+# To save the DACLs for all files in the C:\Windows and its subdirectories.
+icacls c:\windows\* /save aclfile /t
+
+# To restore the DACLs for every file within ACLFile 
+# that exists in the C:\Windows directory and its subdirectories.
+icacls c:\windows\ /restore aclfile
+
+# Set Owner of files
+icacls * /setowner OCEAN
+
+icacls * /remove "NT AUTHORITY\Authenticated Users" EveryOne
+icacls * /reset
+```
+
+注意:
+
+   - Sid 可以采用数字格式或友好的账户名称格式，如果给定数字格式，那么请在 SID 的数字开头添加一个 * 号。
+   - /T 指示在以该名称指定的目录下的所有匹配文件/目录上执行此操作。
+   - /C 指示此操作将在所有文件错误上继续进行，仍显示错误消息。
+   - /L 指示此操作在符号链接本身而不是其目标上执行。
+   - /Q 指示 icacls 应该禁止显示成功消息。
+
+文件安全属性面板与 icacls 命令内容有对应关系，安全选项卡分为两部分，上面用户组及账户对应访问控制列表（ACL），下方权限列表对应（ACE）。
+
+安全面板显示的是一般权限，读、写、执行等等，对应 icals 的 Basic permissions 选项。
+
+|      Basic Permissions       |   Types    |    Note    |
+|------------------------------|------------|------------|
+| F - Full access              | Grant/Deny | 完全控制   |
+| M - Modify access            | Grant/Deny | 修改(RXRW) |
+| RX - Read and execute access | Grant/Deny | 读取和运行 |
+| R - Read-only access         | Grant/Deny | 读取       |
+| W - Write-only access        | Grant/Deny | 写入       |
+
+在权限列表中还可能出现“特殊权限”，它指代的是在高级权限面板中的出现的其它特殊权限，比如读取、写入属性，读取、写入权限，遍历目录(X)，列出文件夹(RD) 等等。
+
+在高级权限面板中有更详细的 ACE 权限条目，包括权限类型、安全主体类型、继承性、访问属性，对应 icals 的 Advanced permissions 选项。
+
+|          Advanced Permissions         |
+|---------------------------------------|
+| D - Delete                            |
+| RC - Read control (read permissions)  |
+| WDAC - Write DAC (change permissions) |
+| WO - Write owner (take ownership)     |
+| S - Synchronize                       |
+| AS - Access system security           |
+| MA - Maximum allowed                  |
+| GR - Generic read                     |
+| GW - Generic write                    |
+| GE - Generic execute                  |
+| GA - Generic all                      |
+| RD - Read data/list directory         |
+| WD - Write data/add file              |
+| AD - Append data/add subdirectory     |
+| REA - Read extended attributes        |
+| WEA - Write extended attributes       |
+| X - Execute/traverse                  |
+| DC - Delete child                     |
+| RA - Read attributes                  |
+| WA - Write attributes                 |
+
+安全主体的 ACL 权限继承性选项有五种，以下是各种继承的功能，：
+
+| Inheritance   | Means                       | 说明                             |
+| ------------- | --------------------------- | :------------------------------- |
+| (I)           | Inherit.                    | 从父容器继承 ACE                  |
+| (OI)          | Object inherit.             | 此容器内的对象继承此 ACE           |
+| (CI)          | Container inherit.          | 此容器内的容器继承此 ACE           |
+| (IO)          | Inherit only.               | 从父容器继承此 ACE 嵌套继承但仅限于容器   |
+| (NP)          | Do not propagate inherit.   | 从父容器继承此 ACE 于子容器及对象但不嵌套 |
+
+注意，Containers 容器这个术语可以理解为目录，Object 对象这个术语理解为文件，但它不仅于文件和目录这种具体的对象。
+
+除了第一种 (I) 不局限用途，比如从父目录继承权限的子目录或者文件，其它四种只能用于目录权限的继承。
+
+使用 icacls 设置权限时，只支持 ICACLS name /inheritance:e 启用 (I) 这种继承，其它继承设置需要通过属性面板操作，继承权优先于其它权限。
+
+因为继承性的加入，权限管理就显得过分复杂，并且还有一些特殊的权限主体。
+
+Everyone 或者 World 是一个用户组，包含所有用户，所有用户都是这个组的成员，所以叫世界组。当为 EveryOne 这个组设置权限时，注意，所有用户都会获取相应的权限。
+
+CREATOR OWNER 也比较特殊，它是可继承 ACE 内的一个占位符。NTFS 磁盘文件的安全选项中都会有"所有者"一项，它代表的是文件、文件夹的拥有者。当 ACE 被继承，其 CREATOR OWNER SID 也随之改变为新的所有者的 SID。
+
+例如，当父目录设置了 (OI) 或 (CI) 继承，那么目录内的文件或目录就会继承其 ACE。父目录设置 CREATOR OWNER 的权限就会被继承到目录下的文件或目录上，它们的所有者就会继承到父目录 CREATOR OWNER 拥有的权限。
+
+要移除一个对象从父容器继承得到的权限，无法直接使用 /remove 从其本身移除，只能先使用 icacls /inheritance:r 命令将继承权限移除，或者使用  /inheritance:d 禁继承后，再 /remove 相应的权限。
+
+演示如下，ssh 目录的权限设置中可以看到：
+
+- 4 个账户都有设置 (I)，即从上一级目录继承了权限：
+- Users 账户设置 (CI)(WD,AD,WEA,WA)，这部分会继承给子目录，即 logs 目录才继承并拥有这一组权限；
+- Users 账户设置 (OI)(CI)(RX)，这部分会将 RX 读取和运行权限继承给子目录及文件，可以看到它们都有 (RX) 权限；
+- CREATOR OWNER 设置 (OI)(CI)(IO)(F)，这部分将会嵌套继承到子目录及文件，也就是它们的所有者会拥有 (F) 完全控制权；
+
+使用 Get-Acl 命令就可以查询到文件的所有者归属，并且输出的内容更直观。
+
+```sh
+> cd $Env:ProgramData\ssh\
+> icacls . /Remove CreatorOwner; icacls .; icacls logs; icacls ssh_host_dsa_key
+
+. NT AUTHORITY\SYSTEM:(I)(OI)(CI)(F)
+  BUILTIN\Administrators:(I)(OI)(CI)(F)
+  CREATOR OWNER:(I)(OI)(CI)(IO)(F)
+  BUILTIN\Users:(I)(OI)(CI)(RX)
+  BUILTIN\Users:(I)(CI)(WD,AD,WEA,WA)
+
+logs NT AUTHORITY\SYSTEM:(I)(OI)(CI)(F)
+     BUILTIN\Administrators:(I)(OI)(CI)(F)
+     Everyone:(I)(F)
+     CREATOR OWNER:(I)(OI)(CI)(IO)(F)
+     BUILTIN\Users:(I)(OI)(CI)(RX)
+     BUILTIN\Users:(I)(CI)(WD,AD,WEA,WA)
+
+ssh_host_dsa_key NT AUTHORITY\SYSTEM:(I)(F)
+                 BUILTIN\Administrators:(I)(F)
+                 Everyone:(I)(F)
+                 BUILTIN\Users:(I)(RX)
+```
+
+Get-Acl Set-Acl 使用示范，注意，PowerShell 会自动将字符串转换为枚举，也可以使用这样的转换表达式 *[AccessControlType]"Allowd"*：
+
+```sh
+# (".","logs",".\ssh_host_dsa_key")|Get-Acl|Format-List
+# https://docs.microsoft.com/en-us/dotnet/api/system.security.accesscontrol.objectsecurity
+# https://docs.microsoft.com/en-us/dotnet/api/system.security.accesscontrol.filesystemsecurity
+
+# Example 1: Copy a security descriptor from one file to another
+$DogACL = Get-Acl -Path "C:\Dog.txt"
+Set-Acl -Path "C:\Cat.txt" -AclObject $DogACL
+
+# Example 2: Use the pipeline operator to pass a descriptor
+Get-Acl -Path "C:\Dog.txt" | Set-Acl -Path "C:\Cat.txt"
+
+# Example 3: Apply a security descriptor to multiple files
+$NewAcl = Get-Acl File0.txt
+$files = Get-ChildItem -Path "C:\temp" -Recurse -Include "*.txt" -Force
+ Set-Acl -InputObject $files -AclObject $NewAcl
+
+# Example 4: Disable inheritance and preserve inherited access rules
+$NewAcl = Get-Acl -Path "C:\Pets\Dog.txt"
+$isProtected = $true
+$preserveInheritance = $true
+$NewAcl.SetAccessRuleProtection($isProtected, $preserveInheritance)
+Set-Acl -Path "C:\Pets\Dog.txt" -AclObject $NewAcl
+
+# Example 5: Grant Administrators Full Control of the file
+using namespace System.Security.AccessControl #.FileSystemAccessRule ...
+$NewAcl = Get-Acl -Path "C:\Pets\Dog.txt"
+# Set properties
+$identity = "BUILTIN\Administrators"
+$rights = "FullControl" # or [AccessControlType]::Deny
+$type = "Allow"         # or [AccessControlType]::Deny
+# Create new rule
+$args = $identity, $rights, $type
+$fileSystemAccessRule = New-Object -TypeName FileSystemAccessRule -ArgumentList $args
+# Apply new rule
+$NewAcl.SetAccessRule($fileSystemAccessRule)
+Set-Acl -Path "C:\Pets\Dog.txt" -AclObject $NewAcl
+```
+
+换一种脚本写法，使用静态类型转换调用枚举数据，使用 New-Object 创建对象实例：
+
+```sh
+# ACL & ACE process
+using namespace System.Security.AccessControl
+using namespace System.Security.Principal
+
+$file = "sshd.pid"
+$NewAcl = Get-Acl -Path $file # get FileSecurity or DirectorySecurity
+$NewAcl | Format-List
+
+# Set properties
+# $identity = "BUILTIN\Administrators" 
+$identity = New-Object  NTAccount("Users")
+$rights = [FileSystemRights]::ExecuteFile -bor [FileSystemRights]::Write -bor [FileSystemRights]::Read
+$type = [AccessControlType]::Allow
+
+# Create new rule
+$args = $identity, $rights, $type
+$fileSystemAccessRule = New-Object FileSystemAccessRule($args)
+
+# Set new owner
+$NewAcl.SetOwner($identity)
+
+# Append new rule to ACL
+$NewAcl.AddAccessRule($fileSystemAccessRule)
+# Grant new rule
+$NewAcl.SetAccessRule($fileSystemAccessRule)
+# Remove rules
+#$NewAcl.RemoveAccessRule($fileSystemAccessRule)
+
+# Remove inheritance priveledges
+$isProtected = $true # Not allow inheritance if true
+$preservedInheritance = $false
+#$NewAcl.SetAccessRuleProtection($isProtected, $preservedInheritance)
+
+$files = (dir *.*) 
+$files = Get-ChildItem -Path "." -Recurse -Include "*" -Force
+#Set-Acl -InputObject $file -AclObject $NewAcl
+
+Set-Acl -Path "*" -AclObject $NewAcl
+$NewAcl | Format-List
+```
+
+创建访问权限规则对象 FileSystemAccessRule，有两类构造方法，一是创建包含安全主体、权限、访问类型这些基本信息，另一种是额外包含权限继承选项。要将所有者复制到子目录及文件，需要通过目录属性面板的高级安全属性中操作。
+
+现有继承权限还可以使用 SetAccessRuleProtection 方法单独处理，这个方法接收两个布尔值：
+
+- *isProtected* 指示是否保护 ACL 防止继承得到的其它 ACL，如果不保护，就会通过继承机制得到父级容器的 ACL；
+- *preservedInheritance* 指示是否保持继承权，如果不保持继承权，所有通过继承的权限将会失去；
+
+```cs
+public void SetAccessRuleProtection (bool isProtected, bool preserveInheritance);
+```
+
+InheritanceFlags 继承标志选项对应启用 CI 和 OI 两种继承方式：ContainerInherit、ObjectInherit，分别使子目录、文件拥有父级的权限。
+
+PropagationFlags 控制 ACE 如何传播到子对象，在启用继承标志时，以下这些值才有效：
+
+- *InheritOnly* - IO 传递方式，从父容器继承此 ACE 嵌套继承但仅限于容器；
+- *None* - 不设置继承标记；
+- *NoPropagateInherit* - NP 传递方式，从父容器继承此 ACE 于子容器及对象但不嵌套。
+
+Specifies how Access Control Entries (ACEs) are propagated to child objects.  These flags are significant only if inheritance flags are present.
+
+    Specifies that the ACE is propagated only to child objects. This includes both container and leaf child objects.
+
+    Specifies that no inheritance flags are set.
+
+    Specifies that the ACE is not propagated to child objects.
+
+ACE 传递是比较费解的，因为它要结合 InheritanceFlags 标志使用，一个容器设置继承标记位决定其 ACE 可否被子容器，或者子对象继承。而传递标志位决定了如何将 ACE 传递到子容器或子对象。
+
+不同的组合功能如下，ACL Propagation Rules，Target 是当前正在设置 ACE 的容器：
+
+| Flag combinations |                          Propagation results                          |
+|-------------------|-----------------------------------------------------------------------|
+| No Flags          | Target folder.                                                        |
+| OI                | Target folder, child object, grandchild object.                       |
+| OI and NP         | Target folder, child object.                                          |
+| OI and IO         | Child object, grandchild object.                                      |
+| OI, IO, and NP    | Child object.                                                         |
+| CI                | Target folder, child folder, grandchild folder.                       |
+| CI, and NP        | Target folder, child folder.                                          |
+| CI, and IO        | Child folder, grandchild folder.                                      |
+| CI, IO, and NP    | Child folder.                                                         |
+| CI, and OI        | Target folder, child folder and object, grandchild folder and object. |
+| CI, OI, and NP    | Target folder, child folder and object.                               |
+| CI, OI, and IO    | Child folder, child object, grandchild folder and object.             |
+| CI, OI, NP, IO    | Child folder, child object.                                           |
+
+注意，要实现特定的子目录及对象的权限继承，无法一次过实现，需要进行多次操作。
+
+
+API 用途总结：
+
+- SetAccessRule 设置对象的 ACL，以及控制是否要通过 CI 或 CI 方式继承到子级；
+- SetAccessRule 另一用法是通过 AccessRule 传入 accessMask 和 isInherited 来直接控制权限和继承；
+- SetAccessRuleProtection 控制当前对象的如何处理继承得来的 ACL；
+
+
+```sh
+using namespace System.Security.AccessControl
+using namespace System.Security.Principal
+
+$identity = New-Object NTAccount("Ocean")
+$acl = Get-Acl .
+#$acl.SetOwner($identity)
+
+# CI, and OI ==> Target folder, child folder and object, grandchild folder and object.
+$inheritance = [InheritanceFlags]::ContainerInherit -bor [InheritanceFlags]::ObjectInherit
+$propagation = [PropagationFlags]::None
+
+# OI, IO, and NP ==> Child object.
+# $inheritance = [InheritanceFlags]::ContainerInherit -bor [InheritanceFlags]::ObjectInherit
+# $propagation = [PropagationFlags]::NoPropagateInherit
+
+# CI  ==> Target folder, child folder, grandchild folder
+# $inheritance = [InheritanceFlags]::ContainerInherit
+# $propagation = [PropagationFlags]::None
+
+$rights = [FileSystemRights]::Modify
+$type = [AccessControlType]::Allow
+$args = $identity,$rights,$inheritance,$propagation,$type
+
+# $isInherited = $false
+# $accessMask = [int]0xffff
+# $args = $identity,$accessMask,$isInherited,$inheritance,$propagation,$type
+
+$rule = New-Object FileSystemAccessRule($args)
+$acl.SetAccessRule($rule)
+
+$isPretected = $true # Protece ACLs, don't inerit permissions from parent container
+$preservedInheritance = $false # Let permintions inherited go awawy
+$acl.SetAccessRuleProtection($isPretected,$preservedInheritance)
+
+Set-Acl -Path . -AclObject $acl
+
+# icacls . /remove otheruser1 /remove ...
+# icacls *
+Get-Acl . | Format-List
+Get-Acl * | Format-Table
+```
+
+“拒绝访问”是一个很多人都想知道的问题，为什么以管理员身份登录，即使是资源的所有者，却没法访问文件资源或服务呢？
+统限制了，在开启用户账户控制的情况下，管理员组的权限会被系统设置为“只用于拒绝的组”。
+
+也就是说，这个用户组只能用于设置 Deny 权限，系统并没有给你完整的权限。设置相应的 deny 权限后，因为它的优先级更高，被拒绝的权限就不能再使用，即使已经通过 grant 授予账户相应的权限。
+
+ICACLS 保留 ACE 项的规范顺序为显式拒绝 -> 显式授予 -> 继承的拒绝-> 继承的授予：
+
+- Explicit denials
+- Explicit grants
+- Inherited denials
+- Inherited grants
+
+所以，当管理员账户 deny 完全控制权时，这就很尴尬，自动放弃了权限导致资源不受控制，包括无法删除的文件。
+
+还有一种上诡异的现象，在用户目录下创建的目录是正常可以删除的，通过使用 git clone 产生了包含只读属性的 .git 目录，这会导致其上级目录无法被删除到回收站，并且总是提示需要管理员权限，但可以强制删除。
+
+解决方法是 Take Ownership of a File or Folder 或者使用 TAKEOWN 命令获取资源的所有权。
+
+操作路径 *Windows Explorer* 定位到文件，从右键菜单打开文件属性面板 *Properties*，选择安全选项卡 *Security*，进入高级面板 *Advanced* 并且点击所有权选项卡上的更改按钮，在弹出的选择用户组、账户面板中选择一个新的所有者。
+
+对于一个目录，还可以勾选*替换子容器及对象的所有者*，以设置子目录及文件为新的所有者所拥有。
+
+要获取所有权，可使用的命令有三个，takwown 最简单，其次是 icacls，最后是 Set-Acl：
+
+```sh
+> takeown /F .\sshd_config
+> icacls .\sshd_config /setowner YourAccount
+
+using namespace System.Security.AccessControl
+using namespace System.Security.Principal
+
+$identity = New-Object NTAccount("YourAccount")
+$acl = Get-Acl .\sshd_config
+$acl.SetOwner($identity)
+Set-Acl -Path .\sshd_config -AclObject $acl
+```
+
+而在 Linux 系统上，使用 chmod chgrp chown 三个命令，并且文件权限结构表达极简，三个 8 进入制数字就可以解决，0777 打满权限。
+
+Linux 文件有三种权限，对应值 1、2、4，全权相加为 7：
+
+- *read* 指示文件可否被读取，对于目录就是可否获取文件列表，或拷贝等操作；
+- *write* 指示文件可否被写入，对于目录就是可否创建文件，或删除等操作；
+- *execute* 指示文件可否执行，对于目录就是可否进入目录操作；
+
+有三种用户访问类型，对应文件权限的三个数值：
+
+- *owner* 是文件的所有者，默认是创建文件的账户；
+- *group* 是拥有文件的组，可以和所有者的用户组不同；
+- *others* 是其它用户，即不是 owning group 又不是 owner 的用户；
 
 
 
@@ -7653,6 +7875,8 @@ $5.72
 # Change code page for GBK
 > chcp 936
 ```
+
+PowerShell 5.1 执行以 UTF-8 编码保存的 ps1 文件时会显示中文乱码。在简体中文环境下不能识别 UTF-8 编码的脚本，因此，文件仍会以 GBK 方式读取，导致乱码。升级后可以正常运行 UTF-8 编码（不带 BOM ）的 .ps1 脚本。
 
 In PowerShell 5.1, the *Encoding* parameter supports the following values:
 
@@ -8414,11 +8638,10 @@ php.exe : [Mon Feb 14 03:18:23 2022] PHP 8.0.1 Development Server (http://localh
 如果一定要处理，也可以设置喜好配置实现：
 
 ```sh
-> try{
+> try {
     $ErrorActionPreference = 'Stop'
     iex("php.exe -S localhost:80 -t . ")
-}catch
-{
+} catch {
     echo $PSItem.Exception.Message
 }
 [Mon Feb 14 04:04:21 2022] PHP 8.0.1 Development Server (http://localhost:80) started
@@ -8468,36 +8691,6 @@ $webclient.DownloadFile($url, "index.html")
 
 输出异常信息表示调用方法出错，在 Web 请求期间的异常，异常类型为 WebException，有可能是服务器拒绝了请求。
 
-
-## ⚡ COM
-
-Powershell 从 Windows7 时代开始内置于 Windows 系统当中，可以看作是微软对 cmd 的大升级，目前两者并存于 Windows 系统中。Powershell 使命令行用户和脚本编写者可以利用 .NET Framework 的强大功能。它引入了许多非常有用的新概念，从而进一步扩展了您在 Windows 命令提示符和 Windows Script Host 环境中获得的知识和创建的脚本。
-
-.NET Framework 中包含了一个异常强大的库，而微软为了保证二进制层面上跨语言的兼容性，很多库都是用 COM 封装的。PowerShell 的一大特色就是可以直接调用这些库。比如示例用 New-Object 命令创建了一个 Excel 应用对象。
-
-```sh
-# create new excel instance
-$objExcel = New-Object -comobject Excel.Application
-$objExcel.Visible = $True
-$objWorkbook = $objExcel.Workbooks.Add()
-$objWorksheet = $objWorkbook.Worksheets.Item(1)
-
-# write information to the excel file
-$i = 0
-$first10 = (ps | sort ws -Descending | select -first 10)
-$first10 | foreach -Process {$i++; $objWorksheet.Cells.Item($i,1) = $_.name; $objWorksheet.Cells.Item($i,2) = $_.ws}
-$otherMem = (ps | measure ws -s).Sum - ($first10 | measure ws -s).Sum
-$objWorksheet.Cells.Item(11,1) = "Others"; $objWorksheet.Cells.Item(11,2) = $otherMem
-
-# draw the pie chart
-$objCharts = $objWorksheet.ChartObjects()
-$objChart = $objCharts.Add(0, 0, 500, 300)
-$objChart.Chart.SetSourceData($objWorksheet.range("A1:B11"), 2)
-$objChart.Chart.ChartType = 70
-$objChart.Chart.ApplyDataLabels(5)
-```
-
-这个脚本调用了 Excel 的 COM 库进行绘图，当然从命令耦合的角度来看，输出成文本格式更有利，但这个例子主要想说明 PowerShell 的强大以及微软产品优异的复用性。
 
 ## ⚡ JSON
 
@@ -8566,23 +8759,846 @@ $x['FirstName'] -eq $null # No such child element at the top level, result is `$
 The type of the result is System.Xml.XmlElement or System.String.
 
 
-## ⚡ PowerShell GUI
+# 🚩  PowerShell API NameSpaces
+
+pandoc -tmarkdown -rhtml https://learn.microsoft.com/en-us/dotnet/api/?view=powershellsdk-1.1.0
+
+Windows PowerShell API Reference version 5.1.0.0
+
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.management.infrastructure  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.management.infrastructure.cimcmdlets  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.management.infrastructure.generic  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.management.infrastructure.options  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.management.infrastructure.serialization  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.management.ui  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.management.ui.internal  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.activities  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.activities.internal  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.cim  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.cmdletization  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.cmdletization.cim  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.cmdletization.xml  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.commands  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.commands.getcounter  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.commands.internal  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.commands.internal.format  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.commands.management  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.commands.showcommandextension  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.commands.showcommandinternal  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.commands.stringmanipulation  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.commands.stringmanipulation.flashextracttext.semantics.internal  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.commands.stringmanipulation.flashextractwrapper.flashextract  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.commands.stringmanipulation.flashextractwrapper.templateparsing  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.core.activities  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.desiredstateconfiguration  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.desiredstateconfiguration.internal  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.diagnostics.activities  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.host.ise  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.internal  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.management.activities  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.scheduledjob  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.security.activities  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.telemetry.internal  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.utility.activities  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.powershell.workflow  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.text.operations.standalone  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.windows.powershell.gui.internal  
+• https://learn.microsoft.com/en-us/dotnet/api/shell32  
+• https://learn.microsoft.com/en-us/dotnet/api/system.management.automation  
+• https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.host  
+• https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.internal  
+• https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.language  
+• https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.performancedata  
+• https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.provider  
+• https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.remoting  
+• https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.remoting.internal  
+• https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.remoting.wsman  
+• https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.runspaces  
+• https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.security  
+• https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.tracing  
+• https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices  
+• https://learn.microsoft.com/en-us/dotnet/api/cimcmdlets.activities  
+• https://learn.microsoft.com/en-us/dotnet/api/mshtml  
+
+
+# 🚩 .NET API Namespaces
+
+https://learn.microsoft.com/en-us/dotnet/api/?view=windowsdesktop-9.0  
+https://github.com/dotnet/dotnet-api-docs  
+
+Windows Desktop API Reference version 9
+
+• https://learn.microsoft.com/en-us/dotnet/api/accessibility   Represents a managed wrapper for the Component Object Model (COM) accessibility interface.  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.csharp   Contains classes that support compilation and code generation using the C# language.  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualbasic   Contains types that support the Visual Basic Runtime in Visual Basic.  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.applicationservices   Contains types that support the Visual Basic Application Model and provide access to application information.  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.compilerservices   Contains internal-use only types that support the Visual Basic compiler.  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.devices   Contains types that support the My objects related to devices in Visual Basic.  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.logging   Contains types that support the My logging objects in Visual Basic and provides a simple log listener that directs logging output to file.  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.myservices   Contains types that support My in Visual Basic.  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.myservices.internal   Contains internal-use only types that support My in Visual Basic.  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.win32   Provides two types of classes: those that handle events raised by the operating system and those that manipulate the system registry.  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.windows.input   Contains interfaces for preview commands in a Microsoft Ribbon for WPF control.  
+• https://learn.microsoft.com/en-us/dotnet/api/microsoft.windows.themes   Provides exposure to the set of themes defined by Windows Presentation Foundation. In WPF, a theme is a set of resources, defined at the system level, which provide the default appearance for controls and other visual elements of an application. WPF themes are created using styles and include Luna, Aero, Royale, and Classic. Only the client area of a WPF application uses these themes; the appearance of the window border and buttons that form the window chrome is controlled by the Win32 theme service.  
+• https://learn.microsoft.com/en-us/dotnet/api/system   Contains fundamental classes and base classes that define commonly used value and reference data types, events and event handlers, interfaces, attributes, and processing exceptions.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.codedom   Contains classes that can be used to represent the elements and structure of a source code document. The classes in this namespace can be used to model the structure of a source code document that can be output as source code in a supported language using the functionality provided by the System.CodeDom.Compiler namespace.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.codedom.compiler   Contains types for managing the generation and compilation of source code in supported programming languages. Code generators can each produce source code in a particular programming language based on the structure of Code Document Object Model (CodeDOM) source code models consisting of elements provided by the System.CodeDom namespace.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.collections.specialized   Contains specialized and strongly-typed collections; for example, a linked list dictionary, a bit vector, and collections that contain only strings.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel   Provides classes that are used to implement the run-time and design-time behavior of components and controls. This namespace includes the base classes and interfaces for implementing attributes and type converters, binding to data sources, and licensing components.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.design   Contains classes that developers can use to build custom design-time behavior for components and user interfaces for configuring components at design time. The design-time environment provides systems that enable developers to arrange components and configure their properties. Some components might require specific design-time only behavior to function properly in a design-time environment. It might also be valuable to provide custom user interfaces that assist developers in configuring components or the values of complex data types. The classes and interfaces defined within this namespace can be used to build design-time behavior for components, access design-time services, and implement customized design-time configuration interfaces.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.design.serialization   Provides types that support customization and control of serialization at design time.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.configuration   Contains the types that provide the programming model for handling configuration data.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.configuration.internal   Contains configuration types that are intended for internal use only.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.configuration.provider   Contains the base classes shared by both server and client applications to support a pluggable model to easily add or remove functionality.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.data.common   Contains classes shared by .NET data providers.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.data.odbc   The System.Data.Odbc namespace is the .NET Framework Data Provider for ODBC.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.data.oledb   The System.Data.OleDb namespace is the.NET Framework Data Provider for OLE DB.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.data.oracleclient   The System.Data.OracleClient namespace is the .NET Framework Data Provider for Oracle.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient   The System.Data.SqlClient namespace is the .NET Data Provider for SQL Server.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics   Provides classes that allow you to interact with system processes, event logs, and performance counters.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.eventing.reader   Using the System.Diagnostics.Eventing.Reader namespace, you can develop applications that read and manage event logs. An event in an event log contains information, a warning, or an error that has been published by a specific application, service, or operating system component.  These events are read by applications that monitor a computer's health and applications that take action when specific events occur.  For more information, see Technology Summary for Reading and Managing Event Logs and Event Log Scenarios.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.performancedata   Use the classes in this namespace to provide counter data. The counters are used to expose performance metrics to consumers such as the Performance Monitor. The namespace does not contain classes for consuming the counter data. For a complete description of the performance counters architecture, see Performance Counters.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.directoryservices   Provides easy access to Active Directory Domain Services from managed code. The namespace contains two component classes, DirectoryEntry and DirectorySearcher, which use the Active Directory Services Interfaces (ADSI) technology. ADSI is the set of interfaces that Microsoft provides as a flexible tool for working with a variety of network providers. ADSI gives the administrator the ability to locate and manage resources on a network with relative ease, regardless of the size of the network.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.directoryservices.activedirectory   Provides a high level abstraction object model that builds around Microsoft Active Directory services tasks. The Active Directory service concepts such as forest, domain, site, subnet, partition, and schema are part of the object model.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.drawing   Provides access to GDI+ basic graphics functionality. The System.Drawing.Drawing2D, System.Drawing.Imaging, and System.Drawing.Text namespaces provide more advanced functionality. For limitations, see the Remarks section.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.drawing.configuration   Contains a class that supports configuration for classes in the System.Drawing namespace.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.drawing.design   Contains classes that extend design-time user interface (UI) logic and drawing.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d   Provides advanced two-dimensional and vector graphics functionality.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.drawing.imaging   Provides advanced GDI+ imaging functionality. Basic graphics functionality is provided by the System.Drawing namespace.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.drawing.imaging.effects   Provides functionality for adding effects to images.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.drawing.interop     
+• https://learn.microsoft.com/en-us/dotnet/api/system.drawing.printing   Provides print-related services for Windows Forms applications.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.drawing.text   Provides advanced GDI+ typography functionality.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.formats.nrbf   Provides classes and utilities for working with .NET Remoting Binary Format (NRBF) encoded data, including support for decoding payloads, handling serialization records, and managing array and class records.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.io   Contains types that allow reading and writing to files and data streams, and types that provide basic file and directory support.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.io.packaging   Provides classes that support storage of multiple data objects in a single container.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.media   Contains classes for playing sound files and accessing sounds provided by the system.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.net   Provides a simple programming interface for many of the protocols used on networks today. Classes in the System.Net namespace can be used to develop Windows Store apps or desktop apps. When used in a Windows Store app, classes in the System.Net namespace are affected by network isolation feature, part of the application security model used by the Windows Developer Preview. The appropriate network capabilities must be enabled in the app manifest for a Windows Store app for the system to allow network access by a Windows Store app. For more information, see the Network Isolation for Windows Store Apps.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.net.mail   Contains classes used to send electronic mail to a Simple Mail Transfer Protocol (SMTP) server for delivery.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.net.networkinformation   Provides access to network traffic data, network address information, and notification of address changes for the local computer. The namespace also contains classes that implement the Ping utility. You can use Ping and related classes to check whether a computer is reachable across the network.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.net.peertopeer   Provides access to peer networking functionality.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.net.peertopeer.collaboration   Enhances System.Net.PeerToPeer networking functionality and provides capabilities for serverless managed collaboration sessions.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.printing   Provides classes that enable you to automate the management of print servers, print queues, and print jobs.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.printing.indexedproperties   Provides classes that enable rapidly copying the property settings of a print system object to another object of the same type. Also, enables iteration through the properties of print system objects and the discovery of their types at run time, without using reflection.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.printing.interop   Provides interconversion of managed PrintTicket objects and unmanaged Graphics Device Interface (GDI) DEVMODE structures.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.resources   Provides classes and interfaces that allow developers to create, store, and manage various culture-specific resources used in an application. One of the most important classes of the System.Resources namespace is the ResourceManager class.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.resources.extensions   Provides classes that can read and write resources in a format that supports non-primitive objects.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.resources.tools   Contains the StronglyTypedResourceBuilder class, which provides support for strongly typed resources. Beginning with .NET Framework version 2.0, this compile-time feature encapsulates access to resources by creating classes that contain a set of static read-only (get) properties, thus making it easier to consume resources.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices   Provides a wide variety of members that support COM interop and platform invoke services. If you are unfamiliar with these services, see Interoperating with Unmanaged Code.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.security   Provides the underlying structure of the common language runtime security system, including base classes for permissions.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.security.accesscontrol   Provides programming elements that control access to and audit security-related actions on securable objects.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography   Provides cryptographic services, including secure encoding and decoding of data, as well as many other operations, such as hashing, random number generation, and message authentication. For more information, see Cryptographic Services.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.pkcs   Provides programming elements for Public Key Cryptography Standards (PKCS), including methods for signing data, exchanging keys, requesting certificates, public key encryption and decryption, and other security functions.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.x509certificates   Contains the common language runtime implementation of the Authenticode X.509 v.3 certificate. This certificate is signed with a private key that uniquely and positively identifies the holder of the certificate.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.xml   Contains classes to support the creation and validation of XML digital signatures. The classes in this namespace implement the World Wide Web Consortium Recommendation, XML-Signature Syntax and Processing.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.security.permissions   Defines classes that control access to operations and resources based on policy.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.security.policy   Contains code groups, membership conditions, and evidence. These three types of classes are used to create the rules applied by the common language runtime security policy system. Evidence classes are the input to security policy and membership conditions are the switches; together these create policy statements and determine the granted permission set. Policy levels and code groups are the structure of the policy hierarchy. Code groups are the encapsulation of a rule and are arranged hierarchically in a policy level.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.security.rightsmanagement   Provides types to support rights management of application-created content such as that stored in a Package or XpsDocument.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.serviceprocess   Provides classes that allow you to implement, install, and control Windows service applications. Services are long-running executables that run without a user interface. Implementing a service involves inheriting from the ServiceBase class and defining specific behavior to process when start, stop, pause, and continue commands are passed in, as well as custom behavior and actions to take when the system shuts down.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.threading   Provides classes and interfaces that enable multithreaded programming. In addition to classes for synchronizing thread activities and access to data (Mutex, Monitor, Interlocked, AutoResetEvent, and so on), this namespace includes a ThreadPool class that allows you to use a pool of system-supplied threads, and a Timer class that executes callback methods on thread pool threads.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.transactions   Contains classes that allow you to write your own transactional application and resource manager. Specifically, you can create and participate in a transaction (local or distributed) with one or multiple participants.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.web   For .NET Core and .NET 5+, this namespace contains the HttpUtility class. For .NET Framework, this namespace contains classes and interfaces that enable browser-server communication. These classes include the HttpRequest class, which provides extensive information about the current HTTP request; the HttpResponse class, which manages HTTP output to the client; and the HttpServerUtility class, which provides access to server-side utilities and processes. System.Web also includes classes for cookie manipulation, file transfer, exception information, and output cache control in .NET Framework.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows   Provides several important Windows Presentation Foundation (WPF) base element classes, various classes that support the WPF property system and event logic, and other types that are more broadly consumed by the WPF core and framework.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.annotations   Provides classes to support user-created annotations on content displayed in WPF document viewing controls.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.annotations.storage   Provides types that define the storage architecture and mediums to save and retrieve user-created annotations.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.automation   Provides support for Windows Presentation Foundation (WPF) UI Automation clients.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.automation.peers   Defines the AutomationPeer base class and a set of types that derive from it that correspond to .NET controls. Each AutomationPeer exposes the corresponding .NET control to Microsoft UI Automation.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.automation.provider   Provides APIs for creating UI Automation providers.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.automation.text   Contains enumerations that specify text formatting and related behavior for Windows Presentation Foundation (WPF) UI automation.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.baml2006   Contains reader and writer classes that can consume XAML in BAML form.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls   Provides classes to create elements, known as controls, that enable a user to interact with an application. The control classes are at the core of the user's experience with any application because they allow a user to view, select, or enter data or other information.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.primitives   Contains base classes and controls that are intended to be used as part of other more complex controls.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.ribbon   Contains types that are used to create a user interface by using the Microsoft Ribbon for WPF.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.ribbon.primitives   Contains types that are used as layout containers in a Microsoft Ribbon for WPF control.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.converters   Provides classes to support type conversion during serialization in Windows Presentation Foundation (WPF).  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.data   Contains classes used for binding properties to data sources, data source provider classes, and data-specific implementations of collections and views.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.diagnostics   Provides support for Windows Presentation Foundation (WPF) XAML tooling.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.documents   Contains types that support FixedDocument, FlowDocument, and XML Paper Specification (XPS) document creation.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.documents.documentstructures   Provides classes to describe the structure of an XpsDocument in terms of sections, paragraphs, figures, bulleted or numbered lists, and tables.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.documents.serialization   Provides types that support the creation and use of run-time accessible plug-in serializers that read and write documents in different data formats.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms   Contains classes for creating Windows-based applications that take full advantage of the rich user interface features available in the Microsoft Windows operating system.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.automation   Provides support for Windows Forms UI Automation clients.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.componentmodel.com2interop   Contains helper classes that Visual Studio uses to display property pages while in design mode.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.design   Contains classes that support design-time configuration and behavior for Windows Forms components. These classes consist of designer classes that provide support for Windows Forms components, a set of design-time services; UITypeEditor classes for configuring certain types of properties, and classes for importing ActiveX controls.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.design.behavior   Contains classes for creating custom user interface behavior for components at design time.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.integration   Contains classes that support interoperation of Windows Forms and WPF controls.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.layout   Contains classes for implementing layout behaviors in your form or control.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.propertygridinternal   Provides internal support for the PropertyGrid control. The classes in this namespace support the .NET infrastructure and aren't intended to be used directly from your code.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.visualstyles   Contains classes for rendering controls and other Windows user interface (UI) elements with visual styles in operating systems that support them.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.ink   Provides classes to interact with and manipulate ink on the Windows Presentation Foundation (WPF) platform.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.input   Most of the types in this namespace support the Windows Presentation Foundation (WPF) input system. This includes device abstraction classes for mouse, keyboard, and stylus devices, a common input manager class, support for commanding and custom commands, and various utility classes. However, some of the types are applicable beyond WPF.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.input.manipulations   Provides functionality for monitoring and responding to a collection of manipulators as a single composite, enabling an application to track the changes to the composite instead of the individual components.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.input.stylusplugins   Provides classes that support manipulating data from a tablet pen on the Windows Presentation Foundation (WPF) platform.  These classes offer low-level control over Stylus input and the creation of digital ink Stroke objects. The StylusPlugIn class provides a mechanism for you to implement custom behavior and apply that behavior to the stream of data coming from the stylus device for the optimal performance.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.input.styluswisp   Provides classes that support manipulating data from a WISP tablet device pen on the Windows Presentation Foundation (WPF) platform.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.interop   Provides supporting types for interoperation between Windows Presentation Foundation (WPF) and other technologies such as Windows APIs and provides base classes for other specific interoperation scenarios involving WPF.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.markup   Provides types to support XAML. Some of these types are located in WPF assemblies and are specific to WPF scenarios that involve XAML. Other types in this namespace provide support for .NET XAML Services in general, and don't require referencing WPF assemblies.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.markup.localizer   Provides types that assist in the localization of binary XAML (BAML) sources.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.markup.primitives   Contains classes that support Extensible Application Markup Language (XAML) in Windows Presentation Foundation (WPF).  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.media   Provides types that enable integration of rich media, including drawings, text, and audio/video content in Windows Presentation Foundation (WPF) applications.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.media.animation   Provides types that support property animation functionality, including timelines, storyboards, and key frames.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.media.converters   Contains classes that are used by the MarkupWriter for serialization of Extensible Application Markup Language (XAML).  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.media.effects   Provides types that can be used to apply visual effects to bitmap images.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.media.imaging   Provides types that are used to encode and decode bitmap images.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.media.media3d   Contains types that support 3-D presentation in Windows Presentation Foundation (WPF) applications.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.media.media3d.converters   Contains classes that are used by the MarkupWriter for serialization of Extensible Application Markup Language (XAML).  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.media.textformatting   Provides types that control formatting of text, typically at a lower level than control-based text presentation or the text object model.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.navigation   Provides types that support navigation, including navigating between windows and navigation journaling.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.resources   Provides low-level classes that support the Windows Presentation Foundation (WPF) resource model and the Resources build action.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.shapes   Provides access to a library of shapes that can be used in Extensible Application Markup Language (XAML) or code.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.shell   Contains types that provide managed code access to the enhanced functionality of the Windows 7 taskbar.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.threading   Contains types to support the Windows Presentation Foundation (WPF) threading system.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.xps   Provides classes that write XPS documents to a data store or print queue.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.xps.packaging   Provides types that allow applications to read and write the components of an XPS document.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.windows.xps.serialization   Provides types that support serialization of XPS documents.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.xaml   Provides types that relate to XAML readers and XAML writers. This includes the default implementations of .NET XAML Services and its XAML readers and XAML writers. Also contains types relevant to the XAML type system and other support types related to XAML and .NET XAML Services concepts.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.xaml.permissions   Contains types that specify permissions for certain XAML loading scenarios, such as loading under partial trust or loading internal types.  
+• https://learn.microsoft.com/en-us/dotnet/api/system.xaml.schema   Contains types that support extensibility of the XAML type system.  
+• https://learn.microsoft.com/en-us/dotnet/api/uiautomationclientsideproviders   Contains a single type that maps client automation providers.  
+
+
+# 🚩 PowerShell with .NET
+
+
+## ⚡ Keyboard scancodes
+
+Keyboard scancodes by Andries Brouwer
+https://aeb.win.tue.nl/linux/kbd/scancodes-1.html
+
+对于操作用户来说，与键盘的接口就是键盘上的按键，操作键盘的方式和工作逻辑如下：
+
+1. 按下按键 Press key ==> **Make code**；
+2. 然后松开 Release key ==> **Break code**；
+3. 配合控制键 Ctrl、Shift、Alt 进行多按键进行操作；
+
+对于键盘系统而言，操作用户对键盘的敲击分为两种动作：Press key 和 Release key。这两个动作
+之间的时间被称为迟滞时间 Press key delay，这 2 个动作和 1 个时间段称为一个“击键过程”。
+
+Pause 键之外的所有键而言，键盘针对 Press Key 和 Release Key 两个动作会分别产生
+Make Code 和 Break Code，两者并称为 **Scan code**。并且在迟滞时间，会按照一定的频率产生
+**Repeat code**。在大多数情况下，由于你的击键速度非常快，100ms ~ 300ms，不会产生
+Repeat code；但在肯定会产生 Make code 和 Break Code。
+
+
+    +=======+      +==============+      +===================+
+    |  CPU  | <==> |  Intel 8042  | <==> |  8048 (Keyboard)  | 
+    +=======+      +==============+      +===================+
+      Host       Keyboard Controller       Keyboard Encoders
+
+键盘自身的主控芯片的功能主要是检索来自于 Key Matrix 的物理开关状态，及所产生的 Scan code，
+并将这些扫描码存放于键盘自身的内部缓冲；还负责和外部系统（i8042）之间的通信，以及自身的控制。
+之所以称为 scan code，是因为在电路实现上，开关矩阵分横向、竖向两组线路。要确定一个开关是否
+按下、抬起，就需要分别在两组线程中加高、底电平，再进行检测（scan），如果其中一个按键被按下，
+对应的两根据交叉线接触，线连接的芯片 GPIO (I/O Pin) 电平相同，多个按键就进行多次扫描。
+主控芯片扫描连接键盘开关矩阵的线路 I/O Pin 得到的数值就可以看作是 scan code。
+
+到目前为止，所有谈论中的 code 或者称为 keycode 都是二进制代码，并没有一一对应的 ASCII 字符。
+键盘中的主控芯片之所有称之为编码器（Keyboard Encoders），而不能称之为字符生成器，是因为键盘
+开关矩阵产生的数据比较复杂。简单地说，如果关状态使用一个字节表示，那么 8 bits 可以表示 256 种
+开关状态。键盘本身有 101 或 104 个按键，单单是表示所有按键的按下、释放两种状态基本上够用。但是，
+要表示 Ctrl Alt Shift 等组合键就完全不够用了。即使从 8 bits 中保留三个 bits 作为组合键
+专用的标志位，那么余下 5 bits 只能表示 2^5=32 种状态，根本不够用。因此，现代键盘不能将机械开关
+与 ASCII 字符集一一关联，只能由系统进行编码、解码，并根据用户的喜好设置产生相应的符号输入。
+
+操作系统层面上提供映射关系设置，Scan Code 由键盘编码器产生，并通过键盘控制器获取，经过映射
+转换得到 Key Code，然后根据用户为操作设置的键盘布局生成对应的字符（keysym）。参考 Linux
+showkey 命令和 keymaps 设置，使用 loadkeys 和 dumpkeys 命令装入、查看键盘映射表。
+
+1. The keyboard sends a `scancode` to the computer.
+2. The Linux kernel maps the `scancode` to a `keycode`; see Map scancodes to keycodes.
+3. The `keyboard layout` maps the keycode to a `symbol` or `keysym`, depending on what modifier keys are pressed.
+
+键盘也不单单用来表示英文字母和常用符号，还增加了各种功能键（F1 ~ F12）和各种
+控制键、组合键盘。这时就需要键盘内部的编码器芯片来完成按键的编码工作，早期因为内存容量限制，
+键盘编码采用一个字节方案，并且形成了三套键盘编码集：
+
+1. Scan Code Set 1 - Original XT scan code set; supported by some modern keyboards
+2. Scan Code Set 2 - Default scan code set for all modern keyboards
+3. Scan Code Set 3 - Optional PS/2 scan code set--rarely used
+
+常规字符（字母、符号、数字）基本上都对应一个字节表达的 Scan Code，而一些功能键基本上使用 2、3 
+个字节的扫描码。为了区分单字节各多字节的 Scan Code，编码方案基本上采用了 0xE0 0xE1 0xF0
+作为标记字符。特殊的 PAUSE 三套方案分别为 6、8、2 个字节，Print Screen（PrtScn）三套方案
+分别为 4、6、2 个字节，目前最常使用的是第二套键盘编码集（Scan Code Set 2）。
+参考 Adam Chapweske 于 2001 年发布的通信 The AT-PS/2 Keyboard Interface。
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout 是 Windows
+注册表中管理键盘布局、扫描码映射和输入法配置的核心键值。
+
+```
+|项目         |数据类型    | 作用                                 |典型值
+|Preload      |REG_SZ     |多字符串预加载键盘布局（开机自动加载）   |"00000809"（英式英语）
+|Substitutes  |REG_SZ     |布局别名映射（将物理布局映射到逻辑布局） |00000409"="00000809"
+|DosKeybCodes |REG_SZ     |DOS程序兼容模式（为16位程序指定键盘布局）|fr"="120"（法语布局）
+|Scancode Map |REG_BINARY |硬件级按键重映射（修改扫描码行为）       |二进制值结构
+```
+
+键盘扫描码的应用场景：
+
+• 禁用按键：将 00 00 映射到目标键（如禁用 Windows 键：00 00 5B E0）
+• 跨语言布局：将美式键盘模拟为日式布局（\Substitutes + Scancode Map 联动）
+• 游戏优化：将 CapsLock 重映射为 Ctrl 减少手指移动
+
+“Fn”键是不能被映射的，因为它在键盘内部处理，不会传递到操作系统，所以不能使用上面的方式进行设置。
+Keyboard Scan Codes: Set 1 方案下：0A 00 4D E0 表示 9 映射到右箭头，也就是按右箭头时输入 9。
+注册表值中按小端序存储，即先存储低字节，再存储高字节。因此，一个扩展键的扫描码（例如，E0 4F）在Scancode Map 中表示为：4F E0。实际上，每个扫描码在条目中用一个 DWORD（4字节）表示，但只有低 16 位有效，高 16 位为 0。注册表则利用高 10-bit 来保存映射的扫描码。
+
+Linux 提供 showkey --scancodes 命令可查键盘扫描码。
+
+Scancode Map 重映射技术的二进制数据结构示例：交换 Ctrl 和 CapsLock（Original XT）
+
+```bash
+00 00 00 00 00 00 00 00 # 首 8 个字节为版本号和头部字节 (2 * DWord)
+                        # Scancode Map Header 
+                        # Scancode Map Version
+03 00 00 00             # 用四个字节表明 Scancode Map 的大小，这里是 3 组映射
+                        # Number of DWORDs to follow 
+1D 00 3A 00             # 1D → CTRL 映射为 3A → CAPS
+3A 00 1D 00             # 3A → CAPS 映射为 1D → Ctrl
+00 00 00 00             # 四个字节结束标记 (Null Termination)
+```
+
+    Start offset   Size (in bytes)	Data
+    0               4               Header: Version Information
+    4               4               Header: Flags
+    8               4               Header: Number of Mappings
+    12              4               Individual Mapping
+    ...             ...             ...
+    Last 4 bytes    4               Null Terminator (0x00000000)
+
+可以下载 KeyTweak 工具进行修改 https://soft.3dmgame.com/down/204994.html
+
+搜索 Windows 1.x 资料时发现这里有一个 sendkeys 的实现 https://www.seasip.info/Misc/keyboards.html
+
+常见多媒体按键的扫描码（按下时）：
+
+                    Make Code      Scancode Map
+        - 下一曲：   E0 4F       -> 4F E0
+        - 上一曲：   E0 46       -> 46 E0
+        - 播放/暂停：E0 45       -> 45 E0
+        - 停止：     E0 47       -> 47 E0
+        - 静音：     E0 20       -> 20 E0
+        - 音量减：   E0 2E       -> 2E E0
+        - 音量加：   E0 30       -> 30 E0
+
+写入注册表后注销/重启系统，以使配置生效。尝试过重启资源管理器或 SysMain 服务（旧版叫 Superfetch）无效。
+
+尝试修改键盘映射（注册表）改变罗技 K480 键盘的 F1 - F12 功能键状态，出厂默认为多媒体按键，可惜 Windows 并没有对一般按键到多媒体按键映射，即不能将多媒体按键当作一般按键使用：
+
+```bash
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
+"Scancode Map"=hex:00,00,00,00,00,00,00,00,\
+  0a,00,00,00,\
+  3b,00,e0,32,\
+  3e,00,e0,69,\
+  3f,00,e0,65,\
+  40,00,e0,10,\
+  41,00,e0,22,\
+  42,00,e0,19,\
+  43,00,e0,20,\
+  44,00,e0,2e,\
+  57,00,e0,30,\
+  00,00,00,00
+```
+
+```bash
+# Linux 中将 F1 映射为多媒体键的原始扫描码
+echo 0 > /sys/module/hid_logitech/parameters/fnmode
+```
+
+
+Keyboard Scan Codes: Set 1 映射方案扫描码参考：1D = Ctrl, 3A = CapsLock, 38 = Alt。
+
+The AT-PS/2 Keyboard Interface by Adam Chapweske  
+https://www.tayloredge.com/reference/Interface/atkeyboard.pdf
+
+    == Keyboard Scan Codes: Set 1 
+
+    *All values are in hexadecimal
+
+    .101-, 102-, and 104-key keyboards: 
+    |===
+    |KEY |MAKE |BREAK ||KEY   |MAKE    |BREAK   ||KEY    |MAKE  |BREAK
+
+    | A  |1E   |9E    ||9     |0A      |8A      ||[      |1A    |9A
+    | B  |30   |B0    ||`     |29      |89      ||INSERT |E0,52 |E0,D2
+    | C  |2E   |AE    ||-     |0C      |8C      ||HOME   |E0,47 |E0,97
+    | D  |20   |A0    ||=     |0D      |8D      ||PGUP   |E0,49 |E0,C9
+    | E  |12   |92    ||\     |2B      |AB      ||DELETE |E0,53 |E0,D3
+    | F  |21   |A1    ||BKSP  |0E      |8E      ||END    |E0,4F |E0,CF
+    | G  |22   |A2    ||SPACE |39      |B9      ||PGDN   |E0,51 |E0,D1
+    | H  |23   |A3    ||TAB   |0F      |8F      ||UARROW |E0,48 |E0,C8
+    | I  |17   |97    ||CAPS  |3A      |BA      ||LARROW |E0,4B |E0,CB
+    | J  |24   |A4    ||LSHFT |2A      |AA      ||DARROW |E0,50 |E0,D0
+    | K  |25   |A5    ||LCTRL |1D      |9D      ||RARROW |E0,4D |E0,CD
+    | L  |26   |A6    ||L GUI |E0,5B   |E0,DB   ||NUM    |45    |C5
+    | M  |32   |B2    ||L ALT |38      |B8      ||KP /   |E0,35 |E0,B5
+    | N  |31   |B1    ||RSHFT |36      |B6      ||KP *   |37    |B7
+    | O  |18   |98    ||RCTRL |E0,1D   |E0,9D   ||KP -   |4A    |CA
+    | P  |19   |99    ||R GUI |E0,5C   |E0,DC   ||KP +   |4E    |CE
+    | Q  |10   |19    ||R ALT |E0,38   |E0,B8   ||KP EN  |E0,1C |E0,9C
+    | R  |13   |93    ||APPS  |E0,5D   |E0,DD   ||KP .   |53    |D3
+    | S  |1F   |9F    ||ENTER |1C      |9C      ||KP 0   |52    |D2
+    | T  |14   |94    ||ESC   |01      |81      ||KP 1   |4F    |CF
+    | U  |16   |96    ||F1    |3B      |BB      ||KP 2   |50    |D0
+    | V  |2F   |AF    ||F2    |3C      |BC      ||KP 3   |51    |D1
+    | W  |11   |91    ||F3    |3D      |BD      ||KP 4   |4B    |CB
+    | X  |2D   |AD    ||F4    |3E      |BE      ||KP 5   |4C    |CC
+    | Y  |15   |95    ||F5    |3F      |BF      ||KP 6   |4D    |CD
+    | Z  |2C   |AC    ||F6    |40      |C0      ||KP 7   |47    |C7
+    | 0  |0B   |8B    ||F7    |41      |C1      ||KP 8   |48    |C8
+    | 1  |02   |82    ||F8    |42      |C2      ||KP 9   |49    |C9
+    | 2  |03   |83    ||F9    |43      |C3      ||]      |1B    |9B
+    | 3  |04   |84    ||F10   |44      |C4      ||;      |27    |A7
+    | 4  |05   |85    ||F11   |57      |D7      ||'      |28    |A8
+    | 5  |06   |86    ||F12   |58      |D8      ||,      |33    |B3
+    | 6  |07   |87    ||PRNT SCRN  |E0,2A,E0,37 |E0,B7,E0,AA ||.  |34  |B4
+    | 7  |08   |88    ||SCROL      |46          |C6          ||/  |35  |B5
+    | 8  |09   |89    ||PAUSE      |E1,1D,45 E1,9D,C5|-NONE- ||   |    |
+    |===
+
+    .ACPI Scan Codes:
+    |===
+    |Key        |Make Code  |Break Code
+
+    | Power     |E0, 5E     |E0, DE
+    | Sleep     |E0, 5F     |E0, DF
+    | Wake      |E0, 63     |E0, E3
+    |===
+
+    .Windows Multimedia Scan Codes:
+    |===
+    |Key            |Make Code  |Break Code
+
+    |Next Track     |E0, 19     |E0, 99
+    |Previous Track |E0, 10     |E0, 90
+    |Stop           |E0, 24     |E0, A4
+    |Play/Pause     |E0, 22     |E0, A2
+    |Mute           |E0, 20     |E0, A0
+    |Volume Up      |E0, 30     |E0, B0
+    |Volume Down    |E0, 2E     |E0, AE
+    |Media Select   |E0, 6D     |E0, ED
+    |E-Mail         |E0, 6C     |E0, EC
+    |Calculator     |E0, 21     |E0, A1
+    |My Computer    |E0, 6B     |E0, EB
+    |WWW Search     |E0, 65     |E0, E5
+    |WWW Home       |E0, 32     |E0, B2
+    |WWW Back       |E0, 6A     |E0, EA
+    |WWW Forward    |E0, 69     |E0, E9
+    |WWW Stop       |E0, 68     |E0, E8
+    |WWW Refresh    |E0, 67     |E0, E7
+    |WWW Favorites  |E0, 66     |E0, E6
+    |===
+
+
+
+## ⚡ Component Object Model (COM)
+
+正如官方网站介绍，Component Object Model (COM) 是平台无关的面向对象的软件组件化系统，是微软平台的一种重要软件复用技术，它同时是 OLE 和 ActiveX 技术的基础支撑。每个组件接口和类型都有唯一的 GUIDs (Globally Unique Identifiers) 作为身份标识，每个组件都有唯一的 CLSIDs (class IDs) 作为身份标识。直观地理解，COM 技术就是可以让 A 程序变成一个组件用于 B 程序中，反之也可以。比如 VBScript/JScript 脚本中可以通过创建 Office 提供的已经注册的 COM 组件来操作 Office。
+
+软件组件化实现使得代码复用效率极高，注意这个评价是仅仅从代码复用的角度来评价 COM 架构设计的，事实上这个技术已经成为 Windows 的历史包袱，是技术债务。COM 的优点是打破语言边界：C++ 实现的 COM 对象可直接被 VB/Delphi 等各种语言调用，无需源码重编译。同时有稳定的组件版本控制：通过接口不变性（IUnknown 继承链）+ 新接口 GUID，实现向后兼容。但是组件部署耦合性极高，注册表污染：数千个 CLSID 项导致系统臃肿，Windows 98 时代即称“DLL Hell”。解决方案滞后：Windows XP 才引入 SxS（Side-by-Side）实现并行组件。COM 的二进制复用以全局状态耦合为代价，违背了现代模块化的“高内聚低耦合”原则。微软为兼容性坚持 COM 核心设计，到现在的 Windows 11 仍支持，导致优化束手束脚。
+
+COM is a platform-independent, distributed, object-oriented system for creating binary software components that can interact. COM is the foundation technology for Microsoft's OLE (compound documents) and ActiveX (Internet-enabled components) technologies.
+
+Evolution From COM to COM+
+
+• COM (1993): Base binary standard for component interoperability.  
+• COM+ (2000): = COM + MTS (Transaction Server) + MSMQ + Enhanced services.
+(Integrated into Windows as "Component Services")
+
+COM+ = COM + Enterprise services (transactions, pooling, events, security).
+
+• Use COM for basic cross-language interop.  
+• Use COM+ for scalable, transactional systems (legacy Windows apps).  
+• Modern path: Avoid new COM+/MTS development; migrate to cloud-native patterns.  
+
+COM+ Exclusive Features
+
+• **_Object Pooling_**  
+  Recycles objects (e.g., database connections) to reduce overhead.
+
+```c#
+[ObjectPooling(MinPoolSize=5, MaxPoolSize=20)]  
+class MyPooledObj : ServicedComponent { ... }
+```
+
+• **_Declarative Transactions_**  
+  Annotate components to auto-enlist in transactions:
+
+```c#
+[Transaction(TransactionOption.Required)]  
+class OrderProcessor : ServicedComponent {  
+    [AutoComplete]  
+    public void SubmitOrder() { ... } // Auto-commits if no exception
+}
+```
+
+• **_Compensating Resource Managers (CRM)_**  
+  Custom transaction participants (e.g., for non-DTC resources).
+
+• **_Shared Property Manager (SPM)_**  
+  Synchronized state sharing across objects.
+
+
+Powershell 从 2006 年开始就内置于 Windows Server 2008 系统当中，可以看作是微软对 cmd 的大升级，目前两者并存于 Windows 系统中。PowerShell 使命令行用户和脚本编写者可以利用 .NET Framework 的强大功能。它引入了许多非常有用的新概念，从而进一步扩展了您在 Windows 命令提示符和 Windows Script Host 环境中获得的知识和创建的脚本。
+
+作为最新的开发平台，.NET 可以与历史遗产 COM 的互调用，.NET Interop 有两种互调用方式：.NET 通过 RCW (Runtime Callable Wrapper) 使用 COM；反过来，通过 CCW (COM Callable Wrapper) 调用 .Net。也就是它们相当于中间代理，CLR (Common Language Runtime) 负责对其进行实例化。
+
+.NET Framework 中包含了一个异常强大的库，而微软为了保证二进制层面上跨语言的兼容性，很多库都是用 COM 封装的。PowerShell 的一大特色就是可以直接调用这些库。比如示例用 New-Object 命令创建了一个 Excel 应用对象。
+
+```sh
+# create new excel instance
+$objExcel = New-Object -comobject Excel.Application
+$objExcel.Visible = $True
+$objWorkbook = $objExcel.Workbooks.Add()
+$objWorksheet = $objWorkbook.Worksheets.Item(1)
+
+# write information to the excel file
+$i = 0
+$first10 = (ps | sort ws -Descending | select -first 10)
+$first10 | foreach -Process {$i++; $objWorksheet.Cells.Item($i,1) = $_.name; $objWorksheet.Cells.Item($i,2) = $_.ws}
+$otherMem = (ps | measure ws -s).Sum - ($first10 | measure ws -s).Sum
+$objWorksheet.Cells.Item(11,1) = "Others"; $objWorksheet.Cells.Item(11,2) = $otherMem
+
+# draw the pie chart
+$objCharts = $objWorksheet.ChartObjects()
+$objChart = $objCharts.Add(0, 0, 500, 300)
+$objChart.Chart.SetSourceData($objWorksheet.range("A1:B11"), 2)
+$objChart.Chart.ChartType = 70
+$objChart.Chart.ApplyDataLabels(5)
+```
+
+这个脚本调用了 Excel 的 COM 库进行绘图，当然从命令耦合的角度来看，输出成文本格式更有利，但这个例子主要想说明 PowerShell 的强大以及微软产品优异的复用性。
+
+
+## ⚡ Windows Scripting Host
+- [Windows PowerShell Host Quickstart](hosting\windows-powershell-host-quickstart.md)
+- System.Management.Automation\engine\hostifaces\RunspacePool.cs
+- https://github.com/Apress/pro-win-powershell
+- https://dotnet.microsoft.com/zh-cn/download/dotnet
+- https://www.nuget.org/packages/System.Windows.Extensions/
+- https://learn.microsoft.com/en-au/dotnet/core/tutorials/
+- https://tablacus.github.io/scriptcontrol_en.html
+
+所谓宿主（Host）就是能给某些事物提供寄生场所的主体，而脚本宿主主要就是指脚本解析器程序，Windows Scripting Host (WSH)。Windows 系统祖传有 VS Script  和 JScript 两种脚本语言的宿主程序，宿主程序有两个，wscript.exe 是窗口图形版，cscript.exe 是控制台版，它们的差别体现在输出信息时，比如 WScript.Echo ("Host fall!"); 会在 wscript 宿主中以窗口方式显示内容，而另一个 cscript 宿主则会将内容打印到控制台中，脚本宿主对象根实例同样为 WScript。其中 JScript 和 JavaScript 同属于 ECMAScript 脚本规范，因此他们功能基本兼容，只是不同版本存在细节特性差异。Windows 11 上最新的版本为 JScript9Legacy。脚本宿主完全限制于 Windows 系统，打上了深深的 M$ 祖印，典型就是 Active X。Microsoft ScriptControl 是一个 32-bit ActiveX 控件（msscript.ocx），随 Windows 2000 一起发布。它既想要统领 Windows 脚本编程，又想要统领浏览器（IE）编程，导致脚本非常容易出错，在宿主中运行时不能使用浏览器环境，比如 window.alert()，应该使用 WScript.Echo()。当年在学校自学脚本，给浏览器（IE）编写扩展，以为盘到一块黄金，结果它是真黄金，好在现在有 Node.js 和 Deno 等开源编程平台。
+
+• C:\Windows\System32\wscript.exe  
+• C:\Windows\System32\cscript.exe  
+• C:\Windows\System32\vbscript.dll  
+• C:\Windows\System32\jscript.dll  
+
+脚本宿主提供的 Script Runtime API 对象，具体参考 WSH Language Element Table 文档：
+
+```powershell
+$WshShell         = New-Object -ComObject WScript.Shell
+$WshNetwork       = New-Object -ComObject WScript.Network
+$Dictionary       = New-Object -ComObject Scripting.Dictionary
+$FileSystemObject = New-Object -ComObject Scripting.FileSystemObject
+
+WScript.Echo ("Script Host fall! Yes or NO?");
+WScript.Echo (WScript.StdIn.ReadLine());
+```
+
+WSH Object Model Illustration
+
+                              ╭─────────────────────╮
+                              │       WScript       │
+                              ╰──────────┬──────────╯
+                ╭───────────┬────────────┬───────────────╮
+         ╭──────────────╮   │     ╭────────────╮  ╭──────────────╮      
+         │ WshArguments │   │     │ WshNetwork │  │ WshShell     │      
+         ╰──────────────╯   │     ╰────────────╯  ╰──────────────╯      
+         ╭────────────╮     │                          │   ╭──────────────╮     
+         │ WshNamed   │  ╭───────────────╮             ├───│ WshShortcut  │     
+         ╰────────────╯  │ WshController │             │   ╰──────────────╯     
+         ╭────────────╮  ╰───────────────╯             │   ╭────────────────╮   
+         │ WshUnnamed │     │   ╭──────────────╮       ├───│ WshUrlShortcut │   
+         ╰────────────╯     ├───│ WshRemote    │       │   ╰────────────────╯   
+                            │   ╰──────────────╯       │   ╭────────────────╮   
+                            │   ╭────────────────╮     ├───│ WshEnvironment │   
+                            ╰───│ WshRemoteError │     │   ╰────────────────╯   
+                                ╰────────────────╯     │   ╭───────────────────╮
+                                                       ├───│ WshSpecialFolders │
+                                                       │   ╰───────────────────╯
+                                                       │   ╭───────────────────╮
+                                                       ╰───│ WshScriptExec     │
+                                                           ╰───────────────────╯
+
+      The Windows Script Host Object Model Hierarchy
+
+WScript 对象成员：
+
+        Properties              Methods  
+
+        Arguments             .ConnectObject (objEventSource, strPrefix) 
+        BuildVersion          .CreateObject (strProgID[,strPrefix])  
+        FullName              .DisconnectObject (obj) 
+        Interactive           .Echo ([Arg1] [,Arg2] [,Arg3] ...  )
+        Name                  .GetObject (strPathname [,strProgID], [strPrefix])  
+        Path                  .Quit ([intErrorCode]) 
+        ScriptFullName        .Sleep (intTime)  
+        ScriptName 
+        StdErr 
+        StdIn 
+        StdOut 
+        Version 
+
+VS Code 自带的 TypeScript 类型定义文件包含脚本宿主对象的类型信息，编写脚本时自带提示，类型定义文件位于其安装目录下：
+
+resources\app\extensions\node_modules\typescript\lib\lib.scripthost.d.ts
+
+创建 PowerShell 脚本宿主来运行脚本：
+
+```powershell
+$ps = [PowerShell]::Create()
+$ps.AddScript("dir *.ps1")
+$ps.Invoke()
+$ps.Dispose()
+```
+
+.Net 通过 System.Web.UI.ScriptControl 来实现与 JavaScript 等脚本的互调用。Windows 系统没有默认提供，此扩展程序集也不属于 .Net Core (跨平台子集)，需要通过 Visual Studio (.Net Framework) 或者手动下载安装注册。.Net 平台经过长时间发展，现在以及形成多个分支，其中的跨平台子集是 .Net Core，现在改名简称为 .Net，因此，.Net SDK 指的是跨平台子集功能的开发包，不同于 .Net Framework SDK。
+
+
+PowerShell 脚本中创建 JScript 脚本宿主来运行 JScript 脚本：
+
+```powershell
+$jscript = New-Object -COM MSScriptControl.ScriptControl
+$jscript.Language = "JScript"
+$jsLines = Get-Content "C:\dl\gui.ps1"
+$jsCode = [string]::Join("`n", $jsLines)
+$jscript.AddCode($jsCode)
+$fileName = (dir "C:\dl\gui.ps1").FullName
+
+Write-Host "Using Eval"
+$jscript.Eval("GetFileSize(`"$($fileName.Replace('\', '\\'))`")")
+
+Write-Host "Using Run"
+$jscript.Run("GetFileSize", $fileName)
+```
+
+Visual Studio 项目中需要添加引用 COM 类型库，勾选列表中的 Microsoft Script Control 1.0 组件。那么在工程引用节点下会增加一个 MSScriptControl 组件，对应命名空间。一个替代方案是 Tablacus Script Control，它运行于 64-bit 平台，替代 MSScript.ocx。
+
+PowerShell 脚本中创建未注册的 COM 组件将导致异常，CLSID 取决于所使用的组件类型：
+
+    New-Object : 检索 COM 类工厂中 CLSID 为 {0E59F1D5-1FBE-11D0-8FF2-00A0D10038BC} 的组件失败，
+    原因是出现以下错误: 80040154 没有注册类 (异常来自 HRESULT:0x80040154 (REGDB_E_CLASSNOTREG))。
+
+
+## ⚡  .Net Core Projects
+- https://learn.microsoft.com/en-us/dotnet/desktop/winforms/
+- https://learn.microsoft.com/en-us/dotnet/standard/frameworks
+- https://www.powershellgallery.com/packages/PSAvalonia/1.0
+- https://github.com/AvaloniaUI/Avalonia/
+- https://github.com/AvaloniaUI/avalonia-docs
+- https://docs.avaloniaui.net/docs/overview/what-is-avalonia
+- https://docs.avaloniaui.net/docs/get-started/wpf/comparison-of-avalonia-with-wpf-and-uwp
+- https://learn.microsoft.com/en-au/powershell/gallery/
+
+下载 .Net SDK 并安装，同时安装 VS Code 和 C# Dev Kit 扩展，就可以开始基于 C# 和 .Net 的编程。调用 dotnet new 创建工程模板，完成代码后，执行 dotnet build 或 run 以构建工程、测试运行。系统未提供的其它依赖可以使用 Nuget 依赖管理工具安装，依赖程序集会安装到 %USERPROFILE%\.nuget\packages 目录下。注意：执行 .NET: Open Solution 命令后 VS Code 才会给出 C# 代码智能提示。
+
+```powershell
+$ dotnet --list-sdks
+9.0.302 [C:\Program Files\dotnet\sdk]
+
+$ dotnet --list-runtimes
+Microsoft.AspNetCore.App 9.0.7 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
+Microsoft.NETCore.App 8.0.13 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
+Microsoft.NETCore.App 9.0.7 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
+Microsoft.WindowsDesktop.App 8.0.13 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]
+Microsoft.WindowsDesktop.App 9.0.7 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]
+
+$ dotnet.exe add package System.Windows.Extensions --version 9.0.7
+$ dotnet.exe new list
+$ dotnet.exe new winfoms -n myform -o .
+$ dotnet.exe new console -n myapp -o .
+已成功创建模板“控制台应用”。
+
+正在处理创建后操作...
+正在还原 C:\pl\hi_csharp\myapp.csproj:
+已成功还原。
+
+$ dotnet run
+$ dotnet build; & ( ls -Recurse -Filter myapp.exe).FullName.ToString()
+```
+
+工程模板包含 Program.cs 文件作为全局入口点，可以编写自己的 C# 类定义文件，并将全局代码注解。
+
+```c#
+using System.Windows.Forms;
+using System.Drawing;
+
+namespace MyNS
+{
+    class MyApp : Form
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Mixed with Windows");
+            MyApp form = new MyApp();
+            form.Text = "Mixed with Console";
+            form.ShowDialog();
+        }
+    }
+}
+```
+
+.NET Core 和 .NET 5 及之后的 SDK 版本中，WPF 和 Windows Forms 都作为独立的框架提供。因此，要在 .NET 6 的 WPF 等项目中引用 System.Windows.Forms，您需要手动编辑项目文件（.csproj文件）并添加相应的框架引用。项目配置文件 myapp.csproj 内容参考如下，ItemGroup 配置节点中，需要手动添加 FrameworkReference 节点来引用窗体框架的程序集。注意不能使用 PackageReference 配置节点，它用于 Nuget 管理的程序集。参考文档 Windows Forms for .NET。
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- <PackageReference Include="System.Windows.Forms" Version="6.0.0" /> -->
+    <FrameworkReference Include="Microsoft.WindowsDesktop.App.WindowsForms" />
+  </ItemGroup>
+
+</Project>
+```
+
+为了分离 UI 界面设计与代码，又产生了以 XAML - Extensible Application Markup Language 数据驱动的程序 UI 界面，这是包含 UI 组件信息的 XML 结构化数据。Windows Platform Foundation (WPF) 以及 Universal Windows Platform (UWP)，还有 Xamarin.Forms、AvaloniaUI 等等图形框架都是类型的架构。参考 MSDN 杂志文章 Windows PowerShell with WPF: Secrets to Building a WPF Application。通过使用这些框架提供的 XML 数据加载程序，PowerShell 脚本中也可以创建由 XML 数据配置的 GUI 程序。
+
+```powershell
+# 导入 WPF 模块
+Add-Type -AssemblyName PresentationFramework
+
+# 设定 XAML 配置
+$xaml = @"
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        Title="Hello World" Height="200" Width="300">
+    <Grid>
+    <Label Content="Hello, World!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Grid>
+</Window>
+"@
+
+# 加载并解析 XAML 配置以创建程序界面
+[xml]$xamlXML = $xaml
+$reader = (New-Object System.Xml.XmlNodeReader $xamlXML)
+$window = [Windows.Markup.XamlReader]::Load($reader)
+
+$window.ShowDialog() | Out-Null
+```
+
+使用 Avalonia for VSCode 扩展就可以基于 VS Code + .Net Core 开发环境设计 Avalonia 图形应用。只需要打开 XAML 配置文件，且构建过项目后，就可以获得智能提示，点击 VS Code 编辑器右上角的 preview 按钮或者执行 Avalonia: Show preview 命令打开 XAML 预览视图。由于此环境还不是很完善，没有实现设计视图，在构建项目前无法正常打开预览视图，VS Code Output 面板中可以查看 Avalonia Client 的响应信息。
+
+Avalonia 的 UI 绘制原理基于 SkiaSharp 图形库，这是一个非常流行的绘图绘图库。发人员使用 XAML 描述用户界面时，Avalonia 将这些 XAML 文件解析成 UI 元素树，并使用 SkiaSharp 来将这些 UI 元素绘制到屏幕上。SkiaSharp 提供了丰富的绘图 API，能够实现高性能的图形渲染，同时具有跨平台的特性，使得 Avalonia 能够在不同操作系统上实现一致的用户界面。Avalonia UI 不断进行技术改进，包括引入新的渲染引擎、支持 WebAssembly、iOS 和 Android 等，是优秀的 WPF 替代产品，也是 Flutter UI 的潜在竞争对手。
+
+```powershell
+dotnet new install Avalonia.Templates
+dotnet new avalonia.app -o MyApp
+```
+
+
+AvaloniaUI 提供了 PSAvalonia 模块，可以直接在 PowerShell 6.0 以上版本中创建 GUI 应用。只需要通过 PowerShell 模块安装工具（PowerShellGet 或者 PSResourceGet）来安装它，也可以手动下载 Nuget 包，此包内涵相关的程序集动态链接库。注意，手动安装模块需要手动处理模块中依赖的其它模块，PowerShell Gallery 是官方提供的模块依赖管理平台。
+
+```powershell
+# PSAvalonia 1.0 - Avalonia UI bindings for PowerShell
+# Minimum PowerShell version 6.0
+
+# Install PowerShellGet and PSResourceGet
+Get-Module PowerShellGet, PackageManagement -ListAvailable
+Install-Module PowerShellGet -Force -AllowClobber
+Install-Module Microsoft.PowerShell.PSResourceGet -Repository PSGallery
+
+# Install Module
+# Copy and Paste the following command to install this package using PowerShellGet
+Install-Module -Name PSAvalonia
+
+# Install PSResource
+# Copy and Paste the following command to install this package using Microsoft.PowerShell.PSResourceGet
+Install-PSResource -Name PSAvalonia
+
+# Manual Download
+https://cdn.powershellgallery.com/packages/psavalonia.1.0.0.nupkg
+```
+
+官方为 PowerShell 提供了三种依赖管理工具：
+
+• The Microsoft.PowerShell.PSResourceGet module - shipped originally in PowerShell 7.4.0  
+• The PowerShellGet and PackageManagement modules - shipped originally in Windows PowerShell 5.0  
+• The NuGet module used by the Package Manager Console of Visual Studio  
+
+NuGet 是官方提供的依赖管理工具之一，它提供基于 ZIP 格式的打包文件，扩展名为 .nuget，可以使用 Unblock-File 命令或者其它解压缩工具解包。依赖包文件含有以下内容物：
+
+• _rels - A folder contains a .rels file that lists the dependencies  
+• package - A folder contains the NuGet-specific data  
+• [Content_Types].xml - A file describes how extensions like PowerShellGet work with NuGet  
+• <package_name>.nuspec - A file contains the bulk of the metadata  
+
+通过 NuGet package 安装 PowerShell 模块的基本步骤：
+
+• Unblock the NuGet package (.nupkg) file, Unblock-File -Path C:\Downloads\module.nupkg  
+• Extract the contents of the NuGet package to a local folder.  
+• Delete the NuGet-specific elements from the folder.  
+• Rename the folder to just the module name. For example, azurerm.storage.5.0.4-preview becomes azurerm.storage.  
+• Copy the folder to one of the folders in the $env:PSModulePath value.
+
+```powershell
+$env:PSModulePath -split ";"
+C:\Users\Jeango\Documents\WindowsPowerShell\Modules
+C:\Program Files\WindowsPowerShell\Modules
+C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+c:\Users\Jeango\.vscode\extensions\ms-vscode.powershell-2025.2.0\modules
+```
+
+
+## ⚡ PowerShell and .Net GUI
 - [about_Using](microsoft.powershell.core/about/about_Using.md)
 - http://eddiejackson.net/web_documents/Building_Forms_with_PowerShell_Part1.pdf
 - https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.form
 - https://github.com/dotnet/dotnet-api-docs/blob/main/xml/System.Windows.Forms/Form.xml
+- https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/add-type
 
-桌面 GUI 程序开发涉及 Windows 的各种图形框架，其中最常用的是 WinForms，开放在 Github 上的文档是 XML 格式，查询起来不是很方便：
+Simple form development using PowerShell by Rod Meaney 一文提供了一份 Form 图形程序的参考代码。代码通过 JSON 数据来记录出口的图形控件元素，并且以模块组织，需要先行导入各个模块再调用。模块入口 psm1 文件可以用于编写模块脚本，对于复杂的模块可以将模块代码分割到多个 ps1 脚本文件中，然后的入口脚本中引入：
 
-首先，掌握 PowerShell 的 Using 指令的使用：
+```powershell
+Get-ChildItem -Path "$PSScriptRoot\*.ps1" | ForEach-Object{. $PSScriptRoot\$($_.Name)}
+Add-Type -assembly System.Windows.Forms
+Add-Type -AssemblyName System.Drawing
+```
 
-```sh
+使用以下脚本运行它以观察效果：
+
+```powershell
+# https://github.com/rod-meaney/ps-community-blog
+# Get-Module
+(Get-ChildItem -Recurse -Filter "*.psm1") | % {Import-Module $_.FullName}
+Get-ChildItem -Recurse -Filter "New*.ps1" | % { 
+    $cmdlet = $_.FullName -replace ".*\\New(.*).ps1",'New-$1';
+    & $cmdlet
+}
+Get-ChildItem -Recurse -Filter "New*.ps1" | Select-Object -Property FullName
+```
+
+桌面 GUI 程序开发涉及 Windows 的各种图形框架，其中最常用的是 WinForms，开放在 Github 上的文档是 XML 格式，查询起来不是很方便。好在 VS Code 提供了 PowerShell 扩展，提供智能的类型信息提示，编写脚本时可以很方便地获取 API 信息。虽然，但是还无法提供具体到方法成员的参数列表，也无法提供按钮等组件用于在脚本环境中绑定事件处理函数的扩展方法，比如 Add_Click 或者 Add_Resize 方法，可以利用 PowerShell 解释器本身的功能来了解 API 的参数信息。比如执行 [System.IO.Path]::GetExtension 就会给出该方法的原型。
+
+
+PowerShell 可以像 C# 编写 WinForm 程序，当然它只是一种脚本，调用 WinForms 框架的 API 始终不及 C# 方便，要通过脚本调用 GUI 控件，需要对 WinForms 框架有深入了解。
+
+首先，掌握 PowerShell 的 Using namespace 语句的使用。此语句有多种用法，其中一种是引入命名空间，所指定命名空间下的类型可以直接使用，而不比使用全路径，这样可以使用代码更简洁。比如 Form 类型在脚本中的两种表达，使用命名空间全路径的 [System.Windows.Forms.Form] 和使用 using namespace 引入命名空间后的省略表达 [Form]。
+
+另一个 using 功能是引入 .Net 程序集，using assembly，也就是可提供任意命名空间的 DLL 包装的程序集合。
+
+第三个 using 功能是引入 PowerShell 脚本模块，使用其中提供的类型、函数等等。
+
+```powershell
 # Syntax
-using namespace <.NET-namespace>
-using module <module-name>
 using assembly <.NET-assembly-path>
 using assembly <.NET-namespace>
+using namespace <.NET-namespace>
+using module <module-name>
+```
 
+```powershell
 # Example
 using assembly 'C:\Program Files\PowerShell\7\System.DirectoryServices.dll'
 using namespace System.DirectoryServices.ActiveDirectory
@@ -8603,12 +9619,486 @@ $myDomain = [myDirectoryClass]::new([DirectoryContextType]::Domain)
 $myDomain
 ```
 
+导入 Windows Win32 API：
 
-PowerShell 可以像 C# 编写 WinForm 程序，当然它只是一种脚本，始终不及 C# 方便调用 WinForms 框架的 API，要通过脚本调用 GUI 控件，需要对 WinForms 框架有深入了解决：
+```powershell
+# 通过反射函数加载 WinForm 组件库
+[void][System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
 
-```sh
-# using assembly System.Windows.Forms
+# Windows API
+$code=@"
+    using System;
+    using System.Runtime.InteropServices;
+    public static class GetWin32Api{
+        [DllImport("user32.dll")]
+        private static extern bool ShowWindow(IntPtr hWnd,uint showType);
+
+        [DllImport("kernel32.dll")]
+        private static extern IntPtr GetConsoleWindow();
+		public static bool ShowConsoleWindow(uint showType){
+			return ShowWindow(GetConsoleWindow(),showType);
+		}
+    }
+"@
+Add-Type -TypeDefinition $code 
+
+# https://learn.microsoft.com/en-gb/windows/win32/api/winuser/nf-winuser-showwindow
+# BOOL ShowWindow( [in] HWND hWnd, [in] int  nCmdShow );
+# 0 SW_HIDE, 1 SW_NORMAL, 2 SW_SHOWMINIMIZED, 3 SW_MAXIMIZE ...
+
+[GetWin32Api]::ShowConsoleWindow(0) 
+sleep 2
+[GetWin32Api]::ShowConsoleWindow(1) 
+sleep 2
+```
+
+Add-Type 除了引入程序集，还可以引入 Win32 API，还可以通过脚本包装 C# 源代码文本的方式添加类型定义，解析器会动态调用 C# 编译程序。通过 -ReferencedAssemblies 参数可以添加程序集引用，缺少程序集引用将导致 C# 程序编译失败，并且提示「Add-Type : 无法添加类型。出现编译错误。」
+
+```powershell
+$Source = @"
+using System;
+using System.Windows.Forms;
+using System.Drawing;
+
+public class MyForm : Form
+{
+    public MyForm(string title)
+    {
+        this.Text = title;
+    }
+    public static int Add(int a, int b)
+    {
+        Console.WriteLine("Added");
+        return (a + b);
+    }
+    public int Multiply(int a, int b)
+    {
+        return (a * b);
+    }
+}
+"@
+
+Add-Type -TypeDefinition $Source -ReferencedAssemblies @(
+    "System.Windows.Forms";
+    "System.Drawing")
+
+Write-Host "Invokes static method: [MyForm]::Add(4, 3)"
+[MyForm]::Add(4, 3)
+
+# $myObject = New-Object MyForm
+$myObject = [MyForm]::new("test")
+
+Write-Host "Invokes member method: $myObject.Multiply(5, 2)"
+$myObject.Multiply(5, 2)
+$myObject.ShowDialog()
+```
+
+注意 Add-Type 引入的类型没有方法来移除，且同一会话中重复加载运行会抛出该 .NET 类型已存在的错误，改动代码触发重新编译时会有这样的问题。解决方法有多种：使用 PowerShell 子进程，完成测试后就退出，再创建新的 PowerShell 子进程来执行脚本，等效方法是 $host.EnterNestedPrompt()。或者使用 Start-Job 运行子进程，Start-ThreadJob 则用于在单独的线程中异步运行脚本块或命令。因此 Start-ThreadJob 在性能消耗上要比 Start-Job 更轻量级。VS Code 可以设置 Debugging: Create Temporary Integrated Console。也可以通过反射方法加载类型动态链接库。可以将常用的设置写入用户配置脚本，直接编辑 $PROFILE 自动变量所引用的配置对象所指示的脚本文件即可，比如 $PROFILE.AllUsersAllHosts 是本地、远程所有用户适用的配置文件。
+
+• All users, Current Host - $PSHOME\Microsoft.VSCode_profile.ps1  
+• Current user, Current Host - $HOME\Documents\PowerShell\Microsoft.VSCode_profile.ps1  
+
+```powershell
+# Pro Windows PowerShell 09 - Error Handling and Debugging
+function Start-Debug
+{
+    Write-Host "Breakpoing hit!" -ForegroundColor Red
+    function prompt
+    {
+        "DEBUG> "
+    }
+    # Instructs the host to interrupt the currently running pipeline and start a new, 
+    # "nested" input loop, where an input loop is the cycle of prompt, input, execute.
+    $host.EnterNestedPrompt()
+}
+
+$job = Start-Job -ScriptBlock {
+
+    Add-Type -path 'my.dll'
+    $myObj = new-object My.MyTestClassName
+
+    $result = $myObj.TestMethod
+    $result
+}
+Wait-Job $job
+Receive-Job $job
+
+
+# https://stackoverflow.com/questions/3369662/can-you-remove-an-add-ed-type-in-powershell-again
+# If your assembly doesn't require a binding context you can do this:
+$bytes = [System.IO.File]::ReadAllBytes("Path_To_Your_Dll.dll")
+[System.Reflection.Assembly]::Load($bytes)
+```
+
+PowerShell 中使用 New-Object 命令创建类型实例之前，需要当前环境已经存在相应的类型定义，也就是需要通过 Add-Type 添加类型定义。当然，常用的类型，比如  “System.String”, “System.DateTime”, “System.IO.FileInfo” 等等类型已经预定义好，可以直接使用 New-Object 创建实例。使用以下命令可以查询当前可以的类型：
+
+    Get-TypeData -TypeName '*'
+
+以下示例演示直接使用 PowerShell 预定义类型 SoundPlayer 来播放系统自带的声波文件：
+
+```powershell
+using namespace System.Management.Automation
+
+$wave = "$env:windir\Media\windows logon.wav"
+
+$duration = 3 * (New-Object System.Random).NextDouble() + 1
+[System.Math]::Round($duration, 0).ToString() + " seconds preset"
+
+try {
+    # Test if ffmpeg has installed
+    ffmpeg >$null 2>&1
+    $ffout = (ffmpeg -hide_banner -i  $wave 2>&1) -match "Duration: (\d\d:){2}\d\d"
+    $duration = ($ffout -replace ".*(\d\d):(\d\d):(\d\d).*","`$1*3600+`$2*60+`$3") -join ""
+    $duration = Invoke-Expression $duration
+} catch [CommandNotFoundException] {
+    Write-Output "FFMPEG Not found."
+}
+
+$player = New-Object System.Media.SoundPlayer $wave -Verbose
+$player.PlayLooping() # Play and looping
+# Start-Sleep $duration
+Write-Output "Sleep in $duration seconds before stop play"
+Start-Sleep $duration
+
+$player.Stop() # Methode ==> Stop
+```
+
+以下示例演示使用 Add-Type 加载用户定义类型，或者 .Net 程序集提供的类型。假定当前系统安装有 Visual Basic .NET，以下脚本会调用 Interaction 类型的多个静态方法：
+
+```powershell
+Add-Type -AssemblyName Microsoft.VisualBasic # adds a .NET class to this session
+
+$computer = [Microsoft.VisualBasic.Interaction]::InputBox("Enter a computer name", "Computer")
+$Test = Test-Connection -ComputerName $computer -Count 1 -ErrorAction SilentlyContinue
+If ($Test.Status -eq 'Success') {
+    [Microsoft.VisualBasic.Interaction]::MsgBox("Test for $computer successful.", "OKOnly,SystemModal,Information", "Success")
+}
+else {
+    [Microsoft.VisualBasic.Interaction]::MsgBox("Test for $computer failed.", "OKOnly,SystemModal,Critical", "Error")
+}
+```
+
+
+## ⚡ .Net Delegates and Events
+- https://devblogs.microsoft.com/powershell/powershell-eventing-quickstart/
+- https://learn.microsoft.com/en-us/dotnet/csharp/delegates-overview
+- https://learn.microsoft.com/en-us/dotnet/api/system.delegate
+- https://learn.microsoft.com/en-us/dotnet/api/system.multicastdelegate
+- https://learn-powershell.net/2013/01/30/powershell-and-events-engine-events/
+- https://github.com/oising/PSEventing
+- PSEventing: .NET Events in PowerShell
+- Pro Windows PowerShell - CHAPTER 22 PSEventing: .NET Events in PowerShell 
+- Windows PowerShell in Action, Third Edition - Chapter 17. Working with .NET and events 
+- https://github.com/ProfessionalCSharp/ProfessionalCSharp2021
+- https://github.com/Apress/pro-.net-2.0-win-forms-custom-controls-in-csharp
+- Programming Microsoft Windows with C# by Charles Petzold
+- Professional C#, Third Edition https://libcats.org/book/464799
+- Pro .NET 2.0 Windows Forms and Custom Controls in C# by Matthew MacDonald
+  https://libcats.org/book/493659
+
+.Net 平台的首选开发语言是 C#，可以说 C# 就是 .Net 的原生语言。在事件处理上，C# 专门定义了一个关键子 delegate 来定义事件委托。.NET 事件通常以委托（delegate）形式存在，当触发事件时调用这个委托。这是一种比回调函数更方便的事件处理机制，同时也是更复杂的机制，使用 delegate 关键字，编译器会生产相应的代码来实现事件的委托处理。设计出委托机制的目的是解耦合组件关系，以避免程序中的所有组件像一团乱码。
+
+委托（delegate）是一种可用于封装命名方法或匿名方法的引用类型。 委托类似于 C++ 中的函数指针；但是，与 C++ 函数指针不同的是，委托是面向对象的、类型安全的和可靠的，委托是安全封装方法的类型。 PowerShell 脚本中不能直接访问委托，比如 $button.Click 这样的表达式得到的是 Null，因为 Click 成员是一个委托。委托的机制的使用有三个必要步骤：使用 delegate 关键字定义委托类型；声明并实例化对象，对象类型由委托所定义；调用委托封装的方法。定义委托类型时包含了一个方法对象的签名，只有符合这个签名的方法才能委托给此类型。实例化委托类型后，就可以向此委托实例注册要进行委托处理的方法。比如以下委托类型 TwoLongsOp，用于处理那些只接收两个 long 数值作为参数的方法，所以满足此方法签名的方法都可以委托给 TwoLongsOp 实例。当事件发起方调用委托实例时，并将参数传入，然后「广播」给所有已经委托过方法。
+
+以下是摘抄自 Professional C# and .NET 2021 一书的代码片段，正如书中所言，理解「委托」类型（机制）的最佳方法是：将委托看作是方法签名的包装对象看待，它包含委托主体的参数列表和返回值类型。
+
+```c#
+delegate double TwoLongsOp(long first, long second);
+//...
+delegate string GetAString();
+
+// Using Delegates
+int x = 40;
+GetAString firstStringMethod = new GetAString(x.ToString);
+Console.WriteLine($"String is {firstStringMethod()}");
+```
+
+委托机制将委托类型实例设计为可以调用的对象，委托实例可以向函数一样被掉调用，其作用就像直接调用那些委托的方法，从这点来看委托机制和回调函数机制没有区别。C# 编译其会负责生成隐含的代码：函数式调用委托类型实例对应的是调用其 Invoke() 成员方法。委托机制不止有这种调用方式，并且委托机制也提供了更方便使用的语法结构。事件类型（Events）对委托进一步封装，可以使用 += 将一个方法连接到一个委托实例上，这样就完成了一个事件处理方法（EventHandler）的委托。类似的还有委托对象实例化可以使用 new 关键字来完成，也可以利用委托推理（delegate inference），直接将要委托的方法赋值给委托变量，C# 编译器会自动推理出实例化操作的代码，将委托主体（x.ToString）当作参数传递给委托类型的构造器。这些都是方便用户编写代码的语法糖，提供便利的同时也增加了理解的难度。
+
+```c#
+firstStringMethod();  // invoke delegate instance 
+firstStringMethod.Invoke();
+
+GetAString firstStringMethod = new GetAString(x.ToString);
+GetAString firstStringMethod = x.ToString; // use delegate inference
+```
+
+需要明确：「委托机制」被设计出来用于组件间解耦（decoupling）；「事件机制」被设计出来用于实现以事件驱动的程序架构。.Net C# 编程中的事件机制是基于委托机制实现的一种「数据广播」，注册（连接）事件处理器（EventHandler）到事件实例中，等到事件触发时，事件处理器随即被调用，并获得相应的事件数据。C# 也为事件机制提供了专用的 event 关键字，使用它来定义事件类型。类似委托类型，事件定义了事件处理器（EventHandler）的方法签名，只有符合签名的方法才能作为该类事件的处理程序。关于委托和事件，官方文档 Distinguishing Delegates and Events 给出了以下扼要的区别点：
+
+• Listening to Events is Optional  
+• Return Values Require Delegates  
+• Events Have Private Invocation  
+• Event Listeners Often Have Longer Lifetimes  
+
+C# 编程中有标准的 .NET 事件编程模式（event patterns），新版本 .NET Core 支持使用 async 和 await 关键字来定义异步事件委托。典型的事件委托类型如下：
+
+```c#
+void EventRaised(object sender, EventArgs args);
+```
+
+• 事件委托的返回类型是 void。可以借助 EventArgs 对象返回数据，典型用法就有 cancel 机制。  
+• 事件通过 sender 参数表明事件源。  
+• 事件通过 EventArgs 来打包数据。
+
+
+以下代码片段摘抄自官方文档，演示了如何定义一个名为 EventHandler<FileFoundArgs> 的事件类型，尖括号包括的参数表明这是一种泛型，这个事件类型的名称是 FileFound。使用 += 以及 -= 完成事件处理器的注册和移除，然后像委托类型一样调用事件处理器。
+
+```c#
+// 1. Use the event keyword to define an event:
+public event EventHandler<FileFoundArgs>? FileFound;
+
+// 2. subscribe to an event by using the += operator:
+var fileLister = new FileSearcher();
+int filesFound = 0;
+
+EventHandler<FileFoundArgs> onFileFound = (sender, eventArgs) =>
+{
+    Console.WriteLine(eventArgs.FoundFile);
+    filesFound++;
+};
+
+fileLister.FileFound += onFileFound;
+
+// 3. You unsubscribe using the -= operator:
+fileLister.FileFound -= onFileFound;
+
+// 4. Raise the event, use event handlers and delegate invocation syntax:
+FileFound?.Invoke(this, new FileFoundArgs(file));
+```
+
+
+## ⚡ PowerShell Events
+
+PSEventing 是由 Oisin Grehan 创建的一个免费开源工具，由一系列脚本组成，通过将这些脚本以 Shell 管理单元的形式加载到 PowerShell 中提供事件操作的支持。此工具通过全局事件队列实现访问事件队列操作的同步，事件被触发后添加到队列中，剩余的处理工作由客户端代码完成。PSEventing 通过一个脚本块作为事件处理程序。PowerShell 的缺乏良好的对脚本的线程支持，从外部代码块触发一个事件可能是很危险的。
+
+PSEventing 采用一个全局事件队列，所有访问事件队列的操作都将被同步来保护程序免受并发相关的问题。队列保存在事件绑定表中，用户可以调用 Connect-Event 来连接事件。并在事件绑定表中创建一个条目，使用 Get-EventBinding cmdlet 来查看已绑定的事件。
+
+PowerShell 脚本中，可以通过 Get-Member 来查询 .Net 组件中定义的事件（Event），Event 类型就是一种委托。C# 语言中可以直接将成员方法赋值给 delegate 类型实例，这个过程和设置（注册）回调函数，目的都是监听相应的事件。PoewrShell 脚本中不能这样赋值，只能通过扩展方法来绑定脚本，而实现这个绑定功能的就是 add_click 这类带有 add 前缀的方法，其后缀对应的是事件名（或者事件类型）。根据此原则，可以推理 Resize 事件的处理就可以调用 Add_Resize 方法来绑定脚本。这些事件绑定方法为 PSMethodInfo 类型，具体是 PSMethod 类型，这种类型都是接受一个 System.EventHandler 作为参数的方法。System.Windows.Forms 命名空间下定义有多种 System.EventHandler 的子类型。
+
+```powershell
+$bt = (New-Object System.Windows.Forms.Button)
+$bt.Add_Click            # ==> void add_Click(System.EventHandler value)
+$bt.Add_Click.GetType()  # ==> System.Management.Automation.PSMethodInfo
+
+$bt | Get-Member -MemberType Event | Where-Object { $_.Definition -match ".*(Click|Resize).*"}
+
+   TypeName:System.Windows.Forms.Button
+
+Name             MemberType Definition
+----             ---------- ----------
+Click            Event      System.EventHandler Click(System.Object, System.EventArgs)
+DoubleClick      Event      System.EventHandler DoubleClick(System.Object, System.EventArgs)
+MouseClick       Event      System.Windows.Forms.MouseEventHandler MouseClick(System.Object, System.Windows.Forms.MouseEventArgs)
+MouseDoubleClick Event      System.Windows.Forms.MouseEventHandler MouseDoubleClick(System.Object, System.Windows.Forms.MouseEventArgs)
+Resize           Event      System.EventHandler Resize(System.Object, System.EventArgs)
+```
+
+PowerShell 提供了完整的命令来利用 .NET 平台强大的事件机制，实现以事件驱动的应用程序，事件驱动（Event-driven）是实现交互式应用程序的已经流行的机制。可以使用以下命令来创建自己的事件类型、以及使用事件来实现程序与用户的交互。
+
+```powershell
+Get-Command -Type Cmdlet *Event*
+
+CommandType     Name                         Version    Source
+-----------     ----                         -------    ------
+Cmdlet          Get-Event                    3.1.0.0    Microsoft.PowerShell.Utility
+Cmdlet          Get-WinEvent                 3.0.0.0    Microsoft.PowerShell.Diagnostics
+Cmdlet          Get-EventSubscriber          3.1.0.0    Microsoft.PowerShell.Utility
+Cmdlet          New-Event                    3.1.0.0    Microsoft.PowerShell.Utility
+Cmdlet          New-WinEvent                 3.0.0.0    Microsoft.PowerShell.Diagnostics
+Cmdlet          Register-CimIndicationEvent  1.0.0.0    CimCmdlets
+Cmdlet          Register-EngineEvent         3.1.0.0    Microsoft.PowerShell.Utility
+Cmdlet          Register-ObjectEvent         3.1.0.0    Microsoft.PowerShell.Utility
+Cmdlet          Register-WmiEvent            3.1.0.0    Microsoft.PowerShell.Management
+Cmdlet          Remove-Event                 3.1.0.0    Microsoft.PowerShell.Utility
+Cmdlet          Unregister-Event             3.1.0.0    Microsoft.PowerShell.Utility
+Cmdlet          Wait-Event                   3.1.0.0    Microsoft.PowerShell.Utility
+......
+```
+
+可以看到有多种事件注册方法，可以给 PowerShell 引擎注册事件处理器，可以用来完成远程的工作处理。其中最基本的就是使用 Register-ObjectEvent 来注册某个类型的实例对象的事件处理器。「注册事件」就是给指定事件（由事件源标识符确定）注册相应的事件处理器。「创建事件」就是向事件队列中添加事件实例，也就是相当于 C# 中通过 += 运算符合给事件成员绑定事件处理器。PowerShell 脚本中绑定的事件处理器（ScriptBlock）可以接收到事件参数，直接在脚本块中通过 $Event 自动变量引用。需要注意的是，其类型为 System.Management.Automation.PSEventArgs，派生自 .Net 平台中的 System.EventArgs。事件中的原始参数类型需要通过 SourceEventArgs 属性获取：
+
+• ComputerName	Gets the name of the computer on which this event was generated.  
+• EventIdentifier	Gets the unique identifier of this event.  
+• MessageData	Gets the additional user data associated with this event.  
+• RunspaceId	Gets the unique identifier of this event.  
+• Sender	Gets the object that generated this event.  
+• SourceArgs	Gets the list of arguments captured by the original event source.  
+• SourceEventArgs	Gets the first argument from the original event source that derives from EventArgs.  
+• SourceIdentifier	Gets the identifier associated with the source of this event.  
+• TimeGenerated	Gets the time and date that this event was generated.  
+
+```powershell
+#!/usr/bin/env powershell
+#!/usr/bin/env pwsh
+
+$script = $PSCommandPath.Split("(/|\)")[-1]
+$watcher = New-Object System.IO.FileSystemWatcher
+$watcher | Get-Member -Type Event
+
+$watcher.Path = $PSScriptRoot
+$watcher.Filter = $script
+$watcher | Get-Member -MemberType Event | ForEach-Object {
+    Write-Host "Register Object Event:  $($_.name)"
+    Register-ObjectEvent $watcher -EventName $_.Name -Action { 
+        try {
+            $fse = [System.IO.FileSystemEventArgs] $Event.SourceEventArgs[0]
+        }
+        catch {
+            Write-Host $_
+        }
+        Write-Host @"
+
+FileSystemWatcher: $($Event)
+$("=".PadLeft("FileSystemWatcher: $($Event)".Length, "="))
+░ ComputerName     :$($Event.ComputerName)
+░ EventIdentifier  :$($Event.EventIdentifier)
+░ MessageData      :$($Event.MessageData)
+░ RunspaceId       :$($Event.RunspaceId)
+░ Sender           :$($Event.Sender)
+░ SourceArgs       :$($Event.SourceArgs)
+░ SourceEventArgs  :$($Event.SourceEventArgs)
+░ SourceIdentifier :$($Event.SourceIdentifier)
+░ TimeGenerated    :$($Event.TimeGenerated)
+▒ ChangeType       :$($fse.ChangeType)
+▒ FullPath         :$($fse.FullPath)
+▒ Name             :$($fse.Name)
+"@ }
+} | Out-Null
+
+Write-Host "Do something with $PSScriptRoot\$($watcher.Filter) to riase some events."
+New-Item -ErrorAction SilentlyContinue "$PSScriptRoot\$($watcher.Filter)"
+Wait-Event -Timeout 15 # Works unexpected.
+
+Get-EventSubscriber | Unregister-Event
+```
+
+[System.Management.Automation.PSEngineEvent] 类型给出了以下两个引擎事件：
+
+• Exiting	 Called when the PowerShell engine is exiting.  
+• OnIdle	Call when the PowerShell engine is idle.  
+
+以下脚本注册了 Exiting 事件，在执行 exit 命令退出 PowerShell 解析器时，将命令历史记录转写到磁盘文件中。注意，通过右上角关闭按钮强制退出时，不会触发此事件。OnIdle 事件只有没有脚本在运行，包括 sleep 命令期间，同时没有用户输入，就会不断触发。使用 Register 方法注册事件处理器后，对应使用 Unregister-Event 来解除。
+
+```powershell
+Register-EngineEvent `
+-SourceIdentifier ([System.Management.Automation.PSEngineEvent]::Exiting) `
+-Action {Out-File c:\dl\history.txt -InputObject (Get-History)}
+
+Register-EngineEvent `
+-SourceIdentifier ([System.Management.Automation.PSEngineEvent]::OnIdle) `
+-Action {Write-Host "Tick-$(Get-Date)"}
+
+Get-EventSubscriber | Unregister-Event
+```
+
+用户可以使用 New-Event 以及 Remove-Event 等命令管理自定义事件，其实就是 System.EventArgs 子类型。使用 Get-Event 来查询现有的用户事件，Remove-Event 命令用于删除当前 PowerShell 会话的事件队列中事件。SourceIdentifier 和 Sender 都是用于标记的字符串，但是来源标识决定了哪些事件可以由相同标识的事件处理器处理。测试中发现，新注册的事件处理器不处理事件队列中原有的事件。此事件队列（event queue）只维护由 New-Event 命令创建的事件，Get-Event 也同样只抽取（Pooling）此事件队列，对其它内部事件无效。文档还在 Remarks 特别地说明：No event sources available on the Linux or macOS platforms。
+
+要使用这些自定义事件，就需要注册事件，只有在某些对象上注册了相应的事件，它才会在事件队列（event queue）出现由 New-Event 命令创建的事件实例时进行处理。创建事件实例后，如果立即使用 Remove-Event 将其从事件队列中移除，那么事件就像从来没有发生过。Wait-Event 命令用于等等事件，他会阻塞运行，直到指定的事件发生或者 -Timeout 期限已到。等待本身不会处理事件，等待退出后就可以对事件进行处理。事件实例本身没有超时设置，除非使用 Remove-Event 移除或者退出 PowerShell，否则会一直存在于事件队列直到处理。事件的设置会传递到 $host.EnterNestedPrompt() 方法进入的嵌套 PowerShell 环境。
+
+```powershell
+Get-Event | Remove-Event
+Get-EventSubscriber | Unregister-Event
+
+New-Event -SourceIdentifier "Something.Event" -Sender SomethingEvent -MessageData "Nothing useful" | Out-Null
+Wait-Event -SourceIdentifier "Something.Event"
+
+Register-EngineEvent -SourceIdentifier "Something.Event" -Action {
+    Write-Host ("Event from {0} occurred!" -f $Event.Sender)
+    $Global:createdEvent = $event
+}
+
+Register-EngineEvent -SourceIdentifier "Something.Event" -Action {
+    Write-Host "PowerShell will enter nested level."
+    $host.EnterNestedPrompt()
+}
+
+# Create a new event and it gets processed by the subscriber above
+New-Event -SourceIdentifier "Something.Event" -Sender SomethingEvent -MessageData "Nothing useful" | Out-Null
+```
+
+以下以 Timer 定时器为例，演示如何在实例对象上使用事件相关的命令。
+
+首先创建一个定时器实例，并使用 Get-Member 查询对象中提供的事件类型：
+
+```powershell
+New-Object Timers.Timer | Get-Member -Type Event
+
+   TypeName:System.Timers.Timer
+
+Name     MemberType Definition
+----     ---------- ----------
+Disposed Event      System.EventHandler Disposed(System.Object, System.EventArgs)
+Elapsed  Event      System.Timers.ElapsedEventHandler Elapsed(System.Object, System.Timers.ElapsedEventArgs)
+```
+
+然后，注册对象的事件类型，绑定事件处理器（脚本块）。设置好定时器并启动以产生正在监听的事件：
+
+```powershell
+$timer = New-Object System.Timers.Timer
+$timer | Get-Member -Type Event
+
+$timer.Interval  = 1000
+$timer.Autoreset = $true
+$timer.Enabled   = $true  # Equals to $timer.Start()
+
+# Doesn't works!
+# $block = { Write-Host "Timer.Elapsed: $Event.SourceEventArgs.SignalTime" }
+# $timer.add_Elapsed($block)
+# $timer.remove_Elapsed($block)
+
+# Get-Event -SourceIdentifier Timer.Elapsed
+# Get-Event : 源标识符为“Timer.Elapsed”的事件不存在。只能 Pooling 由 New-Event 创建的事件。
+
+$count =0
+Register-ObjectEvent $timer -EventName Elapsed -SourceIdentifier Timer.Elapsed -Action {
+    # $event = [System.Management.Automation.PSEventArgs] $Event
+    $count += 1
+    if ($count % 3 -eq 0) {
+        [Console]::Beep(1300, 200)
+    } else {
+        [Console]::Beep(300, 100)
+    }
+    Write-Host -NoNewline ("Event from {0} occurred! " -f $Event.Sender)
+    Write-Host ("==> ElapsedEventArgs.SignalTime: {0} " -f $Event.SourceEventArgs.SignalTime)
+} | Out-Null
+
+# Works unexpectedly
+Wait-Event -Timeout 3 -SourceIdentifier Timer.Elapsed
+
+# Get-EventSubscriber | Unregister-Event
+Get-EventSubscriber -SourceIdentifier Timer.Elapsed | Unregister-Event
+```
+
+PowerShell 被设计成可以远程执行的自动化编程工具，Invoke-Command 命令就可以在远程主机上执行脚本。另外，background jobs 等并发处理技术中，也属于 remoting 执行，如果要处理这里的事件，就需要使用「事件转发」 Forwarding Events 功能，也就是在注册事件处理器时使用 -Forward 选项，让解析器知道需要将事件转发到本地上处理，否则本地事件队列将不会有相应的事件。类似的处理还有 Invoke-Command -ComputerName 远程调用或者 Enter-PSSession 进入远程会话期间。
+
+```powershell
+# Show no events are in queue
+Get-Event
+
+Start-Job -Name TestJob -ScriptBlock {
+    Register-EngineEvent -SourceIdentifier This.Nothing -Forward
+    Start-Sleep -seconds 2
+    New-Event -SourceIdentifier This.Nothing -Message "Job ended"
+}
+
+# Wait for job to finish
+Get-Job | Wait-Job
+
+# Show the new event waiting in queue from background job
+Get-Event
+```
+
+
+
+绑定事件处理脚本的各种方式参考：
+
+```powershell
+using assembly System.Windows.Forms
 using namespace System.Windows.Forms
+
+Add-Type -AssemblyName System.Windows.Forms
+Add-Type -AssemblyName System.Drawing
+
 $form = [Form] @{
     Text = 'My First Form'
 }
@@ -8619,6 +10109,10 @@ $button = [Button] @{
 $button.add_Click{
     $form.Close()
 }
+$button.add_Click([EventHandler]{
+    Start-Sleep 1
+    $form.Close()
+})
 $form.Controls.Add($button)
 $form.ShowDialog()
 ```
@@ -8642,14 +10136,102 @@ Form 和 Button 算得上最典型的两种基本 GUI 对象了，一个是窗�
     $form.gettype().GetFields()|FT
     $form.gettype().GetMembers()|FT
 
+给窗体对象添加了 Resize 事件处理，这样可以随时响应用户调整窗体的大小，通过脚本块的让组件居中显示：
+
+```powershell
+using namespace System.Windows.Forms
+using namespace System.Drawing
+
+Add-Type -AssemblyName System.Windows.Forms
+Add-Type -AssemblyName System.Drawing
+
+function Move-Center([Form]$form, [Control]$ctl) {
+    $ix = ($form.Size.Width - 100) / 2
+    $iy = ($form.Size.Height - 32) / 2
+    $ctl.Location = New-Object Point($ix,$iy)
+    Write-Host $form.Size,$ctl.Location
+}
+
+$form = New-Object Form
+$form.Add_Resize({  Move-Center $form $btn  })
+
+$btn = New-Object Button
+$btn.Text = "Test"
+$btn.Size = New-Object Point(100,32)
+# $btn.Dock = "Fill"
+Move-Center $form $btn
+$form.Controls.Add($btn)
+
+$path = "C:\dl\test_cmd.ps1"
+Write-Output "
+Write-Host 'Test OK, It works!'; 
+echo `$('# Test OK ',`$(Get-Random) -join '') >> `$PSCommandPath" > $path
+
+# It works with an new process
+powershell -file $path 
+
+$btn.add_Click({
+    # It also works, but don't echo message that come from a diffent process
+    powershell -file $path
+    Write-Host "=================="
+    Get-Content $path | Write-Host
+})
+
+$form.ShowDialog()
+```
+
+在脚本中以 class 对象的形式组织代码，使用花括号代码块（私有变量）充当组件成员。注意，绑定脚本块中的 $this 自动变量引用的是所绑定的目标对象，这里就是 Button 组件，而不是 Form。这种代码组织方式在运行时也有细微差别，脚本内的 Add-Type 命令添加的类型不能生效，需要再套一层脚本来加载类型定义，然后再加载定义 class 的脚本，这样才能正常运行。
+
+```powershell
+using namespace System.Windows.Forms
+using namespace System.Drawing
+
+Add-Type -AssemblyName System.Windows.Forms
+Add-Type -AssemblyName System.Drawing
+
+class MyForm : Form {
+    MyForm($mystuff) {
+        $this.amethod
+        $this.Add_Load( $this.MyForm_Load )
+    }
+
+    $MyForm_Load = {
+        $mlabel = [Label]::new()
+        $mlabel.Name = "trolol"
+        $mlabel.Text = "hello, world!"
+
+        $mbutton = [Button]::new()
+        $mbutton.Text = "click me"
+        $mbutton.Location = [Point]::new(100,100)
+        $mbutton.Add_Click( $this.mbutton_click )
+
+        $this.Controls.Add($mlabel)
+        $this.Controls.Add($mbutton)
+    }
+
+    [void]amethod(){ Write-Host "a method called." }
+
+    $mbutton_click = [System.EventHandler] {
+        # The $this refers $mbutton, but not the form!
+        $this.Parent.amethod()
+        $this.Parent.Controls["trolol"].Text = "goodbye, world."
+    }
+}
+
+$foo = [MyForm]::new("test")
+$foo.ShowDialog()
+```
+
 
 以下官方示例展示了 UI 编程，构造一个包含列表的窗口，并在点击确认按钮时返回选择的项目：
 
-```sh
+```powershell
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
 $form = New-Object System.Windows.Forms.Form
+
+
 $form.Text = 'Data Entry Form'
 $form.Size = New-Object System.Drawing.Size(640,320)
 $form.StartPosition = 'CenterScreen'
@@ -8667,7 +10249,8 @@ $CancelButton.Location = New-Object System.Drawing.Point(150,220)
 $CancelButton.Size = New-Object System.Drawing.Size(75,23)
 $CancelButton.Text = 'Cancel'
 $CancelButton.DialogResult = [System.Windows.Forms.DialogResult]::Cancel
-$form.CancelButton = $CancelButton
+$CancelButton.Add_Click({$form.Close()})
+# $form.CancelButton = $CancelButton
 $form.Controls.Add($CancelButton)
 
 $label = New-Object System.Windows.Forms.Label
@@ -8697,11 +10280,12 @@ $result = $form.ShowDialog()
 if ($result -eq [System.Windows.Forms.DialogResult]::OK)
 {
         $x = $listBox.SelectedItems
-        $x
+        "$($x.Count) item(s): $x"
 }
 ```
 
-# chocolatey
+
+# 🚩 chocolatey
 
 安装 Chocolatey，只需要在 Windows 系统的命令行工具下面去执行一行命令（cmd），只需要在其中的一个上面安装 Chocolatey 就可以了。你要用管理员的身份去运行命令行工具，不然会遇到权限问题。
 

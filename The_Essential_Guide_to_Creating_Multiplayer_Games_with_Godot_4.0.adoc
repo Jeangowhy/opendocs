@@ -1,0 +1,3151 @@
+include::./header.adoc[]
+
+== The Essential Guide to Creating Multiplayer Games with Godot 4.0
+
+[.text-center.big]
+image:https://m.media-amazon.com/images/I/61C6bOFchNL._SY522_.jpg[cover] +
+**The Essential Guide to Creating**  +
+**Multiplayer Games with Godot 4.0** +
+
+[.text-center.big]
+**Harness the power of Godot Engine’s GDScript network** +
+**API to connect players in multiplayer games** +
+
+Henrique Campos
+
+BIRMINGHAM—MUMBAI
+
+The Essential Guide to Creating Multiplayer Games
+with Godot 4.0
+
+Copyright © 2023 Packt Publishing
+
+All rights reserved. No part of this book may be reproduced, stored in a retrieval system, or transmitted in any form or by any means, without the prior written permission of the publisher, except in the case of brief quotations embedded in critical articles or reviews.
+
+Every efort has been made in the preparation of this book to ensure the accuracy of the information presented. However, the information contained in this book is sold without warranty, either express or implied. Neither the author, nor Packt Publishing or its dealers and distributors, will be held liable for any damages caused or alleged to have been caused directly or indirectly by this book.
+
+Packt Publishing has endeavored to provide trademark information about all of the companies and products mentioned in this book by the appropriate use of capitals. However, Packt Publishing cannot guarantee the accuracy of this information.
+
+[source,subs=normal,role="big olive"]
+----
+        **_Group Product Manager_** : Rohit Rajkumar
+   **_Publishing Product Manager_** : Vaideeshwari Muralikrishnan
+         **_Book Project Manager_** : Sonam Pandey
+   **_Content Development Editor_** : Debolina Acharyya
+             **_Technical Editor_** : Reenish Kulshrestha
+                  **_Copy Editor_** : Safs Editing
+                  **_Proofreader_** : Safs Editing
+                      **_Indexer_** : Tejal Daruwale Soni
+          **_Production Designer_** : Prashant Ghare and Jyoti Kadam
+**_DevRel Marketing Coordinators_** : Nivedita Pandey, Namita Velgekar, and Anamika Singh
+              **_First published_** : December 2023
+         **_Production reference_** : 2201223
+
+Published by Packt Publishing Ltd.
+
+Grosvenor House
+11 St Paul’s Square
+Birmingham
+B3 1RB, UK
+ISBN 978-1-80323-261-4
+www. packtpub.com
+----
+
+[.text-center.big]
+To God, who has always been me with me, blessing me with strength, faith, and determination to take faithful steps throughout this journey. Let this book be a blessing that will allow people to make amazing creative endeavors.
+[.text-right.big]
+– Henrique Campos
+
+== About dda_doc88_cracker
+
+****
+[TIP]
+十年前在 CSDN 上贡献了三篇文章，今天看到有人在引用，可惜是当时用的是夕阳技术 ActionScript（Flex）现在我自己的电脑都运行不了自己写的东西。同时感慨，现在的中学生都这么厉害了，「中考后想提取试卷」就可以激发无限的技术好奇原动力，并完成一个 https://github.com/cmy2008/doc88_extractor[DOC88 文档提取工具]。通过阅读作者的技术发现之路，确实是很优秀的一个中学生，在技术研究上可谓蛟龙入海，深入各种开源工具，并能将其转换成自己的工具：
+
+____
+下载出的文件作用不太清楚，只有第一个文件的头文件是YBD，其他的完全没有规律，于是在网上查找资料，偶然间发现了这几篇文章：
+
+• link:https://blog.csdn.net/WinsenJiansbomber/article/details/47051233[EBT 道客巴巴的加密与破解 序章]
+• link:https://blog.csdn.net/winsenjiansbomber/article/details/47065697[EBT 道客巴巴的加密与破解 －免费下载器的基础]
+• link:https://blog.csdn.net/WinsenJiansbomber/article/details/47284463[EBT 道客巴巴的加密与破解 - 实用组合工具箱]
+
+于是我们得知，这其实是 flash 实现的文档查看功能，利用头文件（PH）和页数据文件（PK）就可以合成出一个flash文件，至于如何合成，文章也给出了相应代码，可是原工具是 ActionScript 写的，于是我费劲周折，找出 ActionScript 的相关编译工具，然而最终还是因为一个兼容性问题放弃了
+
+最后在网上查找时，不知道从哪找到个度盘链接，然后就下到了原作者做的工具包，现在再去找已经找不到了，也许已经成为一个失传媒体了，于是传到互联网博物馆了，直链下载：link:https://edge.piglin.eu.org/dda_doc88_cracker.zip[dda_doc88_cracker.zip]
+____
+
+当年我在研究电子书的时候，也没完全破解 doc88 站点的资源，以为网站发布出来的是时下流行的 Flash 技术处理后的 swf 格式，只是查拆成一大一小两个 ebt 文件（PH、PK），可以看作是每页的数据文件和解密（解压缩）密钥。在前端解压、合并成一个 swf 文件，对应一页内容，然后通过 link:https://static.doc88.com/assets/pv.swf?v=1.902[pv.swf] 渲染到页面上。
+
+时至今日，官方网网站上还保留了 pv.swf，即使 Flash 已经是一种看不见下一步路途的技术。只是前端主程序已经换成 link:https://static.doc88.com/resources/js/modules/main-v2.min.js?v=3.73[main.js] 模块，使用 Sea.js 作为模块加载器，不再像十年前那样使用零碎的 JavaScript 脚本开发大型工程，本以为 doc88 技术上会采用更新的 WebAssembly，没想到基本是躺平收租模式，这种行为真的太可耻了，秘密都在代码中馅都漏了。当时我采取的也是一种偷懒方案：直接在本地利用官方的 pv.swf 中的程序来完成内容的呈现。使用 AsctionScript 来获取服务器资源并绕过跨域资源请求的规则约束，这几乎可以算是「中间人攻击」的一种形式。最后，制作的工具取名为 DDA - Doc88 Download Assistant。
+
+随着时间的流逝，我在构建个人电子图书馆的道路愈行愈远，玩转了 Markdown/Txtinfo/Man/reStructuredText/AsciiDoc 等等开源文档格式，也见证了 HTML Help CHM 格式（可以说是 M$ 在作茧自缚的格式），最后归家到 MarkDown/AsciiDoc/LaTeX。正巧，最近两天看到一本书，The Essential Guide to Creating Multiplayer Games with Godot 4.0，也就是此文档的主角，全网搜索后只有 doc88 有用户转发。可惜的是自从 Z-Library 被打印后，我就和网络图书馆就失联了。这就是让我再次从 doc88 站点上获取资源的契机，我是非常不愿意使用这个服务的，现在又要来阅读与分析一下 doc88 前端代码。
+
+以下这些段代码是 doc88.com 网站中的 JavaScript 程序的切片，其中 annotation 模块主要用于从特定数据结构中提取指定范围内的字符。文档中的文字其实已经编码过单独存放，用户在页面上看到的文档内容是重组还原后绘制到 canvas 上的图形，用户选择打印也只是获取到一张图像。询问DeepSeek 获得以下代码的逐行分析：
+
+函数功能：根据输入参数 _RX（页面索引）和范围 [_s1, _BL]，从预定义的数据结构中提取指定索引区间内的字符，并拼接成字符串返回。关键数据结构：
+
+• _tU._Qd._TA(_RX) 根据页面索引 _RX 返回一个缩放比例（可能是针对不同设备分辨率的适配值）。
+• _tU._Qd._LA 二维数组，存储每个页面的矩形坐标信息。通过 _RX-1 获取指定页面的数据，用 ; 分割为单个矩形字符串，再用逗号解析坐标。格式示例：["x1,y1,w1,h1;x2,y2,w2,h2;...", ...]
+• _tU._Qd._9w 二维数组，存储每个页面对应的字符序列。
+
+通过 _RX-1 获取指定页面的字符串，每个字符按索引 _tF 与矩形一一对应。算法实在是非常低效的，最差要将枚举整个页面编码的数组元素，以匹配到最后那个备选中的字符。
+
+[source,javascript]
+----
+// javascript:
+Config.vip_start_time=1717171201-1;
+Config.logined="1";
+Config.vip=1;
+Config.sys=1;
+Config.ownPublish = 1;
+Config.stateBought = 1+1;
+Config.dlRemainTimes=1;
+Config.siteurl_static + "/assets/pv.swf?v=1.902";
+Core.Annotation.api._Cv="1-0-9999:2-0-9999:3-0-9999";
+Core.Annotation.api._3Z="";
+copyText();
+
+// Let's set a breakpoint at _mF
+// selectRange="page-start-endchar:page-start-endchar"
+GrangeCopy = Core.Annotation.api._mF;
+Core.Annotation.api._mF = function(...args) { 
+    debugger; 
+    GrangeCopy(...args); 
+    Core.Annotation.api._mF = GrangeCopy 
+}
+
+
+// https://static.doc88.com/resources/js/modules/annotation-v2.min.js?v=3.73
+define(function(require, exports, module) {
+    var Catalog = null;
+    var _tU = function() {};
+    (function(p8) {
+        _tU._Qd = null;
+        ...
+        // Init: _tU._Qd._LA is an array encode each book page tex,
+        // each page is a string list sepreated by semicolon, and
+        // each string has 4-decimal elements sepreated by comma.
+        // _tU._Qd._LA.constructor => ƒ Array() { [native code] }
+        // _tU._Qd.constructor => ƒ Function() { [native code] }
+        // _tU.constructor  => ƒ Function() { [native code] }
+        _tU._D6 = function(_Qd, _K8) {
+            Catalog = _K8;
+            _tU._Qd = _Qd;
+            _tU._CR = new _Qd.HashMap();
+            _tU._u6 = new _Qd.HashMap();
+            _tU._f5 = new _Qd.HashMap()
+        }
+        // Calculate text by text range coordinate.
+        _tU._mF = function(_RX, _s1, _BL) {
+            var _vR = _tU._Qd._TA(_RX);
+            var _ZU_rect_array = _tU._Qd._LA[_RX - 1].split(";");
+            var _ZU = "";
+            for (var _tF = 0; _tF < _ZU_rect_array.length - 1; _tF++) {
+                var _l9 = _ZU_rect_array[_tF].split(",");
+                var _zh = _l9[0];
+                var _zO = _l9[1];
+                var _53 = _l9[2];
+                var _ro = _l9[3];
+                var _pv = Math.ceil(_53 * _vR);
+                var _Km = Math.ceil(_ro * _vR);
+                var _wj = parseInt(_zh * _vR);
+                var _nY = parseInt(_zO * _vR);
+                var _fV = _tU._Qd._9w[_RX - 1].charAt(_tF);
+                if (_tF >= _s1 && _tF <= _BL) {
+                    _ZU = _ZU + _fV
+                }
+            }
+            return _ZU
+        }
+        ...
+    })
+})
+
+seajs.use('main-v2{path}.js?v={version}', function (m_main) {
+		Core = m_main;
+		m_main.init("a_huge_key_data...");
+	});
+
+// Core.api._OW(Core.api._Hu); 页面打印转图
+Viewer._OW = function(_RX) {
+    var _5E = document.getElementById("page_" + _RX);
+    var _LL = document.getElementById("startIFrame");
+    var _M0 = _LL.contentWindow.document;
+    var _Xs = 742;
+    var _XC = _5E.height / (_5E.width / _Xs);
+    var _Pe = document.getElementById("page_" + _RX).toDataURL();
+    if (!Viewer._NF) {
+        var _Bo = "<!DOCTYPE html>";
+        _Bo += "<html>";
+        _Bo += '<head><style media="print">@page {size: auto;margin: 0mm; }</style><title>'+ Config.p_name + "</title></head>";
+        _Bo += '<body style="padding:0px;margin:0px;text-align:center">';
+        _Bo += '<img id="_EI" src ="'+ _Pe + '" width="'+ _Xs + '" height="'+ _XC + '">';
+        _Bo += "</body>";
+        _Bo += "</html>";
+        _M0.write(_Bo);
+        Viewer._NF = true
+    } else {
+        _M0.getElementById("_EI").src = _Pe
+    }
+    _M0.getElementById("_EI").onload = function() {
+        if (Viewer._n0 || Viewer._0Y) {
+            _LL.contentWindow.document.execCommand("print", !1, null)
+        } else {
+            _LL.contentWindow.print();
+            _LL.contentWindow.close()
+        }
+    }
+}
+
+function copyText() {
+    if (Core.Annotation.api._Cv == "") return "to do something else"
+    if (Core.Annotation.api._3Z == "") { // Text that was selected.
+        var _ZU = "";
+        var _ID = Core.Annotation.api._Cv.split(":");
+        for (var _tF = 0; _tF < _ID.length; _tF++) {
+            var _mw = _ID[_tF].split("-");
+            var _RX = parseInt(_mw[0]);
+            var _Hr = parseInt(_mw[1]);
+            var _PX = parseInt(_mw[2]);
+            _ZU = _ZU + Core.Annotation.api._mF(_RX, _Hr, _PX)
+        }
+        Core.Annotation.api._3Z = _ZU
+    }
+    if (Config.vip == 1 || Config.sys == 1 || Config.ownPublish == 1) {
+        if (Config.logined == 0 && Config.sys == 0) {
+            // title: "登录后免费复制",
+        } else {
+            var _70 = false;
+            $("#toolbar,#readshop").append('<textarea  id="text_cp">'+ Core.Annotation.api._3Z + "</textarea>");
+            var _tY = document.getElementById("text_cp");
+            _tY.select();
+            try {
+                _70 = document.execCommand("Copy", false, null)
+            } catch (e) {}
+            $("#text_cp").remove();
+            if (!_70) {
+                if ($("#ta").length == 0) {
+                    $(body).append('您选择了以下内容<textarea id="ta"></textarea>')
+                }
+                $("#ta").val(Core.Annotation.api._3Z);
+                $(".copy-tips").show()
+            }
+            _Hy();
+            saveDAction(2)
+        }
+    }
+    ...
+}
+
+function downloadXdf(type) {
+    var title = "微信扫码免费下载XDF文件";
+    if (type == 1) {
+        title = "微信扫码免费下载打印此文档"
+    } else {
+        if (type == 2) {
+            title = "微信扫码免费下载复制此文档"
+        }
+    }
+    var code = Core.api._p0;
+    if (Config.z_doc_id != "") {
+        code = Config.z_doc_id
+    }
+    if (Config.vip == 1) {
+    ...
+    }
+}
+function startPrintDoc(type) {
+    if (Config.vip_start_time > 0 && Config.vip_start_time < 1717171201 && type == 0) {
+        downloadXdf(1);
+        return
+    } else {
+        orderForPrint = true;
+        pageInitialization();
+        downloadAlertWindow(0, 0)
+    }
+}
+$("#print_btn").click(function() {
+    var _t2 = new Object();
+    _t2.a = "print";
+    _t2.btn = this.id;
+    Viewer._Fo(_t2);
+    if (Config.ownPublish == 1 || Config.stateBought >= 1) {
+        printFullDoc()
+    } else {
+        startPrintDoc(0)
+    }
+});
+
+function checkDownload(downloadType) {
+    ...
+    $.ajax({url: ApiUrl + "/doc.php?act=download&pcode=" + Config.p_code + "&t=2&puid=" + uid,..})
+    ...
+}
+----
+
+
+.Coder.as
+[opts=collapsible]
+====
+[source,actionscript]
+----
+package dda
+{
+	/*
+	 * a link example:
+	 * http://ebt246.doc88.com/getebt-0rUXzqMX2LkT0qEd1qEd0jPR0jP50qEd0jPR0jP50qEX2q3V0jBApIlVpTsTsqs=.ebt
+	 * 
+	 * The base64doc88 encode part name EBT KEY:
+	 * 0rUXzqMX2LkT0qEd1qEd0jPR0jP50qEd0jPR0jP50qEX2q3V0jBApIlVpTsTsqs=
+	 * Decode version:
+	 * 1-0-1089317-57-20120917-20120917092526_DyuG53Q5
+	 * part #1 those call hn
+	 * part #2 just call NO_IDEA_2
+	 * part #3 1089317 means file size, more then 1MB here.
+	 * part #4 is a mpebt key show below.
+	 * 
+	 * For the #4, it is made up with serial matterals:
+	 * 1. var mpebt = "57-20120917-20120917092526_DyuG53Q5"; in web page
+	 * 2. var mhi = new Array("1089317");
+	 * 3. var mpib= ....; this also can find in web page js code.
+	 * 
+	 * And the mpib is key information to retrive ebt file on web server. It contains meta infs for every page, 
+	 * those meta contacts with "-" like this which named PAGE META:
+	 * 1-335-491-1089317-212427
+	 * part #1 is hn which the same as above
+	 * part #2 is page width
+	 * part #3 is page height
+	 * part #4 is just call NO_IDEA_2 the same as above
+	 * part #5 is file size the same as above
+	 * Those page meta contacts together with "," the comma symbol and encode as base64doc88, 
+	 * that is what we see mpib in page.
+	 * 
+	 * So, the EBT KEY can redescribe like this:
+	 * HN-NO_IDEA_2-FILESIZE-MPEBT
+	 * In detail, the part NO_IDEA_2 always 0 for PH EBT, and its file size inf come from 
+	 * mhi instead of value from PAGE META.
+	 * 
+	 */
+
+    public class Coder extends Object
+    {
+        private static var CODE:String;
+        private static var BASE64DOC88:Array = new Array(
+			"P", "J", "K", "L", "M", "N", "O", "I", "3", "x", "y", "z", "0", 
+			"1", "2", "w", "v", "p", "r", "q", "s", "t", "u", "o", "H", "B", 
+			"C", "D", "E", "F", "G", "A", "n", "h", "i", "j", "k", "l", "m", 
+			"g", "f", "Z", "a", "b", "c", "d", "e", "Y", "X", "R", "S", "T", 
+			"U", "V", "W", "Q", "!", "5", "6", "7", "8", "9", "+", "4");
+        private static var BASE64MAP88:Array;
+        private static var INDEX:Number;
+        private static var EOF:Number = -1;
+        private static var INIT_DONE:Boolean = false;
+
+        public function Coder()
+        {
+            return;
+        }
+
+        private static function init() : Boolean
+        {
+            var i:Number = 0;
+            BASE64MAP88 = new Array();
+
+            while (i < BASE64DOC88.length)
+            {
+                BASE64MAP88[BASE64DOC88[i]] = i;
+                i++;
+            }
+            return true;
+        }
+
+        private static function initDecode(code:String):void
+        {
+            CODE = code;
+            INDEX = 0;
+            return;
+        }
+
+        private static function getChar2Encode() : Number
+		{
+            if (!CODE) {
+                return EOF;
+            }
+            if (INDEX >= CODE.length) {
+                return EOF;
+            }
+            var c:Number = CODE.charCodeAt(INDEX) & 0xff;
+            INDEX++;
+            return c;
+        }
+
+		public static function encode (str:String) : String 
+		{
+            str = UTF16TO8(str);
+            initDecode(str);
+            var result:String = '';
+            var inBuffer:Array = new Array(3);
+            var lineCount:Number = 0;
+            var done:Boolean = false;
+            var map:Array = BASE64DOC88;
+            while (!done && (inBuffer[0] = getChar2Encode()) != EOF)
+            {
+                inBuffer[1] = getChar2Encode();
+                inBuffer[2] = getChar2Encode();
+                result += (map[inBuffer[0] >> 2]);
+                if (inBuffer[1] != EOF)
+                {
+                    result += (map[((inBuffer[0] << 4) & 0x30) | (inBuffer[1] >> 4)]);
+                    if (inBuffer[2] != EOF)
+                    {
+                        result += (map[((inBuffer[1] << 2) & 0x3c) | (inBuffer[2] >> 6)]);
+                        result += (map[inBuffer[2] & 0x3F])
+                    }
+                    else {
+                        result += (map[((inBuffer[1] << 2) & 0x3c)]);
+                        result += ('=');
+                        done = true;
+                    }
+                }
+                else {
+                    result += (map[((inBuffer[0] << 4) & 0x30)]);
+                    result += ('=');
+                    result += ('=');
+                    done = true;
+                }
+            }
+            return result;
+        }
+		
+		
+        private static function num2char(charCode:Number) : String
+        {
+            var out:String = null;
+            out = charCode.toString(16);
+            if (out.length == 1)
+            {
+                out = "0" + out;
+            }
+            out = "%" + out;
+            return unescape(out);
+        }
+
+        private static function getCode():Number
+        {
+            var char:String = null;
+            if (!CODE)
+            {
+                return EOF;
+            }
+            while (true)
+            {
+                if (INDEX >= CODE.length)
+                {
+                    return EOF;
+                }
+                char = CODE.charAt(INDEX);
+                
+                INDEX++;
+                if (BASE64MAP88[char])
+                {
+                    return BASE64MAP88[char];
+                }
+                if (char == "P")
+                {
+                    return 0;
+                }
+            }
+            return EOF;
+        }
+
+        public static function decode(code:String) : String
+        {
+            var out:String = "";
+            var buffer:Array = null;
+            var done:Boolean = false;
+            initDecode(code);
+
+            buffer = new Array(4);
+
+            if (!INIT_DONE)
+            {
+                init();
+                INIT_DONE = true;
+            }
+            while (!done && (buffer[0] = getCode() ) != EOF && (buffer[1] = getCode()) != EOF)
+            {
+                buffer[2] = getCode();
+                buffer[3] = getCode();
+                out = out + num2char(buffer[0] << 2 & 0xFF | buffer[1] >> 4);
+                if (buffer[2] != EOF)
+                {
+                    out = out + num2char(buffer[1] << 4 & 0xFF | buffer[2] >> 2);
+                    if (buffer[3] != EOF)
+                    {
+                        out = out + num2char(buffer[2] << 6 & 0xFF | buffer[3]);
+                    }
+                    else
+                    {
+                        done = true;
+                    }
+                }
+                else
+                {
+                    done = true;
+                }
+            }
+            return out;
+        }
+
+        public static function UTF16TO8 (str:String) : String 
+		{
+            var out:String, i:Number, len:Number, c:Number;
+            out = "";
+            len = str.length;
+            for (i = 0; i < len; i++)
+            {
+                c = str.charCodeAt(i);
+                if ((c >= 0x0001) && (c <= 0x007F)) {
+                    out += str.charAt(i)
+                }
+                else if (c > 0x07FF)
+                {
+                    out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                    out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+                    out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F))
+                }
+                else
+                {
+                    out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+                    out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F))
+                }
+            }
+            return out;
+        }
+        
+        public static function UTF8TO16(str:String) : String
+		{
+            var out:String, i:Number, len:Number, c:Number;
+            var char2:Number, char3:Number;
+            out = "";
+            len = str.length;
+            i = 0;
+            while (i < len)
+            {
+                c = str.charCodeAt(i++);
+                switch (c >> 4)
+                {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                        out += str.charAt(i - 1);
+                        break;
+                    case 12:
+                    case 13:
+                        char2 = str.charCodeAt(i++);
+                        out += String.fromCharCode(((c & 0x1F) << 6) | (char2 & 0x3F));
+                        break;
+                    case 14:
+                        char2 = str.charCodeAt(i++);
+                        char3 = str.charCodeAt(i++);
+                        out += String.fromCharCode(((c & 0x0F) << 12) | ((char2 & 0x3F) << 6) | ((char3 & 0x3F) << 0));
+                        break
+                }
+            }
+            return out;
+        }
+		
+    }
+}
+----
+====
+
+
+.JSAgent.as
+[opts=collapsible]
+====
+[source,actionscript]
+----
+package dda 
+{
+	import flash.events.Event;
+	import flash.html.HTMLLoader;
+	import flash.utils.ByteArray;
+	import mx.controls.*;
+	/**
+	 * ...
+	 * @author Jimbowhy
+	 */
+	public class JSAgent 
+	{
+		
+		public var htmLoder:HTMLLoader;
+		public var win:Object;
+		private var _fun:Function;
+		
+		public function JSAgent(data:String, fun:Function) 
+		{
+			_fun = fun;
+			htmLoder = new HTMLLoader();
+			htmLoder.loadString(data);
+			//htmLoder.addEventListener(Event.HTML_RENDER, doHtmlRender);
+			htmLoder.addEventListener(Event.COMPLETE, doHtmlRender);
+		}
+		
+		public function callMethod(name:String, args:Array):Object
+		{
+			var m:Object = win[name];
+			if ( !m ) return false;
+			return m(args);
+		}
+		
+		public function getVariable(name:String):Object 
+		{
+			var v:Object = win[name];
+			return v;
+		}
+		
+		public function setVariable(name:String, value:String):Object 
+		{
+			var v:Object = win[name];
+			win[name] = value;
+			return v;
+		}
+		
+		private function doHtmlRender(e:Event):void 
+		{	
+			trace(e.type);
+			var o:HTMLLoader = HTMLLoader(e.target);
+			win = htmLoder.window;
+			if ( _fun!=null ) _fun(win);
+		}
+	}
+
+}
+----
+====
+
+
+.SmartClip.as
+[opts=collapsible]
+====
+[source,actionscript]
+----
+package dda 
+{
+	
+	import flash.events.*;
+	import flash.utils.*;
+	import flash.desktop.*;
+	/**
+	 * ...
+	 * @author Jimbowhy
+	 */
+	public class SmartClip extends EventDispatcher
+	{
+		private var _timer:Timer = new Timer(300);
+		private var _history:Array = new Array();
+		private var _queue:Array = new Array();
+		// global mode open, reset lastIndex IN TIME!
+		private var _HTTPREP:RegExp = /(https?:\/\/)/g;
+		private var _URLREP:RegExp = /^(https?:\/\/)?([\w-]+\.)+(\w{2,4})\/?[^\*\^<>";:]*(\.\w{1,4})/g;
+		private var _fun:Function ;
+		
+		public var url:String = null;
+		
+		public function SmartClip(fun:Function) : void
+		{
+			_fun = fun;
+			_timer.addEventListener(TimerEvent.TIMER, doTick);
+			_timer.start();
+		}
+		
+		public function mute(state:Boolean):void 
+		{
+			state? _timer.stop():_timer.start();
+		}
+		
+		public function enqueue(list:Array):void 
+		{
+			_queue = _queue.concat(list);
+		}
+		
+		private function doTick(e:TimerEvent):void 
+		{
+			var clip:Clipboard = Clipboard.generalClipboard;
+			var txt:String = "";
+			if (clip.hasFormat(ClipboardFormats.HTML_FORMAT)) {
+				txt = String(clip.getData(ClipboardFormats.HTML_FORMAT));
+			}else if (clip.hasFormat(ClipboardFormats.TEXT_FORMAT)) {
+				txt = String(clip.getData(ClipboardFormats.TEXT_FORMAT));
+			}else if ( clip.hasFormat(ClipboardFormats.URL_FORMAT)) {
+				txt = String(clip.getData(ClipboardFormats.URL_FORMAT));
+			}
+			
+			if (_history.indexOf(txt) >= 0) {
+				txt = "";
+			}else if (txt.length) {
+				_history.push(txt+"[DONE]");
+				_queue = _queue.concat(parseURL(txt));
+			}
+			
+			if (_fun != null && !url && _queue.length ) {
+				url = _queue.shift();
+				if (_history.indexOf(url) >= 0) {
+					url = null;
+					return;
+				}
+			}
+			
+			if (_fun && url && _fun(this, _queue.length==0)) {
+				_history.push(url);
+				url = null;
+			}
+			//dispatchEvent(e);
+		}
+		
+		private function parseURL(str:String):Array 
+		{
+			var ls:Array = str.replace(_HTTPREP,"\n$&").replace(/\s+|"/g,"\n").split("\n");
+			var queue:Array = new Array();
+			for (var i:int = 0; i < ls.length; i++) {
+				_URLREP.lastIndex = 0;				
+				var urls:Array = _URLREP.exec(ls[i]);
+				if(urls) queue.push(urls[0]);
+			}
+			return queue;
+		}
+	}
+}
+----
+====
+****
+
+
+== Foreword
+
+Henrique, better known as Pigdev in the Godot sphere, was one of the frst content creators covering the engine back in the day. He’s always been dedicated to open source sofware.
+
+We worked together for a couple of years, and I’m glad to see how Henrique has grown into one of the few old-timers who are still constantly learning and sharing with the community.
+
+Most resources for Godot focus on helping newcomers learn the basics. With this essential guide to creating multiplayer games with Godot, we fnally have a learning resource dedicated to online multiplayers. At the time of release, it is one of the areas of Godot that lacks learning resources the most.
+
+I especially appreciated the last three chapters, as they dive into essential techniques such as lag compensation and optimizing network requests. Serious real-time multiplayer games absolutely need them, yet information on these topics can be especially hard to fnd.
+
+I hope you’ll have a great time with this essential guide to multiplayer in Godot, and I can’t wait to see more multiplayer Godot games thanks to it.
+
+_Nathan Lovato_ +
+_GDQuest founder_
+
+
+== Contributors
+
+=== About the author
+
+**_Henrique Campos_** is an indie game developer and game designer working in the industry since 2015. Starting as a university teacher in the Computer Graphics and Artifcial Intelligence chairs and working for the GDQuest team from 2018 to 2022, he also provides consultancy for solo developers, studios, and schools.
+
+Under the alias of Pigdev, Henrique has been creating game development content on his YouTube channel since 2016. Among his projects, he wrote the Top 7 Godot Engine Recipes and Platformer Essential Recipes e-books, where he presents design patterns that people can use to make games with the Godot Engine.
+
+A passionate open source enthusiast, Henrique has been working and contributing to the Godot Engine project since 2016.
+
+I want to thank God, my friends, and my family, especially my sister, Ráisa, my mother, Sheila, and my father, Claudio, for always being by my side and supporting me throughout my journey of empowering indie game developers.
+
+I also want to thank the whole Godot Engine community for building and supporting such an amazing tool.
+
+
+=== About the reviewer
+
+**_Yogendra Manawa_**t is an indie maker and computer science student. While he is primarily focused on development skills, he’s also experienced in programming languages including C++, Python, C#, TypeScript, and GDScript.
+
+His passion for games and movies led him to explore 3D animation with Blender. Yogendra has over three years of game development experience, having created several small games. Currently, he’s focused on his original story-based game, Bleak, built using the Godot Engine.
+
+Yogendra loves learning new technologies and experimenting with development techniques to create unique games and useful sofware. He’s an active contributor to the Godot Engine community and has developed tools, including Coursefy and Vortexorama, using Godot. Yogendra actively engages in game development forums, collaborating and exchanging ideas with fellow developers.
+
+[[toc]]
+== TOC
+// 🧀🍤🍮🍋 §
+
+[pass]
+++++++
+<style>
+a {text-decoration:none !important;}
+</style>
+++++++
+
+[cols="<1,<9,<0",width=100,opts=""]
+|===
+||<<xiii, Preface>>                                                       |xiii
+
+
+3+|[.big]**🧀 Part 1: Handshaking and Networking**
+
+2+|<<P003, **🍮 Chapter 1 Setting up a Server**>>                        |§3
+||<<P004, Technical requirements>>                                        |§4
+||<<P004, Introduction to a network>>                                     |§4
+||<<P006, Understanding the ENetMultiplayerPeer class>>                   |§6
+||<<P006, What is the ENet library?>>                                     |§6
+||<<P007, What is the UDP protocol?>>                                     |§7
+||<<P010, How does this connection happen?>>                              |§10
+||<<P010, Creating the server>>                                           |§10
+||<<P012, Creating the client>>                                           |§12
+||<<P014, Testing our handshake>>                                         |§14
+||<<P018, Summary>>                                                       |§18
+
+2+|<<P019, **🍮 Chapter 2 Sending and Receiving Data**>>                 |§19
+||<<P020, Technical requirements>>                                        |§20
+||<<P020, Understanding packets>>                                         |§20
+||<<P021, Introduction to the JSON format>>                               |§21
+||<<P022, Serialization>>                                                 |§22
+||<<P024, Sending packets with PacketPeerUDP>>                            |§24
+||<<P024, Creating an AuthenticationCredentials Autoload>>                |§24
+||<<P026, Sending players’ credentials>>                                  |§26
+||<<P030, Listening to packets with UDPServer>>                           |§30
+||<<P032, Authenticating the player>>                                     |§32
+||<<P032, Loading a fake database>>                                       |§32
+||<<P035, Replying to the authentication request>>                        |§35
+||<<P037, Maintaining the player’s session>>                              |§37
+||<<P039, Loading the player’s avatar>>                                   |§39
+||<<P045, Summary>>                                                       |§45
+
+2+|<<P047, **🍮 Chapter 3 Making a Lobby to Gather Players Together**>>  |§47
+||<<P048, Technical requirements>>                                        |§48
+||<<P048, Calling functions remotely with RPCs>>                          |§48
+||<<P049, Introducing the @rpc annotation>>                               |§49
+||<<P051, What’s necessary for an RPC?>>                                  |§51
+||<<P052, Understanding the multiplayer authority>>                       |§52
+||<<P053, Comparing UDP and ENet approaches>>                             |§53
+||<<P054, Remaking the login screen with RPCs>>                           |§54
+||<<P055, Establishing an ENetMultiplayerPeer connection>>                |§55
+||<<P058, Creating the RPC functions template>>                           |§58
+||<<P060, Authenticating the player>>                                     |§60
+||<<P063, Adding the player’s avatar>>                                    |§63
+||<<P065, Cleaning AvatarCards>>                                          |§65
+||<<P065, Retrieving players’ avatars>>                                   |§65
+||<<P067, Testing the lobby>>                                             |§67
+||<<P070, Summary>>                                                       |§70
+
+2+|<<P073, **🍮 Chapter 4 Creating an Online Chat**>>                    |§73
+||<<P074, Technical requirements>>                                        |§74
+||<<P075, Understanding data exchange and channels>>                      |§75
+||<<P075, Reliable and unreliable packets>>                               |§75
+||<<P075, Understanding channels>>                                        |§75
+||<<P077, Sending chat messages>>                                         |§77
+||<<P079, Updating peer’s data remotely>>                                 |§79
+||<<P080, Summary>>                                                       |§80
+
+
+3+|[.big]**🧀 Part 2: Creating Online Multiplayer Mechanics**
+
+2+|<<P083, **🍮 Chapter 5 Making an Online Quiz Game**>>                 |§83
+||<<P084, Introducing the online quiz game>>                              |§84
+||<<P086, Setting up a lobby for the quiz game>>                          |§86
+||<<P088, Displaying new players>>                                        |§88
+||<<P089, Starting the match>>                                            |§89
+||<<P090, Implementing online turns>>                                     |§90
+||<<P092, Updating players about the round>>                              |§92
+||<<P094, Turning local mechanics into remote gameplay>>                  |§94
+||<<P095, Understanding the questions database>>                          |§95
+||<<P096, Loading and updating questions>>                                |§96
+||<<P098, Sending players’ answers to the server>>                        |§98
+||<<P100, Summary>>                                                       |§100
+
+2+|<<P101, **🍮 Chapter 6 Building an Online Checkers Game**>>           |§101
+||<<P103, Technical requirements>>                                        |§103
+||<<P103, Introducing the Checkers project>>                              |§103
+||<<P104, Understanding the Checkers Piece scene>>                        |§104
+||<<P107, Comprehending the FreeCell scene>>                              |§107
+||<<P109, Introducing the CheckerBoard scene>>                            |§109
+||<<P112, Serializing players’ turns>>                                    |§112
+||<<P112, Working with MultiplayerSynchronizer>>                          |§112
+||<<P114, Updating and syncing the CheckerBoard>>                         |§114
+||<<P118, Handling remote turn shifs>>                                    |§118
+||<<P118, Setting up players’ teams>>                                     |§118
+||<<P120, Enabling and disabling team pieces>>                            |§120
+||<<P123, Managing win and lose conditions>>                              |§123
+||<<P125, Summary>>                                                       |§125
+
+2+|<<P127, **🍮 Chapter 7 Developing an Online Pong Game**>>             |§127
+||<<P127, Technical requirements>>                                        |§127
+||<<P128, Introducing the Pong project>>                                  |§128
+||<<P128, How the player paddles work>>                                   |§128
+||<<P129, Understanding the Ball scene>>                                  |§129
+||<<P131, Managing players’ scores>>                                      |§131
+||<<P133, Tying everything together>>                                     |§133
+||<<P135, Setting up online multiplayer paddles>>                         |§135
+||<<P135, Changing the paddle’s owner>>                                   |§135
+||<<P137, Assigning the players’ paddles>>                                |§137
+||<<P139, Syncing remote objects>>                                        |§139
+||<<P140, Updating the ball’s position>>                                  |§140
+||<<P142, Coordinating the paddle’s position>>                            |§142
+||<<P143, Summary>>                                                       |§143
+
+2+|<<P145, **🍮 Chapter 8 Creating an Online Co-Op Platformer Prototype**>> |§145
+||<<P146, Technical requirements>>                                        |§146
+||<<P146, Introducing the platformer project>>                            |§146
+||<<P147, Understanding the Player class>>                                |§147
+||<<P148, Unveiling the Crate class>>                                     |§148
+||<<P150, How the InteractiveArea2D class works>>                         |§150
+||<<P152, Understanding the PlayerSpawner class>>                         |§152
+||<<P153, Spawning players in the match>>                                 |§153
+||<<P155, Giving players control in PlayerSpawner>>                       |§155
+||<<P159, Setting up the Player multiplayer controls>>                    |§159
+||<<P161, Syncing physical objects>>                                      |§161
+||<<P162, Synchronizing the player’s position and animations>>            |§162
+||<<P163, Updating the crate’s position remotely>>                        |§163
+||<<P165, Summary>>                                                       |§165
+
+2+|<<P167, **🍮 Chapter 9 Creating an Online Adventure Prototype**>>     |§167
+||<<P168, Technical requirements>>                                        |§168
+||<<P169, Introducing the prototype>>                                     |§169
+||<<P169, Understanding the Player scene>>                                |§169
+||<<P173, Gauging the Asteroid scene>>                                    |§173
+||<<P175, Unraveling the quest system>>                                   |§175
+||<<P182, Breaking down the World scene>>                                 |§182
+||<<P185, Logging the player in to the server>>                           |§185
+||<<P186, Authenticating players>>                                        |§186
+||<<P189, Syncing the World scenes>>                                      |§189
+||<<P196, Separating server and client responsibilities>>                 |§196
+||<<P196, Shooting bullets on all instances>>                             |§196
+||<<P198, Calculating an asteroid’s damage>>                              |§198
+||<<P199, Storing and retrieving data on the server>>                     |§199
+||<<P200, Implementing the quest system’s client side>>                   |§200
+||<<P202, Implementing the quest system’s server side>>                   |§202
+||<<P206, Summary>>                                                       |§206
+
+
+3+|[.big]**🧀 Part 3: Optimizing the Online Experience**
+
+2+|<<P209, **🍮 Chapter 10 Debugging and Profling the Network**>>        |§209
+||<<P210, Technical requirements>>                                        |§210
+||<<P211, Introducing Godot’s Debugger>>                                  |§211
+||<<P211, Mastering the Stack Trace tab>>                                 |§211
+||<<P212, Debugging with the Errors tab>>                                 |§212
+||<<P214, Exploring the Profler tab>>                                     |§214
+||<<P216, Exploring the Visual Profler tab>>                              |§216
+||<<P218, Exploring the Monitors tab>>                                    |§218
+||<<P219, Getting to know the Video RAM tab>>                             |§219
+||<<P220, Grasping the Misc tab>>                                         |§220
+||<<P221, Understanding the Network Profler>>                             |§221
+||<<P223, Identifying the project’s bottlenecks>>                         |§223
+||<<P224, Using the Network Profler>>                                     |§224
+||<<P228, Using the Monitors tab>>                                        |§228
+||<<P232, Summary>>                                                       |§232
+
+2+|<<P233, **🍮 Chapter 11 Optimizing Data Requests**>>                  |§233
+||<<P233, Technical requirements>>                                        |§233
+||<<P234, Understanding network resources>>                               |§234
+||<<P237, Decreasing the requests count>>                                 |§237
+||<<P237, Reducing the weapon fre count>>                                 |§237
+||<<P240, Decreasing Asteroid’s syncing count>>                           |§240
+||<<P242, Compressing data with the ENetConnection class>>                |§242
+||<<P246, Summary>>                                                       |§246
+
+2+|<<P249, **🍮 Chapter 12 Implementing Lag Compensation**>>             |§249
+||<<P250, Technical requirements>>                                        |§250
+||<<P250, Introducing lag issues>>                                        |§250
+||<<P251, Dealing with unreliable packets>>                               |§251
+||<<P252, Common compensation techniques>>                                |§252
+||<<P253, Implementing server-side motion>>                               |§253
+||<<P256, Bridging the gaps with interpolation>>                          |§256
+||<<P263, Playing ahead with prediction>>                                 |§263
+||<<P268, Gazing into the future with extrapolation>>                     |§268
+||<<P270, Summary>>                                                       |§270
+
+2+|<<P271, **🍮 Chapter 13 Caching Data to Decrease Bandwidth**>>        |§271
+||<<P272, Technical requirements>>                                        |§272
+||<<P273, Understanding caching>>                                         |§273
+||<<P274, Setting up the HTTPRequest node>>                               |§274
+||<<P274, Understanding the HTTP protocol>>                               |§274
+||<<P275, Setting up the scenes and database>>                            |§275
+||<<P283, Implementing texture caching>>                                  |§283
+||<<P286, Implementing database caching>>                                 |§286
+||<<P294, Going further with caching>>                                    |§294
+||<<P295, Summary>>                                                       |§295
+
+2+|<<P297, **Index**>>                                                    |§297
+2+|<<P302, **Other Books You May Enjoy**>>                                |§302
+|===
+
+
+[[xiii]]
+== Preface
+
+The Essential Guide to Creating Multiplayer Games with Godot 4.0 is the ultimate hands-on guide to understanding how to make online multiplayer games using the open source Godot Engine. In its fourth version, Godot Engine introduces a high-level network API that allows users to focus on creating interesting and funny mechanics while letting the engine do the heavy work.
+
+Trough this book, you will learn the fundamentals of networks, including the basic UDP, TCP, and HTTP protocols. You will see how Godot Engine uses its ENet library implementation to seamlessly integrate these protocols into its game development workfow. Trough nine projects, including fve games, one of them an online multiplayer adventure game, you will learn all you need to know to connect players together in amazing shared experiences.
+
+=== Who this book is for
+
+This book is made for intermediary Godot Engine users, people who already know how Godot Engine works, its design philosophy, the editor, the documentation, and its core features. Tese users have already made games using Godot Engine. They are looking for something to make their next project stand out, and adding online multiplayer features is that thing.
+
+=== What this book covers
+
+**_Chapter 1_**, Setting up a Server, explains what a network is and how Godot Engine implements networking features through its ENet library implementation. You’ll learn how to make your frst handshake to efectively connect a server and a client machine. 
+
+**_Chapter 2_**, Sending and Receiving Data, discusses the foundation of a network, which is for multiple computers to exchange data with each other. In this chapter, you will learn that we use a data structure called packets, and we serialize data to recreate game states on the network. For this, we use the UDP protocol. At the end, we will have a login screen, efectively retrieving data from the server. 
+
+**_Chapter 3_**, Making a Lobby to Gather Players Together, explains how Godot Engine eases the process of serializing and exchanging data using the industry-standard UDP protocol by providing **_Remote Procedure Calls (RPCs)_**, allowing us to essentially make calls to methods on remote objects. By the end of the chapter, we expand the login screen into a lobby, adding another client to the equation and connecting three computers together. 
+
+**_Chapter 4_**, Creating an Online Chat, explains that with the power of RPCs, we can now change objects’ states remotely with ease. In this chapter, we learn how we use RPCs to allow players to exchange messages in a chat. We discuss how we can use RPCs and channels to prevent network bottlenecks. With that, we prepare ourselves to implement actual game features. By the end of the chapter, we will have a fully functional chat. 
+
+**_Chapter 5_**, Making an Online Quiz Game, explains how we can synchronize players’ game states based on the general game state. We will set up a server that will react to player interactions and change the game state from waiting for a response to processing a match winner, announcing the winner, starting a new match, and reaching the end of available quiz questions, efectively ending the game. By the end of the chapter, we will have an online quiz game where multiple players compete to answer the most questions correctly. 
+
+**_Chapter 6_**, Building an Online Checkers Game, moves on to implementing a turn-based multiplayer online game, and nothing is better than the classic checkers for that. In this chapter, we will learn how to get the most out of our RPCs while still maintaining the heavy processing on players’ machines. We will also discuss `MultiplayerSynchronizer`, a node that allows us to easily synchronize nodes’ properties remotely. We will also learn what Multiplayer Authority is, which prevents players from messing around with other players’ objects. By the end of the chapter, we will have a fully functional online checkers game. 
+
+**_Chapter 7_**, Developing an Online Pong Game, begins the transition from turn-based to action. Action games rely heavily on players’ reaction times, and the game world should update its state quickly to allow players to have a smooth experience. Here, we will develop an online Pong game and use the `MultiplayerSynchronizer` node to sync the players’ paddles and the ball. We will also learn that some features should use diferent syncing processes. We will go even deeper into the Multiplayer Authority realm to prevent one player’s input from interfering with the other player’s paddle’s movement. By the end of the chapter, we have a playable multiplayer online Pong game. 
+
+**_Chapter 8_**, Designing an Online Co-Op Platformer, is where our baby steps stop and we start to implement interesting features for a custom game. We will prototype a physics puzzle platformer game where players grab and move crates around to overcome obstacles and reach the level’s goal. Applying everything we’ve learned in the previous chapters, we will expand the usage of the `MultiplayerSynchronizer` by syncing animations on top of objects’ positions. By the end of the chapter, we will have a working prototype of a physics puzzle co-op platformer game. 
+
+**_Chapter 9_**, Creating an Online Adventure Prototype, is, if we’re honest, what you have been looking for throughout this book. Here, we will use all our skills to create an online multiplayer adventure game. Players can join and leave at any time and the world is persistent, maintaining players’ progress in quests. We will discuss the basics of making an MMORPG game, storing and retrieving players’ quest progress in a database, syncing players’ spaceships and bullets, and making their actions afect other players’ experiences. By the end of the chapter, we will have a prototype of an online multiplayer top-down space-shooter adventure game. 
+
+**_Chapter 10_**, Debugging and Profling the Network, moves on from implementing the online multiplayer features on our top-down space-shooting adventure prototype. We now need to pave the way for thousands of players to play our game simultaneously. For that, we will use Godot Engine’s built-in debugging and profling tools to assess the potential areas for improvements in our game. We will focus on the network profler and the monitor debugging tools to assess and propose potential solutions for the bottlenecks we fnd in our prototype. By the end of the chapter, we will have two of the most powerful and necessary skills a developer can have: the ability to debug and optimize a game. 
+
+**_Chapter 11_**, Optimizing Data Requests, builds on the understanding of the tools we have at our disposal to assess the information we need to discover potential areas for improvement; now, it’s time to get our hands dirty. Troughout this chapter, we will learn how to create custom monitors to gather data about specifc game features and decide the best strategy to optimize them. By the end of the chapter, we will have refactored our top-down space-shooting adventure, decreasing the bandwidth and the number of RPCs we make, efectively making our network consumption much lighter. We will have also implemented several techniques to decrease the network load, assessing each improvement with the network profler and custom monitors to see how much better the game is becoming. 
+
+**_Chapter 12_**, Implementing Lag Compensation, deals with the issue that due to the improvements made to decrease network usage, our game may be inaccurately replicated on players’ machines. With fewer RPCs and more sparse synchronization, the game may become asynchronous among players. Add latency and packet loss on top of that and you efectively worsen the players’ experience. Nobody likes lag in their game. In this chapter, we will learn how to use Tweens to implement interpolation, prediction, and extrapolation to compensate for all these issues. By the end of the chapter, we will have a version of the top-down space-shooting adventure prototype with some fake latency and solutions for this game-breaking issue. 
+
+**_Chapter 13_**, Caching Data to Decrease Bandwidth, handles an important issue: throughout our network engineering endeavors, we have learned that bandwidth is our core resource and that we should always look to optimize its usage. In this chapter, we will learn how to use HTTP to download some data and store it on players’ machines so that we can reuse it when necessary. By the end of the chapter, we will have implemented a feature that allows players to use custom images for their spaceships, and this new image will be replicated on all other players’ instances of the game. To save bandwidth, we will implement caching using the user data folder.
+
+=== To get the most out of this book
+
+This book uses Godot Engine’s ENet library implementation to create several prototypes that explore the boundaries of this technology. To get the most out of this book, you need to understand how Godot Engine works, how to code in GDScript, how to use Git, and the basics of the UDP, TCP, and HTTP protocols.
+
+[source,subs=normal,role="big olive"]
+Sofware/hardware covered in the book : [.lime]**_Godot Engine 4.0_**
+       Operating system requirements : [.lime]**_Windows, macOS, or Linux_**
+
+
+Troughout the book, we use the projects available in the book’s GitHub repository. This book focuses on the networking aspects of each project, so to save you time, you have ready-to-use projects available so you don’t need to bother with implementing other features that are not related to network engineering. In that sense, having Git installed is recommended, although not mandatory because you can download the code directly through the links provided as well.
+
+If you are using the digital version of this book, we advise you to type the code yourself or access the code from the book’s GitHub repository (a link is available in the next section). Doing so will help you avoid any potential errors related to the copying and pasting of code.
+
+=== Download the example code files
+
+You can download the example code fles for this book from GitHub at https://github.com/PacktPublishing/The-Essential-Guide-to-Creating-Multiplayer-Games-with-Godot-4.0/. If there’s an update to the code, it will be updated in the GitHub repository.
+
+We also have other code bundles from our rich catalog of books and videos available at https://github.com/PacktPublishing/. Check them out!
+
+=== Conventions used
+
+There are a number of text conventions used throughout this book.
+
+Code in text: Indicates code words in text, database table names, folder names, flenames, fle extensions, pathnames, dummy URLs, user input, and Twitter handles. Here is an example: “One of the Godot Engine’s Network API core features is the ENetMultiplayerPeer class.”
+
+A block of code is set as follows:
+
+[source,gdscript,subs=normal,role="olive"]
+----
+func _process(delta) :
+    server.poll()
+    if server. is_connection_available() :
+        var peer = server. take_connection()
+        var message = JSON. parse_string(peer. get_var() )
+        if "authenticate_credentials" in message:
+            authenticate_player(peer, message)
+        elif "get_authentication_token" in message:
+            get_authentication_token(peer, message)
+----
+
+**Bold**: Indicates a new term, an important word, or words that you see onscreen. For instance, words in menus or dialog boxes appear in bold. Here is an example: “From there, we frst need a server. So, choose one instance and press the ServerButton.”
+
+****
+TIP: **Tips or important notes** +
+Appear like this.
+****
+
+=== Get in touch
+
+Feedback from our readers is always welcome.
+
+**General feedback**: If you have questions about any aspect of this book, email us at customercare@ packtpub.com and mention the book title in the subject of your message.
+
+**Errata**: Although we have taken every care to ensure the accuracy of our content, mistakes do happen. If you have found a mistake in this book, we would be grateful if you would report this to us. Please visit https://www.packtpub.com/support/errata and fll in the form.
+
+**Piracy**: If you come across any illegal copies of our works in any form on the internet, we would be grateful if you would provide us with the location address or website name. Please contact us at copyright@packt.com with a link to the material. 
+
+**If you are interested in becoming an author**: If there is a topic that you have expertise in and you are interested in either writing or contributing to a book, please visit https://authors.packtpub.com.
+
+=== Share Your Thoughts
+
+Once you’ve read The Essential Guide to Creating Multiplayer Games with Godot 4.0, we’d love to hear your thoughts! Please click here to go straight to the Amazon review page for this book and share your feedback.
+
+Your review is important to us and the tech community and will help us make sure we’re delivering excellent quality content.
+
+
+=== Download a free PDF copy of this book
+
+Tanks for purchasing this book!
+
+Do you like to read on the go but are unable to carry your print books everywhere?
+
+Is your eBook purchase not compatible with the device of your choice?
+
+Don’t worry, now with every Packt book you get a DRM-free PDF version of that book at no cost.
+
+Read anywhere, any place, on any device. Search, copy, and paste code from your favorite technical books directly into your application.
+
+The perks don’t stop there, you can get exclusive access to discounts, newsletters, and great free content in your inbox daily.
+
+Follow these simple steps to get the benefts:
+
+1. Scan the QR code or visit the link below
+   https://packt.link/free-ebook/9781803232614
+2. Submit your proof of purchase
+3. Tat’s it! We’ll send your free PDF and other benefts to your email directly
+
+NOTE: 本书介绍了 Godot 联网游戏开发，也介绍了底层使用的 ENet 网络开发库，但是缺少对整个网络游戏架构或者网络拓扑的分析，只是以一种“dummy”方式指示读者如何如何操作，并没有深入地讲解技术要义。为了提高网络通信性能，ENet 基于 UDP 协议来实现节点间的可靠远程通信。Godot 联网游戏可以采用 P2P 对等网络模式（仅适用于局域网/本地），也可以采用经典的 “权威服务器” (authoritative server) 模型来构建可靠的互联网游戏。
+
+== 🧀 Part 1 : Handshaking and Networking
+
+Troughout this part of the book, we take our frst steps into the realm of networking. We start by making a handshake using Godot Engine’s high-level EnetMultiplayerPeer class. We also learn how to use the UDP protocol to exchange data and end up by learning how to use **_Remote Procedure Call (RPC)_**.
+
+This part contains the following chapters:
+
+• Chapter 1, Setting up a Server
+• Chapter 2, Sending and Receiving Data
+• chapter 3, Making a Lobby to Gather Players Together
+• Chapter 4, Creating an Online Chat
+
+[[P003]]
+
+== 🍮 Chapter 1 Setting up a Server
+
+Welcome to The Essential Guide to Creating Multiplayer Games with Godot 4.0. In this hands-on book, you are going to learn the core concepts used to create online multiplayer games using the Godot Engine 4.0 Network API.
+
+Firstly, we are going to understand some fundamental aspects of how computers communicate through a network and the main protocols, including which ones are more relevant for making online multiplayer games.
+
+Afer that, we will understand how Godot Engine 4.0 uses and provides both low- and high-level implementations for networking using its network API. We’ll understand some core classes that we can use to pass data around to multiple computers on the same network. And then we’ll focus on the high-level API known as ENetMultiplayerPeer.
+
+With the fundamentals in place, we’ll use the knowledge we just learned to turn local gameplay features into online gameplay features. To do that, we will develop fve game projects:
+
+• An online quiz game
+• Checkers
+• Pong
+• A co-op platformer
+• A top-down adventure
+
+Then, we’ll learn some techniques we can use to improve our players’ experience by optimizing how their game sends, receives, and processes network data. We’ll understand that we don’t need constant updates and that we can do most of the gameplay with small bits of data and let the clients’ computers fll the gaps on their own.
+
+[[P004]]
+
+Troughout each chapter, you’re going to do a role play of a network engineer working for a fctional, independent game development studio. In each chapter, you will apply your recently learned knowledge to a fctional problem presented by your studio’s peers. You’ll focus on the network aspect of each project they present, so you don’t waste your precious time trying to understand unnecessary aspects.
+
+In this chapter, you are going to learn the most important aspect of establishing a network of computers: to connect them all together. You’ll see how this process happens, the reason for doing this, what’s required to establish this connection, and how we can do that using the API that Godot Engine provides.
+
+We will cover the following topics in this chapter:
+
+• Introduction to a network
+• Understanding the Godot Engine Network API
+• Setting up the client side
+• Setting up the server side
+• Making your frst handshake
+
+By the end of the chapter, you’ll have a client and server version of an application that establishes the connection of two or more computers. This is the very core of everything that we are going to see throughout the book, and with that knowledge, you’ll understand how you can start making computers communicate within a network, which is exactly what you need to do in online multiplayer games.
+
+=== Technical requirements
+
+Godot Engine has its own standalone text editor, which is what we are going to use to code all our practical lessons.
+
+As mentioned earlier, in this book you will do a role play of a network engineer of a fctional indie game studio. So, we will provide pre-made projects with all the non-network-related work ready. You can fnd them in the book’s GitHub repository: https://github.com/PacktPublishing/The-Essential-Guide-to-Creating-Multiplayer-Games-with-Godot-4.0.
+
+With the project properly added to your Godot Engine’s project manager, open the project and move on to the res://01.setting-up-a-server folder. Here, you'll fnd what you need to follow this chapter (later part).
+
+=== Introduction to a network
+
+Making a network of connected computers is quite a task. In this chapter, we’ll understand the core concepts of online networks. We’ll also cover how Godot Engine provides solutions to each of the problems we may face in our quest to make online multiplayer games.
+
+[[P005]]
+
+A **_network_** is a collection of interconnected devices that communicate with each other. In this communication, these devices exchange information and share resources with each other. You can have a local network, such as in a house or ofce, or a global network, such as the internet. The idea is the same.
+
+For these devices to communicate they need to perform what we call a **_handshake_**. A handshake is how one device recognizes another device and establishes their communication protocols. This way, they know what they can request, what they expect to get, and what they need to send to one another. 
+
+A handshake begins with one device sending a message to another device. We call this message a handshake request. The devices use this message to start the handshake process. The one that sent the request waits for a message from the one that received it. We call this second message a handshake response.
+
+
+[.big]
+----
+                            Handshake
+
+        ╭────────────────────────────────────────────────╮
+        │                   Request ?                    │
+    ┏━━━━━━━━━━┓                                   ┏━━━━━v━━━━━┓
+    ┃  Client  ┃                                   ┃  Server   ┃
+    ┗━━━^━━━━━━┛                                   ┗━━━━━━━━━━━┛
+        │                  Response OK                   │
+        ╰────────────────────────────────────────────────╯
+----
+
+Figure 1.1 – The handshake procedure
+
+When the requested device sends the confrmation through the handshake response, they establish their communication. Afer that, the devices start exchanging data. This wraps up the handshake process. We usually call the device that requests data the client. As for the one that provides data, we call it the server.
+
+Note that we use these names for the very frst interaction. Afer this frst interaction, it is common that these roles change. In that sense, communication is dynamic. The server may request data from the client, and the client may provide data to the server.
+
+In this chapter, we are going to make our frst handshake using the Godot Engine Network API. We’ll also create and synchronize players’ data across the network. So, hold tight, as you’ll learn the following:
+
+•  What the ENet library is and why we use it for games
+•  How we can make a handshake using the ENetMultiplayerPeer class
+
+For that, you’ll create a Godot project that lists connected players and allows them to edit and sync a line of text. It’s a simple but elegant project that covers the basics of setting up an online multiplayer environment in Godot Engine.
+
+=== Understanding the ENetMultiplayerPeer class
+
+One of the Godot Engine Network API’s core features is the ENetMultiplayerPeer class. By using this class, we can perform a handshake between our game server and clients.
+
+The ENetMultiplayerPeer class is a high-level implementation of the ENet library. Let’s understand this library and why we use it in online multiplayer games.
+
+==== What is the ENet library?
+
+**_ENet_** is a lightweight, open source networking library that is widely used in the game development industry. It is designed to be a high-performance, reliable, and easy-to-use library for creating multiplayer games and other networked applications. One advantage of the ENet library is that it’s cross-platform and written in C. So, it’s efcient with a small footprint and low overhead.
+
+The library provides a simple and easy-to-use API that makes it easy for developers to create and manage network connections, send and receive packets, and handle network events such as disconnections and packet loss.
+
+**_Packets_**, in this context, are small units of data that servers and clients transmit over the network. We use them to transmit information such as game state, player input, and other types of data between diferent devices on the network.
+
+The ENet library ofers support for multiple channels that allow us to easily create multiple streams of data, such as voice and video, within a single connection. This is excellent for many multiplayer games.
+
+Another reason to use ENet in multiplayer games is its easy-to-use networking library that is based on the UDP protocol. This is a good chance to understand one of the main network protocols, so let’s do it.
+
+[[P007]]
+
+=== What is the UDP protocol?
+
+The UDP protocol is a connectionless protocol that is well suited for real-time, high-bandwidth applications such as online gaming. This is because it has low latency and is able to handle high throughput. Just so we are on the same page, in the world of network terms, latency refers to the time between the transmission and receiving of data through the network.
+
+For instance, it’s very common to talk about lag in online multiplayer games: the time between the player performing an action and the game reacting to it. The next fgure illustrates how latency works and is calculated:
+
+[.big]
+----
+                            Latency
+
+        ╭────────────────────────────────────────────────╮
+        │                  Request 102ms                 │
+    ┏━━━━━━━━━━┓                                   ┏━━━━━v━━━━━┓
+    ┃  Client  ┃                                   ┃  Server   ┃
+    ┗━━━^━━━━━━┛                                   ┗━━━━━━━━━━━┛
+        │                  Response 112ms                │
+        ╰────────────────────────────────────────────────╯
+                        Total Latency 214ms
+----
+
+Figure 1.2 – Visual demonstration of latency
+
+It’s basically how much time it takes for data to cross the network, be properly handled by the server, and to provide a response to the client.
+
+Troughput refers to how much data we can send through a given network route within a time period before it gets overwhelmed. For instance, this is a fundamental concept when we talk about **_DDoS attacks_**, where hackers overwhelm the server with an immense number of unsolved requests, preventing other clients from accessing the service. In the following fgure, you can see a visual representation of the throughput concept:
+
+
+[[P08]]
+
+[.big]
+----
+                            Latency
+
+    ┏━━━━━━━━━━┓                                   ┏━━━━━━━━━━━┓
+    ┃  Client  ┃─────▓───────▓───────▓───────▓────>┃  Server   ┃ easy
+    ┗━━━━━━━━━━┛                                   ┗━━━━━━━━━━━┛
+    ┏━━━━━━━━━━┓                                   ┏━━━━━━━━━━━┓
+    ┃  Client  ┃────▓────▓────▓────▓────▓────▓────>┃  Server   ┃ fine
+    ┗━━━━━━━━━━┛                                   ┗━━━━━━━━━━━┛
+    ┏━━━━━━━━━━┓                                   ┏━━━━━━━━━━━┓
+    ┃  Client  ┃──▓──▓──▓──▓──▓──▓──▓──▓──▓──▓──▓─>┃  Server   ┃ busy
+    ┗━━━━━━━━━━┛                                   ┗━━━━━━━━━━━┛
+----
+
+Figure 1.3 – Visual demonstration of throughput
+
+The bandwidth is how big the available channel of communication in the network is. You can think of it as a pipe that streams data. A bigger pipe allows a lot of data, and big data, to be transmitted at any given time, while a small pipe may not even allow any data, of any size, to be transmitted. You can see this concept illustrated in the following fgure:
+
+[.big]
+----
+                            Bandwidth
+
+    ┏━━━━━━━━━━┓                                   ┏━━━━━━━━━━━┓
+    ┃  Client  ┃▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂┃  Server   ┃
+    ┗━━━━━━━━━━┛                                   ┗━━━━━━━━━━━┛
+    ┏━━━━━━━━━━┓                                   ┏━━━━━━━━━━━┓
+    ┃  Client  ┃▅▅▅▅▅  ※▅▅▅▅▅▅▅▅▅▅▅▅┃  Server   ┃
+    ┗━━━━━━━━━━┛                                   ┗━━━━━━━━━━━┛
+    ┏━━━━━━━━━━┓                                   ┏━━━━━━━━━━━┓
+    ┃  Client  ┃▉▉▉▉▉▉▉    ※▉▉▉▉▉▉▉▉▉┃  Server   ┃
+    ┗━━━━━━━━━━┛                                   ┗━━━━━━━━━━━┛
+----
+
+Figure 1.4 – Visual demonstration of bandwidth
+
+[[P009]]
+
+Unlike the more commonly used **_Transmission Control Protocol (TCP)_**, **_User Datagram Protocol (UDP)_** does not establish a dedicated connection between two devices before transmitting data. Instead, it simply sends packets of data to a specifed destination address without ensuring that the packets have been received or acknowledged.
+
+Sounds… bad, right? But it’s quite the opposite.
+
+This lack of reliability is ofen seen as a drawback of UDP, but in the context of online multiplayer games, it can actually be an advantage. In games, where responsiveness and low latency are critical, the overhead of establishing and maintaining a connection can be a signifcant bottleneck.
+
+By not requiring a dedicated connection, UDP allows for faster and more efcient transmission of data. Additionally, since UDP does not require the receiver to acknowledge receipt of packets, it is less afected by network congestion or delays, which can be critical for maintaining a stable and responsive connection in a high-bandwidth, high-latency environment such as online gaming.
+
+Furthermore, the lack of reliability of UDP can actually be benefcial in the context of online multiplayer games. In games, where a small amount of packet loss or delay can have a large impact on the players’ experience, it’s important that the game can adapt to these types of network conditions. By not providing guarantees on packet delivery, UDP allows the game to handle packet loss and delay in a way that is most appropriate for the specifc game and its mechanics.
+
+Think about the following situation.
+
+We establish a connection. In this connection, we update all players in the network about all other player avatars’ positions in the world. This way, everyone shares the same world state.
+
+If we use a TCP protocol, everyone will have to wait for every other player to send their position and confrm that they have received every change in every other player’s position, while also trying to maintain the correct chronological order in which the positions have changed.
+
+So, in this example, if a player moves fve units to the lef and sends 15 packets with all the movement data, including being idle, all other players must confrm that they have received all those 15 packets.
+
+Using UDP, players can ignore every update but the latest one, which is the only relevant piece of information in real-time experience: what is the game-world state now? It doesn’t matter how it gets to this point; it only matters that it is there at this very moment.
+
+We are going to see that this causes some trouble as well. But we can create methods and understand techniques to mitigate those issues. We are going to talk about that in further chapters.
+
+[[P010]]
+==== How does this connection happen?
+
+To establish a UDP connection, we need two core things:
+
+• The IP address of the peers, mainly the server
+• The port over which they will exchange data
+
+For test purposes, on all our projects we are going to use the localhost IP address. This is a shortcut to your local IP address mask. An IP address is like a house or apartment address. It is the exact location to which a given packet should be delivered and represents the address of the computer in the network. A port is essentially a specifc channel in which the host allows a given communication to be established; we’ll use the 9999 as our default port. Tere’s nothing special about this one; it’s just an arbitrary pick.
+
+With this in mind, let’s see for the frst time the ENetMultiplayerPeer class in action. As you can imagine, this setup requires a two-sided approach. We need to set up a game architecture for our server and a diferent architecture for our client.
+
+Let’s start with the server architecture.
+
+==== Creating the server
+
+The ENetMultiplayerPeer class in the Godot Engine provides a convenient way to create and manage network connections for online multiplayer games. One of the most important methods of this class is the `create_server()` method, which is used to create a new server that can accept connections from clients. This method is simple to use and, besides having fve arguments, it only requires one to get started:
+
+• The frst argument of the `ENetMultiplayerPeer.create_server()` method is the port on which the server will listen for incoming connections. This is the port number that clients will use to connect to the server. For example, if you want the server to listen on port 9999, you would call `ENetMultiplayerPeer.create_server(9999)` . This is the only mandatory argument to call this method.
+
+• The second argument is max_clients, which is the maximum number of clients that the server will allow to connect at the same time. This argument is optional, and if not specifed, the server will allow up to 4,095 clients to connect.
+
+• The third argument is max_channels, which is the maximum number of channels we allow the server to use per client. Channels are used to separate diferent types of data, such as voice and video, and are useful for creating multiple streams of data within a single connection. Tis argument is optional, and if not specifed, the server will allow an unlimited number of channels.
+
+
+[[P011]]
+• The fourth argument is in_bandwidth, which is the maximum incoming bandwidth that the server will allow per client. This argument is optional, and if not specifed, the server will allow unlimited incoming bandwidth.
+
+• The fifth argument is out_bandwidth, which is the maximum outgoing bandwidth that the server will allow per client. This argument is optional, and if not specifed, the server will allow unlimited outgoing bandwidth.
+
+Let’s create our server in Godot Engine. Open up the project provided in the GitHub link given previously. Afer opening the project, execute the following steps:
+
+1. Create a new scene and use a Node instance as the root.
+2. Attach a new GDScript to this node, and name it **_Server.gd_**.
+3. Save the scene and open the script.
+4. Define a constant called PORT and set it to our default port number so the server can listen to it: 
++
+[source]
+const PORT = 9999
+
+5. Create a new ENetMultiplayerPeer using the new() constructor. Let’s store it in a variable called peer: 
++
+[source]
+var peer = ENetMultiplayerPeer.new()
+
+6. In the ___ready()__ function, call the __create_server()__ method on the peer variable, passing in the PORT constant as an argument:
++
+[source,gdscript]
+----
+func _ready() :
+    peer. create_server(PORT)
+----
+
+7. Still in the `_ready()` callback, assign the peer variable to the built-in multiplayer member variable of this node: 
++
+[source]
+multiplayer. multiplayer_peer = peer
+
+8. Connect the peer_connected signal of the multiplayer variable to a function called `_on_peer_connected`. We’ll create this callback method next: +
+[source]
+multiplayer.peer_connected.connect(_on_peer_connected)
+
+9. Create a new method called _on_peer_connected() , which should receive `peer_id` as the argument: 
++
+[source]
+func _on_peer_connected(peer_id)
+
+10. In the `_on_peer_connected()` function, use `print()` to print the passed `peer_id `argument on the console:
++
+[source]
+print(peer_id)
+
+[[P012]]
+
+The complete script should look like this:
+
+[source,gdscript]
+----
+extends Node
+const PORT = 9999
+
+var peer = ENetMultiplayerPeer.new()
+
+func _ready() :
+    var error = peer.create_server(PORT)
+    multiplayer.multiplayer_peer = peer
+    multiplayer.peer_connected.connect(_on_peer_connected)
+
+func _on_peer_connected(peer_id) :
+    print(peer_id)
+----
+
+It’s important to note that this script uses the built-in multiplayer member variable that every Node instance has on Godot Engine 4.0 Network API, which is an instance of the MultiplayerAPI class.
+
+Done: we have our server ready. Told you it would be simple!
+
+=== Creating the client
+
+Next up, let’s create our client. The process is quite similar. The major diference is that the client needs the server IP address to fnd it on the network.
+
+We use the `ENetMultiplayerPeer.create_client()` method to connect a client to a server.
+
+This method is very simple to use and requires only two arguments to work:
+
+• The frst argument of the `create_client()` method is the **_address_** of the server. This can be either the server’s IP or hostname. For instance, if you want the client to connect to a server with the IP address 192. 168. 1. 1, you would call create_client("192. 168. 1. 1") . But to make things simpler, we’ll use "localhost", which is a shortcut to our own IP address mask.
+
+• The second argument of the `create_client()` method is the **_port_** on which the server is listening for incoming connections. This is the port number that the client will use to connect to the server. For example, if the server is listening on port 9999, you would call `create_client("192.168.1.1", 9999)` .
+
+[[P013]]
+• The third argument of the `create_client()` method is **_channel_count_**, which is the number of channels that the client will use to communicate with the server. Channels are used to separate diferent types of data, such as voice and video, and are useful for creating multiple streams of data within a single connection. This argument is optional, and if not specifed, the client will use a default value of 1 channel.
+
+• The fourth argument of the `create_client()` method is **_in_bandwidth_**, which is the maximum incoming bandwidth that the client will allow per connection. This argument is optional, and if not specifed, the client will use a default value of 0, allowing an unlimited incoming bandwidth.
+
+• The fifth argument of the `create_client()` method is **_out_bandwidth_**, which is the maximum outgoing bandwidth that the client will allow per connection. This argument is optional, and if not specifed, the client will use a default value of 0, allowing an unlimited outgoing bandwidth.
+
+• The sixth argument of the `create_client()` method is **_local_port_**, which is the local port that the client will bind to. This argument is optional, and if not specifed, the client will use a default value of 0.
+
+Now, let’s see how we can create the client side of this connection so it can connect with our server and establish their handshake:
+
+1. Create a new scene and add a Node instance as the root.
+2. Attach a new script to it.
+3. Save the script as Client.gd.
+4. In the script, define a constant called ADDRESS and set it to the server’s IP. In this case, we are going to use "localhost":
++
+[source]
+const ADDRESS = "localhost"
+
+5. Define a constant called PORT and set it to be our default port number. It’s very important that this matches the number we used in Server. gd, otherwise these peers won’t be able to fnd each other:
++
+[source]
+const PORT = 9999
+
+6. Create a new ENetMultiplayerPeer using the new() constructor and store it in a variable called peer:
++
+[source]
+var peer = ENetMultiplayerPeer.new()
+
+7. In the `_ready()` callback, call the `create_client()` method on the peer variable, passing in the ADDRESS and PORT constants as arguments:
++
+[source]
+func _ready() :
+    peer. create_client(ADDRESS, PORT)
+
+8. Assign the peer variable to the built-in multiplayer member variable of the node:
++
+[source]
+multiplayer. multiplayer_peer = peer
+
+The complete script should look like this:
+
+[source]
+----
+extends Node
+const ADDRESS = "localhost"
+const PORT = 9999
+var peer = ENetMultiplayerPeer.new()
+
+func _ready() :
+    peer. create_client(ADDRESS, PORT)
+    multiplayer. multiplayer_peer = peer
+----
+
+Alright, we have our server and our client ready. Now, how do we test them?
+
+
+=== Testing our handshake
+
+Godot Engine 4.0 has a useful feature for debugging: the ability to open multiple independent instances of the game. This feature allows us to test diferent scenes at the same time, making the debugging process much easier and faster.
+
+To open multiple instances of the game, we need to select one option from up to four options in the Debug | Run Multiple Instances menu.
+
+[[P015]]
+Figure 1.5 – The Run Multiple Instances menu
+
+Then, as soon as we press the Run Project or Run Current Scene button, Godot will launch the instances we’ve set previously. Let’s stick with two instances for this project.
+
+This feature is incredibly useful for testing online multiplayer games, as it allows us to open a server and a client in the same run. But, as you can see, it’s not very straightforward. When we run the project, it actually opens two instances of the same scene.
+
+Let’s create a minimal menu where we can select whether we are a client or a server:
+
+1. Create a new scene and use Control as the root and name it MainMenu.
+2. Add a Label node as a child of the root node.
+3. Add two Button nodes as children of the root node.
+4. Give the frst Button the name ClientButton and the second one ServerButton:
+
+[[P016]]
+Figure 1.6 – MainMenu’s Scene tree structure
+5. Set the Button nodes’ text properties to I’m a client and I’m a server respectively and
+position them side by side in the middle of the screen.
+6. Set the Label node’s text property to Are you a… and position it in the middle of the screen.
+Figure 1.7 – MainMenu’s scene UI
+7. Attach a new GDScript instance to the MainMenu node and open it.
+8. Connect the ClientButton’s pressed signal to a function called _on_client_button_
+pressed.
+
+[[P017]]
+Figure 1.8 – ClientButton’s pressed signal connection
+9. Connect the pressed signal of the ServerButton to a function called _on_server_button_
+pressed.
+10. In the _on_client_button_pressed() callback, let’s call the change_scene_to_
+file() method on the get_tree() instance, passing in "res://Client. tscn" as
+the argument:
+
+[source,gdscript]
+----
+extends Control
+
+func _on_client_pressed() :
+    get_tree() . change_scene_to_file
+    ("res://Client. tscn")
+----
+
+11. In the _on_server_button_pressed() callback, do the same as before, passing "res://Server. tscn" instead.
+The complete script should look like this:
+
+[source,gdscript]
+----
+extends Control
+
+func _on_client_pressed() :
+    get_tree() . change_scene_to_file
+    ("res://Client. tscn")
+
+func _on_server_pressed() :
+    get_tree() . change_scene_to_file("res://Server. tscn")
+----
+
+[[P018]]
+Now, let’s make sure we save the scene before we test it. Afer that, all we need to do is hit the Run Current Scene button and watch the scene come to life. All the hard work has been done, and now all that’s lef is to appreciate the results.
+
+Once we have the two debug instances running, we need to pick one to be the server frst. For that, we can press ServerButton. This will launch our Server. tscn scene and start listening for incoming connections.
+
+Then, in the other instance, we need to press ClientButton. This will launch the Client. tscn scene and try to connect to the server. If everything goes as expected, we should get peer_id printed in the console of the server instance.
+
+This means that the client and the server have successfully established a connection and are now ready to start exchanging messages. Congratulations, you’ve just created your frst handshake!
+
+=== Summary
+
+In this chapter, we went through the fundamentals of network connections, which is to establish the connection through a procedure known as the handshake.
+
+The handshake ensures that two computers recognize each other in a network and establish the protocols of this communication. This is important to understand, as it is the core of all our further endeavors. Without this at our disposal, our players and our server would be disconnected. One would be sending data to the void, while the other would be infnitely waiting for something to arrive. Talking about sending data, now that we have our computers connected and open to receive and send data back and forth, it’s time to see how to do that. Troughout this chapter, you saw how you can properly establish a connection using the ENet library and how Godot Engine provides a high-level approach to handshaking, to the point that we can barely see if there was an actual handshake or not. In the next chapter, we are going to use the UDP protocol to also establish a connection between client and server. But this time, we are going to dig a bit further and actually send data both from the client to the server and the other way around.
+
+It’s important to use the UDP protocol to understand what might be happening under the hood when we fnally start to get used to the Godot Engine ENetMultiplayer API.
+
+Now let’s see the dirty and messy world of low-level data transmission in the next chapter, so we can understand later how much easier our lives are made with the new high-level network API!
+
+== 🍮 2 Sending and Receiving Data
+
+In the previous chapter, we saw how we can establish a connection between two computers using the high-level Godot Engine ENetMultiplayerPeer API. But what do we do afer that? Why do we establish connections between computers? The foundation of a network is the communication between the connected computers, allowing them to send and receive data. This data is transferred by breaking down the content into small chunks called packets.
+
+Each packet is like a postcard containing the necessary information, such as the sender’s and receiver’s IP addresses, the communication port, and the message’s content. We then send these packets over the network, where they can be routed to their intended recipient. Using communication protocols, such as the UDP protocol, we break the data into packets at the sending end and reassemble them at the receiving end of the relationship.
+
+In this chapter, we will discuss the fundamentals of how packets are sent and received and what makes the UDP protocol unique. For that, we’ll need to go a bit lower and use the Godot Engine UDPServer and PacketPeerUDP classes. Tese are lower-level API classes, so we will go through some intense content here.
+
+We will cover the following topics in this chapter:
+
+• Understanding packets
+• Introduction to the JavaScript Object Notation (JSON) format
+• Sending packets with PacketPeerUDP
+• Listening to packets with UDPServer
+• Authenticating the player
+• Loading the player’s avatar
+
+[[P020]]
+=== Technical requirements
+
+In this chapter, we’re going to keep up with our project in Godot Engine, but this time, we are going to use the fles provided in the res://02. sending-and-receiving-data folder. So, if you haven’t already done so, download the project’s repository using this link: https://github.com/PacktPublishing/The-Essential-Guide-to-Creating-Multiplayer-Games-with-Godot-4.0.
+
+Then, with the project added to your Godot Engine project manager, open the project and proceed to the res://02. sending-and-receiving-data folder.
+
+=== Understanding packets
+
+Packets are fundamental building blocks of communication over the network using the UDP protocol. They are small chunks of data that contain all the necessary information to reach their intended recipient. This includes the sender’s and receiver’s IP addresses, the communication port, and the message’s content.
+
+Senders send packets to the receiver over the network. The receiving end reassembles the packets, allowing the receiver to understand the message sent. This process is known as packet switching. You can see a visual representation of this here:
+
+.Figure 2.1 – Packet switching process
+
+Unlike other protocols, such as the TCP protocol, the UDP protocol does not guarantee that packets will arrive in the same order as they were sent. This means that the protocol is less reliable but more efcient and faster.
+
+[[P021]]
+UDP is also diferent from other protocols due to its lack of connection state. Each packet contains all the data it needs to reach its receiving end. We address them individually, and the network routes them based on each packet’s own information. This contrasts with the TCP protocol as the latter needs to set up a prearranged, fxed data channel through a traditional handshake procedure.
+
+This means that we can send these packets using the UDP protocol without a handshake. As long as our server is listening to messages at the specifc port we’ve assigned, it will be able to receive the sender’s message.
+
+Due to all that, the UDP protocol is more efcient for sending gameplay data across a network because it’s fast and doesn’t need to wait for confrmation of each packet in order at the receiver’s end. Tis is a huge advantage for online multiplayer games, especially ones where the player’s reaction time is important for the gameplay.
+
+It’s also common to use the UDP protocol for quick message systems and even voice calls. One issue that may come with using UDP for voice calls is that sometimes the audio doesn’t reach the other side in the correct order, or in any order at all. This causes some issues, but since the communication is meant to be real time and users can ask the person at the other end of the conversation to repeat, the UDP protocol has become the go-to solution for this type of service. And this is what is important to understand—when it is and when it isn’t the proper choice.
+
+Now that we have taken a glance at the protocols in which we can exchange data across the network, we need to understand what this data looks like. Can we send instances of objects across the network? How will they assemble at the receiver’s end?
+
+Network communication is a bit lower level in this sense; we need to send only relevant information in data structures that both the sender and the receiver ends can understand. And for that, we commonly avoid passing binary data around, such as objects.
+
+Instead, we serialize the important information and transmit the necessary chunks across the network so that the receiver end can create a whole new clone of the object using only the data we transmitted. This is way more reliable and allows for smaller bandwidth usage. One common data structure that we use is dictionaries in the format of JSON fles.
+
+=== Introduction to the JSON format
+
+In network programming, transmitting objects directly through the network is not always reliable, as the data may get corrupted or lost in transit. Moreover, transmitting objects containing executable code may pose a security risk if the code is malicious. Tat’s why it’s a common practice to use data serialization to convert objects into a format that can be easily transmitted over the network.
+
+One of the most commonly used data serialization formats is JSON. JSON is a lightweight, text-based format that can represent complex data structures such as arrays and objects, making it an ideal choice for network communication.
+
+[[P022]]
+When using the Godot Engine network API with UDP, sending and receiving JSON fles is a common practice. With JSON, we can serialize and deserialize data quickly and efciently. JSON fles are human-readable, making it easier for developers to debug and troubleshoot issues. JSON fles are also fexible, meaning we can cherry-pick only the relevant data we need to send, making network communication even more efcient.
+
+Unlike binary formats, JSON fles are easy to read and modify as well. This makes it easier to debug and troubleshoot any issues that may arise during the transmission of data.
+
+Now that we understand the advantages and the overall idea behind the JSON format, how do we use it properly? How does a JSON fle help us transmit data around a network and keep players in the same game context?
+
+As mentioned in this section, serialization is how we cherry-pick only the necessary information about a data structure, such as an object, and translate it into a format that we can pass around, and even store, to reconstruct the previous data structure. Serialization is one of the most important skills to learn in sofware engineering felds, including networks.
+
+It is through serialization that we can translate the state of our application so that other instances of our application can further replicate this state through time—for instance, to make a save and load system or through space, as we are going to do in online multiplayer games. So, let’s understand how serialization works and how to do it.
+
+=== Serialization
+
+Serialization in a networking context refers to the process of converting a complex data object, such as a Sprite2D node, into a simple, linear representation that we can store in a fle. For instance, *.tscn fles are serialized fles that represent a scene in Godot Engine’s editor.
+
+Serialization involves converting an object into a format that can be easily reconstructed on another machine or in another context. This can involve encoding the object’s properties, data, and other relevant information in a standardized format, such as JSON. Serialization is essential in network communication because it allows data to be transmitted and received efciently and reliably, while also enabling interoperability between diferent programming languages and systems.
+
+For instance, if we want to recreate a Sprite2D node on the client’s side based on data provided by the server, we can serialize important properties such as its position, rotation, scale, and texture.
+
+It would look like this:
+
+[source,json]
+----
+{
+    "position": {
+        "x": 2244,
+        "y": 1667
+    },
+    "rotation": 45,
+    "scale": {
+        "x": 2,
+        "y": 2
+    },
+    "texture_path": "res://assets/objects/Bullet.png"
+}
+----
+
+[[P023]]
+So, on the client’s side, we instantiate a new Sprite2D node and use this data to ensure it represents what the server wants the client to see. We are going to use serialization a lot moving forward. In Godot, we have the JSON helper class for creating and parsing JSON data.
+
+The JSON.stringify() method is used to serialize an object or a data type, such as an integer or a dictionary, into a JSON-formatted string. This method takes an object as input and returns a string containing the JSON representation of the input object.
+
+The string can then be transmitted over the network, stored in a fle, or used in any other context where a string representation of the object is needed. The resulting string can easily be deserialized back into an object using the JSON.parse_string() method.
+
+On the other hand, the JSON.parse_string() method is used to deserialize a JSON-formatted string back into a recognized Godot data type or object. This method takes a string as input and returns the deserialized data. The resulting object can then be used in any context where the original object was needed.
+
+When deserializing the JSON string, the method takes care of mapping the JSON values to the appropriate Godot Engine data types. This includes mapping strings to strings, numbers to numbers, and Booleans to Booleans, as well as parsing more complex types such as dictionaries and objects.
+
+With both JSON.stringfy() and JSON.parse_string() methods, Godot Engine provides a simple and reliable way to convert data into a format that can be transmitted over the network or stored in a fle.
+
+We saw how we can translate our relevant data into an understandable standard format that we can store, transmit, and recreate at the receiver end. Let’s understand how we can pass this data around in the network.
+
+This is fundamental knowledge when we deal with online multiplayer games because it’s through this process that we will be able to recreate objects and even the whole game state across players, making them share the same game world.
+
+[[P024]]
+=== Sending packets with PacketPeerUDP
+
+Now, let’s move on to practical knowledge. In this chapter, your task is to implement a login system for a game. Our project already has a cool user interface and is able to gather player data, such as their login name and password. Your mission is to make sure that only authorized players can access the game’s content by implementing a secure authentication feature.
+
+Once a player successfully logs in, you need to display their character’s avatar based on what we have saved in our database. As a network engineer, you understand the importance of security when it comes to online systems. You know that a robust authentication system is essential to ensure that only legitimate users are granted access to the game’s content.
+
+Therefore, you will need to develop a login system that checks players’ credentials against a secure database and verifes if they have permission to access the game’s features or not.
+
+With your skills and experience, you need to create a system that will provide an excellent user experience while keeping players’ data secure. So, take up the challenge, and let’s create a login system that will be a testament to your skills as a network engineer!
+
+In our project repository, open the res://02.sending-and-receiving-data//MainMenu.tscn scene, and let’s get started.
+
+=== Creating an AuthenticationCredentials Autoload
+
+In Godot Engine, Autoloads are singletons that Godot loads automatically when the game starts. We can create and edit them in the editor itself and access them from any script in the game. We use Autoloads to store game-wide data or to provide global functionality, making them a convenient way to carry players’ credentials across the game.
+
+One of the main advantages of using Autoloads for carrying player credentials is that they are available throughout scene changes. This means that any script in the game can access the Autoload and retrieve the players’ credentials when needed. This eliminates the need to pass credentials from one script to another, making the code cleaner and easier to maintain.
+
+In addition to that, since Autoloads are persistent throughout the game’s lifetime, as long as players don’t close the game, we can access their credentials.
+
+This can make the process of implementing a login system with authentication features more efcient and streamlined.
+
+[[P025]]
+So, let’s create our AuthenticationCredentials Autoload, as follows:
+
+1. Create a new scene using a Node node as the root node.
+2. Rename the root node AuthenticationCredentials.
+3. Attach a new script to it, save it as AuthenticationCredentials. gd, and open it.
+4. Create a variable to store the player’s username; we can name this variable user, and it should
+be an empty string by default:
++
+[source,gdscript]
+----
+extends Node
+    var user = ""
+----
+5. Then, create a variable to store the session’s token when we successfully validate a login:
++
+[source,gdscript]
+----
+var session_token = ""
+----
+
+6. Save the scene, then go to Project | Project Settings and open the Autoload tab.
+7. In the Path feld, click on the small folder icon:
+Figure 2.2 – Autoload tab in the Project Settings menu
+[[P026]]
+8. From the pop-up menu, select AuthenticationCredentials. tscn:
+Figure 2.3 – Selecting the AuthenticationCredentials scene from the File menu
+9. Leave the Node Name feld as AuthenticationCredentials and click on the Add button.
+
+And there we have it. Now, you can access the variables and functions defined in the script of the AuthenticationCredentials. gd scene from anywhere in your project by calling the AuthenticationCredentials singleton.
+
+This is useful for keeping track of global state across multiple scenes and nodes in your game. It’s important to note that this Autoload should only exist on the client’s side of a multiplayer game, and not on the server’s side. So, make sure to remove it from your server application.
+
+Now, let’s see how we can gather and send players’ credentials to the server. For that, we are going to work on the very login screen itself! Open LoginScreen. tscn and let’s move on to the cool stuf. Sending players’ credentials
+
+The LoginScreen scene is the gateway to the game world. It’s essentially a Control node named LoginScreen with a user interface that captures players’ credentials so that we can authenticate them and give them access to our world:
+
+[[P027]]
+Figure 2.4 – The LoginScreen scene’s node hierarchy
+
+The interface includes two LineEdit nodes, one called UserLineEdit and another one called PasswordLineEdit. Tese LineEdit nodes allow players to input their login credentials. In case of any errors, we can use the ErrorLabel node to display any necessary messages.
+
+As we collect the players’ credentials here, we can use the LoginButton node to trigger the login procedure. With this scene in place, our players can securely access their avatar screen once they successfully log in.
+
+But now, we need to work on validating their logins before loading their avatar. So, let’s get our hands dirty. Proceed as follows:
+
+1. Open the LoginScreen. gd script and go to the send_credentials() function.
+2. Inside the send_credentials() function, create a dictionary called message that
+contains the user credentials we will authenticate in the server.
+3. To store these credentials, create a key in the message dictionary called 'authenticate_
+credentials'; its value should also be a dictionary. We’ll use it to store players’ credentials.
+4. Use the user_line_edit and password_line_edit text properties to capture the
+player’s input for their username and password, respectively:
++
+[source,gdscript]
+----
+var message = {'authenticate_credentials':
+    {'user': user_line_edit.text, 'password':
+    password_line_edit.text}}
+----
+5. Instantiate a new PacketPeerUDP object called packet using the PacketPeerUDP.
++
+[source,gdscript]
+----
+new() constructor:
+   var packet = PacketPeerUDP.new()
+----
+[[P028]]
+6. Connect the packet object to the server’s address and port using the connect_to_host()
+method. Here, we are using our default ADDRESS and PORT constants that represent the IP
+address and port number of the server to which the client is connecting. They are 127. 0. 0. 1
+and 9999 respectively:
++
+[source,gdscript]
+----
+packet. connect_to_host(ADDRESS, PORT)
+----
+7. Serialize the message dictionary object into a JSON-formatted string using the JSON.stringify() method, and send it to the server using the packet.put_var() method:
++
+[source,gdscript]
+----
+packet.put_var(JSON.stringify(message) )
+----
+8. Create a while loop to wait for a response from the server. The packet.wait() method waits for a packet to arrive at the bound address. It returns an OK error constant if it receives a packet; otherwise, it returns an error code based on Godot’s error constants. So, we can use that to wait for the arrival of our packet at the server’s end:
++
+[source,gdscript]
+----
+while packet.wait() == OK:
+----
+9. When we receive a response, we need to deserialize the response data from JSON format back into a dictionary object using the JSON. parse_string() method. Let’s store that in a variable called response:
++
+[source,gdscript]
+----
+var response = JSON. parse_string
+(packet. get_var() )
+----
+10. Check the response dictionary for the presence of an authentication token using the in operator. If the "token" string is present, store its value in AuthenticationCredentials.
++
+[source,gdscript]
+----
+session_token:
+    if "token" in response:
+        AuthenticationCredentials. session_token =
+        response['token']
+----
+11. Afer that, we can also store the user present in the message we got from the server as our
+player’s username:
++
+[source,gdscript]
+----
+AuthenticationCredentials.user = message['authenticate_credentials']['user']
+----
+12. Update the user interface to indicate a successful authentication, and switch to the AvatarScreen. tscn scene. If the token is not present, display an error message to the player:
++
+[source,gdscript]
+----
+error_label. text = "logged! ! "
+----
+[[P029]]
+13. Then, afer all that, we can change the scene to the actual avatar screen using the get_tree().change_scene_to_file("res://AvatarScreen. tscn") method and break the while loop:
++
+[source,gdscript]
+----
+get_tree().change_scene_to_file("res://AvatarScreen. tscn")
+break
+----
+14. In case we get a response from the server, and it doesn’t have the "token" key in it, we display an authentication failed message using the error_label. text and also break the while loop:
++
+[source,gdscript]
+----
+else:
+    error_label. text = "login failed,
+    check your credentials"
+    break
+----
+At this point, the send_credentials() method should look like this:
++
+[source,gdscript]
+----
+func send_credentials() :
+    var message = {'authenticate_credentials':
+        {'user': user_line_edit.text, 'password':
+            password_line_edit.text}}
+
+    var packet = PacketPeerUDP.new()
+    packet.connect_to_host(ADDRESS, PORT)
+    packet.put_var(JSON.stringify(message) )
+
+    while packet.wait() == OK:
+        var data = JSON.parse_string(packet.get_var() )
+        if "token" in data:
+            error_label.text = "logged! ! "
+            AuthenticationCredentials.user = message
+            ['authenticate_credentials'] ['user']
+            AuthenticationCredentials.session_token =
+            data['token']
+            get_tree() .change_scene_to_file
+            ("res://AvatarScreen.tscn")
+            break
+        else:
+            error_label.text = "login failed,
+            check your credentials"
+            break
+----
+[[P030]]
+Now that we’ve seen how the client side works and what it will do with players’ data, let’s understand how the other side of this connection will receive this data and handle it. For that, open the Server. tscn scene.
+
+=== Listening to packets with UDPServer
+
+Welcome to our Godot Engine server scene! This scene is where our game’s server logic is implemented. The server is the backbone of our game, responsible for authenticating players and providing them with data about their avatars, such as their name and texture fle. This node is called Server, and it has a pre-written script that includes some essential variables. Among them are two vital variables: database_file_path and logged_users.
+
+The database_file_path variable is the path to the FakeDatabase JSON fle, which represents a fake database that holds the players’ data. The logged_users variable is a dictionary that stores players who are currently logged in.
+
+Tese variables are crucial to our server’s functionality, and we will use them to authenticate players and provide them with the data they need.
+
+Let’s implement the Server node’s most important feature, which is to listen to packets. Proceed as follows:
+
+1. Open the Server.gd fle.
+2. Declare a server variable and set it to UDPServer.new() . This creates a new instance of the UDPServer class that will allow us to listen to incoming connections:
++
+[source,gdscript]
+----
+var server = UDPServer.new()
+----
+3. In the _ready() function, call the listen() method on the server variable, passing our default PORT constant as an argument. This will start the server and make it listen for incoming connections:
++
+[source,gdscript]
+----
+func _ready() :
+    server.listen(PORT)
+----
+4. In the _process(delta) function, call the poll() method on the server variable to check for any incoming messages. This method will not block the game loop, so we can call it in the _process(delta) function safely:
++
+[source,gdscript]
+----
+func _process(delta) :
+    server.poll()
+----
+[[P031]]
+5. Call the is_connection_available() method on the server variable to check whether a client sent a message. If it returns true, call the take_connection() method to obtain a PacketPeerUDP instance that we can use to read the incoming message:
++
+[source,gdscript]
+----
+if server.is_connection_available() :
+    var peer = server.take_connection()
+----
+6. Use the get_var() method on the PacketPeerUDP instance we get to obtain the incoming message. Since we know that the message is a string in JSON format, we can use the JSON.parse_string() method to convert it to a dictionary object that we can work with:
++
+[source,gdscript]
+----
+var message = JSON.parse_string(peer.get_var() )
+----
+7. Check whether the incoming message contains the "authenticate_credentials" key. If it does, call the authenticate_player() function, passing peer and message as arguments:
++
+[source,gdscript]
+----
+if "authenticate_credentials" in message:
+    authenticate_player(peer, message)
+----
+We will create the authenticate_player() method in a moment, but for now, our script should look like this:
++
+[source,gdscript]
+----
+extends Node
+const PORT = 9999
+@export var database_file_path = "res://FakeDatabase.json"
+var database = {}
+var logged_users = {}
+var server = UDPServer.new()
+
+func _ready() :
+    server.listen(PORT)
+
+func _process(delta) :
+    server.poll()
+    if server.is_connection_available() :
+        var peer = server.take_connection()
+        var message = JSON.parse_string(peer.get_var() )
+        if "authenticate_credentials" in message:
+            authenticate_player(peer, message)
+----
+
+[[P032]]
+We just saw how we can open a communication channel between the client and the server and start to listen to messages. With that, we can flter these messages so that the server knows what the client is requesting—in our case, to authenticate the players’ credentials.
+
+This is a low-level implementation of a network API. With that, we can create standard message formats and contents that trigger events on the server side and expect standard responses from the server. Let’s see how our server replies to this client request.
+
+=== Authenticating the player
+
+Authenticating player credentials is a crucial aspect of any multiplayer game. In our project, we are building a login system for a game using Godot Engine. The login system allows players to log in with their username and password and then displays their character’s avatar upon successful login. We are going to use a fake database, stored as a JSON fle, to represent the players’ credentials. While this approach is simpler than using a full-fedged database management system, it has its own security risks. So, be aware of the risks of this approach in a production-ready project.
+
+To authenticate player credentials in our project, we will also use Godot’s FileAccess class to load the fake database from the JSON fle and parse the data. This will allow us to compare players’ login credentials with the data in the database and authenticate the player if the credentials match.
+
+=== Loading a fake database
+
+Now, let’s load our database so that we can check whether the data we got from the player’s client matches anything on our server. In a nutshell, a database is an organized collection of data. In our case, we’ll use a JSON fle format as our database.
+
+The advantage of using JSON fles as databases is that they are easy to manipulate, and you don’t need to have prior knowledge of database structures and safety.
+
+For instance, our fake database consists of the following:
+
+[source,json]
+----
+{
+    "user1": {
+        "password": "test",
+        "avatar": "res://Avatars/adventurer_idle.png",
+        "name": "Sakaki"
+    },
+    "user2": {
+        "password": "test",
+        "avatar": "res://Avatars/player_idle.png",
+        "name": "Keyaki"
+    }
+}
+----
+
+[[P033]]
+You can even open it in the very Godot Text Editor itself; just double-click the res://FakeDatabase. json fle provided in our base project.
+
+The preceding JSON fle represents a simple database that contains two user entries, "user1" and "user2", each with a corresponding set of data. The data contained for each user includes a password, an avatar, and a name.
+
+The "password" feld holds the plain-text password for each user. This is a very simple approach to storing passwords, as it is not secure due to the possibility of it being compromised. However, it is suitable for educational purposes.
+
+The "avatar" feld contains a reference to a fle that represents the user’s avatar. In this case, it is referencing two diferent image fles from our game, one for each user.
+
+Finally, the "name" feld simply holds a string that represents the player’s avatar name.
+
+Note that a database fle shouldn’t by any means be available to the client. So, in your fnal project, make sure to remove your database fle from Godot’s project and into a safe database device.
+
+While JSON fles are a great choice for certain projects, they may not be suitable for others. Here are some pros and cons to consider:
+
+Pros::
+• They are easy to read and write, making them a great choice for small projects or when the speed of development is a priority
+• JSON fles can be parsed natively by most programming languages, including GDScript as we saw previously, which means you don’t need to install any additional sofware or libraries to work with them
+• As we just saw, JSON fles are human-readable and can be opened and edited using a simple text editor, which makes them great for debugging
+
+Cons::
+• They don’t scale well for large projects with many concurrent users, as there may be issues with data consistency and performance
+• JSON fles are not as fexible as other database formats when it comes to querying data and performing complex operations
+
+To load and read the data from our JSON fake database fle, we’ll use Godot Engine’s FileAccess class. The FileAccess class is a built-in Godot class that provides an interface to load, read, write, and save fles to and from the user’s disk. It is a powerful tool that is essential for any game or application that needs to access fles from the user’s device.
+
+[[P034]]
+Let’s dive into the specifcs of how to use this class to load and parse our JSON fake database fle into our game, as follows:
+
+1. Go to the load_database() function in the Server. gd script.
+2. In the function, create a new instance of the FileAccess class by calling the open method and passing in the path to the JSON fle as the frst argument and FileAccess. READ as the second argument. The READ constant tells the FileAccess class that the fle should be opened for reading:
++
+[source,gdscript]
+----
+func load_database(path_to_database_file) :
+    var file = FileAccess.open(path_to_database_file, FileAccess.READ)
+----
+3. Once the fle is open, call the get_as_text() method to read the contents of the fle as a text string:
++
+[source,gdscript]
+----
+var file_content = file.get_as_text()
+----
+4. Next, parse the contents of the fle as a JSON string using the JSON.parse_string() method and store the resulting dictionary in the fake_database variable:
++
+[source,gdscript]
+----
+fake_database = JSON.parse_string(file_content)
+----
+
+Before we move on to replying to the player’s authentication request, let’s see how this function looks at the end of these steps:
+
+[source,gdscript]
+----
+func load_database(path_to_database_file) :
+    var file = FileAccess.open(database_file_path, FileAccess. READ)
+    var file_content = file.get_as_text()
+    database = JSON.parse_string(file_content)
+----
+
+With our database in place, we can look at our valid players and check whether the credentials we receive in the message sent by the client match the credentials we have stored. Ideally, we would use a safer format to avoid any data leaks or hack attacks, but this should do for our small application. Now, let’s see how we can reply to the client with a valid response based on whether the player was successfully authenticated or if the authentication failed. In the former case, we will provide an authentication token to the player so that they can use it across their play session in order to keep them logged in without further authentication procedures.
+
+[[P035]]
+=== Replying to the authentication request
+
+When a client sends their credentials to the server to be authenticated, the server will receive them and start the authentication process. The server will use the credentials to search in our fake database, which contains user data, for a matching record. If the credentials match, the server will generate a session token and send it back to the client.
+
+A session token is a unique string of characters that identifes the client on the server side, and the client must present it on all subsequent requests to the server to prove their identity.
+
+To validate credentials, we call the load_database function, which we can do in the _ready() function to load the fake database into our server.
+
+Then, we will use the username that the player provided through the LoginScreen node to look up the record in the dictionary. If the record exists, we will compare the password provided by the client
+
+with the one stored in the record. If they match, we will generate a session token and store it in the logged_users dictionary, along with the username, to keep track of the authenticated users.
+
+If a client tries to use an invalid or expired session token, the server will deny the request, and the client will need to authenticate again. This way, we can ensure that only authenticated clients have access to the server’s resources as they play.
+
+Now, let’s move on to the authenticate_player() function and create our authentication logic. Proceed as follows:
+
+1. Access the authenticate_credentials key from the message dictionary and store it in the credentials variable, like so:
++
+[source,gdscript]
+----
+func authenticate_player(peer, message) :
+    var credentials = message ['authenticate_credentials']
+----
+2. Check whether the user and password keys are present in the credentials dictionary by running the following code:
++
+[source,gdscript]
+----
+if "user" in credentials and "password" in credentials:
+----
+3. If the keys are present, extract the values of the user and password keys from the credentials dictionary and store them in separate variables:
++
+[source,gdscript]
+----
+var user = credentials["user"]
+var password = credentials["password"]
+----
+4. Check whether the user key we just stored is present in our fake_database dictionary keys: 
++
+[source,gdscript]
+----
+if user in fake_database.keys() :
+----
+[[P036]]
+5. If the user is key present, check whether the password key matches the one stored in the fake_database dictionary:
++
+[source,gdscript]
+----
+if fake_database[user] ["password"] == password:
+----
+6. If the password key matches, generate a random integer token and store it in the logged_users dictionary with user as the key so that we can always check them when necessary:
++
+[source,gdscript]
+----
+var token = randi()
+logged_users[user] = token
+----
+7. Create a dictionary called response with a single key-value pair. The key is token and the value is the token variable:
++
+[source,gdscript]
+----
+var response = {"token": token}
+----
+8. Send the response dictionary back to the client in JSON format using the peer. put_var() method:
++
+[source,gdscript]
+----
+peer. put_var(JSON. stringify(response) )
+----
+9. If the password does not match, send an empty string to the client to indicate that the authentication failed:
++
+[source,gdscript]
+----
+else:
+peer.put_var("")
+----
+
+With that, we should have a method that properly handles and replies to the player’s authentication request. Let’s see how it ended up:
+
+[source,gdscript]
+----
+func authenticate_player(peer, message) :
+    var credentials = message['authenticate_credentials']
+    if "user" in credentials and "password" in credentials:
+        var user = credentials["user"]
+        var password = credentials["password"]
+        if user in database.keys() :
+            if database[user] ["password"] == password:
+                var token = randi()
+                var response = {"token": token}
+                logged_users[user] = token
+                peer.put_var(JSON.stringify(response) )
+        else:
+        peer.put_var("")
+----
+
+[[P037]]
+Now, let’s move on to one important part of this whole process. The player will get a request with a token that, as we saw in the Sending Player’s Credentials section, they will store in the AuthenticationCredentials Autoload. So, afer that, the player’s game will change the scene to AvatarScreen and try to request their avatar.
+
+Let’s see how players will be able to keep their session valid throughout this process. The following section is fundamental even afer the player actually starts playing the game. So, stay tuned to understand how we can always ensure the player is still holding a valid token.
+
+=== Maintaining the player’s session
+
+One of the most important aspects of any online game is keeping the player’s session alive throughout their playtime. In our project, we are going to make sure that the player’s token is available throughout the whole game session, even when changing between diferent scenes. This way, we can maintain the player’s identity as they play the game.
+
+To achieve this, we will store the token on the player’s machine using the AuthenticationCredentials singleton. This way, the player’s token will be available to all the game’s scripts, allowing us to check whether the player is still authenticated before proceeding to any other scene.
+
+By keeping the token on the player’s machine, we can avoid constant login requests to the server to authenticate the player again, ensuring faster and smoother gameplay. To ensure that the player’s credentials are still valid, we will use the get_authentication_token() method to allow the player’s client to make a request to the server for their authentication token.
+
+We call this method whenever the player is about to transition to a new scene or when a certain amount of time has passed since their last request. This way, we can ensure that the player is still authenticated and can proceed with their gameplay without any issues.
+
+So, still in the Server. gd script, go to the get_authentication_token() method, and let’s start providing players with what they need to play our game moving on! Proceed as follows:
+
+1. Inside the get_authentication_token() method, let’s extract the user’s information from the message argument. For that, we can create a new variable called credentials and assign it the value of the message argument:
++
+[source,gdscript]
+----
+func get_authentication_token(peer, message) :
+    var credentials = message
+----
+2. Then, let’s check whether the credentials dictionary has a key called "user":
++
+[source,gdscript]
+----
+if "user" in credentials:
+----
+[[P038]]
+3. Check whether the token key provided by the client matches the stored token key for the user:
++
+[source,gdscript]
+----
+if credentials['token'] == logged_users[credentials['user'] ] :
+----
+4. Create a variable called token to store the token key we found in the logged_users variable. Then, let’s return the user’s authentication token key by calling the peer. put_var() method and passing the JSON-formatted token string so that the client receives a response from the server:
++
+[source,gdscript]
+----
+var token = logged_users[credentials['user'] ]
+peer.put_var(JSON.stringify(token) )
+----
+
+Our function should look like this:
+
+[source,gdscript]
+----
+func get_authentication_token(peer, message) :
+    var credentials = message
+    if "user" in credentials:
+        if credentials['token'] == logged_users[credentials['user'] ] :
+        Var token = logged_users[credentials['user'] ]
+        peer.put_var(JSON.stringify(token) )
+----
+
+Now, whenever we need to make any procedure that requires confrmation from the server that the player is still in a valid play session, we can call this function. But to actually do that, we need to add two lines of code to our server so that it understands when the client makes such a request. In the `_process()` function, we check whether the client is making a request for the authenticate_credentials() method. Let’s check whether the client is making a request for the get_session_token() method instead, and if so, we call it. The `_process()` function should look like this:
+
+[source,gdscript]
+----
+func _process(delta) :
+    server.poll()
+    if server.is_connection_available() :
+        var peer = server. take_connection()
+        var message = JSON.parse_string(peer. get_var() )
+        if "authenticate_credentials" in message:
+            authenticate_player(peer, message)
+        elif "get_authentication_token" in message:
+            get_authentication_token(peer, message)
+----
+
+Now, let’s move on to the fnal part of our little project, where we are going to provide and load the
+player’s avatar data.
+[[P039]]
+
+=== Loading the player’s avatar
+
+Welcome to AvatarScreen! This is where the player will be able to customize their avatar appearance and select a unique name in the fnal version of our (fake) game. To display their current available avatar, we need to load the player’s avatar data from the database and display it on the screen. For that, the AvatarScreen scene is made up of a Control node called AvatarScreen, which holds all the other nodes in the scene, including a Control node called AvatarCard:
+
+.Figure 2.5 – The AvatarScreen scene’s node hierarchy
+
+The AvatarCard node contains a TextureRect node to display the avatar’s image using a texture fle and a Label node to display the avatar’s name.
+
+To load the player’s avatar, we frst need to retrieve the path to the image fle from our fake database, which we previously populated with avatar information. So, before we dive into the action in the AvatarScreen logic, let’s create the avatar retrieving logic in the Server. gd script, and let’s work on the get_avatar() function this time. Proceed as follows:
+
+1. Inside the get_avatar() function, create a local dictionary variable that contains the contents of the message:
++
+[source,gdscript]
+----
+func get_avatar(peer, message) :
+    var dictionary = message
+----
+2. Check whether there’s a "user" key present in the dictionary variable:
++
+[source,gdscript]
+----
+if "user" in dictionary:
+----
+3. If we fnd the "user" key in this dictionary, let’s create a local user variable that is equal to the value of the user key in the dictionary variable:
++
+[source,gdscript]
+----
+var user = dictionary['user']
+----
+[[P040]]
+4. Check whether the 'token'key in the dictionary variable matches the token stored in the logged_users dictionary for the user specifed by the user key:
++
+[source,gdscript]
+----
+if dictionary['token'] == logged_users[user] :
+----
+5. If this is the case, create a local avatar variable that is equal to the value of the 'avatar'key in the fake_database dictionary for the user specifed by the 'user'key:
++
+[source,gdscript]
+----
+var avatar = fake_database[dictionary['user'] ] ['avatar']
+----
+6. Create a local nick_name variable that is equal to the value of the name key in the fake_database dictionary for the user specifed by the user key:
++
+[source,gdscript]
+----
+var nick_name = fake_database[dictionary ['user'] ] ['name']
+----
+7. Create a response dictionary with the avatar and name keys and values of avatar and nick_name respectively:
++
+[source,gdscript]
+----
+var response = {"avatar": avatar, "name": nick_name}
+----
+8. Use the peer. put_var() method to send the response dictionary as a JSON string to the client:
++
+[source,gdscript]
+----
+peer. put_var(JSON. stringify(response) )
+----
++
+With that, we wrapped up our server, so we are ready to move to the AvatarScreen node. But before we do that, let’s see how the get_avatar() function looks afer our work:
++
+[source,gdscript]
+----
+func get_avatar(peer, message) :
+    var dictionary = message
+    if "user" in dictionary:
+        var user = dictionary['user']
+        if dictionary['token'] == logged_users[user] :
+            var avatar = database[dictionary ['user'] ] ['avatar']
+            var nick_name = database[dictionary ['user'] ] ['name']
+            var response = {"avatar": avatar, "name": nick_name}
+            peer.put_var(JSON. stringify(response) )
+----
+Now, let’s open the AvatarScreen. gd script so that we can fnally display our player’s avatar! Go ahead to the request_authentication() function because, as mentioned before, every time we need to perform operations on the player’s data, we need to verify their credentials.
+[[P041]]
+9. Inside the request_authentication() function, create a variable called request that holds a dictionary with the 'get_authentication_token', 'user', and 'token'keys. The value of 'get_authentication_token'should be set to true just so that the server understands the request, while the values of "user" and "token" should be retrieved from the AuthenticationCredentials singleton:
++
+[source,gdscript]
+----
+func request_authentication(packet) :
+    var request = {'get_authentication_token': true,
+    "user": AuthenticationCredentials. user, "token
+    ": AuthenticationCredentials. session_token}
+----
+10. Use packet to send this request to the server by encoding the request as a JSON string using JSON.stringify() and then using the put_var() method to send it:
++
+[source,gdscript]
+----
+packet. put_var(JSON. stringify(request) )
+----
+11. Use a while loop to wait for a response from the server. Inside the loop, create a variable called data to store the JSON response from the server, decoded using JSON. parse_string() :
++
+[source,gdscript]
+----
+while packet.wait() == OK:
+    var data = JSON. parse_string(packet. get_var() )
+----
+12. Check whether the data variable is equal to the session_token variable stored in the AuthenticationCredentials singleton. If it is, call the request_avatar function and break out of the loop:
++
+[source,gdscript]
+----
+if data == AuthenticationCredentials.session_token:
+    request_avatar(packet)
+    break
+----
+At the end, our request_authentication() function should look like this:
++
+[source,gdscript]
+----
+func request_authentication(packet) :
+    var request = {'get_authentication_token': true,
+                "user": AuthenticationCredentials.user,
+                "token": AuthenticationCredentials.session_token}
+    packet.put_var(JSON.stringify(request) )
+    while packet.wait() == OK:
+        var data = JSON.parse_string(packet.get_var() )
+        if data == AuthenticationCredentials.session_token:
+            request_avatar(packet)
+            break
+----
+[[P042]]
+It’s fnally time to retrieve the player’s avatar data and display their avatar so that they can engage in our game world! For that, let’s go to the request_avatar() function and create the avatar request and creation displaying logic.
+13. Inside the request_avatar() function, create a dictionary named request with the 'get_avatar', 'token', and "user" keys and their respective values. We get the user and session tokens from the AuthenticationCredentials Autoload:
++
+[source,gdscript]
+----
+func request_avatar(packet) :
+    var request = {'get_avatar': true, 'token':
+    AuthenticationCredentials.session_token,
+    "user": AuthenticationCredentials.user}
+----
+14. Use the packet. put_var() method to send the request dictionary as a JSON-formatted string to the server:
++
+[source,gdscript]
+----
+packet.put_var(JSON.stringify(request) )
+----
+15. Create a while loop to wait for the server to respond. Inside the loop, parse the response as a dictionary using the JSON. parse_string method and store it in a variable named data:
++
+[source,gdscript]
+----
+while packet.wait() == OK:
+var data = JSON.parse_string(packet.get_var() )
+----
+16. Check whether the dictionary data contains the "avatar" key. If it does, load the texture of the avatar image from the path in the "avatar" key value, and set it as the texture of the TextureRect node, called texture_rect. Also, set the value of the Label node called label to the value of the "name" key in the data dictionary. Finally, exit the while loop with break:
++
+[source,gdscript]
+----
+if "avatar" in data:
+    var texture = load(data['avatar'] )
+    texture_rect.texture = texture
+    label.text = data['name']
+    break
+----
+We have almost fnished our login screen! Before we add the fnal touch, let’s see how the request_avatar() method ended up:
++
+[source,gdscript]
+----
+func request_avatar(packet) :
+    var request = {'get_avatar': true, 'token':
+        AuthenticationCredentials.session_token,
+        "user": AuthenticationCredentials.user}
+        packet.put_var(JSON.stringify(request) )
+
+    while packet.wait() == OK:
+        var data = JSON.parse_string(packet.get_var() )
+        if "avatar" in data:
+            var texture = load(data['avatar'] )
+            texture_rect.texture = texture
+            label.text = data['name']
+            break
+----
+[[P043]]
+17. Now, the fnal touch is to add yet another check on the Server. gd script to handle when we receive an avatar request. So, the _process() method should become something like this:
++
+[source,gdscript]
+----
+func _process(delta) :
+    server.poll()
+    if server.is_connection_available() :
+        var peer = server.take_connection()
+        var message = JSON.parse_string(peer.get_var() )
+        if "authenticate_credentials" in message:
+            authenticate_player(peer, message)
+        elif "get_authentication_token" in message:
+            get_authentication_token(peer, message)
+        elif "get_avatar" in message:
+            get_avatar(peer, message)
+----
+And if we test our game by hitting the Play button, or if we test the MainMenu scene, we can verify that our game is working!
+18. The frst thing we need to do is to select the Server button in one of the debugging instances:
+.Figure 2.6 – Pressing the Server button in the MainMenu scene
+[[P044]]
+19. Then, in another instance, choose Client, and it should immediately open the LoginScreen scene:
+.Figure 2.7 – Inserting the player’s username into the client’s LoginScreen UserLineEdit
+20. Choose one of the users we have available in our fake database and insert their credentials:
+.Figure 2.8 – Inserting the player’s username into the client’s LoginScreen PasswordLineEdit
+21. As soon as you press the Login button with the correct credentials, it should load the AvatarScreen
+scene with the respective avatar:
+.Figure 2.9 – The AvatarScreen scene displaying the player’s avatar after a successful authentication
+
+[[P045]]
+Congratulations! You’ve made your frst login screen with authentication features, serializing and deserializing players’ data all across the network. Be proud of yourself—this is a great feat!
+
+=== Summary
+
+In this chapter, we saw how we can establish a connection between server and client using the UDP protocol implementation in Godot Engine’s network API. With that, the network peers can open a communication channel and exchange data.
+
+Since this implementation works on quite a low-level approach, we saw how we can create a simple API for our peers to make, understand, and reply to each other’s requests. Depending on the request, it might be necessary to follow a process known as serialization, which is how we take relevant information from our game state and turn it into a format that we can store and pass around. In our case, we saw that JSON format is one of the most common serialization formats.
+
+Using the JSON format, we saw how we can parse our Godot Engine string as JSON and also how to turn a JSON fle into a dictionary that we can work with more efciently using GDScript.
+
+At the end of the chapter, we saw how we can authenticate players’ credentials, matching them against a fake database. With successful authentication, we gathered players’ data to display their respective avatars based on their data in our database.
+
+In the next chapter, we are going to add a new complexity level by allowing multiple clients to log in to the same server and fnally have a shared experience. For that, we will create a Lobby node that displays all logged players’ names and avatars!
+
+== 🍮 3 Making a Lobby to Gather Players Together
+
+In the previous chapter, we discussed how to use UDP packets to exchange data between multiple players in a game. While this approach is highly efcient, it requires a lot of manual work to ensure that data is sent and received correctly. In this chapter, we will explore the high-level network API of the Godot Engine, which simplifes the networking process by providing a set of built-in tools and functions that can handle common network tasks.
+
+Specifcally, we will focus on the ENetMultiplayerPeer API, which is the Godot Engine’s wrapper class for its ENet library implementation, and Remote Procedure Call (RPC), a communication protocol that allows us to make calls to functions and methods on remote computers as if we were making them locally. We will use these tools to create a lobby, authenticate players, retrieve player avatar data from a fake JSON database, and synchronize all players when a player enters the lobby. We will explore the benefts of using RPCs instead of exchanging UDP packets, and how this approach can simplify the process of synchronizing game states between multiple players.
+
+We will cover the following topics in this chapter:
+
+• Calling functions remotely with RPCs
+• Understanding the multiplayer authority
+• Comparing UDP and ENet approaches
+• Remaking the login screen with RPCs
+• Adding the player’s avatar
+• Retrieving players’ avatars
+• Testing the lobby
+
+[[P048]]
+By the end of this chapter, you will have a solid understanding of how to use the Godot Engine’s high-level network API and RPCs to create a robust multiplayer lobby for your game.
+
+=== Technical requirements
+
+In this chapter, we will build yet another project using the Godot Engine. Remember, throughout this book, we are using Godot Engine version 4.0, so this is also a requirement. This time around, we are going to use the fles provided in the res://03.making-lobby-to-gather-players folder. So, if you don’t have the project repository yet, download it through this link: https://github.com/PacktPublishing/The-Essential-Guide-to-Creating-Multiplayer-Games-with-Godot-4.0
+
+Then, with the project added to your Godot Engine’s project manager, open the project and proceed to the res://03.making-lobby-to-gather-players folder.
+
+=== Calling functions remotely with RPCs
+
+In a network context, RPC stands for remote procedure call, which is a protocol that allows one program to call a function or procedure on another program running on a diferent machine or over a network. In the context of the Godot Engine, RPCs allow objects to exchange data between each other over the network, which is a key feature in creating multiplayer games.
+
+To use RPCs in the Godot Engine, we need to use the ENetMultiplayerPeer API, which provides a high-level network interface for handling network connections and sending and receiving data, as well as managing RPCs. By using ENetMultiplayerPeer, we can easily send and receive RPCs and handle network communication more straightforwardly.
+
+When exchanging data with RPCs, objects can exchange data through functions, which makes the process more straightforward compared to exchanging data using UDP packets. With UDP packets, we need to send packets requesting procedures and wait for a response, and only then can we get the data. This process can be complex and difcult to manage, as we saw in the previous chapter, especially in large games with many objects exchanging data.
+
+One limitation of RPCs is that they don’t allow the transmission of objects, such as nodes or resources, through the network. This can be a challenge in games that require the exchange of complex objects between diferent machines. However, there are workarounds to this limitation, such as sending serialized data or using custom serialization methods. We learned how to do that in Chapter 2, Sending and Receiving Data, so this won’t be a problem to us.
+
+RPCs are a powerful tool for creating multiplayer games, and using the ENetMultiplayerPeer API in the Godot Engine makes it easy to use them. Although there are limitations to RPCs, such as the inability to transmit objects over the network, they are still a crucial part of creating a robust and seamless multiplayer experience.
+
+[[P049]]
+=== Introducing the @rpc annotation
+
+Godot Engine 4.0 introduces a new feature called @rpc function annotation. An annotation is a special marker that we can add to a function in our code that provides additional information to the compiler or the Godot Engine. In the case of @rpc, this annotation is used to mark functions that can be called remotely over the network in a multiplayer game.
+
+There are several options that we can add to the @rpc annotation, which control how the function is called and executed over the network.
+
+Let’s take a closer look at each option:
+
+• We have the calling options, meaning what should happen when we make an RPC to this function:
+
+call_remote::
+This option indicates that the function should only be called remotely on instances of the node in other peers’ machines but not on the node’s local instance.
+
+call_local::
+This option indicates that the function should also be called locally on the current peer’s instance of the node as well. This is useful when we need to sync all peers in the network, including the caller.
+
+• Then, we have the caller option, meaning who can call this function remotely:
+
+authority::
+This option indicates that the function should only be called by the multiplayer authority. We’ll see more about that soon.
+
+any_peer::
+This option indicates that the function can be called by any peer in the network. This is useful for functions that can be executed by multiple peers in a multiplayer game and not only the multiplayer authority.
+
+• We also have options regarding the reliability of the remote data exchange when we make an RPC to this function:
+
+reliable::
+This option indicates that the function should be executed reliably over the network, which means that the function call will be guaranteed to arrive at its destination. This is useful for functions that need to be executed without the risk of losing data.
+
+unreliable::
+This option indicates that the function should be executed with low reliability, which means that there is a chance that some data may be lost or delayed over the network. This is useful for functions that can tolerate some loss of data.
+
+unreliable_ordered::
+This option is similar to unreliable but ensures that function calls are executed in order over the network. This is useful for functions that need to be executed in a specifc order but can tolerate some data loss.
+
+[[P050]]
+We can also specify which connection channel the RPC should use to transmit its data. This is useful to prevent bottlenecking or to dedicate some channels for specifc functions. For instance, we can pick a channel that uses reliable data, such as the transmission of a message between players. Then, we can have another channel that uses unreliable_ordered data, such as updating peers about their avatars’ current position.
+
+In that sense, we just need the most recent position to arrive; every other call with previous positions is irrelevant. So, while one channel waits for messages to arrive, the other is constantly receiving new updates about avatars’ positions and neither of them blocks the other.
+
+The order in which we pass these options doesn’t matter for the Godot Engine itself. The only exception is the channel, which should always be the last option passed. Take the following example:
+
+[source,gdscript]
+----
+@rpc("any_peer", "unreliable_ordered")
+func update_pos() :
+    pass
+
+@rpc("unreliable_order", "any_peer")
+func update_pos() :
+    pass
+----
+
+Tese two ways of establishing the RPC options are the same and both will work. Now, the following annotation has an issue:
+
+[source,gdscript]
+----
+# This wouldn't work
+@rpc(2, "any_peer", "unreliable_ordered")
+func update_pos() :
+    pass
+
+# This would work
+@rpc("any_peer", "unreliable_ordered", 2)
+func update_pos() :
+    pass
+----
+
+Only the second RPC annotation will work, because we are passing the channel as the last argument of the annotation. In the frst RPC annotation example, we are passing the channel as the frst argument, so it won’t work.
+
+Now that we understand how we can mark a function as an rpc function and what options we can use to fine-tune it and achieve what we need in our game, let’s see what we need to be able to call such functions and propagate them across the network.
+
+[[P051]]
+=== What’s necessary for an RPC?
+
+To make RPCs in the Godot Engine, frst, we must set up an ENetMultiplayerPeer connection, which manages the network connection and handles the transmission of data between nodes. We did that in the frst chapter, but we will also go through the process here as well.
+
+Once the ENetMultiplayerPeer connection is set up, we must ensure that the NodePath to the nodes receiving the RPC is exact. This means that the NodePath to the target node must be identical on all peers in the network. If the NodePath is not exact, the RPC may not be sent to the correct node or may not be sent at all.
+
+We can establish a default name for our root nodes to avoid issues. We chose the root node to facilitate the logic aferward as it is the frst node in the hierarchy.
+
+For instance, in our upcoming Lobby project, all three scenes share a common root name, Main:
+
+.Figure 3.1 – The ServerLobby, LoginScreen, and ClientLobby scenes with their root node named Main
+
+It’s also important to note that every node in the network should share all the methods marked with @rpc, even if they are not called or used by anyone. This is because the Godot Engine requires all nodes to have access to the same set of methods to function properly. This can be a minor inconvenience for developers as it may bloat some classes with unnecessary methods, but it is necessary for Godot’s networking system to work efectively.
+
+[[P052]]
+For instance, these are the methods found in each of the scenes that compose our upcoming Lobby project. Note that they all share the highlighted methods on top of their non-RPC methods:
+
+.Figure 3.2 – The Server.gd, LoginScreen.gd, and Client.gd scripts share functions marked with the @rpc annotation
+
+Making RPCs in the Godot Engine requires setting up ENetMultiplayerPeer connections, ensuring that the NodePath to the target node is exact, and ensuring that all nodes in the network share all the methods marked as RPC. While this may require some additional setup and minor inconvenience, it enables developers to create multiplayer games easily and efciently.
+
+With that, we understand the core of RPCs in the Godot Engine. We saw what we need to set our game to support RPCs, how the @rpc annotation works, and how we can tweak it to match our design. In one of those tweaking options, we saw that it’s possible to only allow the multiplayer authority to call a given RPC function. Let’s see what the multiplayer authority is and what we can do with it.
+
+=== Understanding the multiplayer authority
+
+In Godot Engine’s high-level network API, the multiplayer authority is a concept that refers to the node that has the authority to make decisions about a node state in a multiplayer game. When two or more peers are connected in a multiplayer game, it is important to have a centralized peer that decides what changes are valid and should be synchronized across all connected clients.
+
+[[P053]]
+The multiplayer authority is assigned to a specifc peer in the game, usually the server or host, and this peer has the power to decide which changes from a given node should be accepted and synchronized across all connected clients. This is important because in a multiplayer game, multiple players may try to make changes to the game state at the same time, and it is the responsibility of the multiplayer authority to manage, verify, and synchronize these changes correctly.
+
+Each connected client in a multiplayer game is assigned a unique peer ID, which is a number that identifes the client within the game’s network. Peer IDs are managed by the Node. multiplayer. multiplayer_peer object, which is a reference to the ENetMultiplayerPeer object, which handles the game’s network connection. The multiplayer_peer object can be used to send and receive data between connected clients, as well as to manage the state of the game’s network connection. We can use the Node.get_multiplayer_authority() method to retrieve the node’s current multiplayer authority, as well as set a diferent one using Node.set_multiplayer_authority() , passing the peer ID as an argument. Changing a node’s multiplayer authority will allow the new peer to make and sync changes to this node across the network, and this can be quite dangerous.
+
+For instance, if a player is responsible for a node that contains its health, the player may somehow hack it and be able to self-manage their health, ultimately becoming immortal.
+
+=== Comparing UDP and ENet approaches
+
+The UDPServer and PacketPeerUDP classes are lower-level networking tools that allow for the exchange of data through UDP packets. This approach requires more work from us, as we must manage the sending and receiving of packets ourselves. For example, to create a login system using UDPServer and PacketPeerUDP, we would need to create a packet that contains the user’s login information, send it to the server, and then wait for a response.
+
+In Chapter 2, Sending and Receiving Data project, we saw how to use UDPServer and PacketPeerUDP to pass data around. We saw that using these classes, we can serialize data and deserialize it on each end of the system, both client and server. Using this approach, we need to poll packets and wait for requests and responses to arrive. It does the trick, but you saw it can get a bit complicated.
+
+One advantage of using the UDPServer and PacketPeerUDP classes is that they provide more control over the networking process, which can be useful for more complex games that require fine-tuned networking. However, this approach is also more error-prone, as we must handle the sending and receiving of packets ourselves, which can lead to issues such as packet loss or out-of-order packets.
+
+On the other hand, using ENetMultiplayerPeer and RPCs provides a higher-level networking solution that simplifes the process of creating a login system. With this approach, developers can use the @rpc function annotation to mark a method as an RPC, which allows it to be called from any node in the network.
+
+[[P054]]
+For example, to create a login system using ENetMultiplayerPeer and RPCs, we can mark the method that handles the login process as an RPC, and then call it from the client nodes. We are going to see that in a moment, and you will understand how powerful and simple the Godot Engine’s high-level network API is.
+
+Using ENetMultiplayerPeer and RPCs simplifes the networking process and makes it easier to create multiplayer games. The built-in features of ENetMultiplayerPeer, such as automatic packet ordering and error correction, make it easier to create a stable network connection. On top of that, the @rpc annotation makes it easy to call methods from any node in the network, simplifying the development process.
+
+While the UDPServer and PacketPeerUDP classes provide more control over the networking process, using ENetMultiplayerPeer and RPCs ofers a simpler and more streamlined approach to creating multiplayer games. The choice ultimately depends on the specifc needs of the game you are making, but in most cases, using the higher-level tools provided by the Godot Engine will lead to a faster and more efcient development process.
+
+Now that we understand how the Godot Engine’s high-level network API solves a lot of issues through the ENetMultiplayerPeer class and how it compares to the UDP approach, with major advantages, such as its ability to easily allow the RPC features we need to make our game easier, let’s remake the login screen we made in Chapter 2, Sending and Receiving Data, using these new tools. This will allow us to use the high-level API while understanding the low-level approach and the advantages of using the high-level approach instead.
+
+=== Remaking the login screen with RPCs
+
+Welcome back to our studio, fellow network engineer! In Chapter 2, Sending and Receiving Data, we learned how to create a basic login system using the Godot Engine’s UDPServer and PacketPeerUDP classes. While this approach was perfect for our small-scale project, we need to level our game as we move forward and create a lobby!
+
+Fear not, for we have the perfect solution for you – the Godot Engine’s ENetMultiplayerPeer and RPCs! Tese two powerful tools will help us build a robust and efcient system that can easily scale up to support multiple connected clients – as far as we researched, up to 4,095 simultaneously connected players!
+
+With the Godot Engine’s ENetMultiplayerPeer, we can easily manage multiple connections and synchronize game data across all connected clients. This means that our login system will be able to handle more connections, and our game will run smoother than ever before! With that, we will also be able to make RPCs! RPCs are an essential part of networking in the Godot Engine. They allow us to call functions on other nodes in the network as if they were local functions. With RPCs, we can easily share data and perform actions across all connected clients, making our login system even more robust and efcient.
+
+[[P055]]
+So, get ready to level up our game, network engineer! In the upcoming sections, we’ll dive into implementing the new login system using ENetMultiplayerPeer and RPCs and synchronizing players’ avatars into a lobby.
+
+We’ll also cover some best practices and tips for working with ENetMultiplayerPeer and RPCs to ensure our multiplayer game runs smoothly and efciently. With these powerful tools at our disposal, we’ll be able to create a multiplayer game that will wow players and leave them wanting more. Let’s start by establishing connections between our players and the server using the ENetMultiplayerPeer API.
+
+=== Establishing an ENetMultiplayerPeer connection
+
+Let’s recap from the first chapter how to establish a connection using the high-level ENetMultiplayerPeer class. We’ll start with the server.
+
+This time, we will also add elements such as the fake database and the logged users from our project from Chapter 2, Sending and Receiving Data. This will allow us to authenticate players and keep track of who’s connected and their session tokens. Well, without further ado, let’s dive into it! We’ll start by setting up an ENet multiplayer server on port 9999, loading our fake JSON database fle, and assigning the peer instance to the multiplayer_peer property of the node’s multiplayer object so we can make RPCs. Remember, we can only carry out RPCs within an established ENet connection:
+
+1. Open the res://03.making-lobby-to-gather-players/LobbyServer. tscn scene, and then open the Main node’s script.
+
+2. Declare a constant variable, PORT, and assign our default value of 9999. This variable will be used later to specify the port number on which the server will listen for incoming connections:
++
+[source,gdscript]
+----
+const PORT = 9999
+----
+3. Use the @export decorator to create a new variable, database_file_path, which can be edited from the Inspector panel. This variable will store the path to the JSON fle that contains our fake user database. We are using the same fle from the previous chapter:
++
+[source,gdscript]
+----
+@export var database_file_path = "res://02.sending-and-
+receiving-data/FakeDatabase.json"
+----
+4. Create a new ENetMultiplayerPeer instance and assign it to the peer variable. Tis will be our high-level network interface for sending and receiving data between clients and the server and making RPCs:
++
+[source,gdscript]
+----
+var peer = ENetMultiplayerPeer.new()
+----
+[[P056]]
+5. Create an empty dictionary called database and an empty dictionary called logged_users. Tese variables will be used to store our fake user data and keep track of which users are currently logged in, respectively:
++
+[source,gdscript]
+----
+var database = {}
+var logged_users = {}
+----
+6. In the _ready() callback, call peer. create_server(PORT) to create a new multiplayer server that listens for incoming connections on the port number specifed by the PORT variable:
++
+[source,gdscript]
+----
+func _ready() :
+    peer.create_server(PORT)
+----
+7. Still in the _ready() callback, assign the peer to multiplayer. multiplayer_peer. This variable makes our peer object the default network interface for all nodes in the game:
++
+[source,gdscript]
+----
+func _ready() :
+    peer.create_server(PORT)
+    multiplayer.multiplayer_peer = peer
+----
+8. Finally, still in the _ready() callback, make a call to the load_database() method. We are going to create this in a moment. We do that to have the database in memory from the start, as soon as the server is ready:
++
+[source,gdscript]
+----
+func _ready() :
+    peer.create_server(PORT)
+    multiplayer.multiplayer_peer = peer
+    load_database()
+----
+9. Now, define a new function, load_database() , that takes an optional argument, path_to_database_file. This function will be used to load the user data from the JSON fle into our database dictionary:
++
+[source,gdscript]
+----
+func load_database(path_to_database_file = database_file_path) :
+----
+10. Inside load_database() , open the fle specifed by path_to_database_file using FileAccess.open() and assign it to the file variable:
++
+[source,gdscript]
+----
+func load_database(path_to_database_file = database_file_path) :
+    var file = FileAccess.open(path_to_database_file, FileAccess. READ)
+----
+[[P057]]
+11. Get the contents of the fle as text using file. get_as_text() and assign it to the file_content variable:
++
+[source,gdscript]
+----
+func load_database(path_to_database_file = database_file_path) :
+    var file = FileAccess. open(path_to_database_file, FileAccess. READ)
+    var file_content = file. get_as_text()
+----
+12. Parse the contents of file_content as JSON using JSON.parse_string() and assign the resulting dictionary to database:
++
+[source,gdscript]
+----
+func load_database(path_to_database_file = database_file_path) :
+    var file = FileAccess.open(path_to_database_file, FileAccess.READ)
+    var file_content = file.get_as_text()
+    database = JSON.parse_string(file_content)
+----
+At this point, this is how our LobbyServer. gd should look like this:
++
+[source,gdscript]
+----
+extends Control
+const PORT = 9999
+@export var database_file_path = "res://02.sending-and-receiving-data/FakeDatabase.json"
+var peer = ENetMultiplayerPeer.new()
+var database = {}
+var logged_users = {}
+
+func _ready() :
+    peer.create_server(PORT)
+    multiplayer.multiplayer_peer = peer
+    load_database()
+
+func load_database(path_to_database_file = database_file_path) :
+    var file = FileAccess.open(path_to_database_file, FileAccess.READ)
+    var file_content = file.get_as_text()
+    database = JSON.parse_string(file_content)
+----
+
+[[P058]]
+With that, it’s time to get our hands dirty with the fun part and the core of this chapter. Up next, we are going to fnally create the @rpc methods that we’ll use across our upcoming classes.
+
+=== Creating the RPC functions template
+
+With that, we can start to define our @rpc methods so when we move on to LobbyLogin, we already know what we’ll call and how it works. So, still in LobbyServer, let’s create some RPC methods. Tese methods are going to be used on LobbyLogin and LobbyClient as well. Remember, all classes that make RPCs should share the same RPC methods even if they don’t use them.
+
+So, let’s create this interface:
+
+1. The @rpc annotation on this line is an RPC annotation that tells Godot that this function is called remotely only by the multiplayer authority, which is the server itself. A remote call means that when LobbyServer makes an RPC to this function, it won’t execute it on itself locally. We will use the add_avatar() method to add a new avatar to the game’s lobby, and we will implement it on LobbyClient:
++
+[source,gdscript]
+----
+@rpc
+func add_avatar(avatar_name, texture_path) :
+    pass
+----
+2. The clear_avatars() function will remove all avatars from the lobby. We use this function to clear all avatars from the game so we can sync with newer players. This is also a method that we’ll implement on LobbyClient:
++
+[source,gdscript]
+----
+@rpc
+func clear_avatars() :
+    pass
+----
+3. This @rpc("any_peer", "call_remote") annotation tells Godot any peer can remotely call this function. We’ll use the retrieve_avatar() method to retrieve the texture path for a specifc player’s avatar. We’ll implement this method in LobbyServer soon, and the LobbyClient is the one that’s going to remotely call it:
++
+[source,gdscript]
+----
+@rpc("any_peer", "call_remote")
+func retrieve_avatar(user, session_token) :
+    pass
+----
+[[P059]]
+4. The authenticate_player() method will authenticate a player using a username and password. We use this function to authenticate players’ credentials and pair them with a session token on the logged_users dictionary. This is also a method from LobbyServer, but now it’s LobbyLogin that’s going to remotely call it:
++
+[source,gdscript]
+----
+@rpc("any_peer", "call_remote")
+func authenticate_player(user, password) :
+    pass
+----
+5. Then, we use the authentication_failed() method to notify a player that their authentication failed. We will call this from LobbyServer on LobbyClient when the server can’t authenticate the credentials the player sent. Note that while every function marked with an @rpc annotation should be on all other classes it interacts with, those classes don’t need to have the same options for their @rpc. You will understand this better when we jump into LobbyLogin and LobbyClient:
++
+[source,gdscript]
+----
+@rpc
+func authentication_failed(error_message) :
+    pass
+----
+6. We also have authentication_succeed() . We call this function from LobbsyServer on the player’s LobbyClient to tell them that their authentication succeeded, providing them with their session token:
++
+[source,gdscript]
+----
+@rpc
+func authentication_succeed(user, session_token) :
+    pass
+----
+With that, we have all the RPC functions we are going to use in our lobby system. LobbyServer’s RPCs section should look like this:
+
+[source,gdscript]
+----
+@rpc
+func add_avatar(avatar_name, texture_path) :
+    pass
+
+@rpc
+func clear_avatars() :
+    pass
+
+@rpc("any_peer", "call_remote")
+func retrieve_avatar(user, session_token) :
+    pass
+
+@rpc("any_peer", "call_remote")
+func authenticate_player(user, password) :
+    pass
+
+@rpc
+func authentication_failed(error_message) :
+    pass
+
+@rpc
+func authentication_succeed(user, session_token) :
+    pass
+----
+
+[[P060]]
+Our template is ready. It has the @rpc methods that the classes that comprise our lobby need to share to communicate in our network. Remember, this is a necessary step; even if some of the classes don’t implement the method, they should at least share this interface. For instance, coming next, we are going to implement the authentication logic in the lobby server, but other classes only need the method signature for that to work. Let’s see how this goes.
+
+=== Authenticating the player
+
+In this section, we will focus on authenticating the player in the lobby server. We will use the authenticate_player() RPC method that we previously defined in our server script to verify the player’s identity and grant access to the lobby.
+
+The authenticate_player() method will take a username and a password as arguments and will return either an error message or a session token. If the credentials are invalid, the method will make a remote call to the authentication_failed() method with an error message explaining the reason for the failure.
+
+If the credentials are valid, the method will make a remote call to the authentication_succeed() method, passing a session token and returning it to the player’s LobbyClient. The session token is a unique integer number that identifes the player and is used to authenticate the player in subsequent RPCs.
+
+Let’s see how we can implement this logic using the tools we have at our disposal in the Godot Engine:
+
+1. Inside LobbyServer’s authenticate_player() method, get the peer_id of the player who sent the authentication request using the multiplayer.get_remote_sender_id() method. This is how we identify who sent the request so we can properly respond to the request:
++
+[source,gdscript]
+----
+func authenticate_player(user, password) :
+    var peer_id = multiplayer.get_remote_sender_id()
+----
+[[P061]]
+2. Check whether the user exists in the database dictionary. If they don’t exist, call the authentication_failed RPC method on the peer_id with the message "User doesn't exist". For that, we can use the rpc_id() method, which makes an RPC directly to the peer with the given ID:
++
+[source,gdscript]
+----
+if not user in database:
+    rpc_id(peer_id, "authentication_failed", "User doesn't exist")
+----
+3. If the user exists in the database, check whether the password matches the password associated with the user. If it does, generate a random token using the randi() built-in method:
++
+[source,gdscript]
+----
+elif database[user] ['password'] == password:
+    var token = randi()
+----
+4. Then, add the authenticated user to the logged_users dictionary and call the authentication_succeed RPC method on the peer_id passing the token as an argument:
++
+[source,gdscript]
+----
+logged_users[user] = token
+rpc_id(peer_id, "authentication_succeed", token)
+----
+This is what this method should look like:
++
+[source,gdscript]
+----
+func authenticate_player(user, password) :
+    var peer_id = multiplayer. get_remote_sender_id()
+    if not user in database:
+        rpc_id(peer_id, "authentication_failed",
+        "User doesn't exist")
+    elif database[user] ['password'] == password:
+        var token = randi()
+        logged_users[user] = token
+        rpc_id(peer_id, "authentication_succeed", token)
+----
+Note how useful making RPCs is. We don’t need to poll or wait for packets to arrive at the destination or be concerned with serializing function arguments. We don’t even have to create a request API to detect what the requester is trying to achieve as we did previously. It’s very straightforward, almost like making a local application where you have direct access to the objects.
+
+Now, let’s see how we call this function on LobbyLogin. I’ll assume that you already understand how it connects to the server using the ENetMultiplayerPeer.create_client() method. If you have any doubts about that, refer to the frst chapter; the procedure is the same.
+
+[[P062]]
+LobbyLogin resembles the login from the previous chapter, so let’s skip directly to the send_credentials() method, where it communicates with LobbyServer. You’ll notice it also has the RPC methods we saw in LobbyServer. In this case, they all have the default options since the server is the only one that should call these methods on it:
+
+1. In the send_credentials() method, retrieve the text String property from the user_line_edit node and store it in the user variable:
++
+[source,gdscript]
+----
+func send_credentials() :
+    var user = user_line_edit.text
+----
+2. Then, do the same but with password_line_edit and store it in the password variable:
++
+[source,gdscript]
+----
+var password = password_line_edit. text
+----
+3. Finally, make an RPC to the multiplayer authority calling the authenticate_player() method with the user and password arguments. This will make this call only on LobbyServer:
++
+[source,gdscript]
+----
+rpc_id(get_multiplayer_authority() , "authenticate_player", user, password)
+----
+This is what the LobbyLogin. send_credentials() method will look like in the end:
++
+[source,gdscript]
+----
+func send_credentials() :
+    var user = user_line_edit.text
+    var password = password_line_edit.text
+    rpc_id(get_multiplayer_authority() , "authenticate_player", user, password)
+----
+Let’s take a look at the authentication_failed() and authentication_succeed() methods just so we understand how they work and how we keep the players’ authenticated credentials across the scenes. authentication_succeed() takes one argument called session_token, which is passed by the server when it authenticates the player’s credentials, as we saw previously.
+
+Then, we update the AuthenticationCredentials.user and AuthenticationCredentials. session_token values using user_line_edit. text and the session_token argument. Just like in the previous chapter, AuthenticationCredentials is a singleton autoload that stores the player’s username and session token so we can use it in further scenes.
+
+[[P063]]
+Talking about further scenes, afer updating the AuthenticationCredentials singleton, we change the scene to lobby_screen_scene using get_tree().change_scene_to_file(lobby_screen_scene) . Tat means the player has successfully logged in and we can take them to the game lobby:
+
+[source,gdscript]
+----
+@rpc
+func authentication_succeed(session_token) :
+    AuthenticationCredentials.user = user_line_edit.text
+    AuthenticationCredentials.session_token = session_token
+    get_tree() .change_scene_to_file(lobby_screen_scene)
+----
+
+As for authentication_failed() , we set error_label.text to the error message received from LobbyServer.This will display the error to the player:
+
+[source,gdscript]
+----
+@rpc
+func authentication_failed(error_message) :
+    error_label.text = error_message
+----
+
+Now that we understand how both sides of this relationship communicate and what they do with the data they pass around and get from each other, it’s time to move on and see how the game resolves this data and displays the players’ avatars to each other, synchronizing new players across the network every time they join the session.
+
+In the upcoming section, we will see what the lobby screen looks like on the player’s end and how we load, display, and sync players’ avatars across the network.
+
+=== Adding the player’s avatar
+
+In any online game, the player’s avatar is a crucial element that represents them in the virtual world. In the previous section, we successfully authenticated the player and saved their session token and username in our AuthenticationCredentials autoload. Now, it’s time to use that information to display the player’s avatar in the lobby.
+
+To achieve this, we will retrieve the player’s avatar information from our fake database and create a new AvatarCard, a custom scene with a TextureRect node to display the avatar’s image and a label to show its name. This way, players will be able to easily identify each other and feel more connected to the game world.
+
+For that, let’s open the LobbyClient. gd script. Here, we are going to do three major things:
+
+1. Retrieve the avatar information from the server by making an RPC to the retrieve_avatar() method.
+2. Implement the add_avatar() method that LobbyServer calls afer retrieving the avatar data.
+[[P064]]
+3. Implement the clear_avatars() method that LobbyServer calls before adding a new avatar to the lobby.
+
+We are going to start with the latter two, then we can move on to the LobbyServer. gd fle again to implement the retrieve_avatar() method:
+
+1. In the add_avatar() method, create a new instance of avatar_card_scene:
++
+[source,gdscript]
+----
+@rpc
+func add_avatar(avatar_name, texture_path) :
+    var avatar_card = avatar_card_scene.instantiate()
+----
+2. Add the newly created instance of avatar_card to avatar_card_container. This is an HBoxContainer node inside a ScrollContainer node:
++
+[source,gdscript]
+----
+avatar_card_container.add_child(avatar_card)
+----
+3. Wait for the next frame to process before continuing the execution of the code. We do that because AvatarCard needs to be ready before we update its data:
++
+[source,gdscript]
+----
+await(get_tree().process_frame)
+----
+4. Call the update_data() method on the avatar_card instance to update its data using the arguments passed to the add_avatar() method. With that, the lobby will use avatar_name to display the player’s avatar name and will load the image stored in the texture_path to display their avatar’s image:
++
+[source,gdscript]
+----
+avatar_card.update_data(avatar_name, texture_path)
+----
++
+The whole add_avatar() method should look like this:
++
+[source,gdscript]
+----
+@rpc
+func add_avatar(avatar_name, texture_path) :
+    var avatar_card = avatar_card_scene.instantiate()
+    avatar_card_container.add_child(avatar_card)
+    await(get_tree().process_frame)
+    avatar_card.update_data(avatar_name, texture_path)
+----
+
+Using the @rpc annotation, we created a method that the game’s server can call on clients to add a new player avatar to all players’ lobby screens, but this causes a small issue. As it is, this method may add the avatars that were already in the lobby before the newer player joined it.
+
+So, we need to frst clear all previous avatars and then add all currently logged players’ avatars again. This ensures the lobby has only the correct avatars.
+
+In the coming section, we are going to create a method that will run through all current avatars and remove them to have an empty HBoxContainerthat we can use to add new avatars.
+
+[[P065]]
+=== Cleaning AvatarCards
+
+As mentioned before, whenever the server adds a new avatar to the lobby, it frst cleans the lobby and recreates all avatars from scratch. We are going to see that in detail when we implement the retrieve_avatar() method.
+
+The clear_avatars() method frees all existing avatars from the avatar_card_container node. It iterates over all children of avatar_card_container and calls queue_free() on each of them. Afer this function is executed, all avatars previously displayed in the lobby are removed from the container.
+
+In the clear_avatars() method, iterate over each child node in avatar_card_container using a for loop and call the queue_free() method on each child node to remove it from SceneTree and free its resources:
+
+[source,gdscript]
+----
+@rpc
+func clear_avatars() :
+    for child in avatar_card_container. get_children() :
+        child.queue_free()
+----
+
+Tat’s it; pretty simple, right?
+
+Now, before we move back to LobbyServer. gd, let’s make an RPC to the multiplayer authority so it retrieves the current player’s avatar. We do that in the _ready() method:
+
+[source,gdscript]
+----
+func _ready() :
+    rpc_id(get_multiplayer_authority() , "retrieve_avatar",
+    AuthenticationCredentials.user,
+    AuthenticationCredentials.session_token)
+----
+
+We use the rpc_id() method to call the retrieve_avatar() RPC method on the multiplayer authority, which is LobbyServer in this case. We pass the player’s username and session_token, which are stored in the AuthenticationCredentials singleton autoload, as arguments to the retrieve_avatar() method. Now, it’s time to move back to LobbyServer. gd.
+
+=== Retrieving players’ avatars
+
+In this section, we will implement the retrieve_avatar() method on the LobbyServer.gd script, which will allow players to request their avatar data from the server. The avatar data is stored in the fake database. The server will respond with some RPCs to update all players with the appropriate data, displaying their avatars in the shared lobby.
+
+[[P066]]
+With this method in place, we will complete the functionality of our Lobby project. Players will be able to authenticate themselves and display their avatars in the lobby. This will provide a solid foundation for building more complex multiplayer games in the upcoming chapter, as the basics of networking have been covered.
+
+Let’s do it!
+
+1. In the retrieve_avatar() method, check whether the user is logged in by verifying that the user exists in the logged_users dictionary. If the user is not logged in, exit the function: func retrieve_avatar(user, session_token) :
++
+[source,gdscript]
+----
+if not user in logged_users:
+    return
+----
+2. Then, check whether the session token provided by the remote peer matches the session token stored in the logged_users dictionary for the user:
++
+[source,gdscript]
+----
+if session_token == logged_users[user] :
+----
+3. If the tokens match, call the clear_avatars() function on all connected peers to clear any existing avatars from their lobby screen:
++
+[source,gdscript]
+----
+rpc("clear_avatars")
+----
+4. Loop through all the logged-in users stored in the logged_users dictionary:
++
+[source,gdscript]
+----
+for logged_user in logged_users:
+----
+5. Retrieve the avatar name and texture path for the current logged_user from the database dictionary:
++
+[source,gdscript]
+----
+Var avatar_name = database[logged_user]['name']
+var avatar_texture_path = database[logged_user] ['avatar']
+----
+6. Call the add_avatar() method on all connected peers and pass in avatar_name and avatar_texture_path as arguments to display the avatar in the lobby:
++
+[source,gdscript]
+----
+rpc("add_avatar", avatar_name, avatar_texture_path)
+----
+This is how the retrieve_avatar() method should look afer all these steps:
++
+[source,gdscript]
+----
+@rpc("any_peer", "call_remote")
+func retrieve_avatar(user, session_token) :
+    if not user in logged_users:
+        return
+    if session_token == logged_users[user] :
+        rpc("clear_avatars")
+    for logged_user in logged_users:
+        var avatar_name = database [logged_user] ['name']
+        Var avatar_texture_path = database [logged_user] ['avatar']
+        rpc("add_avatar", avatar_name, avatar_texture_path)
+----
+
+[[P067]]
+Pay attention to its @rpc annotation options. Notice that any peer can call it remotely. This is how we make an RPC API for our online multiplayer games in the Godot Engine.
+
+Some methods should be called remotely only by the multiplayer authority, some should be called locally as well, and some can be called by any peer on the network. It is up to us to decide and manage how peers interact with each other.
+
+With all that in place, it’s time to test out our game using multiple instances to simulate a server and multiple players connected to our network. Let’s do this in the next section!
+
+=== Testing the lobby
+
+To test this out, we are going to run three instances of the game:
+
+1. Go to Debug | Run Multiple Instances and select Run 3 Instances.
+.Figure 3.3 – Choosing to run three instances in the Run Multiple Instances menu
+[[P068]]
+2. Then, open the res://03.making-lobby-to-gather-players/MainMenu.tscn scene and hit the Play button.
+3. Pick one of the instances to be the game’s server. To do that, just click on the Server button.
+.Figure 3.4 – Pressing the Server button on the MainMenu screen
+4. Now, pick another instance and click on the Client button. It will take you to the LobbyLogin screen, where you can enter the frst fake player’s credentials.
+5. Insert user1 in the username feld and test in the password feld. Tese are the credentials we added to FakeDatabase.json for our frst user. Then, press the Login button. It will take you to the LobbyClient screen with a single avatar.
+[[P069]]
+.Figure 3.5 – The LobbyLogin screen with the player’s credentials
+With that, the server will authenticate the player’s credentials and will allow the player to move on to the next screen, displaying the player’s character’s avatar and name based on the data it matched in the database fle. In the following screenshot, we can see the next screen afer a successful login.
+.Figure 3.6 – LobbyClient displaying the player’s avatar after login
+[[P070]]
+6. Then, select the last instance and click on the Client button as well. On the LobbyLogin screen, use the second player’s credentials. In the frst feld, insert user2, and then, in the second feld, test. It will take you to the LobbyClient screen, where there should be two avatars now. You can check the other client instance and they will both have the same avatars in order.
+.Figure 3.7 – The game displaying both players’ avatars after the second player is logged in
+
+We can see that everything is working as we want! The players can insert their credentials and the server authenticates them and provides a session token to keep them logged in afer their validation. When logged in, they can see their avatar. Not only that, but our game also syncs players’ avatars when a new player joins the session.
+
+We did all that using the powerful @rpc annotation, which is possible to use when peers connect using the ENetMultiplayerPeer API.
+
+=== Summary
+
+In this chapter, we learned about RPCs and their importance in multiplayer game architectures. We saw how RPCs can be used to exchange data between nodes in the Godot Engine. We also saw what a multiplayer authority node is and how to set one up that manages all the game states between network peers. On top of that, we saw that by using the multiplayer API and ENetMultiplayerPeer, we can easily handle the communication between nodes.
+
+[[P071]]
+Troughout the chapter, we created a lobby, which is a multiplayer game that features a lobby where players can join together. We saw how to create a client-server architecture, authenticate users, and exchange data between the server and the clients using RPCs. We also learned how to use the multiplayer API and ENetMultiplayerPeer to create a connection between the client and the server.
+
+One of the essential concepts we learned is how ENetMultiplayerPeer simplifes the whole process of creating a multiplayer game compared to the low-level UDP approach. It abstracts away the complexity of low-level network programming, such as sending and receiving data packets, managing connections, and handling errors. This makes it easier for us to focus on implementing the gameplay mechanics of the game rather than worrying about the low-level details of the network communication. Overall, this chapter has provided a solid foundation for developing multiplayer games in the Godot Engine. By following the steps outlined in this chapter, developers can create a simple lobby-based multiplayer game that utilizes RPCs, authentication, and the multiplayer API.
+
+In the upcoming chapter, we are going to test the ENetMultiplayerPeer capabilities to exchange, update, and sync players. For that, we will create a chat room where players can communicate with each other and fnally create a shared experience and a sense of community.
+
+[[P073]]
+== 🍮 4 Creating an Online Chat
+
+Welcome to the next chapter of our book on making online multiplayer games using Godot Engine 4.0!
+
+In the previous chapter, we saw how to make a lobby for players and its importance to gathering before entering a game. Now, we will take a step further and explore the development of an online chat using Godot’s Network API.
+
+As we saw, Godot’s Network API provides us with a robust set of tools for building real-time multiplayer games. In this chapter, we will use the ENetMultiplayerPeer class to establish a reliable connection between players, and some remote procedure call (RPC) methods to handle the chat system’s logic. As you may already know, a chat system is essential in any online multiplayer game, as it enables players to communicate with each other during gameplay. A well-designed chat system can greatly enhance the player experience, allowing for smoother coordination between team members and encouraging socialization among players.
+
+In this chapter, we’ll also explore the importance of using multiple communication channels in our network. We introduced this concept in the previous chapter, but now we are going to see how to actually use this feature in RPC methods so that our network is able to smoothly pass data around peers. By the end of the following step-by-step instructions, we will end up with the following:
+
+[[P074]]
+.Figure 4.1 – The Chat screen with players exchanging messages
+
+We will cover the following topics in this chapter:
+
+• Understanding data exchange and channels
+• Sending chat messages
+• Updating peer’s data remotely
+
+=== Technical requirements
+
+Through this chapter, we are going to use the fourth folder of our Godot Engine project repository, available through the following link: https://github.com/PacktPublishing/The-Essential-Guide-to-CreatingMultiplayer-Games-with-Godot-4.0
+
+After importing the project into your Godot Engine project manager, open it and navigate to the res://04.creating-an-online-chat folder. Then, open the ChatControl.tscn and ChatControl.gd files. They are going to be the focus of this chapter.
+
+Coming next in this chapter, we are going to learn the basic concepts of reliable and unreliable data exchange and how channels work so we have the ground set for our chat system. Understanding data exchange and channels
+
+[[P075]]
+=== Understanding data exchange and channels
+
+A chat system is essentially a chronological stack of messages that we order based on what players send to each other. Since this system needs a coherent chronological order, we need to understand how to prevent data from getting mixed and disorganized as it gets transmitted throughout the network. We also need to prevent this ordering from impacting other systems and components. To do that, we are going to learn how we can send packets reliably and how we can use multiple channels for data exchange.
+
+=== Reliable and unreliable packets
+
+Godot Engine’s Network API allows for reliable and unreliable data exchange between peers. The @rpc annotation provides a way to transmit data securely between clients and the server using different transport protocols such as UDP and TCP. Reliable data exchange ensures that data is delivered in order and is not lost in transit, making it ideal for crucial data such as chat messages. Unreliable data exchange is faster and more efficient but offers no guarantee of order or delivery, making it ideal for non-critical data such as player position or real-time updates. In our chat system, we use the reliable @rpc option for chat messages to ensure that they are delivered in a timely manner without loss or duplication. Reliable data exchange ensures that players are able to follow the conversation and respond appropriately. Channels provide another layer of control over data exchange, allowing for better network optimization by prioritizing or separating data sent through different channels.
+
+In the upcoming section, let’s learn how channels work and what we can do with them.
+
+=== Understanding channels
+
+When developing multiplayer games in Godot Engine, understanding how communication channels work within the Network API is crucial for optimizing network performance and minimizing latency. In the context of Godot Engine’s Network API, communication channels are used to separate different types of data being exchanged between peers. For example, you may want to use one channel for game state updates, another channel for chat messages, and another channel for player movement data.
+
+The @rpc annotation in Godot Engine’s Network API provides an option to specify the channel that an RPC method should use for sending and receiving data. By default, all RPC methods use channel 0. However, we can specify a different channel by passing an integer number as the last option in the @rpc annotation. For example, if you want to use a channel for game state updates, you can assign game state updates to channel 1 and chat messages to channel 2.
+
+Using multiple channels in your Godot Engine multiplayer game can help improve network performance and minimize latency. By separating different types of data into separate channels, you can prioritize more important data and prevent congestion on a single channel.
+

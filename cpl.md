@@ -482,6 +482,36 @@
       cmd <<- delimiter 将 cmd 的标准输入重定向到下面的命令行，直到遇到 delimiter（here document，命令行中开头的制表符会被忽略）
 
 
+Buffer 和 Cache 都是计算机系统中用于提高性能的临时存储机制，但它们的设计目的和工作方式有显著区别。Buffer 存在于内存、I/O 设备等多个层次，通常按先进先出 (FIFO) 管理。Cache 通常位于 CPU 和主存之间或存储层次间，使用复杂算法 (LRU 等) 管理。Buffer 短期存在，完成传输后即无效；Cache 长期存在，直到被替换或者失效。
+
+    [cols="2,2,7"]
+    |===
+    |特性      |Buffer                          |Cache
+
+    |主要目的  |协调不同速度设备间的数据传输       |减少对慢速存储设备的访问次数
+    |数据内容  |通常是传输中的临时数据             |经常访问的数据的副本
+    |位置      |存在于内存、I/O 设备等多个层次    |通常位于 CPU 和主存之间或存储层次间
+    |管理方式  |通常按先进先出 (FIFO) 管理        |使用复杂算法 (LRU 等) 管理
+    |生命周期  |短期存在，完成传输后即无效         |长期存在，直到被替换
+    |===
+
+缓冲区就是目的为提高 I/O 操作效率的一块连续的内存空间，用于临时存储输入/输出数据。在计算机体系中，CPU 作为运算中心，其运行速度是最快的，其次是主存储器（内存），再其次是硬盘等外部设备，它们的速度以指数数量级下降。CPU 纳秒级 → 内存微秒级 → 磁盘毫秒级 → 网络秒级，缓冲区作为"中间站"，避免高速设备等待低速设备（如 CPU 等待磁盘写入）。一个形象的缓冲区比喻就是我们在小学时的抄书作业：看一个字写一个字，这就是没有在大脑中缓冲的情形；看一行或一句话再抄写，这就是行缓冲；如果再厉害一点，将整篇文字记下来，再一次抄写完，这就是全缓冲。
+
+常见缓冲区类型，标准 I/O 缓冲区，可以使用 flush 方法刷新缓冲区强制执行 I/O 写操作：
+
+•   stdin：标准输入缓冲区  
+•   stdout：标准输出缓冲区  
+•   stderr：标准错误缓冲区（通常无缓冲）  
+
+常见缓冲区模式包括全缓冲、行缓冲、无缓冲：
+
+•   Fully Buffered (Block Buffered): The buffer is flushed only when full (e.g., file I/O).  
+•   Line Buffered: The buffer is flushed when a newline character (\n) is encountered (e.g., terminal I/O).  
+•   Unbuffered: Data is written immediately without buffering (e.g., stderr).  
+
+大多数系统（如 Linux/Unix）的终端行缓冲默认大小为 1024 字节（1KB），可通过 setvbuf() 函数自定义大小。
+
+
 [](#P05){id=P05}
 
 ### ===👉 Null-terminated String

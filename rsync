@@ -1,0 +1,50 @@
+#!/usr/bin/bash
+if [[ $1 == "do" ]]; then
+  rsync -aiv --delete           /C/opendocs/ /D/opendocs/
+  exit
+else
+  rsync -aiv --delete --dry-run /C/opendocs/ /D/opendocs/
+fi
+
+cat <<EOF
+
+Explain:
+rsync -aiv --delete --dry-run /C/opendocs/ /D/opendocs/
+
+--itemize-changes, -i
+    Requests a simple itemized list of the changes that are being made to
+    each file, including attribute changes. This is exactly the same as
+    specifying --out-format='%i %n%L'. 
+
+    The "%i" escape has a cryptic output that is 11 letters long. The
+    general format is like the string YXcstpoguax, where **Y** is
+    replaced by the type of update being done, **X** is replaced by the
+    file-type, and the other letters represent attributes that may be
+    output if they are being modified.
+
+    The update types that replace the **Y** are as follows:
+
+    - < means that a file is being transferred to the remote host (sent).
+    - > means that a file is being transferred to the local host (received).
+    - c means that a local change/creation is occurring for the item 
+        (such as the creation of a directory or the changing of a symlink, etc.).
+    - h means that the item is a hard link to another item.
+    - . means that the item is not being updated.
+    - * means that the rest of the itemized-output area contains a message.
+
+    The file-types that replace the **X** are: 
+    - f for a file, 
+    - d for a directory, 
+    - L for a symlink, 
+    - D for a device,
+    - S for a special file (e.g. named sockets and fifos).
+
+    The other letters in the string indicate if some attributes of the
+    file have changed, as follows:
+
+    - . - the attribute is unchanged.
+    - + - the file is newly created.
+    - \` - all the attributes are unchanged (all dots turn to spaces).
+    - ? - the change is unknown when the remote rsync is old.
+    - A letter indicates an attribute is being updated.
+EOF

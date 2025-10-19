@@ -4058,8 +4058,25 @@ abb%.bib :
 对于复杂的 Makefile 脚本的调用有三大法器：
 
 1. 注解！使用注解可以最大程序地缩小 Makefile 的复杂度；
-2. 清空！将脚本运行目录下的文件清空（使用新卡件夹）再运行；
+2. 清空！将脚本运行目录下的文件清空（使用新文件夹）再运行；
 3. 调试！GNU make 使用 -d 或者 --debug[=FLAGS] 参数打印解释器运行状态；
+4. 禁止隐式！使用 -r, --no-builtin-rules 或者脚本中禁用内置隐含规则，避免加入意外规则。
+
+```makefile
+# Disable all built-in implicit rules
+MAKEFLAGS += --no-builtin-rules
+
+# Alternative syntax that does the same thing
+.SUFFIXES:
+
+# Disable implicit rules for .o files
+%.o : %.c
+
+# Disable pattern rules you don't want
+% : %.sh
+```
+
+Windows 系统下使用 GNU make 工具的常见问题：无论构建的结果是否需要更新，即使源文件没有修改、更新，执行 make 命令时总是重新构建工程。此问题通常是因为编写规则时，目标名称没有使用 .exe 后缀，导致 make 检测不到工程输出的二进制程序文件，从而触发构建工程。Linux 等系统下，应用程序是没有 .exe 扩展名称的，因此不会有这样的问题。
 
 调试信息输出参考如下，它们完整打印从 make 加载隐式规则到目标文件检测的解释过程：
 
@@ -4181,9 +4198,9 @@ Target 与依赖文件之间的依赖关系通过它们的名称进行匹配，�
 1. normal-prerequisites 任何一个依赖有更新，则需要重新构建建目标。
 2. order-only-prerequisites 此依赖列表中文件的更新，不触发重新构建目标。
 
-Order-only 应该译作“仅指示”或者“整理过的”，这种依赖可以称作指示性依赖，也就是说这种依赖出现在依赖列表中的管道符号后面依赖都是起指示性功能，供阅读者参考，但本身不会参数 make 的更新时间条件比较运算。搭配 .PHONY 目标使用，就可以实现那些 Order-only 目标在依赖它的目标发生构建时才会进行重新构建。
+Order-only 应该译作“仅指示”或者“整理过的”，这种依赖可以称作指示性依赖，也就是说这种依赖出现在依赖列表中的管道符号后面依赖都是起指示性功能，供阅读者参考，但本身不会参数 make 的更新时间条件比较运算。搭配 .PHONY 目标使用，就可以实现那些 Order-only 目标在依赖它的目标发生构建时才会进行重新构建。Order-only 先决条件可以用来做一些准备工作，比如创建目录结构、准备临时数据等等。
 
-在定位 Target 文件或依赖文件时，make 默认以当前工作目录为参考，而不所执行的 Makefile 目录。工作目录即命令当前运行所在目录，使用 . 表示，上级目录使用 .. 表示。Unix 类型系统中，~/ 还表示用户的 Home 目录。Makefile 中可以使用内置谈到 `VPATH` 添加依赖文件搜索路径，默认使用冒号作为目录之间的分隔符号。Windows 系统则使用分号作为目录之间的分隔符号。另外，还可以使用 `vpath` 指令来设置模式匹配，给匹配到的依赖文件指定一个搜索目录。此外，还可以使用 wildcard 函数配合 * 通配符来获取文件列表。
+在定位 Target 文件或依赖文件时，make 默认以当前工作目录为参考，而不所执行的 Makefile 目录。工作目录即命令当前运行所在目录，使用 . 表示，上级目录使用 .. 表示。Unix 类型系统中，~/ 还表示用户的 Home 目录。Makefile 中可以使用内置谈到 `VPATH` 添加依赖文件搜索路径，默认使用冒号作为目录之间的分隔符号。Windows 系统则使用分号作为目录之间的分隔符号。另外，还可以使用 `vpath` 指令来设置模式匹配，给匹配到的依赖文件指定一个搜索目录。此外，还可以使用 wildcard 函数配合 * 通配符来获取文件列表。 GNU Makefile 中，在先决条件（prerequisites）中使用通配符（如 *, ?, [...]）需要特别注意，因为 Make 的通配符展开时机和模式匹配规则可能会导致意外的行为。Make 在解析阶段（parse phase）会立即展开通配符，而不是在运行时。正确方法是使用 wildcard 函数，比如通过 wildcard 函数动态获取文件列表 $(wildcard *.txt)。
 
 ```makefile
 # vpath pattern directories

@@ -3155,8 +3155,16 @@ Rust 在工作中的占比却越来越高，Rust 在商业应用上有着令人�
 
     $ export PATH="$HOME/.cargo/bin:$PATH"
 
-另外，你需要一个某种类型的链接器（linker）。很有可能已经安装，不过当你尝试编译 Rust 程序时，却有错误指出无法执行链接器，这意味着你的系统上没有安装链接器，你需要自行安装一个。C 编译器通常带有正确的链接器。请查看你使用平台的文档，了解如何安装 C 编译器。并且，一些常用的 Rust 包依赖 C 代码，也需要安装 C 编译器。因此现在安装一个是值得的。
+设置 RUSTUP_HOME 以及 CARGO_HOME 环境变量指定 Rust 编译程序或构建工具的安装目录。Winwos 系统下，可以使用 MSVC 编译器，安装程序会默认安装 Visual Studio 社区版。如果使用 MSYS2 平台提供的 GCC 或 LLVM 编译套件，那么就可以不安装 MSVC，安装是相应设置 triple 为 x86_64-pc-windows-gnu 这样的构建目标配置，默认值为 x86_64-pc-windows-msvc，注意后缀标识了编译器类型。参考： https://doc.rust-lang.org/rustc/platform-support/windows-gnu.html，使用 rustc --print target-list 命令查询当前支持的构建目标平台
 
+当你尝试编译 Rust 程序时，却有错误指出无法执行链接器，这意味着你的系统上没有安装链接器，你需要自行安装一个。C 编译器通常带有正确的链接器。请查看你使用平台的文档，了解如何安装 C 编译器。并且，一些常用的 Rust 包依赖 C 代码，也需要安装 C 编译器。
+
+一个典型的 Rust 程序：rustc --crate-type bin hello.rs，其背后的编译流程大致是：rustc + LLVM → 生成 hello.o。编译器 rustc 调用通过 clang 或者 gcc 生成目标代码文件，然后再调用 ld 链接目标代码文件 hello.o、Rust 标准库、C 标准库等得到最终的可执行文件。可以通过设置环境变量来明确指定使用哪个链接器：
+
+```sh
+# 明确使用 GCC 作为链接驱动程序
+RUSTFLAGS="-C linker=gcc" cargo build
+```
 
 Windows 系统使用 rustup 工具安装，前往官网并按照说明安装 Rust。
 
@@ -3171,7 +3179,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 在安装过程的某个步骤，你会收到一个信息说明为什么需要安装 Visual Studio 2013 或更新版本的 C++ build tools。
 
-Visual Studio 或 C++  build tools 必定安装其一，否则不能链接 Rust 程序，建议安装 Visual Studio 2019 社区版。同时，Windows 10 系统需要安装 Windows 10 SDK (10.0.18362.0) 解决 advapi32.lib 这个问题的。
+Visual Studio 或 C++ build tools 必定安装其一，否则不能链接 Rust 程序，建议安装 Visual Studio 2019 社区版。同时，Windows 10 系统需要安装 Windows 10 SDK (10.0.18362.0) 解决 advapi32.lib 这个问题的。
 
 
 将以下目录加入 PATH 环境变量：
@@ -4135,6 +4143,17 @@ Rust 并不关心代码的存放位置，不过建议在工作目录中，使用
 - 第三，"Hello, world!" 是一个字符串。这个字符串作为一个参数传递给 println!，字符串将被打印到屏幕上。
 - 第四，代码行以分号结尾（;），这代表一个表达式的结束和下一个表达式的开始。大部分 Rust 代码行以分号结尾。
 
+标准库 lib\rustlib\src\rust\library\std\src\macros.rs 定义了以下宏：
+
+    macro_rules! panic { ... }
+    macro_rules! print { ... }
+    macro_rules! println { ... }
+    macro_rules! eprint { ... }
+    macro_rules! eprintln { ... }
+    macro_rules! dbg { ... }
+
+简单地说，Rust 宏就是内嵌的 DSL - Domain Specific Languages 可以让你可以发明自己的语法，编写出可以自行展开的代码，并且还可以实现静态反射功能。不像 C/C++ 的宏定义，只是简单的代码预处理程序，用宏代码替换一下部分源代码。Rust 的宏具有相当复杂的功能，更贴近编译器的语法树处理。分为声明宏 (Declarative Macros, macro_rules) 和过程宏 (Procedural Macros) 两种形式。宏的应用是符合 DRY (Don't Repeat Yourself) 软件工程原理的，有轮子的车就让它跑，没有必要重新造轮子，Don't write DRY code！
+
 Rust 和其他语言的 main 函数不同，没有入参或返回值，需要使用专门的函数处理入参和返回值。
 
     fn main() {
@@ -4156,8 +4175,6 @@ Rust 和其他语言的 main 函数不同，没有入参或返回值，需要使
 - `Vec<String>` 字符串向量，引用 args() 返回的 Args 结构体集合；
 - `&args[0]` 借用参数引用，操作系统外部传入的 Vec<String> 不能直接移动所有权、或修改；
 - `{:?}` 打印模板使用通配符号打印多个值；
-
-
 
 除此之外，标准库中的某些 type、trait、function、macro 等等实在太常用，因此标准库提供默认模块
 std::prelude，在这个模块中导出了一些最常见的类型、trait 等，编译器会自动为用户启用，相当于：
@@ -4433,9 +4450,17 @@ fn main() {
 具体参考 Guide to Rustc Development - Analysis - Errors and Lints
 
 Rust 有一套独特的处理异常情况的机制，它并不像其它语言中的 try 机制，或 Exception 类来表示错误。
-函数中的返回值和函数的运行状态相关，通常和错误处理相结合。
+函数中的返回值和函数的运行状态相关，和错误处理相结合，这是 Rust 中至关重要且设计的精妙。
+Rust 使用了两个核心概念：
 
-Rust 的分层错误处理模式，如下，：
+•   可恢复错误 (Recoverable errors): 使用 Result<T, E> 类型。  
+•   不可恢复错误 (Unrecoverable errors): 使用 panic! 宏。  
+
+显式通过 `Result` 迫使开发者主动思考和处理潜在的错误，从而在编译期就大大提高了程序的健壮性。
+Rust 强大的类型系统是其核心优势之一，是它能在高性能和内存安全之间取得完美平衡的基石。它远不止
+简单的“静态类型”，而是一套丰富、表达力极强的工具集。
+
+Rust 的分层错误处理模式，如下：
 
 - 如果合理期望缺失，则使用 `Option<T>`。
 - 如果错误可以合理地处理，则使用 `Result<T, E>`。
@@ -4463,6 +4488,43 @@ Rust 程序中一般会出现两种错误：
 
 - `Ok(value)` 表示操作成功的成员，包装了一个 `T` 型值；
 - `Err(why)` 表示操作失败的成员，通常和 panic 关联，包装了一个 `E` 型值，这个值通常包含出错的参考信息；
+
+标准库 lib\rustlib\src\rust\library\core\src\result.rs 定义了一套和 Result<T, E> 类型相关的
+组合方法（combinator methods），它们允许以函数式编程的风格优雅地链式处理和转换结果，而无需频繁使用
+match 表达式来处理返回值与错误处理，它们可以划分为不同类型：
+
+```rs
+// 1. 查询与断言 (Querying & Asserting)
+// 这些方法用于检查 Result 的状态，返回布尔值或触发 panic。
+    pub fn is_ok_and(self, f: impl FnOnce(T) -> bool) -> bool
+    pub fn is_err_and(self, f: impl FnOnce(E) -> bool) -> bool
+    pub fn ok(self) -> Option<T>
+    pub fn err(self) -> Option<E>
+    pub fn map<U, F: FnOnce(T) -> U>(self, op: F) -> Result<U, E>
+    pub fn map_or<U, F: FnOnce(T) -> U>(self, default: U, f: F) -> U
+    pub fn map_or_else<U, D: FnOnce(E) -> U, F: FnOnce(T) -> U>(self, default: D, f: F) -> U
+    pub fn map_or_default<U, F>(self, f: F) -> U
+    pub fn map_err<F, O: FnOnce(E) -> F>(self, op: O) -> Result<T, F>
+    pub fn inspect<F: FnOnce(&T)>(self, f: F) -> Self
+    pub fn inspect_err<F: FnOnce(&E)>(self, f: F) -> Self
+    pub fn as_deref(&self) -> Result<&T::Target, &E>
+    pub fn as_deref_mut(&mut self) -> Result<&mut T::Target, &mut E>
+    pub fn iter(&self) -> Iter<'_, T>
+    pub fn iter_mut(&mut self) -> IterMut<'_, T>
+    pub fn expect(self, msg: &str) -> T
+    pub fn unwrap(self) -> T
+    pub fn unwrap_or_default(self) -> T
+    pub fn expect_err(self, msg: &str) -> E
+    pub fn unwrap_err(self) -> E
+    pub fn into_ok(self) -> T
+    pub fn into_err(self) -> E
+    pub fn and<U>(self, res: Result<U, E>) -> Result<U, E>
+    pub fn and_then<U, F: FnOnce(T) -> Result<U, E>>(self, op: F) -> Result<U, E>
+    pub fn or<F>(self, res: Result<T, F>) -> Result<T, F>
+    pub fn or_else<F, O: FnOnce(E) -> Result<T, F>>(self, op: O) -> Result<T, F>
+    pub fn unwrap_or(self, default: T) -> T
+    pub fn unwrap_or_else<F: FnOnce(E) -> T>(self, op: F) -> T
+```
 
 结合模式匹配，可以对函数可能出现的值进行判断：
 
@@ -4562,6 +4624,94 @@ Rust 程序中一般会出现两种错误：
 ## ⚡ Printing 打印信息
 - https://doc.rust-lang.org/rust-by-example/hello/print.html
 - https://doc.rust-lang.org/std/fmt/
+- https://doc.rust-lang.org/stable/std/fmt/#syntax
+
+变量地址可以通过标准库提供的 addr_of! 或者 addr_of_mut! 这两个宏来获取，也可以使用 &val as *const T 直接获取引用地址。对于集合（String, Vec）或者通过智能指针管理的堆数据的地址可以使用 .as_ptr() 方法获取，此方法方法返回一个 *const T，一个不可变的指向其底层数据的原始指针（raw pointer），指向集合中数据的第一个元素（或字节）。几乎所有有 .as_ptr() 方法的类型，通常也有一个对应的 .as_mut_ptr() 方法，它返回一个可变的原始指针 *mut T。
+
+```rust
+println!("{:p}", std::ptr::addr_of!(x));
+println!("{:p}", std::ptr::addr_of_mut!(y));
+println!("{:p}", my_string.as_ptr());
+println!("{:p}", &z as *const i32);
+```
+
+注意，.as_ptr() 返回的指针的有效性完全依赖于原始数据的生命周期，必须确保在原始数据被销毁（drop）后，绝不使用这个指针，否则会导致未定义行为。
+
+.as_ptr() 方法的核心特点：
+
+•   只读：返回 *const T，不允许通过它修改数据。
+•   零成本：这是一个简单的计算操作，通常只是返回内部存储的指针值，没有运行时开销。
+•   不转移所有权：调用 .as_ptr() 不会影响变量本身的所有权或生命周期。你仍然可以继续使用原始变量。
+•   安全：它本身是一个安全的方法，但解引用返回的原始指针是不安全的，需要在 unsafe 块中进行。
+
+典型进程 Linux x86-64 的内存布局如下，栈和堆相向增长，中间是未使用的虚拟地址空间。如果两者相遇（栈溢出或堆耗尽），程序会崩溃（Stack Overflow 或 Out of Memory）。
+
+  ┌──────────────────┐  高地址
+  │   Kernel Space   │
+  ├──────────────────┤
+  │     Stack        │ ← 向低地址增长 (RSP)
+  ├──────────────────┤
+  │       ↓          │
+  │    (......)      │  未映射空间
+  │       ↑          │
+  ├──────────────────┤
+  │       Heap       │ ← 向高地址增长 (malloc)
+  ├──────────────────┤
+  │     .bss/.data   │
+  ├──────────────────┤
+  │     .text        │
+  ├──────────────────┤
+  │      envs        │
+  └──────────────────┘  低地址
+
+NOTE: 注意重要区别：变量的地址 vs. 值的地址，这是理解 Rust 内存模型的关键。变量名对应栈上的内存，而 String 或 Vec 对象的 .as_ptr() 获取的是它们管理的堆数据的地址。也就是说变量分配在 stack 内存区，而值（比如字符串的数据）通常在 heap 内存中。使用 addr_of! 这类宏获取的是 stack 中的地址，而使用 .as_ptr() 方法返回的是 heap 中的地址。优先使用 addr_of! 宏，这是最明确、最安全的获取变量地址的方式，能避免由引用自动转换带来的潜在未定义行为。
+
+原始值类型的变量，比如一个数值，其本身没有固定的存放位置，它取决于它的上下文——它是被单独持有，还是被包裹在一个智能指针或集合中。
+
+```rust
+let on_stack: i32 = 42;
+println!("Value on stack: {}, address: {:p}", on_stack, &on_stack);
+
+let on_heap_vec = vec![1, 2, 3];
+println!("Values in vec are on heap. First value's address: {:p}", on_heap_vec.as_ptr());
+
+let boxed = Box::new(42);
+println!("Value in box is on heap. Address: {:p}", Box::into_raw(boxed));
+```
+
+
+Rust 拥有极其强大且安全的元编程能力。这是其成为系统级编程语言霸主的关键特性之一，使其能够在保持零成本抽象和高性能的同时，拥有极高的表达力和开发效率。Rust 的元编程主要围绕 宏（Macros） 展开，但其宏系统远比其他语言（如 C/C++）的文本替换宏复杂和强大。
+
+元编程（Metaprogramming）定义：“编写能够编写程序的程序” (Writing programs that write programs)。它是一种编程技术，允许程序将代码视为数据，从而在运行时或编译时操作、生成或修改自身。简单来说，如果你的代码的输入或输出是另一段代码，那么你就在进行元编程。
+
+Rust 的元编程可以分为两大类：
+
+1. 声明宏（Declarative Macros），这是最常见的形式，通常指 macro_rules! 宏。
+2. 过程宏（Procedural Macros），这是 Rust 元编程的“重型武器”，功能强大到可以改变语言的语法。
+
+过程宏本质上是运行在编译时的 Rust 函数，它接收一段 Rust 代码作为输入（TokenStream），对该代码进行操作和转换，然后输出另一段 Rust 代码。功能极其强大，几乎可以做任何事。需要放在独立的 crate 中，且其 crate 类型是 proc-macro = true。
+
+过程宏有三种类型：
+
+•   派生宏（Derive macros）：最常用，通过 #[derive(MyMacro)] 属性使用。
+•   属性式宏（Attribute-like macros）：定义新的自定义属性，如 #[my_attribute]。
+•   函数式宏（Function-like macros）：看起来像函数调用，如 my_macro!()。
+
+其中的派生宏（Derive macros）中的就有一种属性宏（Attribute），可以方便地用来打印调试信息，只需要在定义 struct 或 enum 类型时在代码行前设置 #[derive(Debug)]，它会让 Rust 编译器自动为你实现 Debug trait。就可以获得 Rust 编译器自动生成的调试代码，可以在打印时使用调试信息格式。对于复杂的结构体，使用 #[derive(Debug)] 和 dbg!(&variable) 宏通常是比手动打印地址更高效的调试方法。打印地址更多用于底层调试和与 FFI 交互的场景。
+
+实现了 Debug trait 的类型就可以在 println! 宏打印消息时使用 {:?} 或 {:#?} 格式化占位符来打印对象的数据结构信息，也可以使用 dbg! 宏来打印。
+
+•   {:?}  -- 紧凑的单行格式。
+•   {:#?} -- “漂亮打印”的多行格式，pretty-print，可读性更高。
+
+假设在 Person() 结构体上使用 #[derive(Debug)]，在编译过程中会发生以下事情：
+
+•   编译器解析：编译器识别到这个属性。
+•   宏展开：编译器会调用内置的 Debug 派生宏。
+•   代码生成：这个宏会分析你的 Person 结构体：
+•   它知道 Person 有两个字段（假设只有两个字段）：name (String) 和 age (u8)。
+•   它知道 String 和 u8 都已经实现了 Debug trait（所有标准库基础类型都实现了）。
+•   自动生成 impl 代码块，提供相应的数据结构字段信息打印语句。
 
 打印信息使用的是在 std::fmt 模块定义的宏：
 
@@ -4573,6 +4723,7 @@ Rust 程序中一般会出现两种错误：
 
 以 println!() 为例，它调用的是 io 的打印函数：
 
+```rust
     /// # Examples
     ///
     /// ```
@@ -4594,10 +4745,11 @@ Rust 程序中一般会出现两种错误：
             $crate::io::_print($crate::format_args_nl!($($arg)*));
         }};
     }
+```
 
 格式化模板参考：
 
-- `{}` 直接打印字符串
+- `{}` 按参数列表的顺序打印字符串
 - `{0}` 指定参数编号
 - `{name}` 指定命名参数
 - `{:#?}` 美化调试信息，冒号后面的表示格式化参数
@@ -9607,7 +9759,7 @@ struct MyEnumPayloadC { x: u32, y: u8 }
 
 ### 🟢🔵 Panics Option Result
 
-Rust 有一套独特的处理异常情况的机制，它并不像其它语言中的 try 机制，或 Exception 类来表示错误。
+Rust 有一套独特的处理异常情况的机制，它并不像其它语言中的 try 机制，或 Exception 类来表示错误。利用 Rust 提供的功能强大的枚举类型（使用了可以携带数据的枚举标签），主要是 Option<T> 和 Result<T, E> 两个泛型枚举类型包装潜在的错误与期望的数据。
 
 Rust 程序中一般会出现两种错误：
 
@@ -9705,12 +9857,16 @@ fn check_optional(optional: Option<Box<i32>>) {
 根据不同的使用场景，Result 或 Option 都提供了以下类似方法方便处理各种可能的情况：
 
 - `unwrap` 直接消费有效数据，不管错误情况。
-- `unwrap_unchecked` 消费数据，不检查返回值是否为 Err 值。
-- `unwrap_err` 或 `unwrap_none` 直接消费数据。
-- `unwrap_err_unchecked` 消费数据，不检查返回值是否为 Ok 值。
-- `unwrap_or` 返回 Ok 值，如果是 Err 则返回指定的默认值。
-- `unwrap_or_default` 返回 Ok 值，如果是 Err 则返回 T 类型的默认值，如数值类型的默认值为 0，字符串类型默认值为 ""。
-- `unwrap_or_else` 返回 Ok 值，如果是 Err 则从一个闭包中计算一个值。
+- `unwrap_err` 或 `unwrap_none` (`Option<T>`) 直接消费数据或打印错误信息。
+- `expect` 消费数据，失败时 (Err) 时 panic! 并打印指定提示信息。
+- `expect_err` 消费错误，确认操作应该失败，失败时 (Ok) panic! 并打印指定提示信息。
+- `unwrap_unchecked` 消费数据，不检查返回值是否为 Err 值 (未定义行为)。
+- `unwrap_err_unchecked` 消费错误，不检查返回值是否为 Ok 值 (未定义行为)。
+- `unwrap_or` 消费数据，如果是 Err 则返回指定的默认值。
+- `unwrap_or_default` 消费数据，如果是 Err 则返回 T 类型的默认值，数值、字符串类型默认值分别为 0 和 ""。
+- `unwrap_or_else` 消费数据，如果是 Err 则从一个闭包中计算一个值。
+
+注意：`Option<T>` 没有 unwrap_err_unchecked，因为它的错误情况（None）没有携带值。
 
 ```rust,ignore
 #![allow(unused)]

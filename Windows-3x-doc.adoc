@@ -1,0 +1,3312 @@
+:doctype: article
+:table-frame: none
+:table-grid: rows
+:table-stripes: odd
+:stem: latexmath
+:icons: font
+:source-highlighter: highlightjs
+
+== Windows 3.1 SETUP.TXT
+
+
+This file contains information about problems that may occur 
+while running Windows Setup and describes problems that can
+occur when using terminate-and-stay-resident (TSR) programs
+or drivers with Windows or Windows Setup. If you are using 
+a TSR or if you encounter problems setting up Windows version 
+3.1, read this document BEFORE running Setup again.
+
+
+=== General Setup Notes
+
+This section includes notes on specific system configurations 
+that may prevent Setup from installing Windows successfully.
+A solution to each problem is provided.
+
+If you are using a hardware or software product listed here,
+follow the proposed recommendations before running Setup.
+
+
+==== MS-DOS Screen Savers
+
+If you are using an MS-DOS screen saver, you should disable 
+it before running Setup. These screen savers can cause problems
+when running Setup.
+
+
+==== COMPAQ Computer with MS-DOS Version 5.0 and EGA or VGA 
+
+If you are using the upgrade version of Microsoft MS-DOS 
+5.0, check your CONFIG.SYS file to make sure the following
+drivers appear in this order:
+
+    HIMEM.SYS 
+    EMM386.EXE
+    ANSI.SYS
+
+NOTE: If you are using the COMPAQ version of MS-DOS 5.0,     
+      HIMEM.EXE is used in place of HIMEM.SYS and CEMM.EXE
+      is used in place of EMM386.EXE.
+
+If ANSI.SYS is loaded before HIMEM.SYS or EMM386.EXE (or if
+you are using COMPAQ MS-DOS 5.0 before HIMEM.EXE or CEMM.EXE),
+Setup may restart your system before Windows is installed. 
+Also, if you are using the DOS=HIGH,UMB command line to load 
+MS-DOS into upper memory, loading EMM386.EXE (or CEMM.EXE)
+before loading ANSI.SYS will create the maximum amount of
+upper memory space on a COMPAQ computer.
+
+
+==== AT&T Safari Computer
+
+If you have an AT&T Safari computer, you cannot maintain two
+versions of Windows (version 3.0 and version 3.1) on your 
+system. You must upgrade over version 3.0. If you set up 
+Windows 3.1 in its own directory, Windows will not use the 
+special drivers required for it to run on the Safari computer.
+
+
+==== Using the TIGA Display Driver
+
+If you are using the TIGA display driver, you must load the 
+TIGACD.EXE MS-DOS driver manually before running Setup 
+to upgrade Windows. Otherwise, Windows will not upgrade 
+your system properly. 
+
+After successfully setting up Windows, you can increase the 
+amount of conventional memory available to non-Windows 
+applications when Windows is running in 386 enhanced mode 
+by loading TIGACD.EXE from the WINSTART.BAT file. The 
+WINSTART.BAT file runs only in 386 enhanced mode. If you 
+want to run Windows in standard mode, you must load 
+TIGACD.EXE manually. For more information, see the README.WRI 
+online document.
+
+
+==== Displays That Are Incompatible with Windows Version 3.1
+
+Certain display adapters can cause problems with Windows 
+version 3.1. The most serious problem is a system 
+failure while running Windows Setup. If you encounter this 
+problem, run Custom Setup, and then select one of the standard 
+display types, such as VGA, provided with Windows version 3.1. 
+
+With other display drivers, Windows may be set up successfully 
+but TrueType fonts may not appear correctly on your screen. 
+An updated driver may be available in the Windows Driver 
+Library or from your display vendor or manufacturer. For 
+information about obtaining the Windows Driver Library, 
+see "Getting Started with Microsoft Windows." 
+
+The following display adapters may cause problems:
+
+-  ATI Graphics Ultra and Vantage
+
+NOTE:    These adapters are 8514/a-compatible and run well 
+         with the 8514/a driver provided with Windows 3.1.
+
+- All DGIS display adapters (Direct Graphics Interface Standard) 
+  from Graphic Software Systems, including the following:
+
+        NEC MultiSynch Graphics Engine (MGE)
+        Zenith Z-649             
+        HP IGC-10, IGC-20
+        GSS 1000 Series 
+
+NOTE:    Some DGIS-based adapters are TIGA-compatible and
+         run well when used with the appropriate TIGACD.EXE
+         MS-DOS driver and with the TIGA driver provided with 
+         Windows 3.1.
+
+- HP Ultra VGA
+- IBM Image Adapter/A  
+- Matrox MG Series/M-WIN Series
+- Palettized VGA 640x480, 16-color (provided with Windows
+  Multimedia Extensions version 1.0)
+- Radius SVGA MultiView
+
+- All RGDI (Renaissance Graphics Device Interface) display
+  adapters from Appian, Inc., including the following:
+       Appian Rendition II, IIe, II/XE, and III
+       Appian GV1024
+       Decpc 433
+
+- All S3 adapters, including the following:
+      Orchid Fahrenheit 1280
+      STB WIND/X
+      Diamond Stealth VRAM
+
+
+==== Using Stacker
+
+If you are using Stacker to compress your hard disk, there are 
+certain steps you need to take before setting up Windows. 
+
+•  If you want to use a swap file with Windows, you must
+   set up the swap file on the uncompressed drive. When 
+   setting up Stacker, you can leave at least 1 megabyte (MB)
+   of disk space uncompressed for storing system files. To 
+   leave enough space for the swap file, it is recommended 
+   that the amount of uncompressed disk space equal at least 
+   twice the amount of system memory. For example, if your 
+   system has 4 MB of memory, you should leave at least 8 MB 
+   of disk space uncompressed. 
++
+If Stacker is already set up on your system and there is not 
+   enough uncompressed disk space for a swap file, you can run 
+   the STAC utility provided with Stacker to increase the amount 
+   of uncompressed disk space. For more information, see your 
+   Stacker documentation.
+
+•  If you are using Stacker version 2.0 or later, Windows Setup
+   modifies your CONFIG.SYS and AUTOEXEC.BAT files. When Setup
+   is finished making the modifications, it displays a message
+   at the end of the Windows portion of Setup notifying you of
+   the modifications. If you have used Stacker to swap your 
+   startup drive, when you restart your system Stacker will
+   ask whether you want to update to the new version of the 
+   CONFIG.SYS or AUTOEXEC.BAT file. It is recommended that you
+   update.
++
+If you are using a version of Stacker earlier than 2.0, you
+   may need to modify your CONFIG.SYS and AUTOEXEC.BAT files 
+   yourself. For more information, see "Modifying Your CONFIG.SYS
+   and AUTOEXEC.BAT Files Yourself," following this topic.
+
+•  For best performance, do not use SMARTDrive to cache the
+   compressed drive. You only need to cache the uncompressed 
+   drive. You can include options on the SMARTDRV.EXE line of
+   the CONFIG.SYS file to specify which drives to cache. 
++
+For example, if the Stacker swap utility swaps drives C and
+   D so that C is compressed and D is uncompressed, you would 
+   include the following line in your CONFIG.SYS file:
+
+        device=\windows\smartdrv.exe C- D+
+ 
+For more information about swap files and using SMARTDrive, see 
+the "Microsoft Windows User's Guide."
+
+
+==== Modifying Your CONFIG.SYS and AUTOEXEC.BAT Files Yourself
+
+When you set up Windows, Setup usually places the HIMEM.SYS, 
+SMARTDRV.EXE, and EMM386.EXE files in the Windows directory. 
+If the Windows directory is on a disk that is not available 
+when you start your computer, such as a removable or nonlocal 
+disk, or if Setup detects one of the following conditions,
+Setup does not modify the CONFIG.SYS or AUTOEXEC.BAT file:
+
+- Your boot drive has been modified by a disk-compression 
+  utility.
+
+- Your CONFIG.SYS file contains references to block device 
+  drivers.
+
+- There is not enough available space on your hard disk to 
+  copy the files.
+
+- The files are already installed on your system and Setup
+  cannot overwrite them (they are read-only).
+
+Instead, Setup writes proposed changes to the CONFIG.WIN and 
+AUTOEXEC.WIN or the CONFIG.00x and AUTOEXEC.00x files. 
+In this case, you must either move the HIMEM.SYS, SMARTDRV.EXE, 
+and EMM386.EXE files to a drive that is available when you start 
+your computer, or use a text editor to modify your CONFIG.SYS or
+AUTOEXEC.BAT file so that any references to HIMEM.SYS, 
+SMARTDRV.EXE, and EMM386.EXE appear after the device= 
+command line used to load the drivers for your disk drives. Refer 
+to the CONFIG.WIN and AUTOEXEC.WIN or the CONFIG.00x and 
+AUTOEXEC.00x files for the proposed changes.
+
+
+==== Setting Up XGA on a PS/2 Model 75 or 90
+
+If you have a PS/2 model 75 or 90 with an XGA, Windows 
+Setup will configure the display adapter for 16-color, 
+640x480 resolution. Do not change this configuration 
+during Setup. Specifying a different XGA configuration 
+while setting up Windows may cause Setup to fail.
+
+After you have successfully installed Windows, you can 
+configure your XGA to use a different resolution or 256 colors, 
+if your monitor supports it. For more information on how to do 
+this, see the topic "IBM XGA" in the README.WRI online 
+document.  
+
+If you are using the plasma screen on the PS/2 model 75, use 
+ONLY the 640x480, 16-color configuration. If you change this
+configuration, you will be returned to the MS-DOS prompt when 
+you try to start Windows. 
+
+
+==== Correcting the "Out of Environment Space" Error Message
+
+If you receive an "out of environment space" message when 
+starting Windows, you can either:
+
+•  Increase the size of your environment by adding the SHELL= 
+   command line to your CONFIG.SYS file. See your MS-DOS 
+   documentation for more information about the SHELL command
+   and modifying your CONFIG.SYS file.
+
+•  Move the SET commands in your AUTOEXEC.BAT file 
+   to the beginning of the file so that they run before the
+   commands that load terminate-and-stay-resident (TSR)
+   programs or drivers, such as SMARTDrive.
+
+
+==== If Windows Setup Does Not Detect Your Network
+
+If you have a network installed and Setup specifies "No
+Network" in the System-Information screen, Setup is not
+able to detect your network. For Setup to detect certain 
+networks, the directory that contains the network program 
+files must be included in your path. 
+
+This is a known problem with these networks: 3Share, 3Open, 
+LAN Manager, and MSNet. If your path does not include the
+directory where the network files are located, you can either:
+
+•  Add the directory to the PATH line in your AUTOEXEC.BAT 
+   file. 
+
+•  Run Custom Setup and specify the full path for your
+   network in the System-Information screen.
+
+
+=== Using Terminate-and-Stay-Resident (TSR) Programs and Drivers with Windows Version 3.1
+
+
+The Program Listing section of this document lists several 
+terminate-and-stay-resident (TSR) programs and drivers that
+are known to cause problems when running with Windows version 
+3.1. Some of the problems you may encounter include system 
+failures or an incorrect display of information on your screen. 
+In some cases, special steps are provided to solve the problems.
+
+While setting up Windows version 3.1, Windows Setup searches 
+the AUTOEXEC.BAT and CONFIG.SYS files for references to TSR 
+programs and drivers, in addition to scanning memory for TSRs 
+that are currently running. If Setup detects a TSR that is 
+known to cause problems when running with Windows version 3.1, 
+a message appears, asking whether you want to continue or quit 
+Setup.
+
+If you receive such a message, do the following:
+
+1. Locate your TSR in the Program Listing section of this document 
+   and use the information to determine if the situation encountered
+   prevents Windows Setup from successfully installing Windows 3.1.
+
+2. If the situation does not affect Windows Setup, you can continue 
+   setting up Windows 3.1 by following the instructions on your 
+   screen.
+   
+   If the situation does affect Windows Setup and prevents it from 
+   installing Windows on your computer, follow the instructions 
+   on the screen to quit Setup, and then complete the following 
+   steps.
+
+3. Quit the TSR and remove all references to it from your 
+   AUTOEXEC.BAT and CONFIG.SYS files. For more information, 
+   see the documentation for your TSR.
+
+4. Restart your computer.
+
+5. Run Windows Setup again.
+
+After Windows is successfully set up, you may want to restore 
+your TSRs. 
+
+Not all TSRs or drivers included in the Program Listing section
+are detected by Setup. The TSRs and drivers that Setup detects
+are in the SETUP.INF file, listed under the names "incomptsr1" 
+and "incomptsr2".
+
+
+=== Program Listing
+
+This section describes some problems, discovered during testing,
+that you might encounter while using a TSR with Windows version 3.1. 
+It does not include all possible problems that can occur.
+
+==== 386MAX 
+
+The documentation for 386MAX recommends against setting the 
+EXT parameter below 64. If you set this parameter to 0, Windows 
+Setup and Windows running in standard mode will fail.  
+
+See the README.WRI online document for more information 
+about running 386MAX with Windows 3.1.
+
+==== 386MAX Disk-Cache Utility (QCACHE.EXE)
+
+Do not use this disk-cache utility simultaneously with SMARTDrive. 
+There is no reason to use two disk-cache utilities with Windows. 
+It is recommended that you use SMARTDrive, which is installed 
+with Windows 3.1, instead.
+
+==== All Charge 386 Version 3.1 
+ 
+ALLEMM4.SYS is a memory manager that causes problems with
+Setup and Windows 3.1. If you encounter problems running 
+this program with Windows, it is recommended that you use 
+EMM386.EXE and HIMEM.SYS, provided with Windows 3.1, to 
+manage memory instead.  
+
+==== Anarkey Version 4.00
+
+With some memory configurations, Anarkey version 4.00 running
+with Windows 3.1 in 386 enhanced mode may cause unpredictable 
+system failures. In rare cases, this program can also corrupt
+hard-disk data. In addition, Windows 3.1 might not start when
+this program is running.
+
+Do not run Windows 3.1 in 386 enhanced mode when Anarkey version 
+4.00 is running. Version 4.01 may correct these problems. Contact
+Moderne Software for a free upgrade of Anarkey 4.01.
+
+==== Anarkey Version 4.01
+
+If Anarkey version 4.01 is loaded before starting Windows in 
+standard mode, it is not available in any MS-DOS Prompt that 
+you start from Windows. In this case, it is recommended that 
+you load Anarkey from each MS-DOS Prompt, as needed.  
+
+Do not load Anarkey HIGH before starting Windows in 386
+enhanced mode. If you load Anarkey HIGH, your system may 
+fail when you try to start an application. 
+
+==== APPEND (MS-DOS)
+
+Do not use the APPEND utility with Windows 3.1. It prevents
+Windows and Windows applications from creating valid 
+Well-Formed-Path (WFP) names for the files they are using.  
+(A WFP is the complete name of a file, including the drive 
+letter and full path specification, starting from the root 
+directory.)
+
+==== ASP Integrity Toolkit Version 3.7
+
+This product is a virus-protection program that can cause 
+problems when running Windows Setup, including system 
+failure, automatic restarting of the system, and the inability 
+to use the keyboard. You should turn off protection in the
+toolkit before setting up Windows 3.1. For information about
+how to do this, see your ASP Integrity documentation.
+
+NOTE: Setting up Windows is considered a system-administration 
+      task. The ASP Integrity Toolkit documentation instructs 
+      you to turn off protection when performing these types 
+      of tasks. 
+
+==== Autocon Version 2.0e 
+
+Autocon enables you to select up to fifty different configurations 
+when starting your system. To do this, it modifies the CONFIG.SYS 
+and AUTOEXEC.BAT files, based on information in its database 
+(AUTOCON.DAT), when you restart your system from within 
+AUTOCON. 
+
+Windows Setup modifies only the first section in the CONFIG.SYS
+and AUTOEXEC.BAT files. If you want to use specific configurations 
+with Windows, you must run Autocon and then manually edit the 
+configurations in the database that you want to use. You must do
+this after setting up Windows. For your changes to take effect,
+you must restart your system from within Autocon. For more 
+information, see your Autocon documentation.
+
+==== Bootcon Version 1.60
+
+Using Bootcon, you can maintain different system-configuration
+information in your CONFIG.SYS and AUTOEXEC.BAT files. You can
+then select the configuration you want to use from a menu when 
+starting your system. 
+
+Windows Setup modifies only the first section in the CONFIG.SYS 
+and AUTOEXEC.BAT files. You must edit the sections of those files 
+that contain the configurations you want to use after you set up 
+Windows. For more information, see your Bootcon documentation.
+
+==== BOOT.SYS
+
+Using BOOT.SYS, you can maintain different system-configuration
+information in your CONFIG.SYS and AUTOEXEC.BAT files. You can
+then select the configuration you want to use from a menu when 
+starting your system. 
+
+Windows Setup modifies only the first section in the CONFIG.SYS 
+and AUTOEXEC.BAT files. You must edit the sections of those files
+that contain the configurations you want to use after you set 
+up Windows. For more information, see your BOOT.SYS documentation.
+
+
+==== CACHE.EXE Disk-Cache Utility
+
+Do not use two disk-cache utilities with Windows 3.1. It is 
+recommended that you use SMARTDrive, provided with Windows 3.1, 
+and remove all references to other disk-cache utilities from 
+your CONFIG.SYS and AUTOEXEC.BAT files. (If CACHE.EXE is detected, 
+Setup removes it from the CONFIG.SYS file for you.)
+
+==== CACHE.SYS Disk-Cache Utility
+
+This disk-cache utility will not work properly with SMARTDrive. 
+It is recommended that you use SMARTDrive, provided with 
+Windows 3.1, and remove all references to other disk-cache 
+utilities from your CONFIG.SYS and AUTOEXEC.BAT files. (If 
+CACHE.SYS is detected, Setup removes it from the CONFIG.SYS file 
+for you.)
+
+==== CED Version 1.0e
+
+Using CED with Windows 3.1 may cause problems, including 
+system failure. It is recommended that you do not use CED 
+with Windows 3.1.
+
+==== Central Point Anti-Virus Version 1.1 (VSAFE.COM/VSAFE.SYS)
+
+VSAFE.COM/VSAFE.SYS should not be loaded when you set up
+Windows 3.1. Otherwise, Setup may not run properly. After 
+you set up Windows 3.1, you can load VSAFE.  
+
+Because Windows uses the disk for memory swapping, you should
+turn off the VSAFE write-protection option when running Windows. 
+For more information, see the Central Point Anti-Virus 
+documentation.
+
+==== CMDEDIT.COM Version 2.0 (Date 12-6-91)
+
+If this command-line editor is loaded before starting Windows,
+it may cause a General Protection Fault when running multiple MS-
+DOS Prompts in 386 enhanced mode. Also, it cannot be loaded 
+from an MS-DOS Prompt within Windows when Windows is
+running in standard mode. 
+ 
+==== Cubit Version 3.01
+
+When using Cubit with Windows 3.1, do not compress the 
+Windows SYSTEM directory or any file that is loaded from 
+the CONFIG.SYS file. Compressing these files could cause 
+problems.  
+
+Before upgrading to Windows 3.1, make sure that the earlier 
+version of Windows is uncompressed on your hard disk. You 
+may recompress the files after you have successfully set up 
+Windows 3.1.
+
+==== Data Physician Plus Version 2.0 (VirALERT)
+
+It is recommended that you do not set up Windows while
+VirALERT is running. If you do, VirALERT will display a 
+warning message every few seconds while Setup is running.
+
+After you have set up Windows, you can run VirALERT. Press
+ALT+V to display the VirALERT menu. You can use the commands 
+on this menu to disable and enable VirALERT.
+
+==== DOSCUE.COM Command-Line Editor
+
+The DOSCUE command-line editor produces unexpected results
+when used with Windows version 3.1. It is recommended that you 
+do not use this editor with Windows 3.1.
+
+==== Doubledisk Version 2.5
+
+Windows 3.1 may try to access "phantom" disk drives if you use
+Doubledisk with Windows 3.1. Phantom drives occur when you 
+use Doubledisk to create a compressed drive. For example, if you 
+have drives A, B, and C on your computer and you use Doubledisk 
+to create drive F, Windows 3.1 (and MS-DOS) recognize drives D 
+and E as valid drives, even though they do not actually exist. You 
+can use the DRVOFF utility to prevent Windows from recognizing 
+phantom drives. Contact Vertisoft to order a copy of the DRVOFF
+utility.
+
+==== FASTOPEN (MS-DOS)
+
+FASTOPEN is a RAM resident utility. Problems involving the
+file allocation table (FAT) may occur if FASTOPEN is used
+together with disk de-fragmenting utilities. In low-memory 
+situations, you may need to remove FASTOPEN for Windows 
+3.1 to run properly.
+
+==== Flash Disk-Cache Utility (FLASH.EXE)
+
+Do not use this disk-cache utility simultaneously with SMARTDrive. 
+There is no reason to use two disk-cache utilities with Windows. 
+It is recommended that you use SMARTDrive, which is installed with 
+Windows 3.1, instead.
+
+==== Graphics (MS-DOS)
+
+Loading Graphics from an MS-DOS Prompt within Windows can cause 
+unexpected results when printing. The active MS-DOS Prompt will 
+send its output to the printer. Switching between MS-DOS Prompts
+may result in mixed printing jobs.  
+
+==== HPEMM386.SYS and HPEMM486.SYS
+
+These expanded-memory managers are incompatible with Windows 
+when it is running in 386 enhanced mode. If you plan on running 
+Windows in 386 enhanced mode, it is recommended that you use 
+EMM386.EXE to manage memory instead.
+
+==== HPMM.SYS - HP Memory Manager
+
+When HPMM.SYS is running, you cannot set up Windows 3.1 or
+run it in standard mode. You should remove all references to
+HPMM.SYS from your CONFIG.SYS and AUTOEXEC.BAT files before
+setting up Windows 3.1.
+
+==== Hyperdisk Disk-Cache Utility 
+
+Do not use this disk-cache utility simultaneously with SMARTDrive. 
+There is no reason to use two disk-cache utilities with Windows. 
+It is recommended that you use SMARTDrive, which is installed with 
+Windows 3.1, instead.
+
+==== IBM VDISK.SYS (RAM Disk Utility)
+
+VDISK.SYS is incompatible with Windows because it occupies
+extended memory required to run Windows. This utility prevents
+any XMS-compatible memory manager from loading.
+
+==== IEMM.SYS Memory Manager
+
+The IEMM.SYS memory manager is incompatible with Windows.
+It is recommended that you remove all references to IEMM.SYS 
+from your CONFIG.SYS and AUTOEXEC.BAT files and use
+EMM386.EXE, provided with Windows 3.1, to manage memory
+instead.
+
+==== ICACHE.SYS Disk-Cache Utility
+
+Do not use two disk-cache utilities with Windows version
+3.1. It is recommended that you use SMARTDrive, provided with 
+Windows 3.1, and remove all references to other disk-cache 
+utilities from your CONFIG.SYS and AUTOEXEC.BAT files. (If 
+ICACHE.SYS is detected, Setup removes it from the CONFIG.SYS 
+file for you.)
+
+==== IBMCACHE.SYS Disk-Cache Utility
+
+Do not use two disk-cache utilities with Windows version
+3.1. It is recommended that you use SMARTDrive, provided with 
+Windows 3.1, and remove all references to other disk-cache 
+utilities from your CONFIG.SYS and AUTOEXEC.BAT files. (If 
+IBMCACHE.SYS is detected, Setup removes it from the CONFIG.SYS 
+file for you.)
+
+==== Intel Expanded-Memory Emulator (ILIM386.SYS)
+
+The ILIM386.SYS expanded-memory emulator, provided with the 
+Intel Inboard/386 product, is incompatible with Windows 3.1.  
+It is recommended that you remove all references to this emulator 
+from your CONFIG.SYS and AUTOEXEC.BAT files before setting 
+up Windows 3.1.
+
+==== JOIN (MS-DOS)
+
+Do not add or remove "joined" drives while running Windows 3.1.  
+If you use the JOIN command before starting Windows 3.1 and 
+do not change the state of the joined drives from an MS-DOS 
+Prompt within Windows, Windows 3.1 will work properly.  
+It is recommended that you do not use joined drives at all if 
+you plan on running Windows.
+
+==== KBFLOW TSR by Artisoft
+
+If you load the KBFLOW TSR utility provided by Artisoft
+before starting Windows 3.1, your system may fail when 
+starting or using an MS-DOS Prompt from within Windows.
+
+==== KEYB.COM (MS-DOS)
+
+If you use command-line options to load KEYB.COM, it is 
+recommended that you load it before starting Windows. 
+After it is loaded, you can change the keyboard configuration 
+from an MS-DOS Prompt within Windows any time. If you do not 
+load KEYB.COM before starting windows, you may encounter 
+problems using a KEYB command that includes an option in an 
+MS-DOS Prompt. However, you can use the KEYB command without
+options at any time to display code-page information.
+
+==== Lansight Version 2.0
+
+Lansight is a utility that you can use to control and monitor
+other workstations attached to a Novell network. In some cases, 
+version 2.0 of Lansight may cause the workstation running 
+Windows 3.1 to fail.
+
+==== Lasertool Control Panel Version 2.2
+
+If you load version 2.2 of the Lasertool Control Panel 
+program (PCPANEL.EXE) from Windows 3.1, your system may fail. 
+This program works properly if you load it before starting 
+Windows.
+ 
+==== Le Menu Version 1.0
+
+When using Le Menu version 1.0 with Windows 3.1, environment 
+information such as PATH, PROMPT and WINDIR may be lost 
+if you start an MS-DOS Prompt from within Windows. If you 
+want to start Windows 3.1 by using a Le Menu menu command, 
+it is recommended that you set up Windows 3.1 as a Batch-File 
+menu command so that COMMAND.COM will load before starting 
+Windows 3.1. For more information, see your Le Menu documentation.
+
+==== LOCKIT Version 3.3 (PC Vault, Secure It)
+
+Version 3.3 of these programs strip out spaces from the load= 
+command line in the WIN.INI file. Later versions may correct 
+this problem.
+
+==== Logitech Mouse Software Version 5.0/6.0 (CLICK, LOGIMENU)
+
+If you want to use CLICK and LOGIMENU from an MS-DOS 
+Prompt within Windows, you must load the TSRs from that 
+MS-DOS Prompt, even if you loaded the TSRs before starting 
+Windows. When you quit Windows, you must reload the TSRs 
+for them to work properly from the MS-DOS prompt outside of 
+Windows, even if you loaded them from an MS-DOS Prompt within 
+Windows.
+
+==== Mace Disk-Cache Utility (MCACHE.SYS)
+
+This disk-cache utility will not work properly with SMARTDrive.
+It is recommended that you use SMARTDrive, provided with Windows 3.1, 
+and remove all references to other disk-cache utilities from your 
+CONFIG.SYS and AUTOEXEC.BAT files. (If Mace is detected, Setup 
+removes it from the CONFIG.SYS file for you.)
+
+
+==== Maximizer Memory Manager (MAXIMIZE.COM)
+
+If you are using the Maximizer memory manager, you may not be able
+to set up or start Windows. Make sure that you are using only one
+memory manager with Windows 3.1. It is recommended that you use 
+HIMEM.SYS and EMM386.EXE, which are installed with Windows 3.1, 
+to manage memory instead.  
+
+==== MIRROR (MS-DOS)
+
+If MIRROR is loaded from Windows 3.1 by using the Run command in
+standard mode, you cannot remove it from memory by using the 
+MIRROR /U command. This will cause an error message to appear.
+
+==== NDOSEDIT.COM (Date 1-1-84)
+
+You may have problems loading this command-line editor. Also,
+it may cause unexpected results when running with Windows 3.1.   
+
+==== NetRoom Memory Manager (RM386.SYS)
+
+With some older versions of NetRoom, you may encounter 
+problems setting up Windows. In this case, contact Helix 
+Software for a newer version of NetRoom.
+
+==== Newspace Version 1.07
+
+This disk-compression utility is incompatible with Windows
+3.1 and may cause several problems.
+
+==== Norton Anti-Virus Version 1.0
+
+If you load version 1.0 of Anti-Virus before setting up Windows,
+Setup may fail. It is recommended that you contact Symantec for 
+the most current version of this program.
+
+==== Norton Desktop for Windows (EP.EXE)
+
+If the data-recovery program Erase Protect (EP.EXE) is loaded 
+from the AUTOEXEC.BAT file, you need to disable it when setting
+up Windows 3.1, especially if you are upgrading over a previous 
+version of Windows. Erase Protect tries to save copies of all 
+deleted files, which can cause you to run out of disk space 
+while running Setup.
+
+It is recommended that you run Erase Protect with a permanent 
+swap file, not a temporary swap file. If you are using a 
+temporary swap file, you need to exclude files with a .TMP 
+or .SWP extension from erase protection.
+
+==== Norton Utilities Version 5.0 (DISKREET, NCACHE)
+
+This program is incompatible with Windows 3.1 and may cause 
+your system to fail. It is recommended that you upgrade to 
+the most recent version of Norton Utilities to correct problems.
+
+==== Norton Utilities Version. 6.01 (NCACHE)
+
+Some versions of NCACHE may prevent you from setting up or 
+starting Windows 3.1. When Windows is running in standard 
+mode, your system may fail, especially if NCACHE is set up 
+as an EMS cache. Setting up NCACHE as an EMS cache is not
+recommended. Setting up NCACHE as an XMS cache may solve
+the problem.
+
+You may also encounter additional problems using NCACHE.
+New versions may correct these problems. For an updated version
+of NCACHE, contact Symantec Corporation. In the meantime, you 
+can use SMARTDrive, which is provided with Windows 3.1.  
+
+==== Norton Utilities Version 6.01 (DISKMON)
+
+It is recommended that you do not use DISKMON version 6.01
+with Windows 3.1. 
+
+==== PCED Version 2.00
+
+Do not load the PCED command-line editor HIGH. Loading it 
+HIGH may cause unexpected results, such as system failures, 
+when Windows is running in 386 enhanced mode. If you load 
+this program before starting Windows, it may be unavailable
+when Windows is running in standard mode.
+
+==== PCKEY.EXE (MultiSoft Keyboard Enhancer and Command-Line Stack)
+
+PCKEY.EXE may not work properly with Windows 3.1 when you are
+running more than one non-Windows application at a time. It 
+is recommended that you unload PCKEY.EXE before starting Windows.
+
+==== PC-Kwik Disk Accelerator
+
+If you use PC-Kwik when Windows is running in 386 enhanced 
+mode, make sure that you are using version 3.55 or later and
+that PC-Kwik is in extended memory, not expanded memory. To 
+get an upgraded version of PC-Kwik, contact MultiSoft.
+
+==== PC-Kwik Disk-Cache Utility (PC-KWIK.EXE)
+
+Do not use this disk-cache utility simultaneously with SMARTDrive. 
+There is no reason to use two disk-cache utilities with Windows.
+It is recommended that you use SMARTDrive, provided with Windows 
+3.1, instead.
+
+==== PC-Kwik Version. 1.59 (PCK.EXE, PSKSCRN.EXE, PCKEY.COM)
+
+If version 1.59 of PC-KWIK is loaded before setting up Windows,
+Setup may fail. PC-KWIK Version 2.0 may correct this problem.
+
+==== PCSXMAEM.SYS Utility
+
+This utility is incompatible with Windows. You should remove 
+all references to it from your CONFIG.SYS and AUTOEXEC.BAT
+files before setting up or starting Windows 3.1. PCSXMAEM.SYS
+is similar to XMAEM.SYS. It has been renamed and slightly
+modified. It is provided with current versions of the IBM PC/3270 
+emulator.
+
+==== PCSX2EMS.SYS
+
+Windows will run correctly with PCSX2EMS.SYS if it is loaded 
+on a computer that has an XMA board installed. Otherwise, this 
+program is incompatible with Windows. PCSX2EMS.SYS is
+provided with the IBM PC/3270 emulator.  
+
+==== PC Tools Deluxe Version 7.1 (DATAMON)
+
+If you load PC Tools DATAMON using the \SENTRY+ option,
+Setup may fail if you are low on disk space. Do not use the
+\SENTRY+ option when loading DATAMON.
+
+Do not load DATAMON after loading SMARTDrive. If DATAMON 
+is loaded after SMARTDrive, your system may fail. See the
+PC Tools documentation for information about how to unload 
+DATAMON.
+
+==== PC Tools Deluxe Version 6.0 (DESKTOP)
+
+If you try to start PC Tools from an MS-DOS Prompt within 
+Windows in standard mode, your system may fail. In enhanced 
+mode, your system may restart itself. These problems also occur 
+if you use MS-DOS commands from an MS-DOS Prompt within
+Windows.
+
+Version 7.0 of PC Tools may correct these problems.  However, 
+do not load DESKTOP from an MS-DOS Prompt if it was loaded 
+before starting Windows 3.1. If you do, your system may fail
+when you quit Windows. It is recommended that you run DESKTOP
+from its PIF, provided with Windows 3.1.
+
+==== PC Tools Deluxe Version 7.1 (VDEFEND)
+
+Setup may not work properly if VDEFEND is loaded before running
+Setup. You may load VDEFEND after setting up Windows 3.1.
+
+==== PC Tools Disk-Cache Utility (PC-CACHE.COM)
+
+Do not use this disk-cache utility simultaneously with SMARTDrive. 
+There is no reason to use two disk-cache utilities with Windows.
+It is recommended that you use SMARTDrive, which is installed with 
+Windows 3.1, instead.
+
+==== PRINT (MS-DOS)
+
+If you are printing several large documents on a network printer 
+and run Windows Setup from the network, your system may 
+fail while Setup is creating Program Manager groups.
+
+==== Printer Assist Version 4.20
+
+Printer Assist is a TSR that you can use to share a
+workstation printer with other workstations on Netware 286
+and 386 systems. Some Windows applications (such as Microsoft
+Word for Windows) print extended characters, mixed with correct 
+output when this program is loaded.  
+
+==== PYRO! Version 1.0
+
+If this screen saver is loaded before starting Windows 3.1, you may 
+not be able to restore the Windows 3.1 screen after this screen saver
+appears. 
+
+==== QMAPS Memory Manager Version 5.16
+
+If you are using the QMAPS memory manager, you may not be able to
+set up or start Windows. New versions may correct these problems.
+For an updated version of QMAPS, contact Quadtel. In the meantime, 
+you may use HIMEM.SYS and EMM386.EXE, provided with Windows 3.1,
+to manage memory instead.
+
+==== RAMTYPE.SYS - AST RAMpage! Boards
+
+The RAMTYPE.SYS driver is incompatible with Windows. It is 
+recommended that you remove this driver before setting up
+Windows 3.1. If you load the driver from your CONFIG.SYS 
+file, comment out the command line for the driver as follows:
+
+   rem RAMTYPE.SYS 
+
+Windows 3.1 will run correctly without RAMTYPE.SYS. However,
+other drivers that rely on RAMTYPE.SYS will not load and 
+applications will not be able to use the expanded memory on 
+your system. 
+
+After setting up Windows, you can use version 1.2 and later of 
+RAMTYPE.SYS with Windows. If you are using an earlier version
+on an IBM PS/2 or micro-channel architecture computer and 
+your RAMpage! board is configured for expanded and extended 
+memory, you need to upgrade your AST RAMTYPE.SYS driver after 
+setting up Windows. You will also need to remove the "rem" 
+command from your CONFIG.SYS file so that RAMTYPE.SYS will 
+load properly.
+
+==== Secretdisk II Disk-Cache Utility (FAST512.SYS)
+
+This disk-cache utility will not work properly with SMARTDrive.
+It is recommended that you use SMARTDrive, provided with Windows
+3.1, and remove all references to other disk-cache utilities from
+your CONFIG.SYS and AUTOEXEC.BAT files. (If this utility is detected, 
+Setup removes it from the CONFIG.SYS file for you).
+
+
+==== SideKick Versions 1.0 and 2.0 and SideKick Plus
+
+Miscellaneous problems may occur when running SideKick as a TSR
+with Windows 3.1. It is recommended that you use a PIF to run  
+SideKick as a non-Windows application, instead of loading it
+as a TSR.
+
+==== SoftIce Debugger
+
+If SoftIce is loaded, Setup will fail when starting the Windows
+portion of the program. It is recommended that you unload SoftIce
+before setting up Windows 3.1.
+
+==== SpeedFXR
+
+This program is incompatible with Windows 3.1 when running as a 
+TSR. It tries to increase the speed of the floppy disk drives,
+but slows them down instead. To get the best results, use the 
+-X option when loading SpeedFXR. This will prevent SpeedFXR from 
+remaining in memory and affecting the speed of the floppy disk
+drives.
+
+==== SUBST (MS-DOS)
+
+Do not add or remove "substituted" drives while running Windows 3.1.  
+If you use the SUBST command before starting Windows and do not 
+change the state of the substituted drives from an MS-DOS Prompt within
+Windows, Windows 3.1 will work properly.  
+
+==== Super PC-Kwik Disk-Cache Utility (SUPERPCK.EXE)
+
+Do not use this disk-cache utility simultaneously with SMARTDrive. 
+There is no reason to use two disk-cache utilities with Windows.
+It is recommended that you use SMARTDrive, which is installed with 
+Windows 3.1, instead.
+
+==== Trantor T100 Host Adapter Driver (TSCSI.SYS)
+
+(For SCSI hard disk drives) - If you use the Trantor T100 
+driver (TSCSI.SYS), you must use version 4.33d or higher.  
+Earlier versions identify the SCSI hard disk drive as a 
+removable drive. This may cause problems when using File 
+Manager, such as a system failure while formatting the drive 
+and unexpected results when deleting files. To get an updated 
+driver, contact Trantor Systems, Ltd. 
+
+==== UMB PRO Version 1.07
+
+If you are running UMB PRO, you may experience problems
+running Windows in standard mode. In some cases, your system
+may fail. Make sure that you are using only one memory manager 
+with Windows 3.1. It is recommended that you use HIMEM.SYS 
+and EMM386.EXE, which are installed with Windows 3.1, to 
+manage memory instead.  
+
+==== Vaccine
+
+If Vaccine is loaded, Setup fails when trying to modify the 
+CONFIG.SYS and AUTOEXEC.BAT files. You should unload Vaccine 
+before setting up Windows 3.1. You may also encounter problems,
+such as beeping, while running Windows when Vaccine is loaded.
+
+==== VIREX-PC Version 1.11
+
+If VIREXPC.COM is loaded, Windows Setup and Windows 3.1
+will fail when KRNL386.EXE performs a write operation. Also,
+the first time Windows 3.1 is loaded, you may be returned
+to the MS-DOS prompt.  
+
+==== Virus Prevention Plus Version 5.0
+
+If Virus Prevention Plus is loaded, you may not be able to 
+successfully set up Windows 3.1. You may also encounter 
+problems when running Windows 3.1 in 386 enhanced mode. 
+The Keyboard Lock program may cause Windows to fail.
+
+==== Virusafe Version 4.0
+
+If this program is loaded as a TSR, Setup may fail while setting 
+up Windows 3.1. It is recommended that you load Virusafe by using
+the /C- option. This option turns off the memory-change detection
+provided with Virusafe. Version 4.5 may correct this problem.  
+For more information, see your Virusafe documentation.
+
+==== XGAAIDOS.SYS
+
+With XGAAIDOS.SYS loaded, Windows 3.1 will fail at the opening
+logo if you use the WIN /s option to start Windows in standard mode.
+
+==== XMAEM.SYS
+
+XMAEM.SYS is a device which causes extended memory to act like
+XMA. This utility is incompatible with Windows 3.1. It is recommended
+that you remove all references to it from your CONFIG.SYS and
+AUTOEXEC.BAT files before setting up or running Windows 3.1.
+XMAEM.SYS is provided with IBM DOS version 4.0.
+
+==== XMA2EMS.SYS
+
+Windows will run correctly with XMA2EMS.SYS if it is loaded 
+on a computer that has an XMA board installed. Otherwise, this 
+program is incompatible with Windows. XMA2EMS.SYS is provided
+with IBM DOS version 4.0.
+
+
+== More Information About Microsoft Windows for Workgroups Version 3.11
+
+README.WRI from Windows 3.11 FWG 
+
+This document contains important information not available in the printed documentation or in online Help.  For additional information about Microsoft® Windows™ for Workgroups, see "Other Online Documents" at the end of this document.
+
+Note: If you plan to use a terminate-and-stay-resident (TSR) program with Windows for Workgroups, please read the SETUP.TXT online document first. It contains important information about running TSR programs with Windows for Workgroups and the Setup program.
+
+
+Using Write to View This Document
+
+To make this document easier to read, you can enlarge the Write window to its maximum size. To do so, click the Maximize button in the upper-right corner of the window. Or open the Control menu in the upper-left corner of the Write window (press ALT+SPACEBAR), and then choose the Maximize command.
+
+To move through the document, press PAGE UP or PAGE DOWN. Or click the arrows at the top and bottom of the scroll bar along the right side of the Write window.
+
+To print the document, choose Print from the File menu.
+
+For Help on using Write, press F1.
+
+To read other online documents, choose Open from the File menu. 
+
+
+
+=== Contents
+
+This document contains information about the following topics:
+
+----
+1.0  Running Windows for Workgroups with an Operating System Other Than the Microsoft MS-DOS Operating System
+
+2.0  Preventing Stack Overflow
+
+3.0  Using 32-Bit Disk Access and File Access
+3.1  Using 32-Bit Disk Access with Portable Computers
+3.2  Using 32-Bit File Access with Doublespace
+3.3  Networks You Cannot Use 32-Bit File Access With
+
+4.0  Using Memory Managers and Vshare
+4.1  Using 386MAX
+4.2  Turning On Sharing Popup with Vshare
+4.3  If EMM386 Detects an Error in an Application
+
+5.0  Using Advanced Power Management (APM)
+
+6.0  Using SMARTDrive Version 5.0 
+6.1  Accessing Floppy Disk Drives on Older COMPAQ DESKPROS
+6.2  Using SMARTDrive with Double Buffering
+6.3  Using SMARTDrive with Norton Utilities Version 6.0 Disk Monitor
+6.4  Using SMARTDrive with SuperStor Disk-Compression Utility
+6.5  Using SMARTDrive with Copy-Protected Games and Applications
+
+7.0  Using Multimedia Extensions Version 1.0 with Windows for Workgroups
+7.1  Upgrading to Windows for Workgroups 
+7.2  Configuring MIDI Setups
+7.3  Configuring Your Display
+7.4  Sample MIDI File
+7.5  Using HyperGuide
+7.6  Using Music Box
+7.7  Using Alarm Clock
+
+8.0  Running Specific MS-DOS–based Applications
+8.1  Creative Labs JukeBox
+8.2  Games or Timing-Sensitive Applications
+8.3  Third-Party Expanded-Memory Emulators with MS-DOS Version 5.0 or 6.0
+8.4  PC Tools Applications
+8.5  WordPerfect Version 5.1
+8.6  3270-Emulation Applications
+8.7  C/C++ Version 7.0
+
+9.0  Running Communications Applications
+9.1  Guidelines
+9.2  Using Intel CAS Modems with 32-Bit File Access
+
+10.0  Using Specific Display Adapters with Windows for Workgroups
+10.1  Installing Display Adapters by Following the Manufacturer's Instructions
+10.2  Upgrading Display Drivers When Using Soft-Font Packages
+10.3  Using Self-Configuring Display Adapters
+10.4  LCD 
+10.5  Super VGA 
+10.6  Third-Party Display Drivers: Running MS-DOS–based Applications
+10.7  VGA-Compatible 
+10.8  Video Seven: Using 256-Color Support
+10.9  WinSpeed
+10.10  IBM XGA: Configuring Color and Resolution
+10.11  IBM XGA: Using EMM386
+
+11.0  Using Specific Mice with Windows for Workgroups 
+11.1  Microsoft Mouse
+11.2  Genius Mouse
+11.3  Logitech Mouse
+11.4  Logitech Cordless Mouse
+11.5  Logitech or Microsoft Ballpoint Mouse on a Toshiba T2200SX
+11.6  Mouse Systems Mouse on PS/2 Ports
+
+12.0  Using Additional Hardware Configurations with Windows for Workgroups
+12.1  CD-ROM Drives
+12.2  EISA Systems with More Than 16 Megabytes of Extended Memory
+12.3  Epson Screen Savers
+12.4  NCR 925 with EMM386.EXE
+12.5  Non-US Keyboard Layouts: Using Application Shortcut Keys
+12.6  Plus Hardcard
+12.7  SCSI Hard Disk Using DMA
+12.8  Columbia Data Products SCSI Hard-Disk Controller
+12.9  Sound Blaster Audio Card 
+12.10  Tandy 2500 XL with MS-DOS in ROM
+12.11  Wyse Computers
+
+13.0  Using Microsoft At Work PC Fax
+13.1  Sending Faxes From Applications
+13.2  Cancelling a Fax
+13.3  Different Fax Appearance
+13.4  Use Correct Image Quality When Sending Faxes
+13.5  Working Offline When Fax Transport Can't Be Started
+13.6  CPU-Intensive Operations Can Cause Transmission Errors
+13.7  Binary File Transfers
+13.8  Fax Modem Information
+
+14.0  Security
+
+15.0  Using the Real-Mode Redirector
+
+16.0 Quitting Windows for Workgroups When Microsoft Mail is Still Running
+
+17.0  Other Online Documents
+
+18.0  Ordering the Resource Kits
+
+19.0  Getting Drivers from the Windows Driver Library
+----
+
+=== Microsoft and MS-DOS are registered trademarks and Windows is a trademark of Microsoft Corporation. 
+
+  SuperStor             is a trademark of AddStor, Inc.
+  Bitstream             is a registered trademark and 
+  FaceLift              is a trademark of Bitstream, Inc.
+  PC Tools              is a trademark of Central Point Software, Inc.
+  CompuServe            is a registered trademark of CompuServe, Inc.
+  COMPAQ DESKPRO 386/20 is a registered trademark of Compaq Computer Corporation.
+  Sound Blaster         is a trademark of Creative Technology Ltd.
+  Hewlett-Packard       is a registered trademark of Hewlett-Packard Company.
+  Intel                 is a registered trademark of Intel Corporation.
+  PS/2 and XGA          are registered trademarks of International Business Machines Corporation.
+  Toshiba               is a registered trademark of Kabushiki Kaisha Toshiba.
+  Logitech              is a trademark of Logitech, Inc.
+  Pocket Modem          is a registered trademark of Migent, Inc.
+  NEC                   is a registered trademark of NEC Corporation.
+  Norton Utilities      is a registered trademark of Peter Norton Computing
+  Hardcard              is a trademark of Plus Development Corporation.
+  386MAX                is a registered trademark of Qualitas, Inc.
+  Qemm                  is a trademark of Quarterdeck Office Systems.
+  SCSI                  is a registered trademark of Security Control Systems, Inc.
+  Epson                 is a registered trademark of Seiko Epson Corporation, Inc.
+  Tandy                 is a registered trademark of Tandy Corporation.
+  UNIX                  is a registered trademark of UNIX Systems Laboratories.
+  WordPerfect           is a registered trademark of WordPerfect Corporation.
+  Wyse                  is a registered trademark of Wyse Technology.
+  Zenith                is a registered trademark of Zenith Electronics Corporation.
+
+=== 1.0  Running Windows for Workgroups with an Operating System Other Than the Microsoft MS-DOS Operating System
+
+Microsoft Windows for Workgroups and MS-DOS work together as an integrated system. They were designed together and extensively tested together on a wide variety of computers and hardware configurations. Running Windows for Workgroups with an operating system other than MS-DOS could cause unexpected results or poor performance, and is not supported by Microsoft.
+
+
+=== 2.0  Preventing Stack Overflow 
+
+Stacks are temporary data structures that MS-DOS and applications use for processing hardware events. If, while setting up Windows for Workgroups, the Setup program detects hardware or software that requires a certain stack size, Setup places the following command line in your CONFIG.SYS file:
+
+  stacks=9,256
+
+This should be sufficient most of the time. However, if you receive the "Internal Stack Overflow" message, first try increasing the second number on the stacks= command line. If that doesn't work, try increasing the first number. For more information about the stacks setting and modifying the CONFIG.SYS file, see your MS-DOS documentation.
+
+
+=== 3.0  Using 32-Bit Disk Access and File Access
+
+This section includes information about using 32-bit disk access and file access with portable computers, Doublespace,
+and networks.
+
+==== 3.1  Using 32-Bit Disk Access with Portable Computers
+
+By default, 32-bit disk access is turned off to prevent disk errors on some battery-powered portable computers. However, 32-bit disk access may run correctly with some battery-powered portable computers, such as the Zenith® MasterSport SL. If you want to try using 32-bit disk access, select the Use 32 Bit Disk Access check box in the expanded Virtual Memory dialog box (choose the Enhanced option in Control Panel). For more information, see Chapter 8, "Customizing Network Settings and Improving Performance," in the Microsoft Workgroup Add-on User's Guide.
+
+CAUTION: Before you use 32-bit disk access on a battery-powered portable computer, it is highly recommended that you back up your hard disk. Because 32-bit disk access has not been fully tested on all battery-powered systems, you may receive disk errors while using it.
+
+==== 3.2  Using 32-Bit File Access with Doublespace
+
+You cannot use 32-bit file access with MS-DOS version 6.0 if you have Doublespace enabled. To use 32-bit file access with Doublespace, use MS-DOS version 6.2.
+
+==== 3.3  Networks You Cannot Use 32-Bit File Access With
+
+A driver that is necessary for 32-bit file access is incompatible with some networks, including Artisoft LANtastic and Microsoft LAN Manager. 
+
+If you are running one of these networks with Windows for Workgroups instead of the Microsoft Windows Network, remove the device=c:\windows\ifshlp.sys line from your CONFIG.SYS file. Then turn off 32-bit file access by using the Enhanced icon in Control Panel. 
+
+If you remove the IFSHLP.SYS device driver line from CONFIG.SYS, you will not be able to share files or printers. You may also not be able to use 32-bit disk access.
+
+
+=== 4.0  Using Memory Managers and Vshare
+
+This section describes problems you may encounter while using memory managers and the VSHARE.386 file-sharing/file-locking program with Windows for Workgroups.
+
+==== 4.1  Using 386MAX
+
+If you are running 386MAX® with Windows for Workgroups, note the following:
+
+• Do not use options that limit the EMS swap region in the upper memory area. If you include exclude= options on the 386max or bluemax command line or in the .PRO file (usually called 386MAX.PRO), make sure that the address range specified does not extend beyond A000. If the address range extends beyond A000, Windows for Workgroups may not run properly. 
+
+For example, the command exclude=1800-A000 is acceptable, but the command exclude=1800-B800 is not. If you must exclude an address range above A000, use the RAM= option instead. For more information about this and other options, see your 386MAX documentation.
+
+• Do not load SMARTDrive when QCache is running. 
+      
+Note: The 386MAX setup program does not detect SMARTDrive version 5.0 and may recommend that you install QCache.
+
+• If you update an earlier version of 386MAX to version 6.0, the 386MAX version 6.0 setup program may not remove the load=windows.lod line from your .PRO file. You can remove this line manually. It is not needed, and removing it will free a small amount of memory.
+
+• If you remove the net start command line from your AUTOEXEC.BAT file, Windows may lock up during startup.
+
+==== 4.2  Turning On Sharing Popup with Vshare
+
+VSHARE.386 is a file-sharing and file-locking program that is used when running Windows for Workgroups with file or print sharing enabled. With VSHARE, when a file-sharing violation occurs, you see an "Access denied" message, instead of the "Sharing violation on drive..." message used when file and print sharing are not enabled. 
+
+Some MS-DOS–based applications may need the sharing-violation message. If you need to turn on this message, add the following line to the [386Enh] section of your SYSTEM.INI file:
+
+   EnableSharingPopups=TRUE
+
+For more information about modifying the SYSTEM.INI file, see the SYSINI.WRI online document.
+
+==== 4.3  If EMM386 Detects an Error in an Application
+
+If EMM386 displays a message such as "EMM386 has detected error #12 in an application," this indicates that the processor has reported an exception error to EMM386. An exception error typically occurs when an application gives the processor an instruction under invalid or unexpected conditions. In most cases, these errors are related to a specific program. If you are receiving an error that does not occur with any particular application, the error might be caused by a device driver or a memory-resident (terminate-and-stay-resident) program.
+
+To avoid these errors:
+
+• Try to identify the program involved. One way to do this is to see if the error occurs when the program is not running.  If you suspect a memory-resident program or device driver, try bypassing it when your computer starts.
+
+• Try disabling EMM386. If a particular application is to blame, disabling EMM386 might allow that application to generate an error message. Disabling EMM386 might also change your memory configuration so that the error no longer occurs.
+
+   Since most of Windows for Workgroups version 3.11 and most Windows applications use protected-mode memory, and EMM386 manages conventional memory, EMM386 may not save any memory. 
+
+• Try changing the order in which you load device drivers and memory-resident programs. This might help because some errors occur only under specific memory conditions.
+
+• If error 12 is occurring, this indicates that a stack is being used incorrectly. Try adding the following command to your CONFIG.SYS file:
+           
+        STACKS=18,512
+
+• If error 13 is occurring, the program may be trying to use protected mode without cooperating with EMM386. You may need to obtain a VCPI-compliant version of the program, or not load EMM386 when using this application.
+
+
+=== 5.0  Using Advanced Power Management (APM)
+
+Windows for Workgroups includes support for Advanced Power Management (APM). This enables Windows to extend battery life, display power-status information, and work with the suspend features of battery-powered personal computers. To find out if your computer supports APM, contact your computer manufacturer. 
+
+To install APM on your system:
+
+1. Quit Windows for Workgroups.
+
+2. Run Windows for Workgroups Setup and select one of the following system types:
+
+• MS-DOS System with APM
+• Intel 386SL Based System with APM (if your computer has an Intel 386SL processor and supports the SL Enhanced Options for APM)
+
+3.  Restart Windows for Workgroups. 
+A Power icon appears in the Control Panel window. 
+
+4.  Choose the Power icon to configure power-management settings.
+
+For more information about the settings, choose the Help button or press F1  while using the Power Management dialog box.
+
+
+=== 6.0  Using SMARTDrive Version 5.0
+
+This section describes some solutions to problems that you might encounter when using SMARTDrive version 5.0 (provided with Windows for Workgroups) with specific applications or hardware. 
+
+==== 6.1  Accessing Floppy Disk Drives on Older COMPAQ DESKPROS
+
+On some COMPAQ DESKPRO® 386/16 and 386/20 computers, you might experience problems accessing floppy disk drives when SMARTDrive version 5.0 is installed. To work around the problem, you can try one of the following solutions:
+
+• Place the SMARTDrive buffer into low memory by adding the following option to the smartdrv command line in your AUTOEXEC.BAT file:
+
+   smartdrv  /L
+
+• Disable the caching on floppy disk drives by adding the following options to the smartdrv command line in your AUTOEXEC.BAT file: 
+
+   smartdrv  a-  b-
+
+For more information about these options, see "Managing Memory and Performance" in your Windows or Windows for Workgroups user's guide.
+
+==== 6.2  Using SMARTDrive with Double Buffering
+
+Most expanded-memory emulators attempt to optimize SMARTDrive by configuring it to load into upper memory blocks (UMBs). This will cause problems if you are running Windows for Workgroups with double buffering. If you need to use double buffering with SMARTDrive, make sure that SMARTDrive is configured to load into low memory. The SMARTDrive command line in your CONFIG.SYS file should look like this:
+
+   device=smartdrv.exe  /double_buffer
+
+You do not need to change the references to SMARTDrive in your AUTOEXEC.BAT file. 
+
+If you're using a SCSI device, some vendors provide a driver (such as ASPI4DOS) that supplies double-buffering already. You should not use SMARTDrive double-buffering in this case. Check your SCSI device documentation, or contact your SCSI device vendor to determine whether your driver has its own double-buffering. If it does, use the following command line:
+
+   device=smartdrv.exe  /double_buffer+
+
+This command line should also be used if your system hangs when starting Windows, or if you are using a SCSI drive with a UNIX® partition.
+
+For more information about using double buffering with SMARTDrive, see "Managing Memory and Performance" in your Windows or Windows for Workgroups user's guide.
+
+==== 6.3  Using SMARTDrive with Norton Utilities® Version 6.0 Disk Monitor
+
+Do not use the Disk Protect feature in Norton Utilities Version 6.0 Disk Monitor with SMARTDrive version 5.0. If you try to write to the protected drive, you will encounter an error and your system will fail. If you want to write to and cache a protected drive, add the drive letter to the smartdrv command line in your AUTOEXEC.BAT file. For example, if drive D is a protected drive, you would add the following:
+
+   smartdrv  d
+
+Or you can use the Norton cache program instead of SMARTDrive when you are using Disk Monitor. 
+
+==== 6.4 Using SMARTDrive with SuperStor™ Disk-Compression Utility
+
+• Do not use the Create Mountable Drive, Mount, and Dismount features of SuperStor after SMARTDrive is loaded. You must configure your SuperStor partitions before loading SMARTDrive. Windows for Workgroups Setup places the smartdrv command line first in your AUTOEXEC.BAT file. If your AUTOEXEC.BAT file includes "mount" configuration commands, make sure that the smartdrv command line follows the SuperStor configuration command lines. 
+
+• Also, you will receive read-write errors if you use SMARTDrive to cache a SuperStor compressed drive. To prevent SMARTDrive from caching the compressed drive, you must include the drive letter- option on the smartdrv command line. 
+
+For example, if drive C is the uncompressed drive, and drives E and F are the compressed SuperStor drives, you would include the following command line in your AUTOEXEC.BAT file:
+
+   smartdrv  e-  f-
+
+==== 6.5  Using SMARTDrive with Copy-Protected Games and Applications
+
+When using SMARTDrive, you may encounter problems starting a copy-protected application that requires you to place the master disk in the floppy disk drive. To solve this problem, you need to disable caching on the floppy disk drive by using the drive letter- option when you load SMARTDrive. For example, if you load SMARTDrive from your AUTOEXEC.BAT file and you are using drive A, you need to include the following command line in your AUTOEXEC.BAT file:
+
+   smartdrv  a-
+
+
+=== 7.0  Using Multimedia Extensions Version 1.0 with Windows for Workgroups
+
+This section covers information that is specific to using the Multimedia Extensions version 1.0 with Windows for Workgroups. It also covers additional tasks you need to perform to configure your system properly for use with the Multimedia Extensions. 
+
+==== 7.1  Upgrading to Windows for Workgroups
+
+To use the Multimedia Extensions with Windows for Workgroups, first set up Windows with Multimedia  Extensions version 1.0. Then upgrade to Windows for Workgroups by installing it into the same directory. If you set up Windows for Workgroups before setting up Multimedia Extensions, not all the files will be properly installed.
+
+==== 7.2  Configuring MIDI Setups
+
+When you set up Windows for Workgroups, Setup does not overwrite an existing Multimedia Extensions MIDI-setup file MIDIMAP.CFG. If the port settings in your original setups refer to the Ad Lib or Sound Blaster™ ports and you are using different drivers, then you need to change the port settings to match the output ports used by your sound device. To do this, use the MIDI Mapper option in Control Panel.
+
+For more information about using MIDI Mapper to modify MIDI setups, see "Customizing Windows" or "Customizing Windows for Workgroups" in your Windows or Windows for Workgroups user's guide. 
+
+==== 7.3  Configuring Your Display
+
+The Multimedia Extensions Display icon in Control Panel is not available when you upgrade from Windows with Multimedia version 1.0 to Windows for Workgroups. If you need to change options for your display, run Windows Setup from the Main group in Program Manager to make these changes.
+
+==== 7.4  Sample MIDI File
+
+The sample MIDI file CANYON.MID included with Windows for Workgroups, which you can play with Windows Media Player, is provided by Passport Designs, Inc.
+
+==== 7.5  Using HyperGuide
+
+The information in HyperGuide refers to Windows version 3.0, not Windows for Workgroups. If you need to use Windows documentation, see the Microsoft Workgroup Add-on User's Guide that comes with Windows for Workgroups.
+
+==== 7.6  Using Music Box
+
+Music Box is not fully compatible with Windows for Workgroups. Although your compact discs will play correctly, you will encounter problems when using the Save Info button in the Program dialog box to save disc-title and track-title information. If you want to modify this information, you must do so manually by editing the MUSICBOX.INI file. To add a new disc to the file, you can determine the disc ID number by viewing the information in the About dialog box.
+
+==== 7.7  Using Alarm Clock
+
+The Alarm Clock in the Multimedia Extensions version 1.0 is not fully compatible with Windows for Workgroups. If you are using the digital display, the time may appear slanted or a system error may occur, depending on the size of the Alarm Clock window.
+
+
+=== 8.0  Running Specific MS-DOS–Based Applications
+
+This section provides information about running specific MS-DOS–based applications with Windows for Workgroups.
+
+==== 8.1  Creative Labs JukeBox
+
+If you are using a Sound Blaster sound card, do not set up or use the JukeBox application included in your Sound Blaster package with Windows for Workgroups.  JukeBox interferes with the Windows for Workgroups driver for the Ad Lib synthesizer and causes errors when you try to install the drivers for the Sound Blaster card.
+
+==== 8.2  Games or Timing-Sensitive Applications
+
+Some games or applications that rely on the computer's timer may perform poorly in Windows for Workgroups. You can try increasing the performance by turning off the TrapTimerPorts setting in the [386Enh] section of the SYSTEM.INI file, as follows:
+
+TrapTimerPorts=OFF
+
+Note: The TrapTimerPorts setting is on by default. Turning it off may cause errors or a loss of data when you transfer files by using a communications application. It is recommended that you leave this setting turned on when
+using a communications application.
+
+==== 8.3  Third-Party Expanded-Memory Emulators with MS-DOS Version 5.0 and 6.0
+
+Many expanded-memory emulators will cause problems if you use them to provide upper memory blocks (UMBs) for the MS-DOS version 5.0 or 6.0 loadhigh and devicehigh commands. If you want to use these MS-DOS commands to load drivers or applications high, use the Windows EMM386.EXE expanded-memory emulator to provide UMBs instead. If you must use a third-party expanded-memory emulator, use the load high feature provided with the emulator instead of using the MS-DOS commands.
+
+==== 8.4  PC Tools™ Applications
+
+If you run a PC Tools MS-DOS–based application in a window, the display might be garbled, because PC Tools applications use a graphics font that is not displayed correctly. (This problem does not occur if you run the application in a full screen).
+
+To correct the problem, start your PC Tools MS-DOS–based applications by using the /NF option. If these applications are included in a Program Manager group, use the Properties command to add the /NF option to the command line for each application. For more information about changing application properties, see Help for Program Manager. 
+
+You can also include the /NF option in the application's program information file (PIF) by typing it in the Optional Parameters text box in PIF Editor, or you can use the PC Tools PC Config program to specify that PC Tools applications should use the Text Font to display information. For more information about changing an application's PIF, see your Windows or Windows for Workgroups user's guide. 
+ 
+==== 8.5  WordPerfect® Version 5.1 
+
+When  you run WordPerfect version 5.1 in a window, the Windows mouse pointer and the WordPerfect mouse pointer do not appear in the same place. 
+
+To fix this problem, carry out the following procedure.
+
+1.  In WordPerfect, press SHIFT+F1.
+
+2.  Press M for Mouse and A for Acceleration Factor.
+
+3.  Set the Acceleration Factor to 1.
+
+4.  Press ENTER three times to return to your document.
+
+5.  Enlarge the WordPerfect window to fill the entire screen.
+
+6.  Move the Windows mouse pointer into the WordPerfect window, and then move it to the far-right edge of the window.
+
+7.  Move the mouse pointer to the far-left edge of the window.
+
+8.  Move the pointer back to the center of the window, and then move it down to the bottom edge.
+
+9.  Finally, move the pointer up to the upper-left corner of the window. 
+
+The Windows mouse pointer and the WordPerfect mouse pointer should now be in the same location.
+
+==== 8.6   3270-Emulation Applications
+
+You may encounter problems using certain 3270-emulation applications with Windows for Workgroups. If you are using one of these applications, it is recommended that you purchase the Microsoft Windows for Workgroups Resource Kit (Version 3.1). For information about ordering the resource kits, see section 17 in this file.
+
+==== 8.7  C/C++ Version 7.0
+
+If you are running Microsoft C/C++ Version 7.0 with Windows for Workgroups and your system locks up when compiling a file, add the following line to the [386Enh] section of your SYSTEM.INI file:
+
+   MAXBPS=400
+
+This command increases the number of breakpoints the system uses.
+
+For more information about this setting, see the Microsoft Windows for Workgroups Resource Kit (Version 3.1). For information about ordering resource kits, see section 17 of this file. 
+
+
+=== 9.0  Running Communications Applications
+
+This section provides information on using communications applications with Windows for Workgroups.
+
+==== 9.1  General Guidelines
+
+The maximum baud rate possible when running your communications program with Windows is determined by your CPU speed in addition to your port and modem capabilities. RTS/CTS or hardware handshaking may also be required.
+
+To communicate at 9600 baud or faster, follow these guidelines:
+
+• Use Windows-based communications applications when possible.
+
+• Use 16550AF-compatible serial ports and modems. To determine if your serial port is 16550AF-compatible, you can run the Microsoft Diagnostics program (MSD.EXE) included with Windows for Workgroups. To run MSD, quit Windows, and then type msd at the command prompt (not from an MS-DOS prompt within Windows). Then press ENTER.
+
+• Avoid closing MS-DOS–based applications during a background download.
+
+• Use a PIF file to run MS-DOS–based communications applications. Use the PIF Editor to select the "Background Execution" and "Lock Application Memory" check boxes.
+
+• When you are running an MS-DOS–based communications application in the background, reduce it to an icon rather than running it in a window.
+
+• SMARTDrive may cause download errors when it clears the write-behind cache. If this happens, disable the SMARTDrive write-behind cache during high-speed downloads. This can be done easily using the SmartMon utility included in the Microsoft Windows for Workgroups Resource Kit (Version 3.1), and in MS-DOS 6.0. For information about ordering resource kits, see section 17 of this file.
+
+==== 9.2  Using an Intel CAS Modem with 32-Bit File Access
+
+You cannot use an Intel CAS modem with 32-bit file access. If you are using an Intel CAS modem, from Control Panel, select the 386 Enhanced icon, choose the Virtual Memory button, and then choose the Change button. Make sure the Use 32-Bit File Access check box is not checked, and select OK. If it was checked, you must exit and restart Windows.
+
+
+=== 10.0  Using Specific Display Adapters with Windows for Workgroups
+
+This section describes some problems you might encounter when you use specific display adapters or drivers with Windows for Workgroups.
+
+==== 10.1  Installing Display Adapters by Following the Manufacturer's Instructions
+
+The installation procedures that are provided by display-adapter manufacturers may require you to replace or modify the SETUP.INF file in the Windows SYSTEM directory. This will cause problems in Windows for Workgroups.
+
+If your third-party display-adapter installation replaces or modifies the SETUP.INF file, use the following procedure instead. 
+
+To install the display-adapter drivers:
+
+1.  Rename the SETUP.INF file provided with your display-adapter package to OEMSETUP.INF, and place it on the disk or in the directory containing the third-party display-driver files. 
+
+2.  From the Main group, run Windows Setup.
+
+3.  Choose Change System Settings from the Options menu.
+
+4.  From the list of Display options, choose Other Display (Requires disk from OEM).
+
+5.  Insert the disk that contains the OEMSETUP.INF file and the driver files for your display adapter. Or, if these files are located on your hard disk, type the path to the directory that contains the files, and then choose the OK button.
+  
+6.  Select the type of display adapter you want to use, and then choose the OK button.
+Setup copies all necessary files from the driver disk and may request files from the Windows for Workgroups disks. 
+
+
+7.  Insert any additional disks that are requested, and then choose the OK button.
+
+If you accidentally overwrite the original SETUP.INF file, you can copy it from Windows for Workgroups version 3.11 Disk 1 back into your Windows SYSTEM directory. 
+
+==== 10.2  Upgrading Display Drivers When Using Soft-Font Packages
+
+If you are using certain soft-font packages, including Bitstream® Facelift™, Publisher PowerPak, and Hewlett-Packard® Intellifont, Setup may not update your display driver when you upgrade to Windows for Workgroups. In this case, you need to update your display driver after you have set up Windows for Workgroups.
+
+To update your display driver after you have set up Windows for Workgroups:
+
+1.  From the Main group, run Windows Setup. 
+
+2.  Choose Change System Settings from the Options menu.
+
+3.  From the list of Display options, select the display drivers you want to use.
+
+For more information about using Setup after you have installed Windows, see "Configuring Hardware" in your Windows or Windows for Workgroups user's guide.
+
+==== 10.3  Using Self-Configuring Display Adapters
+
+Some display adapters can change their configurations to match what an application tries to do. For example, if an application tries to use a video graphics adapter (VGA) configuration and your display adapter is currently configured as an enhanced graphics adapter (EGA), the adapter can switch from an EGA configuration to a VGA configuration. This type of display adapter makes use of nonmaskable interrupts (NMIs) to change its configuration while you work.
+
+To use this type of display adapter, you must disable the NMI (also called self-configuring, auto-switching, or auto-emulating) option after you configure the display adapter. For more information, see your display-adapter documentation.
+
+==== 10.4  LCD
+
+If you use an LCD screen, set it for white text on a black background instead of black text on a white background. When Windows is running, black text on a white background wears out LCD screens. See the documentation for your screen for instructions on how to do this.
+
+==== 10.5  Super VGA 
+
+If you are using a video card and monitor (NEC® MultiSync 3D/4D/5D or other multifrequency monitor) capable of 800x600, 16-color resolution with a third-party Super VGA driver, use the Super VGA (800x600, 16 colors) driver provided with Windows for Workgroups instead. If you do not update your driver, Windows may not work properly. 
+
+To install the Windows for Workgroups Super VGA driver, run Windows Setup from the Main group, and then select "Super VGA 800x600, 16 colors" from the list of Display options. For more information about using Setup after you have installed Windows for Workgroups, see your user's guide.
+
+   Super VGA VESA Mode 6Ah
+
+Some Super VGA adapters support higher monitor-refresh rates at 800x600 resolution with a special VESA mode. If both your video adapter and monitor support a higher refresh rate and if you are using the Super VGA driver, you may be able to get better video results by including the following setting in the [display] section of the SYSTEM.INI file:
+
+   svgamode=106
+
+If you encounter problems using this mode, delete this setting from the SYSTEM.INI file, and then restart Windows for Workgroups. 
+
+==== 10.6  Third-Party Display Drivers: Running MS-DOS–Based Applications
+
+If you are using a display driver that is not provided with Windows for Workgroups and you receive one of the following messages while trying to run a MS-DOS–based application:
+
+"Incorrect system version. Run the Windows Setup program again."
+	or
+"386 System display type mismatch."
+
+run Setup again, and if that doesn't work, contact your display manufacturer for an updated driver. 
+			
+==== 10.7  VGA-Compatible
+
+Most VGA-compatible display-adapter cards and main-adapter chips use additional memory to enhance their performance. When Windows is configured for VGA, Windows detects most of these cards and automatically excludes the additional memory.
+
+However, if you have an enhanced VGA that Windows does not recognize, you must exclude the additional memory yourself by adding the following line to the [386Enh] section of the SYSTEM.INI file:
+
+   emmexclude=C400-C7FF
+
+For more information about modifying the SYSTEM.INI file, see the SYSINI.WRI online document.
+
+==== 10.8  Video Seven: Using 256-Color Support
+
+Windows for Workgroups provides 256-color support at several resolutions for Video Seven display adapters that have at least 512K of video memory. The following table shows the Video Seven 256-color modes that are supported by the display drivers provided with Windows for Workgroups.
+
+   Model	            640x480  720x512  800x600  1024x768
+   ____________________________________________________
+
+   FastWrite 512K     Yes 
+   1024i     512K     Yes
+   VRAM      512K     Yes      Yes
+   VRAM II   512K     Yes      Yes
+   VRAM II   1MB      Yes      Yes      Yes      Yes
+
+If you are using a Video Seven display adapter that has at least 512K of video memory, you should use one of these display drivers. These drivers take full advantage of the performance improvements and mouse support in 
+MS-DOS–based applications. To install one of the drivers, run Windows Setup from the Main group, and then select the driver you want from the list of Display options. For more information about using Setup after you have installed Windows, see "Configuring Hardware" in your Windows or Windows for Workgroups user's guide.
+
+Note:  Windows for Workgroups does not include drivers for the new Video Seven display adapters that are based on Headland Technology/Video 7 HT216, HT216-32, or HT217. If you have one of these display adapters, Setup automatically installs a VGA driver. Your display-adapter package may include an updated driver, which you can install by using the instructions included in the package. If no updated driver is included, you can obtain one by contacting your display-adapter vendor.
+ 
+==== 10.9  WinSpeed
+
+The WinSpeed version 1.0 installation program, INSTALL.EXE, does not work properly with Windows for Workgroups. It copies an incompatible version of the SETUP.INF file to your Windows directory. To install WinSpeed for use with Windows for Workgroups, you must get updated installation disks from Panacea. 
+
+If you have already used the INSTALL.EXE program to install the WinSpeed drivers on your system, the following message appears when you try to run Windows Setup from the Main group:
+
+"The SETUP.INF file on your system is not valid for use with this version of Setup."
+
+To correct this problem:
+
+1.  If there is a SETUP.INF file in your Windows directory, delete it. (The SETUP.INF file should never be in your Windows directory.)
+
+2.  Copy the SETUP.INF file on Windows for Workgroups version 3.11 Disk 1 to your Windows SYSTEM directory.
+
+3.  Contact Panacea, Inc. for updated WinSpeed installation disks that are compatible with Windows for Workgroups, and then use these to reinstall WinSpeed.
+
+==== 10.10  IBM® XGA®: Configuring Color and Resolution
+
+Windows Setup automatically configures an IBM XGA for 16-color, 640x480 resolution. If your monitor can support 256 colors or higher resolutions, you can configure your XGA to use the color and resolution settings you want. To do this, run Windows Setup from the Main group, and then select one of the following drivers from the list of Display options:
+
+• XGA (640x480, 16 colors) 
+This is the default setting and should not be changed if you are using the plasma screen on the PS/2® model 75.
+
+·XGA (640x480, 256 colors)
+• XGA (Small fonts) 
+• XGA (Large fonts)
+
+Both the Small and Large fonts settings configure the XGA for 1024x786 resolution and 256 colors, if your monitor supports it. Otherwise, these settings configure your display for 640x480 resolution. Select Small Fonts if you have a large monitor (at least 16 inches) or want to fit more information on your screen. Select Large Fonts if you want to improve the readability of text.
+
+Make sure that your monitor supports the XGA configuration you select. If it does not, you will return to the MS-DOS prompt when you try to start Windows for Workgroups.
+
+For more information about using Setup after you have installed Windows, see "Configuring Hardware" in your Windows or Windows for Workgroups user's guide.
+
+==== 10.11  IBM XGA: Using EMM386
+
+To use the IBM XGA display adapter successfully with the EMM386 expanded-memory emulator, you need to manually prevent EMM386 from using the memory address range used by the XGA display. A common range is C600-C7FF. To prevent the memory manager from using this range, include the X= option on the device=EMM386.EXE line in your CONFIG.SYS file, as follows:
+ 
+device=EMM386.EXE  X=C600-C7FF
+
+To identify the exact range that your XGA display adapter uses, run the System Configuration Program on the System Reference Disk for your Personal System/2 (PS/2), and select "Display Memory Map." 
+
+With some PS/2 model 75 plasma screens, or with XGA display adapters configured for 640x480 resolution and 16 colors, you must also include the NOEMS or RAM option on the device=EMM386.EXE line in your CONFIG.SYS file. For example:
+
+device=EMM386.EXE  NOEMS  X=C600-C7FF
+
+Do not include the i=B000-BE00 option on the device=EMM386.EXE line in your CONFIG.SYS file. This address range is used by the XGA when running Windows. Therefore, it cannot be used as upper memory area. Windows will not recognize XGA configurations if EMM386 is using this address range.
+
+For more information about modifying your CONFIG.SYS file, see your MS-DOS documentation. For more information about installing the EMM386 expanded-memory emulator and configuring the way it uses memory, see "Managing Memory and Performance" in your Windows or Windows for Workgroups user's guide.
+
+
+=== 11.0  Using Specific Mice with Windows for Workgroups 
+
+This section describes some problems you may encounter using specific types of mice with Windows for Workgroups.
+
+==== 11.1  Microsoft Mouse
+
+Windows for Workgroups includes version 8.20 of the Microsoft mouse drivers. If you have a Microsoft mouse, Setup installs the Windows mouse driver (MOUSE.DRV) in your Windows SYSTEM directory and an MS-DOS mouse driver (MOUSE.COM or MOUSE.SYS) in your Windows directory. If you have additional versions of the Microsoft mouse drivers on your system, make sure that you are using the mouse drivers provided with Windows for Workgroups.
+
+If you use the Microsoft Mouse Control Panel version 8.0 or later, you need to set your MS-DOS mouse variable to the directory on your hard disk that contains the control-panel program files POINT.EXE and PANEL.COM.
+You can do this by modifying your AUTOEXEC.BAT file. For example, if the control-panel program files are located in the \MOUSE directory, you would add the following line to your AUTOEXEC.BAT file:
+
+set mouse=c:\mouse
+
+This ensures that the mouse settings are stored in the MOUSE.INI file located in the specified directory. If the mouse variable is not set correctly, you may experience problems with mouse acceleration and other mouse settings.
+
+It is recommended that you use the mouse driver MOUSE.COM instead of MOUSE.SYS, and that you load MOUSE.COM from your AUTOEXEC.BAT file. If you use MOUSE.SYS, you may encounter problems saving MS-DOS mouse control-panel settings. If you must use MOUSE.SYS and you encounter problems saving mouse settings, make sure you load the driver from your mouse directory instead of from your Windows directory.
+
+For more information about installing the mouse drivers, see your Windows or Windows for Workgroups user's guide.
+
+==== 11.2  Genius Mouse
+
+If you are using a Genius mouse and are running MS-DOS–based applications, the mouse may not work properly, especially if you have several MS-DOS–based applications running at the same time. 
+
+To correct this problem, add the following line to the [386Enh] section of your SYSTEM.INI file:
+
+local=PC$MOUSE
+
+For more information about changing settings in the SYSTEM.INI file, see the SYSINI.WRI online document.
+
+==== 11.3  Logitech™ Mouse
+
+• Some Logitech mouse models are detected as "Microsoft or IBM PS/2" mouse models by the Setup program. In this case, Setup installs the mouse driver for the Microsoft or IBM PS/2 mouse. If you have a Logitech mouse, you should use the Logitech mouse driver instead.
+
+To install the Logitech mouse driver, run Windows Setup from the Main group, and then select Logitech from the list of Mouse options. For more information about using Setup after you have installed Windows, see "Configuring Hardware" in your Windows or Windows for Workgroups user's guide.
+
+• When installing the Logitech mouse driver, Windows Setup copies the LMOUSE.COM file to your Windows directory. This is the mouse driver that is required in order to use the Logitech mouse with MS-DOS–based applications. To use your mouse with MS-DOS–based applications, you need to load LMOUSE.COM before you start Windows. You can do this by adding it to your AUTOEXEC.BAT file. You also need to add the following line to the [386Enh] section of your SYSTEM.INI file:
+
+local=PC$MOUSE
+
+==== 11.4  Logitech Cordless Mouse
+
+If you have a Logitech Cordless mouse, you may encounter problems, such as an unresponsive pointer, when you are running the MS-DOS Prompt or MS-DOS–based applications in a window. 
+
+To correct this problem:
+
+1.  Change the baud-rate setting for the mouse driver. To do this, add the following line to the [LogiMouse] section of the SYSTEM.INI file:
+
+   BaudRate=1200
+
+2.  Include the 1200 option in the command line that loads the MS-DOS Logitech mouse driver (which is provided with Windows for Workgroups) as follows:
+
+   LMOUSE 1200
+
+3.  Add the above line to your AUTOEXEC.BAT file to load the mouse driver each time you start your system. The next time you start Windows for Workgroups, your mouse should work correctly.
+
+For more information about changing settings in the SYSTEM.INI file, see the SYSINI.WRI online document.
+
+==== 11.5  Logitech or Microsoft Ballpoint Mouse on a Toshiba® T2200SX
+
+If you are using a Toshiba T2200SX computer with a BIOS version earlier than 1.20 and you have a Logitech or Microsoft ballpoint mouse connected to the PS/2 mouse port, you may have problems moving the mouse pointer. If the mouse does not respond, try connecting your mouse to the serial port instead, or contact Toshiba for an upgraded version of the BIOS. 
+
+==== 11.6  Mouse Systems Mouse on PS/2 Ports
+
+The "Mouse Systems" serial and bus mouse drivers provided with Windows do not support a Mouse Systems mouse when it is connected to a PS/2-style mouse port. If you are using a Mouse Systems mouse connected to a PS/2-style mouse port, Setup installs the "Microsoft or IBM PS/2" mouse driver for you. This is the correct driver. Do not change it.
+
+
+=== 12.0  Using Additional Hardware Configurations with Windows for Workgroups
+
+This section contains information about using Windows for Workgroups with different types of computers and hardware configurations.
+
+==== 12.1  CD-ROM Drives
+
+• If you are using a CD-ROM drive, you should use version 2.23 of Microsoft MS-DOS CD-ROM Extensions (MSCDEX), the version shipped with Windows for Workgroups version 3.11, with all configurations of CD-ROM drives. 
+
+If you have upgraded from Windows version 3.1 or Windows for Workgroups version 3.1, you must remove the following setting from the [386Enh] section of the SYSTEM.INI file:
+
+device=LANMAN10.386
+
+This setting can cause some CD-ROM drives to timeout and fail with versions later than 2.20 of MSCDEX. However, if you must use a version earlier than 2.20 of MSCDEX, the above setting is required in the [386Enh] section of your SYSTEM.INI file.
+
+For more information about changing settings in the SYSTEM.INI file, see the SYSINI.WRI online document.
+
+• If a CD-ROM drive causes instability in your system or causes your system   to fail, you may need to update the CD-ROM driver. Also, the MCI (Media Control Interface) driver MCICDA.DRV may not work properly with older CD-ROM drivers. Contact your CD-ROM-drive manufacturer about obtaining an updated driver.
+
+==== 12.2  EISA Systems with More Than 16 Megabytes of Extended Memory
+
+On some EISA (Extended Industry Standard Architecture) computers, there may be more extended memory available than the system's Int 15h/88h BIOS call can detect. On these computers, HIMEM.SYS uses only the amount of extended memory detected. This can result in a large amount of unused memory. 
+
+You can have HIMEM.SYS use all available extended memory by using the /EISA option in the CONFIG.SYS file. For example, if HIMEM.SYS is located in your WINDOWS directory, you would use the following command line in the CONFIG.SYS file to take advantage of all available extended memory:
+
+device=c:\windows\himem.sys  /EISA
+
+If you use the /EISA option, do not load any device drivers that use the Int 15h/88h BIOS call to allocate extended memory before loading HIMEM.SYS. If you do, your system may not work properly. If you must reserve some extended memory for device drivers or applications that use the Int 15h/88h BIOS call, you can specify the amount of memory in kilobytes that you want to reserve by using the /INT15= option. For example, if you want to reserve 128 kilobytes of extended memory, you would use the following command line in the CONFIG.SYS file:
+
+device=c:\windows\himem.sys  /EISA  /INT15=128
+
+HIMEM.SYS must still be loaded before other device drivers in the CONFIG.SYS file. 
+
+To determine if your device driver or application uses the Int15h/88h BIOS call, see the documentation for your device or contact your device dealer. For more information about using HIMEM.SYS with the INT15 option, see "Managing Memory and Performance" in your Windows or Windows for Workgroups user's guide.
+
+ 12.3  Epson® Screen Savers
+
+Some Epson computers have screen-saver utilities that clear the screen after a specified period of inactivity. With Windows for Workgroups, the screen saver might detect that the system is idle when it is not. Windows will function properly even though the screen is blank, but nothing will be displayed until you quit Windows and then restart it.
+
+See the documentation that you received with your Epson computer for instructions on how to turn off the screen saver.
+
+==== 12.4  NCR 925 with EMM386.EXE
+
+If you are using an NCR 925 with EMM386.EXE, include the following option on the device=EMM386.EXE command line in your CONFIG.SYS file:
+
+device=EMM386.EXE  X=E000-EFFF
+
+==== 12.5  Non-US Keyboard Layouts: Using Application Shortcut Keys
+
+Some non-US keyboards show two characters per alphabet key and three characters per alphanumeric key. To type the second or third character, you must press and hold down CTRL+ALT or ALTGR before pressing the key. If you are using such a keyboard layout, do not use keys that show two or three characters as application shortcut keys.
+
+==== 12.6  Plus Hardcard™
+
+• To run Windows for Workgroups with a Hardcard, you must include the following line in the [386Enh] section in the SYSTEM.INI file:
+
+VirtualHDIRQ=OFF
+
+For information on how to modify the SYSTEM.INI file, see the SYSINI.WRI online document. 
+
+Note:  This procedure is not necessary if you are using a Hardcard II or a Hardcard II XL.
+
+• It is also recommended that you use SMARTDrive double-buffering with a Hardcard. For more information about using SMARTDrive, see "Managing Memory and Performance" in your Windows or Windows for Workgroups user's guide.
+
+==== 12.7  SCSI® Hard Disk Using DMA
+
+If your computer has an SCSI hard disk that uses Direct Memory Access (DMA), you must include the following entry in the [386Enh] section of the SYSTEM.INI file:  
+
+VirtualHDIRQ=OFF
+
+In addition, you must have SMARTDrive installed and you must NOT disable double-buffering by removing or remarking out the \D option in the CONFIG.SYS file.
+
+For information on how to modify the SYSTEM.INI file, see the SYSINI.WRI online document. 
+
+==== 12.8 Columbia Data Products SCSI Hard-Disk Controller
+
+To use the Columbia Data Products SCSI hard-disk controller with Windows for Workgroups, you must update the Columbia Data Products SCSI driver to version 3.35 or higher.
+
+==== 12.9 Sound Blaster Audio Card
+
+If you are using a Sound Blaster audio card that includes a Digital Signal Processor (DSP) chip earlier than version 2.0, you may want to upgrade to version 2.0 to improve audio performance. To find out which version of the DSP chip you currently have, run the TEST-SBC.EXE utility included in your Sound Blaster package. To receive version 2.0 of the DSP chip, contact Creative Technology Ltd.
+
+==== 12.10  Tandy® 2500 XL with MS-DOS in ROM
+
+The Tandy 2500 XL can be configured to use MS-DOS in read-only memory (ROM). If you want to use this feature, after you run Windows Setup you must run the Tandy setup program (SETUPXL). Modify your configuration
+so that your AUTOEXEC.BAT and CONFIG.SYS files are read from drive C.
+
+==== 12.11  Wyse® Computers
+
+If you are using a Wyse computer to run Windows, you might need to modify the device=HIMEM.SYS line in your CONFIG.SYS file to read:
+
+device=[path]HIMEM.SYS  /M:WYSE
+
+
+==== 13.0 Using Microsoft At Work PC Fax
+
+This section contains information about using Microsoft At Work PC Fax to send and receive faxes.
+
+==== 13.1 Sending Faxes from Applications
+
+If you are sending messages to a non-At Work recipient, the message format should be set to Facsimile Format or Email If Available in the send message Options dialog box. You must be running Mail in order for Microsoft At Work PC Fax to create an image of the message being sent and its document attachments when facsimile format faxes are sent.  Typically, messages are composed and sent using Mail, so this will not be a problem.  However, some applications provide a File Send command that allows you to create messages outside of Mail.  If Mail is not running, the delivery format option of these messages must be set to Email Format in the send message Options dialog box.  Otherwise, you should start Mail before sending the fax.
+
+You can also print from an application directly to the Microsoft At Work PC Fax printer driver.  Use the Printer Setup command to specify printing to the Microsoft At Work Fax printer driver, and then use Print to send the Fax.  If you use this method, you will need to start Mail to see if the message was transmitted.  If the message was not able to be transmitted, an undeliverable message will appear in your Mail Inbox. 
+
+==== 13.2 Cancelling a Fax 
+
+To cancel a fax transmission, use the Fax Queue command in Mail.  To generate fax images for transmission, Microsoft At Work PC Fax causes applications to print the document attachments of the message to the Microsoft At Work Fax printer driver.  Some applications display a dialog box that allows you to cancel printing the attachment.  Never cancel the print job at this point.  Choose OK to continue the print job, if needed.
+
+Do not delete messages to fax recipients from the Outbox in Mail.  This causes fax transmissions to remain in the fax queue until you delete them by using the Fax Queue command.
+
+==== 13.3 Different Fax Appearance
+
+The Microsoft At Work PC Fax printer driver is used to create images of documents for transmission.  This printer driver may support a different set of fonts than the printer driver you usually use.  This can cause fonts, line breaks, and page breaks to be different in the transmitted document than appear when the document was created.
+
+To help reduce this problem, it is best to use only True Type fonts in your document.  You can also use the Printer Setup to change the default printer driver to the Microsoft At Work PC Fax printer driver before you send the document as a fax.  This will cause the application to repaginate the document according to the fonts supported by the Microsoft At Work PC Fax printer driver.
+
+==== 13.4 Use Correct Image Quality When Sending Faxes
+
+If you choose to send a fax using an image quality that isn't supported on the destination machine, the message will be returned as undeliverable mail in your Mail Inbox with the message, "Error: Resolution not supported by receiver. Transmission failed - Not all pages sent."  To ensure that only resolutions supported by the destination fax machine will be sent, set the image quality to Best available.
+
+Faxes with 300 dpi resolution can be sent only to Microsoft At Work PC Fax recipients.
+
+==== 13.5 Working Offline When Fax Transport Can't Be Started
+
+You may find that the fax transport can't be loaded when you start Mail or send a message from an application.  This can be caused by problems such as being disconnected from the modem, or not being able to establish a network connection with a shared modem.  When this occurs, you are given the option of working with Microsoft At Work PC Fax offline.  This allows you to create and send faxes as usual, but the faxes will remain in the Outbox and won't be transmitted.  To transmit the fax messages once the fax transport becomes available, select the Mode command from Mail's Fax menu and clear the Work Offline checkbox. The faxes will not be transmitted until the Work Offline checkbox is cleared.
+
+==== 13.6 CPU-Intensive Operations Can Cause Transmission Failures
+
+Some operations during a fax transmission can cause the transmission to fail.  This includes some MS-DOS operations, such as formatting a floppy disk, copying files, or making file transfers across a network.  You should avoid CPU-intensive operations such as these when a fax transmission is occurring.  The Microsoft At Work PC Fax icon displays information regarding fax transmissions that are currently in progress. To always display fax status, choose the Fax icon from the Control Panel group, and check the Always Display Fax Status checkbox.
+
+==== 13.7 Binary File Transfer
+
+Only Class 1 fax modems can be used for binary file transfers. 
+
+==== 13.8 Fax Modem Information
+
+The following fax modems may not be compatible with Microsoft At Work PC Fax.
+
+Manufacturer	Modem	Class	Location
+Cardinal	MB2296SR	Class 2	internal	
+Practical Peripheral	PM2400FXSA	Class 2	external
+Zoom		FX9624	Class 2	external
+Zoom		FC96/24	Class 2	internal
+Macronix	VOMAX 2000	Class 2	external
+Macronix	MaxFax9624	Class 2	internal
+MegaHertz	Pocket Fax Modem® 
+		2400 bps P224 FMV	Class 1	external
+National	TyIN 2000	Class 2	external
+
+The following international fax modems may not be compatible with Microsoft At Work PC Fax.
+ 
+Country    Manufacturer	Modem	Class	Location
+  UK 	Cray Comm	Quantum 144	Class 1	external
+  GER	Dr. Neuhaus	Fury 241	Class 2	internal
+  GER	ELSA	Mikrolink 14.4PC	Class 2.0	internal
+  SWE	Multitech	Mt932Ba	Class 2	external (US version OK)
+  AUS	BIT Blitzer	MX-6	Class 1	external
+  AUS	BIT Blitzer	XM124S-RFAX	Class 2	external
+  AUS	Microfax		Class 2	external pocket
+  FRA	Kortex	KX PRO 2400	CAS	internal 
+  FRA	La Commande Electronique	LCE MiniFax	Class 1	external 
+  ITA 	Digicomm	SNM28 SR	Class 2	internal
+  ITA	Sysnet	SMF 04FAX	Class 1	internal
+
+
+==== 14.0 Security
+
+An administrator configuration utility, ADMINCFG.EXE, is available to simplify the task of administering network security privileges. For more information and for this utility, see the Windows for Workgroups Resource Kit Addendum. For information about how to order the Resource Kit Addendum, see section 17 of this file.
+
+
+==== 15.0 Using the Real-Mode Redirector
+
+You can connect to shared resources from MS-DOS by using the real-mode redirector. The real-mode redirector commands all begin with the word NET. For information about using NET commands, type NET HELP at an MS-DOS prompt.
+
+If you are using a multi-network configuration, the NET commands may only work on other machines with the same network. See your Workgroup Add-On User's Guide, and the on-line document NETWORKS.WRI for more information about using multiple networks.
+
+==== 16.0 Quitting Windows for Workgroups When Microsoft Mail is Still Running
+
+If you have Mail in your Startup group and it is set up to be minimized when it starts, you will experience a long delay when you quit Windows. In addition, you will see the following message:
+
+This application was communicating on the network when you terminated it. Although Windows attempted to restore the state of the network, you may have problems with network communications until you restart your computer.
+
+The same problem may occur if you have Mail running in a window (not minimized) when you quit Windows.
+
+To correct this problem, edit your MSMAIL.INI file (located in your Windows directory). In the [Microsoft Mail] section, change the NetBios= entry to the following:
+
+	NetBios=0
+
+After saving the change to the file, restart Windows.
+
+
+
+
+=== 17.0  Other Online Documents
+
+The following table describes other online documents that contain important information about Windows for Workgroups that is not included in the printed documentation or in Help:
+
+|===
+|Document     |Contains 
+
+|SETUP.TXT    |Information about problems that may occur when you set up Windows for Workgroups. 
+|MAIL.WRI     |Information about the MSMAIL.INI file and other Mail administration information.
+|PRINTERS.WRI |Information about specific printers and fonts.
+|NETWORKS.WRI |Information about running Windows for Workgroups with specific network configurations.
+|SYSINI.WRI   |Information about the settings in the SYSTEM.INI file.
+|WININI.WRI   |Information about the settings in the WIN.INI file.
+|===
+
+
+=== 18.0  Ordering the Resource Kits
+
+Two resource kits are available:
+
+• Microsoft Windows for Workgroups 3.11 Resource Kit
+
+This kit provides complete technical information about Windows for Workgroups version 3.1 for the support professional. It includes a technical reference manual and a disk containing helpful utilities, system-resource viewers, drivers, and accessories.
+
+• Microsoft Windows for Workgroups Resource Kit Addendum for Version 3.11 
+
+If you already have a copy of the Windows for Workgroups 3.1 Resource Kit, this addendum kit provides technical information about new features of Windows for Workgroups version 3.11. It includes a technical reference manual and a disk containing helpful utilities. 
+
+
+To order the resource kits within the United States, dial:
+
+1-800-642-7676
+
+To order outside of the United States, dial the phone number for your area. You can find this number on the International Subsidiary card.
+
+=== 19.0  Getting Drivers from the Windows Driver Library
+
+If you need to get updated copies of drivers, or drivers that do not come with Windows for Workgroups version 3.11, you can get them from the Windows Driver Library (WDL).
+
+If you have a modem, you can download files from the Windows Driver Library from network services, including CompuServe®,  GEnie , Microsoft OnLine, or various user-group bulletin boards (such as the bulletin-board services on the Association of PC User Groups network). If you have a modem, you can download Windows Driver Library components from network services, including CompuServe®,  GEnie,  Microsoft OnLine, or various user-group bulletin boards (such as the bulletin-board services on the 
+
+Association of PC User Groups network). Files from the Windows Driver Library is also available from Microsoft Download Service (MSDL), which you can reach by calling (206) 936-MSDL (936-6735) any time except between 1:00 A.M. and 2:30 A.M. Pacific time. To use MSDL, use the following communications settings:
+
+   Baud rate	1200, 2400, or 9600	
+   Data bits	8
+   Parity	None	
+   Stop bits	1
+
+People within the United States who do not have a modem can order individual files on disks from the Windows Driver Library by calling Microsoft Product Support Services at (206) 637-7098 or (206) 635-4948 (text telephone).
+
+
+
+== WIN.INI File Settings
+
+Windows initialization files contain information that defines your Windows environment. Windows and Windows applications can use the information stored in these files to configure themselves to meet your needs and preferences.
+
+There are two standard Windows initialization files:
+
+•	WIN.INI, which primarily contains settings that Windows maintains to customize your Windows environment according to your preferences.
+
+•	SYSTEM.INI, which primarily contains settings that customize Windows to meet your system's hardware needs.
+
+This document describes only a few of the settings in the WIN.INI file. You can get a more complete listing of the WIN.INI settings by purchasing the Windows Resource Kit for the Microsoft Windows Operating System Version 3.1. The Resource Kit provides complete technical information about Windows version 3.1 for the support professional. It includes a technical reference manual and a disk containing helpful utilities, system resource viewers, drivers, and accessories. 
+
+To order the Windows Resource Kit within the United States, dial:
+
+		 1-800-642-7676
+
+To order outside of the United States, dial the phone number for your area. You can find this number on the International Subsidiary card.
+
+
+
+=== Format of the WIN.INI File
+
+The WIN.INI file contains several sections, each of which consists of a group of related settings. The sections and settings are listed in the WIN.INI file in the following format:
+
+    [section name]
+    keyname=value
+
+In this example, [section name] is the name of a section. The enclosing brackets ([ ]) are required, and the left bracket must be in the leftmost column on the screen.
+
+The keyname=value statement defines the value of each setting. A keyname is the name of a setting. It can consist of any combination of letters and digits in uppercase or lowercase, and it must be followed immediately by an equal sign (=). The value can be an integer, a string, or a quoted string, depending on the setting.
+
+You can include comments in initialization files. You must begin each line of a comment with a semicolon (;).
+
+
+
+=== Updating WIN.INI from Previous Versions of Windows
+
+If you update your system to Windows version 3.1 from Windows version 3.0, Setup automatically updates your WIN.INI file by making the following changes. For detailed information about these settings, refer to the Windows Resource Kit for the Microsoft Windows Operating System Version 3.1.
+
+In the [windows] section, Setup adds three new settings:
+
+    KeyboardDelay=
+    ScreenSaverTimeout=
+    DosPrint=
+
+If the following settings are already present in the 3.0 version of the WIN.INI file, Setup does not change them. If they are not present, Setup adds them:
+
+    Device=
+    Documents=
+    Programs=com exe bat pif
+
+In the [extensions] section, Setup adds one new setting:
+
+    bmp=pbrush.exe ^.bmp
+
+Setup adds two other settings to the [extensions] section, if they are not already present in the 3.0 version of the WIN.INI file:
+
+    pcx=pbrush.exe ^.pcx
+    rec=recorder.exe ^.rec
+
+In the [ports] section, Setup adds:
+
+    LPT1.DOS
+    LPT2.DOS
+
+Setup adds three other settings to the [ports] section, if they are not already present in the 3.0 version of WIN.INI:
+
+    FILE:
+    COM3:=9600,n,8,1,x
+    COM4:=9600,n,8,1,x   
+
+Setup adds the following section and settings to support TrueType fonts:
+
+    [FontSubstitutes]
+    Helv=MS Sans Serif
+    Tms Rmn=MS Serif
+    Times=Times New Roman
+    Helvetica=Arial
+
+Setup adds the following sections and settings to support multimedia:
+
+    [mci extensions]
+    wav=waveaudio
+    mid=sequencer
+    rmi=sequencer
+
+Setup adds the following sections and settings to support sound:
+
+    [sounds] 
+    SystemDefault=ding.wav, Default Beep
+    SystemExclamation=chord.wav, Exclamation
+    SystemStart=tada.wav, Windows Start
+    SystemExit=chimes.wav, Windows Exit
+    SystemHand=chord.wav, Critical Stop
+    SystemQuestion=chord.wav, Question
+    SystemAsterisk=chord.wav, Asterisk
+
+Setup adds the following section and settings to support object linking and embedding:
+
+    [embedding]
+    SoundRec=Sound,Sound,SoundRec.exe,picture
+    Package=Package,Package,packager.exe,picture
+    PBrush=Paintbrush Picture,Paintbrush Picture,pbrush.exe,picture
+
+Setup also makes additional changes, depending on the applications and devices installed on your system.
+
+
+=== How to Read This Document
+
+In this document, WIN.INI settings are listed alphabetically within sections. However, the settings do not appear alphabetically in the WIN.INI file. To change a setting, you need to search for it within the appropriate section.
+
+This document lists the syntax, default value, purpose, and recommended method for changing each setting, using the following format.
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__SettingName__=[.aqua]__<value-type>__
+
+**Default:**	The Windows default value for this setting. +
+**Purpose:**	This paragraph briefly describes the function of the setting and its default value (if applicable). +
+**To change:**	Describes the recommended method for changing the value of this setting. +
+
+<value-type> indicates whether the value should be an integer, a letter, a range of numbers, or something else.
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+=== Changing Settings
+
+When the Setup program creates the WIN.INI file, it assigns default values to the settings. Some settings that are listed in this document may not appear in your WIN.INI file. 
+
+There are two ways to change WIN.INI settings:
+
+•	You can use Windows Control Panel to change most settings. This is the safest and most recommended way because there is no need to open and edit the WIN.INI file, where it is easier to make mistakes. For more information about Control Panel, see Chapter 5, "Control Panel," in the Microsoft Windows User's Guide.
+
+•	You can use a text editor, such as Windows Notepad, to edit the WIN.INI file directly. (Do not use a formatting editor; it can corrupt your WIN.INI file.) You must use this method to change the settings that you cannot change by using Control Panel. After you have edited the WIN.INI file, you must restart Windows for the settings to take effect. For more information about Notepad, see Chapter 12, "Additional Accessories," in the Microsoft Windows User's Guide.
+
+**Caution:**  Always back up your WIN.INI file before you make changes so that you can restore the original file in case you accidentally damage the WIN.INI file or make changes that cause problems when running Windows. It is recommended that you do not change any settings that are not described in this document. However, if you need to change additional settings, refer to the Windows Resource Kit for the Microsoft Windows Operating System Version 3.1. Be careful when using a text editor to edit the WIN.INI file. Incorrect changes to WIN.INI can cause unexpected results when you run Windows. 
+
+
+
+=== [windows] Section Settings
+
+The [windows] section contains settings that affect general areas of your Windows environment, such as which applications run when you start Windows and how information appears on your screen.
+
+The [windows] section can contain the following settings.
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__DoubleClickHeight__=[.aqua]__<pixels>__
+
+**Default:**	4 +
+**Purpose:**	Specifies the height (in pixels) that the mouse pointer can move between clicks when you double-click. If the mouse pointer is moved further up or down, the two clicks are treated as separate single clicks. For example, if DoubleClickHeight=10, the mouse pointer cannot move vertically more than 5 pixels between clicks in order for the two clicks to be recognized as a double-click. If you use an odd number, it is rounded up to the nearest even number. This setting is helpful if you are using a pen-tablet pointing device. +
+**To change:**	Use Notepad to edit the WIN.INI file. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__DoubleClickWidth__=[.aqua]__<pixels>__
+
+**Default:**	4 +
+**Purpose:**	Specifies the width (in pixels) that the mouse pointer can move between clicks when you double-click. If the mouse pointer is moved further right or left, the two clicks are treated as separate single clicks. For example, if DoubleClickWidth=10, the mouse pointer cannot move horizontally more than 5 pixels between clicks in order for the two clicks to be recognized as a double-click. If you use an odd number, it is rounded up to the nearest even number. This setting is helpful if you are using a pen-tablet pointing device. +
+**To change:** 	Use Notepad to edit the WIN.INI file. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__Load__=[.aqua]__<filename(s)>__
+
+**Default:** 	None +
+**Purpose:** 	Specifies one or more applications to run as icons when Windows is started. This value is a list of one or more filenames of applications, or documents that are associated with an application, each separated by a space. Specify the complete path if the application or document is not located in the Windows directory. +
+**To change:** 	Add the application to the StartUp group in Program Manager, and then select the Minimize On Use check box in the Properties dialog box. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__MenuDropAlignment__=[.aqua]__<0-or-1>__
+
+**Default:**	0 +
+**Purpose:**	Specifies whether menus open right-aligned or left-aligned with the menu title. If this setting is 0, menus open so that they are left-aligned. If it is 1, menus open so that they are right-aligned. +
+**To change:**	Use Notepad to edit the WIN.INI file. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__MenuShowDelay__=[.aqua]__<milliseconds>__
+
+**Default:**	0 for 80386 computers; 400 for 80286 computers +
+**Purpose:**	Specifies how long Windows waits before displaying a cascading menu. +
+**To change:**	Use Notepad to edit the WIN.INI file. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__Programs__=[.aqua]__<extensions>__
+
+**Default:**	com exe bat pif +
+**Purpose:**	Defines which files Windows considers applications. A filename extension is separated by a space and does not include the preceding period. +
+**To change:**	Use Notepad to edit the WIN.INI file. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__Run__=[.aqua]__<filename(s)>__
+
+**Default:**	None +
+**Purpose:**	Causes Windows to run one or more specified applications when Windows is started. The value is a list of one or more filenames of applications, or documents associated with applications, each separated by a space. Specify the complete path if the application or document is not located in the Windows directory. +
+**To change:**	Add the application to the StartUp group in Program Manager. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+
+=== [desktop] Section Settings
+
+The [desktop] section contains optional settings that control the appearance of the screen background (desktop) and the positioning of windows and icons on the screen. Most of these settings (which are not listed in this document) can be changed by using Control Panel. The following setting must be changed by editing the WIN.INI file.
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__IconVerticalSpacing__=[.aqua]__<pixels>__
+
+**Default:**	Windows determines the default value based on the icon title font and the display adapter you are using. +
+**Purpose:**	Specifies the number of pixels that appear vertically between icons. Increasing this number increases the amount of vertical space between icons. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+
+=== [fonts] Section Settings
+
+The [fonts] section describes one or more font files that are loaded when Windows is started.
+
+The [fonts] section can contain one or more occurrences of the following setting.
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__<font-name>__=[.aqua]__<font-file>__
+
+**Purpose:**	Specifies a font file. The <font-name> keyname is the descriptive name of a font. The <font-file> value is the filename of a file that contains font resources. +
+ **To change:**	Choose the Fonts icon from the Control Panel window. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+
+=== [mci extensions] Section Settings
+
+The [mci extensions] section contains settings that associate different types of media files with different Media Control Interface (MCI) device drivers. Whenever a media file is selected, Windows uses the associated driver to play it.
+
+The [mci extensions] section can contain one or more occurrences of the following setting.
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__<extension>__=[.aqua]__<mci-device-type>__
+
+**Purpose:**	Associates files that have the specified extension with the specified MCI device driver. Windows uses the specified driver to play the media file associated with it. +
+**To change:**	Use Notepad to edit the WIN.INI file. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+
+=== [Windows Help] Section Settings
+
+The [Windows Help] section includes settings that specify the size and placement of the Help window and dialog boxes, as well as the color of text that, when chosen, displays a macro, pop-up window, or new Help window.
+
+The [Windows Help] section can include the following settings.
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__JumpColor__=[.aqua]__<red-value> <green-value> <blue-value>__
+ 
+**Purpose:**	Specifies the color of text that, when chosen, leads to a new window of Help information. For example, specifying 000 000 000 as values results in black text on a white background. +
+**To change:**	Use Notepad to edit the WIN.INI file. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__PopupColor__=[.aqua]__<red-value> <green-value> <blue-value>__
+
+**Purpose:**	Specifies the color of text that, when chosen, displays a pop-up window (the type of window used for glossary definitions). For example, specifying 000 000 000 as values results in black text on a white background. +
+**To change:**	Use Notepad to edit the WIN.INI file. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__MacroColor__=[.aqua]__<red-value> <green-value> <blue-value>__
+
+**Purpose:**	Specifies the color of text that, when chosen, runs a Help macro. +
+**To change:**	Use Notepad to edit the WIN.INI file. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__IFJumpColor__=[.aqua]__<red-value> <green-value> <blue-value>__
+  
+**Purpose:**	Specifies the color of text that, when chosen, leads to a new window of Help information, located in a different Help file. +
+**To change:**	Use Notepad to edit the WIN.INI file. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__IFPopupColor__=[.aqua]__<red-value> <green-value> <blue-value>__
+
+**Purpose:** 	Specifies the color of text that, when chosen, displays a pop-up window (the type of window used for glossary definitions), located in a different Help file. +
+**To change:**	Use Notepad to edit the WIN.INI file. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+== SYSTEM.INI File Settings
+
+Windows initialization files contain information that defines your Windows environment. Windows and Windows applications can use the information stored in these files to configure themselves to meet your needs and preferences.
+
+There are two standard Windows initialization files:
+
+•	**_WIN.INI_**, which primarily contains settings that Windows maintains to customize your Windows environment according to your preferences.
+
+•	**_SYSTEM.INI_**, which primarily contains settings that customize Windows to meet your system's hardware needs.
+
+This document describes only a few of the settings in the SYSTEM.INI file. You can get a more complete listing of the SYSTEM.INI settings by purchasing the Windows Resource Kit for the Microsoft Windows Operating System Version 3.1. The Resource Kit provides complete technical information about Windows version 3.1 for the support professional. It includes a technical reference manual and a disk containing helpful utilities, system resource viewers, drivers, and accessories. 
+
+To order the Windows Resource Kit within the United States, dial:
+
+		 1-800-642-7676
+
+To order outside of the United States, dial the phone number for your area. You can find this number on the International Subsidiary card.
+
+
+
+=== Format of the SYSTEM.INI File
+
+The SYSTEM.INI file contains several sections, each of which consists of a group of related settings. The sections and settings are listed in the SYSTEM.INI file in the following format:
+
+	[section name]
+	keyname=value
+
+In this example, [section name] is the name of a section. The enclosing brackets ([ ]) are required, and the left bracket must be in the leftmost column on the screen.
+
+The keyname=value statement defines the value of each setting. A keyname is the name of a setting. It can consist of any combination of letters and digits in uppercase or lowercase, and it must be followed immediately by an equal sign (=). The value of the setting can be an integer, a Boolean value, a string, or a quoted string, depending on the setting. There are multiple settings in most sections.
+
+You can include comments in initialization files. You must begin each line of a comment with a semicolon (;).
+
+
+=== How to Read the Listings in This Document
+
+In this document, settings in SYSTEM.INI are listed alphabetically within sections. However, the settings do not appear alphabetically in the SYSTEM.INI file. To change a setting, you need to search for it in the appropriate section.
+
+The syntax, default value, and purpose appear in the following format.  
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__SettingName__=[.aqua]__<value-type>__
+
+**Default:**	The Windows default value for this setting. +
+**Purpose:**	A brief description of the function of the setting. +
+
+<value-type> indicates whether the value should be an integer, a letter, a range of numbers, a Boolean value, or something else. If you want to enable a Boolean setting, you can set the value to: True, Yes, On, or 1. If you want to disable the Boolean setting, you can set the value to: False, No, Off, or 0.
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+=== Changing Settings
+
+When the Setup program creates the SYSTEM.INI file, it assigns default values to many of the settings. Other settings have values that correspond to the type of hardware you are using. 
+
+Some settings listed in this document do not normally appear in your SYSTEM.INI file. Most of these settings have a built-in default value that is present whether or not the setting appears in SYSTEM.INI. You might need to change one or more of these values to improve the performance of Windows or applications with your system.
+
+To change the values of the settings described in this document, open the SYSTEM.INI file and edit it by using a text editor, such as Windows Notepad. Do not use a formatting editor, such as a word processor in document mode; it can corrupt your SYSTEM.INI file. For more information on how to use Notepad, see Chapter 12, "Additional Accessories," in the Microsoft Windows User's Guide.
+
+Any changes you make to SYSTEM.INI settings do not take effect until you restart Windows.
+
+Caution:  Do not change any settings that are not described in this document. If you need to change additional settings, refer to the Windows Resource Kit for the Microsoft Windows Operating System Version 3.1. Always back up your SYSTEM.INI file before you change any of its settings. That way, you can restore the original file if you make incorrect changes. Be careful when making changes to the SYSTEM.INI file. Your system will not work properly if you edit this file incorrectly. 
+
+
+=== [boot] Section Settings
+
+All settings in this section, except for CachedFileHandles, are required. If you modify or delete one of these settings, Windows might not work properly. There are no specific default values for these settings; Setup assigns values based on your system configuration.
+
+If you want to run a different application when you start Windows, change the following setting.  
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__shell__=[.aqua]__<filename>__
+
+**Default:**	None (Setup initializes this value as PROGMAN.EXE.) +
+**Purpose:**	Specifies the Windows application that runs when you start Windows. Unless you change this setting, Program Manager will run when you start Windows. For example, if you want to run File Manager instead of Program Manager when you start Windows, you could change this setting as follows: +
+
+shell=winfile.exe
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+=== [NonWindowsApp] Section Settings
+
+The [NonWindowsApp] section contains settings that affect the performance of non-Windows applications.
+
+The [NonWindowsApp] section can contain the following settings.
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__CommandEnvSize__=[.aqua]__<bytes>__
+
+**Default:**	0 for MS-DOS versions earlier than 3.2. Otherwise, the default is the value for the /e: option in the shell= command line in the CONFIG.SYS file. +
+**Purpose:**	Specifies the size of the COMMAND.COM environment. Note that running batch files with the extension .BAT starts COMMAND.COM, so this setting also applies to batch files. The value for this setting must be either 0 or between 160 and 32768. A value of 0 disables this setting. If the value is too small or too large, it will be rounded up to 160 or down to 32768. If the value is less than the current size of the actual environment, this setting will be disabled, as if it were set to 0. If you have specified the environment size in a PIF file for COMMAND.COM, the PIF-file setting overrides this setting. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__DisablePositionSave__=[.aqua]__<Boolean>__
+
+**Default:**	0 +
+**Purpose:**	When this setting is disabled, the position and fonts used by a non-Windows application are saved in the DOSAPP.INI file when you quit the application. If this setting is enabled, the position and fonts used by a non-Windows application whose settings have not been previously saved in the DOSAPP.INI file will not be saved. If enabled, the setting can be overridden for each non-Windows application by selecting the Save Settings On Exit check box in the Font dialog box in the application. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__FontChangeEnable__=[.aqua]__<Boolean>__
+
+**Default:**	1 on systems that use Windows version 3.1 grabbers. 0 on systems that use Windows version 3.0 grabbers. +
+**Purpose:**	Provides the ability to change fonts when running a non-Windows application in a window on a system that uses version 3.0 of the grabbers (usually 3.0 display drivers). Windows version 3.1 video grabbers (used in 3.1 display drivers) include built-in support for changing fonts when running a non-Windows application in a window. If you are using a 3.0 grabber that has not been updated to include the ability to change fonts and you want to use this feature, enable this setting. However, with this setting enabled, your screen may lose characters and the cursor may change size and position slightly. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__LocalTSRs__=[.aqua]__<list-of-TSR-applications>__
+
+**Default:**	DOSEDIT, CED +
+**Purpose:**	Specifies which terminate-and-stay-resident (TSR) programs work properly if they are copied to each instance of a virtual machine. When you start Windows, it detects any TSR programs that are currently running. If the TSR is on the LocalTSRs list, Windows copies the TSR to each virtual machine you run. Many TSRs will not run properly if they are added to this list. Make sure your TSR is fully compatible with Windows and can be copied to a virtual machine before adding it to the list. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__MouseInDosBox__=[.aqua]__<Boolean>__
+
+**Default:**	1 if an MS-DOS mouse driver is loaded that has the extension .COM or .SYS and supports the use of a mouse with a non-Windows application. Otherwise, the default is 0. +
+**Purpose:**	Specifies whether the mouse is supported when running a non-Windows application in a window. Mouse support for a non-Windows application running in a window is automatically available if you are using a Windows 3.1 version of the grabbers. If you are using a Windows 3.0 version of the grabbers and you want mouse support, enable this setting. If you do not want mouse support, disable this setting. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__NetAsynchSwitching__=[.aqua]__<0-or-1>__
+
+**Default:**	0, unless an application is running that supports the use of the Task Switcher API by the NetBIOS. +
+**Purpose:**	Specifies whether you can switch away from an application (running in standard mode) after it has made an asynchronous network BIOS call. If this setting is disabled, you cannot switch away. Switching away from some applications that make these calls might cause your system to fail. Once Windows detects an asynchronous NetBIOS call, you cannot switch away from the application, even if no more of these calls are made. Enable this setting only if you are sure that the applications you use will not receive network messages while they are inactive. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__ScreenLines__=[.aqua]__<number>__
+
+**Default:**	25 +
+**Purpose:**	Specifies the number of lines that will be displayed on the screen when you run a non-Windows application. An application that specifies a different screen mode can override this setting. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__SwapDisk__=[.aqua]__<drive-colon-directory>__
+
+**Default:**	The directory that the TEMP environment variable points to; if there is no TEMP variable, the default is the root directory of your first hard drive (usually labeled C:). If you do not have a hard disk, the default is the root directory of your first floppy disk drive (usually labeled A:). +
+**Purpose:**	Provides the name of the disk drive and directory to which Windows running in standard mode swaps non-Windows applications. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+=== [standard] Section Settings
+
+The [standard] section contains settings that are specific to running Windows in standard mode.
+
+The [standard] section can contain the following settings.
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__FasterModeSwitch__=[.aqua]__<0-or-1>__
+
+**Default:**	0 +
+**Purpose:**	Enabling this setting causes Windows running in standard mode to use a faster method of switching from protected to real mode on many 80286-based computers. When this setting is enabled, Windows responds quicker to hardware interrupts, allowing better throughput for interrupt-intensive applications, such as communications applications. In addition, you should enable this setting if you are using a Zenith Z-248 system and are losing characters while typing, or if you are using an Olivetti M-250-E and lose mouse functionality. +
+
+****
+NOTE: This setting has no effect on 80386-based computers. Some early IBM AT and compatible computers do not have the BIOS support necessary to use this setting. Enabling this setting on these computers may cause them to lock up when starting Windows. 
+****
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__Int28Filter__=[.aqua]__<number>__
+
+**Default:**	10 +
+**Purpose:**	Specifies the interval of INT28h interrupts, generated when the system is idle, that are made visible (or reflected) to software that is loaded before Windows. Windows will reflect every nth interrupt, where n is the value of this setting. For example, a value of 1 reflects every INT28h interrupt, a value of 2 reflects every second INT28h interrupt, and so on. Increasing this value might improve Windows performance, but may interfere with some memory-resident programs, such as network software. Set this value to 0 to prevent any INT28h interrupts from being reflected. Setting this value too low (from 1 to 9) might interfere with communications applications. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__NetHeapSize__=[.aqua]__<kilobytes>__
+
+**Default:**	8 +
+**Purpose:**	Specifies the size (in kilobytes) of the data-transfer buffer that Windows running in standard mode allocates in conventional memory for transferring data over a network. If an application is not running correctly, your network may require a larger buffer than the default value. Increasing this value will decrease the amount of memory available to applications. If no network software is running, this setting will be ignored and no memory will be allocated. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+=== [386Enh] Section Settings
+
+The [386Enh] section contains information specific to running Windows in 386 enhanced mode, including information used for virtual-memory page swapping.
+
+The [386Enh] section can contain the following settings.
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__AllVMsExclusive__=[.aqua]__<Boolean>__
+
+**Default:**	False +
+**Purpose:**	If enabled, this setting forces all applications to run in exclusive full-screen mode, overriding all contrary settings in the applications' program information files (PIFs). Enabling this setting might prolong the length of the Windows session when you are running network and memory-resident software that is incompatible with Windows. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__COMBoostTime__=[.aqua]__<milliseconds>__
+
+**Default:**	2 +
+**Purpose:**	Specifies the amount of time (in milliseconds) to allow a virtual machine to process a COM interrupt. If, while running a communications application, you lose keyboard characters on the screen, you can try increasing this value. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__COMdrv30__=[.aqua]__<Boolean>__
+
+**Default:**	False +
+**Purpose:**	If enabled, the Virtual COM Driver (VCD) uses its own copy of the interrupt handler for the serial communications driver. This  improves performance of your COM ports. Enable this setting if you are using a Windows version 3.0 serial communications driver. Disable this setting if you are using the standard Windows 3.1 serial communications driver. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__COM1FIFO__=[.aqua]__<Boolean>__
+[.navy.big]__COM2FIFO__=[.aqua]__<Boolean>__
+[.navy.big]__COM3FIFO__=[.aqua]__<Boolean>__
+[.navy.big]__COM4FIFO__=[.aqua]__<Boolean>__
+
+**Default:**	True +
+**Purpose:**	Specifies whether the FIFO buffer of a COM port's 16550 Universal Asynchronous Receiver Transmitter (UART) should be enabled (True) or disabled (False). If a serial port does not have a 16550 UART, this setting is ignored. +
+
+****
+NOTE:  These values are used by Windows for both standard and 386 enhanced modes.
+****
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__COMIrqSharing__=[.aqua]__<Boolean>__
+
+**Default:**	True for Micro Channel and EISA machines; False for all other machines. +
+**Purpose:**	Specifies whether COM interrupt lines are sharable between multiple serial ports or with other devices. Enable this setting if your machine uses the same interrupt for COM3 or COM4 as it does for COM1 or COM2. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__DOSPromptExitInstruc__=[.aqua]__<Boolean>__
+
+**Default:**	Yes +
+**Purpose:**	If this setting is enabled, when you start the MS-DOS prompt a message box appears with instructions on how to exit and switch away from the MS-DOS prompt. Disable this setting if you do not want to see the message. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__DualDisplay__=[.aqua]__<Boolean>__
+
+**Default:**	See "Purpose" below. +
+**Purpose:**	Normally, when running in 386 enhanced mode, the memory between B000:0000 and B7FF:000F is used by the general system unless a secondary display is detected. Enable this setting if you are using a VGA-based color display and want EMM386.EXE to include this address space as an upper memory block (UMB). In addition to enabling this setting, you must include the i= option in the device=EMM386.EXE command line in your CONFIG.SYS file as follows: +
+
+	device=EMM386.EXE i=B000-B7FF
+
+If this setting is disabled, the address range is available on EGA systems, but not on VGA systems, because the VGA display device supports monochrome modes, which use this address space.    
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__EMMExclude__=[.aqua]__<paragraph-range>__
+
+**Default:**	None +
+**Purpose:**	Specifies a range of memory that Windows will not scan to find unused address space. This has the side effect of turning off the RAM and ROM search code for the range. The range (two paragraph values separated by a hyphen) must be between A000 and EFFF. This scanning can interfere with some adapters that use the same memory area. The starting value is rounded down and the ending value is rounded up to a multiple of 16K. For example, you could set EMMExclude=C800-CFFF to prevent Windows from scanning the addresses C800:0000 through CFFF:000F. You can specify more than one range by including more than one EMMExclude line. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__EMMInclude__=[.aqua]__<paragraph-range>__
+
+**Default:**	None +
+**Purpose:**	Specifies a range of memory that Windows will treat as unused address space regardless of what may be there. EMMInclude takes precedence over EMMExclude if you specify ranges that overlap. The range (two values separated by a hyphen) must be between A000 and EFFF. The starting value is rounded down and the ending value is rounded up to a multiple of 16K. For example, you could set EMMInclude=C800-CFFF to ensure that Windows can use the addresses C800:0000 through CFFF:000F. You may specify more than one range by including more than one EMMInclude line. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__EMMPageFrame__=[.aqua]__<paragraph>__
+
+**Default:**	None +
+**Purpose:**	Specifies the starting paragraph where the 64K page frame will begin when Windows (running in 386 enhanced mode) cannot find a suitable page frame. Allows an EMM page frame in an area containing some unused RAM or ROM. For example, you could set EMMPageFrame=C400 to start the page frame at C400:0000. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__EMMSize__=[.aqua]__<kilobytes>__
+
+**Default:**	65536 +
+**Purpose:**	Specifies the total amount of memory available for mapping as expanded memory. The default value allocates the maximum possible amount of system memory as expanded memory. Specify a value for this setting if you run an application that allocates all of the available expanded memory. If this is the case, you cannot create new virtual machines. If this value is zero, no expanded memory is allocated, but the EMM driver will load. To disable EMM and prevent the EMM driver from loading, use the NoEMMDriver setting. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__FileSysChange__=[.aqua]__<Boolean>__
+
+**Default:**	Off in 386 enhanced mode; not supported in standard mode. +
+**Purpose:**	Indicates whether File Manager automatically receives messages anytime a non-Windows application creates, renames, or deletes a file. If this setting is disabled, a virtual machine can run exclusively, even if it modifies files. Enabling this setting can slow down system performance significantly. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__InDOSPolling__=[.aqua]__<Boolean>__
+
+**Default:**	No +
+**Purpose:**	If enabled, prevents Windows from running other applications when memory-resident software has the InDOS flag set. Enabling this setting is necessary if the memory-resident software needs to be in a critical section to do operations off an INT21 hook, but will slow down system performance slightly. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__INT28Critical__=[.aqua]__<Boolean>__
+
+**Default:**	True +
+**Purpose:**	Specifies whether a critical section is needed to handle INT28h interrupts used by memory-resident software. Some networks do internal task switching on INT28h interrupts. These interrupts might lock up some network software, indicating the need for an INT28h critical section. If you are not using such software, you might improve Windows task switching by disabling this setting. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__LocalReboot__=[.aqua]__<on-or-off>__
+
+**Default:**	On +
+**Purpose:**	Specifies whether you can press CTRL+ALT+DEL to quit applications that cause an unrecoverable error in 386 enhanced mode. If this setting is enabled, you can quit the applications without restarting Windows. If this setting is disabled, pressing CTRL+ALT+DEL will restart your entire system. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__MaxCOMPort__=[.aqua]__<number>__
+
+**Default:**	4 +
+**Purpose:**	Specifies the maximum number of COM ports supported in 386 enhanced mode. Change this value if you have more than four COM ports installed in your computer. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__NetAsynchFallback__=[.aqua]__<Boolean>__
+
+**Default:**	False +
+**Purpose:**	If this setting is enabled, Windows attempts to save a failing NetBIOS request. When an application issues an asynchronous NetBIOS request, Windows attempts to allocate space in its global network buffer to receive the data. If there is insufficient space in the global buffer, Windows typically fails the NetBIOS request. If this setting is enabled, Windows attempts to save such a request by allocating a buffer in local memory and preventing any other virtual machines from running until the data is received or the timeout period (specified by the NetAsynchTimeout setting) expires. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__NetAsynchTimeout__=[.aqua]__<seconds>__
+
+**Default:**	5.0 +
+**Purpose:**	Specifies the timeout period (in seconds) when Windows will enter a critical section in order to service an asynchronous NetBIOS request. It is used only when the NetAsynchFallback setting is enabled. This value can include a decimal (such as 0.5). +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__NetDMASize__=[.aqua]__<kilobytes>__
+
+**Default:**	32 on Micro Channel machines (IBM PS/2 or compatible); 0 on non-Micro Channel machines (IBM PC/AT or compatible). +
+**Purpose:**	Specifies the DMA buffer size (in kilobytes) for NetBIOS transport software if a network has been installed. In this case, the buffer size is the larger of this value or the value of DMABufferSize. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__NetHeapSize__=[.aqua]__<kilobytes>__
+
+**Default:**	12 +
+**Purpose:**	Specifies the size (in kilobytes) of the data-transfer buffers in conventional memory that Windows allocates for transferring data over a network when running in 386 enhanced mode. All values are rounded up to the nearest 4K. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__Network__=[.aqua]__<filename-or-devicename> __
+
+**Default:**	None (Setup assigns an appropriate value based on your system configuration.) +
+**Purpose:**	Specifies the type of network you are using with Windows in 386 enhanced mode. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__PSPIncrement__=[.aqua]__<number>__
+
+**Default:**	2 +
+**Purpose:**	Specifies the amount of additional memory, in 16-byte increments, that Windows should reserve in each successive virtual machine when the UniqueDOSPSP setting is enabled. The setting that works best for your machine might vary depending on your memory configuration and the applications you are running. Valid values are 2 through 64. See the UniqueDosPSP setting for more information. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__ReflectDosInt2A__=[.aqua]__<Boolean>__
+
+**Default:**	False +
+**Purpose:**	Indicates whether Windows should consume or reflect DOS INT 2A signals. The default means Windows will consume these signals and therefore run more efficiently. Enable this setting if you are running memory-resident software that relies on detecting INT2A messages. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__SyncTime__=[.aqua]__<Boolean>__
+
+**Default:**	True +
+**Purpose:**	If this setting is enabled, Windows periodically synchronizes its time with the computer's CMOS clock. If this setting is disabled, Windows usually maintains the correct time, unless TrapTimerPorts is disabled and you are running applications that can cause the system time to run faster or slower than the actual time. This setting is related to the TrapTimerPorts setting. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__TimerCriticalSection__=[.aqua]__<milliseconds>__
+
+**Default:**	0 +
+**Purpose:**	Instructs Windows to go into a critical section around all timer interrupt code and specifies a timeout period (in milliseconds). Specifying a positive value causes only one virtual machine at a time to receive timer interrupts. Some networks and other global memory-resident software may fail unless this setting is used. However, using this setting slows down performance and can make the system seem to stop for short periods of time. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__TrapTimerPorts__=[.aqua]__<Boolean>__
+
+**Default:**	True +
+**Purpose:**	Specifies whether Windows should trap read and write operations to the system timer ports that are performed by applications. If this setting is disabled, Windows will not trap these operations, allowing applications that frequently read or write to the timer to run faster. However, this may interfere with ability of Windows to keep accurate system time. If this setting is disabled, Windows can usually detect when an application has changed the timer interrupt interval and then make any adjustments to the time. If your system's time appears to be running fast or slow, enable this setting. If you do not want to enable this setting, enable the SyncTime setting. This causes Windows to check the time periodically and then make any necessary adjustments. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__UniqueDOSPSP__=[.aqua]__<Boolean>__
+
+**Default:**	True if you are running a network based on Microsoft Network or LAN Manager. See the NETWORKS.WRI online document to find out whether the network you are running is one of these. False for all other networks. +
+**Purpose:**	If this setting is enabled, Windows starts every application at a unique address (PSP). Each time Windows creates a new virtual machine to start a new application, Windows reserves a unique amount of memory (i bytes) below the application. For example, if the first application is loaded at address M, the second application is loaded at address M+i, the third at M+2i, and so on. The amount of memory (i) is determined by the PSPIncrement setting. These settings ensure that applications in different virtual machines all start at different addresses. Some networks use applications' load addresses to identify the different processes that are using the network. Disabling this setting on such networks might cause one application to fail when you quit another, because the network interprets them as the same application. When this setting is enabled, slightly less memory is available for non-Windows applications. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+[.navy.big]__VirtualHDIrq__=[.aqua]__<Boolean>__
+
+**Default:**	On for AT-compatible computers; Off for all other computers. +
+**Purpose:**	If enabled, Windows in 386 enhanced mode can terminate interrupts from the hard disk controller, bypassing the ROM routine that handles these interrupts. Some hard disk drives might require this setting to be disabled in order for interrupts to be processed correctly. If this setting is disabled, the ROM routine handles the interrupts, which slows down system performance. +
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+
+== Additional Notes About Networks
+
+
+This document contains information about specific networks. If you are looking for additional information about Windows version 3.1 that does not pertain to networks, see "Other Online Documents" at the end of this file for a description of the Windows 3.1 online documents.
+
+Using Write to View This Document
+
+If you enlarge Write to its maximum size, this document will be easier to read. To do so, click the Maximize button in the upper-right corner of the Write window. Or open the Control menu in the upper-left corner of the Write window and choose the Maximize command.
+
+To move through the document, press PAGE UP and PAGE DOWN or click the arrows at the top and bottom of the scroll bar along the right side of the Write window.
+
+To print the document, choose the Print command from the File menu.
+
+For Help on using Write, press F1.
+
+To read other online documents, choose Open from the File menu. 
+
+=== Contents
+
+This document contains the following topics about networks:
+
+[.big]
+----
+   1.0  General Notes
+   2.0  Notes About Specific Networks
+   2.1  3Com Networks
+   2.2  Artisoft LANtastic
+   2.2.1  Artisoft LANtastic 3.x
+   2.2.2  Artisoft LANtastic 4.x
+   2.3  Banyan VINES
+   2.3.1  Banyan VINES 4.0x
+   2.3.2  Banyan VINES 4.1x
+   2.4  DEC Pathworks
+   2.5  IBM OS/2 LAN Server
+      2.5.1 IBM LAN Server 1.2 and 1.3
+      2.5.2 IBM LAN Server 2.x
+   2.6  IBM PC LAN Program
+   2.7  Invisible Software - NET/30 for Windows
+   2.8  Microsoft LAN Manager Networks
+      2.8.1  Using the Ungermann-Bass XNS Transport Stack
+      2.8.2  Using LAN Manager and Expanded Memory
+      2.8.3  Using Pop-up Services
+      2.8.4  LAN Manager Basic
+      2.8.5  LAN Manager 1.x
+      2.8.6  LAN Manager 2.0 Enhanced
+      2.8.7  LAN Manager 2.1 Basic
+      2.8.8  LAN Manager 2.1 Enhanced
+   2.9  Microsoft Network and Compatibles
+   2.10  Novell NetWare
+   2.11  TCS 10Net
+   2.12  Ungermann-Bass Net/One
+   3.0  Other Online Documents
+----
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+=== 1.0  General Notes
+ 
+•	There are many settings in the SYSTEM.INI file that affect the way Windows interacts with a network. You can change these settings to correct most problems you might have operating Windows with your network. See the SYSINI.WRI online document for information about changing the following SYSTEM.INI settings:
+
+
+[source,sh]
+----
+[Boot]
+Network.drv=
+
+[Standard]
+Int28Filter=
+NetHeapSize=
+
+[386Enh]
+AllVMsExclusive=
+EMMExclude=
+FileSysChange=
+InDOSPolling=
+Int28Critical=
+NetAsyncFallback=
+NetAsyncTimeout=
+NetDMASize=
+NetHeapSize=
+Network=
+PSPIncrement=
+ReflectDOSInt2A=
+TimerCriticalSection=
+TokenRingSearch=
+UniqueDOSPSP=
+----
+
+• 	Many networks require the TimerCriticalSection entry in the [386Enh] section of the SYSTEM.INI file to be set to a value of 10000 or greater. For more information, see the SYSINI.WRI file.
+ 
+•	The default value for the NetHeapSize entry in the [Standard] section of the SYSTEM.INI file is 8K. Although some applications require this value, in most cases you can decrease the value to 4K in order to increase the amount of memory available to your applications. A few applications require the value to be 4K.
+
+• 	If for some reason you use Setup to change your network configuration after you have already set up Windows, Setup might not remove all support for your previous network selection. Unnecessary files might be left in your Windows directory, and entries might be left in your WIN.INI or SYSTEM.INI files that could harm your system's performance. If you change your network configuration, check the notes about both your previous and new selections to see if any previous entries are no longer required.
+
+• 	Some network adapter cards require the ExcludeHighRegion (or EMMExclude) entry in the [386Enh] section of the SYSTEM.INI file to be set to the memory range used by the card. For more information, see your network-adapter documentation and the SYSINI.WRI file.
+ 
+These cards may also require an X= option on the EMM386 command line in your CONFIG.SYS file. For more information, see the Microsoft Windows User's Guide.
+
+• 	Some network cards and some network transport stacks require special handling. Consult the following sections not only for the manufacturer of your network but also for the manufacturer of your network adapter and your transport stack.
+
+• 	Many networks have pop-up message facilities that allow you to see messages sent from other servers or workstations. In most cases, these pop-up programs will cause Windows Setup to fail if a message is received while setting up. Many networks provide additional utilities that allow them to work with Windows once Windows is set up, but these are generally not available during Setup. You should make sure any such pop-up service is disabled before setting up Windows. Please consult specific entries regarding your network in the following sections, or consult your network documentation for instructions. 
+
+•	If you configured your remote-boot workstation to run Windows version 3.0, you may be loading a program called RIPLMEM.EXE or RPLMEM.EXE in your AUTOEXEC.BAT. This program is no longer required for running Windows version 3.1. 
+
+• The Windows Resource Kit for the Microsoft Windows Operating System Version 3.1 contains additional information about setting up and configuring Windows for use with a network, and information for system administrators. This kit provides complete technical information about Windows version 3.1 for the support professional. It includes a technical reference manual, and a disk containing helpful utilities, system resource viewers, drivers, and accessories. 
+
+To order the Windows Resource Kit within the United States, dial:
+
+			1-800-642-7676
+
+	To order outside of the United States, dial the phone number for your area. You can find this number on the International Subsidiary card.
+
+• If you are running a shared copy of Windows from a network drive, make sure both your personal Windows directory and the shared network directory are included on the PATH command line in your AUTOEXEC.BAT file. 
+
+• If you receive sharing violations while running a shared copy of Windows, make sure that all of the files in the shared network directory are marked as read-only.
+
+•	If you have problems running a shared copy of Windows, remove the MS-DOS SHARE command from your system. With some networks, the MS-DOS SHARE utility must not be loaded on a workstation to run a shared copy of Windows.
+
+•	If you have problems and your network software is loaded high (in the upper memory area between 640K and 1 MB), try loading the network in conventional memory.
+
+•	Windows Print Manager spools print jobs to the location specified by the MS-DOS environment variable TEMP. If TEMP is not set, Print Manager will use the root of drive C. For diskless workstations, set the TEMP variable either to a RAM disk or to the location of a network directory (you must have full access to this directory). The TEMP variable may be set by placing a SET TEMP= statement in the AUTOEXEC.BAT file or network login script. For example, to spool to the network directory X:\USERNAME\WINUSER\TEMP, you would use the statement 
+	SET TEMP=x:\username\winuser\temp. Each user must have a personal TEMP directory.
+
+•	On some diskless workstations, you will not be able to start Windows in standard mode unless you have a TEMP environment variable set or you have added a swapdisk entry in the [NonWindowsApp] section of the SYSTEM.INI file. For more information about the swapdisk entry, see the SYSINI.WRI file.
+
+•	If you are running a peer-to-peer network, you may not be able to format a floppy disk by using File Manager. You can use the format command at the MS-DOS prompt instead.
+ 
+•	Some networks ship with their own copies of files that are included with Windows version 3.1. Usually Windows includes a newer version, and upgrades the one provided with the network when you run Setup. However, if you install the network after installing Windows 3.1, some network installation programs will overwrite the newer file provided with Windows with their own, older version. This older version may lack features provided in the newer version, or it may not function properly with Windows 3.1. You should back up your network and Windows files before upgrading your network software. If problems occur, you may need to restore the previous version of some files.
+
+
+=== 2.0  Notes About Specific Networks
+
+This section contains information about specific networks. The networks are listed in alphabetical order by vendor. If your network is not listed here, it may be based on or equivalent to one of the networks listed here. For example, many networks are based on Microsoft LAN Manager. 
+
+==== 2.1  3Com Networks
+
+Windows Setup recognizes the following 3Com networks:
+
+•	The 3Com 3+Share network is based on the Microsoft Network product and will be handled as such by Windows. See the "Microsoft Network and Compatibles" section later in this document.
+
+•	The 3Com 3+Open LAN Manager network is based on Microsoft LAN Manager and will be handled as such by Windows. See the "Microsoft LAN Manager Networks" section later in this document.
+
+When you install for 3Com 3+Share or 3Com 3+Open LAN Manager, Setup adds the following entries to the [386Enh] section of your SYSTEM.INI file:
+
+   TimerCriticalSection=10000
+   UniqueDOSPSP=TRUE
+   PSPIncrement=5
+
+See SYSINI.WRI for more information on these entries.
+
+In addition:
+
+•	Some copies of 3Com 3+Open LAN Manager version 1.1 require a maintenance upgrade to work with Windows. If you encounter problems, contact your network customer-support organization.
+
+•	When you install Windows, Setup modifies your AUTOEXEC.BAT file to make sure the Windows directory appears in your path ahead of any conflicting directories. However,  the 3+Share network might change this path when you log in. If so, your system administrator must modify the network log-in procedure so that the path is set correctly to run Windows. 
+
+•	On a 3Com 3+Open network, the user's name displayed by Windows Print Manager might not match the user's actual log-in name. 
+
+•	Some 3Com 3Station diskless workstations come with an All ChargeCard. Make sure your machine is not configured to load the network into the upper memory area between 640K and 1 megabyte, as this will not work reliably with Windows version 3.1 in standard mode. You will not be able to set up Windows if your system is configured in this way.
+
+•	If you use the 3C505 Network Adapter Card, you must disable the Link Plus Optimizer to run Windows in 386 enhanced mode. You can disable it by removing the following lines from your CONFIG.SYS file:
+
+   device=psh.sys <arguments>
+   device=pth.sys
+
+In addition, remove the following line from your AUTOEXEC.BAT (or any other batch file you use to start your network):
+
+ldr
+
+•	Windows does not support the 3Com network aliasing scheme (three-part names).
+
+
+==== 2.2  Artisoft LANtastic
+
+LANtastic versions below 3.0 are not compatible with Microsoft Windows. 
+
+For information about LANtastic versions 3.x or 4.x, see the specific sections that follow. The following notes apply to both versions.
+
+•	The EMMExclude setting, added to the SYSTEM.INI file during Setup, is required for the default configuration of the Artisoft LANtastic Enhanced 2mbps network adapter. If you have changed the memory address setting on your adapter, modify this entry in SYSTEM.INI to reflect the appropriate address range. If you are not using this network adapter, you can remove this entry.
+
+•	Some commands require the NetHeapSize entry in the SYSTEM.INI file to be set higher than the default value; for example, xcopy requires NetHeapSize=128. Increasing the NetHeapSize value leaves less memory available for non-Windows applications, so only increase this value if necessary. For more information about the NetHeapSize entry, see the SYSINI.WRI file.
+
+•	You cannot create a permanent swapfile while running Windows on a LANtastic server. To create a permanent swapfile, restart your computer without loading the server software, and create the swapfile in Windows. If a dialog box appears asking you to restart Windows, you must restart Windows in 386 enhanced mode before you start the server software.
+
+•	If you are running a LANtastic server, you cannot use Windows File Manager to format a floppy disk. You can use the format command at the MS-DOS prompt instead.
+
+
+2.2.1  Artisoft LANtastic 3.x
+
+When you set up Windows for use with LANtastic 3.x, the following entries are added to the [386Enh] section of SYSTEM.INI:
+
+   EMMExclude=D800-DFFF
+   INDOSPolling=TRUE
+   NetHeapSize=76
+   NetAsynchFallback=TRUE
+   NetAsynchTimeout=50
+
+In addition:
+
+To print from any mode of Windows across LANtastic 3.x, it is necessary to do one of the following:
+
+•	Turn off the Fast Printing Direct To Port option in Control Panel. To do this, choose the Printers option in Control Panel, and then choose the Connect button. In the Connect dialog box, clear the Fast Printing Direct To Port check box.
+
+When you turn off this option, it affects all of your ports.
+
+If you want to turn this option off for one port only, follow these steps:
+
+1.		If you are printing using LPT3, add the following entry to the [ports] section of the WIN.INI file. If you are using LPT1 or LPT2, you can use the LPT1.DOS or LPT2.DOS entries already in your WIN.INI file.
+
+   LPT3.DOS=
+
+2.		Quit Windows, and then redirect the LPTx.DOS port (where x is the port you are using) by using the LANtastic net use command.
+
+3.		Restart Windows.
+
+4.		Using Control Panel, change your printer port to LPTx.DOS.
+
+
+•	If you are running LANtastic version 3.x, you cannot run Windows in 386 enhanced mode on a non-dedicated server.
+
+•	If you have a network connection on LPT1, it will not be displayed in Print Manager or Control Panel.
+
+  
+2.2.2  Artisoft LANtastic 4.x
+
+When you set up Windows for use with LANtastic 4.x, the following entries are added to the [386Enh] section of SYSTEM.INI:
+
+   EMMExclude=D800-DFFF
+   NetAsynchFallback=TRUE
+   NetAsynchTimeout=50
+   NetHeapSize=64
+   PerVMFiles=0
+
+In addition:
+
+•	If you set up Windows for use with LANtastic 4.x, you must have the LANTASTI.386 file somewhere on your path. This file should be located in your LANtastic directory. If LANTASTI.386 is not in your path, Windows Setup adds *dosnet to the [386Enh] section of the SYSTEM.INI. To use Windows with LANtastic 4.x, remove this entry and add the entries shown above, and make sure LANTASTI.386 is somewhere on your path.
+
+==== 2.3  Banyan VINES
+
+Setup will correctly handle the following Banyan VINES versions:
+
+•	Banyan VINES 4.0 is compatible with Microsoft Network and will be handled as such by Windows.
+
+•	Banyan VINES 4.1 and later come with additional Windows components,     which are installed when you set up Windows for use with Banyan VINES 4.1.
+
+See the following sections for information about running these versions of VINES with Windows.
+
+****
+NOTE: You should start VINES and log in before starting Windows. Banyan does not support logging in while Windows is running. If you start Windows when the network is not loaded or you are not logged in, you will receive one or more error messages indicating that you will not be able to use VINES functions from within Windows.
+****
+
+2.3.1  Banyan VINES 4.0x
+
+When you set up Windows for use with Banyan VINES 4.0x, the following entries are added to the [386Enh] section of your SYSTEM.INI file:
+
+        TimerCriticalSection=5000
+        UniqueDOSPSP=TRUE
+        PSPIncrement=5
+
+See SYSINI.WRI for more information on these settings.
+
+•	To use Windows printing functions with VINES 4.0, you must have VINES 4.00(5) or later and must have the NetBIOS support loaded. If you cannot print to a network printer, ask your network administrator to verify that you are loading NetBIOS and that you are running the proper version of VINES.
+
+•	If you are running VINES 4.0 with Windows running in 386 enhanced mode and want to run non-Windows applications that use NetBIOS, you must install VINES 4.00(5) or later. In addition, you will need to start NetBIOS before starting Windows.
+
+If you start VINES NetBIOS support before starting Windows in standard mode, you may not be able to start any non-Windows applications. If you have this problem, load NetBIOS from within Windows, or contact your Banyan dealer for more information.
+
+•	Versions below site-specific patch 0H will not support Windows running in 386 enhanced mode.
+
+•	If you are running VINES version 4.0x and you have a problem with print jobs that time-out intermittently, you can either update to VINES 4.1x, or use the VINES SETPRINT utility to remove the timeout on your printer port by specifying the following:
+
+	SETPRINT lptn servicename /D:INFINITE
+
+Lptn is the printer port and servicename is the name of the network print queue.
+    
+2.3.2  Banyan VINES 4.1x
+
+When you set up Windows for use with Banyan VINES 4.1, the following entries are added to the [386Enh] section of your SYSTEM.INI file:
+
+   Network=*dosnet, *vnetbios, vvinesd.386
+   TimerCriticalSection=5000
+   UniqueDOSPSP=TRUE
+   PSPIncrement=5
+
+See SYSINI.WRI for more information on these settings.
+
+In addition:
+
+•	If you are running VINES 4.10 or 4.11 (below 4.11(5)) and you have problems printing, you may need to upgrade your VINES.DRV. This driver is available from Banyan.
+    
+•	If you are running Banyan VINES 4.10 or 4.11, you do not need to load NetBIOS unless you are running NetBIOS-specific applications.  (It is not required for printing, as it is with VINES 4.0x.)
+
+If you are running version 4.10 and you want to run NetBIOS-specific applications with Windows running in 386 enhanced mode, you must start NetBIOS before starting Windows. However, you can only run a single NetBIOS application at a time.
+ 
+If you are running version 4.11, you can load NetBIOS either before starting Windows or after starting Windows in 386 enhanced mode.
+
+If you want to run NetBIOS with Windows running in standard mode, you must load NetBIOS from within Windows.  If you load NetBIOS before starting Windows, you will not be able to start any non-Windows applications.
+
+For more information on running memory-resident applications after starting Windows, see the Microsoft Windows User's Guide.
+
+==== 2.4  DEC Pathworks
+
+Windows version 3.1 supports DEC Pathworks versions 4.0 and above.
+
+When you set up Windows for use with a DEC Pathworks network, the following entries are added to the [386Enh] section of your SYSTEM.INI file:
+
+   Network=*dosnet, decnet.386, decnb.386
+   TimerCriticalSection=10000
+
+For more information about these settings, see the SYSINI.WRI file. 
+
+In addition:
+
+•	DEC Pathworks supports additional API that are not supported by the files installed by Windows 3.1.
+
+•	If you have problems starting Windows, or copying or opening files, you may need to increase the value of the FILES= command in your CONFIG.SYS file. Try setting the value to 30.
+
+•	If you have problems running NetBIOS applications, try replacing the decnb.386 entry with *vnetbios in the network=  line in the [386Enh] section of the SYSTEM.INI file.
+
+==== 2.5  IBM OS/2 LAN Server
+
+IBM OS/2 LAN Server, which is also known as IBM DOS LAN Requester, is based on Microsoft LAN Manager. Windows supports LAN Server versions 1.2 and higher.
+
+•	LAN Server versions 1.2 and 1.3 are equivalent to Microsoft Network and are handled as such by Windows. 
+
+•	LAN Server version 1.3 CSD 5015 or higher is equivalent to Microsoft LAN Manager version 2.0 and is handled as such by Windows.
+
+•	LAN Server version 2.0 comes with its own Windows components which are automatically used by Windows Setup.
+
+In addition:
+
+•	If the network Browse functions in Windows File Manager and Control Panel do not show all the available servers, you may need to increase the LAN Server /NVS option. You can do this by adding the following line to the DOSLAN.INI file in your LAN Server directory:
+
+   /NVS:1
+
+Set the value to a number at least as large as the number of servers in your domain.
+
+•	If you want to receive pop-up messages while working in Windows, make sure the following lines are included in the DOSLAN.INI file in your LAN Server directory:
+
+   /NMS:2
+   /RCV
+   /POP
+
+The value of /NMS may be set higher but must be a minimum of 2.
+
+You must also make sure the entry load=WinPopup is included in the [windows] section of your WIN.INI file.
+
+2.5.1  IBM LAN Server 1.2 and 1.3
+
+•	Running Windows with LAN Server 1.3 with CSD 5015 or later requires the files LANMAN.DRV, LANMAN.HLP, WINPOPUP.EXE, WINPOPUP.HLP, NETAPI.DLL, and PMSPL.DLL. These files should be located in your LAN Server directory. If your version of LAN Server does not provide these files, Windows Setup will copy them to your Windows SYSTEM directory.
+
+•	LAN Server versions below 2.0 do not allow you to use the IBM OS/2 LAN Server aliasing scheme from inside Windows applications.
+
+•	LAN Server versions below 2.0 do not allow you to log on through Windows Control Panel. Doing so may cause your machine to lock up. Always log on at an MS-DOS prompt, either before starting Windows or while Windows is running.
+
+•	Windows includes updated versions of the NETAPI.DLL and PMSPL.DLL files shipped with LAN Server. These files are installed during Setup for versions 1.3 with CSD 5015 or higher.
+
+2.5.2  IBM LAN Server 2.x
+
+•	Running Windows with LAN Server version 2.x requires the files LANSRV.DRV, LANSRV.HLP, WINDLR.DLL, NETAPI.DLL, PMSPL.DLL, WINPOPUP.EXE, and WINPOPUP.HLP be located on your path. These files should be located in your LAN Server directory.
+
+
+==== 2.6  IBM PC LAN Program
+
+The IBM PC LAN Program is based on the Microsoft Network product 
+and will be handled as such by Windows.
+
+When setting up Windows for use with IBM PC LAN Program, the following entry is added to the [386Enh] section of the SYSTEM.INI file:
+
+   INDOSpolling=TRUE
+
+See the online document, SYSINI.WRI, for more information on this setting.
+
+In addition:
+
+•	When you connect to a network share by using File Manager, that redirection will not be detected by non-Windows applications.
+
+•	The IBM PCLP Extended Services refers to network drives and printers by two different names. Usually, when connecting to a network, you select connections from a list containing descriptive names, but internally connections are made using hidden names such as \\SERVER\IBMXS001.
+     
+With PCLP Extended Services, you must type the same name as the hidden names in Control Panel or File Manager to make new network connections. Consult your network administrator to learn the proper names to use.
+
+•	Some versions of PCLP lock up your system if you receive a broadcast message while running Windows. You can disable these messages with the net pause messenger command. Or you can start up your network with net start rdr instead of net start rcv or net start msg commands.
+
+•	When you connect to a network printer by using Control Panel, the connection will not be detected by non-Windows applications. It will, however, still be usable by Windows and Windows applications.
+ 
+
+==== 2.7  Invisible Software - NET/30 For Windows
+
+To use NET/30 For Windows, choose the Custom Setup option when you run Setup. For your network configuration, choose Other Network (Requires disk from OEM). You are prompted for a path to the directory containing your NET/30 files. Your SYSTEM.INI and WIN.INI files will automatically be updated. 
+
+If you are setting up Windows on a nondedicated file server and you are sharing a serial printer, you must add a line to the SYSTEM.INI file. If you are sharing COM1, add the following line in the [386Enh] section:
+
+   COM1AutoAssign=0
+
+If you are sharing COM2, add the following line to the [386Enh] section:
+
+   COM2AutoAssign=0
+
+
+==== 2.8 Microsoft LAN Manager Networks
+
+Many networks, such as IBM LAN Server, Digital Pathworks, and 3Com 3+Open are based on Microsoft LAN Manager. Consult your network documentation, network distributor, or system administrator to learn whether your network belongs in this category, and if so, on which version of LAN Manager it is based.
+
+The following notes include general information about using LAN Manager networks and information about specific versions of LAN Manager.
+
+2.8.1  Using the Ungermann-Bass XNS Transport Stack
+
+If you are using the Ungermann-Bass XNS transport stack and running Windows in 386 enhanced mode, you must make sure the transport stack is not using expanded memory. If your system is configured to provide expanded memory with a memory manager such as EMM386, you can disable that product's expanded-memory option. Or, if you want to continue using expanded memory, you can disable its use by the Ungermann-Bass transport stack as follows:
+
+1.		Open your PROTOCOL.INI file by using a text editor such as Windows Notepad. PROTOCOL.INI is located in your LAN Manager directory.
+
+2.		Find the section [XNS_XIF].
+
+3.		Add a line NOEMM, or, if the line already exists, make sure that it is not commented out with a semicolon (;) at the beginning of the line.
+      
+4. Save your PROTOCOL.INI file.
+  
+5. Restart your workstation.
+
+2.8.2  Using LAN Manager and Expanded Memory
+
+If you are running Windows in 386 enhanced mode, it is recommended that you not use expanded memory with LAN Manager. If you do, you may find that your system slows down considerably or it may lock up occasionally. If this is a problem, turn off the use of expanded memory by modifying your LANMAN.INI and PROTOCOL.INI files. The exact procedure will vary depending on what components you are running. See your LAN Manager documentation for further details.
+     
+1.		Open your LANMAN.INI file by using a text editor such as Notepad. LANMAN.INI is located in your LAN Manager directory.
+
+2.		Find or add the section [workstation].
+3.		Find or add the lim= line in this section, and then add the following line:
+ 
+     lim=no
+
+4.		Save your LANMAN.INI file.
+  
+5.		Restart your workstation.
+
+Or you can stop your workstation and restart it again using the net stop workstation and net start workstation commands.
+      
+In addition, you may want to configure other network components (such as protocol stacks) to avoid using expanded memory. Consult your network documentation for the specific component for instructions on how to do this.
+
+2.8.3  Using Pop-up Services
+
+LAN Manager Enhanced includes pop-up services you can use to see incoming broadcast messages. These pop-up services can disrupt the Windows screen display, so you must either disable them or run the LAN Manager WinPopup utility so they can coexist with Windows.
+
+The WinPopup utility should be located in your LAN Manager NETPROG directory, included in your path. To automatically start the utility when you start Windows, include the following entry in the [windows] section of your WIN.INI:
+ 
+   load=winpopup.exe
+
+If you set up Windows for use with LAN Manager version 2.0 or 2.1 Enhanced, Windows Setup adds this line to your WIN.INI file. If you are running LAN Manager 1.x Enhanced, you must insert this line yourself. See WININI.WRI for information on modifying your WIN.INI file. If you are using LAN Manager 1.x, you also need to obtain an updated version of NETPOPUP.EXE from your network dealer.
+
+****
+NOTE: Windows version 3.1 includes an updated version of the WinPopup utility. This utility may not be compatible with all networks that are based on Microsoft LAN Manager. If you are running AT&T/NCR StarGroup LAN Manager version 2.0 Release 3.5, you should use the WNETMSG utility provided instead of WinPopup.
+****
+
+Alternatively, if you want to disable the pop-up services, use the following procedure:
+
+1.		Find your LAN Manager root directory.
+        
+2.		Use Notepad to open the LANMAN.INI file, and locate the line that begins with wrkservices=.
+  
+3.		Remove the netpopup or minipop entry from this line.
+If you remove the netpopup and minipop entries but leave the messenger entry, messages will still be received but will be recorded in the MESSAGES.LOG file in your LAN Manager directory rather than being displayed on the screen. If you do not want to log your messages, you can also remove the messenger entry from this same line.
+
+4. Save the file.
+
+5. Quit Windows, and then restart your workstation.
+
+2.8.4  LAN Manager Basic
+
+When you set up Windows for use with LAN Manager Basic (all versions), the following entry is added to the [386Enh] section of your SYSTEM.INI file:
+
+   network=*dosnet, *vnetbios, lanman10.386
+
+See the SYSINI.WRI file for more information on this entry.
+
+Network software based on LAN Manager Basic, or on LAN Manager Enhanced without full API support, must not be loaded in the high memory area (the first 64K of extended memory).
+
+You need to modify the LANMAN.INI file in your network directory to prevent the network from loading in the HMA. Find all lines that begin with redir and add the following command-line option to each:
+
+   /HIMEM:NO
+
+2.8.5  LAN Manager 1.x
+
+Some early copies of LAN Manager 1.x require a maintenance upgrade to run with Windows. If you experience problems, contact your network vendor for an upgrade.
+
+2.8.6  LAN Manager 2.0 Enhanced
+
+When you set up Windows for use with LAN Manager 2.0 Enhanced, the following entry is added to the [386Enh] section of your SYSTEM.INI file:
+
+   network=*vnetbios, *dosnet
+
+See the SYSINI.WRI file for more information on this entry.
+
+For Windows to support LAN Manager 2.0 Enhanced, you must have the files NETAPI.DLL, PMSPL.DLL, LANMAN.DRV, LANMAN.HLP, WINPOPUP.EXE, and WINPOPUP.HLP. These files are located in your LAN Manager NETPROG directory, which should be in your path. Windows also includes updated versions of these files, which will be automatically installed on some older versions of LAN Manager.
+
+2.8.7  LAN Manager 2.1 Basic
+
+If you upgrade from an earlier version of LAN Manager Basic to version 2.1 Basic using the Over-the-Network Upgrade process, your SYSTEM.INI and WIN.INI files may be left with incorrect information. This will only happen if your upgrade procedure has been configured to update Windows installations.
+
+This problem will cause you to receive a warning that "WinPopup" cannot be found, and all network functions in Windows File Manager, Print Manager, and Control Panel will be unavailable.
+
+To correct this problem, follow these steps:
+
+1.		Open your WIN.INI file by using a text editor such as Notepad. WIN.INI is located in your Windows directory.
+
+2.		Find or add the load= line in the file.
+3.		Remove the word WinPopup or WinPopup.exe from this line.
+
+4.		Save your WIN.INI file.
+
+5.		Quit Windows.
+
+6.		Change to the Windows directory.
+
+7.		Start Windows Setup by typing setup at the MS-DOS prompt.
+
+8.		Choose the Network entry to display a list of network options.
+
+9.		Choose the option Microsoft LAN Manager (version 2.1 Basic).
+
+10. Choose to accept the configuration shown.
+
+11. Restart Windows.
+
+2.8.8  LAN Manager 2.1 Enhanced
+
+When you set up Windows for use with LAN Manager 2.1 Enhanced, the following entry is added to the [boot] section of your SYSTEM.INI file:
+
+   Network.drv=lanman21.drv
+
+See the SYSINI.WRI file for more information on this entry.
+
+For Windows to support LAN Manager 2.1 Enhanced, you must have the files NETAPI.DLL, PMSPL.DLL, LANMAN21.DRV, LM21_W31.HLP, WINPOPUP.EXE, and WINPOPUP.HLP. These files are usually located in your LAN Manager NETPROG directory, which is on your path. If Windows cannot find any of these files, you may receive warning messages when starting Windows, or be unable to use Windows network functions.
+
+
+==== 2.9  Microsoft Network and Compatibles
+
+If a network is present and detected, but cannot be identified during Setup, the Microsoft Network is the default network that may be set up. The following notes apply to the general category of networks that support the MS-DOS network interface and NetBIOS protocols.
+
+When you set up Windows for use with Microsoft Network, the following entries are added to the [386Enh] section of the SYSTEM.INI file:
+
+   TimerCriticalSection=10000
+   UniqueDOSPSP=TRUE
+   PSPIncrement=5
+
+For some networks, you may be able to remove one or more of these entries to improve performance. For more information about these entries, see the SYSINI.WRI file.
+
+In addition:
+
+•	If the path to your network software is not included in the path in your AUTOEXEC.BAT file, Setup does not detect a network and proposes "No Network Installed" for your system configuration. Use Custom Setup to specify that the Microsoft Network is installed.
+
+•	Due to the way some networks handle print queues, Print Manager cannot distinguish multiple print queues on the same server. The lists of print jobs in these queues might be displayed improperly. In addition, Print Manager might not be able to display the job title when displaying queue information.
+   
+•	The Microsoft network driver does not support any vendor's name-aliasing scheme.
+
+==== 2.10  Novell NetWare
+
+Windows version 3.1 includes updated versions of several Novell NetWare files that are required to run with Windows 3.1. If you are running Novell NetWare, Windows Setup will copy the following files to the SYSTEM subdirectory of your Windows directory (or the shared network directory if you set up a shared copy of Windows by using setup /n).
+
+   NETX.COM (version 3.26)
+   IPX.OBJ (version 3.10)
+   TBMI2.COM (version 2.1)
+   IPXODI.COM (version 1.20)
+   LSL.COM (version 1.21)
+
+Before running Windows you may need to do the following:
+
+•	Replace your current NetWare shell with the NETX.COM provided (if your current NetWare shell is older than the version provided). Windows 3.1 requires that the NetWare shell components on your workstation (such as NET5.COM) be version 3.01 or higher. You can use these shell components even if your servers are running older versions of NetWare (as early as NetWare 2.10).
+
+Your current shell may have one of the following names:
+
+   NET3.COM        XMSNET3.EXE     EMSNET3.EXE
+   NET4.COM        XMSNET4.EXE     EMSNET4.EXE
+   NET5.COM        XMSNET5.EXE     EMSNET5.EXE
+   NETX.COM       XMSNETX.EXE     EMSNETX.EXE
+
+NETX.COM will run on MS-DOS versions 3.1 or higher. The EMS and XMS versions of the shell are available from your Novell dealer and the Microsoft Windows Driver Library (WDL). For information about ordering the WDL, see Getting Started with Microsoft Windows.
+
+****
+NOTE: The EMS NetWare shells (EMSNETX.EXE, etc.) are not supported when Windows is running in 386 enhanced mode.
+****
+
+•	If you are running Novell IPXODI.COM and LSL.COM, you need to upgrade these to versions 1.20 or higher. Use the files provided with Windows and copy them from the SYSTEM subdirectory of your Windows directory (or your shared network directory) to the directory where your existing versions are located.
+
+•	To run Windows in standard mode, load the TBMI2.COM memory-resident utility when running Windows. Novell recommends that you create a batch file that will load this utility, start Windows, and then unload the utility when you quit Windows. The batch file could be named RUNWIN.BAT and look like this:
+
+   TBMI2
+   WIN
+   TBMI2 /U
+
+TBMI2 enables you to safely run applications that use the NetWare IPX and SPX functions in standard mode Windows or the MS-DOS 5.0 task switcher.
+
+•	If you are running Novell IPX.COM, you need to have your system administrator build you a new version using the IPX.OBJ provided with Windows.
+
+In addition:
+
+•	If you enable 32-bit disk access and you are running the XMS shell rather than one of the standard NetWare shells (NETX.COM, etc.), you can further improve performance by setting the OverlappedIO entry in the [386Enh] section of your SYSTEM.INI file to on. 
+
+•	Do not try to log in, log out, attach, or detach a Novell server from MS-DOS Prompt within Windows. You should log in before starting Windows, and attach or detach servers by using File Manager or the Printers option in Control Panel.
+
+•	If you experience problems starting applications while running Windows or Windows applications from a file server, make sure you are not running the MS-DOS SHARE utility. Current versions of the NetWare shell are not fully compatible with SHARE.
+
+•	If you have a Western Digital Ethercard Plus and have problems accessing drives by using the MAP ROOT command, contact Western Digital for an updated driver.
+
+•	By default, NetWare gives you access to only 40 files at a time. When you are running applications with Windows, you can exceed this limit rather quickly. If so, you might see unexpected error messages. To increase the file access limit, add the following line to your SHELL.CFG file:
+
+   file handles = 60
+
+You should also add the following to your CONFIG.SYS file:
+
+   files = 60
+
+•	If you get unusable output when printing to a NetWare server (such as incorrect fonts, garbled text, invalid page breaks, or blank lines), you may need to edit your print-job configuration. Try using the NetWare PRINTCON utility to set the Auto Endcap and Enable Timeout options to No.
+
+•	When running Windows in 386 enhanced mode, swapping to a drive on a NetWare 286 server might make starting Windows take up to a minute. See  the Microsoft Windows User's Guide for information about controlling the location of your swap file.
+
+•	A NetWare file server does not include the directory entries dot (.) and double dot (..) as MS-DOS does. However, the NetWare shell (version 3.01 or higher) can emulate these entries when applications attempt to list the files in a directory. If you have problems listing files or deleting directories, turning on the Show Dots feature will help. Add the following line to your SHELL.CFG file:
+
+   show dots = on
+
+Turning on Show Dots will cause problems with earlier versions of some 286-based NetWare utilities, such as BINDFIX.EXE and MAKEUSER.EXE. Make sure you upgrade these utilities if you upgrade your NetWare shell. For more information, contact your Novell dealer.
+
+•	Redirected drives can look different in Windows than they did without Windows. For example, a device mapped as FileServerName/Volume:Directory will appear in Windows as FileServerName/Volume:\, showing the root of the file server's shared volume, rather than the subdirectory you expected. You can correct this with the MAP ROOT entry explained in the following information.
+
+•	In some cases, Windows applications may change the default directory on a drive. This might cause problems if, for example, your path includes the current directory on a network drive (that is, your path includes a drive letter without a specific directory, such as z: instead of z:\system).
+
+You can prevent this problem by using MAP.EXE and LOGIN.EXE versions 3.0 and later to set up fake roots, or by choosing the MAP ROOT function when mapping a connection in File Manager. This feature simulates the MS-DOS subst command, which sets the root of a given drive to a directory designated by the user instead of to the true root of the volume.
+
+For example, suppose you normally mapped drive F to the HOME\TERRI directory on the SERVER\SYS volume, and then included F: in your path. You would do this by including the following command in your AUTOEXEC.BAT file or by typing the command before starting Windows:
+
+   map f:=count\sys:home\terri
+
+The default directory on drive F would then be HOME\TERRI. To prevent Windows from changing this, you would replace the command above with the one shown below:
+
+   map root f:=count\sys:home\terri
+
+This command would make the directory HOME\TERRI appear to be  the root drive F.
+
+•	If you are running Windows in 386 enhanced mode, you can adjust the way Windows handles your network drive mappings by using the Network option in Control Panel. 
+
+Normally, when you quit Windows, all of your drive mappings are restored to the way they were before you started Windows, and all changes you made inside Windows are lost. If you clear the Restore Drives option, the mappings you made inside Windows will remain when you quit Windows.
+
+Typically, each instance of MS-DOS Prompt you start from Windows has its own set of drive mappings. Changes you make in one instance do not affect another. If you set the NWShareHandles option, drive mappings will instead be global, and changes made in one instance of MS-DOS Prompt will affect all other applications. If you are running a NetWare 286 server, setting NWShareHandles increases the number of workstations that can be connected to the server before the server runs out of available connections.
+
+See the Help available in the Network dialog box in Control Panel for more information on these options.
+
+•	When setting up Windows for use with Novell NetWare, the following entry is added to the [windows] section of your WIN.INI file:
+
+   load=nwpopup.exe
+
+This automatically starts the NetWare pop-up utility, which displays your incoming broadcast messages.
+
+•	If you are running Novell NetBIOS, you may need to specify TimerCriticalSection=10000 in the [386Enh] section of the SYSTEM.INI file. 
+
+• If you have applications or files that use extended characters (ASCII characters above 128) and you have problems viewing or using them, try adding the following line to your SHELL.CFG file:
+
+	special uppercase = on
+
+•	When connecting or disconnecting network resources from File Manager,  Print Manager, or Control Panel, pay attention to the state of the Permanent check box. If this option is checked when you make a connection, the connection is automatically made each time you restart Windows. To stop reconnecting, disconnect with the Permanent option checked. If the option is not checked when you disconnect, the connection is removed for the current Windows session, but is reconnected when you restart Windows.
+
+==== 2.11  TCS 10Net
+
+Tiara Computer Systems 10Net (formerly known as DCA 10Net) versions 4.1 and above are compatible with Windows version 3.1. Windows Setup treats these as Microsoft Network compatible.
+
+When setting up Windows for use with TCS 10Net, the following entry is added to the [386Enh] section of your SYSTEM.INI file:
+
+   TimerCriticalSection=10000
+
+The TimerCriticalSection value may be set lower on some versions of 10Net. For more information about this entry, see the SYSINI.WRI file.
+
+To set up Windows for use with TCS 10Net version 4.1x with the DCA 1Mb card, run Custom Setup and choose the TCS 10Net (versions 4.1X with DCA 1M card) network option. Windows Setup adds the following entries to the [386Enh] section of your SYSTEM.INI file:
+
+   INDOSPolling=TRUE
+   PSPIncrement=5
+   TimerCriticalSection=10000
+   UniqueDOSPSP=TRUE
+
+For more information about these settings, see the SYSINI.WRI file.
+
+In addition:
+
+•	If you purchase 10Net for Windows, it will install additional Windows components that will enhance the functionality available in Windows File Manager, Control Panel, and Print Manager.
+
+•	You cannot use File Manager to format floppy disks when running versions of 10Net prior to 5.0.
+
+	
+==== 2.12  Ungermann-Bass Net/One
+
+Make sure you choose the proper network option when you set up Windows.
+
+•	Ungermann-Bass Net/One is based on Microsoft Network. Choose the Microsoft Network Or 100% Compatible option when running Windows Setup.
+
+•	Ungermann-Bass Net/One LAN Manager is based on Microsoft LAN Manager. Choose the Microsoft LAN Manager option when running Windows Setup. Setup should correctly identify your network and the proper version number.
+     
+In addition:
+
+If you are using an Ungermann-Bass network card with any network, including networks not produced by Ungermann-Bass, your system may not run correctly in 386 enhanced mode unless you have the proper settings in your SYSTEM.INI file.
+
+If you experience problems, follow these steps:
+
+1.		Open your SYSTEM.INI file by using a text editor such as Notepad. SYSTEM.INI is located in your Windows directory.
+
+2.		Find or add the [386Enh] section in the file.
+
+3.		Find or add the TimerCriticalSection=10000 line in this section.
+
+4.		Save your SYSTEM.INI file.
+
+5.		Quit and restart Windows.
+    If you're using Notepad, you can find this section by choosing Find from the Search menu, typing [XNS_XIF], and then choosing the OK button.
+If you're using Notepad, you can find this section by choosing Find from the Search menu, typing [workstation], and then choosing the OK button.
+If you're using Notepad, you can find this section by choosing Find from the Search menu, typing load=, and then choosing the OK button.
+If you're using Notepad, you can find this section by choosing Find from the Search menu, typing [386Enh], and then choosing the OK button.
+
+•	If you are using an Ungermann-Bass XNS transport stack, you must make  sure it is configured not to use expanded memory when running Windows version 3.1 in 386 enhanced mode.
+
+
+=== 3.0  Other Online Documents
+
+The following table describes other online documents that contain important information about Windows version 3.1 that is not included in the Microsoft Windows User's Guide or in online Help.
+
+[cols="1,9"]
+|===
+|Document			|Contains 
+
+|**_APPS.HLP_**			|Information about updating some older Windows applications for use with Windows version 3.1. You can view this file by starting Windows Help from any application, and then using the Open command on the File menu to open the file. For more information about using Help, see the Microsoft Windows User's Guide.
+
+|**_SETUP.TXT_**			|Information about problems that may occur when you are setting up Windows. 
+
+|**_README.WRI_**			|Information about using Windows with Multimedia Extensions 1.0, specific displays and system configurations, and non-Windows applications, and information that was unavailable when the Microsoft Windows User's Guide was printed.
+
+PRINTERS.WRI		Information about particular printers and fonts.
+
+|**_SYSINI.WRI_**			|Information about the settings in the SYSTEM.INI file.
+
+|**_WININI.WRI_**			|Information about the settings in the WIN.INI file.
+|===

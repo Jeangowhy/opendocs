@@ -4,7 +4,7 @@
 :experimental:
 :table-caption!:
 :source-highlighter: highlight.js
-:-kroki-server-url: http://localhost:8000
+:_kroki-server-url: http://localhost:8000
 :Opendocs: link:https://github.com/Jeangowhy/opendocs[Opendocs]
 :vscdev-url: https://vscode.dev/github/Jeangowhy/opendocs
 == 🟡 Open Docs 电子图书馆写作、阅读指南
@@ -107,7 +107,7 @@ AsciiDoc 是最适合的数字化写作技术，它拥有丰富软件工具支�
 ** TeXstudio 排版工具包 https://texstudio.sourceforge.net[⇲⇱]
 * **文本流可视化技术**：
 ** Graphviz 数据可视化（让世界多一份 Graphviz 教程！） link:./Graphviz_dot.adoc[⇲⇱]
-** PGF/TikZ 专业绘图 link:./PGF_TikZ_Manual.adoc[⇲⇱]
+** PGF/TikZ 专业绘图 link:./LaTeX/PGF_TikZ_Manual.adoc[⇲⇱]
 ** GNU plot 可交互、跨平台 2D/3D 专业绘图工具 link:./gnuplot_doc.adoc[⇲⇱]
 ** Mermaid 流程图制作 link:./mermaid-docs-11.4.1.md[⇲⇱]
 ** PlantUML 流程图制作 link:./PlantUML_Language_reference.md[⇲⇱]
@@ -414,10 +414,15 @@ Windows 本地安装 Kroki 需要解决跨平台兼容性问题，Java Process �
 脚本供参考，可以使用 `kroki start` 或者 `kroki stop xxx` 命令启动、停止相应的服务。可以在
 AsciiDoc 文档头部设置 `:kroki-server-url: http://localhost:8000` 来使用本地部署的服务。
 
+NOTE: VS Code 会缓存 WebView 视图加载的资源，如果配置过程中插件生成的错误图像，那么就需要
+清除缓存，否则，完成配置后也会加载错误的资源。Windows 系统缓存目录：%AppData%\Code\Cache。
+
 ./kroki/tikz/tikz2svg.bat
 [source,batch]
 ----
-@bash -c "/c/kroki/tikz/tikz2svg %*"
+@REM Expand to the folder of this bat.
+@cd %~d0%~p0
+@bash -c "./tikz2svg %*"
 ----
 
 .Mermaid 依赖模块安装/PlantUML 安装
@@ -2963,7 +2968,12 @@ image::https://kroki.io/tikz/svg/eNqNlUtzmzAQx8_2p1APnYlnBAUBTmhCL51e-wVsH3hsQBM
 ------
 ****
 
-TIP: 注音，自定义样式取名最好不要与 TikZ 内置属性、选项同名，可能导致 Kroki 无法正确解析。
+TIP: 注意，自定义样式取名最好不要与 TikZ 内置属性、选项同名，可能导致 Kroki 无法正确解析。
+节点标签中直接写方括号，可以使用数学环境，比如 \node { $[example]$ };。直接在节点标签中
+使用方括号可能会导致 LaTeX 将其解释为命令的参数，误认为是一个未闭合的命令，从而引发错误。
+因此，正确的做法是使用数学模式，还可以使用 \textbackslash] 这样的语法转义方括号。另外，
+使用 TikZ 的引号语法，即用单引号、双引号包裹节点标签文本，这样可以更方便地处理特殊字符。
+引号中某些字符可能仍然需要转义，或者可能需要使用不同的引号类型，需要测试。
 
 TikZ 中的括号一般使用规则：圆括号用于表示坐标；方括号用于设置属性；花括号用于表示代码块或者文本
 （TeX规范）。TikZ 有两种属性设置形式：一般属性使用等号赋值（比如 shift=1cm），原子属性（Atom）
@@ -3642,7 +3652,8 @@ Two controll point     \draw[line width=1.2pt](0,0) .. controls (5,0) and (5,1) 
   }
 ----
 
-The To Path Operation 是最常用的画线操作之一，相比使用控制点的 Bézier curve，它使用三个
+The To Path Operation 是最常用的画线操作之一，相当于 HTML Canvas bezierCurveTo()
+绘制三次曲线（Cubic Curves），相比使用单控制点的 Bézier curve，它使用三个
 属性来控制线段的弯曲：out 和 in 分别设置线段起点、终点的弯曲方向，顺时针计数，水平向右为 0°。
 配合 looseness 属性控制松紧度，0 表示不施加弯曲。还可以使用 bend left/right 设置弯曲角度，
 同时作用于 out/in 两点控制整条线段，而不是分开控制。使用 TikZiT 绘图工具可以很直观看到曲线的

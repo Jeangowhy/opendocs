@@ -1,0 +1,318 @@
+
+// Usage:
+// .Figure 1-1: Relationships between various UNIX and C standards
+// include::The-Linux-Programming-Interface-figures.adoc[tag="f1-1"]
+
+// tag::f1-1[]
+.Figure 1-1: Relationships between various UNIX and C standards
+****
+[tikz,role=text-center]
+------
+\documentclass[border=3pt,tikz]{standalone}
+\pgfdeclarelayer{nodelayer}
+\pgfdeclarelayer{edgelayer}
+\pgfsetlayers{main,edgelayer,nodelayer}
+\begin{document}
+\tikzset{ none/.style={ draw=none,fill=none,align=center} }
+
+% Node styles
+\tikzstyle{dot}=[fill=white, draw={rgb,255: red,132; green,132; blue,132}, shape=circle]
+\tikzstyle{box}=[fill={rgb,255: red,186; green,186; blue,0}, draw={rgb,255: red,226; green,226; blue,226}, shape=rectangle, minimum height=1.15cm, minimum width=0.5cm, align=center]
+
+% Edge styles
+\tikzstyle{thin edge}=[line width=1.5pt, draw={rgb,255: red,99; green,99; blue,99}, line width=1.5pt, ->]
+\tikzstyle{dashed edge}=[->, line width=1.5pt, draw={rgb,255: red,25; green,25; blue,25}, dashed]
+
+\tikzset{ box/.style={ fill=blue!30,opacity=0.71,align=center} }
+\tikzset{ dashed edge/.style={ ->, line width=1.5pt, dashed} }
+
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=box] (1) at (0, 20.25)    {POSIX.1 \\(1988, IEEE) [POSIX 1003.1]};
+		\node [style=box] (2) at (5, 19.25)    {ANSI C \\(1989) [C89, ISO C 90]};
+		\node [style=box] (3) at (0, 18.75)    {POSIX.1 \\(1990, ISO)};
+		\node [style=box] (4) at (0, 14)       {POSIX.1 \\(1996, ISO)};
+		\node [style=box] (5) at (2, 16.5)     {POSIX.1b \\(1993) Realtime};
+		\node [style=box] (6) at (3, 15.25)    {POSIX.1c \\(1995) Threads};
+		\node [style=box] (7) at (4.5, 18)     {POSIX.2 \\(1992) Shell \& utilities};
+		\node [style=box] (8) at (9.5, 20.25)  {XPG3 \\(1989)};
+		\node [style=box] (9) at (9.5, 17.75)  {XPG4 \\(1992)};
+		\node [style=box] (10) at (6.5, 16.5)  {POSIX.1g \\(2000) Sockets};
+		\node [style=box] (11) at (6.5, 15.25) {XNS \\(4, 5, 5.2)};
+		\node [style=box] (12) at (9.5, 14)    {XPG4v2 \\(1994) [SUS, UNIX 95, Spec 1170]};
+		\node [style=box] (13) at (9.5, 12.75) {SUSv2 \\(1997) [UNIX 98, XPG5]};
+		\node [style=box] (14) at (3.25, 12.5) {ISO C 99 \\(1999)};
+		\node [style=box] (15) at (0, 12.5)    {POSIX.1d (1999) \\Additional realtime extensions};
+		\node [style=box] (16) at (0, 11)      {POSIX.1j (2000) \\Advanced realtime extensions};
+		\node [style=box] (17) at (4.5, 8.5)   {POSIX.1-2001 / SUSv3 \\(2001, Austin CSRG) [UNIX 03]};
+		\node [style=box] (18) at (4.5, 6.25)  {POSIX.1-2008 / SUSv4 \\(2008, Austin CSRG)};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [style=dashed edge] (2) to (1);
+		\draw [style=dashed edge] (2) to (3);
+		\draw [style=thin edge] (6) to (4);
+		\draw [style=thin edge] (5) to (4);
+		\draw [style=thin edge] (1) to (3);
+		\draw [style=thin edge] (3) to (4);
+		\draw [style=dashed edge] (7) to (9);
+		\draw [style=dashed edge, in=150, out=-15, looseness=0.75] (3) to (9);
+		\draw [style=dashed edge] (1) to (8);
+		\draw [style=thin edge] (8) to (9);
+		\draw [style=dashed edge] (11) to (13);
+		\draw [style=dashed edge] (10) to (12);
+		\draw [style=thin edge] (9) to (12);
+		\draw [style=thin edge] (12) to (13);
+		\draw [style=dashed edge, dashed] (4) to (13);
+		\draw [style=dashed edge] (14) to (17);
+		\draw [style=thin edge] (17) to (18);
+		\draw [style=thin edge] (15) to (17);
+		\draw [style=thin edge] (16) to (17);
+		\draw [style=thin edge] (4) to (17);
+		\draw [style=thin edge] (7) to (17);
+		\draw [style=dashed edge, dashed] (11) to (17);
+		\draw [style=dashed edge] (13) to (17);
+	\end{pgfonlayer}
+\end{tikzpicture}
+
+\end{document}
+------
+****
+// end::f1-1[]
+
+
+// tag::f2-1[]
+.Figure 2-1: Subset of the Linux single directory hierarchy
+****
+[tikz,role=text-center]
+------
+\documentclass[border=3pt,tikz]{standalone}
+\pgfdeclarelayer{nodelayer}
+\pgfdeclarelayer{edgelayer}
+\pgfsetlayers{main,edgelayer,nodelayer}
+\begin{document}
+\tikzset{ none/.style={ draw=none,fill=none,align=center} }
+
+% Node styles
+\tikzstyle{dot}=[fill=white, draw=yellow, shape=circle, align=center]
+\tikzstyle{rectangle}=[fill=lime, draw=violet, shape=rectangle, align=center]
+\tikzstyle{roundedbox}=[fill=white, draw=black, shape=rectangle, rounded corners=6pt, inner sep=4pt, align=center]
+
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=roundedbox] (13) at (-3.75, -0.5)  {directory};
+		\node [style=rectangle] (14) at (-3.75, -1.25)  {regular file};
+		
+		\node [style=roundedbox] (0) at (0, 3.5)      {/};
+		\node [style=roundedbox] (1) at (-4.5, 2)       {bin};
+		\node [style=rectangle] (6) at (-4.5, 1)          {bash};
+		\node [style=roundedbox] (2) at (-3, 2)         {boot};
+		\node [style=rectangle] (7) at (-3, 1)            {vmlinuz};
+		\node [style=roundedbox] (3) at (-0.75, 2)      {etc};
+		\node [style=rectangle] (8) at (-1.5, 1)          {group};
+		\node [style=rectangle] (9) at (0, 1)             {passwd};
+		\node [style=roundedbox] (4) at (2, 2)          {home};
+		\node [style=roundedbox] (10) at (1.25, 1)        {avr};
+		\node [style=roundedbox] (15) at (1.25, 0)          {java};
+		\node [style=rectangle] (16) at (1.25, -1)            {Go.java};
+		\node [style=roundedbox] (11) at (2.75, 1)        {mtk};
+		\node [style=rectangle] (17) at (2.75, 0)           {.bashrc};
+		\node [style=roundedbox] (5) at (4.75, 2)       {usr};
+		\node [style=roundedbox] (12) at (4.75, 1)        {include};
+		\node [style=roundedbox] (18) at (4, 0)             {sys};
+		\node [style=rectangle] (20) at (4, -1)               {types.h};
+		\node [style=rectangle] (19) at (5.5, 0)            {studio.h};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (0) to (1);
+		\draw (0) to (2);
+		\draw (0) to (3);
+		\draw (0) to (4);
+		\draw (0) to (5);
+		\draw (1) to (6);
+		\draw (2) to (7);
+		\draw (3) to (8);
+		\draw (3) to (9);
+		\draw (4) to (10);
+		\draw (4) to (11);
+		\draw (5) to (12);
+		\draw (11) to (17);
+		\draw (10) to (15);
+		\draw (15) to (16);
+		\draw (12) to (19);
+		\draw (12) to (18);
+		\draw (18) to (20);
+	\end{pgfonlayer}
+\end{tikzpicture}
+
+\end{document}
+------
+****
+// end::f2-1[]
+
+
+// tag::f3-1[]
+.Figure 3-1: Steps in the execution of a system call
+****
+[tikz,role=text-center]
+------
+\documentclass[border=3pt,tikz]{standalone}
+\pgfdeclarelayer{nodelayer}
+\pgfdeclarelayer{edgelayer}
+\pgfsetlayers{main,nodelayer,edgelayer}
+\begin{document}
+\tikzset{ none/.style={ draw=none,fill=none,align=center} }
+
+% Node styles
+\tikzstyle{dot}=[fill=white, draw=yellow, shape=circle, align=center]
+\tikzset{ box/.style={ white, fill=red!50} }
+\tikzset{ roundedbox/.style={ fill=blue!10,align=left,minimum width=6cm} }
+\tikzstyle{rectangle}=[fill=lime, draw=violet, shape=rectangle, align=center]
+
+% Edge styles
+\tikzstyle{thin edge arrow}=[draw=black, line width=1.5pt, ->]
+\tikzstyle{dashed edge}=[-, fill=none, draw=black, dashed, line width=1.5pt]
+\tikzstyle{dashed line arrow}=[->, dashed, line width=1.5pt, color=olive]
+
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=rectangle] (0) at (0, 6.5) {User Mode};
+		\node [style=rectangle] (1) at (0, -1) {Kernel Mode};
+		\node [style=none] (4) at (-4, 5.5) {Application program};
+		\node [style=roundedbox] (5) at (-4, 3.75) {\\...\\execve(path,\\argv, envp);\\...};
+		\node [style=roundedbox] (6) at (3.75, 2.75) {\\execve(path, argv, envp)\\\{\\\ \ ...\\\ \ int 0x80\\\ \ (arguments: \_\_NR\_execve,\\\ \ path, argv, envp)\\\ \ ...\\\ \ return;\\\}};
+		\node [style=none] (7) at (3.75, 5.5) {glibc wrapper function \\(sysdeps/unix/sysv/linux/execve.c)};
+		\node [style=roundedbox] (8) at (-4, -3.75) {sys\_execve()\\\{\\\ \ ...\\\ \ return error;\\\}};
+		\node [style=none] (9) at (-4, -2) {System call\\service routine \\(arch/x86/kernel/process\_32.c) };
+		\node [style=roundedbox] (10) at (3.75, -3.75) {system\_call:\\\ \ ...\\\ \ call sys\_call\_table\\\ \ \ \ $[\_\_NR\_execve]$\\\ \ ...};
+		\node [style=none] (11) at (3.75, -2) {Trap handler \\(arch/x86/kernel/entry\_32.S)};
+		\node [style=none] (14) at (-7, 7) {};
+		\node [style=none] (15) at (7.5, 7) {};
+		\node [style=none] (16) at (7.5, 0.5) {};
+		\node [style=none] (17) at (-7, 0.5) {};
+		\node [style=none] (18) at (-7, -0.25) {};
+		\node [style=none] (19) at (7.5, -0.25) {};
+		\node [style=none] (20) at (7.5, -5.25) {};
+		\node [style=none] (21) at (-7, -5.25) {};
+		\node [style=box, align=left] (26) at (2.5, 0) {switch to kernel mode};
+		\node [style=dot] (27) at (3.75, 3.25) {};
+		\node [style=dot] (28) at (1.75, -3) {};
+		\node [style=box] (29) at (6, 0) {switch to user mode};
+		\node [style=dot] (30) at (3.25, -5) {};
+		\node [style=dot] (31) at (3.75, 1.75) {};
+		\node [style=dot] (32) at (1.25, 1.5) {};
+		\node [style=dot] (33) at (-2.75, 3) {};
+		\node [style=dot] (34) at (-2.5, 4) {};
+		\node [style=dot] (35) at (1.25, 4.5) {};
+		\node [style=dot] (36) at (1.75, -3.5) {};
+		\node [style=dot] (37) at (-2.25, -3) {};
+		\node [style=dot] (38) at (-2.25, -4.25) {};
+		\node [style=dot] (39) at (1.75, -4.5) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [style=dashed edge] (17.center)
+			 to (14.center)
+			 to (15.center)
+			 to (16.center)
+			 to cycle;
+		\draw [style=dashed edge] (21.center)
+			 to (18.center)
+			 to (19.center)
+			 to (20.center)
+			 to [in=360, out=180] cycle;
+		\draw [style=dashed line arrow] (27)
+			 to [in=30, out=0, looseness=3.00] (26.center)
+			 to [in=180, out=-150, looseness=2.00] (28);
+		\draw [style=dashed line arrow] (30)
+			 to [in=-90, out=0, looseness=1.50] (29.center)
+			 to [in=0, out=90, looseness=1.50] (31);
+		\draw [style=dashed line arrow] (32) to (33);
+		\draw [style=dashed line arrow] (34) to (35);
+		\draw [style=dashed line arrow] (36) to (37);
+		\draw [style=dashed line arrow] (38) to (39);
+	\end{pgfonlayer}
+\end{tikzpicture}
+
+\end{document}
+------
+****
+// end::f3-1[]
+
+
+// tag::f4-1[]
+.Figure 4-1: Interpreting the whence argument of lseek()
+****
+[tikz,role=text-center]
+------
+\documentclass[border=3pt,tikz]{standalone}
+\pgfdeclarelayer{nodelayer}
+\pgfdeclarelayer{edgelayer}
+\pgfsetlayers{main,nodelayer,edgelayer}
+\begin{document}
+\tikzset{ none/.style={ draw=none,fill=none,align=center} }
+\tikzset{ rectangle/.style={ fill=lime!10,draw=blue!20,align=center,minimum height=.5cm,minimum width=.6cm} }
+\tikzset{ thin edge arrow/.style={ ->,line width=1.2pt,draw=blue!30} }
+\tikzstyle{dashed edge}=[-, fill=none, draw=black, dashed, line width=1.5pt]
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (0) at (0.5, 3.5) {byte number};
+		\node [style=none] (1) at (2, 3.5) {};
+		\node [style=none] (3) at (2.5, 2) {};
+		\node [style=none] (4) at (1.25, 2) {};
+		\node [style=none] (5) at (4.5, 2) {};
+		\node [style=none] (6) at (7.45, 2) {};
+		\node [style=none] (7) at (8.75, 2) {};
+		\node [style=none] (8) at (8.75, 0.5) {};
+		\node [style=none] (9) at (1.25, 0.5) {};
+		\node [style=none] (10) at (2.5, 1.5) {SEEK\_SET \\};
+		\node [style=none] (11) at (4.5, 1.5) {SEEK\_CUR \\ whence value};
+		\node [style=none] (12) at (7.45, 1.5) {SEEK\_END \\};
+		\node [style=rectangle] (2) at (2.5, 3.5) {0};
+		\node [style=rectangle] (13) at (3, 3.5) {1};
+		\node [style=rectangle] (14) at (3.75, 3.5) {\ ... \ };
+		\node [style=rectangle] (15) at (4.5, 3.5) {};
+		\node [style=rectangle] (16) at (5.25, 3.5) {\ ... \ };
+		\node [style=rectangle] (17) at (6, 3.5) {N-2};
+		\node [style=rectangle] (18) at (6.75, 3.5) {N-1};
+		\node [style=rectangle] (19) at (7.45, 3.5) {N};
+		\node [style=rectangle] (20) at (8.25, 3.5) {N+1};
+		\node [style=rectangle] (21) at (9.45, 3.5) {\ \ \ \ ... \ \ \ };
+		\node [style=none] (22) at (6.25, 2.75) {Current \\ file offset};
+		\node [style=none] (23) at (2.25, 4.75) {};
+		\node [style=none] (24) at (7.25, 4.75) {};
+		\node [style=none] (25) at (5, 4.75) {File containing \\ N bytes of data};
+		\node [style=none] (26) at (9.00, 4.75) {Unwritten bytes \\ past EOF};
+		\node [style=none] (27) at (10.75, 4.75) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [style=thin edge arrow] (0.east) to (1.center);
+		\draw [style=thin edge arrow] (3.center) to (2);
+		\draw [style=dashed edge] (8.center)
+			 to (9.center)
+			 to (4.center)
+			 to (3.center)
+			 to (5.center)
+			 to (6.center)
+			 to (7.center)
+			 to cycle;
+		\draw [style=thin edge arrow] (6.center) to (19);
+		\draw [style=thin edge arrow] (5.center) to (15);
+		\draw [style=thin edge arrow] (22.west) to (15);
+		\draw [style=thin edge arrow] (26.west) to (24.center);
+		\draw [style=thin edge arrow] (25.east) to (24.center);
+		\draw [style=thin edge arrow] (25.west) to (23.center);
+		\draw [style=thin edge arrow] (26.east) to (27.center);
+	\end{pgfonlayer}
+\end{tikzpicture}
+
+\end{document}
+------
+****
+// end::f4-1[]
+
+
+
+// tag::fn-1[]
+****
+****
+// end::fn-1[]
+

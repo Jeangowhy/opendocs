@@ -1,0 +1,299 @@
+:source-highlighter: highlight.js
+:icons: font
+:stem: latexmath
+== Tiker Sketch
+
+****
+NOTE: 缘起：作为一个编程领域的从业者，一直期望有一个艺术心和一双巧手。我使用过 Adobe XD（免费的矢量绘图工具），Autodesk Sketchbook (免费的手绘工具)，也在使用开源的 Krita 手绘工具。最近还研究了 LaTeX 排版系统中的 PGF/TikZ 矢量绘图包，也发现了 TikZit 这个配套的精简 GUI 工具，尽管其功能简单，但也不失为一款可用的绘图工具。可以给书籍绘制像以下这样的插图。但是我希望可以实现一个更好用的插图绘制工具，并且计划以 Web 以及 WebAssembly 平台上实现。所以就从手上的 PTH 460 (Wacom Intuos Pro Small) 着手，开始探索绘图软件实现之路：一款暂定代号为 Tiker Sketch 的书籍插图绘图软件。
+
+[.text-center]
+.Figure 3-1: Steps in the execution of a system call
+image:https://kroki.io/tikz/svg/eNqNV8tu4zYUXSdfwQGmQAzIsiRbfsxAA3TRVdFZdNpVaAQyxdhEaEqg6FeN_HsvH5alWJKDLCxdnnt47ktkcJaT3ZYKRXhals-rXGZUJuNCeYq9_bc8lyoVWcpzQd8fcbF-zSgAJeXpicqzyDP71LJGs3V9raTKvJXnbcqEV3l6ddyKrpk4XxSBQWsAzzMSIGDkl-rEaXJGmUwPiTZ5r4xz-5RythYJAT-gQu-Pj7-hn7AJMj6lo9LPwK_ek2fjedgwRT3Ld6Kc5wcPlZu0oAlhknBYqtMua4JW-fGqx9EYSkmzL3GgFVzBMt-JjGYNHwNe8R39EgZOPKevytsywba7LTqwTG2SKdleqYx6SQmUZM3pJQbOtpcQ9iznVF1CqJAfo4DU_AFZb0mN2jCBdEVQKmV-gC0M74qn5M1DnAnqdIV-DC2Chj-Wjcym5YZmhgBchy4jpjyoTmRxt4RtZAZzUTP80e3sIZLzXCY5Z3sKQbpu0oQFI2onoYMfnBEaMhe26-pN_PCA9Rt6tkWqErhET8EApQp-PDT14wE6_1tSif4C8Pv3PrewchvC4_lPKgXlHX46T-AysS7DiYdis9XvRcEZSRXLBSpkvpbptmXTqsWAIr5SjP2Z5sDY932M6ZGSPX0qUrXxME7leu8hKvbF4LsB3KGdWlpN6aHoQlznRDVKjDGsYoSR2Vo_MKFQcJwH9u0JwGbQy28Iv-CXn3_jF0vmWUAbZZ1OUqiqAOn4vTObs7pmm881ZyuCDjItCqjh604Qk1qMn8pTmdGiHO0EO47gZT-CJtsdR1aVTwZ3EjS_5n3oEg8sl6ie2lJiY0AUGlz2R7KokUfA_OtUKrpFJOUcY-jGPSNUf2mUngsIJpVkMzrOp6M303QjaB1CS1AzjiASdCeUMKgnrhYN7Ilf9KbfPkSibciEayS9qHTFqV3Sf1-fmzVefq38O0MOw4YIHfU_UDa0gTOJQ-1aooR2kicT469BN-9lxmYeggY5dwPdJM38-B5yWkMGps-6sbPr9veg8yt0GPhRP3hR03AXHQV1dHwPHdaEdIKhdy6HjT7MtJ_LS2TyolvowBTZIJUjWzG0bf0YwiGtvRvjO-7a1oFdrkLXsl0KNdRlavpR005_1vsUjau5iEzaevSMG90b2gnqBEcX8ZEB92LHrhaRTUsfdFJBATnpQ8Z1AZN-AdNmpvvBs0pC1F0Xh503sZP-io8XDR1X0ZiKrH7Itx78tZsnsOv7ScV-vceYcfXtzWkAuAfdJfABuTXFt6bpRxM5waXye_92UXhLNL81LW5MUfDR9MxEMp7C5QNOhSScB8t-Aderlh29Bo1jgR-e5yUVcJQkYz8IzIy3bQz7WZdhGDe8Iuc1H3xKCExcnXa4aFMCA2M4F21KnMOizQOG9HMqYD51kmH2PoefOHz8SfzU4WefxM8dfjFo63djaFx9ran63-p_FgJnvQ==[]
+
+• https://krita.org/
+• https://www.sketchbook.com/apps
+• https://github.com/tikzit/tikzit/
+****
+
+== Painter App Base on Web API
+
+• https://github.com/linjc/smooth-signature
+• https://linjc.github.io/smooth-signature/
+
+目前 Web 平台还不能很好地支持压感笔绘画，特别是在手机端，还存在很大的设备兼容问题。一个可行的替代方案是以速度模变化拟压力变化。例如，开源的 smooth-signature 设置 minSpeed 参数来控制（映射）笔触最小宽度，最小速度取值范围 1.0-10.0 (px/ms)，值越小，画笔越容易变细。还设置 maxWidthDiffRate 参数控制相邻两线宽度增(减)量最大百分比，取值范围 1-100。为了达到笔锋效果，画笔宽度会随画笔速度而改变，如果相邻两线宽度差太大，过渡效果就会很突兀，通过限制宽度变化率，让过渡效果更自然。
+
+此模块的实现步骤如下：
+
+[source,ts]
+----
+interface IPoint {
+  x: number;
+  y: number;
+  t: number;
+  speed?: number;
+  distance?: number;
+  lineWidth?: number;
+  color?: string;
+}
+----
+
+• 采集定点设备运动事件（pointermove）产生的坐标，以及相应的时间数据。
+• 根据相邻两点之间的座标和时间差数据计算移动速度。
+
+[stem,role=big]
+++++++
+\begin{align}
+distance &= \sqrt{(p_2.x - p_1.x)^2 + (p_2.y - p_1.y)^2}
+\\ \\
+    spee &= {distance \over (p_2.t - p_1.t)}
+\end{align}
+++++++
+
+[source,ts]
+----
+const distance = Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
+const speed = distance / (p2.t - p1.t);
+----
+
+• 通过速度值模拟两点之间线的粗细变化，使用到 maxWidth、minWidth、minSpeed 配置项。
+
+[stem,role=big]
+++++++
+\begin{align}
+ addWidth &= {(W_{max} - W_{min}) \times speed \over Speed_{min}}
+\\ \\
+lineWidth &= \min(\max(W_{max} - addWidth, W_{min}), W_{max})
+\end{align}
+++++++
+
+[source,ts]
+----
+const addWidth = (maxWidth - minWidth) * speed / minSpeed;
+const lineWidth = Math.min(Math.max(maxWidth - addWidth, minWidth), maxWidth);
+----
+
+• 加入线条粗细变化速率约束条件防止相邻两条线宽度变化突兀，需要前一线条作为基准参考。
+
+[stem,role=big]
+++++++
+\begin{align}
+     rate &= {\text{lineWidth} - \text{preLineWidth} \over \text{preLineWidth}}
+\\ \\
+lineWidth &= \begin{cases}
+    preLineWidth \times (1 + maxWidthDiffRate) \qquad \text{ if rate > 0, }
+    \\ \\
+    preLineWidth \times (1 - maxWidthDiffRate) \qquad \text{ if rate <= 0, }
+    \end{cases}
+\end{align}
+++++++
+
+[source,ts]
+----
+const rate = (lineWidth - preLineWidth) / preLineWidth;
+const maxRate = maxWidthDiffRate / 100;
+if (Math.abs(rate) > maxRate) {
+    const per = rate > 0 ? maxRate : -maxRate;
+    lineWidth = preLineWidth * (1 + per);
+}
+----
+
+• 为了让线条看起来圆润以及线粗细过渡更自然，在两相邻点之间进行线性插值：线段平均成三段。为了让两端连接平滑，采用二次贝塞尔曲线绘制线条。第二段线（中部）使用梯形填充，让过渡效果更自然。
+
+** 第一段 stem:[L_1 = (x_0,y_0) - (x_1,y_1)] 线宽设置为：stem:[W_1 = (preLineWidth + lineWidth) / 2]
+** 第二段 stem:[L_2 = (x_1,y_1) - (x_2,y_2)] 保持前一步计算到的线宽。
+** 第三段 stem:[(x_2,y_2) - (x_3, y_3)] 线宽设置为：stem:[W_3 = (nextLineWidth + lineWidth) / 2]
++
+[source,ts]
+----
+ctx.lineWidth = lineWidth1
+ctx.beginPath();
+ctx.moveTo(pre_x, pre_y);
+ctx.quadraticCurveTo(x0, y0, x1, y1);
+ctx.stroke();
+----
+
+• 最后使用渲染专用 API 接口 requestAnimationFrame 以稳定时间帧执行画线函数。
+
+
+定点设备（pointing device）是指通过 精确坐标定位 与计算机交互的硬件设备，所谓 pointing device 是指一个可以明确指向屏幕上某一组坐标的硬件设备。常见类型包括：
+
+• 鼠标：通过 X/Y 轴移动和点击操作。
+• 触控板/触摸屏：支持多点触控和手势操作。
+• 压感笔（如 Wacom 数位板）：提供压力、倾斜度等高精度输入。
+• 游戏手柄摇杆：通过模拟摇杆实现方向控制。
+
+目前绝大多数的 Web 内容都假设用户的定点设备为鼠标，对应产生 mousedown，mousemove，mouseup，mouseover 等事件。然而，近年来的新兴设备支持更多不同方式的定点输入，如各类触控笔和触摸屏幕等。新的定点设备事件 Pointer events 是一类可以为定点设备所触发的 DOM 事件，通过 pointerType 属性判断设备类型。它们被用来创建一个可以有效掌握各类输入设备（鼠标、触控笔和单点或多点的手指触摸）的统一的 DOM 事件模型，支持压感笔（pressure）。对于非压感设备，浏览器会在 PointerEvent 中填充 0.5 的压力值。
+
+PointerEvent 对应替代的 MouseEvent 和 TouchEvent 事件
+
+[opts="autowidth"]
+|===
+|PointerEvent   |MouseEvent |TouchEvent
+
+|pointerdown    |mousedown  |touchstart
+|pointermove    |mousemove  |touchmove
+|pointerup      |mouseup    |touchend
+|pointerleave   |mouseleave |-
+|pointercancel  |-          |touchcancel
+|===
+
+****
+TIP: 捕捉定点设备事件避免被其它事件、或超出绘画界面时中断事件处理流程
+
+[source]
+targetElement.setPointerCapture(pointerId);
+targetElement.releasePointerCapture(pointerId);
+****
+
+Chrome 浏览器在压感笔设置为 Windows Ink 模式下才有压力变化。压感笔设置为 Windows Ink 模式，需要避免在绘画是 Edge 平移页面。需要使用 touch-action: none 样式禁止触摸平移行为。事件捕获阶段（Capturing Phase）或 prevetDefanult() 无法解决 Edge 平移页面的行为。
+
+压感笔的特殊处理
+
+• 压力值（Pressure, 0~1）：通过 event.pressure 获取。
+• 倾斜度（Tilt）：通过 event.tiltX 和 event.tiltY 获取
+
+问题：Pointer Events 实现压感笔绘制粗细变化线条。由于 canvas 的通一条路径（beginPath 和 closePath 之间）会共用同样的笔刷大小，所以直接使用 DOM 事件驱动绘画时，后续的压力变化会影响前面的笔迹。并且，线条由细变粗后会遮盖细线条，除非清除画布重绘。解决办法是记录定点座标与压力信息，统一做数据处理。此外，根据设备像素比（DPR）缩放 Canvas 尺寸，使用 ctx.scale(dpr, dpr) 确保绘制精度。
+
+浏览器兼容性与调试工具
+
+• Chrome DevTools：通过 Sensors 面板模拟触控笔输入。
+• Edge DevTools：使用 Pen Input 模拟压感笔事件。
+
+[opts=autowidth]
+|===
+|功能            |Chrome |Firefox |Edge |Safari
+
+|Pointer Events  |✅    |✅      |✅  |✅
+|Pressure        |✅    |❌      |✅  |❌
+|Windows Ink API |❌    |❌      |✅  |❌
+|===
+
+技术方案关键建议：
+
+• 优先使用 Pointer Events API 统一处理多设备输入。
+• 在需要高精度时，结合 Windows Ink API 或 HID 协议 (实验性技术)。
+• 始终进行设备兼容性测试（尤其是跨浏览器场景）。
+
+USB HID（Human Interface Device）设备包括键盘、鼠标、触控板、游戏手柄、摇杆、工业控制设备、自定义外设等。用户授权要求：必须通过用户交互（如点击）触发设备请求。
+
+[opts=autowidth]
+|===
+|场景           |技术方案                     |适用设备
+
+|基础绘图       |Pointer Events + 压力值映射   |鼠标/触控板
+|高精度压感绘图 |Windows Ink API + 压力反馈    |Wacom 数位板
+|3D 建模        |WebGL + HID 协议             |专业工业设备
+|移动端触控     |Touch Events + 手势识别       |手机/平板
+|===
+
+参考文档：
+
+• https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/hid
+• https://developer.mozilla.org/zh-CN/docs/Web/API/Pointer_events
+• https://developer.mozilla.org/docs/Web/API/Element/setPointerCapture
+• https://developer.mozilla.org/docs/Web/API/Element/releasePointerCapture
+
+[source,html]
+----
+<button id="connect">连接设备</button>
+<script>
+  const connectButton = document.getElementById('connect');
+
+  connectButton.addEventListener('click', async () => {
+    try {
+      // 请求设备（示例：查找厂商 ID 为 0x045e 的设备）
+      const devices = await navigator.hid.requestDevice({
+        vendorId: 0x045e,  // 微软设备厂商 ID
+        productId: 0x028e  // Xbox 手柄产品 ID
+      });
+
+      if (devices.length === 0) {
+        throw new Error('未找到设备');
+      }
+
+      const device = devices[0];
+      await device.open();
+
+      device.addEventListener('inputreport', (event) => {
+        console.log('收到数据:', event.data);
+      });
+
+      const report = new Uint8Array([0x01, 0x02]);
+      await device.sendReport(0x01, report);
+
+    } catch (error) {
+      console.error('错误:', error);
+    }
+  });
+</script>
+----
+
+.PointerEvent Demo
+[source,html]
+----
+<style>
+    html, body {
+      margin:0; padding:0; 
+      overflow:hidden; 
+    }
+    canvas {
+    width:100vw; height:100vh;
+    /* image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges; */
+    touch-action: none; /* 禁用触摸滚动 */
+    }
+</style>
+<meta charset="utf-8" />
+<canvas id="drawingCanvas" width=100vw height=100vh></canvas>
+<script>
+
+  const canvas = document.getElementById('drawingCanvas');
+  const ctx = canvas.getContext("2d")
+  const DPR = window.devicePixelRatio || 1;
+
+  let g_drawing = false;
+  
+    function resizeCanvas() {
+    const rect = canvas.getBoundingClientRect();
+
+    canvas.width = rect.width * DPR;
+    canvas.height = rect.height * DPR;
+    
+    ctx.scale(DPR, DPR);
+  }
+
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  canvas.addEventListener('pointerdown', startDrawing);
+  canvas.addEventListener('pointermove', draw);
+  canvas.addEventListener('pointerup', stopDrawing);
+
+  function startDrawing(e) {
+    if (e.buttons !== 1) return // assume buttons 1 is left button
+    const {pointerId, pointerType, buttons, tiltx, tilty} = e;
+    console.log("startDrawing", 
+                event, {pointerId, pointerType, buttons, tiltx, tilty});
+    g_drawing = true;
+    const { offsetX, offsetY } = e;
+    ctx.beginPath();
+    ctx.moveTo(offsetX, offsetY);
+  }
+
+  function draw(e) {
+    const {pointerType, buttons, tiltx, tilty} = e;
+    if (!g_drawing) return;
+    const { offsetX, offsetY, pressure } = e; // pressure value [0, 1]
+    ctx.lineWidth = pressure * 10;
+    ctx.lineTo(offsetX, offsetY);
+    ctx.stroke();
+  }
+
+  function stopDrawing(e) {
+    g_drawing = false;
+    console.log({pointerId : e.pointerId})
+    canvas.releasePointerCapture(e.pointerId);
+  }
+
+</script>
+----

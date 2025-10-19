@@ -59,6 +59,32 @@ TypeScript 可以理解为是 JavaScript 的一个超集，也就是说涵盖了
 
 如果，在大型项目中，以上问题可能会消耗大量调试时间，这就是成本，而强类型的约束会禁止代码出现这样的问题，并且会给出详细提示。
 
+A 10x Faster TypeScript (rewrite in Go):
+- https://github.com/swc-project/swc
+- https://github.com/microsoft/typescript-go
+- https://github.com/sxzz/tsgo-releases
+- https://devblogs.microsoft.com/typescript/typescript-native-port/
+
+2025 年 3 月 11 日, TypeScript 官方博客发布了一篇名为 A 10x Faster TypeScript 的文章, 介绍了微软正在使用 Go 语言重写 TypeScript 编译器, 并取得了显著的性能提升。Anders Hejlsberg 是 TypeScript 的主要设计者, 也是 C# 和 Delphi 的最初设计者。为了解决性能问题, 他带领的团队使用 Go 语言重写 TypeScript。
+
+为了实现迁移, 微软会在 TypeScript 6 (仍然是 TypeScript) 的时候, 做一些功能调整, 以保证将来发布 TypeScript 编译器 Go 原生版（TypeScript 7.0）时大家可以无缝迁移。两个版本的 API 会保持完全兼容, 所以开发者可以随时升级或降级。根据 TypeScript 官方博客 A 10x Faster TypeScript 的介绍, 微软选择 Go 语言进行编译器移植的原因主要包括:
+
+- **可维护性**: Go 语言拥有高效且易于理解的垃圾收集器, 简单易学的语法以及良好的 开发者生态系统, 使得维护大型代码库更加容易
+- **性能优势**: Go 编译器的多方面优化使其非常适合构建编译器这类程序, 并且与 JavaScript 版本相比, 能够显著提高编译速度
+- **跨平台能力**: Go 的原生编译特性让 TypeScript 编译器能够轻松构建为适用于 各种操作系统的单一二进制文件
+- **开发效率**: Go 语言的错误处理模式, 简单的语法和快速的编译时间, 让开发团队能够快速迭代和实现功能
+
+早期的 Native 重写项目有 Deno 采用的 SWC (Speedy Web Compiler) 。现在官方采用 Go 语言重写，主要是 Go 语言提供了以上便利特性，更重要的是其它 Native 语言实现难度太大。C/C++ 的跨平台能力较差, 比如不支持简单编译为各个平台的单一二进制文件. 而 Rust 的内存安全模型过于复杂, 不适合作为 port 项目. C# 应该更多是语言特性上与 TypeScript 有区别, 严格的 OOP 风格不适合作为 port.
+
+    Codebase               Size (LOC)  Current  Native  Speedup
+    VS Code                1,505,000   77.8s    7.5s    10.4x
+    Playwright             356,000     11.1s    1.1s    10.1x
+    TypeORM                270,000     17.5s    1.3s    13.5x
+    date-fns               104,000     6.5s     0.7s    9.5x
+    tRPC (server + client) 18,000      5.5s     0.6s    9.1x
+    rxjs (observable)      2,100       1.1s     0.1s    11.0x
+
+
 
 # ⚑ TypeScript 光速入门
 
@@ -1295,6 +1321,65 @@ Automation
 You can have Origami automatically zoom the active pane by setting `auto_zoom_on_focus` in your Origami user preferences. Set it to true for the default zoom, or set it to a user-definable fraction of the screen, such as 0.75.
 
 Origami can also automatically close a pane for you once you've closed the last file in it. Just set `auto_close_empty_panes` to true in the Origami preferences.
+
+
+## 🍀TypeScript Keywords
+
+**Core JavaScript Keywords (Also Valid in TypeScript)​​**  
+These are reserved words inherited from ECMAScript:
+
+    break       case            catch           class           const
+    continue    debugger        default         delete          do
+    else        enum            export          extends         false
+    finally     for             function        if              implements
+    import      in              instanceof      interface       let
+    new         null            package         private         protected
+    public      return          super           switch          this
+    throw       true            try             typeof          var
+    void        while           with            yield       ​​
+
+**TypeScript-Specific Keywords​​**  
+These are unique to TypeScript or extend JavaScript semantics:
+
+    abstract    any             as              async           await
+	boolean     byte            char            double          enum
+	final       float           goto            int             long
+	native      new             package         private         protected
+	public      short           static          synchronized    transient
+	volatile    module          requires        declares        ambient
+	implements  interface       let             module          namespace
+	requires    global          declare         keyOf           typeof
+	infer       is              thisType        override        record
+	unique      globalThis
+
+Key TypeScript Additions​​
+
+- ​​Type System Keywords​​  
+    any, unknown, never, thisType, override, unique, keyof, typeof, infer, globalThis  
+
+- ​​Declaration Modifiers​​  
+    abstract, declare, global, ambient, implements, interface, module, namespace  
+
+- ​​Functional/Async Keywords​​  
+    async, await, as (type assertion)  
+
+- ​​Experimental/Contextual Keywords​​  
+    enum, record, exists, is, override, record, unique  
+
+**Important Notes​​**  
+- **​​Contextual Keywords​​**: Some words (e.g., keyof, typeof) act as keywords only in specific contexts (e.g., type annotations).
+- **​​Overloads​​**: Keywords like new can be used with generics (new <T>()).
+- **​​Future Reserves​​**: Words like boolean, byte, etc., are part of older proposals and rarely used today.
+
+Examples:
+
+```ts
+type User = { name: string } & { id: number };
+declare module "untyped-module" { ... }
+const data = await fetchData();
+type Status = "pending" | "active";  
+declare function isFunction(x: unknown): x is Function;
+```
 
 
 ## 🍀Hello TypeScript
@@ -3153,6 +3238,47 @@ TypeScript 1.4 开始支持 ES6 template strings：
 	var greeting =
 	  "Hello, " + name + "! Your name has " + name.length + " characters";
 
+
+## 🍀Serial 序列类型
+
+```ts
+type Serial <Count extends number, Result extends string[] = []>
+    = Result['length'] extends Count 
+    ? { [K in Result[number]]: string}
+    : Serial<Count, [...Result, `p${Result['length']}`]>
+
+type SerialP0To9 = Partial<Serial<10>>
+let obj:SerialP0To9 = { p1: "attribue list"}
+
+type SerialP1To9 = Omit<Serial<10>, 'p0'>
+let obj2:SerialP1To9 = { p1: "attribue list"}
+```
+
+这是一个非常精彩的 TypeScript 类型编程示例，它展示了如何通过递归条件类型和模板字面量类型来动态生成类型。虽然在实际项目中这种需求相对少见，但它完美展示了 TypeScript 类型系统的表现力和灵活性。序列类型 (Serial) 工作原理：
+
+•   递归构建：使用“条件类型”从空数组 [] 开始递归，p0, p1, p2... 直到数组长度等于 Count  
+•   终止条件：Result['length'] extends Count - 当数组长度达到目标值时停止递归  
+•   最终转换：将字符串数组转换为对象类型 { [K in Result[number]]: string }  
+
+为何不是从 -1 或其它指定编号开始递归？这是由于 JavaScript 系统中数组的索引本身就是从 length = 0 开始的，直到 length 字幕量等于泛型参数 Count 为止。条件类型的初始状态是一个空数组，[]，也就是 Result['length'] = 0。在递归的过程中，不断使用“展平运算符” (...spread) 合并已经处理过的序列号到 Result 这个列表中。
+
+其中 Result['length'] 是 TypeScript 类型系统中一个非常强大的特性，它属于 “基于数组字面量长度的数字字面量类型”，在类型定义中访问对象属性字面量。TypeScript 类型操纵核心概念中，一个数组字面量类型的 length 属性不是一个普通的 number，而是一个具体的数字字面量类型。Result[number] 或者更准确地说是 T[number]，索引访问类型语法 (Indexed Access Types)，用于从数组或元组类型中提取所有元素的类型。这里的 number 应该翻译为“数目”，更准确的说就是“类型索引”，它提供的核心功能包括：
+
+* 	类型安全——从集合类型中提取安全的联合类型；
+* 	动态推导——基于实际数组内容自动推导类型；
+* 	维护友好——添加新元素时类型自动更新；
+* 	与映射类型配合使用——完美用于 { [K in T[number]]: ... } 模式；
+
+总结来说，Indexed Access Types 有多种形式，构成了 TypeScript 强大类型系统的基础，特别是在泛型编程、类型操作和类型安全方面发挥着关键作用。以上只使用了字面量索引 T['key'] 访问数组或元组属性，以及数组索引 T[number] 访问数组元素的联合类型。
+
+相关联的官方文档参考：
+
+* 	[Variable Declaration - Spread](https://www.typescriptlang.org/docs/handbook/variable-declarations.html#spread)
+*   [Partial<Type> Released: 2.1](https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype)
+*   [Omit<Type, Keys> Released: 3.5](https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys)
+*	[Indexed Access Types](https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html)
+*	[Conditional Types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html)
+*	[Template Literal Types](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html)
 
 
 # ⚑ Basic Types 基礎類型

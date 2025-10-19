@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 basedir=$(dirname "$(echo "$0" | sed -e 's,\\,/,g')")
+PATH=/usr/bin:$PATH
 
 doc_view="vim"
 if ! [[ -z $DOC_VIEW ]]; then

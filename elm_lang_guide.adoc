@@ -261,6 +261,16 @@ Elm 开发的应用系统采用消息驱动架构，精简模型结构中，消�
 
 当然，每一分文本的阅读理解都是有前提的，Elm 官方教程的前置要求读者有 JavaScript 或类似脚本编程经验，最好理解 Web 平台应用运行环境和 HTML 标签结构。Elm 为 HTML 标签设计了同名的函数，这里的 `div []` 表示给 div 函数传入一个空列表。这种设计基于虚拟节点（VirtualDOM），让 Elm 的类型系统能严格校验 HTML 结构，同时保持代码简洁。
 
+.The most helloworld programe
+[source,elm]
+----
+import Html exposing(..)
+
+main = div [] [text "Hello Elm!"]
+----
+
+以上例子只使用模块的入口函数，并且仅仅是使用 div 函数构造一个 <div>Hello Elm!</div> 节点。这个精简程序省略了一个完全形态的 Elm 程序所具有的，设置用于管理和存储数据的模块对象，也没有消息循环机制，没有给节点设置可以产生消息的事件。
+
 • https://elm-lang.org/news/blazing-fast-html[Blazing Fast HTML - Virtual DOM in Elm]
 • https://package.elm-lang.org/packages/elm/virtual-dom/latest/VirtualDom[VirtualDom]
 
@@ -400,6 +410,29 @@ Elm 的消息机制是其“模型-更新-视图”（Model-Update-View）架构
       v       .-----.                  .-------.                   |
 User Input--> | Msg |--> "Update()"--> | Model |--> View Fresh --->╯
               `-----'                  `-------'
+
+----
+
+[svgbob]
+----
+
+.-------------------.        .-------------------.                            
+|      Browser      |        |    Elm Runtime    |               .---------.
+|  .-------------.  |        |  .-------------.  |               | Initial |
+|  |             |  |        |  |             |  |<--------------|  Model  |
+|  |             |  |        |  |             |  |               `---------'
+|  |             |  |        |  |             |  |
+|  |             |  |        |  |             |  |     Model     .---------.
+|  |             |  |        |  |             |  |-------------->|  View   |
+|  |  Real DOM   |  |        |  | Virtual DOM |<-|---------------|         |
+|  |             |  |  HTML  |  |             |  |     HTML      `---------'
+|  |             |<-|--------|--|             |  | representation in ELM
+|  |             |  |        |  |             |  |                            
+|  |             |--|------->|  |             |  |               .---------.
+|  |             |  | Events |  |             |  |-------------->| Update  |
+|  |             |  |        |  |             |  |<--------------|         |
+|  `-------------'  |        |  `-------------'  | Updated Model `---------'
+`-------------------'        `-------------------'                            
 
 ----
 
@@ -7291,7 +7324,27 @@ All of link:http://elm-lang.org[elm-lang.org] is written in Elm!
   link:https://github.com/pawanpoudel/beginning-elm-code[• Source code]
 
 
-官方教程源文档包含 REPL 功能，文档中使用 JSON 数据组织 Elm 代码，并且可以让用户直接通过 Web 页面交互，将代码发送到 https://worker.elm-lang.org/repl 服务器上进行编译，然后将编译结果渲染到页面上。因为是跨域的脚本请求，所以会有一个 HTTP OPTIONS 动作进行预检查（preflight），只有目标服务器支持跨域请求时才正式发送（POST）代码进行在线交互编译。文档的代码块中 	"value" 部分包含终端控制码，譬如 "\u001b[95m2\u001b[0m"，这是带有字体颜色的终端控制码，输出一个紫色的“2”。关于终端软件概念，可以参考 Linux 系统编程手册，也可以参考 xref:vim_flavor.md[《让世界多一份 Vim 教程：Topdown 式入门姿势》]，其中 Keyboar Mapping 部分有解释。
+官方教程源文档包含 REPL 功能，文档中使用 JSON 数据组织 Elm 代码，并且可以让用户直接通过 Web 页面交互，将代码发送到 https://worker.elm-lang.org/repl 服务器上进行编译，然后将编译结果渲染到页面上。因为是跨域的脚本请求，所以会有一个 HTTP OPTIONS 动作进行预检查（preflight），只有目标服务器支持跨域请求时才正式发送（POST）代码进行在线交互编译。文档的代码块中 "value" 部分包含终端控制码，譬如 "\u001b[95m2\u001b[0m"，这是带有字体颜色的终端控制码，输出一个紫色的“2”。关于终端软件概念，可以参考 Linux 系统编程手册，也可以参考 xref:vim_flavor.md[《让世界多一份 Vim 教程：Topdown 式入门姿势》]，其中 Keyboar Mapping 部分有解释。或者参考系统方面的书籍，以下表格引用自 MODERN OPERATING SYSTEMS FOURTH EDITION。推荐科普视频 https://www.bilibili.com/video/BV16A411675V/[【技术杂谈】shell 和 terminal]。
+
+[opts="autowidth"]
+|===
+| Escape sequence | Meaning
+| ESC [nA         | Move up n lines                
+| ESC [nB         | Move down n lines    
+| ESC [nC         | Move right n spaces  
+| ESC [nD         | Move left n spaces   
+| ESC [m;nH       | Move cursor to (m,n) 
+| ESC [sJ         | Clear screen from cursor (0 to end, 1 from start, 2 all)
+| ESC [sK         | Clear line from cursor (0 to end, 1 from start, 2 all)
+| ESC [nL         | Inser t n lines at cursor
+| ESC [nM         | Delete n lines at cursor
+| ESC [nP         | Delete n chars at cursor
+| ESC [n@         | Inser t n chars at cursor
+| ESC [nm         | Enable rendition n (0 = normal, 4=bold, 5=blinking, 7=rev erse)
+| ESC M           | Scroll the screen backward if the cursor is on the top line
+|===
+
+Figure 5-32. The ANSI escape sequences accepted by the terminal driver on out put. ESC denotes the ASCII escape character (0x1B), and n, m,ands are optional numeric parameters.
 
 Elm Home Page 源代码也包含了一个编辑器，Ui/Editor 会将 Elm 代码发送到 social.elm.studio 服务器进行在线编译，可以像以下 bash 脚本这样将代码 POST 到服务器上进行在线编译，并返回包含 JavaScript 代码的 HTML 页面文件。
 

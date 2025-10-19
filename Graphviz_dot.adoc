@@ -68,7 +68,7 @@ https://www.graphviz.org/[Graphviz（Graph Visualization）] 是1990年代初诞
 AsciiDoc 文档嵌入 PlantUML 脚本。也可以使用 PlangUML 命令行调用 dot 程序，或者通过
 `-graphvizdot` 参数指定的路径来调用 dot 程序。以下是 Graphviz 图表基本结构示意图：
 
-.Graphviz basic structure (link:./pictures/graphviz_basic_structure.dot[dot source])
+.Graphviz basic structure (link:./pictures/graphviz_basic_structure.svg[svg with dot source])
 [graphviz]
 ---------
 #!/usr/bin/env -S dot -Tsvg -o graphviz_basic_structure.svg

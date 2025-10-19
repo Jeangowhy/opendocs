@@ -1,0 +1,1407 @@
+:bash: ;pandoc --wrap=preserve -tasciidoc -rhtml https://doc.qt.io/qt-6/qtmodules.html >> $0; exit
+:source-highlighter: highlight.js
+:icons: font
+:source-page: https://doc.qt.io/qt-6/getting-sources-from-git.html
+:source-git:   git clone --branch v6.9.0 git://code.qt.io/qt/qt5.git
+:source-https: git clone --branch v6.9.0 https://code.qt.io/qt/qt5.git
+:qt-doc: https://doc.qt.io/
+:Try-in-Browser: https://try.qt.io/
+:Qt-for-WebAssembly: https://doc.qt.io/qt-6/wasm.html
+:Qt-for-Python: https://doc.qt.io/qtforpython-6/gettingstarted.html
+:tutorials: https://doc.qt.io/qt-6/qtexamplesandtutorials.html
+:allexamples: https://doc.qt.io/qt-6/qtexamples.html
+
+== Qt GUI 图形应用框架
+
+Qt Framework 是 Qt 公司（同名）开发一款跨平台 C++ 图形界面应用程序开发框架，广泛用于开发 GUI 程序，遵循 LGPL/GPL/商业许可协议，为开发者提供了丰富的 API 和工具，支持 Windows、macOS、Linux 等多种操作系统。
+
+特色的信号与槽核心机制用于对象之间的通信。当某个事件发生时，对象会发射（emit）一个信号；如果有对象对这个信号感兴趣，并通过槽（slot）与之连接，那么当信号被发射时，槽就会被自动调用。
+
+Qt Creator 是官方提供的集成开发环境（IDE），也支持跨平台开发。Qt Creator 支持多种编译器，如 GCC、MSVC 等。安装时，你需要选择或指定一个已安装的编译器。可以从官方网站获取配套软件信息：
+
+• *Qt Framework*:  Cross-platform software libraries and APIs
+• *Qt Development Tools*:  Qt Creator IDE and productivity tools
+• *Qt Design Studio*:  UI Design tool for UI composition
+• *Qt Accelerate*:  Qt Templates for industrial applications
+
+Qt 支持以下核心机制，这些机制共同构成了 Qt 的灵活性和高扩展性，使其成为跨平台开发的理想选择。
+
+• ​​信号与槽​​ 驱动业务逻辑。
+• ​​元对象系统​​ 提供动态类型和属性支持。
+• ​​事件系统​​ 处理用户输入和系统事件。
+• ​​对象模型​​ 管理资源生命周期。
+• ​​跨平台层​​ 实现多平台兼容。
+
+核心机制说明如下：
+
+1. 信号与槽（Signals & Slots），​实现对象间松耦合的通信。
+
+** 信号：对象状态变化时发射的信号（如按钮点击）。
+** 槽：响应信号的函数（如更新UI）。
+** 直接连接（同步执行）：connect(sender, SIGNAL(sig()), receiver, SLOT(slot()))。
+** 队列连接（异步执行）：Qt::QueuedConnection。
+** 自动连接（默认）：根据对象父子关系决定。
+
+2. 元对象系统（Meta-Object System）​​
+
+• 元对象（Meta-Object）​​：
+** 通过 moc（元对象编译器）生成，存储类的信号、槽、属性等信息。
+** 每个 QObject 子类均有对应的元对象。
+• 元方法（Meta-Method）​​：封装类中的方法（信号、槽、普通函数）。
+• 属性系统（Property System）​​：支持动态读写属性（如 Q_PROPERTY(int value READ getValue WRITE setValue)）。
+• ​​关键功能​​
+** ​​动态类型信息​​：通过 QMetaObject::className() 获取类名。
+** 动态调用方法​​：QMetaObject::invokeMethod()。
+** 属性访问​​：QMetaProperty 提供属性的读写和通知机制。
+
+3. 事件系统（Event System）​​
+
+• ​事件处理流程​​
+** ​​事件产生​​：系统或用户生成事件（如鼠标点击、键盘输入）。
+** 事件分发：QCoreApplication::sendEvent() 或 postEvent()。
+• ​​事件处理​​：
+** 重写 event() 方法（通用处理）。
+** 特定事件处理器（如 mousePressEvent()）。
+• 事件过滤器（Event Filter）​​允许对象拦截其他对象的事件。
+• 事件队列：默认异步处理（postEvent），可保证线程安全。
+• ​​优先级控制​​：通过 installEventFilter 实现多层级过滤。
+
+4. 对象模型（Object Model）​​
+
+• ​​父子关系​​：通过 parent() 管理对象生命周期（父对象销毁时自动删除子对象）。
+• ​​动态对象树​​：支持运行时动态添加/删除子对象。
+• ​​对象名称​​：通过 setObjectName() 和 findChild() 实现对象查找。
+
+5. 国际化（i18n）与本地化（L10n）​​
+
+• ​​字符串提取​​：使用 lupdate 工具提取 .ts 文件。
+• 翻译编译​​：lrelease 将 .ts 转换为 .qm 二进制文件。
+• ​​运行时加载​​：通过 QTranslator 加载翻译文件。
+
+6. 图形视图框架（Graphics View Framework）​​
+
+• 场景（QGraphicsScene）​​：管理图形项（QGraphicsItem）。
+• 视图（QGraphicsView）​​：显示场景内容，支持缩放、旋转。
+• ​​坐标系转换​​：场景坐标、视图坐标、项目坐标。
+​​• 性能优化​​
+** ​​批量更新​​：使用 prepareGeometryChange() 减少重绘。
+** ​​视口裁剪​​：自动剔除不可见区域的渲染。
+
+7. 跨平台机制​​
+
+• ​​平台抽象层 ​​QPA（Qt Platform Abstraction）​​：统一不同平台的输入、窗口系统接口。
+• ​​平台插件​​：如 windows、xcb、wayland。
+
+
+Qt GUI 的授权模式​涵盖开源许可、商业授权，免费使用范围及注意事项如下：
+
+(1) 开源许可（免费）​​​​适用协议：GPL（GNU General Public License）、LGPL（Lesser General Public License）。
+
+• ​​允许行为​​：
+** 免费使用 Qt GUI 开发任何应用（开源或闭源）。
+** 修改 Qt 源码并分发（需遵守协议）。
+
+• 限制条件​​：
+** GPL：衍生作品必须开源（传染性条款），适合完全开源的项目。
+** LGPL：允许动态链接 Qt 库（如 .dll、.so），适合闭源应用（需保留 Qt 修改的透明性）。
+
+​​(2) 商业授权（付费）​​
+
+• ​​适用场景​​：
+** 不希望开源代码（如专有软件）。
+** 需要静态链接 Qt 库（将 Qt 代码嵌入最终二进制）。
+** 使用 Qt 的专有模块（如某些企业级功能）。
+
+• ​​费用​​：
+** ​按开发者席位订阅​​：约 500 – 3,000/开发者/年（根据功能模块）。
+** ​永久授权​​：一次性付费（价格较高，通常适用于大型企业）。
+
+(3) Qt GUI 的免费使用范围​​
+
+• 开源项目​​（开源工具、学术研究软件、非商业产品）
+** 使用 Qt GUI 开发开源应用（GPL/LGPL 协议）。
+** 修改 Qt 源码并分发（需公开修改部分）。
+
+• 闭源应用​​
+** 动态链接 Qt 库（使用 LGPL 协议）。
+** 静态链接 Qt 库（需购买商业授权）。
+** ​​限制​​：不可直接修改 Qt 源码并闭源分发（违反 LGPL）。
+
+
+== Qt 5.15 LTS 与 Qt 6.8 LTS 对比
+
+Qt 5.15 LTS 与 Qt 6.8 LTS 安装包大小对比
+
+[opts="autowidth",frame=ends,grid=rows]
+|===
+| **版本**       | **基础安装包大小** | **完整安装包大小** | **典型场景占用空间**
+
+| **Qt 5.15 LTS**| ~300–500 MB      | ~1.2–1.8 GB        | 1.5–2.5 GB（含示例和文档）
+| **Qt 6.8 LTS** | ~400–600 MB      | ~1.5–2.2 GB        | 2–3 GB（含示例和文档）
+|===
+
+[opts="autowidth",frame=ends,grid=rows]
+|===
+|​​平台    |​​Qt 5.15 典型大小          |​​Qt 6.8 典型大小​​
+
+|​​Windows |~1.5 GB（含 MSVC 运行时） |~2.2 GB（含 VC++ 运行时和 Vulkan）
+|​​Linux   |~800 MB（动态库）         |~1.3 GB（动态库 + Vulkan 驱动）
+|​​macOS   |~1.2 GB（Xcode 工具链）   |~1.8 GB（Metal 和 Xcode 14+）
+|===
+
+• **基础安装包**：仅包含核心模块（如 `QtWidgets`、`QtQuick`）。
+• **完整安装包**：包含所有官方模块（如 `QtWebEngine`、`QtMultimedia`）。
+• **实际占用空间**：编译后的项目可能更大（依赖动态库或静态链接）。
+• 小型桌面工具（Qt 5.15）：安装包：~500 MB → 编译后二进制：~80 MB。
+• 3D 可视化应用​​（Qt 6.8）：安装包：~2.2 GB → 编译后二进制：~200 MB。
+
+减小安装包大小的优化方法
+
+1. **选择最小安装组件**：  
+   - 使用安装向导时取消勾选非必要模块（如 `QtWebKit`、`Qt3D`）。  
+   - 示例命令（Linux 包管理器）： sudo apt-get install qtbase5-dev qtdeclarative5-dev
+
+2. **剥离调试符号**：  strip --strip-debug /path/to/qt/lib/*.so
+
+=== 1. 核心架构与性能
+
+[opts="autowidth",frame=ends,grid=rows]
+|===
+| 特性       | Qt 5.15 LTS            | Qt 6.8 LTS
+
+| C++ 标准   | C++11/14              | **C++17**（默认）
+| 图形后端    | OpenGL ES 3.1、ANGLE  | **Vulkan**、Direct3D 12、Metal（跨平台渲染）
+| 渲染管线    | 基于 OpenGL 的 QML    | **Qt Quick 3D**、改进的 2D 渲染性能
+| 模块化      | 如 QtWidgets、QtQuick | **模块重构**（如QtQuick 3D、Qt Graphical Effects）
+| 多线程支持  | 基础 QThread          | **Qt Concurrent** 增强，更高效的异步编程模型
+|===
+
+关键点：
+
+• **Qt 6.8** 默认使用 C++17，支持更现代的语法和编译器优化（如结构化绑定、协程）。
+• **Qt Quick 3D** 是 Qt 6 的核心亮点，支持 3D UI 和硬件加速渲染，适合游戏或数据可视化应用。
+• **Vulkan** 编程接口提升了图形渲染性能，尤其在移动端和嵌入式设备上。
+
+Qt 6.8 新特性亮点：
+
+1. **Qt Quick 3D**：支持 3D UI 和物理引擎。  
+2. **Qt Graphical Effects**：新增模糊、阴影等高级效果。  
+3. **Qt Digital Advertising Platform**：广告管理 API。  
+4. **Qt SCXML 6**：状态机扩展，支持复杂业务逻辑。  
+
+---
+
+=== 2. 功能特性对比
+
+[opts="autowidth",frame=ends,grid=rows]
+|===
+| 功能         | Qt 5.15 LTS               | Qt 6.8 LTS
+
+| Qt Quick     | 支持 Qt Quick 2D          | **Qt Quick 3D**、改进的动画和粒子效果
+| Qt WebEngine | 需手动集成（Chromium 79） | **Chromium 112** 已内置，支持现代 Web 标准
+| 多媒体框架   | GStreamer/Phonon          | **Qt Multimedia 6**（支持AV1解码、AVIF格式）
+| JSON 处理    | QJsonDocument             | **QJsonSerializer**（更高效的序列化）
+| 网络模块     | QNetworkAccessManager     | **Qt Network Auth**（OAuth 2.0支持增强）
+| 数据库支持   | SQLite、MySQL、PostgreSQL | **Qt SQL 6**（支持异步查询和连接池）
+|===
+
+关键点：
+
+• **Qt 6.8** 的 **Qt WebEngine** 基于 Chromium 112，支持最新的 Web 技术（如 WebAssembly、WebGPU）。
+• **Qt Multimedia 6** 新增对 AV1 编解码和 AVIF 图像格式的支持，适合多媒体应用开发。
+
+---
+
+=== 3. 兼容性与迁移成本
+
+[opts="autowidth",frame=ends,grid=rows]
+|===
+| 方面          | Qt 5.15 LTS                  | Qt 6.8 LTS
+
+| 旧版API兼容性 | 保留 Qt 5.x API（如QtWebKit） | **移除过时模块**（如QtWebKit、QtWebKitWidgets）
+| 编译器要求    | GCC 5+/Clang 5+              | **GCC 9+/Clang 10+**（需C++17支持）
+| 平台支持      | Windows 7/Android 5/iOS 11   | **Windows 10/Android 12/iOS 13+**
+| 迁移工具      | 无官方迁移工具                | **Qt Upgrade Tool**（辅助迁移C++代码）
+|===
+
+关键点：
+
+• **Qt 6.8** 使用 QtWebEngine 替代部分旧模块（移除模块）（如 QtWebKit）。
+• **API变更**：例如，`QString` 的隐式共享机制改为显式拷贝，可能影响性能敏感代码。
+• **迁移建议**：使用 `qt5to6` 工具检查代码兼容性，逐步迁移。
+
+---
+
+=== 4. 开发工具与生态系统
+
+[opts="autowidth",frame=ends,grid=rows]
+|===
+| 工具/生态        | Qt 5.15 LTS            | Qt 6.8 LTS
+
+| Qt Creator       | 支持 Qt 5.15 的稳定版   | **深度集成**（支持 Qt Quick 3D 调试）
+| Qt Design Studio | 需手动适配              | 原生支持 Qt Quick 3D 设计
+| 第三方库支持      | 成熟（如OpenCV、Boost） | 逐步适配（如 OpenCV 4.5+）
+|===
+
+关键点：
+
+• **Qt 6.8** 的 Qt Creator 提供更强大的 3D 调试工具和实时预览功能。
+• **Qt Design Studio** 更适合 Qt Quick 3D 的 UI 设计。
+
+---
+
+=== 5. 支持周期与维护
+
+[opts="autowidth",frame=ends,grid=rows]
+|===
+| 版本           | 发布日期    | LTS支持截止    | 长期支持状态
+
+| Qt 5.15 LTS    | 2020-12     | 2023-05        | 已结束（仅安全修复至2023年5月）
+| Qt 6.8 LTS     | 2023-07     | 2028-07        | 活跃支持（含功能更新和安全补丁）
+|===
+
+---
+
+=== 6. 适用场景推荐
+
+[opts="autowidth",frame=ends,grid=rows]
+|===
+| 场景                 | 推荐版本       | 理由
+
+| 遗留项目维护         | Qt 5.15 LTS    | 仅需维护且无需新功能
+| 跨平台桌面应用       | Qt 6.8 LTS     | 现代C++支持、更好的性能和模块化
+| 移动端（Android/iOS）| Qt 6.8 LTS     | 支持Android 12+、iOS 13+和新图形API
+| 嵌入式设备（ARM Linux）| Qt 6.8 LTS    | Vulkan/Metal优化、更低的内存占用
+| 3D可视化/UI          | Qt 6.8 LTS     | Qt Quick 3D、WebGL 3D渲染
+|===
+
+---
+
+
+== Qt6 on MSYS2
+
+Windows 系统上可以通过 https://packages.msys2.org/search?q=qt6[MSYS2] 平台安装，并根据需要选择不同的子系统Binary Packages。譬如选择 ucrt64 子系统（基于 UCRT 运行库的子系统），那么已可以安装相同子系统的编译器，比如 mingw-w64-ucrt-x86_64-clang。
+
+• **ucrt64**
+** mingw-w64-ucrt-x86_64-qt6-base
+** mingw-w64-ucrt-x86_64-qt6-base-debug
+• **clang64**
+** mingw-w64-clang-x86_64-qt6-base
+** mingw-w64-clang-x86_64-qt6-base-debug
+• **clangarm64**
+** mingw-w64-clang-aarch64-qt6-base
+** mingw-w64-clang-aarch64-qt6-base-debug
+• **mingw64**
+** mingw-w64-x86_64-qt6-base
+** mingw-w64-x86_64-qt6-base-debug
+
+MSYS2 产生的背景：早期的移植项目（MinGW，MSYS）缺失社区支持和更新终止，Cygwin 这个大型移植项目的许多新功能也没有同步到 MSYS 项目上，于是 Alex 等人建立了新一代的 MSYS2 项目，仍然是 fork 了 Cygwin（较新版），并添加了更优秀的软件包管理器 pacman，有活跃的开发者跟用户组，有大量预编译的软件包（虽然肯定没有 Cygwin 多）。Windows 10 产品处于微软的开放拥抱开源时期，通过 WSL 子系统集成了 Linux。但是 I/O 性能非常差，改进后的 WSL2 有较大提升，但也不如 MSYS2，可以作为开发环境备选。
+
+• https://www.msys2.org/dev/new-package/[Creating a new Package]
+• https://github.com/msys2/MINGW-packages[MINGW-packages Repository]
+
+****
+TIP: VMware Workstation Pro: Now Available Free for Personal Use  2024.6 消息: VMware 免2024.6 消息: VMware 免费了！
+
+多年不用虚拟机软件，这也算是个好消息。当然，不免费也不是问题，Fabrice Bellard 开发的 QEMU 开源模拟器更好。作为机器仿真器使用时，QEMU 通过动态代码翻译机制（dynamic translation）在不同的机器上仿真任意一种机器（例如在 Intel x86 系统上模拟 ARM 系统），并执行不同于主机架构的代码。同时由于动态代码翻译机制，它也能够实现不错的性能。当进行虚拟化时，QEMU也可以以接近本机的性能运行 KVM（基于 Linux 内核的虚拟机模块，利用 Intel VT-x 或 AMD-V 等硬件加速来提高虚拟化性能）或者 Xen（开源的 Type-1 hypervisor，可以直接在裸机上运行多个虚拟机）。譬如，通过 ISO 镜像引导模拟器：
+
+[source,bash]
+$ qemu-system-x86_64 -boot d -cdrom /d/SETUPS/ventoy-1.1.05-livecd.iso -m 512
+$ qemu-system-x86_64 -boot d -cdrom /d/SETUPS/ubuntu-24.04.2-desktop-amd64.iso -m 512 -enable-kvm
+****
+
+MSYS2 使用 mintty 终端模拟 Linux 环境。各个子系统通相应的 ini 配置文件设定子系统环境后进入 mintty 终端，例如 MSYS2_PATH_TYPE=inherit 配置项表示继承 Windows 系统中的 PATH 环境变量，子系统类型则由 MSYSTEM 环境变量指定，子系统的主要差别在于 CPU 架构（Architecture）和 C/C++ 运行时不同，这也导致不同子系统的程序编译工作所使用的工具链、依赖文件不同。
+
+运行是主要是微软早期的 MSVCRT (Microsoft Visual C++ Runtime)、和最新的 UCRT (Universal C Runtime)，以及广泛应用的 GNU GCC 平台，和更新更高效的 LLVM/Clang 平台，参考 MSYS2 官方文档：
+
+.MSYS2 https://www.msys2.org/docs/environments/[Environments Overview]
+[opts=autowidth,grid=rows,]
+|===
+|Name           |Prefix        |Toolchain |Architecture |C Library |C++ Library
+
+|**MSYS**       |`/usr`        |gcc       |x86_64       |cygwin    |libstdc++
+|**UCRT64**     |`/ucrt64`     |gcc       |x86_64       |ucrt      |libstdc++
+|**CLANG64**    |`/clang64`    |llvm      |x86_64       |ucrt      |libc++
+|**CLANGARM64** |`/clangarm64` |llvm      |aarch64      |ucrt      |libc++
+|**CLANG32**    |`/clang32`    |llvm      |i686         |ucrt      |libc++
+|**MINGW64**    |`/mingw64`    |gcc       |x86_64       |msvcrt    |libstdc++
+|**MINGW32**    |`/mingw32`    |gcc       |i686         |msvcrt    |libstdc++
+|===
+
+如果希望通过 Windows 环境变量设置来使用 MSYS2 子系统，那么就需要将子系统的 bin 路径放在 PATH 的前头，不建议这样做。VS Code 支持用户配置自定义终端，设置 terminal.integrated.profiles 添加新的终端类型。通过 Terminal: Select Default Profile 设置默认的终端。注意，MSYS2 的子系统入口（mintty）不支持作为 VS Code 集成终端来使用，也就是会以弹出新窗口的形式运行。可以使用 bash 加载配置脚本的形式来实现各个子系统环境的配置。
+
+.VS Code 终端配置参考
+[source,json]
+----
+    "terminal.integrated.defaultProfile.windows": "Bash UCRT64",
+    "terminal.integrated.profiles.windows": {
+        "Bash UCRT64": {
+            "path": "C:/msys64/usr/bin/bash.exe",
+            "args": [ "--init-file", "~/.bash_profile" ]
+        },
+        "Mintty UCRT64": {
+            "path": "C:/msys64/usr/bin/mintty.exe",
+            "args": [ "-c", "config" ]
+        },
+        "Msys64 UCRT64": {
+            "path": "C:/msys64/ucrt64.exe"
+        }
+    }
+----
+
+.MSYS2 ucrt64 子系统环境配置参考
+[source,json]
+----
+MSYS2_PATH_TYPE=inherit
+MSYSCON=bash.exe
+MSYSTEM=MSYS
+MSYSTEM_CARCH=x86_64
+MSYSTEM_CHOST=x86_64-pc-msys
+MSYSTEM_PREFIX=/usr
+ORIGINAL_PATH=$PATH
+export PATH=/ucrt64/bin:$PATH
+XDG_DATA_DIRS=/ucrt64/share/:/usr/local/share/:/usr/share/
+PKG_CONFIG_PATH=/ucrt64/lib/pkgconfig:/ucrt64/share/pkgconfig
+PKG_CONFIG_SYSTEM_INCLUDE_PATH=/ucrt64/include
+PKG_CONFIG_SYSTEM_LIBRARY_PATH=/ucrt64/lib
+----
+
+同样，可以按此方式配置 MSYS2 其它子系统的终端环境，以集成到 VS Code 中使用。环境变量设置值可以使用 set 命令查询。Linux/Unix 系统遵循 XDG Base Directory Specification，通过环境变量 XDG_DATA_HOME 和 XDG_DATA_DIRS 定义数据文件的搜索路径。系统会按顺序在这些路径中查找数据文件。如果 XDG 目录列表配置不正确，会导致依赖这些数据的应用程序（如部分 CLI 工具）无法找到资源。XDG ​默认路径​​：
+
+[source,bash]
+XDG_DATA_HOME=~/.local/share
+XDG_DATA_DIRS=/usr/local/share:/usr/share
+
+Linux/Unix 系统上进行开发时常用的 PKG_CONFIG 依赖管理工具配置也同样，pkg-config 是一个用于管理编译和链接时所需库的工具，帮助开发者自动获取库的 ​​头文件路径​​、​​库文件路径​​、​​编译选项​​ 和 ​​链接参数​​。模块包含有 Prefix / Relocation (.pc) 配置文件，记录了软件包的路径前缀、头文件和库文件的目录路径。
+
+[source,bash]
+prefix=/ucrt64
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+
+****
+[TIP]
+https://github.com/tmux/tmux/wiki/[Tmux] 是一个终端复用器（terminal multiplexer），它允许用户在一个终端窗口中访问多个独立的会话。这个工具对于需要同时运行多个命令行程序的开发者和运维人员来说非常有用。Tmux 的核心功能是能够让会话（session）与窗口（window）分离，即使终端窗口被关闭，会话仍然可以在后台运行，之后可以重新接入这些会话。使用 pacman -S tmux 命令进行安装。
+
+Key benefits of using Tmux include:
+
+• **Resume remote sessions seamlessly** - Detach and reattach sessions as needed, even if disconnected.
+• **Improved remote interactivity** - Keep applications and processes running remotely.
+• **Advanced session control** - Tmux supports multiple windows and panes.
+• **Enhanced productivity** - Manage multiple terminals efficiently from a single terminal.
+
+Tmux 的主要特点
+
+• 多会话支持：在一个窗口中同时访问多个会话。
+• 会话分离与接入：允许用户分离会话并在需要时重新接入。
+• 多人共享会话：每个会话可以有多个连接窗口，支持多人实时共享。
+• 窗口拆分：支持窗口的垂直和水平拆分。
+
+SSH 远程连接服务器操作任务中，有时会因为连接中断（掉线）而导致代码运行到一半被迫中断，服务器断掉失联后当前的进程也会被服务器给杀掉，之前的工作记录会丢失。Tmux 这款终端复用软件就可以用来解决这个问题。可以把当前操作的任务会话保存在服务器，即使和服务器断开连接，任务会话仍在服务器上继续执行着，当再次连接时，可以返回到之前保存的任务上继续进行操作。
+
+Tmux 图形界面主要概念如下：
+
+• 一个会话 (session) 包含多个窗口 (window)，一个窗口包含多个窗格 (pane)；
+• 会话：工作环境配置，用户与机器的连接关系，可以临时断开（detact）或重新连接到服务器；
+• 窗口：作为用户交互主界面——窗格的容器，每个窗口都可以容纳多个窗格；
+• 窗格：在一个窗口中可以分成多个窗格，每个窗格相当一个 shell 程序；
+
+可以在配置文件（tmux.conf）设置，或者使用 tmux 命令修改用户界面、快捷键。Tmux 所有的快捷键都需要通过前缀键来唤醒，默认 Ctrl+b 为前缀键。详细配置或使用，参考 man tmux 文档。
+
+[source,bash]
+----
+Ctrl + b, Left-Arrow    # 光标移动到左方的窗格
+Ctrl + b, Right-Arrow   # 光标移动到右方的窗格
+Ctrl + b, Up-Arrow      # 光标移动到上方的窗格
+Ctrl + b, Down-Arrow    # 光标移动到下方的窗格
+Ctrl + b, %             # 左右分屏（分成左右两个窗格）
+ctrl + b “              # 上下分屏
+ctrl + b c              # 创建 window
+ctrl + b ⟨#⟩             # 切换 window (⟨#⟩ 指定编号，0 号为首个窗口)
+ctrl + b d              # 退出 tmux (detach)
+
+tmux split-window       # 垂直切割窗口（分成上下两个窗格）
+tmux split-window -h    # 水平切割窗口（分成左右两个窗格）
+tmux select-pane  -U    # 选择上一个 pane（等价 Ctrl+b, Up-Arrow）
+tmux swap-pane    -U    # 交换窗格的位置（当前窗格向上移动，同理，-D 表示向下移动）
+tmux kill-pane          # 关闭窗格（杀掉当前光标位置的窗格）
+
+tmux new-window -n ⟨window-name⟩      # 创建新窗口
+tmux select-window -t ⟨window-number⟩ # 切换窗口（切换到指定编号的窗口）
+tmux rename-window ⟨new-window-name⟩  # 重命名窗口
+tmux kill-window -t ⟨window-number⟩   # 关闭窗口（删除指定编号的窗口）
+tmux select-window -t:0              # 切换到首个窗口
+tmux select-window -t:+2             # 切换到后两个窗口（循环计数）
+
+tmux a                       # 重新进入最后的会话
+tmux a -t 0                  # 重新进入 0 号会话
+tmux ls                      # 查看会话列表
+tmux kill-session -t 0       # 退出 0 号会话
+tmux detach                  # 脱离当前会话（重新连接会话可以继续操作）
+tmux new -s ⟨name⟩            # 新建会话
+tmux attach -t ⟨name⟩         # 重新连接会话
+tmux kill-session -t ⟨name⟩   # 关闭会话（彻底杀掉某个会话，服务器不会再保存）
+tmux switch -t ⟨name⟩         # 切换会话（从当前的会话切换到另一个会话）
+tmux rename-session -t ⟨old-name⟩ ⟨new-name⟩ # 重命名会话
+
+# ~/.tmux.conf — 配置文件
+set -g mouse on         # 开启鼠标支持
+set -g prefix C-s       # ctrl + b 前缀改成 ctrl + s
+----
+****
+
+https://doc.qt.io/qt-6/qtmodules.html#qt-essentials[Qt Essentials] 页面包含了 base 安装包的基础组件列表。其它插件模块（add-on module libraries）根据需要安装。官方提供的安装包模块组合参考 https://doc.qt.io/qt-6/get-and-install-qt-cli.html[Get and Install Qt with Command Line Interface]。其中的 SDK 安装包含有完全的基础组件、插件，以及 Qt Creator 和 Ninja、CMake 两个构建工具。
+
+[source]
+----
+mingw-w64-qt6-doc	6.9.0-2	A cross-platform application and UI framework (Documentation) (mingw-w64)
+mingw-w64-qt6-pdf	6.9.0-1	QtPdf module (mingw-w64)
+mingw-w64-qt6-svg	6.9.0-1	Classes for displaying the contents of SVG files (mingw-w64)
+mingw-w64-qt6-base	6.9.0-2	A cross-platform application and UI framework (mingw-w64)
+mingw-w64-qt6-grpc	6.9.0-3	Qt gRPC and Protobuf generator and bindings. (mingw-w64)
+mingw-w64-qt6-mqtt	6.9.0-1	Qt Module to implement MQTT protocol version 3.1 and 3.1.1 (mingw-w64)
+mingw-w64-qt6-tools	6.9.0-1	A cross-platform application and UI framework (Development Tools, QtHelp) (mingw-w64)
+mingw-w64-qt6-charts	6.9.0-1	Provides a set of easy to use chart components (mingw-w64)
+mingw-w64-qt6-graphs	6.9.0-1	Qt Data Visualization module provides multiple graph types to visualize data in 3D space (mingw-w64)
+mingw-w64-qt6-lottie	6.9.0-1	A family of player software for a certain json-based file format for describing 2d vector graphics animations (mingw-w64)
+mingw-w64-qt6-speech	6.9.0-1	Qt Speech support (mingw-w64)
+mingw-w64-qt6-static	6.8.2-1	A cross-platform application and UI framework (mingw-w64)
+mingw-w64-qt6-5compat	6.9.0-2	Module that contains unsupported Qt 5 APIs (mingw-w64)
+mingw-w64-qt6-quick3d	6.9.0-1	Qt module and API for defining 3D content in Qt Quick (mingw-w64)
+mingw-w64-qt6-sensors	6.9.0-1	Provides access to sensor hardware and motion gesture recognition (mingw-w64)
+mingw-w64-qt6-webview	6.9.0-1	Provides a way to display web content in a QML application (mingw-w64)
+mingw-w64-qt6-activeqt	6.9.0-1	Qt5 ActiveQt Module - ActiveX components (mingw-w64)
+mingw-w64-qt6-location	6.9.0-1	Qt Location Libraries (mingw-w64)
+mingw-w64-qt6-datavis3d	6.9.0-1	Qt6 Data Visualization module (mingw-w64)
+mingw-w64-qt6-serialbus	6.9.0-1	Qt module for general purpose serial bus access (mingw-w64)
+mingw-w64-qt6-httpserver	6.9.0-1	Qt HTTP Server (mingw-w64)
+mingw-w64-qt6-multimedia	6.9.0-1	Classes for audio, video, radio and camera functionality (mingw-w64)
+mingw-w64-qt6-serialport	6.9.0-1	Provides access to hardware and virtual serial ports (mingw-w64)
+mingw-w64-qt6-webchannel	6.9.0-1	Provides access to QObject or QML objects from HTML clients for seamless integration of Qt applications with HTML/JavaScript clients (mingw-w64)
+mingw-w64-qt6-websockets	6.9.0-1	Provides WebSocket communication compliant with RFC 6455 (mingw-w64)
+mingw-w64-qt6-declarative	6.9.0-1	Classes for QML and JavaScript languages (mingw-w64)
+mingw-w64-qt6-networkauth	6.9.0-1	Network authentication module (mingw-w64)
+mingw-w64-qt6-positioning	6.9.0-1	Provides access to position, satellite and area monitoring classes (mingw-w64)
+mingw-w64-qt6-shadertools	6.9.0-1	APIs and tools in this module provide the producer functionality for the shader pipeline that allows Qt Quick to operate on Vulkan, Metal, and Direct3D, in addition to OpenGL. (mingw-w64)
+mingw-w64-qt6-connectivity	6.9.0-1	Provides access to Bluetooth hardware (mingw-w64)
+mingw-w64-qt6-imageformats	6.9.0-1	Plugins for additional image formats: TIFF, MNG, TGA, WBMP (mingw-w64)
+mingw-w64-qt6-translations	6.9.0-1	A cross-platform application and UI framework (Translations) (mingw-w64)
+----
+
+[source,bash]
+----
+$ pacman -S mingw-w64-ucrt-x86_64-clang
+...
+
+$ pacman -S mingw-w64-x86_64-qt6-base
+resolving dependencies...
+looking for conflicting packages...
+warning: dependency cycle detected:
+warning: mingw-w64-x86_64-harfbuzz will be installed before its mingw-w64-x86_64-freetype dependency
+
+Packages (40) mingw-w64-x86_64-brotli-1.1.0-4  mingw-w64-x86_64-bzip2-1.0.8-3 
+              ... mingw-w64-x86_64-zstd-1.5.7-1  mingw-w64-x86_64-qt6-base-6.8.2-1
+
+Total Download Size:    94.61 MiB
+Total Installed Size:  613.12 MiB
+
+:: Proceed with installation? [Y/n] 
+----
+
+软件包管理工具 pacman 的一般使用方法：
+
+• pacman -Q --help      查询 Q 命令的使用方法。
+• pacman -Ss   ⟨package⟩ 查询软件包信息 (pacboy find)。
+• pacman -S    ⟨package⟩ 安装软件包 (pacboy sync/update)。
+• pacman -R    ⟨package⟩ 移除单个包 (pacboy remove)。
+• pacman -Rs   ⟨package⟩ 递归移除包及其依赖。
+• pacman -Rns  ⟨package⟩ 清理不再需要的依赖。
+• pacman -Rdd  ⟨package⟩ 强制移除（忽略依赖冲突）​​，​​慎用​​：可能导致系统不稳定。
+• pacman -Q    ⟨package⟩ 列出所有已安装包​​或指定包。
+• pacman -Qi   ⟨package⟩ 查看包的依赖详情（可以使用 pactree 生成安装包依赖关系树）。
+• pacman -Ql   ⟨package⟩ 查看包的内容列表。
+• pacman -Qs   ⟨keyword⟩ 搜索与 ⟨keyword⟩ 相关的包 (pacboy info)。
+• pacman -Qo   ⟨file⟩    查询 ⟨file⟩ 归属的包 (pacboy origin)。
+• pacman -Rns  ⟨package⟩ 移除孤立依赖​​，释放磁盘空间。
+
+利用 bash 命令替换功能，结合 pacman 查询结果，批量移除已安装的模块：
+
+[source,bash]
+pacman -R $(pacman -Q | grep mingw-w64-x86_64 | awk '{print $1}')
+
+MSYS2 Python 模块安装，如果没有安装 MSVC 编译器，需要源代码编译安装的模块通常都会失败。可以考虑将模块代码包下载到本地，根据编译出错位置修正后再编译、安装。部分问题修正后归档到 pacman repository，需要通过 pacman 命令安装。
+
+[source,bash]
+pip download -r requirements.txt
+pip download cairosvg
+pip uninstall setuptools
+pacman -S mingw-w64-x86_64-python-setuptools
+
+使用 -Rdd 强制移除时需格外小心。若提示依赖冲突，优先尝试 pacman -Syu 更新系统。移除前建议备份配置文件（通常位于 /etc 或用户目录）。软件包管理​​无内置撤销功能​​，但可通过重新安装恢复。移除包后仍有残留文件可以手动清理：
+
+[source,bash]
+rm -rf /mingw64/share/⟨package⟩
+
+软件包都的命名规则：⟨prefix⟩-⟨package⟩，前缀对应各个子系统名称和平台架构信息。例如 mingw-w64-ucrt-x86_64-clang 程序包名称为 clang，而前缀包含了 x86-64 这部分 CPU 架构信息和 MSYS2 子系统 ucrt。为了简化，官方提供 pacboy 工具（pacman -S pactoys），使用缩写后缀的方式替代前缀表达，各个子平台及架构信息就可以使用精简的 :i :x :z :c :u :a 后缀表示。就版本 :m suffixes 弃用，使用 i: 替代。所以 UCRT64 Clang 编译器的安装就可以简写为 pacboy sync clang:u，并且命令使用单词表示，自带功能解析属性。
+
+[source,bash]
+----
+$ pacman -S pactoys
+...
+Total Installed Size:  0.09 MiB
+...
+$ pacboy help
+    Pacboy 2024.05.10
+    Copyright (C) 2015, 2016 Renato Silva
+    Licensed under BSD
+    This is a pacman wrapper for MSYS2 which handles the package prefixes
+    automatically, and provides human-friendly commands for common tasks.
+    Usage:
+        pacboy [command] [arguments]
+        Arguments will be passed to pacman after translation:
+        Package name translations:
+            name   - uses the package prefix of the current environment: name
+            name:i - translates to mingw-w64-i686-name
+            name:x - translates to mingw-w64-x86_64-name
+            name:z - translates to mingw-w64-clang-i686-name
+            name:c - translates to mingw-w64-clang-x86_64-name
+            name:u - translates to mingw-w64-ucrt-x86_64-name
+            name:a - translates to mingw-w64-clang-aarch64-name
+            name:p - means the same as "name"
+            name:  - disables any translation for name
+            repository::name - means repository/name (the name part gets translated as above)
+    Commands:
+        sync        Shorthand for --sync or --upgrade
+        update      Shorthand for --sync --refresh --sysupgrade
+        refresh     Shorthand for --sync --refresh
+        find        Shorthand for --sync --search
+        packages    Shorthand for --sync --list
+        files       Shorthand for --query --list [--file]
+        info        Shorthand for --query --info [--file]
+        origin      Shorthand for --query --owns or --files
+        remove      Shorthand for --remove --recursive
+        debug       Verbose output for the above commands
+----
+
+
+== Qt6 Hello World
+
+****
+TIP: 根据 MSYS2 平台安装的工具链，不同的子系统可以通过不同的入口程序打开，比如 ucrt64.exe 用于使用 /ucrt64/bin 目录下的工具链和其它依赖文件。当然，也可以直接打开 msys2 命令，再手动配置 PATH 环境变量：export PATH=/ucrt64/bin:$PATH。此目录下也包括程序运行时必要的动态链接库，比如 libstdc++-6.dll。
+
+初始化 Qt 图形环境包括平台插件，​​设置环境变量 QT_PLUGIN_PATH 指向 Qt 的 plugins 目录。也可以​​在代码中硬编码插件路径​​。如果 Qt 初始化程序不能定位到平台插件，或者缺失应该存在的 plugins/platforms 目录，里面包含 qwindows.dll（Windows）或 libqxcb.so（Linux）等插件文件，那么就会出错。
+
+qt.qpa.plugin: Could not find the Qt platform plugin "windows" in ""
+
+[source]
+----
+Windows:
+    set QT_PLUGIN_PATH=C:\msys64\ucrt64\share\qt6\plugins\
+
+Linux/macOS:
+    export QT_PLUGIN_PATH=/ucrt64/share/qt6/plugins/
+
+CPP:
+    QApplication app(argc, argv);
+    app.addLibraryPath("/path/to/qt/plugins");
+----
+****
+
+Qt 自带了 windeployqt 部署工具，用于打包 Qt 应用程序所依赖动态库、插件、资源文件等，包括平台插件文件。此工具自动将程序依赖拷贝到指定的目标目录，将插件目录下的 platforms 子目录拷贝到程序目录中 ，使程序能在未安装 Qt 的 Windows 系统上运行。参考文档 https://doc.qt.io/qt-6/windows-deployment.html[Qt for Windows - Deployment]
+
+[source]
+----
+windeployqt --verbose --no-translations --opengl dynamic MyApp.exe
+windeployqt6 --verbose 2 --no-translations --opengl dynamic main.exe
+----
+
+除了 Qt 自身提供的依赖文件，MSYS2 系统构建的情况下，运行 Qt 应用还需要额外的动态链接库，需要手动收集。有多种方法收集依赖信息：
+
+• 使用分析工具 objdump -x main.exe | grep dll。
+• Linux 提供 ldd​ 查看动态库依赖（shared library dependencies）。
+• Windows SDK 提供 dumpbin​​ 工具查看导出/导入表。（dumpbin /dependents MyApp.exe）
+• 使用 CreateToolhelp32Snapshot (tlhelp32.h) 系统 API 收集链接库信息。
+• https://learn.microsoft.com/sysinternals[Sysinternals]
+** Process Monitor 追踪动态加载（使用过滤器）。
+** VMMap​​：分析程序虚拟内存、物理内存中的 DLL 映射关系。
+** Listdlls 可获取指定程序所加载的 DLL 列表。
+
+
+程序输出效果​​：运行程序后，会显示一个窗口，内容为居中的 "Hello, Qt 6!" 文本。
+
+• 代码示例 (main.cpp)
+
+[source,cpp]
+----
+#include <QApplication>
+#include <QLabel>
+
+QApplication *g_app = nullptr;
+
+int main(int argc, char *argv[]) {
+    g_app = new QApplication(argc, argv);
+    // QApplication app(argc, argv);
+
+    QLabel label("Hello, Qt 6!");
+    label.resize(200, 50);
+    label.setAlignment(Qt::AlignCenter);
+    label.show();
+
+    return g_app->exec();  // exec event-loop
+}
+----
+
+• 程序说明​​
+
+** <QApplication> ​​头文件​​：管理应用生命周期，位于 include/qt6/QtWidgets/ 目录下；
+** <QLabel> ​​头文件​​：用于显示文本的UI组件，同样属于 QtWidgets 组件。
+
+** QApplication app(argc, argv)：初始化Qt应用。
+** QLabel 创建并配置文本标签。
+** app.exec() 启动事件循环，等待用户操作。
+
+
+• 扩展：添加样式（可选）​​
+
+修改 main.cpp，添加样式表：
+
+[source,cpp]
+----
+QLabel label("Hello, Qt 6!");
+label.setStyleSheet("font-size: 20px; color: blue;");
+----
+
+• Qt 自带的构建配置文件 (.pro)
+
+[source]
+----
+QT += core gui widgets  # 必须包含widgets模块
+
+SOURCES += main.cpp
+TARGET = HelloWorld
+TEMPLATE = app
+----
+
+• 使用 qmake 工具构建项目​
+
+[source, bash]
+----
+qmake -project    # 生成 .pro 文件（若未创建）
+qmake             # 生成 Makefile
+make              # 编译（Linux/macOS）
+nmake             # 编译（Windows，需nmake工具）
+----
+
+
+=== Clang 编译器手动调用
+
+注意引入头文件目录、导入库目录、导入库名称，并且要将导入库参数放在程序代码文件后面。GNU GCC 编译器 -I（include）用于添加头文件目录，使用位置比较自由，可以放到源程序文件的前面或后面。当然为了易读性，建议放到前面。参考 GCC 用户手册 3.15 Options for Linking。
+
+链接库参数 -l（link）使用位置有依赖关系要求，此参数有 `-lLIBRARY` 和 `-l LIBRARY` 两种格式。这些库的顺序应该按照依赖关系排列，被依赖的库放在后面。例如，QtWidgets 依赖于 QtGui和 QtCore，所以应该先列出 QtWidgets，再列出 QtGui 和 QtCore。GCC 会将此参数直接发送给链接程序（linker），链接程序根据依赖顺序，从导入库目录中（-L）查找相应的文件。导入库的命名规则：-lQt6Core 对应的动态链接库文件为 libQt6Core.dll.a，用户不需要（也不可以）指定文件名的前缀、后缀。如果是静态链接（相对动态链接），使用的静态库（Static libraries），它是目标文件的归档格式，文件名后缀没有 dll 字样，比如 `libLIBRARY.a`。某些编译目标支持共享库（shared libraries），Windows 平台称动态链接库，​​共享库扩展名（.so/.dll）​。如果静态库可以共享库同时存在，GCC 优先使用共享库，除非使用 `-static` 进行静态链接。
+
+构建图形界面应用需要给链接程序设置子系统选项，MSVC 使用 /subsystem:windows，GCC 则使用 -mwindows。
+
+[source,bash]
+----
+# 预处理资源文件
+rcc -name resources resources.qrc -o qrc_resources.h
+
+# 编译主程序
+clang++ -std=c++17 \
+    -IC:/msys64/ucrt64/include/qt6 \
+    -IC:/msys64/ucrt64/include/qt6/QtWidgets \
+    -IC:/msys64/ucrt64/include/qt6/QtGui \
+    -IC:/msys64/ucrt64/include/qt6/QtCore \
+    -LC:/msys64/ucrt64/lib \
+    -o HelloWorld main.cpp  qrc_resources.cpp\
+    -mwindows -s -O3
+    -lQt6Widgets -lQt6Gui -lQt6Core
+----
+
+Clang 编译器兼容 GCC 编译器，可根据需要使用命令的优化选项，常用选项参考：
+
+[opts="autowidth"]
+|===
+|     选项     | 解释
+
+| -ansi        | 只支持 ANSI C 语法。这一选项将禁止 GNU C 的某些特色，例如 asm 或 typeof 关键词。
+| -c           | 只编译并生成目标文件。
+| -DMACRO      | 以字符串"1"定义 MACRO 宏。
+| -DMACRO DEFN | 以字符串"DEFN"定义 MACRO 宏。
+| -E           | 只运行 C 预编译器。
+| -g           | 生成调试信息，一般用于生成 Debug 版本程序，GNU 调试器可利用该信息。
+| -IDIRECTORY  | 指定 DIRECTORY 为额外的头文件搜索路径。
+| -LDIRECTORY  | 指定 DIRECTORY 为额外的函数库搜索路径。
+| -lLIBRARY    | 连接时搜索指定的函数库LIBRARY。
+| -m486        | 针对 486 进行代码优化。
+| -o           | FILE 生成指定的输出文件。用在生成可执行文件时。
+| -O<number>   | 程序优化等级设置。
+| -s           | 剥离调试符号（strip all）生成更小的可执行程序文件
+| -shared      | 生成共享目标文件，通常用在建立共享库时。
+| -static      | 使用静态共享连接。
+| -UMACRO      | 取消对 MACRO 宏的定义。
+| -w           | 不生成任何警告信息。
+| -Wall        | 生成所有警告信息。
+|===
+
+GCC 编译时加 -g 参数产生的额外调试，优化选项会剔除调试信息，额外调试符号能让 gdb 调试工作更明了：
+
+- `-g` 产生当前操作系统默认调试信息格式。
+- `-ggdb` 产生 GDB 专用的调度信息格式。
+- `-g3` 指定调试信息等级为 Level 3：
+    - Level 0 不产生调试信息，默认 Level 2，所以 -g0 与 -g 不同。
+    - Level 1 产生最小的调试信息，包括函数和外部变量的描述，以及行号表，但没有关于局部变量的信息。
+    - Level 3 包含额外的信息，如 macro 定义，部分调试器支持 -g3 生成的宏扩展。
+- `-gstabs` 生成 stabs 格式调试信息，但是不包括 gdb 专用的额外调试信息。
+- `-gstabs+` 生成 stabs+ 格式调试信息，并且包含 gdb 专用的额外调试信息。
+
+GCC optimization 优化选项：
+
+- `-O0` 默认设置减少了编译时间，并且具有调试总是产生预期结果的效果。
+- `-O1` 编译器试图减少输出二进制代码的大小和执行速度，但它不会执行可能大幅增加编译时间的优化。
+- `-O2` 编译器执行的优化不需要以空间换取速度，增加了编译时间，但与 Level 1 相比，提高了性能。
+- `-O3` 在 -O2 的基础上，打开更多的选项，这些选项还需要在速度上权衡空间。
+- `-Ofast` 优化速度，无视严格的标准遵从性。
+- `-Og` 调试体验优化，而不是空间或速度。
+- `-Os` 空间优化，而不是速度。
+
+
+=== CMake 构建工具（可选）
+
+所需要的工具以及参考文档：
+
+• https://cmake.org/[CMake]
+• https://ninja-build.org[Ninja] 或者 GNU make (GCC 编译器套件内置)
+• https://doc.qt.io/qt-6/cmake-get-started.html[Getting started with CMake]
+• https://crascit.com/professional-cmake/[Professional CMake: A Practical Guide]
+  https://github.com/KyleSpicer/library/blob/main/professional-cmake-16th-edition.pdf[PDF]
+
+.CMakeLists.txt
+[source]
+----
+cmake_minimum_required(VERSION 3.16)
+
+SET(CMAKE_C_COMPILER "gcc.exe")
+SET(CMAKE_CXX_COMPILER "clang++.exe")
+
+project(helloworld VERSION 1.0.0 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets )
+qt_standard_project_setup()
+
+qt_add_executable(helloworld
+    main.cpp
+)
+target_link_libraries(helloworld PRIVATE Qt6::Core Qt6::Widgets )
+----
+
+
+Qt6 Qt6::Widgets 需要 Vulkan 头文件，如果缺失，CMake 在执行配置脚本是会出错。
+
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+
+[source,bash]
+----
+pacman -Qs vulkan-devel
+pacman -S mingw-w64-ucrt-x86_64-vulkan-devel
+
+cmake -S . -B build -DVulkan_INCLUDE_DIR=/ucrt64/include/vulkan/
+cmake --build build
+----
+
+
+命令行、CMakeLists.txt 配置参考：
+
+[source]
+----
+cmake -DVulkan_INCLUDE_DIR=/usr/include/vulkan \
+      -DVulkan_LIBRARY=/usr/lib/x86_64-linux-gnu/libvulkan.so \
+      ..
+
+find_package(Vulkan REQUIRED)
+if (Vulkan_FOUND)
+    include_directories(${Vulkan_INCLUDE_DIRS})
+    target_link_libraries(your_target PRIVATE ${Vulkan_LIBRARIES})
+endif()
+----
+
+MSYS2 环境下的 cmake 程序在配置项目过程出现以下错误：
+
+[source,bash]
+----
+CMake Error at /ucrt64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake:3019 (file):
+  file RELATIVE_PATH must be passed a full path to the file:
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0
+Call Stack (most recent call first):
+  /ucrt64/lib/cmake/Qt6Core/Qt6CoreConfigExtras.cmake:28 (_qt_internal_setup_deploy_support)
+  /ucrt64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake:142 (include)
+  /ucrt64/lib/cmake/Qt6/Qt6Config.cmake:190 (find_package)
+  CMakeLists.txt:8 (find_package)
+----
+
+根据提示，可以找到触发异常的配置脚本，错误是由一条 https://cmake.org/cmake/help/latest/command/file.html[file] 命令引起的。原因是 MSYS2 使用的路径与 Windows 使用的路径格式有差别。Windows 使用的盘符前缀 C: 包含的冒号 Linux 系统中作为路径分割符号使用。CMake 提供的 file 是一个多功能命令，除了用于读写 I/O 功能，还可以用于下载。出错脚本中则是使用了其中的路径转换功能。file(REALATIVE_PATH) 根据 <directory> 以及 <file> 得到一个相对路径，并保存到 <variable>。此问题无法使用 -DCMAKE_PREFIX_PATH=/ucrt64 这样的命令行参数修正。
+
+检查 CMake 的详细输出，查看具体哪一步导致路径问题，可能需要启用 --debug-output 或 --trace。
+
+****
+TIP: GNU make 永远是你最纯粹的朋友！
+****
+
+[source]
+----
+Path Conversion
+  file(REAL_PATH <path> <out-var> [BASE_DIRECTORY <dir>] [EXPAND_TILDE])
+  file(RELATIVE_PATH <out-var> <directory> <file>)
+  file({TO_CMAKE_PATH | TO_NATIVE_PATH} <path> <out-var>)
+----
+
+可以给 Qt 的配置脚本加入调试代码，或者使用以下脚本来重现问题，可以看到 Windows 风格的路径未能成功在 MSYS2 中安装的 CMake 运行。因此，问题属于移植过程中的平台兼容性问题，很难界定是 CMake 本身的问题还是 MSYS2 的问题，需要改用 CMake 官方提供的 Windows 版本。
+
+[source]
+----
+# code -g /msys64/ucrt64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake:3019
+
+set(QT6_INSTALL_PREFIX "C:/msys64/ucrt64")
+set(link_dir "C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0")
+
+set(QT6_INSTALL_PREFIX "/ucrt64")
+set(link_dir "/C/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0")
+
+file(RELATIVE_PATH relative_dir "${QT6_INSTALL_PREFIX}" "${link_dir}")
+
+message(relative_dir ==> ${relative_dir})
+----
+
+[source]
+----
+$ rm.exe -rf build; cmake -S . -B build -G Ninja
+...
+relative_dir==>../C/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0
+...
+----
+
+
+=== VS Code 开发环境配置
+
+安装 Microsoft 官方的 C/C++ 扩展，或者 LLVM Clang 扩展，以提供代码智能提示、自动完成等功能。连个扩展分别提供了相应的菜单来配置项目依赖项，包括头文件列表。配置命令及相应的配置文件如下：
+
+• clangd: Open project configuration - clangd.yaml
+• clangd: Open user configuration - %APPDATA%\Local\clangd\config.yaml
+• C/C++: Edit Configurations (UI) - .vscode\c_cpp_properties.json
+• C/C++: Edit Configurations (JSON) - .vscode\c_cpp_properties.json
+
+还需要下载 https://github.com/clangd/clangd[Clangd] 并且配置 clangd.path 路径，以使扩展正确调用 clangd 提供的 LSP 服务。
+
+.Clang 配置参考
+[source,yaml]
+----
+CompileFlags:
+  Add: 
+    - -std=c++17
+    - -IC:/msys64/ucrt64/include/**/
+    - -IC:/msys64/ucrt64/include/c++/14.2.0/
+    - -IC:/msys64/ucrt64/include/qt6
+    - -IC:/msys64/ucrt64/include/qt6/QtGui
+    - -IC:/msys64/ucrt64/include/qt6/QtWidgets
+    - -IC:/msys64/ucrt64/include/qt6/QtCore
+----
+
+.Microosft C/C++ 扩展配置参考
+[source,json]
+----
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${default}",
+                "C:/msys64/ucrt64/include",
+                "C:/msys64/ucrt64/include/qt6",
+                "C:/msys64/ucrt64/include/qt6/QtGui",
+                "C:/msys64/ucrt64/include/qt6/QtWidgets",
+                "C:/msys64/ucrt64/include/qt6/QtCore"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "cStandard": "c17",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
+----
+
+创建项目目录，然后通过菜单创建构建任务配置文件：Terminal » Configure Default Build Task...
+
+创建构建任务配置后，就可以同过菜单执行当前代码文件的编译工作：Terminal » Run Build Task ...。
+
+[source,json]
+----
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: clang++.exe build active file",
+			"command": "C:\\msys64\\ucrt64\\bin\\clang++.exe",
+			"args": [
+				"-fcolor-diagnostics",
+				"-fansi-escape-codes",
+				"-g",
+				"-IC:/msys64/ucrt64/include",
+				"-IC:/msys64/ucrt64/include/qt6",
+				"-IC:/msys64/ucrt64/include/qt6/QtWidgets",
+				"-IC:/msys64/ucrt64/include/qt6/QtGui",
+				"-IC:/msys64/ucrt64/include/qt6/QtCore",
+				"${file}",
+				"-lQt6Widgets", "-lQt6Gui", "-lQt6Core",
+				"-mwindows",
+				"-o",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe"
+			],
+			"options": {
+				"cwd": "C:\\msys64\\ucrt64\\bin"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "compiler: C:\\msys64\\ucrt64\\bin\\clang++.exe"
+		}
+	]
+}
+----
+
+
+== Qt Modules
+
+link:https://doc.qt.io/qt-6/index.html[Qt 6.9] » 
+link:https://doc.qt.io/qt-6/reference-overview.html[Qt Reference Pages] » 
+link:https://doc.qt.io/qt-6/qtmodules.html[All Modules]
+
+*Contents*
+
+* <<qt-essentials, Qt Essentials>>
+* <<qt-add-ons, Qt Add-Ons>>
+* <<qt-add-ons-in-technical-preview, Qt Add-Ons in Technical Preview>>
+* <<qt-extension-modules, Qt Extension Modules>>
+* <<where-to-go-from-here, Where to Go from Here>>
+
+[[qt-essentials]]
+=== Qt Essentials
+
+Qt Essentials define the foundation of Qt on all platforms. They are available on all supported development platforms and on the tested target platforms. Except the testing modules, which will remain source compatible, these modules will remain source and binary compatible throughout Qt 6.
+
+Essential modules are general and useful for a majority of Qt applications. A module that is used for a special purpose is considered an add-on module even if it is available on all supported platforms.
+
+==== Qt Core
+
+link:https://doc.qt.io/qt-6/qtcore-index.html[Qt Core]:
+Core non-graphical classes used by other modules.
+
+
+==== Qt D-Bus
+
+link:https://doc.qt.io/qt-6/qtdbus-index.html[Qt D-Bus]:
+Classes for inter-process communication over the D-Bus protocol.
+
+
+==== Qt GUI
+
+link:https://doc.qt.io/qt-6/qtgui-index.html[Qt GUI]:
+Base classes for graphical user interface (GUI) components.
+
+
+==== Qt Network
+
+link:https://doc.qt.io/qt-6/qtnetwork-index.html[Qt Network]:
+Classes to make network programming easier and more portable.
+
+
+==== Qt Qml
+
+link:https://doc.qt.io/qt-6/qtqml-index.html[Qt Qml]:
+Classes for QML and JavaScript languages.
+
+
+==== Qt Quick
+
+link:https://doc.qt.io/qt-6/qtquick-index.html[Qt Quick]:
+A declarative framework for building highly dynamic applications with custom UIs.
+
+
+==== Qt Quick Controls
+
+link:https://doc.qt.io/qt-6/qtquickcontrols-index.html[Qt Quick Controls]:
+Lightweight QML types for creating performant user interfaces for desktop, embedded, and mobile devices.
+
+
+==== Qt Quick Dialogs
+
+link:https://doc.qt.io/qt-6/qtquickdialogs-index.html[Qt Quick Dialogs]:
+Types for creating and interacting with system dialogs from a Qt Quick application.
+
+
+==== Qt Quick Layouts
+
+link:https://doc.qt.io/qt-6/qtquicklayouts-index.html[Qt Quick Layouts]:
+Layouts are items that are used to arrange Qt Quick 2 based items in the user interface.
+
+
+==== Qt Quick Test
+
+link:https://doc.qt.io/qt-6/qtquicktest-index.html[Qt Quick Test]:
+A unit test framework for QML applications, where the test cases are written as JavaScript functions.
+
+
+==== Qt Test
+
+link:https://doc.qt.io/qt-6/qttest-index.html[Qt Test]:
+Classes for unit testing Qt applications and libraries.
+
+
+==== Qt Widgets
+
+link:https://doc.qt.io/qt-6/qtwidgets-index.html[Qt Widgets]:
+Classes to extend Qt GUI with C++ widgets.
+
+
+*Note:* The binary compatibility guarantee does not apply to link:https://doc.qt.io/qt-6/qttest-index.html[Qt Test] and link:https://doc.qt.io/qt-6/qtquicktest-index.html[Qt Quick Test] modules. However, they will remain source compatible.
+
+[[qt-add-ons]]
+=== Qt Add-Ons
+
+_Qt Add-On_ modules bring additional value for specific purposes. These modules may only be available on some development platform. Many add-on modules are either feature-complete and exist for backwards compatibility, or are only applicable to certain platforms. Each add-on module specifies its compatibility promise separately.
+
+The Qt installers include the option of downloading the add-ons. For more information, visit the link:https://doc.qt.io/qt-6/gettingstarted.html[Getting Started with Qt] page.
+
+==== Active Qt
+
+link:https://doc.qt.io/qt-6/activeqt-index.html[Active Qt]:
+Classes for applications which use ActiveX and COM (Windows only).
+
+
+==== Qt Bluetooth
+
+link:https://doc.qt.io/qt-6/qtbluetooth-index.html[Qt Bluetooth]:
+Provides access to Bluetooth hardware.
+
+
+==== Qt Charts
+
+link:https://doc.qt.io/qt-6/qtcharts-index.html[Qt Charts]:
+UI Components for displaying visually pleasing charts, driven by static or dynamic data models.
+
+
+==== Qt CoAP
+
+link:https://doc.qt.io/qt-6/qtcoap-index.html[Qt CoAP]:
+Implements the client side of CoAP defined by RFC 7252.
+
+
+==== Qt Concurrent
+
+link:https://doc.qt.io/qt-6/qtconcurrent-index.html[Qt Concurrent]:
+Classes for writing multi-threaded programs without using low-level threading primitives.
+
+
+==== Qt Data Visualization
+
+link:https://doc.qt.io/qt-6/qtdatavisualization-index.html[Qt Data Visualization]:
+UI Components for creating stunning 3D data visualizations.
+
+
+==== Qt Graphs
+
+link:https://doc.qt.io/qt-6/qtgraphs-index.html[Qt Graphs]:
+Provides functionality for visualizing data in 3D as bar, scatter, and surface graphs, as well as 2D in area, bar, donut, line, pie, scatter, and spline graphs.
+
+
+==== Qt GRPC
+
+link:https://doc.qt.io/qt-6/qtgrpc-index.html[Qt GRPC]:
+Provides an ability to generate Qt-based classes from protobuf specifications used to communicate with gRPC® services.
+
+
+==== Qt Help
+
+link:https://doc.qt.io/qt-6/qthelp-index.html[Qt Help]:
+Classes for integrating documentation into applications.
+
+
+==== Qt HTTP Server
+
+link:https://doc.qt.io/qt-6/qthttpserver-index.html[Qt HTTP Server]:
+A framework for embedding an HTTP server into a Qt application.
+
+
+==== Qt Image Formats
+
+link:https://doc.qt.io/qt-6/qtimageformats-index.html[Qt Image Formats]:
+Plugins for additional image formats: TIFF, MNG, TGA, WBMP.
+
+
+==== Qt Lottie Animation
+
+link:https://doc.qt.io/qt-6/qtlottieanimation-index.html[Qt Lottie Animation]:
+A QML API for rendering graphics and animations in JSON format, exported by the Bodymovin plugin for Adobe® After Effects.
+
+
+==== Qt MQTT
+
+link:https://doc.qt.io/qt-6/qtmqtt-index.html[Qt MQTT]:
+Provides an implementation of the MQTT protocol specification.
+
+
+==== Qt Multimedia
+
+link:https://doc.qt.io/qt-6/qtmultimedia-index.html[Qt Multimedia]:
+A rich set of QML types and C++ classes to handle multimedia content. Also includes APIs to handle camera access.
+
+
+==== Qt Network Authorization
+
+link:https://doc.qt.io/qt-6/qtnetworkauth-index.html[Qt Network Authorization]:
+Provides support for OAuth-based authorization to online services.
+
+
+==== Qt NFC
+
+link:https://doc.qt.io/qt-6/qtnfc-index.html[Qt NFC]:
+Provides access to Near-Field communication (NFC) hardware. On desktop platforms NDEF access is only supported for Type 4 tags.
+
+
+==== Qt OPC UA
+
+link:https://doc.qt.io/qt-6/qtopcua-index.html[Qt OPC UA]:
+Protocol for data modeling and exchange of data in industrial applications.
+
+
+==== Qt OpenGL
+
+link:https://doc.qt.io/qt-6/qtopengl-index.html[Qt OpenGL]:
+C++ classes that make it easy to use OpenGL in Qt applications. A separate library (Qt OpenGL Widgets) provides a widget for rendering OpenGL graphics.
+
+
+==== Qt Positioning
+
+link:https://doc.qt.io/qt-6/qtpositioning-index.html[Qt Positioning]:
+Provides access to position, satellite info and area monitoring classes.
+
+
+==== Qt Print Support
+
+link:https://doc.qt.io/qt-6/qtprintsupport-index.html[Qt Print Support]:
+Classes to make printing easier and more portable.
+
+
+==== Qt Protobuf
+
+link:https://doc.qt.io/qt-6/qtprotobuf-index.html[Qt Protobuf]:
+Provides an ability to generate Qt-based classes from protobuf specifications.
+
+
+==== Qt Quick 3D
+
+link:https://doc.qt.io/qt-6/qtquick3d-index.html[Qt Quick 3D]:
+Provides a high-level API for creating 3D content or UIs based on Qt Quick.
+
+
+==== Qt Quick 3D Physics
+
+link:https://doc.qt.io/qt-6/qtquick3dphysics-index.html[Qt Quick 3D Physics]:
+Qt Quick 3D Physics provides a high-level QML module adding physical simulation capabilities to Qt Quick 3D.
+
+
+==== Qt Quick Widgets
+
+link:https://doc.qt.io/qt-6/qtquickwidgets-index.html[Qt Quick Widgets]:
+Provides a C++ widget class for displaying a Qt Quick user interface.
+
+
+==== Qt Quick Effects
+
+link:https://doc.qt.io/qt-6/qtquick-effects-qmlmodule.html[Qt Quick Effects]:
+Provides QML types for applying one or more simple graphical effects to Qt Quick items.
+
+
+==== Qt Quick Particles
+
+link:https://doc.qt.io/qt-6/qtquick-particles-qmlmodule.html[Qt Quick Particles]:
+Provides QML types for particle effects.
+
+
+==== Qt Quick Timeline
+
+link:https://doc.qt.io/qt-6/qtquicktimeline-index.html[Qt Quick Timeline]:
+Enables keyframe-based animations and parameterization.
+
+
+==== Qt Remote Objects
+
+link:https://doc.qt.io/qt-6/qtremoteobjects-index.html[Qt Remote Objects]:
+Provides an easy to use mechanism for sharing a QObject's API (Properties/Signals/Slots) between processes or devices.
+
+
+==== Qt SCXML
+
+link:https://doc.qt.io/qt-6/qtscxml-index.html[Qt SCXML]:
+Provides classes and tools for creating state machines from SCXML files and embedding them in applications.
+
+
+==== Qt Sensors
+
+link:https://doc.qt.io/qt-6/qtsensors-index.html[Qt Sensors]:
+Provides access to sensor hardware on Android, iOS, and Windows platforms.
+
+
+==== Qt Serial Bus
+
+link:https://doc.qt.io/qt-6/qtserialbus-index.html[Qt Serial Bus]:
+Provides access to serial industrial bus interfaces. Currently, the module supports the CAN bus and Modbus protocols.
+
+
+==== Qt Serial Port
+
+link:https://doc.qt.io/qt-6/qtserialport-index.html[Qt Serial Port]:
+Provides classes to interact with hardware and virtual serial ports.
+
+
+==== Qt Shader Tools
+
+link:https://doc.qt.io/qt-6/qtshadertools-index.html[Qt Shader Tools]:
+Provides tools for the cross-platform Qt shader pipeline. These enable processing graphics and compute shaders to make them usable for Qt Quick and other components in the Qt ecosystem.
+
+
+==== Qt Spatial Audio
+
+link:https://doc.qt.io/qt-6/qtspatialaudio-index.html[Qt Spatial Audio]:
+Provides support for spatial audio. Create sound scenes in 3D space containing different sound sources and room related properties such as reverb.
+
+
+==== Qt SQL
+
+link:https://doc.qt.io/qt-6/qtsql-index.html[Qt SQL]:
+Classes for database integration using SQL.
+
+
+==== Qt State Machine
+
+link:https://doc.qt.io/qt-6/qtstatemachine-index.html[Qt State Machine]:
+Provides classes for creating and executing state graphs.
+
+
+==== Qt SVG
+
+link:https://doc.qt.io/qt-6/qtsvg-index.html[Qt SVG]:
+Classes for displaying the contents of SVG files. Supports a subset of the SVG 1.2 Tiny standard. A separate library (Qt SVG Widgets) provides support for rendering SVG files in a widget UI.
+
+
+==== Qt TextToSpeech
+
+link:https://doc.qt.io/qt-6/qttexttospeech-index.html[Qt TextToSpeech]:
+Provides support for synthesizing speech from text and playing it as audio output.
+
+
+==== Qt UI Tools
+
+link:https://doc.qt.io/qt-6/qtuitools-index.html[Qt UI Tools]:
+Classes for loading QWidget based forms created in Qt Widgets Designer dynamically, at runtime.
+
+
+==== Qt Virtual Keyboard
+
+link:https://doc.qt.io/qt-6/qtvirtualkeyboard-index.html[Qt Virtual Keyboard]:
+A framework for implementing different input methods as well as a QML virtual keyboard. Supports localized keyboard layouts and custom visual themes.
+
+
+==== Qt Wayland Compositor
+
+link:https://doc.qt.io/qt-6/qtwaylandcompositor-index.html[Qt Wayland Compositor]:
+Provides a framework to develop a Wayland compositor on Linux and Boot to Qt targets.
+
+
+==== Qt WebChannel
+
+link:https://doc.qt.io/qt-6/qtwebchannel-index.html[Qt WebChannel]:
+Provides access to QObject or QML objects from HTML clients for seamless integration of Qt applications with HTML/JavaScript clients.
+
+
+==== Qt WebSockets
+
+link:https://doc.qt.io/qt-6/qtwebsockets-index.html[Qt WebSockets]:
+Provides WebSocket communication compliant with RFC 6455.
+
+
+==== Qt WebView
+
+link:https://doc.qt.io/qt-6/qtwebview-index.html[Qt WebView]:
+Displays web content in a QML application by using APIs native to the platform, without the need to include a full web browser stack.
+
+
+==== Qt XML
+
+link:https://doc.qt.io/qt-6/qtxml-index.html[Qt XML]:
+Handling of XML in a Document Object Model (DOM) API.
+
+
+==== Qt 5 Compatibility APIs: Graphical Effects
+
+link:https://doc.qt.io/qt-6/qtgraphicaleffects5-index.html[Qt 5 Compatibility APIs: Graphical Effects]:
+Qt Graphical Effects module from Qt 5 provided for compatibility.
+
+
+==== Qt 5 Core Compatibility APIs
+
+link:https://doc.qt.io/qt-6/qtcore5-index.html[Qt 5 Core Compatibility APIs]:
+Qt Core APIs that were in Qt 5 but not Qt 6.
+
+
+[[qt-add-ons-in-technical-preview]]
+=== Qt Add-Ons in Technical Preview
+
+The following add-ons are still in development, but are available as technology previews:
+
+==== Qt Location
+
+link:https://doc.qt.io/qt-6/qtlocation-index.html[Qt Location]:
+Provides QML and C++ interfaces to create location-aware applications.
+
+
+[[qt-extension-modules]]
+=== Qt Extension Modules
+
+Qt Extension Modules bring additional functionality to Qt. They may be part of a given Qt release, but can deviate from the other Qt modules in terms of release schedule, platform support, the binaries Qt provides, commercial support, or compatibility promises. You can find specific details in the module documentation for each Extension Module.
+
+==== Qt WebEngine
+
+link:https://doc.qt.io/qt-6/qtwebengine-index.html[Qt WebEngine]:
+Classes and functions for embedding web content in applications using the Chromium browser project.
+
+
+==== Qt PDF
+
+link:https://doc.qt.io/qt-6/qtpdf-index.html[Qt PDF]:
+Classes and functions for rendering PDF documents on desktop platforms.
+
+
+[[where-to-go-from-here]]
+=== Where to Go from Here
+
+We invite you to explore the rest of Qt. We prepared overviews which help you decide which APIs to use and our examples demonstrate how to use our API.
+
+* link:https://doc.qt.io/qt-6/overviews-main.html[Qt Overviews] - list of topics about application development
+* link:https://doc.qt.io/qt-6/qtexamplesandtutorials.html[Examples and Tutorials] - code samples and tutorials
+* link:https://doc.qt.io/qt-6/reference-overview.html[Qt Reference Pages] - a listing of C++ and QML APIs
+* link:https://doc.qt.io/qt-6/whatsnew60.html#changes-to-supported-modules[Changes to Supported Modules] - status of Qt 5 modules in Qt 6.0
+

@@ -2789,6 +2789,7 @@ Inline Passthroughs 可以使用一到三个加号来包裹需要直通处理的
 TIP: 在列表或者在 Dlist 中可以使用 + 符号了连接多个段落，并且被连接的段落不能缩进，
 否则当作代码块处理。如果你习惯了 reStructuredText 那样样的缩进对齐，AsciiDoc
 这个非缩进处理风格，在源文档上看，列表内容就显得不太整齐，不是很美观。
+或者使用 open block (`--`) 分界符号包裹内容块。
 
 可以说，+ 符号的处理是 AsciiDoc 中较麻烦的一个字符，它的使用涉及多种功能，因为其
 承担的功能实在太多了，AsciiDoc 就没有像 Markdown 那样用它来做列表标记符号。使用
@@ -6180,8 +6181,8 @@ Check out the spinning icons example.
 |localtime: ${1:time (ISO)} |Time when the document was converted. Example: 19:31:05 UTC
 |localyear: ${1:integer} |Year when the document was converted. Example: 2021
 |outfilesuffix: ${1:file extension} |File extension of output file, including dot (.), such as .html.
-|attribute-missing: ${1|drop,drop-line,skip,warn|} |Controls how missing attribute references are handled. Default: skip
-|attribute-undefined: ${1|drop,drop-line|} |Controls how attribute unassignments are handled. Default: drop-line
+|attribute-missing: ${1\|drop,drop-line,skip,warn\|} |Controls how missing attribute references are handled. Default: skip
+|attribute-undefined: ${1\|drop,drop-line\|} |Controls how attribute unassignments are handled. Default: drop-line
 |compat-mode: |Controls when the legacy parsing mode is used to parse the document.
 |experimental: |Enables Button and Menu UI Macros and the Keyboard Macro.
 |reproducible: |Prevents last-updated date from being added to HTML footer or DocBook info element. Useful for storing the output in a source code control system as it prevents spurious changes every time you convert the document.
@@ -6236,61 +6237,61 @@ Check out the spinning icons example.
 |title: ${1:any} |Value of <title> element in HTML <head> or main DocBook <info> of output document. Used as a fallback when the document title is not specified. See title attribute.
 |idprefix: ${1:valid XML ID start character} |Prefix of auto-generated section IDs. See Change the ID prefix. Default: _
 |idseparator: ${1:valid XML ID character} |Word separator used in auto-generated section IDs. See Change the ID word separator. Default: _
-|leveloffset: ${1|[+-]0\u20135|} |Increases or decreases level of headings below assignment. A leading + or - makes the value relative.
+|leveloffset: ${1\|[+-]0\u20135\|} |Increases or decreases level of headings below assignment. A leading + or - makes the value relative.
 |partnums: |Enables numbering of parts. See Number book parts. Book doctype only.
 |sectanchors: |Adds anchor in front of section title on mouse cursor hover.
 |sectids: |Generates and assigns an ID to any section that does not have an ID. Enabled by default. See Disable ID generation.
 |sectlinks: |Turns section titles into self-referencing links.
-|sectnums: ${1:|,all|} |Numbers sections to depth specified by sectnumlevels.
-|sectnumlevels: ${1|0,1,2,3,4,5|} |Controls depth of section numbering. Implied: 3
+|sectnums: ${1:\|,all\|} |Numbers sections to depth specified by sectnumlevels.
+|sectnumlevels: ${1\|0,1,2,3,4,5\|} |Controls depth of section numbering. Implied: 3
 |title-separator: ${1:any} |Character used to separate document title and subtitle.
-|toc: ${1|auto,left,right,macro,preamble|} |Turns on table of contents and specifies its location. If empty: auto
-|toclevels: ${1|1,2,3,4,5|} |Maximum section level to display. Implied: 2
+|toc: ${1\|auto,left,right,macro,preamble\|} |Turns on table of contents and specifies its location. If empty: auto
+|toclevels: ${1\|1,2,3,4,5\|} |Maximum section level to display. Implied: 2
 |fragment: |Informs parser that document is a fragment and that it shouldn\u2019t enforce proper section nesting.
-|asset-uri-scheme: ${1|http,https|} |Controls protocol used for assets hosted on a CDN. Implied: https
+|asset-uri-scheme: ${1\|http,https\|} |Controls protocol used for assets hosted on a CDN. Implied: https
 |cache-uri: |Cache content read from URIs.
 |data-uri: |Embed graphics as data-uri elements in HTML elements so file is completely self-contained.
-|docinfo: ${1|shared,private,shared-head,private-head,shared-footer,private-footer|} |Read input from one or more DocBook info files. If empty: private
-|docinfodir: ${1|directory path|} |Location of docinfo files. Defaults to directory of source file if not specified.
+|docinfo: ${1\|shared,private,shared-head,private-head,shared-footer,private-footer\|} |Read input from one or more DocBook info files. If empty: private
+|docinfodir: ${1\|directory path\|} |Location of docinfo files. Defaults to directory of source file if not specified.
 |docinfosubs: ${1:comma-separated substitution names} |AsciiDoc substitutions that are applied to docinfo content. Implied: attributes
-|doctype: ${1|article,book,inline,manpage|} |Output document type. Default: article
-|eqnums: ${1|AMS,all,none|} |Controls automatic equation numbering on LaTeX blocks in HTML output (MathJax). If the value is AMS, only LaTeX content enclosed in an \\begin{equation}..\\end{equation} container will be numbered. If the value is all, then all LaTeX blocks will be numbered. See equation numbering in MathJax. If empty: AMS
+|doctype: ${1\|article,book,inline,manpage\|} |Output document type. Default: article
+|eqnums: ${1\|AMS,all,none\|} |Controls automatic equation numbering on LaTeX blocks in HTML output (MathJax). If the value is AMS, only LaTeX content enclosed in an \\begin{equation}..\\end{equation} container will be numbered. If the value is all, then all LaTeX blocks will be numbered. See equation numbering in MathJax. If empty: AMS
 |hardbreaks-option: |Preserve hard line breaks.
 |hide-uri-scheme: |Hides URI scheme for raw links.
-|media: ${1|prepress,print,screen|} |Specifies media type of output and enables behavior specific to that media type. PDF converter only. Implied: screen
+|media: ${1\|prepress,print,screen\|} |Specifies media type of output and enables behavior specific to that media type. PDF converter only. Implied: screen
 |nofooter: |Turns off footer.
 |nofootnotes: |Turns off footnotes.
 |noheader: |Turns off header.
 |notitle: |Hides the doctitle in an embedded document. Mutually exclusive with the showtitle attribute.
 |pagewidth: ${1:integer} |Page width used to calculate the absolute width of tables in the DocBook output. Implied: 425
 |relfileprefix: ${1:path segment} |The path prefix to add to relative xrefs.
-|relfilesuffix: ${1:file extension|path segment} |The path suffix (e.g., file extension) to add to relative xrefs. Defaults to the value of the outfilesuffix attribute. (Preferred over modifying outfilesuffix). Example: .html
+|relfilesuffix: ${1:file extension\|path segment} |The path suffix (e.g., file extension) to add to relative xrefs. Defaults to the value of the outfilesuffix attribute. (Preferred over modifying outfilesuffix). Example: .html
 |show-link-uri: |Prints the URI of a link after the link text. PDF converter only.
 |showtitle: |Displays the doctitle in an embedded document. Mutually exclusive with the notitle attribute.
-|stem: ${1|asciimath,latexmath|} |Enables mathematics processing and interpreter. If empty: asciimath
-|tabsize: ${1|integer (\u2265 0)|} |Converts tabs to spaces in verbatim content blocks (e.g., listing, literal).
+|stem: ${1\|asciimath,latexmath\|} |Enables mathematics processing and interpreter. If empty: asciimath
+|tabsize: ${1\|integer (\u2265 0)\|} |Converts tabs to spaces in verbatim content blocks (e.g., listing, literal).
 |webfonts: |Control whether webfonts are loaded when using the default stylesheet. When set to empty, uses the default font collection from Google Fonts. A non-empty value replaces the family query string parameter in the Google Fonts URL.
-|xrefstyle: ${1|full,short,basic|} |Formatting style to apply to cross reference text.
+|xrefstyle: ${1\|full,short,basic\|} |Formatting style to apply to cross reference text.
 |iconfont-cdn: ${1:url} |If not specified, uses the cdnjs.com service. Overrides CDN used to link to the Font Awesome stylesheet. Implied: default CDN URL
 |iconfont-name: ${1:any} |Overrides the name of the icon font stylesheet. Implied: font-awesome
 |iconfont-remote: |Allows use of a CDN for resolving the icon font. Empty by default. Only relevant used when value of icons attribute is font.
-|icons: ${1|image,font|} |Chooses images or font icons instead of text for admonitions. Any other value is assumed to be an icontype and sets the value to empty (image-based icons). If empty: image
-|iconsdir: ${1:directory path|url} |Location of non-font-based image icons. Defaults to the icons folder under imagesdir if imagesdir is specified and iconsdir is not specified. Example: ./images/icons
-|icontype: ${1|jpg,png,gif,svg|} |File type for image icons. Only relevant when using image-based icons. Implied: png
-|imagesdir: ${1:directory path|url} |Location of image files. Empty by default.
-|coderay-css: ${1|class,style|} |Controls whether CodeRay uses CSS classes or inline styles. Implied: class
-|coderay-linenums-mode: ${1|inline,table|} |Sets how CodeRay inserts line numbers into source listings. Implied: table
+|icons: ${1\|image,font\|} |Chooses images or font icons instead of text for admonitions. Any other value is assumed to be an icontype and sets the value to empty (image-based icons). If empty: image
+|iconsdir: ${1:directory path\|url} |Location of non-font-based image icons. Defaults to the icons folder under imagesdir if imagesdir is specified and iconsdir is not specified. Example: ./images/icons
+|icontype: ${1\|jpg,png,gif,svg\|} |File type for image icons. Only relevant when using image-based icons. Implied: png
+|imagesdir: ${1:directory path\|url} |Location of image files. Empty by default.
+|coderay-css: ${1\|class,style\|} |Controls whether CodeRay uses CSS classes or inline styles. Implied: class
+|coderay-linenums-mode: ${1\|inline,table\|} |Sets how CodeRay inserts line numbers into source listings. Implied: table
 |coderay-unavailable: |Tells processor not to load CodeRay.
-|highlightjsdir: ${1:directory path|url} |Location of the highlight.js source code highlighter library. Implied: default CDN URL
+|highlightjsdir: ${1:directory path\|url} |Location of the highlight.js source code highlighter library. Implied: default CDN URL
 |highlightjs-theme: ${1:highlight.js style name} |Name of theme used by highlight.js. Implied: github
-|prettifydir: ${1:directory path|url} |Location of non-CDN prettify source code highlighter library. Implied: default CDN URL
+|prettifydir: ${1:directory path\|url} |Location of non-CDN prettify source code highlighter library. Implied: default CDN URL
 |prettify-theme: ${1:prettify style name} |Name of theme used by prettify. Implied: prettify
 |prewrap: |Wrap wide code listings. Empty by default
-|pygments-css: ${1|class,style|} |Controls whether Pygments uses CSS classes or inline styles. Implied: class
-|pygments-linenums-mode: ${1|table,inline|} |Sets how Pygments inserts line numbers into source listings. Implied: table
+|pygments-css: ${1\|class,style\|} |Controls whether Pygments uses CSS classes or inline styles. Implied: class
+|pygments-linenums-mode: ${1\|table,inline\|} |Sets how Pygments inserts line numbers into source listings. Implied: table
 |pygments-style: ${1:Pygments style name} |Name of style used by Pygments. Implied: default
 |pygments-unavailable: |Tells the processor not to load Pygments.
-|source-highlighter: ${1|highlight.js,rouge,coderay,pygments|} |Specifies source code highlighter. Any other value is permitted, but must be supported by a custom syntax highlighter adapter.
+|source-highlighter: ${1\|highlight.js,rouge,coderay,pygments\|} |Specifies source code highlighter. Any other value is permitted, but must be supported by a custom syntax highlighter adapter.
 |source-indent: ${1:integer} |Normalize block indentation in source code listings.
 |source-language: ${1:source code language name} |Default language for source code blocks.
 |source-linenums-option: |Turns on line numbers for source code listings.
@@ -6298,7 +6299,7 @@ Check out the spinning icons example.
 |css-signature: ${1:valid XML ID} |Assign value to id attribute of HTML <body> element. Preferred approach is to assign an ID to document title.
 |linkcss: |Links to stylesheet instead of embedding it. Can\u2019t be unset in SECURE mode.
 |max-width: ${1:CSS length} |Constrains maximum width of document body. Not recommended. Use CSS stylesheet instead. Examples: 55em, 12cm
-|stylesdir: ${1:directory path|url|.} |Location of CSS stylesheets.
+|stylesdir: ${1:directory path\|url\|.} |Location of CSS stylesheets.
 |stylesheet: ${1:file path} |CSS stylesheet file name. Empty by default. An empty value tells the converter to use the default stylesheet.
 |toc-class: ${1:valid CSS class name} |CSS class on the table of contents container. Implied: toc, or toc2 if toc=left
 |mantitle: ${1:any} |Metadata for man page output.

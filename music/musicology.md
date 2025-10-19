@@ -93,10 +93,11 @@ Auto Tuner https://pan.baidu.com/s/1WLuE0ksCb1pM1t4n-MR8uw?pwd=8wv9
     音孔由五孔至八孔不等，其中以七音孔笛居多，有些音孔旁还加打了小孔，与现代中国音调完全一致。
 03. 1987 年河南省舞阳县贾湖遗址出土了 7 孔贾湖骨笛，是世界最早的可吹奏乐器，距今约 9000 年。
 
-西洋管乐器同类乐器中，笛分为短笛、长笛、风笛、直笛、陶笛。
+西洋管乐器同类乐器中，笛分为短笛、长笛、风笛、直笛。
 
 现代国乐的分类上，基本可以认定，横吹的叫笛子，竖吹的叫做箫。但是在古代，特别是宋之前的古诗词中读
-到笛和箫的时候，很有可能，其中所表现的乐器，与今天的理解很不一样，甚至相反。
+到笛和箫的时候，很有可能，其中所表现的乐器，与今天的理解很不一样，甚至相反。传统笛子除了竹子制作，
+还有陶土烧制的陶笛，其历史可以追溯到中国陕西半坡遗址出土的陶哨，距今已有 6000 多年的历史。
 
 目前市场上的笛子质量鱼龙混杂，同样的价格品质可能千差万别，作为一个初学者应该知道如果挑选一把合适
 自己的好笛子。几百块的笛子性价比最小，音色达不到专业要求，有可能音准还有问题。几十块甚至几块的有
@@ -1426,6 +1427,657 @@ Peter Crowley （皮特．克劳利）原名 Pierre Daniel Feal （皮埃尔·�
 自己的思想融入到歌曲创作中，使得作品拥有直击听众心灵的力量。皮特通常会将自己的新作率先在油管
 Youtube 上亮相，每隔一段时间就将新作整理汇编于一张专辑中并发行在各大音乐平台上。
 
+# Yanni 作品
+
+艺术家: Yanni（雅尼）  
+专辑名称: Discography  
+发行年代: 1984-2016  
+音乐风格: Instrumental, New Age  
+音乐格式: FLAC (tracks+cue+log/image+.cue+log)  
+音乐品质: lossless  
+专辑数量: 39CD  
+容量大小: 14.1 Gb（无损音乐）  
+百度盘： https://pan.baidu.com/s/1ooe40UCTTszgHScNLfwtRQ?pwd=viw7  
+
+Albums：25CD
+
+1984 - Optimystique
+1986 - Keys To Imagination
+1997 - Out of Silence
+1988 - Chameleon Days
+1988 - Steal The Sky (Music from the HBO Film)
+1989 - Heart Of Midnight (OST)
+1989 - Niki Nana [Tracks]
+1990 - Reflections of Passion
+1991 - In Celebration Of Life [Tracks]
+1992 - Dare To Dream [Tracks]
+1992 - Romantic Moments
+1993 - I Love You Perfect (OST)
+1993 - In My Time
+1994 - Live at The Acropolis
+1997 - Devotion -The Best Of Yanni
+1997 - In The Mirror
+1997 - Nightbird - A Collection of Yanni Favorites
+1997 - Port Of Mystery
+1997 - Songs From The Heart (2CD)
+1997 - Tribute [Tracks]
+1999 - Love Songs
+1999 - Winter Light
+2000 - If I Could Tell You
+2000 - Snowfall
+2000 - The Very Best of Yanni
+
+
+Live：14CD
+
+2003 - Ethnicity
+2003 - Ultimate Yanni (2CD)
+2006 - Yanni Live! The Concert Event
+2008 - Collections
+2009 - Yanni Voces
+2009 - Yanni Voices
+2010 - Mexicanisimo
+2010 - The Inspiring Journey (2CD)
+2011 - Truth Of Touch
+2012 - Live at El Morro, Puerto Rico
+2012 - My Passion For Mexico
+2014 - Inspirato
+2016 - Sensuous Chill
+2016 - The Dream Concert (Live from the Great Pyramids of Egypt)
+
+1984 - Optimystique
+1. The Sphynx 
+2. Butterfly Dance 
+3. Strings
+4. Twilight 
+5. The Chase 
+6. Farewell 
+7. Turn of the Tide 
+8. The Magus
+
+1986 - Keys To Imagination 
+01. The North Shore Of Matsushima
+02. Looking Glass
+03. Nostalgia
+04. Santorini
+05. Port Of Mystery
+06. Keys To Imagination
+07. Forgotten Yesterdays
+08. Forbidden Dreams
+
+1987 - Out of Silence 
+01. Sand Dance
+02. After the Sunrise
+03. Standing in Motion
+04. The Mermaid
+05. Within Attraction
+06. Street Level
+07. Secret Vows
+08. Point of Origin
+09. Acroyali
+10. Paths on Water
+
+1988 - Chameleon Days 
+01. Swept Away
+02. Marching Season
+03. Chasing Shadows
+04. The Rain Must Fall
+05. Days of Summer
+06. Reflections Of Passion
+07. Walkabout
+08. Everglade Run
+09. A Word In Private
+
+1999 - Steal The Sky 
+01. Steal The Sky
+02. Fountain / Life is Serious
+03. I'll Think About It / Fenesta Vascia
+04. Baghdad Airport / Main Title
+05. Stealing The Jet
+06. Munir Flies The Jet
+07. Munir Lands The Plane
+08. Finale
+09. Nowhere Man (Bonus Cue)
+
+1989 - Heart Of Midnight 
+01. Overture Carol's Theme
+02. Welcome To Midnight
+03. Carol Through The Rooms
+04. 'Oh, Daddy'/Carol Sees Fletcher/Rathed On Ice
+05. Carol's Theme - Soft Interlude
+06. The Rape (Part I and II)
+07. Aftermath
+08. Carol Talk To Maria
+09. Sharpe #2 Dies/Carol's Nightmare
+10. Carol's Theme - Sadness Of The Heart
+11. The Library Of Porn
+12. The Cabinet Falls/Carol Out In The Street/Attic/Dinner And Downstairs In The Club
+13. The S & M Room
+14. End Sequence: The Final Confrontation/Carol's Theme - Sister In Pain - Sonny's Death
+15. Finale - Carol's Theme
+
+1989 - Niki Nana 
+01. Niki Nana (We're One)
+02. Dance With a Stranger
+03. Running Time
+04. Someday
+05. Human Condition
+06. First Touch
+07. Nightbird
+08. Quiet Man
+
+1990 - Reflections of Passion 
+01. After the Sunrise
+02. The Mermaid
+03. Quiet Man
+04. Nostalgia
+05. Almost a Whisper
+06. The Rain Must Fall
+07. Acroyali
+08. Farewell
+09. Swept Away
+10. True Nature
+11. Secret Vows
+12. Flight of Fantasy
+13. A Word in Private
+14. First Touch
+15. Reflections of Passion
+
+1991 - In Celebration Of Life 
+01. Santorin
+02. Song For Antarctica
+03. Marching Season
+04. Walkabout 
+05. Keys To Imagination
+06. Looking Glass
+07. Someday
+08. Within Attraction
+09. Standing In Motion
+10. Sand Dance 
+
+1992 - Dare To Dream 
+01. Once Upon A Time
+02. A Love For Life
+03. Nice To Meet You
+04. So Long My Friend
+05. You Only Live Once
+06. To The One Who Knows
+07. Face In The Photograph
+08. Felitsa
+09. Desire
+10. Aria
+11. A Night To Remember
+12. In The Mirror
+
+1992 -  Romantic Moments 
+01. Reflections of Passion
+02. Santorini
+03. After the Sunrise
+04. True Nature
+05. Almost a Whisper
+06. Swept Away
+07. The Mermaid
+08. Flight of Fantasy
+09. Secret Vows
+10. Acroyali
+11. Song for Antarctica
+12. Marching Season
+13. Sand Dance
+14. In the Mirror
+15. Paths on Water
+
+1993 - I Love You Perfect 
+01. Opening Credits: Theme to 'I Love You Perfect'
+02. The Lovers Quarrel
+03. Allan Fired
+04. Chair Shower and Court Room Montage
+05. Setting The Horse Free
+06. The Lovers Make Up
+07. Clarinet Quintet K.581 - Allegretto (Mozart)
+08. Marry Me!
+09. Ill Be By Your Side
+10. Temper Tantrum
+11. But I Have Some Good Days
+12. Hospital Montage
+13. Christina Dies
+14. Ending Credits - Theme to 'I Love You Perfect'
+
+1993 - In My Time 
+01. In The Morning Light
+02. One Man's Dream
+03. Before I Go
+04. Enchantment
+05. The End Of August
+06. To Take ... To Hold
+07. In The Mirror
+08. Felitsa
+09. Whispers In The Dark
+10. Only A Memory
+11. Until The Last Moment
+
+1994 -  Live at The Acropolis 
+01. Santorini
+02. Keys to Imagination
+03. Until The Last Moment
+04. The Rain Must Fall
+05. Acroyali-/ Standing in Motion [Medley]
+06. One Man's Dream
+07. Within Attraction
+08. Nostalgia
+09. Swept Away
+10. Reflections of Passion
+11. Aria
+
+1997 - Devotion -The Best Of Yanni  
+01. Once Upon A Time
+02. Within Attraction
+03. Song For Antartica
+04. Aria
+05. A Love For Life
+06. Reflections Of Passion
+07. To Take...To Hold
+08. Only A Memory
+09. Flight Of Fantasy
+10. To The One Who Knows
+11. The End Of August
+12. Marching Season
+13. Santorini
+14. Nice To Meet You (Special Radio Edit)
+15. A Night To Remember
+
+1997 - In The Mirror 
+01. In The Mirror
+02. In The Morning Light
+03. A Love For Life
+04. One Man's Dream
+05. Within Attraction
+06. Forbidden Dreams
+07. Once Upon A Time
+08. Chasing Shadows
+09. Aria
+10. Quiet Man
+11. Yanni - Enchantment
+12. So Long My Friend
+13. Before I Go
+14. The End Of August
+15. Face In The Photograph
+
+1997 - Nightbird - A Collection of Yanni Favorites
+01. North Shore Of Matsushima
+02. Point Of Origin
+03. Within Attraction
+04. Dance With A Stranger
+05. Chasing Shadows
+06. Days Of Summer
+07. Nightbird
+
+1997 - Port Of Mystery 
+01. The Sphynx
+02. You Only Live Once
+03. Port Of Mystery
+04. Butterfly Dance
+05. Farewell
+06. Street Level
+07. The Magus
+08. Looking Glass
+
+1997 - Songs From The Heart CD-1 
+01. Aria
+02. In The Morning Light
+03. One Man's Dream
+04. Once Upon A Time
+05. Enchantment
+06. Face In The Photograph
+07. Forbidden Dreams
+08. The Mermaid
+09. Secret Vows
+10. Paths On Water
+11. A Word In Private
+12. First Touch
+13. Sand Dance
+
+1997 - Songs From The Heart CD-2 
+01. Santorini
+02. Forgotten Yesterdays
+03. Within Attraction
+04. Song For Antarctica
+05. Keys To Imagination
+06. Standing In Motion
+07. After The Sunrise
+08. Acroyali
+09. Reflections Of Passion
+10. Looking Glass
+11. Nostalgia
+12. Chasing Shadows
+
+1997 - Tribute 
+01. Deliverance
+02. Adagio In C Minor
+03. Renegade
+04. Dance With A Stranger
+05. Tribute
+06. Prelude
+07. Love Is All
+08. Southern Exposure
+09. Waltz In 7/8
+10. Nightingale
+11. Niki Nana (We're One)
+
+1999 - Love Songs 
+01. In The Morning Light
+02. So Long My Friend
+03. To The One Who Knows
+04. Almost A Whisper
+05. Before I Go
+06. In The Mirror
+07. First Touch
+08. Enchantment
+09. Felitsa
+10. Secret Vows
+11. Whispers In The Dark
+12. To Take...To Hold
+
+1999 - Winter Light 
+01. Forgotten Yesterdays
+02. Only A Memory
+03. Point Of Origin
+04. Marching Season
+05. After The Sunrise
+06. Until The Last Moment
+07. Twilight
+08. Keys To Imagination
+09. A Word In Private
+10. True Nature
+11. The Magus
+12. Face In The Photograph
+
+2000 - If I Could Tell You 
+01. On Sacred Ground
+02. The Flame Within
+03. Midnight Hymn
+04. November Sky
+05. With An Orchid
+06. Wishing Well
+07. A Walk in the Rain
+08. Highland
+09. If I Could Tell You
+10. In Your Eyes
+11. Reason for Rainbows
+
+2000 -  Snowfall 
+01. After The Sunrise
+02. In The Morning Light
+03. Enchantment
+04. True Nature
+05. Turn Of The Tide
+06. Only A Memory
+07. Nostalgia
+08. A Word In Private
+09. One Man's Dream
+10. Farewell
+
+2000 - The Very Best of Yanni 
+01. Aria
+02. Looking Glass
+03. In The Morning Light
+04. Marching Season
+05. Swept Away
+06. One Man's Dream
+07. The Mermaid
+08. To The One Who Knows
+09. Santorini
+10. Acroyali
+11. In The Mirror
+12. Someday
+13. Flight Of Fantasy
+14. The End Of August
+15. The Rain Must Fall
+16. Face In The Photograph
+
+2003 - Ethnicity 
+01. Rites of Passage
+02. For All Seasons
+03. The Promise
+04. Rainmaker
+05. Written on the Wind.
+06. Playing by Heart
+07. At First Sigh
+08. Tribal Dream.
+09. Almost a Whisper
+10. Never Too Late.
+11. Play Time
+12. Jivaeri (Jiva-Eri)
+
+2003 - Ultimate Yanni CD-1 
+01. You Only Live Once
+02. Flight of Fantasy
+03. To the One Who Knows
+04. Keys to Imagination
+05. Butterfly Dance
+06. Nice to Meet You
+07. Santorini
+08. Nostalgia
+09. Aria
+10. Point of Origin
+11. Nightbird
+12. Chasing Shadows
+
+2003 - Ultimate Yanni CD-2 
+01. Paths of Water
+02. Marching Season
+03. Reflections of Passion
+04. Looking Glass
+05. A Word in Private
+06. One Man's Dream
+07. Felista
+08. In the Mirror
+09. Desire
+10. The Rain Must Fall
+11. Running Time
+12. Forbidden Dreams
+
+2006 - Yanni Live! The Concert Event 
+01. Rainmaker
+02. Keys To Imagination
+03. Enchantment
+04. Standing In Motion
+05. On Sacred Ground
+06. Playtime
+07. Until The Last Moment
+08. If I Could Tell You
+09. For All Seasons
+10. The Storm
+11. Prelude
+12. Nostalgia
+
+2008 -  Collections
+01. Reflections of Passion 
+02. Until the Last Moment 
+03. Before I Go 
+04. After the Sunrise 
+05. To the One Who Knows 
+06. Once Upon a Time 
+07. A Word in Private 
+08. Flight of Fantasy 
+09. Almost a Whisper 
+10. Aria 
+
+2009 - Yanni Voces 
+01. Ritual De Amor (Desire)
+02. Llama De Amor
+03. Y Te Vas
+04. Ni La Fuerza Del Destino
+05. Unico Amor (Enchantment)
+06. No Ha Dejado De Llover
+07. Quedate Conmigo
+08. Nei Tuoi Occhi (In The Mirror) [Spanish Version]
+09. Eterno Es Este Amor
+10. Volver
+11. Mi Todo Eres Tu (Until The Last Moment)
+12. Yanni & Arturo
+13. Vivire Por Ti
+14. En Silencio
+15. Que Te Vaya Bien
+16. Amare Di Nuovo (Adagio In C Minor)
+17. Volver A Creer
+
+2009 - Yanni Voices
+01. Omaggio (Tribute)
+02. The Keeper
+03. Our Days
+04. Never Leave The Sun
+05. Before The Night Ends
+06. 1001
+07. Mas Alla
+08. Unico Amore (Enchantment)
+09. Vivi Il Tuo Sogno (Almost A Whisper)
+10. Orchid
+11. Set Me Free
+12. Kill Me With Your Love
+13. Mi Todo Eres Tu (Until The Last Moment)
+14. Ritual De Amore (Desire)
+15. Moments Without Time
+16. Nei Tuoi Occhi (Into The Mirror)
+17. Amare Di Nuovo (Adagio In C Minor)
+
+2010 - The Inspiring Journey CD-1
+01. Aria    
+02. To The One Who Knows    
+03. Butterfly Dance    
+04. Almost A Whisper   
+05. The Rain Must Fall    
+06. Keys To Imagination   
+07. To Take ...To Hold    
+08. Marching Season    
+09. You Only Live Once    
+10. Within Attraction`    
+11. So Long My Friend   
+12. A Word In Private    
+13. In The Morning Light 
+14. A Love For Life  
+
+2010 - The Inspiring Journey CD-2 
+01. Once Upon A Time   
+02. First Touch  
+03. Flight Of Fantasy (260 652)    
+04. Song For Antarctica    
+05. Reflections Of Passion    
+06. Looking Glass    
+07. In The Mirror    
+08. One Man's Dream    
+09. Desire    
+10. Felitsa    
+11. Nice To Meet You    
+12. Nostalgia    
+13. Santorini    
+14. After The Sunrise
+
+2010 - Mexicanisimo
+01. El Cascabel 
+02. Granada 
+03. La Bikina 
+04. El Son De La Negra 
+05. Cielito Lindo 
+06. Silverio Perez 
+07. Guadalajara 
+08. Mi Cuidad 
+09. Maria Bonita 
+10. La Culebra 
+11. La Malaguena 
+12. Mexico Lindo Y Querido
+
+2011 - Truth Of Touch
+01. Truth Of Touch 
+02. Echo Of A Dream
+03. Seasons 
+04. Voyage 
+05. Flash Of Color
+06. Vertigo 
+07. Nine 
+08. Can't Wait 
+09. Guilty Pleasure 
+10. O Luce Che Brilla Nell'Oscurita 
+11. I'm So 
+12. Long Way Home 
+13. Yanni & Arturo 
+14. Mist Of A Kiss 
+15. Secret
+
+2012 - Live at El Morro, Puerto Rico
+01. Truth of Touch 
+02. Vertigo 
+03. The End Of August 
+04. The Rain Must Fall 
+05. Felitsa 
+06. Voyage 
+07. Nightingale 
+08. Ode to Humanity 
+09. Niki Nana 
+10. One Man's Dream
+
+2012 - My Passion For Mexico
+01. El Cascabel 
+02. Granada 
+03. La Bikina 
+04. El Son De La Negra 
+05. Cielito Lindo 
+06. Silverio Perez 
+07. Guadalajara 
+08. Mi Cuidad 
+09. Maria Bonita 
+10. La Culebra 
+11. La Malaguena 
+12. Mexico Lindo Y Querido 
+
+2014 - Inspirato
+01. I Genitori 
+02. Come Un Sospiro
+03. Ode Alla Grecia 
+04. L'Ombra Dell'Angelo
+05. Amare Di Nuova 
+06. Hasta El Ultimo Momento 
+07. Riconoscimento
+08. Incanto 
+09. Il Primo Tocco 
+10. Usignolo 
+11. La Prima Luce 
+12. Ode A L'Humanite 
+13. Nello Specchio
+
+2016 - Sensuous Chill
+01. Thirst for Life (03:46)
+02. Rapture (03:34)
+03. Drive (03:55)
+04. What You Get (04:34)
+05. Desert Soul (03:35)
+06. 1001 (03:53)
+07. The Keeper (03:28)
+08. Whispers in the Dark (03:51)
+09. Seeing You Around (03:38)
+10. Orchid (04:14)
+11. Our Days (04:26)
+12. A Little Too Late (03:54)
+13. Dance for Me (04:33)
+14. Retreat to Dream (03:33)
+15. Test of Time (03:55)
+16. Can't Wait (04:07)
+17. I'm So (04:37)
+
+2016 - The Dream Concert (Live from the Great Pyramids of Egypt)
+01. One Man's Dream (Live) (2:47)
+02. For All Seasons (Live) (6:01)
+03. Yanni: Welcome (Live) (3:45)
+04. Felitsa (Live) (4:51)
+05. Acroyali (Live) (2:17)
+06. Human Condition (Live) (5:12)
+07. Dreams Come True Interlude (Live) (2:42)
+08. Reflections of Passion (Live) (4:33)
+09. Standing in Motion (Live) (1:49)
+10. Nostalgia (Live) (4:20)
+11. Niki Nana (Live) (6:41)
+12. Santorini (Live) (4:49)
+13. International Space Station Message (Live) (3:53)
+14. The Storm (Live) (4:18)
 
 
 # 我爱你，中国

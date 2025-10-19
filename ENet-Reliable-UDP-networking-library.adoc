@@ -1,0 +1,1201 @@
+:icons: font
+:source-language: c++
+:source-highlighter: highlightjs
+:stem: latexmath
+:table-frame: none
+:table-grid: rows
+:table-stripes: odd
+== ENet - Reliable UDP networking library
+
+[.text-center.big]
+**Offical Website http://enet.bespin.org/** +
+**MSYS2 Portable https://packages.msys2.org/packages/mingw-w64-x86_64-enet** +
+pacman -S mingw-w64-x86_64-enet
+
+ENet's purpose is to provide a relatively thin, simple and robust network communication layer on top of **_UDP (User Datagram Protocol)_**. The primary feature it provides is optional reliable, in-order delivery of packets.
+
+ENet omits certain higher level networking features such as authentication, lobbying, server discovery, encryption, or other similar tasks that are particularly application specific so that the library remains flexible, portable, and easily embeddable.
+
+• Features and Architecture
+• Downloads
+• Installation
+• Tutorial
+• Mailing List
+• IRC Channel
+• Frequently Answered Questions
+• License
+• link:http://enet.bespin.org/usergroup0.html[Documentation]
+
+== • Features and Architecture
+
+ENet evolved specifically as a UDP networking layer for the multiplayer first person shooter Cube.
+
+Cube necessitated low latency communication with data sent out very frequently, so TCP was an unsuitable choice due to its high latency and stream orientation. UDP, however, lacks many sometimes necessary features from TCP such as reliability, sequencing, unrestricted packet sizes, and connection management. So UDP by itself was not suitable as a network protocol either. No suitable freely available networking libraries existed at the time of ENet's creation to fill this niche.
+
+UDP and TCP could have been used together in Cube to benefit somewhat from both of their features, however, the resulting combinations of protocols still leaves much to be desired. TCP lacks multiple streams of communication without resorting to opening many sockets and complicates delineation of packets due to its buffering behavior. UDP lacks sequencing, connection management, management of bandwidth resources, and imposes limitations on the size of packets. A significant investment is required to integrate these two protocols, and the end result is worse off in features and performance than the uniform protocol presented by ENet.
+
+ENet thus attempts to address these issues and provide a single, uniform protocol layered over UDP to the developer with the best features of UDP and TCP as well as some useful features neither provide, with a much cleaner integration than any resulting from a mixture of UDP and TCP.
+
+=== Connection Management
+
+ENet provides a simple connection interface over which to communicate with a foreign host. The liveness of the connection is actively monitored by pinging the foreign host at frequent intervals, and also monitors the network conditions from the local host to the foreign host such as the mean round trip time and packet loss in this fashion.
+
+=== Sequencing
+
+Rather than a single byte stream that complicates the delineation of packets, ENet presents connections as multiple, properly sequenced packet streams that simplify the transfer of various types of data.
+
+ENet provides sequencing for all packets by assigning to each sent packet a sequence number that is incremented as packets are sent. ENet guarantees that no packet with a higher sequence number will be delivered before a packet with a lower sequence number, thus ensuring packets are delivered exactly in the order they are sent.
+
+For unreliable packets, ENet will simply discard the lower sequence number packet if a packet with a higher sequence number has already been delivered. This allows the packets to be dispatched immediately as they arrive, and reduce latency of unreliable packets to an absolute minimum. For reliable packets, if a higher sequence number packet arrives, but the preceding packets in the sequence have not yet arrived, ENet will stall delivery of the higher sequence number packets until its predecessors have arrived.
+
+=== Channels
+
+Since ENet will stall delivery of reliable packets to ensure proper sequencing, and consequently any packets of higher sequence number whether reliable or unreliable, in the event the reliable packet's predecessors have not yet arrived, this can introduce latency into the delivery of other packets which may not need to be as strictly ordered with respect to the packet that stalled their delivery.
+
+To combat this latency and reduce the ordering restrictions on packets, ENet provides multiple channels of communication over a given connection. Each channel is independently sequenced, and so the delivery status of a packet in one channel will not stall the delivery of other packets in another channel.
+
+=== Reliability
+
+ENet provides optional reliability of packet delivery by ensuring the foreign host acknowledges receipt of all reliable packets. ENet will attempt to resend the packet up to a reasonable amount of times, if no acknowledgement of the packet's receipt happens within a specified timeout. Retry timeouts are progressive and become more lenient with every failed attempt to allow for temporary turbulence in network conditions.
+
+=== Fragmentation and Reassembly
+
+ENet will send and deliver packets regardless of size. Large packets are fragmented into many smaller packets of suitable size, and reassembled on the foreign host to recover the original packet for delivery. The process is entirely transparent to the developer.
+
+=== Aggregation
+
+ENet aggregates all protocol commands, including acknowledgements and packet transfer, into larger protocol packets to ensure the proper utilization of the connection and to limit the opportunities for packet loss that might otherwise result in further delivery latency.
+
+=== Adaptability
+
+ENet provides an in-flight data window for reliable packets to ensure connections are not overwhelmed by volumes of packets. It also provides a static bandwidth allocation mechanism to ensure the total volume of packets sent and received to a host don't exceed the host's capabilities. Further, ENet also provides a dynamic throttle that responds to deviations from normal network connections to rectify various types of network congestion by further limiting the volume of packets sent.
+
+=== Portability
+
+ENet works on Windows and any other Unix or Unix-like platform providing a BSD sockets interface. The library has a small and stable code base that can easily be extended to support other platforms and integrates easily. ENet makes no assumptions about the underlying platform's endianess or word size.
+
+=== Freedom
+
+ENet demands no royalties and doesn't carry a viral license that would restrict you in how you might use it in your programs. ENet is licensed under a short-and-sweet MIT-style license, which gives you the freedom to do anything you want with it (well, almost anything).
+
+
+== • Downloads
+
+You can retrieve the source to ENet by downloading it in either .tar.gz form or accessing the github distribution directly.
+
+The most recent link:http://enet.bespin.org/download/enet-1.3.18.tar.gz[stable release (1.3.18)] can be downloaded here. The last release that is protocol compatible with the 1.2 series or earlier (1.2.5) can be downloaded link:http://enet.bespin.org/download/enet-1.2.5.tar.gz[here].
+
+You can find the most recent ENet source at the link:https://github.com/lsalzman/enet[github repository].
+
+
+== • Installation
+
+ENet should be trivially simple to integrate with most applications.
+
+First, make sure you download the latest source distribution at Downloads.
+
+=== Unix-like Operating Systems
+
+If you are using an ENet release, then you should simply be able to build it by doing the following:
+
+[source,bash]
+----
+./configure && make && make install
+----
+
+If you obtained the package from github, you must have automake and autoconf available to generate the build system first by doing the following command before using the above mentioned build procedure:
+
+[source,bash]
+autoreconf -vfi
+
+=== Solaris and BSD
+
+When building ENet under Solaris, you must specify the `-lsocket` and `-lnsl` parameters to your compiler to ensure that the sockets library is linked in.
+
+=== Microsoft Windows
+
+You may simply use the included "enet.lib" or "enet64.lib" static libraries. However, if you wish to build the library yourself, then the following instructions apply:
+
+There is an included MSVC 6 project (enet.dsp) which you may use to build a suitable library file. Alternatively, you may simply drag all the ENet source files into your main project.
+
+You will have to link to the Winsock2 libraries, so make sure to add ws2_32.lib and winmm.lib to your library list (Project Settings | Link | Object/library modules).
+
+Load the included enet.dsp. MSVC may ask you to convert it if you are on a newer version of MSVC - just allow the conversion and save the resulting project as "enet" or similar. After you build this project, it will output an "enet.lib" file to either the "Debug/" or "Release/" directory, depending on which configuration you have selected to build. By default, it should produce "Debug/enet.lib".
+
+You may then copy the resulting "enet.lib" file and the header files found in the "include/" directory to your other projects and add it to their library lists. Make sure to also link against "ws2_32.lib" and "winmm.lib" as described above.
+
+=== DLL
+
+If you wish to build ENet as a DLL you must first define ENET_DLL within the project (Project Settings | C/C++ | Preprocessor | Preprocessor definitions) or, more invasively, simply define ENET_DLL at the top of enet.h.
+
+
+== • Tutorial
+
+• Initialization
+• Creating an ENet server
+• Creating an ENet client
+• Managing an ENet host
+• Sending a packet to an ENet peer
+• Disconnecting an ENet peer
+• Connecting to an ENet host
+
+=== Initialization
+
+You should include the file <enet/enet.h> when using ENet. [.red]**DO NOT** include <enet.h> without the directory prefix, as this may cause file name conflicts on some systems.
+
+Before using ENet, you must call `enet_initialize()` to initialize the library. Upon program exit, you should call `enet_deinitialize()` so that the library may clean up any used resources.
+
+[source,cpp]
+----
+#include <enet/enet.h>
+ 
+int 
+main (int argc, char ** argv) 
+{
+    if (enet_initialize () != 0)
+    {
+        fprintf (stderr, "An error occurred while initializing ENet.\n");
+        return EXIT_FAILURE;
+    }
+    atexit (enet_deinitialize);
+    ...
+    ...
+    ...
+}
+----
+
+=== Creating an ENet server
+
+Servers in ENet are constructed with `enet_host_create()`. You must specify an address on which to receive data and new connections, as well as the maximum allowable numbers of connected peers. You may optionally specify the incoming and outgoing bandwidth of the server in bytes per second so that ENet may try to statically manage bandwidth resources among connected peers in addition to its dynamic throttling algorithm; specifying 0 for these two options will cause ENet to rely entirely upon its dynamic throttling algorithm to manage bandwidth.
+
+When done with a host, the host may be destroyed with `enet_host_destroy()`. All connected peers to the host will be reset, and the resources used by the host will be freed.
+
+[source,cpp]
+----
+ENetAddress address;
+ENetHost * server;
+ 
+/* Bind the server to the default localhost.     */
+/* A specific host address can be specified by   */
+/* enet_address_set_host (& address, "x.x.x.x"); */
+ 
+address.host = ENET_HOST_ANY;
+/* Bind the server to port 1234. */
+address.port = 1234;
+ 
+server = enet_host_create (& address /* the address to bind the server host to */, 
+            32      /* allow up to 32 clients and/or outgoing connections */,
+             2      /* allow up to 2 channels to be used, 0 and 1 */,
+             0      /* assume any amount of incoming bandwidth */,
+             0      /* assume any amount of outgoing bandwidth */);
+if (server == NULL)
+{
+    fprintf (stderr, 
+             "An error occurred while trying to create an ENet server host.\n");
+    exit (EXIT_FAILURE);
+}
+...
+...
+...
+enet_host_destroy(server);
+----
+
+=== Creating an ENet client
+
+Clients in ENet are similarly constructed with `enet_host_create()` when no address is specified to bind the host to. Bandwidth may be specified for the client host as in the above example. The peer count controls the maximum number of connections to other server hosts that may be simultaneously open.
+
+[source,cpp]
+----
+ENetHost * client;
+ 
+client = enet_host_create (NULL /* create a client host */,
+            1 /* only allow 1 outgoing connection */,
+            2 /* allow up 2 channels to be used, 0 and 1 */,
+            0 /* assume any amount of incoming bandwidth */,
+            0 /* assume any amount of outgoing bandwidth */);
+
+if (client == NULL)
+{
+    fprintf (stderr, 
+             "An error occurred while trying to create an ENet client host.\n");
+    exit (EXIT_FAILURE);
+}
+...
+...
+...
+enet_host_destroy(client);
+----
+
+=== Managing an ENet host
+
+ENet uses a polled event model to notify the programmer of significant events. ENet hosts are polled for events with `enet_host_service()`, where an optional timeout value in milliseconds may be specified to control how long ENet will poll; if a timeout of 0 is specified, `enet_host_service()` will return immediately if there are no events to dispatch. `enet_host_service()` will return 1 if an event was dispatched within the specified timeout.
+
+Beware that most processing of the network with the ENet stack is done inside `enet_host_service()`. Both hosts that make up the sides of a connection must regularly call this function to ensure packets are actually sent and received. A common symptom of not actively calling `enet_host_service()` on both ends is that one side receives events while the other does not. The best way to schedule this activity to ensure adequate service is, for example, to call `enet_host_service()` with a 0 timeout (meaning non-blocking) at the beginning of every frame in a game loop.
+
+Currently there are only four types of significant events in ENet:
+
+• An event of type `ENET_EVENT_TYPE_NONE` is returned if no event occurred within the specified time limit. `enet_host_service()` will return 0 with this event.
+
+• An event of type `ENET_EVENT_TYPE_CONNECT` is returned when either a new client host has connected to the server host or when an attempt to establish a connection with a foreign host has succeeded. Only the "peer" field of the event structure is valid for this event and contains the newly connected peer.
+
+• An event of type `ENET_EVENT_TYPE_RECEIVE` is returned when a packet is received from a connected peer. The "peer" field contains the peer the packet was received from, "channelID" is the channel on which the packet was sent, and "packet" is the packet that was sent. The packet contained in the "packet" field must be destroyed with `enet_packet_destroy()` when you are done inspecting its contents.
+
+• An event of type `ENET_EVENT_TYPE_DISCONNECT` is returned when a connected peer has either explicitly disconnected or timed out. Only the "peer" field of the event structure is valid for this event and contains the peer that disconnected. Only the "data" field of the peer is still valid on a disconnect event and must be explicitly reset.
+
+[source,cpp]
+----
+ENetEvent event;
+ 
+/* Wait up to 1000 milliseconds for an event. */
+while (enet_host_service (client, & event, 1000) > 0)
+{
+    switch (event.type)
+    {
+    case ENET_EVENT_TYPE_CONNECT:
+        printf ("A new client connected from %x:%u.\n", 
+                event.peer -> address.host,
+                event.peer -> address.port);
+ 
+        /* Store any relevant client information here. */
+        event.peer -> data = "Client information";
+ 
+        break;
+ 
+    case ENET_EVENT_TYPE_RECEIVE:
+        printf ("A packet of length %u containing %s was received from %s on channel %u.\n",
+                event.packet -> dataLength,
+                event.packet -> data,
+                event.peer -> data,
+                event.channelID);
+ 
+        /* Clean up the packet now that we're done using it. */
+        enet_packet_destroy (event.packet);
+        
+        break;
+       
+    case ENET_EVENT_TYPE_DISCONNECT:
+        printf ("%s disconnected.\n", event.peer -> data);
+ 
+        /* Reset the peer's client information. */
+ 
+        event.peer -> data = NULL;
+    }
+}
+...
+...
+...
+----
+
+=== Sending a packet to an ENet peer
+
+Packets in ENet are created with `enet_packet_create()`, where the size of the packet must be specified. Optionally, initial data may be specified to copy into the packet.
+
+Certain flags may also be supplied to `enet_packet_create()` to control various packet features:
+
+`ENET_PACKET_FLAG_RELIABLE` specifies that the packet must use reliable delivery. A reliable packet is guaranteed to be delivered, and a number of retry attempts will be made until an acknowledgement is received from the foreign host the packet is sent to. If a certain number of retry attempts is reached without any acknowledgement, ENet will assume the peer has disconnected and forcefully reset the connection. If this flag is not specified, the packet is assumed an unreliable packet, and no retry attempts will be made nor acknowledgements generated.
+
+A packet may be resized (extended or truncated) with `enet_packet_resize()`.
+
+A packet is sent to a foreign host with `enet_peer_send()`. `enet_peer_send()` accepts a channel id over which to send the packet to a given peer. Once the packet is handed over to ENet with `enet_peer_send()`, ENet will handle its deallocation and `enet_packet_destroy()` should not be used upon it.
+
+One may also use `enet_host_broadcast()` to send a packet to all connected peers on a given host over a specified channel id, as with `enet_peer_send()`.
+
+Queued packets will be sent on a call to `enet_host_service()`. Alternatively, `enet_host_flush()` will send out queued packets without dispatching any events.
+
+[source,cpp]
+----
+/* Create a reliable packet of size 7 containing "packet\0" */
+ENetPacket * packet = enet_packet_create ("packet", 
+                                          strlen ("packet") + 1, 
+                                          ENET_PACKET_FLAG_RELIABLE);
+ 
+/* Extend the packet so and append the string "foo", so it now */
+/* contains "packetfoo\0"                                      */
+enet_packet_resize (packet, strlen ("packetfoo") + 1);
+strcpy (& packet -> data [strlen ("packet")], "foo");
+ 
+/* Send the packet to the peer over channel id 0. */
+/* One could also broadcast the packet by         */
+/* enet_host_broadcast (host, 0, packet);         */
+enet_peer_send (peer, 0, packet);
+...
+...
+...
+/* One could just use enet_host_service() instead. */
+enet_host_flush (host);
+----
+
+=== Disconnecting an ENet peer
+
+Peers may be gently disconnected with `enet_peer_disconnect()`. A disconnect request will be sent to the foreign host, and ENet will wait for an acknowledgement from the foreign host before finally disconnecting. An event of type `ENET_EVENT_TYPE_DISCONNECT` will be generated once the disconnection succeeds. Normally timeouts apply to the disconnect acknowledgement, and so if no acknowledgement is received after a length of time the peer will be forcefully disconnected.
+
+`enet_peer_reset()` will forcefully disconnect a peer. The foreign host will get no notification of a disconnect and will time out on the foreign host. No event is generated.
+
+[source,cpp]
+----
+ENetEvent event;
+ 
+enet_peer_disconnect (peer, 0);
+ 
+/* Allow up to 3 seconds for the disconnect to succeed
+ * and drop any packets received packets.
+ */
+while (enet_host_service (client, & event, 3000) > 0)
+{
+    switch (event.type)
+    {
+    case ENET_EVENT_TYPE_RECEIVE:
+        enet_packet_destroy (event.packet);
+        break;
+ 
+    case ENET_EVENT_TYPE_DISCONNECT:
+        puts ("Disconnection succeeded.");
+        return;
+    ...
+    ...
+    ...
+    }
+}
+ 
+/* We've arrived here, so the disconnect attempt didn't */
+/* succeed yet.  Force the connection down.             */
+enet_peer_reset (peer);
+...
+...
+...
+----
+
+=== Connecting to an ENet host
+
+A connection to a foreign host is initiated with `enet_host_connect()`. It accepts the address of a foreign host to connect to, and the number of channels that should be allocated for communication. If N channels are allocated for use, their channel ids will be numbered 0 through N-1. A peer representing the connection attempt is returned, or NULL if there were no available peers over which to initiate the connection. When the connection attempt succeeds, an event of type `ENET_EVENT_TYPE_CONNECT` will be generated. If the connection attempt times out or otherwise fails, an event of type `ENET_EVENT_TYPE_DISCONNECT` will be generated.
+
+[source,cpp]
+----
+ENetAddress address;
+ENetEvent event;
+ENetPeer *peer;
+ 
+/* Connect to some.server.net:1234. */
+enet_address_set_host (& address, "some.server.net");
+address.port = 1234;
+ 
+/* Initiate the connection, allocating the two channels 0 and 1. */
+peer = enet_host_connect (client, & address, 2, 0);    
+ 
+if (peer == NULL)
+{
+   fprintf (stderr, 
+            "No available peers for initiating an ENet connection.\n");
+   exit (EXIT_FAILURE);
+}
+ 
+/* Wait up to 5 seconds for the connection attempt to succeed. */
+if (enet_host_service (client, & event, 5000) > 0 &&
+    event.type == ENET_EVENT_TYPE_CONNECT)
+{
+    puts ("Connection to some.server.net:1234 succeeded.");
+    ...
+    ...
+    ...
+}
+else
+{
+    /* Either the 5 seconds are up or a disconnect event was */
+    /* received. Reset the peer in the event the 5 seconds   */
+    /* had run out without any significant event.            */
+    enet_peer_reset (peer);
+ 
+    puts ("Connection to some.server.net:1234 failed.");
+}
+...
+...
+...
+----
+
+
+== • Mailing List
+
+The link:http://lists.cubik.org/mailman/listinfo/enet-discuss[enet-discuss] list is for discussion of ENet, including bug reports or feature requests.
+
+
+== • IRC Channel
+
+Join the #enet channel on the link:https://libera.chat/[Libera Chat IRC network] (irc.libera.chat) for real-time discussion about the ENet library.
+
+
+== • Frequently Answered Questions
+
+=== Is ENet thread-safe?
+
+ENet does not use any significant global variables, the vast majority of state is encapsulated in the link:http://enet.bespin.org/structENetHost.html[ENetHost structure]. As such, as long as the application guards access to this structure, then ENet should operate fine in a multi-threaded environment.
+
+=== Isn't ENet just re-inventing TCP?! What's the point?
+
+In a perfect world, that would be true. But as many have found, using TCP either in lieu of or in conjunction with UDP can lead to all kinds of nightmares. TCP is a good, solid protocol, however it simply isn't up to the task of real-time games. Too much of TCP's implementation dictates a policy that isn't practical for games. If you want to use TCP, then do so – this library is for people that either don't want to use TCP or have tried and ended up being discouraged with the performance.
+
+
+== • License
+
+Copyright (c) 2002-2024 Lee Salzman.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+== • Documentation
+
+• Functions
+• Data Structures
+• Files
+• Globals
+
+=== • Files
+
+Here is a list of all files with brief descriptions:
+
+[.big]
+----
+📂 docs	
+📂 include	
+  📂  enet	
+    📜 callbacks.h   ENet callbacks
+    📜 enet.h        ENet public header file
+    📜 list.h        ENet list management
+    📜 protocol.h    ENet protocol
+    📜 time.h        ENet time constants and macros
+    📜 types.h       Type definitions for ENet
+    📜 unix.h        ENet Unix header
+    📜 utility.h     ENet utility header
+    📜 win32.h       ENet Win32 header
+📜 callbacks.c       ENet callback functions
+📜 compress.c        An adaptive order-2 PPM range coder
+📜 host.c            ENet host management functions
+📜 list.c            ENet linked list functions
+📜 packet.c          ENet packet management functions
+📜 peer.c            ENet peer management functions
+📜 protocol.c        ENet protocol functions
+📜 unix.c            ENet Unix system specific functions
+📜 win32.c           ENet Win32 system specific functions
+----
+
+
+=== • Functions
+
+Here is a list of all modules:
+
+• ENet address functions	
+• ENet global functions	
+• ENet host functions	
+• ENet packet functions	
+• ENet peer functions	
+• ENet private implementation functions	
+** • ENet internal callbacks	
+** • ENet linked list utility functions	
+• ENet socket functions
+
+.ENet address functions
+[cols=">,<",opts=autowidth]
+|===
+|int               |**_enet_address_get_host_** (const ENetAddress *address, char *hostName, size_t nameLength) +
+                  Attempts to do a reverse lookup of the host field in the address parameter.
+ 
+|int               |**_enet_address_get_host_ip_** (const ENetAddress *address, char *hostName, size_t nameLength) +
+                  Gives the printable form of the IP address specified in the address parameter.
+ 
+|int               |**_enet_address_set_host_** (ENetAddress *address, const char *hostName) +
+                  Attempts to resolve the host named by the parameter hostName and sets the host field in the address parameter if successful.
+ 
+|int               |**_enet_address_set_host_ip_** (ENetAddress *address, const char *hostName) +
+                  Attempts to parse the printable form of the IP address in the parameter hostName and sets the host field in the address parameter if successful.
+|===
+
+
+.ENet global functions
+[cols=">,<",opts=autowidth]
+|===
+|void              |**_enet_deinitialize_** (void) +
+                  Shuts down ENet globally.
+ 
+|int               |**_enet_initialize_** (void) +
+                  Initializes ENet globally.
+ 
+|int               |**_enet_initialize_with_callbacks_** (ENetVersion version, const ENetCallbacks *inits) +
+                  Initializes ENet globally and supplies user-overridden callbacks.
+ 
+|ENetVersion       |**_enet_linked_version_** (void) +
+                  Gives the linked version of the ENet library.
+|===
+
+
+.ENet host functions
+[cols=">,<",opts=autowidth]
+|===
+|void              |**_enet_host_bandwidth_limit_** (ENetHost *host, enet_uint32 incomingBandwidth, enet_uint32 outgoingBandwidth) +
+                  Adjusts the bandwidth limits of a host.
+ 
+|void              |**_enet_host_bandwidth_throttle_** (ENetHost *host)
+ 
+|void              |**_enet_host_broadcast_** (ENetHost *host, enet_uint8 channelID, ENetPacket *packet) +
+                  Queues a packet to be sent to all peers associated with the host.
+ 
+|void              |**_enet_host_channel_limit_** (ENetHost *host, size_t channelLimit) +
+                  Limits the maximum allowed channels of future incoming connections.
+ 
+|int               |**_enet_host_check_events_** (ENetHost *host, ENetEvent *event) +
+                  Checks for any queued events on the host and dispatches one if available.
+ 
+|void              |**_enet_host_compress_** (ENetHost *host, const ENetCompressor *compressor) +
+                  Sets the packet compressor the host should use to compress and decompress packets.
+ 
+|int               |**_enet_host_compress_with_range_coder_** (ENetHost *host) +
+                  Sets the packet compressor the host should use to the default range coder.
+ 
+|ENetPeer *        |**_enet_host_connect_** (ENetHost *host, const ENetAddress *address, size_t channelCount, enet_uint32 data) +
+                  Initiates a connection to a foreign host.
+ 
+|ENetHost *        |**_enet_host_create_** (const ENetAddress *address, size_t peerCount, size_t channelLimit, enet_uint32 incomingBandwidth, enet_uint32 outgoingBandwidth) +
+                  Creates a host for communicating to peers.
+ 
+|void              |**_enet_host_destroy_** (ENetHost *host) +
+                  Destroys the host and all resources associated with it.
+ 
+|void              |**_enet_host_flush_** (ENetHost *host) +
+                  Sends any queued packets on the host specified to its designated peers.
+ 
+|enet_uint32       |**_enet_host_random_** (ENetHost *host)
+ 
+|int               |**_enet_host_service_** (ENetHost *host, ENetEvent *event, enet_uint32 timeout) +
+                  Waits for events on the host specified and shuttles packets between the host and its peers.
+|===
+
+
+.ENet packet functions
+[cols=">,<",opts=autowidth]
+|===
+|enet_uint32       |**_enet_crc32_** (const ENetBuffer *buffers, size_t bufferCount)
+ 
+|ENetPacket *      |**_enet_packet_create_** (const void *data, size_t dataLength, enet_uint32 flags) +
+                  Creates a packet that may be sent to a peer.
+ 
+|void              |**_enet_packet_destroy_** (ENetPacket *packet) +
+                  Destroys the packet and deallocates its data.
+ 
+|int               |**_enet_packet_resize_** (ENetPacket *packet, size_t dataLength) +
+                  Attempts to resize the data in the packet to length specified in the dataLength parameter.
+|===
+
+
+.ENet peer functions	
+[cols=">,<",opts=autowidth]
+|===
+|void                   |**_enet_peer_disconnect_** (ENetPeer *peer, enet_uint32 data) +
+                        Request a disconnection from a peer.
+ 
+|void                   |**_enet_peer_disconnect_later_** (ENetPeer *peer, enet_uint32 data) +
+                        Request a disconnection from a peer, but only after all queued outgoing packets are sent.
+ 
+|void                   |**_enet_peer_disconnect_now_** (ENetPeer *peer, enet_uint32 data) +
+                        Force an immediate disconnection from a peer.
+ 
+|void                   |**_enet_peer_dispatch_incoming_reliable_commands_** (ENetPeer *peer, ENetChannel *channel, ENetIncomingCommand *queuedCommand)
+ 
+|void                   |**_enet_peer_dispatch_incoming_unreliable_commands_** (ENetPeer *peer, ENetChannel *channel, ENetIncomingCommand *queuedCommand)
+ 
+|int                    |**_enet_peer_has_outgoing_commands_** (ENetPeer *peer)
+ 
+|void                   |**_enet_peer_on_connect_** (ENetPeer *peer)
+ 
+|void                   |**_enet_peer_on_disconnect_** (ENetPeer *peer)
+ 
+|void                   |**_enet_peer_ping_** (ENetPeer *peer) +
+                        Sends a ping request to a peer.
+ 
+|void                   |**_enet_peer_ping_interval_** (ENetPeer *peer, enet_uint32 pingInterval) +
+                        Sets the interval at which pings will be sent to a peer.
+ 
+|ENetAcknowledgement *  |**_enet_peer_queue_acknowledgement_** (ENetPeer *peer, const ENetProtocol *command, enet_uint16 sentTime)
+ 
+|ENetIncomingCommand *  |**_enet_peer_queue_incoming_command_** (ENetPeer *peer, const ENetProtocol *command, const void *data, size_t dataLength, enet_uint32 flags, enet_uint32 fragmentCount)
+ 
+|ENetOutgoingCommand *  |**_enet_peer_queue_outgoing_command_** (ENetPeer *peer, const ENetProtocol *command, ENetPacket *packet, enet_uint32 offset, enet_uint16 length)
+ 
+|ENetPacket *           |**_enet_peer_receive_** (ENetPeer *peer, enet_uint8 *channelID) +
+                        Attempts to dequeue any incoming queued packet.
+ 
+|void                   |**_enet_peer_reset_** (ENetPeer *peer) +
+                        Forcefully disconnects a peer.
+ 
+|void                   |**_enet_peer_reset_queues_** (ENetPeer *peer)
+ 
+|int                    |**_enet_peer_send_** (ENetPeer *peer, enet_uint8 channelID, ENetPacket *packet) +
+                        Queues a packet to be sent.
+ 
+|void                   |**_enet_peer_setup_outgoing_command_** (ENetPeer *peer, ENetOutgoingCommand *outgoingCommand)
+ 
+|int                    |**_enet_peer_throttle_** (ENetPeer *peer, enet_uint32 rtt)
+ 
+|void                   |**_enet_peer_throttle_configure_** (ENetPeer *peer, enet_uint32 interval, enet_uint32 acceleration, enet_uint32 deceleration) +
+                        Configures throttle parameter for a peer.
+ 
+|void                   |**_enet_peer_timeout_** (ENetPeer *peer, enet_uint32 timeoutLimit, enet_uint32 timeoutMinimum, enet_uint32 timeoutMaximum) +
+                        Sets the timeout parameters for a peer.
+|===
+
+
+.ENet private implementation functions
+[cols=">,<",opts=autowidth]
+|===
+2+|[.big]**Modules: ENet internal callbacks**
+|void              |**_enet_free_** (void *)
+|void *            |**_enet_malloc_** (size_t)
+
+2+|[.big]**Modules: ENet linked list utility functions**
+|void              |**_enet_list_clear_** (ENetList *list)
+|ENetListIterator  |**_enet_list_insert_** (ENetListIterator position, void *data)
+|ENetListIterator  |**_enet_list_move_** (ENetListIterator position, void *dataFirst, void *dataLast)
+|void *            |**_enet_list_remove_** (ENetListIterator position)
+|size_t            |**_enet_list_size_** (ENetList *list)
+|===
+
+
+.ENet socket functions
+[cols=">,<",opts=autowidth]
+|===
+|ENetSocket  |**_enet_socket_accept_** (ENetSocket, ENetAddress *)
+|int         |**_enet_socket_bind_** (ENetSocket, const ENetAddress *)
+|int         |**_enet_socket_connect_** (ENetSocket, const ENetAddress *)
+|ENetSocket  |**_enet_socket_create_** (ENetSocketType)
+|void        |**_enet_socket_destroy_** (ENetSocket)
+|int         |**_enet_socket_get_address_** (ENetSocket, ENetAddress *)
+|int         |**_enet_socket_get_option_** (ENetSocket, ENetSocketOption, int *)
+|int         |**_enet_socket_listen_** (ENetSocket, int)
+|int         |**_enet_socket_receive_** (ENetSocket, ENetAddress *, ENetBuffer *, size_t)
+|int         |**_enet_socket_send_** (ENetSocket, const ENetAddress *, const ENetBuffer *, size_t)
+|int         |**_enet_socket_set_option_** (ENetSocket, ENetSocketOption, int)
+|int         |**_enet_socket_shutdown_** (ENetSocket, ENetSocketShutdown)
+|int         |**_enet_socket_wait_** (ENetSocket, enet_uint32 *, enet_uint32)
+|int         |**_enet_socketset_select_** (ENetSocket, ENetSocketSet *, ENetSocketSet *, enet_uint32)
+|===
+
+
+=== • Data Structures
+
+Here are the data structures with brief descriptions:
+
+•  **_CENetAcknowledgement_**	
+•  **_CENetAddress_**	Portable internet address structure
+•  **_CENetBuffer_**	
+•  **_CENetCallbacks_**	
+•  **_CENetChannel_**	
+•  **_CENetCompressor_**	An ENet packet compressor for compressing UDP packets before socket sends or receives
+•  **_CENetEvent_**	An ENet event as returned by enet_host_service()
+•  **_CENetHost_**	An ENet host for communicating with peers
+•  **_CENetIncomingCommand_**	
+•  **_CENetList_**	
+•  **_CENetListNode_**	
+•  **_CENetOutgoingCommand_**	
+•  **_CENetPacket_**	ENet packet structure
+•  **_CENetPeer_**	An ENet peer which data packets may be sent or received from
+•  **_CENetProtocol_**	
+•  **_CENetProtocolAcknowledge_**	
+•  **_CENetProtocolBandwidthLimit_**	
+•  **_CENetProtocolCommandHeader_**	
+•  **_CENetProtocolConnect_**	
+•  **_CENetProtocolDisconnect_**	
+•  **_CENetProtocolHeader_**	
+•  **_CENetProtocolPing_**	
+•  **_CENetProtocolSendFragment_**	
+•  **_CENetProtocolSendReliable_**	
+•  **_CENetProtocolSendUnreliable_**	
+•  **_CENetProtocolSendUnsequenced_**	
+•  **_CENetProtocolThrottleConfigure_**	
+•  **_CENetProtocolVerifyConnect_**	
+
+
+==== ENetCompressor Struct Reference
+
+An ENet packet compressor for compressing UDP packets before socket sends or receives.
+
+#include <enet.h>
+
+Data Fields
+
+[cols="<",opts=autowidth]
+|===
+|size_t(* **_compress_** )(void *context, const ENetBuffer *inBuffers, size_t inBufferCount, size_t inLimit, enet_uint8 *outData, size_t outLimit) +
+             Compresses from inBuffers[0:inBufferCount-1], containing inLimit bytes, to outData, outputting at most outLimit bytes.
+ 
+|void * **_context_** +
+             Context data for the compressor.
+ 
+|size_t(* **_decompress_** )(void *context, const enet_uint8 *inData, size_t inLimit, enet_uint8 *outData, size_t outLimit) +
+             Decompresses from inData, containing inLimit bytes, to outData, outputting at most outLimit bytes.
+ 
+|void(* **_destroy_** )(void *context) +
+             Destroys the context when compression is disabled or the host is destroyed.
+|===
+
+
+==== ENetEvent Struct Reference
+
+An ENet event as returned by enet_host_service().
+
+#include <enet.h>
+
+Data Fields
+
+[cols=">,<",opts=autowidth]
+|===
+|enet_uint8         |**_channelID_** +
+                    channel on the peer that generated the event, if appropriate
+ 
+|enet_uint32        |**_data_** +
+                    data associated with the event, if appropriate
+ 
+|ENetPacket *       |**_packet_** +
+                    packet associated with the event, if appropriate
+ 
+|ENetPeer *         |**_peer_** +
+                    peer that generated a connect, disconnect or receive event
+ 
+|ENetEventType      |**_type_** +
+                    type of the event
+|===
+
+
+==== ENetHost Struct Reference
+
+An ENet host for communicating with peers. 
+
+#include <enet.h>
+
+Data Fields
+
+[cols=">,<",opts=autowidth]
+|===
+|ENetAddress           |**_address_** +
+                       Internet address of the host. 
+ 
+|size_t                |**_bandwidthLimitedPeers_**
+ 
+|enet_uint32           |**_bandwidthThrottleEpoch_**
+ 
+|size_t                |**_bufferCount_**
+ 
+|ENetBuffer            |**_buffers [(1+2 *ENET_PROTOCOL_MAXIMUM_PACKET_COMMANDS)]_**
+ 
+|size_t                |**_channelLimit_** +
+                       maximum number of channels allowed for connected peers 
+ 
+|ENetChecksumCallback  |**_checksum_** +
+                       callback the user can set to enable packet checksums for this host 
+ 
+|size_t                |**_commandCount_**
+ 
+|ENetProtocol          |**_commands [ENET_PROTOCOL_MAXIMUM_PACKET_COMMANDS]_**
+ 
+|ENetCompressor        |**_compressor_**
+ 
+|size_t                |**_connectedPeers_**
+ 
+|ENetList              |**_dispatchQueue_**
+ 
+|size_t                |**_duplicatePeers_** +
+                       optional number of allowed peers from duplicate IPs, defaults to ENET_PROTOCOL_MAXIMUM_PEER_ID 
+ 
+|enet_uint16           |**_headerFlags_**
+ 
+|enet_uint32           |**_incomingBandwidth_** +
+                       downstream bandwidth of the host 
+ 
+|ENetInterceptCallback |**_intercept_** +
+                       callback the user can set to intercept received raw UDP packets 
+ 
+|size_t                |**_maximumPacketSize_** +
+                       the maximum allowable packet size that may be sent or received on a peer 
+ 
+|size_t                |**_maximumWaitingData_** +
+                       the maximum aggregate amount of buffer space a peer may use waiting for packets to be delivered 
+ 
+|enet_uint32           |**_mtu_**
+ 
+|enet_uint32           |**_outgoingBandwidth_** +
+                       upstream bandwidth of the host 
+ 
+|enet_uint8            |**_packetData [2][ENET_PROTOCOL_MAXIMUM_MTU]_**
+ 
+|size_t                |**_packetSize_**
+ 
+|size_t                |**_peerCount_** +
+                       number of peers allocated for this host 
+ 
+|ENetPeer *            |**_peers_** +
+                       array of peers allocated for this host 
+ 
+|enet_uint32           |**_randomSeed_**
+ 
+|int                   |**_recalculateBandwidthLimits_**
+ 
+|ENetAddress           |**_receivedAddress_**
+ 
+|enet_uint8 *          |**_receivedData_**
+ 
+|size_t                |**_receivedDataLength_**
+ 
+|enet_uint32           |**_serviceTime_**
+ 
+|ENetSocket            |**_socket_**
+ 
+|enet_uint32           |**_totalQueued_**
+ 
+|enet_uint32           |**_totalReceivedData_** +
+                       total data received, user should reset to 0 as needed to prevent overflow 
+ 
+|enet_uint32           |**_totalReceivedPackets_** +
+                       total UDP packets received, user should reset to 0 as needed to prevent overflow 
+ 
+|enet_uint32           |**_totalSentData_** +
+                       total data sent, user should reset to 0 as needed to prevent overflow 
+ 
+|enet_uint32           |**_totalSentPackets_**
+                       otal UDP packets sent, user should reset to 0 as needed to prevent overflow 
+|===
+
+
+==== ENetPacket Struct Reference
+
+ENet packet structure.
+
+#include <enet.h>
+
+Data Fields
+
+[cols=">,<",opts=autowidth]
+|===
+|enet_uint8 *           |**_data_** +
+                        allocated data for packet
+ 
+|size_t                 |**_dataLength_** +
+                        length of data
+ 
+|enet_uint32            |**_flags_** +
+                        bitwise-or of ENetPacketFlag constants
+ 
+|ENetPacketFreeCallback |**_freeCallback_** +
+                        function to be called when the packet is no longer in use
+ 
+|size_t                 |**_referenceCount_** +
+                        internal use only
+ 
+|void *                 |**_userData_** +
+                        application private data, may be freely modified
+|===
+
+===== Detailed Description
+
+An ENet data packet that may be sent to or received from a peer. The shown fields should only be read and never modified. The data field contains the allocated data for the packet. The dataLength fields specifies the length of the allocated data. The flags field is either 0 (specifying no flags), or a bitwise-or of any combination of the following flags:
+
+• **_ENET_PACKET_FLAG_RELIABLE_** - packet must be received by the target peer and resend attempts should be made until the packet is delivered
+
+• **_ENET_PACKET_FLAG_UNSEQUENCED_** - packet will not be sequenced with other packets (not supported for reliable packets)
+
+• **_ENET_PACKET_FLAG_NO_ALLOCATE_** - packet will not allocate data, and user must supply it instead
+
+• **_ENET_PACKET_FLAG_UNRELIABLE_FRAGMENT_** - packet will be fragmented using unreliable (instead of reliable) sends if it exceeds the MTU
+
+• **_ENET_PACKET_FLAG_SENT_** - whether the packet has been sent from all queues it has been entered into
+
+
+==== ENetPeer Struct Reference
+
+An ENet peer which data packets may be sent or received from. 
+
+#include <enet.h>
+
+Data Fields
+
+[cols=">,<",opts=autowidth]
+|===
+|ENetList           |**_acknowledgements_**
+|ENetAddress        |**_address_** +
+                    Internet address of the peer.
+ 
+|size_t             |**_channelCount_** +
+                    Number of channels allocated for communication with peer.
+ 
+|ENetChannel *      |**_channels_**
+|enet_uint32        |**_connectID_**
+|void *             |**_data_** +
+                    Application private data, may be freely modified.
+ 
+|ENetList           |**_dispatchedCommands_**
+|ENetListNode       |**_dispatchList_**
+|enet_uint32        |**_earliestTimeout_**
+|enet_uint32        |**_eventData_**
+|enet_uint16        |**_flags_**
+|enet_uint32        |**_highestRoundTripTimeVariance_**
+|struct _ENetHost * |**_host_**
+|enet_uint32        |**_incomingBandwidth_** +
+                    Downstream bandwidth of the client in bytes/second.
+ 
+|enet_uint32        |**_incomingBandwidthThrottleEpoch_**
+|enet_uint32        |**_incomingDataTotal_**
+|enet_uint16        |**_incomingPeerID_**
+|enet_uint8         |**_incomingSessionID_**
+|enet_uint16        |**_incomingUnsequencedGroup_**
+|enet_uint32        |**_lastReceiveTime_**
+|enet_uint32        |**_lastRoundTripTime_**
+|enet_uint32        |**_lastRoundTripTimeVariance_**
+|enet_uint32        |**_lastSendTime_**
+|enet_uint32        |**_lowestRoundTripTime_**
+|enet_uint32        |**_mtu_**
+|enet_uint32        |**_nextTimeout_**
+|enet_uint32        |**_outgoingBandwidth_** +
+                    Upstream bandwidth of the client in bytes/second.
+ 
+|enet_uint32        |**_outgoingBandwidthThrottleEpoch_**
+|ENetList           |**_outgoingCommands_**
+|enet_uint32        |**_outgoingDataTotal_**
+|enet_uint16        |**_outgoingPeerID_**
+|enet_uint16        |**_outgoingReliableSequenceNumber_**
+|ENetList           |**_outgoingSendReliableCommands_**
+|enet_uint8         |**_outgoingSessionID_**
+|enet_uint16        |**_outgoingUnsequencedGroup_**
+|enet_uint32        |**_packetLoss_** +
+                    mean packet loss of reliable packets as a ratio with respect to the constant ENET_PEER_PACKET_LOSS_SCALE
+ 
+|enet_uint32        |**_packetLossEpoch_**
+|enet_uint32        |**_packetLossVariance_**
+|enet_uint32        |**_packetsLost_**
+|enet_uint32        |**_packetsSent_**
+|enet_uint32        |**_packetThrottle_**
+|enet_uint32        |**_packetThrottleAcceleration_**
+|enet_uint32        |**_packetThrottleCounter_**
+|enet_uint32        |**_packetThrottleDeceleration_**
+|enet_uint32        |**_packetThrottleEpoch_**
+|enet_uint32        |**_packetThrottleInterval_**
+|enet_uint32        |**_packetThrottleLimit_**
+|enet_uint32        |**_pingInterval_**
+|enet_uint32        |**_reliableDataInTransit_**
+|enet_uint16        |**_reserved_**
+|enet_uint32        |**_roundTripTime_** +
+                    mean round trip time (RTT), in milliseconds, between sending a reliable packet and receiving its acknowledgement
+ 
+|enet_uint32        |**_roundTripTimeVariance_**
+|ENetList           |**_sentReliableCommands_**
+|ENetPeerState      |**_state_**
+|enet_uint32        |**_timeoutLimit_**
+|enet_uint32        |**_timeoutMaximum_**
+|enet_uint32        |**_timeoutMinimum_**
+|size_t             |**_totalWaitingData_**
+|enet_uint32        |**_unsequencedWindow_** [ENET_PEER_UNSEQUENCED_WINDOW_SIZE/32]
+|enet_uint32        |**_windowSize_**
+|===
+
+
+=== • Globals
+
+Here is a list of all functions, variables, defines, enums, and typedefs with links to the files they belong to:
+
+• Functions
+• Typedefs
+• Enumerations
+• Enumerator
+• Macros
+
+[cols=">,<",opts=autowidth]
+|===
+2+|[.big]**Typedefs**
+|**_enet_uint16_**              |: types.h
+|**_enet_uint32_**              |: types.h
+|**_enet_uint8_**               |: types.h
+|**_ENetChecksumCallback_**     |: enet.h
+|**_ENetInterceptCallback_**    |: enet.h
+|**_ENetListIterator_**         |: list.h
+|**_ENetPacketFreeCallback_**   |: enet.h
+|**_ENetSocket_**               |: unix.h, win32.h
+|**_ENetSocketSet_**            |: unix.h, win32.h
+|**_ENetVersion_**              |: enet.h
+|**_socklen_t_**                |: unix.c
+
+2+|[.big]**Enumerations**
+|**_ENetEventType_**            |: enet.h
+|**_ENetPacketFlag_**           |: enet.h
+|**_ENetPeerFlag_**             |: enet.h
+|**_ENetPeerState_**            |: enet.h
+|**_ENetProtocolCommand_**      |: protocol.h
+|**_ENetProtocolFlag_**         |: protocol.h
+|**_ENetSocketOption_**         |: enet.h
+|**_ENetSocketShutdown_**       |: enet.h
+|**_ENetSocketType_**           |: enet.h
+|**_ENetSocketWait_**           |: enet.h
+
+2+|[.big]**Enumerator**
+|**_ENET_CONTEXT_ESCAPE_MINIMUM_**                    |: compress.c
+|**_ENET_CONTEXT_SYMBOL_DELTA_**                      |: compress.c
+|**_ENET_CONTEXT_SYMBOL_MINIMUM_**                    |: compress.c
+|**_ENET_EVENT_TYPE_CONNECT_**                        |: enet.h
+|**_ENET_EVENT_TYPE_DISCONNECT_**                     |: enet.h
+|**_ENET_EVENT_TYPE_NONE_**                           |: enet.h
+|**_ENET_EVENT_TYPE_RECEIVE_**                        |: enet.h
+|**_ENET_HOST_BANDWIDTH_THROTTLE_INTERVAL_**          |: enet.h
+|**_ENET_HOST_DEFAULT_MAXIMUM_PACKET_SIZE_**          |: enet.h
+|**_ENET_HOST_DEFAULT_MAXIMUM_WAITING_DATA_**         |: enet.h
+|**_ENET_HOST_DEFAULT_MTU_**                          |: enet.h
+|**_ENET_HOST_RECEIVE_BUFFER_SIZE_**                  |: enet.h
+|**_ENET_HOST_SEND_BUFFER_SIZE_**                     |: enet.h
+|**_ENET_PACKET_FLAG_NO_ALLOCATE_**                   |: enet.h
+|**_ENET_PACKET_FLAG_RELIABLE_**                      |: enet.h
+|**_ENET_PACKET_FLAG_SENT_**                          |: enet.h
+|**_ENET_PACKET_FLAG_UNRELIABLE_FRAGMENT_**           |: enet.h
+|**_ENET_PACKET_FLAG_UNSEQUENCED_**                   |: enet.h
+|**_ENET_PEER_DEFAULT_PACKET_THROTTLE_**              |: enet.h
+|**_ENET_PEER_DEFAULT_ROUND_TRIP_TIME_**              |: enet.h
+|**_ENET_PEER_FLAG_CONTINUE_SENDING_**                |: enet.h
+|**_ENET_PEER_FLAG_NEEDS_DISPATCH_**                  |: enet.h
+|**_ENET_PEER_FREE_RELIABLE_WINDOWS_**                |: enet.h
+|**_ENET_PEER_FREE_UNSEQUENCED_WINDOWS_**             |: enet.h
+|**_ENET_PEER_PACKET_LOSS_INTERVAL_**                 |: enet.h
+|**_ENET_PEER_PACKET_LOSS_SCALE_**                    |: enet.h
+|**_ENET_PEER_PACKET_THROTTLE_ACCELERATION_**         |: enet.h
+|**_ENET_PEER_PACKET_THROTTLE_COUNTER_**              |: enet.h
+|**_ENET_PEER_PACKET_THROTTLE_DECELERATION_**         |: enet.h
+|**_ENET_PEER_PACKET_THROTTLE_INTERVAL_**             |: enet.h
+|**_ENET_PEER_PACKET_THROTTLE_SCALE_**                |: enet.h
+|**_ENET_PEER_PING_INTERVAL_**                        |: enet.h
+|**_ENET_PEER_RELIABLE_WINDOW_SIZE_**                 |: enet.h
+|**_ENET_PEER_RELIABLE_WINDOWS_**                     |: enet.h
+|**_ENET_PEER_STATE_ACKNOWLEDGING_CONNECT_**          |: enet.h
+|**_ENET_PEER_STATE_ACKNOWLEDGING_DISCONNECT_**       |: enet.h
+|**_ENET_PEER_STATE_CONNECTED_**                      |: enet.h
+|**_ENET_PEER_STATE_CONNECTING_**                     |: enet.h
+|**_ENET_PEER_STATE_CONNECTION_PENDING_**             |: enet.h
+|**_ENET_PEER_STATE_CONNECTION_SUCCEEDED_**           |: enet.h
+|**_ENET_PEER_STATE_DISCONNECT_LATER_**               |: enet.h
+|**_ENET_PEER_STATE_DISCONNECTED_**                   |: enet.h
+|**_ENET_PEER_STATE_DISCONNECTING_**                  |: enet.h
+|**_ENET_PEER_STATE_ZOMBIE_**                         |: enet.h
+|**_ENET_PEER_TIMEOUT_LIMIT_**                        |: enet.h
+|**_ENET_PEER_TIMEOUT_MAXIMUM_**                      |: enet.h
+|**_ENET_PEER_TIMEOUT_MINIMUM_**                      |: enet.h
+|**_ENET_PEER_UNSEQUENCED_WINDOW_SIZE_**              |: enet.h
+|**_ENET_PEER_UNSEQUENCED_WINDOWS_**                  |: enet.h
+|**_ENET_PEER_WINDOW_SIZE_SCALE_**                    |: enet.h
+|**_ENET_PROTOCOL_COMMAND_ACKNOWLEDGE_**              |: protocol.h
+|**_ENET_PROTOCOL_COMMAND_BANDWIDTH_LIMIT_**          |: protocol.h
+|**_ENET_PROTOCOL_COMMAND_CONNECT_**                  |: protocol.h
+|**_ENET_PROTOCOL_COMMAND_COUNT_**                    |: protocol.h
+|**_ENET_PROTOCOL_COMMAND_DISCONNECT_**               |: protocol.h
+|**_ENET_PROTOCOL_COMMAND_FLAG_ACKNOWLEDGE_**         |: protocol.h
+|**_ENET_PROTOCOL_COMMAND_FLAG_UNSEQUENCED_**         |: protocol.h
+|**_ENET_PROTOCOL_COMMAND_MASK_**                     |: protocol.h
+|**_ENET_PROTOCOL_COMMAND_NONE_**                     |: protocol.h
+|**_ENET_PROTOCOL_COMMAND_PING_**                     |: protocol.h
+|**_ENET_PROTOCOL_COMMAND_SEND_FRAGMENT_**            |: protocol.h
+|**_ENET_PROTOCOL_COMMAND_SEND_RELIABLE_**            |: protocol.h
+|**_ENET_PROTOCOL_COMMAND_SEND_UNRELIABLE_**          |: protocol.h
+|**_ENET_PROTOCOL_COMMAND_SEND_UNRELIABLE_FRAGMENT_** |: protocol.h
+|**_ENET_PROTOCOL_COMMAND_SEND_UNSEQUENCED_**         |: protocol.h
+|**_ENET_PROTOCOL_COMMAND_THROTTLE_CONFIGURE_**       |: protocol.h
+|**_ENET_PROTOCOL_COMMAND_VERIFY_CONNECT_**           |: protocol.h
+|**_ENET_PROTOCOL_HEADER_FLAG_COMPRESSED_**           |: protocol.h
+|**_ENET_PROTOCOL_HEADER_FLAG_MASK_**                 |: protocol.h
+|**_ENET_PROTOCOL_HEADER_FLAG_SENT_TIME_**            |: protocol.h
+|**_ENET_PROTOCOL_HEADER_SESSION_MASK_**              |: protocol.h
+|**_ENET_PROTOCOL_HEADER_SESSION_SHIFT_**             |: protocol.h
+|**_ENET_PROTOCOL_MAXIMUM_CHANNEL_COUNT_**            |: protocol.h
+|**_ENET_PROTOCOL_MAXIMUM_FRAGMENT_COUNT_**           |: protocol.h
+|**_ENET_PROTOCOL_MAXIMUM_MTU_**                      |: protocol.h
+|**_ENET_PROTOCOL_MAXIMUM_PACKET_COMMANDS_**          |: protocol.h
+|**_ENET_PROTOCOL_MAXIMUM_PEER_ID_**                  |: protocol.h
+|**_ENET_PROTOCOL_MAXIMUM_WINDOW_SIZE_**              |: protocol.h
+|**_ENET_PROTOCOL_MINIMUM_CHANNEL_COUNT_**            |: protocol.h
+|**_ENET_PROTOCOL_MINIMUM_MTU_**                      |: protocol.h
+|**_ENET_PROTOCOL_MINIMUM_WINDOW_SIZE_**              |: protocol.h
+|**_ENET_RANGE_CODER_BOTTOM_**                        |: compress.c
+|**_ENET_RANGE_CODER_TOP_**                           |: compress.c
+|**_ENET_SOCKET_SHUTDOWN_READ_**                      |: enet.h
+|**_ENET_SOCKET_SHUTDOWN_READ_WRITE_**                |: enet.h
+|**_ENET_SOCKET_SHUTDOWN_WRITE_**                     |: enet.h
+|**_ENET_SOCKET_TYPE_DATAGRAM_**                      |: enet.h
+|**_ENET_SOCKET_TYPE_STREAM_**                        |: enet.h
+|**_ENET_SOCKET_WAIT_INTERRUPT_**                     |: enet.h
+|**_ENET_SOCKET_WAIT_NONE_**                          |: enet.h
+|**_ENET_SOCKET_WAIT_RECEIVE_**                       |: enet.h
+|**_ENET_SOCKET_WAIT_SEND_**                          |: enet.h
+|**_ENET_SOCKOPT_BROADCAST_**                         |: enet.h
+|**_ENET_SOCKOPT_ERROR_**                             |: enet.h
+|**_ENET_SOCKOPT_NODELAY_**                           |: enet.h
+|**_ENET_SOCKOPT_NONBLOCK_**                          |: enet.h
+|**_ENET_SOCKOPT_RCVBUF_**                            |: enet.h
+|**_ENET_SOCKOPT_RCVTIMEO_**                          |: enet.h
+|**_ENET_SOCKOPT_REUSEADDR_**                         |: enet.h
+|**_ENET_SOCKOPT_SNDBUF_**                            |: enet.h
+|**_ENET_SOCKOPT_SNDTIMEO_**                          |: enet.h
+|**_ENET_SOCKOPT_TTL_**                               |: enet.h
+|**_ENET_SUBCONTEXT_ESCAPE_DELTA_**                   |: compress.c
+|**_ENET_SUBCONTEXT_ORDER_**                          |: compress.c
+|**_ENET_SUBCONTEXT_SYMBOL_DELTA_**                   |: compress.c
+
+2+|[.big]**Macros**
+|**_ENET_API_**                       |: win32.h, unix.h
+|**_ENET_BUFFER_MAXIMUM_**            |: enet.h
+|**_ENET_BUILDING_LIB_**              |: callbacks.c, unix.c, protocol.c, peer.c, packet.c, list.c, host.c, compress.c
+|**_ENET_CALLBACK_**                  |: unix.h, win32.h
+|**_ENET_CONTEXT_CREATE_**            |: compress.c
+|**_ENET_CONTEXT_DECODE_**            |: compress.c
+|**_ENET_CONTEXT_ENCODE_**            |: compress.c
+|**_ENET_CONTEXT_NOT_EXCLUDED_**      |: compress.c
+|**_ENET_CONTEXT_RESCALE_**           |: compress.c
+|**_ENET_CONTEXT_ROOT_DECODE_**       |: compress.c
+|**_ENET_CONTEXT_TRY_DECODE_**        |: compress.c
+|**_ENET_DIFFERENCE_**                |: utility.h
+|**_ENET_HOST_ANY_**                  |: enet.h
+|**_ENET_HOST_BROADCAST_**            |: enet.h
+|**_ENET_HOST_TO_NET_16_**            |: unix.h, win32.h
+|**_ENET_HOST_TO_NET_32_**            |: unix.h, win32.h
+|**_enet_list_back_**                 |: list.h
+|**_enet_list_begin_**                |: list.h
+|**_enet_list_empty_**                |: list.h
+|**_enet_list_end_**                  |: list.h
+|**_enet_list_front_**                |: list.h
+|**_enet_list_next_**                 |: list.h
+|**_enet_list_previous_**             |: list.h
+|**_ENET_MAX_**                       |: utility.h
+|**_ENET_MIN_**                       |: utility.h
+|**_ENET_NET_TO_HOST_16_**            |: win32.h, unix.h
+|**_ENET_NET_TO_HOST_32_**            |: unix.h, win32.h
+|**_ENET_PACKED_**                    |: protocol.h
+|**_ENET_PORT_ANY_**                  |: enet.h
+|**_ENET_RANGE_CODER_DECODE_**        |: compress.c
+|**_ENET_RANGE_CODER_ENCODE_**        |: compress.c
+|**_ENET_RANGE_CODER_FLUSH_**         |: compress.c
+|**_ENET_RANGE_CODER_FREE_SYMBOLS_**  |: compress.c
+|**_ENET_RANGE_CODER_OUTPUT_**        |: compress.c
+|**_ENET_RANGE_CODER_READ_**          |: compress.c
+|**_ENET_RANGE_CODER_SEED_**          |: compress.c
+|**_ENET_SOCKET_NULL_**               |: unix.h, win32.h
+|**_ENET_SOCKETSET_ADD_**             |: unix.h, win32.h
+|**_ENET_SOCKETSET_CHECK_**           |: unix.h, win32.h
+|**_ENET_SOCKETSET_EMPTY_**           |: unix.h, win32.h
+|**_ENET_SOCKETSET_REMOVE_**          |: unix.h, win32.h
+|**_ENET_SYMBOL_CREATE_**             |: compress.c
+|**_ENET_TIME_DIFFERENCE_**           |: time.h
+|**_ENET_TIME_GREATER_**              |: time.h
+|**_ENET_TIME_GREATER_EQUAL_**        |: time.h
+|**_ENET_TIME_LESS_**                 |: time.h
+|**_ENET_TIME_LESS_EQUAL_**           |: time.h
+|**_ENET_TIME_OVERFLOW_**             |: time.h
+|**_ENET_VERSION_**                   |: enet.h
+|**_ENET_VERSION_CREATE_**            |: enet.h
+|**_ENET_VERSION_GET_MAJOR_**         |: enet.h
+|**_ENET_VERSION_GET_MINOR_**         |: enet.h
+|**_ENET_VERSION_GET_PATCH_**         |: enet.h
+|**_ENET_VERSION_MAJOR_**             |: enet.h
+|**_ENET_VERSION_MINOR_**             |: enet.h
+|**_ENET_VERSION_PATCH_**             |: enet.h
+|**_MSG_NOSIGNAL_**                   |: unix.c
+|===
