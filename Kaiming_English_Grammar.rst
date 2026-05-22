@@ -829,7 +829,7 @@ Ch I The Science of Expression
 
    In Chinese, we would simply say::
    
-      Ta ta wo（他打我)。 Wo ta fa (我打他)。
+      T’a ta wo（他打我)。 Wo ta t’a (我打他)。
 
 
 

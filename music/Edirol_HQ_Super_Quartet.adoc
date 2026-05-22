@@ -1,0 +1,3377 @@
+:revnumber: 1.52
+:reproducible: HQSQ
+:table-frame: none
+:table-grid: rows
+:table-stripes: odd
+:stem: latexmath
+:icons: font
+:experimental:
+:TOP: <<atop, icon:navicon[2x]>>
+[pass]
+++++
+<style>
+em { color: olive; font-size: 1.1em; }
+.listingblock.olive { color: olive; }
+pre {font-family: "FiraCode Nerd Font Mono", Consolas, monospace;}
+.hljs { background: #c5dbc2; }
+h1 {text-align:right; border-bottom: 7px solid #28885848;}
+h2 {text-align:right; border-bottom: 6px solid #28885848;}
+h3 {text-align:right; border-bottom: 5px solid #28885848;}
+h4 {text-align:right; border-bottom: 4px solid #28885848;}
+h5 {text-align:right; border-bottom: 3px solid #28885848;}
+h6 {text-align:right; border-bottom: 2px solid #28885848;}
+</style>
+++++
+
+[[atop]]
+== Edirol HQ Super Quartet v1.52
+
+*   <<_feat_e_,  Features>>
+
+''''''
+*   <<_main_panel_,  About modules>>
+*   <<_module_,  About the Compact style and Expanded style>>
+*   <<_master_module_,  Master module>>
+*   <<_about_effect_, About the effects>>
+*   <<_sound_module_,  Sound module>>
+*   <<_bass_module_, Bass Module>>
+*   <<_drums_module_, Drums Module>>
+*   <<_guitar_module_, Guitar Module>>
+*   <<_piano_module_, Piano Module>>
+
+''''''
+*   <<_scale_tune_,  Scale tune window>>
+*   <<_output_e_,  Multi out>>
+*   <<_option_e_,  Options window>>
+
+''''''
+*   <<_effect_e_,  Saving effect settings>>
+*   <<_user_e_,  Saving user sounds>>
+*   <<_midi_e_,  Parameter control via MIDI>>
+
+''''''
+*   <<_automation_e_,  Recording panel operation (Automation)>>
+*   <<_midi_automation_e_,  Using MIDI automation>>
+*   <<_vst_automation_e_,  Using VST automation (VST version only)>>
+*   <<_cc_map_e_,  Saving and loading control change assignments (Control change map)>>
+*   <<_performance_e_,  Saving/loading all parameters as performance data>>
+
+''''''
+*   <<_trouble_e_,  Troubleshooting>>
+*   <<_tone_e_,  Instrument List>>
+*   <<_impl_qt_e_,  MIDI Implementation>>
+
+
+'''''
+
+
+*   Pentium is a registered trademarks of Intel Corporation.
+*   DirectX is a registered trademarks of Microsoft Corporation.
+*   VST is a trademark of Steinberg Media Technologies AG.
+*   3DNow! is a trademarks of Advanced Micro Devices, Inc.
+*   AltiVec is a trademark of Motorola, Inc.
+*   All product names mentioned in this document are trademarks or registered trademarks of their respective owners.
+*   Screen shots reprinted with permission from Microsoft Corporation.
+*   In the interest of product improvement, the specifications and/or appearance of this unit are subject to change without notice.
+
+Copyright (C) 2001-2003 Roland Corporation All rights reserved. No part of this publication may be reproduced in any form without the written permission of Roland Corporation.
+
+.配图 Base46 编码内嵌处理脚本
+[source,bash]
+----
+# GIFS=$(ls C:/ms/Super\ Quartet\ v1.52/Help/gif/*.gif)
+# Use in an AsciiDoc file:
+# include::/ms/Super Quartet v1.52/Help/gif/base64img.adoc[]
+# image::{HQ_LOGO}[LOGO]
+OUT="/c/ms/Super Quartet v1.52/Help/gif/base64img.adoc"
+for it in C:/ms/Super\ Quartet\ v1.52/Help/gif/*.gif
+do
+  fullname=${it##*/}
+  name=${fullname%.*}
+  echo "====> ${it##*/}"
+  printf ":$name: data:image/gif;base64,%s\n"  $(cat "$it" | base64 -w 0) >> "$OUT"
+done
+----
+
+include::/ms/Super Quartet v1.52/Help/gif/base64img.adoc[]
+
+[.text-center]
+image::{HQ_LOGO}[HQ Software Synthesizer LOGO]
+
+.About Super Quartet
+____
+HQ Software Synthesizer
+Super Quartet VST Version 1.00
+Copyright [C] 2001 Roland Corporation
+All rights reserved
+
+Interface Design by this corporation
+
+VST Plugin Interface Technology by Steinberg Media Technologies AG.
+Use VST Automation
+
+WARNING : This product is protected by international treaty. Unauthorized copy or distribution of all, or any portion of this product infringes the law.
+____
+
+
+[[_feat_e_]]
+=== Features
+
+
+A newly developed software synthesis engine is used to produce sounds with unrivaled high quality. The emphasis is on contemporary sounds, focusing on four areas: piano, guitar, bass, and drums. This is a high-quality software synthesizer that delivers the ultimate in realism and expression. 
+
+
+* High-quality sound with breathtaking realism and expression 
++
+--
+The newly developed software synthesis engine uses 32-bit internal processing to deliver high-quality sound. Sampling rates up to 96 kHz are supported (*1) to maximize the potential of your audio device. Reverb and chorus/delay that rival dedicated units are also provided, giving you much room for creativity when portraying your sound. Polyphony is a generous 128 notes (*2). You can freely combine piano, guitar, bass, and drum <<main_panel, modules>> to simultaneously play up to 16 parts.
+
+* **[Note]** 1: The output sampling rate will depend on the performance of your host application and audio device 
+* **[Note]** 2: The actual polyphony will depend on the performance of your computer and audio device. 
+--
+
+* Pro-quality sounds for contemporary music, carefully selected with a focus on four instruments
++
+--
+[Piano] (28 sounds)::
+Piano sounds with a rich dynamic range include a concert grand piano with attention paid even to the sound of the hammers, an impressive rock acoustic piano, and numerous variations of the classic Rhodes electric piano. 
+
+[Guitar] (28 sounds)::
+This group consists mainly of acoustic guitar sounds; steel, nylon, and jazz guitar. Harmonics, slide techniques, and the strumming styles unique to flamenco guitar can also be realistically recreated. 
+
+[Bass] (11 sounds)::
+Jazz, fretless, and acoustic bass sounds have been recorded as high-quality waves with resounding lows. Six-string bass sounds and slap playing techniques have also been recorded. 
+
+[Drums] (3 sets)::
+These realistic, stereo-sampled drum sets faithfully reproduce the character of actual drums, and include details such as flams (double strikes), and velocity-sensitive cymbals and snares that respond with subtle tonal variation. 
+--
+
+
+* Customizable sounds +
+Each sound can be customized in the <<module, Expanded>> screen. You can make detailed adjustments to parameters such as tuning, cutoff, resonance, envelope, modulation, velocity curve, scale tuning, and pitch bend range. In addition, each part has a three-band EQ, giving you even greater control over the tonal quality of the sounds you create. A customized sound can be stored in user memory as one of 384 sounds or 128 drum sets.
+
+* Intel Corporation's SSE instructions, AMD Corporation's Enhanced 3D Now! technology, and Motorola Corporation's AltiVec are all supported, so you'll be able to take full advantage of the high-speed calculation potential of your CPU.
+
+* Support for multiple outputs +
+The multi-channel output capability of DXi 2 and VST 2.0 is supported. In your host application, you can apply effects independently to each part, or output audio to multiple devices. 
+
+* **[Note]** In order to use multiple outputs, you must have a host application that supports DXi 2 or VST 2.0 multi-out capability
+
+
+
+[[_main_panel_]]
+=== About modules
+
+[.text-center]
+image::{main_panel}[]
+
+Super Quartet's operating panel provides a master module and four types of sound module. In the master module you can adjust the overall master tuning, volume, and effect settings. You can add up to sixteen of the various sound modules, as well as change their order.
+
+* **[Note]** 
+Settings you make from the panel are temporary, and are not reflected in the settings of the host application, or in the setting data embedded in the song (project). If you wantyour edits to be to be applied to the settings of the song, you must either make your edits in the host application, or use the parameter preset function. For details, refer to the operation manual for your host application. 
+
+'''''
+
+[[m1]]
+<<atop, 🔝>>
+
+==== Adding/deleting sound modules
+
+To add a module, click the black tab at the left or right of the master module or sound module, and from the menu that appears, select the module that you want to add.
+
+To delete a sound module, click the black tab at the left or right of the sound module, and from the menu that apears, select Remove.
+
+[cols="3,7",]
+|===
+|Append Piano               |Add a piano module below that module.
+|Append Guitar              |Add a guitar module below that module.
+|Append Bass                |Add a bass module below that module.
+|Append Drums               |Add a drum module below that module.
+|Reset (master module only) |Return all settings to the default state.
+|Remove (sound module only) |Delete the sound module you clicked.
+|===
+
+[[m2]]
+<<atop, 🔝>>
+
+==== Changing the order of the sound modules
+
+To change the order of the sound modules, drag a sound module upward or downward, and drop it at the desired position.
+
+[[m3]]
+<<atop, 🔝>>
+
+==== Return all settings to the default state.
+
+Click the black tab at the left or right of the master module, and from the menu that appears, select *Reset*.
+
+
+
+[[_module_]]
+=== About the Compact style and Expanded style
+
+
+Each module can be displayed in one of two styles: a compact style and an expanded style. If you want to view multiple modules at once, it is convenient to use the Compact style; if you want to make detailed settings for each module, use the Expanded style.
+
+'''''
+
+<<atop, 🔝>>
+
+==== Compact style
+
+The compact style lets you set basic parameters for each module.
+
+To switch module display styles, click the button located in the lower right of the module.
+
+* Compact style for the Master module
+
+image:{master_module_compact2}[master_module_compact2,width=632,height=151]
+
+* Compact style for a sound module (example: Guitar module)
+
+image:{guitar_compact2}[guitar_compact2,width=631,height=83]
+
+'''''
+
+<<atop, 🔝>>
+
+==== Expanded style
+
+The expanded style lets you make detailed settings for the sound that is selected for the module. Sound parameters that you edit from the expanded style can be saved as a user patch.
+
+* Expanded style for the Master module
+
+image:{master_module_expand}[master_module_expand,width=630,height=289]
+
+* Expanded style for a sound module (example: Guitar module)
+
+image:{guitar_expand}[guitar_expand,width=632,height=282] 
+
+
+
+
+[[_master_module_]]
+=== Master module
+
+
+In the master module you can edit common parameters such as master tuning, volume, and effect settings. When you switch the Master module to the expanded style, the chorus module and reverb module will be displayed.
+
+image:{master_module_expand}[master_module_expand] 
+
+
+<<atop, 🔝>>
+
+==== MASTER MODULE
+
+image:{master_module_compact}[master_module_compact]
+
+[[master]] Master Level Fader::
+  Specifies the overall output volume.
+
+[[midi]] MIDI::
+  This will light when MIDI messages are received.
+
+[[tune]] TUNE (Master Tuning)::
+  Adjusts the overall tuning in 0.1 Hz steps. Double-click the slider to restore the default value.
+
+[[key]] KEY SHIFT (Master Key Shift)::
+  Adjusts the overall key in semitone steps. Double-click the slider to restore the default value.
+
+[[poly]] POLYPHONY::
+[cols="2,7",]
+|===
+|CURRENT |This indicates the number of voices that are currently sounding. The number of voices used will depend on the number of voices used by a sound, and on the number of keys that are pressed. For example, if you press three keys to play a sound that consists of two voices, this will use 2 x 3 = 6 polyphonic voices.
+|PEAK    |This indicates the highest number of voices that have been used so far. When you double-click the displayed value, it will be reset to 0.
+|===
+
+**[Note]** ome sounds use multiple voices for a single note.
+
+[[limit]] LIMIT::
+  Specifies the maximum number of voices that can sound simultaneously. Double-click the slider to restore the default value.
+
+[[effect_sw]] EFFECT SW (Effect Switch)::
+[cols="2,7",]
+|===
+|REVERB |Switches reverb on/off.
+|CHORUS |Switches chorus on/off.
+|===
+
+[[scale]] SCALE TUNE SW (Scale Tune Switch)::
+  The Scale Tune function can be turned on/off for all sound modules together. This is convenient when you want to quickly switch between equal temperament and the scale you created in the Scale Tune window.
+
+[[help]] HELP::
+  Displays the online help.
+
+[[panic]] PANIC::
+  Stops all sounding notes.
+
+[[about]] ABOUT::
+  Displays the About window. The About window shows the software version.
+
+
+'''''
+
+
+
+[[_about_effect_]]
+=== About the effects
+
+
+When you switch the Master module to the expanded style, the chorus module and reverb module will be displayed. The chorus module lets you switch between two effect types: chorus and delay. To switch the chorus type or reverb type, click the button located at the left of the effect name displayed in the left of the effect setting window.
+
+
+[[_chorus_module_]]
+<<atop, 🔝>>
+
+==== CHORUS (CHORUS)
+
+If you select CHORUS, the module shown below will be displayed.
+
+image:{master_module_chorus}[master_module_chorus]
+
+[[chorus_input]] INPUT::
+  Displays the input level.
+
+[[chorus_load]] LOAD::
+  Loads an effect patch. From the popup menu that appears, select the effect patch that you want to load. By selecting *Load Bank*, you can load a collection of effect patches from a file.
+
+[[chorus_save]] SAVE::
+  Saves the current settings as an effect patch. From the popup menu that appears, select the save-destination patch. If you select a patch that has already been named, the selected effect patch will be overwritten. By selecting *Save Bank*, you can save all sixteen effect patches displayed in the menu as a single file.
+
+[[chorus_module_type1]] CHORUS/DELAY (Module switching button)::
+  Click this button to switch between the Chorus module and the Delay module.
+
+[[chorus_predly]] PRE DLY (Chorus Pre Delay)::
+  Specifies the delay time from the original sound until the chorus sound is heard.
+
+[[chorus_rate]] RATE (Chorus Rate)::
+  Specifies the frequency at which the chorus sound will be modulated.
+
+[[chorus_depth]] DEPTH (Chorus Depth)::
+  Specifies the depth of modulation for the chorus sound.
+
+[[chorus_phase]] PHASE::
+  Specifies the spaciousness of the chorus sound.
+
+[[chorus_feedback]] FEEDBACK (Chorus Feedback)::
+  Specifies the amount of sound processed by the chorus that will be returned (feed back) to the input of the chorus.
+
+[[chorus_filter]] FILTER::
+[cols="2,7",]
+|===
+|OFF |The filter will not be used.
+|LPF (Low Pass Filter) |Cuts the frequency region that lies above the cutoff frequency setting.
+|HPF (High Pass Filter) |Cuts the frequency region that lies below the cutoff frequency setting.
+|CUTOFF FREQ (Cutoff Frequency) |Specifies the frequency that determines the region that will be cut by the filter.
+|===
+
+[[chorus_output]] OUTPUT::
+[cols="2,7",]
+|===
+|REV SND LEVEL (Send to Reverb) |Adjusts the amount of output from the chorus that will be sent to the reverb.
+|LEVEL |Adjusts the output volume.
+|===
+
+
+
+<<atop, 🔝>>
+
+==== CHORUS (DELAY)
+
+If you select DELAY, the following module will be displayed.
+
+image:{master_delay}[master_delay]
+
+[[delay_input]] INPUT::
+  Displays the input level.
+
+[[delay_load]] LOAD::
+  Loads an effect patch. From the popup menu that appears, select the effect patch that you want to load. By selecting *Load Bank*, you can load a collection of effect patches from a file.
+
+[[delay_save]] SAVE::
+  Saves the current settings as an effect patch. From the popup menu that appears, select the save-destination patch. If you select a patch that has already been named, the selected effect patch will be overwritten. By selecting *Save Bank*, you can save all sixteen effect patches displayed in the menu as a single file.
+
+[[chorus_module_type2]] CHORUS/DELAY (Module switching button)::
+  Click this button to switch between the Chorus module and the Delay module.
+
+[[delay_time]] DELAY TIME::
+[cols="2,7",]
+|===
+|LEFT   |Specifies the delay time from the original sound until the left delay sound is heard.
+|CENTER |Specifies the delay time from the original sound until the center delay sound is heard.
+|RIGHT  |Specifies the delay time from the original sound until the right delay sound is heard.
+|===
+
+[[delay_level]] DELAY LEVEL::
+[cols="2,7",]
+|===
+|LEFT   |Specifies the volume of the left delay sound.
+|CENTER |Specifies the volume of the center delay sound.
+|RIGHT  |Specifies the volume of the right delay sound.
+|===
+
+[[delay_feedback]] FEEDBACK::
+  Adjusts the amount of feedback. By changing the amount of feedback, you can change the number of times that the delay will repeat. Negative (-) settings will invert the phase of the feedback sound.
+
+[[delay_hf]] HF DAMP::
+  For the delay sound that is returned to the input, specify the frequency at which the high range will be cut. If you do not want to cut the high range, set this to *BYP*. (BYPASS).
+
+[[delay_output]] OUTPUT::
+[cols="2,7",]
+|===
+|REV SND LEVEL (Reverb Send Level) |Adjusts the amount of output from the delay that will be sent to the reverb.
+|LEVEL (Output level) |Adjusts the output volume.
+|===
+
+
+[[reverb_module]]
+<<atop, 🔝>>
+
+==== REVERB (REVERB)
+
+If you select REVERB, the following module will be displayed.
+
+image:{master_module_reverb}[master_module_reverb]
+
+[[reverb_input]] INPUT::
+  Displays the input level.
+
+[[reverb_load]] LOAD::
+  Loads an effect patch. From the popup menu that appears, select the effect patch that you want to load. By selecting *Load Bank*, you can load a collection of effect patches from a file.
+
+[[reverb_save]] SAVE::
+  Saves the current settings as an effect patch. From the popup menu that appears, select the save-destination patch. If you select a patch that has already been named, the selected effect patch will be overwritten. By selecting *Save Bank*, you can save all sixteen effect patches displayed in the menu as a single file.
+
+[[reverb_module_type1]] REVERB/BRIGHT ROOM/BRIGHT HALL/BRIGHT PLATE (Module switching button)::
+  Click this button to switch between the Reverb module, Bright room module, Bright Hall module and Bright Plate module.
+
+[[reverb_type]] REVERB/DELAY TYPE::
+  Select the type of reverb (or delay).
++
+[cols="2,7",]
+|===
+|ROOM1      |Short, high-density reverberation
+|ROOM2      |Short, low-density reverberation
+|STAGE1     |Reverb with more late reverberation
+|STAGE2     |Reverb with strong early reflections
+|HALL1      |Clear-sounding reverb
+|HALL2      |Rich reverb
+|DELAY      |A conventional delay
+|PAN-DELAY  |A delay in which the reflected sounds pan (move) to left and right.
+|===
+
+[[reverb_time]] TIME (Reverb/Delay Time)::
+  When "Type" is set to ROOM 1 through HALL 2, this sets the length of the reverb. When "Type" is set to DELAY or PAN-DELAY, this sets the delay time. Higher settings will produce a broader sense of space.
+
+[[reverb_hf]] HF DAMP (Reverb/Delay HF Damp)::
+  Specifies the frequency at which the high-frequency portion of the reverb will be cut. Lowering this frequency will cause more of the high-frequency to be cut, producing a softer-sounding reverb. If you do not want to cut the reverb, set this to *BYP*. (BYPASS).
+
+[[reverb_feedback]] FEEDBACK (Delay Feedback)::
+  When "Type" is set to DELAY or PAN-DELAY, this sets the amount of delayed sound that will be returned (fed back) to the input of the delay. Higher settings will cause the delay sounds to continue repeating longer.
+
+[[reverb_level]] LEVEL::
+  Adjusts the output volume.
+
+
+<<atop, 🔝>>
+
+==== REVERB (BRIGHT ROOM/BRIGHT HALL/BRIGHT PLATE)
+
+If you select BRIGHT ROOM/BRIGHT HALL/BRIGHT PLATE, the following module will be displayed.
+
+image:{master_reverb}[master_reverb]
+
+[[reverb2_input]] INPUT::
+  Displays the input level.
+
+[[reverb2_load]] LOAD::
+  Loads an effect patch. From the popup menu that appears, select the effect patch that you want to load. By selecting *Load Bank*, you can load a collection of effect patches from a file.
+
+[[reverb2_save]] SAVE::
+  Saves the current settings as an effect patch. From the popup menu that appears, select the save-destination patch. If you select a patch that has already been named, the selected effect patch will be overwritten. By selecting *Save Bank*, you can save all sixteen effect patches displayed in the menu as a single file.
+
+[[reverb_module_type2]] REVERB/BRIGHT ROOM/BRIGHT HALL/BRIGHT PLATE (Module switching button)::
+  Click this button to switch between the Reverb module, Bright room module, Bright Hall module and Bright Plate module.
+
+[[reverb2_predly]] PRE DLY (Pre Delay Time)::
+  Sets the delay time from the original sound until the reverb sound is heard.
+
+[[reverb2_time]] TIME (Reverb Time)::
+  Adjusts the length of the reverberation.
+
+[[reverb2_size]] SIZE::
+  Adjusts the size of the room/hall. Higher settings will simulate a larger space.
+
+[[reverb2_highcut]] HIGH CUT (High Cut Frequency)::
+  Sets the frequency at which the high-frequency component of the final output sound will be cut. If you do not want to cut the sound, set this to *BYP*. (BYPASS).
+
+[[reverb2_density]] DENSITY (Reverb Density)::
+  Adjusts the density of the reverb. Higher settings will produce a denser sound.
+
+[[reverb2_diff]] DIFF (Reverb Diffusion)::
+  Adjusts how the reverb density will change over time. With higher settings of this parameter, the reverb will become denser as time passes. (The effect of this parameter will be more obvious with longer reverb times.)
+
+[[reverb2_lf]] LF DAMP::
+  Specifies the frequency at which the low-frequency component of the reverb sound will be cut.
++
+[cols="2,7",]
+|===
+|FREQ (LF Damp Frequency) |Specifies the frequency at which the low-frequency component of the reverb sound will be cut.
+|GAIN (LF Damp Gain)      |Adjusts the amount of attenuation for LF Damp. With a setting of "0," LF Damp will have no effect.
+|===
+
+[[reverb2_hf]] HF DAMP::
+[cols="2,7",]
+|===
+|FREQ (HF Damp Frequency) |Specifies the frequency at which the high-frequency component of the reverb sound will be cut.
+|GAIN (HF Damp Gain)      |Adjusts the amount of attenuation for HF Damp. With a setting of "0," HF Damp will have no effect.
+|===
+
+[[reverb2_level]] LEVEL::
+  Adjusts the output volume of the reverb.
+
+
+
+
+[[_sound_module_]]
+=== Sound module
+
+
+Super Quartet provides four types of sound module; Piano, Guitar, Bass, and Drums. You can view a sound module in either Compact style or an Expanded style, allowing you to switch sounds or edit the parameters in detail.
+
+* **[Note]** Settings you make from the panel are temporary, and are not reflected in the settings of the host application, or in the setting data embedded in the song (project).If you want your edits to be to be applied to the settings of the song, you must either make your edits in the host application, or use the parameter preset function. For details, refer to the operation manual for your host application.
+
+* **[Note]** In the case of parameters that apply a relative change (with a range of -63 -- +63), there may be no effect depending on the direction in which the parameter isadjusted.
+
+<<atop, 🔝>>
+
+==== Switching sounds
+
+To switch the sound (drum set) of a module, click the sound name displayed in the module. From the menu that appears, select the desired sound (drum set).
+
+image:{selectsound}[selectsound,width=456,height=222]
+
+'''''
+
+<<atop, 🔝>>
+
+==== Parameters in the Compact style
+
+The Compact style lets you set basic parameters that are common to the four types of sound module.
+
+*Compact style (example: Piano module)*
+
+image:{piano_compact}[piano_compact,width=639,height=132]
+
+[[midich]] [1] MIDI receive channel::
+  Specifies the MIDI channel that will be received.
+
+[2] Sound name::
+  Shows whether a sound is a preset or a user sound, the program change number, and the sound name. If you have edited the sound, a check mark will be displayed in front of the sound name. You can click the sound name area and select a sound from the menu that appears.
+
+[clip]] [3] *Level indicator/Peak indicator::
+  This indicates the output volume of the module. If the volume of the module is too high, the peak indicator located at the right will light. If this indicator lights frequently, it is possible that Super Quartet's output is distorting.
+
+[[miditor]] [4] MIDI *indicator*::
+  This will light when MIDI messages are received.
+
+[[volume]] [5] Volume Slider::
+  Adjusts the output volume of the module. Double-click the slider to restore the default value. (100)
+
+[[preview]] [6] PREVIEW::
+--
+Allows you to audition the currently selected sound. The <<phrasepreview, Phrase Preview>> function lets you audition the currently selected sound with a phrase appropriate for that sound.
+
+* **[Note]** If the Drum module is displayed with the Expanded style, you can monophonically audition the rhythm instrument displayed in the <<instrument, INSTRUMENT>> field
+--
+
+[[pan]] [7] PAN::
+--
+Adjusts the pan (stereo position) of the module. Double-click the knob to restore the default value. (0 = center)
+
+**[Note]** For some sounds, it may be difficult to notice the effect.
+--
+
+[[reverb]] [8] REVERB (Reverb Send Level)::
+  Adjusts the output level of the signal that is sent to the reverb. Double-click the knob to restore the default value. (40)
+
+[[chorus]] [9] CHORUS (Chorus Send Level)::
+  Adjusts the output level of the signal that is sent to the chorus. Double-click the knob to restore the default value. (0)
+
+'''''
+
+<<atop, 🔝>>
+
+==== Parameters in the Expanded style
+
+The Expanded style lets you make detailed parameter settings for each module. The available parameters will depend on the type of module.
+
+*   [piano] -- Piano module parameters
+*   [guitar] -- Guitar module parameters
+*   [bass] -- Bass module parameters
+*   [drums] -- Drum module parameters
+
+**Expanded* style (example: Piano module)
+
+image:{piano_module}[piano_module]
+
+[[filter]] FILTER [piano] [guitar] [bass]::
+[cols="2,7",]
+|===
+|CUT OFF (Cut Off Frequency) |Adjusts the brightness of the sound. The sound will become darker as this value is lowered, and brighter as it is raised.
+|RESONANCE                  |Modifies the tone color by boosting or cutting the harmonics. The sound will become less idiosyncratic as this value is lowered, and sharper and more unique as the value is raised.
+|===
+
+* **[Note]** This will have no effect on sounds that do not use the filter.
+* **[Note]** Depending on the sound or the pitch range, this may have no effect.
+
+[[chara]] CHARACTER [piano] [guitar] [bass]::
+  Modifies the character of the harmonics. By operating this knob you can make the sound more reedy or muffled.
+
+* **[Note]** With certain sounds, or in certain pitch ranges, this may have no effect.
+* **[Note]** The effect of this parameter will differ depending on the sound. 
+
+[[tuning]] TUNING [piano] [guitar] [bass]::
+[cols="2,7",]
+|===
+|COARSE (Coarse Tune) |Specifies the amount of pitch shift in semitone units.
+|FINE (Fine Tune)     |Specifies the amount of pitch shift in one-cent units (one cent = 1/100th of a semitone).
+|===
+
+[[tremolo]] TREMOLO [piano] [guitar]::
+[cols="2,7",]
+|===
+|DEPTH (Tremolo Depth) |Adjusts the modulation depth of the tremolo effect.
+|RATE (Tremolo Rate)   |Adjusts the modulation frequency of the tremolo effect.
+|===
+
+* **[Note]** For some sounds, it may be difficult to notice the effect.
+
+[[envelope]] ENVELOPE [piano] [guitar] [bass]::
+[cols="2,7",]
+|===
+|ATTACK (Attack Time) |Adjusts the attack time of the envelope. Higher settings will produce a more gradual attack, and lower settings will produce a sharper attack.
+|DECAY (Decay Time) |Adjusts the decay time of the envelope. Higher settings will produce a more gradual decay, and lower settings will produce a shorter decay time.
+|RELEASE (Release Time) |Adjusts the release time of the envelope. Higher settings will produce a longer release, and lower settings will produce a shorter release.
+|===
+
+[[velocity]] VELOCITY [piano] [guitar] [bass] [drums]::
+[width="100%",cols="2,7"]
+|===
+|SENS (Velocity Sensitivity) |Determines the extent to which changes in velocity (playing dynamics) will affect the volume or tone. As the value is decreased, changes in velocity will have less effect on the volume or tone. When the value of this parameter is increased, changes in velocity will produce greater effect on the volume or tone.
+|CURVE (Velocity Curve)     a|This parameter lets you select one of five velocity curves, as appropriate for the playing touch of your MIDI keyboard. If you want to use the velocity curve of your MIDI keyboard (i.e., without modifying it), select "0".
+
+image:{Curve}[Curve,width=176,height=166]
+|===
+
+
+[[scale]] SCALE TUNE [piano] [guitar] [bass]::
+  Displays the <<_scale_tune_, Scale Tune window>>.
+
+[[eq]] EQ (Equalizer) [piano] [guitar] [bass] [drums]::
+  The LOW and HIGH EQ are shelving types, and MID is a peaking type. The frequency and Q can be adjusted for MID.
+
+[cols="2,7",]
+|===
+|ON/OFF     |Switches the EQ on/off.
+|LOW GAIN   |Sets the lower-range gain (the amount of boost/cut). Positive (+) settings will boost (amplify) the lower range. The cutoff frequency is 400 Hz.
+|MID GAIN   |Sets the gain of the range specified by the FREQ parameter and Q parameter.
+|FREQ (Mid Frequency) |Sets the center frequency for the midrange equalizer.
+|Q (Mid Q)  |Sets the width of the range centered around the FREQ parameter in which the gain will be changed. Higher settings will make the change occur in a narrower range.
+|HIGH GAIN  |Sets the upper-range gain (amount of boost/cut). Positive (+) settings will boost (amplify) the upper range. The cutoff frequency is 4000 Hz.
+|===
+
+**[Note]** The frequency response displayed in the graph is only for reference during editing, and will differ from the actual frequency response
+
+[[bend]] BEND RANGE (Pitch Bend Sensitivity) ** [guitar] [bass]::
+  Sets the amount (in semitone units) of pitch change that can occur when you operate the pitch bend lever. The same amount of pitch change will occur when the pitch bend lever is moved to left or right.
+
+[[modulation]] MODULATION  [guitar] [bass]::
+[cols="2,7",]
+|===
+|SENS (Modulation Sensitivity) |Specifies the depth of the modulation that will occur when modulation messages are received.
+|RATE (Modulation Rate) |Specifies the frequency of the modulation that will occur when modulation messages are received.
+|===
+
+[[mono]] Mono [bass]::
+[cols="2,7",]
+|===
+|MONO (Mono Mode On) |Selects Mono mode. For example, you would use this setting when you want to play the sound as a mono synth from a keyboard controller.
+|POLY (Poly Mode On) |Selects Polyphonic mode. Use this mode when you want to play chords from a keyboard.
+|===
+
+[[write]] WRITE [piano] [guitar] [bass] [drums]::
+  Customized sounds can be saved in the user bank. For details on <<user_e, Saving user sounds>>, refer to Saving User Sounds.
+
+
+
+<<atop, 🔝>>
+
+==== Drum module(Expanded style)
+
+*image:{drum_expand}[drum_expand,width=632,height=285]*
+
+[[instrument]] INSTRUMENT [drums]::
+In the Drum module, you can make detailed settings for the instrument assigned to each key of the drum set.
+
+Use any of the following methods to select the instrument you want to edit.
+
+* Click the buttons ◀▶ located at the right of the instrument name.
+* Click the instrument name, and select an instrument from the list of instruments included in that rhythm set.
+* If the MIDI EDIT button is ON, the instrument name will change automatically according to the MIDI Note On message that is received.
+
+**[Note]** If a song is being played, you should turn this OFF, since the instrument display will change rapidly
+
+You can set the following parameters for each instrument.
+
+[cols="2,7",]
+|===
+|LEVEL (Instrument Level)         |Sets the output volume of the instrument.
+|PAN (Instrument Pan)             |Sets the stereo position of the instrument. L63 is far left, 0 is center, and R63 is far right.
+|COARSE TUNE (Instrument Coarse Tune) |Sets the amount of pitch shift (in semitone steps) for the instrument.
+|FINE TUNE (Instrument Fine Tune) |Sets the amount of pitch shift (in one-cent steps; one cent = 1/100th of a semitone) for the instrument.
+|REVERB LEVEL (Reverb Send Level) |Sets the output level that is sent from the instrument to the reverb. There will be no effect if the send level of the module is turned down.
+|CHORUS LEVEL (Chorus Send Level) |Sets the output level that is sent from the instrument to the chorus. There will be no effect if the send level of the module is turned down.
+|===
+
+
+
+{TOP}
+[[_bass_module_]]
+=== Bass module
+
+In the Bass module you can edit bass sounds. To select a different sound, click the sound name, and select the desired sound from the menu that appears. You can also load or save sounds by selecting *Load Bank* or *Save Bank*. Each parameter can be edited by dragging the knob upward or downward. You can also click the spin buttons located below the knob to adjust the parameter value in minimum increments.
+
+**[Note]** In the case of parameters that apply a relative change (with a range of -63 -- +63), there may be no effect depending on the direction in which the parameter is adjusted.
+
+// image:{bass_expand}[bass_expand,useMap="#ImageMapBase"]
+[pass,subs=attributes]
++++++
+<img src="{bass_expand}" useMap="#ImageMapBase" />
+<map name="ImageMapBase">
+<area shape="rect" href="#bass_midi" coords="37, 37, 65, 65">
+<area shape="rect" href="#bass_volume" coords="68, 46, 303, 76">
+<area shape="rect" href="#bass_clip" coords="302, 30, 323, 53">
+<area shape="rect" href="#bass_preview" coords="323, 35, 376, 65">
+<area shape="rect" href="#bass_pan" coords="406, 8, 447, 64">
+<area shape="rect" href="#bass_reverb" coords="461, 8, 509, 63">
+<area shape="rect" href="#bass_chorus" coords="521, 10, 570, 62">
+<area shape="rect" href="#bass_filter" coords="71, 85, 161, 145">
+<area shape="rect" href="#bass_chara" coords="162, 84, 223, 144">
+<area shape="rect" href="#bass_mono" coords="231, 96, 269, 135">
+<area shape="rect" href="#bass_tuning" coords="70, 146, 154, 205">
+<area shape="rect" href="#bass_modulation" coords="155, 145, 234, 205">
+<area shape="rect" href="#bass_bend" coords="235, 144, 275, 205">
+<area shape="rect" href="#bass_envelope" coords="69, 207, 193, 264">
+<area shape="rect" href="#bass_velocity" coords="196, 207, 274, 264">
+<area shape="rect" href="#bass_scale" coords="289, 221, 329, 260">
+<area shape="poly" href="#bass_eq" coords="293, 91, 374, 265, 553, 266, 551, 91">
+<area shape="rect" href="#bass_write" coords="559, 78, 609, 101">
+</map>
++++++
+
+[[bass_midi]] MIDI::
+  This will light when MIDI messages are received.
+
+[[bass_clip]] Peak indicator::
+  This will light when the MIDI output level exceeds the maximum value.
+
+[[bass_volume]] Volume Slider (Volume) [CC#7]::
+  Adjusts the output volume of the module. Double-click the slider to restore the default value.
+
+[[bass_preview]] PREVIEW::
+  Allows you to audition the currently selected sound.
+
+[[bass_pan]] PAN [CC#10]::
+  Adjusts the pan (stereo position) of the part. Double-click the knob to restore the default value.
+
+**[Note]** For some sounds, it may be difficult to notice the effect.
+
+[[bass_reverb]] REVERB (Reverb Send Level) [CC#91]::
+  Adjusts the output level of the signal that is sent to the reverb. Double-click the knob to restore the default value.
+
+[[bass_chorus]] CHORUS (Chorus Send Level) [CC#93]::
+  Adjusts the output level of the signal that is sent to the chorus. Double-click the knob to restore the default value.
+
+[[bass_filter]] FILTER::
+[cols="2,7",]
+|===
+|CUT OFF (Brightness)                  [CC#74] |Adjusts the brightness of the sound. The sound will become darker as this value is lowered, and brighter as it is raised.
+|RESONANCE (Timbre/Harmonic Intensity) [CC#71] |Modifies the tone color by boosting or cutting the harmonics. The sound will become less idiosyncratic as this value is lowered, and sharper and more unique as the value is raised.
+|===
+
+**[Note]** This will have no effect on sounds that do not use the filter. +
+**[Note]** Depending on the sound or the pitch range, this may have no effect.
+
+[[bass_chara]] CHARACTER [NRPN 58H 01H]::
+  Modifies the character of the harmonics. By operating this knob you can make the sound more reedy or muffled.
+  +
+**[Note]** With certain sounds, or in certain pitch ranges, this may have no effect. +
+**[Note]** The effect of this parameter will differ depending on the sound. +
+
+[[bass_mono]] Mono::
+[cols="2,7",]
+|===
+|MONO (Mono Mode On) [CC#126] |Selects Mono mode. For example, you would use this setting when you want to play the sound as a mono synth from a keyboard controller.
+|POLY (Poly Mode On) [CC#127] |Selects Polyphonic mode. Use this mode when you want to play chords from a keyboard.
+|===
+
+[[bass_tuning]] TUNING::
+[cols="2,7",]
+|===
+|COARSE (Coarse Tune) [RPN 00H 02H] |Specifies the amount of pitch shift in semitone units.
+|FINE (Fine Tune)     [RPN 00H 01H] |Specifies the amount of pitch shift in one-cent units (one cent = 1/100th of a semitone).
+|===
+
+[[bass_modulation]] MODULATION::
+[cols="2,7",]
+|===
+|SENS (Modulation Sensitivity) [RPN 00H 05H] |Specifies the depth of the modulation that will occur when modulation messages are received.
+|RATE (Modulation Rate) [CC#76]              |Specifies the frequency of the modulation that will occur when modulation messages are received.
+|===
+
+[[bass_bend]] BEND RANGE (Pitch Bend Sensitivity) [RPN 00H 00H]::
+  Sets the amount (in semitone units) of pitch change that can occur when you operate the pitch bend lever. The same amount of pitch change will occur when the pitch bend lever is moved to left or right.
+
+[[bass_envelope]] ENVELOPE::
+[cols="2,7",]
+|===
+|ATTACK (Attack Time)   [CC#73] |Adjusts the attack time of the envelope. Higher settings will produce a more gradual attack, and lower settings will produce a sharper attack.
+|DECAY (Decay Time)     [CC#75] |Adjusts the decay time of the envelope. Higher settings will produce a more gradual decay, and lower settings will produce a shorter decay time.
+|RELEASE (Release Time) [CC#72] |Adjusts the release time of the envelope. Higher settings will produce a longer release, and lower settings will produce a shorter release.
+|===
+
+[[bass_velocity]] VELOCITY::
+[width="100%",cols="2,5",]
+|===
+|SENS (Velocity Sensitivity) [NRPN 58H 03H] |Determines the extent to which changes in velocity (playing dynamics) will affect the volume or tone. As the value is decreased, changes in velocity will have less effect on the volume or tone. When the value of this parameter is increased, changes in velocity will produce greater effect on the volume or tone.
+|CURVE (Velocity Curve)     [NRPN 58H 04H] a|This parameter lets you select one of five velocity curves, as appropriate for the playing touch of your MIDI keyboard. If you want to use the velocity curve of your MIDI keyboard (i.e., without modifying it), select "0".
+
+image:{Curve}[Curve,width=176,height=166]
+|===
+
+[[bass_scale]] SCALE TUNE::
+  Displays the <<_scale_tune_, Scale Tune window>>.
+
+[[bass_eq]] EQ (Equalizer)::
+  The LOW and HIGH EQ are shelving types, and MID is a peaking type. The frequency and Q can be adjusted for MID.
+
+[cols="2,7",]
+|===
+|ON/OFF [NRPN 58H 20H]   |Switches the EQ on/off.
+|LOW GAIN [NRPN 58H 22H] |Sets the lower-range gain (the amount of boost/cut). Positive (+) settings will boost (amplify) the lower range. The cutoff frequency is 400 Hz.
+|MID GAIN [NRPN 58H 27H] |Sets the gain of the range specified by the FREQ parameter and Q parameter.
+|FREQ (Mid Frequency) [NRPN 58H 25H] |Sets the center frequency for the midrange equalizer.
+|Q (Mid Q) [NRPN 58H 26H] |Sets the width of the range centered around the FREQ parameter in which the gain will be changed. Higher settings will make the change occur in a narrower range.
+|HIGH GAIN [NRPN 58H 24H] |Sets the upper-range gain (amount of boost/cut). Positive (+) settings will boost (amplify) the upper range. The cutoff frequency is 4000 Hz.
+|===
+  
+**[Note]** The frequency response displayed in the graph is only for reference during editing, and will differ from the actual frequency response. +
+
+[[bass_write]] WRITE::
+  Customized sounds can be saved in the user bank. For details on <<_user_e_, Saving user sounds>>, refer to Saving User Sounds.
+
+
+
+{TOP}
+[[_drums_module_]]
+=== Drums module
+
+In the Drum module you can edit drum sounds. To select a different drum set, click the sound name, and select the desired sound from the menu that appears. You can also load or save sounds by selecting *Load Bank* or *Save Bank*. Each parameter can be edited by dragging the knob upward or downward. You can also click the spin buttons located below the knob to adjust the parameter value in minimum increments.
+
+*[Note]* In the case of parameters that apply a relative change (with a range of -63 -- +63), there may be no effect depending on the direction in which the parameter is adjusted.
+
+// image:{drum_expand}[drum_expand]
+[pass,subs=attributes]
++++++
+<img src="{drum_expand}" useMap="#ImageMapDrum" />
+<map name="ImageMapDrum">
+<area shape="rect" coords="38, 38, 65, 65" href="#drums_midi">
+<area shape="rect" coords="68, 34, 276, 74" href="#drums_volume">
+<area shape="rect" coords="302, 32, 320, 51" href="#drums_clip">
+<area shape="rect" coords="319, 29, 376, 68" href="#drums_preview">
+<area shape="rect" coords="403, 11, 445, 63" href="#drums_pan">
+<area shape="rect" coords="456, 13, 511, 62" href="#drums_reverb">
+<area shape="rect" coords="516, 11, 571, 63" href="#drums_chorus">
+<area shape="rect" coords="67, 78, 163, 143" href="#drums_filter">
+<area shape="rect" coords="179, 84, 247, 143" href="#drums_chara">
+<area shape="rect" coords="66, 143, 154, 203" href="#drums_tuning">
+<area shape="rect" coords="190, 144, 274, 205" href="#drums_tremolo">
+<area shape="rect" coords="65, 206, 194, 265" href="#drums_envelope">
+<area shape="rect" coords="194, 206, 274, 264" href="#drums_velocity">
+<area shape="rect" coords="286, 213, 330, 261" href="#drums_scale">
+<area shape="poly" coords="294, 89, 355, 265, 554, 266, 552, 89" href="#drums_eq">
+<area shape="rect" coords="559, 76, 606, 103" href="#drums_write">
++++++
+
+[[drums_midi]] MIDI::
+  This will light when MIDI messages are received.
+
+[[drums_clip]] Peak indicator::
+  This will light when the MIDI output level exceeds the maximum value.
+
+[[drums_volume]] Volume Slider (Volume) [CC#7]::
+  Adjusts the output volume of the module. Double-click the slider to restore the default value.
+
+[[drums_preview]] PREVIEW::
+  Allows you to audition the currently selected sound.
+
+[[drums_pan]] PAN [CC#10]::
+  Adjusts the pan (stereo position) of the part. Double-click the knob to restore the default value.
+
+**[Note]** For some sounds, it may be difficult to notice the effect.
+
+[[drums_reverb]] REVERB (Reverb Send Level) [CC#91]::
+  Adjusts the output level of the signal that is sent to the reverb. Double-click the knob to restore the default value.
+
+[[drums_chorus]] CHORUS (Chorus Send Level) [CC#93]::
+  Adjusts the output level of the signal that is sent to the chorus. Double-click the knob to restore the default value.
+
+[[drums_instrument]] INSTRUMENT::
+Indicates the currently selected rhythm instrument. You can make detailed settings for the instrument assigned to each key (i.e., each note of the keyboard). Use one of the following methods to switch the selected instrument.
+
+Click the buttons located at the right of the instrument name.
+
+Click the instrument name, and select an instrument from the list of instruments included in that rhythm set.
+
+If the MIDI EDIT button is ON, the instrument name will change automatically according to the MIDI Note On message that is received.
+
+**[Note]** If a song is being played, you should turn this OFF, since the instrument display will change rapidly.
+
+[cols="2,7",]
+|===
+|LEVEL (Instrument Level) [NRPN 1AH rrH] |Sets the output volume of the instrument.
+|PAN (Instrument Pan) [NRPN 1CH rrH] |Sets the stereo position of the instrument. L63 is far left, 0 is center, and R63 is far right.
+|COARSE TUNE (Instrument Coarse Tune) [NRPN 18H rrH] |Sets the amount of pitch shift (in semitone steps) for the instrument.
+|FINE TUNE (Instrument Fine Tune) [NRPN 19H rrH] |Sets the amount of pitch shift (in one-cent steps; one cent = 1/100th of a semitone) for the instrument.
+|REVERB LEVEL (Reverb Send Level) [NRPN 1DH rrH] |Sets the output level that is sent from the instrument to the reverb. There will be no effect if the send level of the part is turned down.
+|CHORUS LEVEL (Chorus Send Level) [NRPN 1EH rrH] |Sets the output level that is sent from the instrument to the chorus. There will be no effect if the send level of the part is turned down.
+|===
+
+**[Note]** rr: Note number (21--108) of the rhythm instrument
+
+[[drums_velocity]] VELOCITY::
+[width="100%",cols="2,5",]
+|===
+|SENS (Velocity Sensitivity) [NRPN 58H 03H] |Determines the extent to which changes in velocity (playing dynamics) will affect the volume or tone. As the value is decreased, changes in velocity will have less effect on the volume or tone. When the value of this parameter is increased, changes in velocity will produce greater effect on the volume or tone.
+|CURVE (Velocity Curve) [NRPN 58H 04H] a|This parameter lets you select one of five velocity curves, as appropriate for the playing touch of your MIDI keyboard. If you want to use the velocity curve of your MIDI keyboard (i.e., without modifying it), select "0".
+
+image:{Curve}[Curve,width=176,height=166]
+|===
+
+[[drums_eq]] EQ (Equalizer)::
+  The LOW and HIGH EQ are shelving types, and MID is a peaking type. The frequency and Q can be adjusted for MID.
+
+[cols="2,7",]
+|===
+|ON/OFF [NRPN 58H 20H] |Switches the EQ on/off.
+|LOW GAIN [NRPN 58H 22H] |Sets the lower-range gain (the amount of boost/cut). Positive (+) settings will boost (amplify) the lower range. The cutoff frequency is 400 Hz.
+|MID GAIN [NRPN 58H 27H] |Sets the gain of the range specified by the FREQ parameter and Q parameter.
+|FREQ (Mid Frequency) [NRPN 58H 25H] |Sets the center frequency for the midrange equalizer.
+|Q (Mid Q) [NRPN 58H 26H] |Sets the width of the range centered around the FREQ parameter in which the gain will be changed. Higher settings will make the change occur in a narrower range.
+|HIGH GAIN [NRPN 58H 24H] |Sets the upper-range gain (amount of boost/cut). Positive (+) settings will boost (amplify) the upper range. The cutoff frequency is 4000 Hz.
+|===
+
+**[Note]** The frequency response displayed in the graph is only for reference during editing, and will differ from the actual frequency response.
+
+[[drums_write]] WRITE::
+  Customized sounds can be saved in the user bank. For details on <<_user_e_, Saving user sounds>>, refer to Saving User Sounds.
+
+
+{TOP}
+[[_guitar_module_]]
+=== Guitar module
+
+In the Guitar module you can edit guitar sounds. To select a different sound, click the sound name, and select the desired sound from the menu that appears. You can also load or save sounds by selecting *Load Bank* or *Save Bank*. Each parameter can be edited by dragging the knob upward or downward. You can also click the spin buttons located below the knob to adjust the parameter value in minimum increments.
+
+*[Note]* In the case of parameters that apply a relative change (with a range of -63 -- +63), there may be no effect depending on the direction in which the parameter is adjusted.
+
+// image:{guitar_expand}[guitar_expand]
+[pass,subs=attributes]
++++++
+<img src="{bass_expand}" useMap="#ImageMapGuitar" />
+<map name="ImageMapGuitar">
+<area shape="rect" coords="38, 35, 67, 65" href="#guitar_midi">
+<area shape="rect" coords="70, 44, 303, 75" href="#guitar_volume">
+<area shape="circle" coords="314, 39, 12" href="#guitar_clip">
+<area shape="rect" coords="326, 29, 378, 64" href="#guitar_preview">
+<area shape="rect" coords="405, 6, 447, 62" href="#guitar_pan">
+<area shape="rect" coords="459, 7, 510, 62" href="#guitar_reverb">
+<area shape="rect" coords="518, 5, 575, 62" href="#guitar_chorus">
+<area shape="rect" coords="66, 79, 162, 145" href="#guitar_filter">
+<area shape="rect" coords="164, 89, 224, 144" href="#guitar_chara">
+<area shape="rect" coords="230, 86, 277, 143" href="#guitar_bend">
+<area shape="rect" coords="70, 145, 155, 204" href="#guitar_tuning">
+<area shape="rect" coords="156, 145, 235, 204" href="#guitar_modulation">
+<area shape="rect" coords="237, 147, 315, 204" href="#guitar_tremolo">
+<area shape="rect" coords="74, 204, 193, 265" href="#guitar_envelope">
+<area shape="rect" coords="197, 205, 275, 264" href="#guitar_velocity">
+<area shape="rect" coords="289, 215, 331, 260" href="#guitar_scale">
+<area shape="poly" coords="294, 90, 378, 266, 554, 265, 550, 90" href="#guitar_eq">
+<area shape="rect" coords="561, 79, 609, 98" href="#guitar_write">
+</map>
++++++
+
+[[guitar_midi]] MIDI::
+  This will light when MIDI messages are received.
+
+[[guitar_clip]] Peak indicator::
+  This will light when the MIDI output level exceeds the maximum value.
+
+[[guitar_volume]] Volume Slider (Volume) [CC#7]::
+  Adjusts the output volume of the module. Double-click the slider to restore the default value.
+
+[[guitar_preview]] PREVIEW::
+  Allows you to audition the currently selected sound.
+
+[[guitar_pan]] PAN [CC#10]::
+  Adjusts the pan (stereo position) of the part. Double-click the knob to restore the default value.
+  
+**[Note]** For some sounds, it may be difficult to notice the effect.
+
+[[guitar_reverb]] REVERB (Reverb Send Level) [CC#91]::
+  Adjusts the output level of the signal that is sent to the reverb. Double-click the knob to restore the default value.
+
+[[guitar_chorus]] CHORUS (Chorus Send Level) [CC#93]::
+  Adjusts the output level of the signal that is sent to the chorus. Double-click the knob to restore the default value.
+
+[[guitar_filter]] FILTER::
+[cols="2,7",]
+|===
+|CUT OFF (Brightness) [CC#74] |Adjusts the brightness of the sound. The sound will become darker as this value is lowered, and brighter as it is raised.
+|RESONANCE (Timbre/Harmonic Intensity) [CC#71] |Modifies the tone color by boosting or cutting the harmonics. The sound will become less idiosyncratic as this value is lowered, and sharper and more unique as the value is raised.
+|===
+
+**[Note]** This will have no effect on sounds that do not use the filter. 
+
+**[Note]** Depending on the sound or the pitch range, this may have no effect.
+
+[[guitar_chara]] CHARACTER [NRPN 58H 01H]::
+  Modifies the character of the harmonics. By operating this knob you can make the sound more reedy or muffled.
+
+**[Note]** With certain sounds, or in certain pitch ranges, this may have no effect. 
+**[Note]** The effect of this parameter will differ depending on the sound. 
+
+[[guitar_bend]] BEND RANGE (Pitch Bend Sensitivity) [RPN 00H 00H]::
+  Sets the amount (in semitone units) of pitch change that can occur when you operate the pitch bend lever. The same amount of pitch change will occur when the pitch bend lever is moved to left or right.
+
+[[guitar_tuning]] TUNING::
+[cols="2,7",]
+|===
+|COARSE (Coarse Tune) [RPN 00H 02H] |Specifies the amount of pitch shift in semitone units.
+|FINE (Fine Tune) [RPN 00H 01H] |Specifies the amount of pitch shift in one-cent units (one cent = 1/100th of a semitone).
+|===
+
+[[guitar_modulation]] MODULATION::
+[cols="2,7",]
+|===
+|SENS (Modulation Sensitivity) [RPN 00H 05H] |Specifies the depth of the modulation that will occur when modulation messages are received.
+|RATE (Modulation Rate) [CC#76] |Specifies the frequency of the modulation that will occur when modulation messages are received.
+|===
+
+[[guitar_tremolo]] TREMOLO::
+[cols="2,7",]
+|===
+|DEPTH (Tremolo Depth) [CC#92] |Adjusts the modulation depth of the tremolo effect.
+|RATE (Tremolo Rate) [NRPN 58H 02H] |Adjusts the modulation frequency of the tremolo effect.
+|===
+
+**[Note]** For some sounds, it may be difficult to notice the effect.
+
+[[guitar_envelope]] ENVELOPE::
+[cols="2,7",]
+|===
+|ATTACK (Attack Time) [CC#73] |Adjusts the attack time of the envelope. Higher settings will produce a more gradual attack, and lower settings will produce a sharper attack.
+|DECAY (Decay Time) [CC#75] |Adjusts the decay time of the envelope. Higher settings will produce a more gradual decay, and lower settings will produce a shorter decay time.
+|RELEASE (Release Time) [CC#72] |Adjusts the release time of the envelope. Higher settings will produce a longer release, and lower settings will produce a shorter release.
+|===
+
+[[guitar_velocity]] VELOCITY::
+[width="100%",cols="2,5",]
+|===
+|SENS (Velocity Sensitivity) [NRPN 58H 03H] |Determines the extent to which changes in velocity (playing dynamics) will affect the volume or tone. As the value is decreased, changes in velocity will have less effect on the volume or tone. When the value of this parameter is increased, changes in velocity will produce greater effect on the volume or tone.
+|CURVE (Velocity Curve) [NRPN 58H 04H] a|This parameter lets you select one of five velocity curves, as appropriate for the playing touch of your MIDI keyboard. If you want to use the velocity curve of your MIDI keyboard (i.e., without modifying it), select "0".
+
+image:{Curve}[Curve,width=176,height=166]
+|===
+
+[[guitar_scale]] SCALE TUNE::
+  Displays the link:scale_tune.htm[Scale Tune window].
+
+[[guitar_eq]] EQ (Equalizer)::
+  The LOW and HIGH EQ are shelving types, and MID is a peaking type. The frequency and Q can be adjusted for MID.
+
+[cols="2,7",]
+|===
+|ON/OFF [NRPN 58H 20H] |Switches the EQ on/off.
+|LOW GAIN [NRPN 58H 22H] |Sets the lower-range gain (the amount of boost/cut). Positive (+) settings will boost (amplify) the lower range. The cutoff frequency is 400 Hz.
+|MID GAIN [NRPN 58H 27H] |Sets the gain of the range specified by the FREQ parameter and Q parameter.
+|FREQ (Mid Frequency) [NRPN 58H 25H] |Sets the center frequency for the midrange equalizer.
+|Q (Mid Q) [NRPN 58H 26H] |Sets the width of the range centered around the FREQ parameter in which the gain will be changed. Higher settings will make the change occur in a narrower range.
+|HIGH GAIN [NRPN 58H 24H] |Sets the upper-range gain (amount of boost/cut). Positive (+) settings will boost (amplify) the upper range. The cutoff frequency is 4000 Hz.
+|===
+
+**[Note]** The frequency response displayed in the graph is only for reference during editing, and will differ from the actual frequency response. 
+
+[[guitar_write]] WRITE::
+  Customized sounds can be saved in the user bank. For details on <<_user_e_, Saving user sounds>>, refer to Saving User Sounds.
+
+
+{TOP}
+[[_piano_module_]]
+=== Piano module
+
+In the Piano module you can edit piano sounds. To select a different sound, click the sound name, and select the desired sound from the menu that appears. You can also load or save sounds by selecting *Load Bank* or *Save Bank*. Each parameter can be edited by dragging the knob upward or downward. You can also click the spin buttons located below the knob to adjust the parameter value in minimum increments.
+
+*[Note]* In the case of parameters that apply a relative change (with a range of -63 -- +63), there may be no effect depending on the direction in which the parameter is adjusted.
+
+// image:{piano_module}[piano_module]
+[pass,subs=attributes]
++++++
+<img src="{bass_expand}" useMap="#ImageMapPiano" />
+<map name="ImageMapPiano">
+<area shape="rect" coords="38, 38, 65, 65" href="#piano_midi">
+<area shape="rect" coords="68, 34, 276, 74" href="#piano_volume">
+<area shape="rect" coords="302, 32, 320, 51" href="#piano_clip">
+<area shape="rect" coords="319, 29, 376, 68" href="#piano_preview">
+<area shape="rect" coords="403, 11, 445, 63" href="#piano_pan">
+<area shape="rect" coords="456, 13, 511, 62" href="#piano_reverb">
+<area shape="rect" coords="516, 11, 571, 63" href="#piano_chorus">
+<area shape="rect" coords="67, 78, 163, 143" href="#piano_filter">
+<area shape="rect" coords="179, 84, 247, 143" href="#piano_chara">
+<area shape="rect" coords="66, 143, 154, 203" href="#piano_tuning">
+<area shape="rect" coords="190, 144, 274, 205" href="#piano_tremolo">
+<area shape="rect" coords="65, 206, 194, 265" href="#piano_envelope">
+<area shape="rect" coords="194, 206, 274, 264" href="#piano_velocity">
+<area shape="rect" coords="286, 213, 330, 261" href="#piano_scale">
+<area shape="poly" coords="294, 89, 355, 265, 554, 266, 552, 89" href="#piano_eq">
+<area shape="rect" coords="559, 76, 606, 103" href="#piano_write">
+</map>
++++++
+
+[[piano_midi]] MIDI::
+  This will light when MIDI messages are received.
+
+[[piano_clip]] Peak indicator::
+  This will light when the MIDI output level exceeds the maximum value.
+
+[[piano_volume]] Volume Slider (Volume) [CC#7]::
+  Adjusts the output volume of the module. Double-click the slider to restore the default value.
+
+[[piano_preview]] PREVIEW::
+  Allows you to audition the currently selected sound.
+
+[[piano_pan]] PAN [CC#10]::
+  Adjusts the pan (stereo position) of the part. Double-click the knob to restore the default value.
+
+**[Note]** For some sounds, it may be difficult to notice the effect.
+
+[[piano_reverb]] REVERB (Reverb Send Level) [CC#91]::
+  Adjusts the output level of the signal that is sent to the reverb. Double-click the knob to restore the default value.
+
+[[piano_chorus]] CHORUS (Chorus Send Level) [CC#93]::
+  Adjusts the output level of the signal that is sent to the chorus. Double-click the knob to restore the default value.
+
+[[piano_filter]] FILTER::
+[cols="2,7",]
+|===
+|CUT OFF (Brightness) [CC#74] |Adjusts the brightness of the sound. The sound will become darker as this value is lowered, and brighter as it is raised.
+|RESONANCE (Timbre/Harmonic Intensity) [CC#71] |Modifies the tone color by boosting or cutting the harmonics. The sound will become less idiosyncratic as this value is lowered, and sharper and more unique as the value is raised.
+|===
+
+**[Note]** This will have no effect on sounds that do not use the filter. 
+**[Note]** Depending on the sound or the pitch range, this may have no effect.
+
+[[piano_chara]] CHARACTER [NRPN 58H 01H]::
+  Modifies the character of the harmonics. By operating this knob you can make the sound more reedy or muffled.
+
+**[Note]** With certain sounds, or in certain pitch ranges, this may have no effect. 
+
+**[Note]** The effect of this parameter will differ depending on the sound. 
+
+[[piano_tuning]] TUNING::
+[cols="2,7",]
+|===
+|COARSE (Coarse Tune) [RPN 00H 02H] |Specifies the amount of pitch shift in semitone units.
+|FINE (Fine Tune) [RPN 00H 02H] |Specifies the amount of pitch shift in one-cent units (one cent = 1/100th of a semitone).
+|===
+
+[[piano_tremolo]] TREMOLO::
+[cols="2,7",]
+|===
+|DEPTH (Tremolo Depth) [CC#92] |Adjusts the modulation depth of the tremolo effect.
+|RATE (Tremolo Rate) [NRPN 58H 02H] |Adjusts the modulation frequency of the tremolo effect.
+|===
+
+**[Note]** For some sounds, it may be difficult to notice the effect.
+
+[[piano_envelope]] ENVELOPE::
+[cols="2,7",]
+|===
+|ATTACK (Attack Time) [CC#73] |Adjusts the attack time of the envelope. Higher settings will produce a more gradual attack, and lower settings will produce a sharper attack.
+|DECAY (Decay Time) [CC#75] |Adjusts the decay time of the envelope. Higher settings will produce a more gradual decay, and lower settings will produce a shorter decay time.
+|RELEASE (Release Time) [CC#72] |Adjusts the release time of the envelope. Higher settings will produce a longer release, and lower settings will produce a shorter release.
+|===
+
+[[piano_velocity]] VELOCITY::
+[width="100%",cols="2,5",]
+|===
+|SENS (Velocity Sensitivity) [NRPN 58H 03H] |Determines the extent to which changes in velocity (playing dynamics) will affect the volume or tone. As the value is decreased, changes in velocity will have less effect on the volume or tone. When the value of this parameter is increased, changes in velocity will produce greater effect on the volume or tone.
+|CURVE (Velocity Curve) [NRPN 58H 04H] a|This parameter lets you select one of five velocity curves, as appropriate for the playing touch of your MIDI keyboard. If you want to use the velocity curve of your MIDI keyboard (i.e., without modifying it), select "0".
+
+image:{Curve}[Curve,width=176,height=166]
+|===
+
+[[piano_scale]] SCALE TUNE::
+  Displays the link:scale_tune.htm[Scale Tune window].
+
+[[piano_eq]] EQ (Equalizer)::
+  The LOW and HIGH EQ are shelving types, and MID is a peaking type. The frequency and Q can be adjusted for MID.
+
+[cols="2,7",]
+|===
+|ON/OFF [NRPN 58H 20H] |Switches the EQ on/off.
+|LOW GAIN [NRPN 58H 22H] |Sets the lower-range gain (the amount of boost/cut). Positive (+) settings will boost (amplify) the lower range. The cutoff frequency is 400 Hz.
+|MID GAIN [NRPN 58H 27H] |Sets the gain of the range specified by the FREQ parameter and Q parameter.
+|FREQ (Mid Frequency) [NRPN 58H 25H] |Sets the center frequency for the midrange equalizer.
+|Q (Mid Q) [NRPN 58H 26H] |Sets the width of the range centered around the FREQ parameter in which the gain will be changed. Higher settings will make the change occur in a narrower range.
+|HIGH GAIN [NRPN 58H 24H] |Sets the upper-range gain (amount of boost/cut). Positive (+) settings will boost (amplify) the upper range. The cutoff frequency is 4000 Hz.
+|===
+
+**[Note]** The frequency response displayed in the graph is only for reference during editing, and will differ from the actual frequency response. 
+
+[[piano_write]] WRITE::
+  Customized sounds can be saved in the user bank. For details on <<_user_e_, Saving user sounds>>, refer to Saving User Sounds.
+
+
+
+[[_scale_tune_]]
+=== Scale Tune window
+
+
+image:{scale_tune}[scale_tune]
+
+The Scale Tune window will appear when you click the *SCALE TUNE* button in a sound module. 
+
+**[Memo]**
+By using the Scale Tune switch in the Master module, you can turn the Scale Tune function on/off for all sound modules together. This is convenient when you want to switch quickly between equal temperament and the scale specified in the Scale Tune window. 
+
+
+The scale Tune feature allows you to finely adjust the individual pitch of the notes from C through B in one-cent units (one cent = 1/100th of a semitone). Though the settings are made while working with one octave, the fine adjustments will affect all octaves. By making the appropriate Scale Tune settings, you can obtain a complete variety of tuning methods other than equal temperament. As examples, three possible types of scale setting are explained below.
+
+Equal Temperament::
+  This method of tuning divides the octave into 12 equal parts. It is currently the most widely used form of tuning, especially in occidental music. On the Super Quartet, the default settings for the Scale Tune feature produce equal temperament.
+
+Just Temperament (Tonic of C)::
+  The principal triads resound much more beautifully than with equal temperament, but this benefit can only be obtained in one key. If transposed, the chords tend to become ambiguous. The example given involves settings for a key in which C is the keynote.
+
+Arabian Scale::
+  By altering the setting for Scale Tune, you can obtain a variety of other tunings suited for ethnic music. For example, the settings introduced below will set the unit to use the Arabian Scale.
+
+Example Settings::
+[cols="1,1,2,2",]
+|===
+|Note name |Equal Temperament |Just Temperament (Keytone C) |Arabian Scale
+|C         |0         |0           |-6
+|C#        |0         |-8          |+45
+|D         |0         |+4          |-2
+|Eb        |0         |+16         |-12
+|E         |0         |-14         |-51
+|F         |0         |-2          |-8
+|F#        |0         |-10         |+43
+|G         |0         |+2          |-4
+|G#        |0         |+14         |+47
+|A         |0         |-16         |0
+|Bb        |0         |+14         |-10
+|B         |0         |-12         |-49
+|===
+
+**[Memo]** The values in the table are given in cents.
+
+
+
+[[_output_e_]]
+=== Multi Out
+
+For each Sound module, you can select one of four stereo outputs as the output destination. This capability is referred to as "*multi-out*." Multi-out lets you apply separate effects to each output in your host application, or send each output to a different audio device.
+
+**[Note]** n order to use Super Quartet's multi-out feature, your host application must support DXi2 or VST2.0. For details on how to use multi-out, refer to the owner's manualfor your host application.
+
+**[Note]** f your host application does not support multi-out and you set a module to an output destination other than OUTPUT 1, that module may not sound
+
+**[Note]** n the <<option_e, Options window>>, the Multi-Out capability itself can be switched on/off. In the Options window, all modules will be output from OUTPUT 1regardless of the output destination specified for each module.
+
+<<atop, 🔝>>
+
+==== To specify the output destination of a module
+
+Click the black tab at the left or right of the sound module, and from the menu that appears select Output Assign. Choose the desired output destination from the sub-menu that appears.
+
+image:{outputmenu}[outputmenu.gif,width=329,height=151]
+
+OUTPUT 1-4::
+  Selects one of four stereo outputs as the output destination for each module.
+
+**[Note]** uper Quartet's built-in effects (reverb and chorus) can be used only on OUTPUT 1. The built-in effects cannot be applied to other output destinations
+
+RESET::
+  When you click this, the output destination of all modules will be changed to OUTPUT 1.
+
+
+[[_option_e_]]
+===  Options window
+
+Click the black tab at the left or right of the Master module, and choose *Options..*. from the menu that appears. The *Options window* will appear.
+
+In the Options window you can load or save Performance files and Control Change Maps, and make overall settings for the entire synthesizer.
+
+image:{option_e}[option.gif,width=375,height=305]
+
+*PERFORMANCE*::
+  Save all of Super Quartet's current settings as a file, or load previously saved <<performance_e, PERFORMANCE>> data.
+
+
+*Control Change Map*
+
+Loads or saves control change message assignments (control change map). For details, refer to "<<_cc_map_e_, Saving and loading control change assignments (Control change map)>>."
+
+*Record Panel Operations [DXi version] / Automation [VST version]*::
+This specifies whether operations you perform in Super Quartet's panel will be transmitted to your host application in the form of MIDI messages that are assigned to that parameter.
+
+If you are using the VST version, you can choose either MIDI or VST as the recording method.
+  For details, refer to "<<_automation_e_, Recording panel operation (Automation)>>."
+
+[[toneremain]] Tone Remain::
+  This specifies whether you want the notes that are sounding to remain (ON) or turn off (OFF) when you select a new Tone or Rhythm Set. If this is ON, the following parameters will be carried over to the new sound or rhythm set. If this is OFF, the values of that sound or rhythm set will be used.
+
+  * MONO / POLY
+  * BEND RANGE
+  * PART FINE TUNING
+  * PART COARSE TUNING 
+
+[[phrasepreview]] Enable Phrase Preview::
+  This switches the Phrase Preview function on/off. If this is checked, a phrase appropriate for the selected sound will be used to audition the sound when you click the PREVIEW button of the sound module. If you do not want a phrase to be played (for example if a song is playing), turn this off so that the PREVIEW button will sound only a single note.
+
+**[Memo]** If you are using the Drum module in the Expanded style, the instruments displayed in the module can be auditioned monophonically regardless of the setting you make here.
+
+*Light Load Mode*::
+  If this is checked, some of the internal processing of the software synthesizer will be abbreviated, reducing the processing load on your computer.
+
+**[Note]** sing Light-Load mode will decrease the audio quality. For some sounds, the tonal character may change. We recommend that you leave this unchecked unless necessary
+
+*Use Multiple Outputs*::
+  Switches the multi-out function on/off. If this is on, each module will be sent to the specified output destination. If this is off, all outputs will be sent to OUTPUT 1, regardless of the output destination specified for each module.
+
+
+
+
+[[_effect_e_]]
+=== Saving effect settings
+
+
+Use the following procedure when you want to save the effect settings that you've edited in the Master module of Super Quartet.
+
+<<atop, 🔝>>
+
+==== [1] About effect patches
+
+Effect settings are saved as "effect patches," and you can save up to 16 patches each in the Reverb and Chorus modules. A collection of saved effect patches can be saved as to a file as a "bank." Use the *LOAD* and *SAVE* buttons of the effect module to manage effect patches.
+
+<<atop, 🔝>>
+
+==== [2] Saving an effect patch
+
+1.  Set the expanded style for the Master module. 
+2.  Set the chorus or reverb parameters in the Master module to the desired settings. 
+3.  Click the *SAVE* button for Chorus or Reverb. 
+4.  From the menu that appears, select the save location. 
++
+**[Note]** If you select a location that has already been named, the selected effect patch will be overwritten by the new effect patch. To return the effect banks to their defaultstate, refer to <<trouble_16, Initializing the effect banks.>> 
+
+5. A dialog box will appear, allowing you to input a name. Input a name for the effect patch you want to save.
++
+**[Note]** The effect name can consist of up to 12 characters.
+6. Click *[OK]*. 
+
+The effect patch has now been saved.
+
+<<atop, 🔝>>
+
+==== [3] Loading an effect patch
+
+1.  Click the Chorus or Reverb *LOAD* button. 
+2.  From the menu that appears, select the effect patch that you want to load. 
+
+The effect patch has now been loaded. 
+
+
+<<atop, 🔝>>
+
+==== [4] Saving effect patches as a bank
+
+The sixteen effect patches that appear when you click the *LOAD* or *SAVE* button in Chorus or Reverb of the Master module can be saved in a file as a single bank. Here's how to save a file of effect patches.
+
+1.  Set the expanded style for the Master module. 
+2.  Click the *SAVE* button for Chorus or Reverb. 
+3.  From the menu that appears, choose *Save Bank*. 
+4.  When the dialog box appears, input a filename and click *[Save]*. 
+
+The effect patches have now been saved as a file. 
+
+<<atop, 🔝>>
+
+==== [5] Loading a bank of effect patches
+
+Here's how to load a bank of effect patches that you've saved.
+
+* **[Note]** hen you load a bank, the effect patches displayed in the menu will be overwritten. To return the effect banks to their default state, refer to <<trouble_01,Initializing the effect banks>>.
+
+1.  Click the Chorus or Reverb *LOAD* button. 
+2.  From the menu that appears, choose *Load Bank*. 
+3.  When the dialog box appears, select the file that you want to load. 
+4.  When the confirmation dialog box appears, click *[OK]*. 
+
+The bank of effect patches has now been loaded. 
+
+
+
+
+[[_user_e_]]
+=== Saving user sounds
+
+
+
+<<atop, 🔝>>
+
+==== [1] Saving a user sound
+
+Here's how you can create user sounds and drum sets by editing the sounds that are built into Super Quartet.
+
+1.  Select the expanded display style for the sound module. 
+2.  Set the various parameters to create the desired sound. 
+3.  Click the *PREVIEW* button to audition the sound you've created. 
+4.  Double-click the sound name in the sound module. 
+5.  Input a name for the sound into the dialog box that appears. 
++
+**[Note]** he sound name can consist of up to 12 characters.
+6.  Click *[OK]*. 
+7.  Click the *WRITE* button to access the menu. 
+8.  In the menu that appears, click the location in which you want to save the sound. 
+9.  When the dialog box appear, click *[OK]*.
+
+Your user sound has now been saved.
+
+*[Note for Mac users]* +
+If you plug-in multiple instances of Super Quartet, the User Sounds and User Drums Sets data saved by one plug-in will not be reflected in the User Sounds and User Drums Sets data of the other instances. Also, of the User Sounds and User Drums Sets data that is saved automatically, only the settings for the instance that was last unplugged will be valid. If you plug-in multiple instances of Super Quartet, you must use the *Save Bank* operation to save User Sounds and User Drums Sets data.
+
+<<atop, 🔝>>
+
+==== [2] Loading a user sound
+
+1.  Click the name field of the sound module. 
+2.  From the menu that appears, select a user sound that you've saved. 
+
+The user sound has now been loaded.
+
+<<atop, 🔝>>
+
+==== [3] Saving a user bank to a file
+
+For each type of instrument (piano, guitar, bass, drums), user sounds you create can be saved in a file as a bank of 128 sounds. Here's how to save a file of user sounds.
+
+1.  Click the name field of the sound module. 
+2.  From the menu that appears, choose *Save Bank*. 
+3.  When the dialog box appears, specify whether you want to save User Piano, User Guitar, User Bass, or User Drums. 
+4.  Click *[OK]*. 
+5.  A dialog box will appear, allowing you to specify the location in which the file will be saved. Specify the save location, and input the filename. 
+6.  Click *[Save]*.
+
+The user bank has now been saved. 
+
+<<atop, 🔝>>
+
+==== [4] Loading a user bank
+
+1.  Click the name field of the sound module. 
+2.  From the menu that appears, choose *Load Bank*. 
+3.  When the dialog box appears, select either User Piano, User Guitar, User Bass, or User Drums as the file type. 
+4.  Select the file that you want to load. 
+5.  Click *[Open]*. 
+6.  When the confirmation dialog box appears, click *[OK]*. 
+
+The user bank has now been loaded. 
+
+
+
+[[_midi_e_]]
+=== Parameter control via MIDI
+
+
+Most of the parameters that can be set from the panel of this software can be edited using MIDI control changes and RPN (Registered Parameter Number) or NRPN (Non-Registered Parameter Number) messages. 
+
+Additionally, a control change message can be freely assigned to any parameter. This lets you flexibly control Super Quartet when using it in combination with an external MIDI controller.
+
+**[Memo]** For details on MIDI messages, refer to <<_impl_qt_e_, MIDI Implementation>>.
+
+**[Note]** f you change the control change assignments, existing song data may no longer play back correctly.  In this case, you will also need to change the control change messages within the song data.
+
+<<atop, 🔝>>
+[[control_change_assignments]]
+==== [1] Control change assignments
+
+Super Quartet allows you to freely assign any parameter to control change numbers 1--31 and 33--119 (CC#1--CC#31, CC#33--CC#119).
+
+To assign a control change message to a parameter, right-click the controller (e.g. knob or slider) for the parameter for which an assignment is to be made (on the Macintosh, hold down the [Option] key and click), to open the Control Change Assign dialog box.
+
+In the Master module, you can freely select the MIDI channel that will be received. Each sound module will receive messages on the <<midich, receive channel>> specified for that module.
+
+**[Note]** If a dialog box does not appear, it is not possible to assign a control change to that parameter
+
+**[Note]** If you are using the VST version and you select *VST* as the type of automation, you will not be able to assign control changes to parameters. In this case, you cantemporarily set the automation type to *OFF,* and then assign the control changes.
+
+.Control Change Assign dialog box 
+[width="100%",cols="2,5",]
+|===
+| *For the Master module* | *For a sound module*
+|image:{assign_master}[ccmap_dlg.gif,width=338,height=185] 
+|image:{assign_sound}[ccmap_dlg.gif,width=340,height=186]
+|===
+
+**[Memo]** The screen shown here is from the Windows version.  See also <<_midi_automation_e_, MIDI Automation>>.
+
+*[1]* The name of the parameter to which you are assigning a control change message.
+
+*[2] Controller* : The control change number that will be assigned to this parameter. You can directly enter a number in the range of CC#1--CC#31 or CC#33--CC#119, or use the up/down spin buttons.
+
+**[Memo]** For the sound modules, the same control change number will be assigned to the same parameter of all modules.
+
+*[3]* *MIDI Channel* : The MIDI channel of the control change that will be assigned to this parameter. Click the pulldown menu and choose from the list.
+
+**[Memo]** You can make this setting only for the Master module. A sound module will receive only messages that match the receive channel of that module.
+
+*[5]* If the currently specified control change number has already been assigned to a parameter, the name of the parameter will be displayed here.  If you assign a new parameter, the previously specified parameter assignment will be cancelled.
+
+*[6]* *OK* : Finalizes the assignment and closes the dialog box.
+
+*[7]* *Cancel* : Cancels the assignment and closes the dialog box.
+
+*[8]* *Clear* : Clears the control change number and MIDI channel settings. By clicking *OK* in this state, you can cancel the control change assignment for the parameter.
+
+*[9]* *Learn* : If this is checked, the Learning function will be enabled. For details on using the Learning function to make an assignment, refer to the next section.
+
+ 
+
+<<atop, 🔝>>
+
+==== [2] Using an external controller to make assignments (Learning)
+
+As an easy way to assign a control change message, you can transmit the actual message from your external MIDI controller and use the Learn function to assign it to the desired parameter. This lets you easily assign a control change without having to be aware of the control change number or MIDI channel.
+
+Here's how control changes sent from an external MIDI controller can be assigned to a parameter.
+
+* * **[Note]** f you want to use the Learning function, you must first make settings in your host application so that MIDI messages from an external MIDI controller will be input toSuper Quartet.
+
+
+. Right-click the controller (e.g., knob or slider) of the parameter for which you want to assign a control change message. (On the Macintosh, hold down the [Option] key and click.) The Control Change Assign dialog box will appear.
+. Check the "*Learn*" box.
+. Operate your external MIDI controller to transmit the control change message you want to assign.
+. The control number (*Controller*) and MIDI channel (*MIDI Channel*) fields will be updated to reflect the control change message that you transmitted. Verify that they are correct, and click *OK*.
+
+The control change message transmitted from the external MIDI controller has been assigned to the parameter.
+
+ 
+
+<<atop, 🔝>>
+
+==== [3] Canceling control change assignments
+
+Here's how to cancel the control change assignment for a parameter.
+
+
+. Right-click the controller (e.g., knob or slider) of the parameter for which you want to cancel the control change assignment. (On the Macintosh, hold down the [Option] key and click.) The Control Change Assign dialog box will appear.
+. Click *Clear*.
+. Verify that the control number (*Controller*) and MIDI channel (*MIDI Channel :* Master module parameter only) fields have been cleared, and click *OK*.
+
+The control change assignment for this parameter has been cleared.
+
+ 
+
+<<atop, 🔝>>
+
+==== [4] Checking the control change assignments
+
+When you save the current control change assignments as a file, another file will also be saved, allowing you to check these assignments. 
+
+Since this file is in text format, you can use any text editor to view it. 
+
+For details on how to save control change assignments in a file, refer to the section that follows, <<_cc_map_e_, Saving and loading control change assignments (Control Change Map)>>.
+
+===== File contents
+
+The saved file has the following contents.
+
+.Example of file contents
+....
+    # Control Change Map
+    #
+
+    Ch    CC#    Parameter
+
+    1       1    Modulation
+    1       2    ----------
+    1       3    Master Volume
+    1       4    ----------
+    1       5    Portamento Time
+    1       6    Master Volume
+    1       7    Volume
+    :       :        :
+....
+
+
+The file lists all parameters to which a control change is assigned, with each line showing the MIDI channel, control change number, and parameter name.
+
+
+
+
+[[_automation_e_]]
+=== Recording panel operation (Automation)
+
+
+ Operations you perform in the various panels of Super Quartet can be recorded by your host application, and reproduced during playback. This is referred to as "*Automation*." Automation makes it easy to change a parameter setting during a song, or to vary a parameter continuously.
+
+There are two ways to record automation: MIDI automation, in which the host application records the MIDI messages assigned to the parameter you operate; and VST automation, which is supported only by the VST version.
+
+* <<_midi_automation_e_, MIDI Automation>>
+* <<_vst_automation_e_, VST Automation [VST version only]>>
+
+
+
+[[_midi_automation_e_]]
+=== Using MIDI Automation
+
+In MIDI Automation, the control change messages assigned to the parameters being controlled are recorded by the host application. Later, such parameter changes are recreated when the recorded data is played back.
+
+You are free to assign the control change messages that are actually recorded. For details on assigning control changes, refer to <<_midi_e_, Parameter control via MIDI>>.
+
+**[Memo]** Since Super Quartet provides three preset maps that have the most frequently used parameters assigned to them, you can record automation without having to make your own assignments. For details on the preset maps, refer to <<_impl_qt_e_, Assignable controllers>> in MIDI Implementation.
+
+**[Note]** n order to use Super Quartet's automation capability, you must have a host application that supports DXi2 or VST 2.0. However, some host applications that supportDXi2 or VST 2.0 are unable to record MIDI messages transmitted from a plug-in. In this case you will not be able to use Super Quartet's automation. 
+
+For details on now to make your host application record MIDI messages transmitted from a plug-in, refer to the owner's manual of your host application.
+
+<<atop, 🔝>>
+
+==== Enabling MIDI Automation
+
+Here's how to enable MIDI Automation.
+
+. Click the black tab at the left or right of the Master module, and choose *Options..*. from the menu that appears. The *Options window* will appear.
+. If you are using the DXi version, check *Record panel operations.* If you are using the VST version, choose *MIDI* from the Automation list.
+
+Now when you operate a controller in the panel, the control change message assigned to that parameter will be sent to the host application.
+
+<<atop, 🔝>>
+
+==== [2] Recording your operations
+
+Here's how to record your panel operations.
+
+. Assign the desired control change to the parameter whose operations you want to record.
+. In your host application, begin recording the MIDI messages that are sent from a plug-in.
+. Perform the panel operations that you want to record.
+
+Your panel operations will be recorded by the host application.
+
+**[Note]** f, after recording automation, you change the control change assignment for a parameter, the automation for that parameter can no longer be reproduced. Also, if youassign the recorded automation data (control change data) to a different parameter, the recorded automation data will cause the newly assigned parameter to change. 
+
+If you change the control change assignments, you should delete unneeded automation data (control change messages) from your host application.
+
+
+
+
+[[_vst_automation_e_]]
+=== Using VST automation [VST version only]
+
+
+<<atop, 🔝>>
+
+==== [1] What is VST automation?
+
+By using VST automation, parameter operations in the Super Quartet window can be recorded on your host application in real time. The corresponding parameters will be updated automatically during playback.
+
+Super Quartet can be assigned to any automation ID from 0 to 63. By default, parameters are assigned as shown in the following table.
+
+[cols="2,7",]
+|===
+|Automation ID |Parameter
+|0--3          |Volume of Piano, Guitar, Bass, Drums module
+|4--7          |Pan of Piano, Guitar, Bass, Drums module
+|8--11         |Chorus send level of Piano, Guitar, Bass, Drums module
+|12-15         |Reverb send level of Piano, Guitar, Bass, Drums module
+|16-63         |No assign
+|===
+
+If you want to automate a parameter that is not currently assigned, refer to Changing the parameters to automate.
+
+<<atop, 🔝>>
+
+==== [2] Preparing to use automation
+
+In order to use automation, you must use the following procedure to enable automation.
+
+
+. Click the black tab at the left or right of the Master module, and choose *Options..*. from the menu that appears. The *Options window* will appear.
+. Choose "*VST*" from the Automation list.
+
+VST Automation has now been enabled.
+
+<<atop, 🔝>>
+
+==== [3] Changing the parameters to automate#
+
+If you want to automate parameters such as master volume or effect type that are not currently specified for automation, use the following procedure.
+
+1.  Plug-in Super Quartet. 
+2.  Right-click (or on the Macintosh, hold down the Option key and click) the knob, slider, or button of the parameter that you want to automate. 
+3.  A list of parameters currently assigned for automation will appear in a popup menu. 
++
+--
+image:{automation}[automation,width=634,height=386]
+
+**[Note]** arameters not shown in the menu cannot be assigned for automation.
+
+**[Memo]** "--------" will be displayed beside automation ID's to which no parameter has been assigned.
+--
+
+4.  Select the automation ID. 
+Now the parameter will be recorded with the selected automation ID. 
+
+* **[Note]** f you select a parameter whose name is already displayed for an automation ID, that parameter can no longer be automated
+
+5.  Once again, right-click the parameter that you right-clicked in step 2. 
+6.  Make sure that a check mark is displayed for the automation ID you selected in step 4.
+
+Now the selected parameter can be automated.
+
+**[Note]** hen Super Quartet is unplugged, all automation ID's will return to their default settings. You should save these settings as performance data before unplugging SuperQuartet.
+
+**[Memo]** For details on how automation will actually be recorded/played, refer to the owner's manual for your host application.
+
+<<atop, 🔝>>
+
+==== [4] Disabling automation for a parameter
+
+To disable automation for a parameter, click that knob or slider, and from the menu that appears, delete the name of the parameter that you want to disable. Use the following procedure to delete the parameter name.
+
+1.  Right-click (on the Macintosh, hold down the Option key and click) the knob, slider, or button of the parameter for which you want to disable automation. 
+2.  From the menu that appears, select the name of the parameter that you selected in step 1. This will disable automation. 
+3.  Once again, right-click the parameter that you right-clicked in step 1. 
+4.  Verify that the name is displayed as "--------" for the automation ID number you selected in step 2. 
+
+Automation has now been disabled for the parameter.
+
+* **[Note]** 
+This procedure disables recording and playback of automation, but it won't delete any automation data that's already been recorded. This means that if a different parameteris assigned to the same automation ID, the previously recorded automation data will affect a different parameter than the one for which it was originally recorded. If you want to completely delete the automation data that was recorded, refer to the owner's manual for your host application, and delete the automation data as well.
+
+
+
+[[_cc_map_e_]]
+=== Saving and loading control change assignments (Control Change Map)
+
+The control change assignments you make can be saved in a file, and can be loaded and used whenever you wish. Several different predefined assignments are also provided, and you can load and use these settings if desired.
+
+**[Memo]** Since Super Quartet provides three preset maps that have the most frequently used parameters assigned to them, you can record automation without having to make your own assignments. For details on the preset maps, refer to <<_impl_qt_e_, Assignable controllers>> in MIDI Implementation.
+
+<<atop, 🔝>>
+
+==== [1] Saving a control change map]#Saving a control change map
+
+. Click the black tab at the left or right of the Master module, and choose *Options..*. from the menu that appears. The *Options window* will appear.
+. Click the Control Change Map *[Save]* button.
+. When the Save dialog box appears, enter a name for the file and click *Save.*
+
+Your control change map have now been saved in a file. 
+At the same time, a file that lets you view the assignments will also be saved, with the name you specified and a filename extension of .txt. 
+
+<<atop, 🔝>>
+
+==== [2] [#Loading a control change map]#Loading a control change map#
+
+* * **[Note]** hen you load a control change map, the current assignments will all be overwritten. If you want to keep the current assignments, you must first save thecurrent assignments in a file.
+
+
+. Click the black tab at the left or right of the Master module, and choose *Options..*. from the menu that appears. The *Options window* will appear.
+. Click the *Control Change Map LOAD* button.
+. From the menu that appears, select the control change map that you want to load. 
+
+[cols="^,^",]
+|===
+|*Type*                         |*Description*
+|<<Minimum_Map, Minimum Map>>   |Only the controllers available in the default state can be used.
+|<<Normal_Map, Normal Map>>     |The parameters which will be used frequently are assigned in addition to the controllers that are available in the default state.
+|<<Logic,  Logic>>              |These settings are ideal if you are using Emagic's "Logic" series as your host application.
+|*File*                         |Loading the control change map from a file
+|===
+
+**[Memo]** For the actual parameter assignments, refer to "MIDI implementation" -> <<Assignable_controllers, Assignable controllers>>.
+
+
+. If you select *File*, a dialog box will appear, allowing you to select a file. Select the desired control change map file, and click *Open*.
+. A message will ask you to confirm the operation, so click *OK*.
+
+The control change map that were saved in that file will be loaded into Super Quartet.
+
+
+
+[[_performance_e_]]
+=== Saving/loading all parameters as performance data
+
+
+The settings you make from the panels of Super Quartet will be lost when you close the song file or remove (unplug) the Super Quartet plugin. 
+
+If you are using the DXi version, you can use the Preset function of your host application to save the current settings in the song file, but this will be a special file that cannot be used by another host application.
+
+
+**[Memo]** For details on DXi's Preset function, refer to the owner's manual of your host application.
+
+Super Quartet lets you save the current settings in a file as Performance data, allowing you to reproduce the current settings later, or on a different system.
+
+The following parameters are saved as Super Quartet performance data.
+
+** Parameters of the Master module
+** Effect parameters
+** Sound module parameters
+** Output settings for each sound module and Multi-Out ON/OFF settings
+** The control change assignments (Control Change Map)
+** The settings of VST Automation [VST version only]
+** Order of sound modules, and the style of each module (Compact/Expanded)
+
+**[Memo]** User sounds and effect user preset data is not saved as part of the performance data.
+
+ 
+
+<<atop, 🔝>>
+
+==== [1] Saving performance data to a file
+
+To save performance data, use the following procedure:
+
+1.  Plug-in Super Quartet. 
+2.  Set the parameters of Super Quartet as desired. 
+3.  Click the black tab at the left or right of the Master module, and choose *Options..*. from the menu that appears. The *Options window* will appear.
+
+* image:{option_e}[option.gif,width=375,height=305]
+
+4.  Click the Performance File *[Save]* button. The Save dialog box will appear.
+
+5.  Input the save destination and filename, and click *[Save]*. 
+
+The performance data has now been saved in the file.
+
+* **[Note]** 
+Data that can be saved as Performance data include the settings of the master module, the settings of the effect module, and the settings of the various sound modules. User bankand effect bank data is not saved within performance data.
+
+
+<<atop, 🔝>>
+
+==== [2] To load performance data, use the following procedure.
+
+To load performance data, use the following procedure.
+
+**[Note]** hen you load the performance data from a file, the currently settings of Super Quartet will all be overwritten. If you want to keep the current settings of SuperQuartet, you must first save the performance data in a file.
+
+1.  Click the black tab at the left or right of the Master module, and choose *Options..*. from the menu that appears. The *Options window* will appear.
+
+* image:{option_e}[option.gif,width=375,height=305]
+
+2.  Click the Performance File *[Load]* button. The Open dialog box will appear. 
+3.  Select the file that you want to load, and click *[Open]*. 
+4.  When the confirmation dialog box appears, click *[OK]*. 
+
+The performance data has now been loaded.
+
+
+
+[[_trouble_e_]]
+=== Troubleshooting
+
+
+. <<trouble_01, Sound is too loud/too soft/cannot be heard>>
+. <<trouble_02, Sound is interrupted/playback tempo is irregular/playback stops midway through>>
+. <<trouble_03, Notes are delayed>>
+. <<trouble_04, Insufficient polyphony/Notes are omitted>>
+. <<trouble_05, Sound is distorted>>
+. <<trouble_06, Effects (reverb/chorus) are not applied>>
+. <<trouble_07, Effects (reverb/chorus) are not applied to the drums sound>>
+. <<trouble_08, Failure to plug-in>>
+. <<trouble_09, System exclusive messages cannot be received>>
+. <<trouble_10, An error of "Can't allocate Memory" is displayed when you plug-in (Macintosh)>>
+. <<trouble_11, VST instruments do not receive control change messages>>
+. <<trouble_12, Can't use Save Bank/Load Bank of VST instruments to save/load settings>>
+. <<trouble_13, When the Super Quartet's panel is operated&#44; a different slider or the sound of another sound module also changes.>>
+. <<trouble_14, Can't use the Learning function>>
+. <<trouble_15, Can't record/play back VST automation>>
+. <<trouble_16, Initializing the effect banks>>
+. <<trouble_17, Pitch bend not applied>>
+. <<trouble_18, Piano or guitar is played in mono mode>>
+. <<trouble_19, RPN/NRPN are not received correctly>>
+
+ 
+
+<<atop, 🔝>>
+[[trouble_01]]
+==== #1  Sound is too loud/too soft/cannot be heard
+
+Check the following points.
+
+* Check the Master module master volume setting.
+
+* If the MIDI indicator for each channel in the Master module are not blinking, it is possible that MIDI messages are not being input correctly to Super Quartet. Check the following settings on your host application.
+** Make sure that Super Quartet is selected as the output destination for the MIDI tracks that are playing.
+** Check the MIDI channel, volume, and mute settings for the MIDI tracks that are playing.
+
+* If the Master module level meters are *moving*, it is possible that there is a problem with the audio output settings. Check the following points.
+** Check the audio volume of the host application. Also make sure that the audio device you are using has been correctly selected.
+** Check the volume and other necessary settings for your audio device.
+** Check the connections and volume of your audio system (amp, speakers, etc.)
+
+* If a heavy processing load is placed on your computer, your host application may stop processing audio, causing the sound to stop. Refer to the troubleshooting items for "[2] Sound is interrupted/playback tempo is irregular/playback stops midway through."
+
+ 
+
+<<atop, 🔝>>
+[[trouble_02]]
+==== #2  Sound is interrupted/playback tempo is irregular/playback stops midway through
+
+Check the following items.
+
+* If your host application allows you to adjust the size of the audio buffer, try increasing the buffer size. 
+
+* Increasing the buffer size will increase the delay (latency) of the sound.
+
+* If you are using the UA-5, SD-90, SC-D70, etc., with the Macintosh, try decreasing the ASIO buffer size (BufferSize).
+
+* It is possible that playback cannot be performed correctly because other software is placing a processing load on the computer. Please exit any software you are not using.
+
+* Refer to the troubleshooting section in the documentation for your host application or audio device. Suggestions on how to solve problems with audio playback may be effective for this situation as well.
+
+* Try decreasing the POLYPHONY/LIMIT in the Master module.
+
+* In the Master module, try turning [CHORUS] and/or [REVERB] off.
+
+Note, however, that if the MIDI data you are attempting to play is of such complexity that it requires sound processing capabilities that are well beyond those of your computer, these measures may not help.
+
+Such problems can also occur depending on the operating environment of your computer (other drivers and software).
+
+ 
+
+<<atop, 🔝>>
+[[trouble_03]]
+==== #3  Notes are delayed
+
+Check the following points.
+
+* If your host application allows you to adjust the size of the audio buffer, try decreasing the buffer size. 
+
+* Decreasing the buffer size too much may cause notes to be interrupted or fail to sound. Make this setting as appropriate for the performance of your computer and audio device.
+
+* If the documentation for your host application or audio device contains suggestions on how to fix problems with delayed notes, follow those suggestions.
+
+Depending on the performance of your computer, and on the specifications of your host application and audio device, it may not be possible to resolve this problem.
+
+ 
+
+<<atop, 🔝>>
+[[trouble_04]]
+==== #4  Insufficient polyphony/Notes are omitted
+
+It is possible that this is being limited by the maximum polyphony setting. Check the LIMIT setting for *POLYPHONY* in the Master module.
+
+* You can check the actual polyphony in the POLYPHONY area of the Master module.
+
+*  Are you using Macintosh with the Cubase VST? +
+If you are using Macintosh with the Cubase series, check the "Favor MIDI Timing" setting found in the General section of Audio System Setup.
+
+ 
+
+<<atop, 🔝>>
+[[trouble_05]]
+==== #5  Sound is distorted
+
+Check the following points.
+
+* Try lowering the master volume in the Master module.
+
+<<atop, 🔝>>
+[[trouble_06]]
+==== #6  Effects (reverb/chorus) are not applied
+
+Check the following.
+
+* In the Master module, make sure that effects are turned ON.
+
+* Are you using multi-out? +
+If you are using multi-out, sound modules assigned to an output destination other than *OUTPUT 1* cannot use Super Quartet's built-in effects (reverb/chorus). 
+If you want to use the built-in effects on a module, set the output destination of that module to *OUTPUT 1*.
+
+ 
+
+<<atop, 🔝>>
+[[trouble_07]]
+==== #7  Effects (reverb/chorus) are not applied to the drums sound
+
+In the Drum module, you can specify the amount of signal that is sent from each drum instrument to the effect (the send level). Even if you adjust the overall send level of the module from the Compact style or within the MIDI data, there will be no effect if the send level of each individual instrument is lowered. Make sure that the music data also specifies the send level of each instrument to which you want to apply the effect.
+
+* For details on effect send level settings for drum instruments, refer to the link:sound_module.htm#instrument[Sound module].
+
+ 
+
+<<atop, 🔝>>
+[[trouble_08]]
+==== #8  Failure to plug-in
+
+Check the following points.
+
+* Super Quartet can be used only with the following audio formats. Check the audio format of your host application. 
+
++
+[cols="2,7",]
+|===
+|Sampling frequency [kHz] |44.1, 48, 96
+|Number of channels       |2
+|===
+
+* It is possible that your computer does not have enough memory. Try exiting any other applications that you are not using. If failure to plug-in occurs frequently due to insufficient memory, we recommend that you install additional memory in your computer.
+
+* If you are using a Macintosh, increase the amount of memory allocated to the application.
+
+ 
+
+<<atop, 🔝>>
+[[trouble_09]]
+==== #9  System exclusive messages cannot be received
+
+If you are using the VST instruments version, system exclusive messages cannot be received due to the VST instrument specification.
+
+ 
+
+<<atop, 🔝>>
+[[trouble_10]]
+==== #10  An error of "Can't allocate Memory" is displayed when you plug-in (Macintosh)
+
+This error occurs if there is not enough memory to start up the plug-in. Please increase the memory that is allocated to the application.
+
+<<atop, 🔝>>
+[[trouble_11]]
+==== #11  VST instruments do not receive control change messages
+
+If you are using Emagic's "Logic" series as the host application, some control change messages cannot be received by VST instruments, due to the specifications of the Logic series. (For the current specifications of Logic, refer to the documentation of the Logic series.)
+
+To modify a parameter that cannot be modified by control change messages, you can either directly operate its knob or slider in the VST instruments window, or use the Automation function to control it. For details on the Automation function, refer to <<_vst_automation_e_, Using VST Automation>>.
+
+ 
+
+<<atop, 🔝>>
+[[trouble_12]]
+==== #12  Can't use Save Bank/Load Bank of VST instruments to save/load settings
+
+It is not possible to use the "Save Bank" and "Load Bank" commands for VST instruments of your host application to save Super Quartet settings.
+
+Super Quartet settings must be saved/loaded as performance data. For details on saving/loading performance data, refer to <<_performance_e_, Saving/loading all parameters as performance data>>.
+
+ 
+
+<<atop, 🔝>>
+[[trouble_13]]
+==== #13 When the Super Quartet's panel is operated, a different slider or the sound of another sound module also changes.
+
+Is MIDI automation enabled?
+
+If MIDI automation is enabled, operating the Super Quartet's panel will send MIDI messages that assigned to parameter to the host application.
+
+These MIDI messages may cause unintended parameters to change at the same time.
+
+If this occurs, try unchecking "*Record Panel operations*"(DXi version) or select the Automation "*OFF*"(VST version) in the <<_option_e_, Options>> window. 
+
+<<atop, 🔝>>
+[[trouble_14]]
+==== #14 Can't use the Learning function
+
+* Has your host application stopped processing audio?
+
+If audio processing has been halted, it may not be possible to use the Learning function to specify a control change, since MIDI messages are not being sent to Super Quartet. Refer to the owner's manual for your host application, and make sure that audio processing is enabled.
+
+<<atop, 🔝>>
+[[trouble_15]]
+==== #15 Can't record/play back VST automation
+
+* Is the VST automation function enabled? 
+
+In order to use the VST automation function, you must enable it. For details on using the VST automation function, refer to <<_vst_automation_e_, Using VST automation>>.
+
+<<atop, 🔝>>
+[[trouble_16]]
+==== #16  Initializing the effect banks
+
+To return the effect banks to their initial state, you will need to delete the files that contain the effect banks. 
+
+===== For Windows users
+
+To delete the files that contain the effect banks, delete the UserReverb file and UserChorus file from the Super Quartet DXi or Super Quartet VST folder located within the folder listed below.
+
+====== Windows2000/XP (if Windows is installed in drive C:)
+
+[cols="2,7",]
+|===
+|DXi             |C:\Documents and Settings\All Users\Application Data\EDIROL\Super Quartet DXi
+|VST insturments |C:\Documents and Settings\All Users\Application Data\EDIROL\Super Quartet VST
+|===
+
+====== Windows Me/98 (if Windows is installed in drive C:)
+
+[cols="2,7",]
+|===
+|DXi             |C:\Windows\Application Data\EDIROL\Super Quartet DXi
+|VST instruments |C:\Windows\Application Data\EDIROL\Super Quartet VST
+|===
+
+**[Note]** If you cannot find the Application Data folder,
+
+* *Windows 2000/XP/Me* +
+Click the Folder Options command in the Tools menu of Explorer, and in the dialog box that appears, click the View tab and check "Show hidden files and folders" in the "Hidden files and folders" field. 
+
+* *Windows 98*  +
+Click the Folder Options command in the View menu of Explorer, and in the dialog box that appears, click the View tab and check "Show All Files" in the "Hidden files" field.
+
+===== For Macintosh users
+
+Delete the following files located in the "HQQuartetrsrc"-"USERPRESET" folder within the folder of your host application.
+
+[cols="2,7",]
+|===
+|CHODEL.DEF     |REVERB.DEF
+|===
+
+<<atop, 🔝>>
+[[trouble_17]]
+==== #17  Pitch bend not applied
+
+* Could the Pitch Bend Range be set to 0? 
+
+If <<toneremain, Tone Remain>> is turned on, and you change the Pitch Bend Range in the Guitar module or Bass module and then select a different instrument (e.g., Piano), the pitch bend range will not change; this means that you will not obtain the intended bend effect. If this occurs, use either of the following methods to change the Pitch Bend Range.
+** Turn the Tone Remain setting off temporarily, and re-select the sound. The bend range specified for that sound will be set.
+** Select the guitar or bass sound, and change the pitch bend range. Then switch to the desired sound.
+
+<<atop, 🔝>>
+[[trouble_18]]
+==== #18  Piano or guitar is played in mono mode
+
+If <<toneremain, Tone Remain>> is on, the poly/mono setting will be kept even when you switch sounds. For example, if the MONO button is turned on in the Bass module, and you switch to a piano or guitar sound, the piano or guitar will also be in mono mode. In such cases, switch to poly mode as follows.
+
+
+. If you are editing the sound, save it to a User sound.
+. Select a bass sound.
+. Switch to the Expanded style, and turn off the MONO button.
+. Select the desired sound or the sound you saved.
+
+If you turn Tone Remain off, the poly/mono setting specified for each sound will be selected when you select a sound.
+
+<<atop, 🔝>>
+[[trouble_19]]
+==== #19  RPN/NRPN are not received correctly
+
+* Could you have assigned a parameter to a control change message used by an RPN/NRPN? 
+
+RPN and NRPN use the following control change messages.
+
+* {blank}
++
+[cols="2,7",]
+|===
+|Control number |Description
+|6, 38          |Data Entry MSB/LSB
+|98, 99         |NRPN LSB/MSB
+|100, 101       |RPN LSB/MSB
+|===
++
+If you make control change assignments to assign a parameter to any of these control numbers, Super Quartet will not be able to receive RPN/NRPN messages correctly. If you want to use RPN/NRPN, do not assign parameters to these control numbers.
+
+<<atop, 🔝>>
+[[_tone_e_]]
+=== Super Quartet Instrument List
+
+*   <<qtname_Guitar, Guitar>>
+*   <<qtname_Bass, Bass>>
+*   <<qtname_Drum, Drum>>
+*   <<qtname_Ambient_Set, Ambient Set>>
+*   <<qtname_Acoustic_Set, Acoustic Set>>
+*   <<qtname_Brush Set, Brush Set>>
+
+==== Piano
+
+[cols=",",]
+----
+|PC#   |Instrument Name       |PC#   |Instrument Name
+============================  ============================
+
+| 1    |St.Concert            |15    |Sweet Tynes
+| 2    |Forte Grand           |16    |Rhodes Trip
+| 3    |ConcertGrand          |17    |Rholitzer
+| 4    |Bright Piano          |18    |Taxi Rhodes
+| 5    |Rock Piano            |19    |US Rhodes
+| 6    |MellowPiano           |20    |StudioRhodes
+| 7    |Soft Piano            |21    |All Rhodez
+| 8    |RockAcoustic          |22    |Sens. Rhodes
+| 9    |Stage Grand           |23    |Touch Rhodes
+|10    |Rock Grand            |24    |Suitcase 88
+|11    |Brite Honky           |25    |Joe's Rhodes
+|12    |Old Honky             |26    |Mr.Suitcase
+|13    |70's Blend            |27    |Whirly
+|14    |Retro Rhodes          |28    |Wurlie
+----
+
+{TOP}
+[[qtname_Guitar]]
+==== Guitar
+
+[cols=",",]
+----
+|PC#   |Instrument Name       |PC#   |Instrument Name
+============================  ============================
+
+| 1    |SteelGuitar1 ➌        |15    |Flamenco&Gtr
+| 2    |SteelGuitar2          |16    |12-Str.Steel
+| 3    |Folk Guitar1 ➌        |17    |Wide 12-Str
+| 4    |Folk Guitar2          |18    |Jazzy /Slide ➌
+| 5    |Steel Harm.           |19    |Jazz Clean
+| 6    |OV Steel Gt1 ➌        |20    |Jazz VelOct ➌
+| 7    |OV Steel Gt2          |21    |Soft Jazz Gt
+| 8    |Double Steel ➌        |22    |Blues Grunge
+| 9    |South Border          |23    |Clean Rear
+|10    |NylonGuitar1 ➌        |24    |Clean Harf
+|11    |NylonGuitar2 ➍        |25    |JC Clean
+|12    |Bright Nylon ➌        |26    |335
+|13    |Soft Gut Gt           |27    |Gt/BsNz MENU
+|14    |Rolin'Fingrs ➌        |28    |Gt/BsNzMENU2
+----
+
+**Note** ➌ 支持力度触发泛音、正常、推弦的音色。➍ 重力激发泛音
+
+{TOP}
+[[qtname_Bass]]
+==== Bass
+
+[cols=",",]
+----
+|*PC#* |*Instrument Name*
+=========================
+|1     |Upright Pizz
+|2     |Ac.Upright
+|3     |Rockabilly
+|4     |6-Str Bass
+|5     |Thumb&PullBs
+|6     |42nd Bass
+|7     |Jazz Bass
+|8     |Rock Bass
+|9     |Picked JBass
+|10    |Picked JzBs
+|11    |Fretless
+----
+
+{TOP}
+[[qtname_Drum]]
+==== Drums
+
+[cols=",",]
+|===
+|*PC#* |*Instrument Name*
+|1     |<<qtname_Ambient_Set, Ambient Set>>
+|2     |<<qtname_Acoustic_Set, Acoustic Set>>
+|3     |<<qtname_Brush_Set, Brush Set>>
+|===
+
+
+=== Super QUARTET Rhythm Tone List
+
+{TOP}
+[[qtname_Ambient_Set]]
+==== Ambient Set
+
+[subs=attribues]
+----
+|Note#    |Instrument Name        |Note#     |Instrument Name
+================================  ================================
+
+|F 1 [29] |Round Kick             |G 4 [67]  |High Agogo
+|F#1 [30] |Verb Kick              |G#4 [68]  |Low Agogo
+|G 1 [31] |Hybrid Kick            |A 4 [69]  |Cabasa
+|G#1 [32] |Old Lick               |Bb4 [70]  |Maracas
+|A 1 [33] |Metron Click           |B 4 [71]  |ShortWhistle
+|Bb1 [34] |Metron Bell            |C 5 [72]  |Long Whistle
+|B 1 [35] |Kick Drum 2            |C#5 [73]  |Short Guiro
+|C 2 [36] |Kick Drum 1            |D 5 [74]  |Long Guiro
+|C#2 [37] |Side Stick             |Eb5 [75]  |Claves
+|D 2 [38] |Snare Drum 1           |E 5 [76]  |Hi WoodBlock
+|Eb2 [39] |Stdio1S flm2           |F 5 [77]  |LowWoodBlock
+|E 2 [40] |Snare Drum 2           |F#5 [78]  |Mute Cuica
+|F 2 [41] |Low Tom 2              |G 5 [79]  |Open Cuica
+|F#2 [42] |ClosedHi-hat           |G#5 [80]  |MuteTriangle
+|G 2 [43] |StudioT3 flm           |A 5 [81]  |OpenTriangle
+|G#2 [44] |Pedal Hi-hat           |Bb5 [82]  |Shaker
+|A 2 [45] |Mid Tom 2              |B 5 [83]  |Spectrum
+|Bb2 [46] |Open Hi-hat            |C 6 [84]  |Wind Chimes
+|B 2 [47] |StudioT2 flm           |C#6 [85]  |Castanets
+|C 3 [48] |High Tom 2             |D 6 [86]  |Mute Surdo
+|C#3 [49] |CrashCymbal1           |Eb6 [87]  |Open Surdo
+|D 3 [50] |StudioT1 flm           |E 6 [88]  |Snare Ghost
+|Eb3 [51] |Ride Cymbal1           |F 6 [89]  |Brush Swirl2
+|E 3 [52] |China Cymbal           |F#6 [90]  |Piccolo SN
+|F 3 [53] |Ride Bell              |G 6 [91]  |Natural SN1
+|F#3 [54] |Tambourine             |G#6 [92]  |Natural SN2
+|G 3 [55] |SplashCymbal           |A 6 [93]  |Ballad SN
+|G#3 [56] |Cowbell                |Bb6 [94]  |Flmnco Clap
+|A 3 [57] |CrashCymbal2           |B 6 [95]  |Flmnco Clap
+|Bb3 [58] |Vibra-slap             |C 7 [96]  |FlmncoFVox1
+|B 3 [59] |Ride Cymbal2           |C#7 [97]  |FlmncoFVox2
+|C 4 [60] |High Bongo             |D 7 [98]  |FlmncoFVox3
+|C#4 [61] |Low Bongo              |Eb7 [99]  |FlmncoMVox1
+|D 4 [62] |MuteHi Conga           |E 7 [100] |FlmncoMVox2
+|Eb4 [63] |OpenHi Conga           |F 7 [101] |FlmncoMVox3
+|E 4 [64] |Low Conga              |F#7 [102] |NewWhistle1
+|F 4 [65] |High Timbale           |G 7 [103] |NewWhistle2
+|F#4 [66] |Low Timbale            |          |
+----
+
+{TOP}
+[[qtname_Acoustic_Set]]
+==== Acoustic Set
+
+[subs=attribues]
+----
+|Note#    |Instrument Name      |Note#    |Instrument Name
+================================  ================================
+
+|F 1 [29] |Round Kick           |G 4 [67] |High Agogo
+|F#1 [30] |Verb Kick            |G#4 [68] |Low Agogo
+|G 1 [31] |Hybrid Kick          |A 4 [69] |Cabasa
+|G#1 [32] |Old Lick             |Bb4 [70] |Maracas
+|A 1 [33] |Metron Click         |B 4 [71] |ShortWhistle
+|Bb1 [34] |Metron Bell          |C 5 [72] |Long Whistle
+|B 1 [35] |Kick Drum 2          |C#5 [73] |Short Guiro
+|C 2 [36] |Kick Drum 1          |D 5 [74] |Long Guiro
+|C#2 [37] |Side Stick           |Eb5 [75] |Claves
+|D 2 [38] |Snare Drum 1         |E 5 [76] |Hi WoodBlock
+|Eb2 [39] |Stdio1S flm2         |F 5 [77] |LowWoodBlock
+|E 2 [40] |Snare Drum 2         |F#5 [78] |Mute Cuica
+|F 2 [41] |Low Tom 2            |G 5 [79] |Open Cuica
+|F#2 [42] |ClosedHi-hat         |G#5 [80] |MuteTriangle
+|G 2 [43] |StudioT3 flm         |A 5 [81] |OpenTriangle
+|G#2 [44] |Pedal Hi-hat         |Bb5 [82] |Shaker
+|A 2 [45] |Mid Tom 2            |B 5 [83] |Spectrum
+|Bb2 [46] |Open Hi-hat          |C 6 [84] |Wind Chimes
+|B 2 [47] |StudioT2 flm         |C#6 [85] |Castanets
+|C 3 [48] |High Tom 2           |D 6 [86] |Mute Surdo
+|C#3 [49] |CrashCymbal1         |Eb6 [87] |Open Surdo
+|D 3 [50] |StudioT1 flm         |E 6 [88] |Snare Ghost
+|Eb3 [51] |Ride Cymbal1         |F 6 [89] |Brush Swirl2
+|E 3 [52] |China Cymbal         |F#6 [90] |Piccolo SN
+|F 3 [53] |Ride Bell            |G 6 [91] |Natural SN1
+|F#3 [54] |Tambourine           |G#6 [92] |Natural SN2
+|G 3 [55] |SplashCymbal         |A 6 [93] |Ballad SN
+|G#3 [56] |Cowbell              |Bb6 [94] |Flmnco Clap
+|A 3 [57] |CrashCymbal2         |B 6 [95] |Flmnco Clap
+|Bb3 [58] |Vibra-slap           |C 7 [96] |FlmncoFVox1
+|B 3 [59] |Ride Cymbal2         |C#7 [97] |FlmncoFVox2
+|C 4 [60] |High Bongo           |D 7 [98] |FlmncoFVox3
+|C#4 [61] |Low Bongo            |Eb7 [99] |FlmncoMVox1
+|D 4 [62] |MuteHi Conga         |E 7 [100] |FlmncoMVox2
+|Eb4 [63] |OpenHi Conga         |F 7 [101] |FlmncoMVox3
+|E 4 [64] |Low Conga            |F#7 [102] |NewWhistle1
+|F 4 [65] |High Timbale         |G 7 [103] |NewWhistle2
+|F#4 [66] |Low Timbale          |          |
+----
+
+{TOP}
+[[qtname_Brush_Set]]
+==== Brush Set
+
+[subs=attribues]
+----
+|Note#    |Instrument Name      |Note#    |Instrument Name
+==============================  ==============================
+
+|F 1 [29] |Round Kick           |G 4 [67] |High Agogo
+|F#1 [30] |Verb Kick            |G#4 [68] |Low Agogo
+|G 1 [31] |Hybrid Kick          |A 4 [69] |Cabasa
+|G#1 [32] |Old Lick             |Bb4 [70] |Maracas
+|A 1 [33] |Metron Click         |B 4 [71] |ShortWhistle
+|Bb1 [34] |Metron Bell          |C 5 [72] |Long Whistle
+|B 1 [35] |Jazz Kick 2          |C#5 [73] |Short Guiro
+|C 2 [36] |Jazz Kick 1          |D 5 [74] |Long Guiro
+|C#2 [37] |Side Stick           |Eb5 [75] |Claves
+|D 2 [38] |Brush Tap            |E 5 [76] |Hi WoodBlock
+|Eb2 [39] |Brush Slap           |F 5 [77] |LowWoodBlock
+|E 2 [40] |Brush Swirl          |F#5 [78] |Mute Cuica
+|F 2 [41] |BrushLowTom2         |G 5 [79] |Open Cuica
+|F#2 [42] |ClosedHi-hat         |G#5 [80] |MuteTriangle
+|G 2 [43] |BrushLowTom2         |A 5 [81] |OpenTriangle
+|G#2 [44] |Closed Hi-ha         |Bb5 [82] |Shaker
+|A 2 [45] |BrushMidTom2         |B 5 [83] |Spectrum
+|Bb2 [46] |Closed Hi-ha         |C 6 [84] |Wind Chimes
+|B 2 [47] |BrushMidTom2         |C#6 [85] |Castanets
+|C 3 [48] |Brush HiTom2         |D 6 [86] |Mute Surdo
+|C#3 [49] |Brush Crash1         |Eb6 [87] |Open Surdo
+|D 3 [50] |Brush HiTom2         |E 6 [88] |Snare Ghost
+|Eb3 [51] |Brush Ride 1         |F 6 [89] |Brush Swirl2
+|E 3 [52] |China Cymbal         |F#6 [90] |Piccolo SN
+|F 3 [53] |BrushRideBel         |G 6 [91] |Natural SN1
+|F#3 [54] |Tambourine           |G#6 [92] |Natural SN2
+|G 3 [55] |SplashCymbal         |A 6 [93] |Ballad SN
+|G#3 [56] |Cowbell              |Bb6 [94] |Flmnco Clap
+|A 3 [57] |Brush Crash2         |B 6 [95] |Flmnco Clap
+|Bb3 [58] |Vibra-slap           |C 7 [96] |FlmncoFVox1
+|B 3 [59] |Ride Cymbal2         |C#7 [97] |FlmncoFVox2
+|C 4 [60] |High Bongo           |D 7 [98] |FlmncoFVox3
+|C#4 [61] |Low Bongo            |Eb7 [99] |FlmncoMVox1
+|D 4 [62] |MuteHi Conga         |E 7 [100] |FlmncoMVox2
+|Eb4 [63] |OpenHi Conga         |F 7 [101] |FlmncoMVox3
+|E 4 [64] |Low Conga            |F#7 [102] |NewWhistle1
+|F 4 [65] |High Timbale         |G 7 [103] |NewWhistle2
+|F#4 [66] |Low Timbale
+----
+
+
+[[_impl_qt_e_]]
+=== MIDI Implementation
+
+[Software Synthesizer] -- Date:May. 15, 2003  -- MODEL:HQ-QT -- Ver. 1.50
+
+[cols=",,,,",]
+|===
+1.2+|Function ...                       |Transmitted    |Recognized |Remarks
+1.2+|Basic Channel      |Default        |x              |1-16       |
+                        |Changed        |x              |1-16       |
+1.3+|Mode               |Default        |x              |Mode 3     |*1
+                        |Messages       |x              |Mode 3, 4 (M = 1) |
+                        |Altered        |++*******++    |           |
+1.2+|Note Number        |               |x              |0-127      |
+                        |True voice     |++*******++    |0-127      |
+1.2+|Velocity           |Note ON        |x              |o          |
+                        |Note OFF       |x              |x          |
+1.2+|After Touch        |Key's          |x              |x          |
+                        |Ch's           |x              |x          |
+1.1+|Pitch Bend         |               |x              |o          |
+1.2+|Control Change     |0, 32          |x              |o          |Bank select
+                        |1-31, 33-119   |x              |o          |*2
+1.2+|Prog Change        |               |x              |o          |
+                        |True #         |++*******++    |0-127      |Prog.1-128
+1.1+|System Exclusive   |               |x              |o          |
+1.3+|System Common      |Song Pos       |x              |x          |
+                        |Song Sel       |x              |x          |
+                        |Tune           |x              |x          |
+1.2+|System Real Times  |Clock          |x              |x          |
+                        |Commands       |x              |x          |
+1.6+|Aux Messages       |All Sounds OFF |x              |o (120, 126, 127) |
+                        |Reset All Controllers |x       |o          |
+                        |Local ON/OFF   |x              |x          |
+                        |All Notes OFF  |x              |o (123-125) |
+                        |Active Sensing |x              |x          |
+                        |System Reset   |x              |x          |
+|===
+
+*   Mode 1 : OMNI ON, POLY 
+*   Mode 2 : OMNI ON, MONO
+*   Mode 3 : OMNI OFF, POLY 
+*   Mode 4 : OMNI OFF, MONO
+*   o : Yes, x : No
+
+**Notes**
+1. Recognize as M = 1 even if M not EQ 1
+2. It can be assigned to any parameter of the operation panels.
+
+<<atop, 🔝>>
+
+==== Section 1. Receive data
+
+<<atop, 🔝>>
+
+==== Channel Voice Messages
+
+===== <Note off>
+
+[cols=",,",]
+|===
+|Status |2nd byte |3rd byte
+|8nH    |kkH      |vvH
+|9nH    |kkH      |00H
+|===
+
+*   n = MIDI channel number : 0H-FH (ch.1-ch.16) 
+*   kk = note number : 00H-7FH (0-127) 
+*   vv = note off velocity : 00H-7FH (0-127)
+
+The velocity values of Note Off messages are ignored.
+
+===== <Note on>
+
+[cols=",,",]
+|===
+|Status |2nd byte |3rd byte
+|9nH    |kkH      |vvH
+|===
+
+*   n = MIDI channel number : 0H-FH (ch.1-ch.16) 
+*   kk = note number : 00H-7FH (0-127) 
+*   vv = note on velocity : 01H-7FH (1-127)
+
+===== <Control Change>
+
+Super Quartet allows you to assign control changes to any parameter of the operating panels. Controller numbers in the range of 1--31 and 33--119 can be assigned to the operating panels. 
+
+In the default state, Super Quartet will recognize the following controller numbers. If you reassign these numbers to panel parameters, the default assignment will be overridden (except in the case of Bank Select).
+
+*[Limitations with Emagic's Logic series]* +
+If you are using Emagic's Logic series as your host application, some control change messages may not be received by VST instruments due to Logic's plug-in specifications. 
+
+For details on current specifications for the Logic series, refer to the Logic owner's manual.
+
+> Bank Select (Controller number 0, 32)
+
+[cols=",,",]
+|===
+|Status |2nd byte |3rd byte
+|BnH    |00H      |mmH
+|BnH    |20H      |llH
+|===
+
+* n = MIDI channel number : 0H-FH (ch.1-ch.16) 
+* mm, ll = Bank number : 00H, 00H-7FH, 7FH (bank.1-bank.16384), Initial Value = 00 00H (bank.1)
+
+* When sending Bank Select messages, you have to send both the MSB (mmH) and LSB (llH, the value should be 00H) together. 
+* Bank Select processing will be suspended until a Program Change message is received. 
+
+[cols=",,,",]
+|===
+|BANK MSB |BANK LSB |PROGRAM NUMBER |DESCRIPTION
+|000      |000      |001 - 028      |Preset Piano
+|000      |001      |001 - 028      |Preset Guitar
+|000      |002      |001 - 011      |Preset Bass
+|000      |003      |001 - 003      |Preset Drums
+|001      |000      |001 - 128      |User Piano
+|001      |001      |001 - 128      |User Guitar
+|001      |002      |001 - 128      |User Bass
+|001      |003      |001 - 128      |User Drums
+|===
+
+* *[Regarding Bank Select in Emagic's Logic series]* +
+If you are using Emagic's Logic series, VST instruments may not be able to receive controller number 32 messages (Bank Select LSB). In this case, you will not be able to switch banks in Super Quartet. 
+
+As a work-around for this, Super Quartet lets you select all banks using just the Bank Select MSB if you have specified "*Logic*" as the control change map. 
+
+For details, refer to the explanation for the <<_impl_qt_e_, Logic>> control change map.
+
+ 
+[[Assignable_controllers]]
+===== Assignable controllers (controller numbers 1--31, 33--119)
+
+[cols=",,",]
+|===
+|Status |2nd byte |3rd byte
+|BnH    |ccH      |vvH
+|===
+
+*   n = MIDI channel number : 0H-FH (ch.1-ch.16) 
+*   cc = Controller number : 01H-1FH, 21H-77H (1-31, 33-119) 
+*   vv = Value range : 00H-7FH (0-127)
+
+These controllers can be assigned to any parameter of the operation panels. If you reassign these controllers to panel parameters, the previous assignment will be overridden.
+
+====== Controllers available in the default state
+
+With the default settings, the following parameters and functions are available, but if you assign these control numbers to other parameters, the original parameter or function will be disabled. 
+
+However, if you cancel the parameter assignment, the original function will once again be valid. For details on how to cancel an assignment, refer to <<_midi_e_, Canceling control change assignment>>.
+
+
+**[Memo]** These functions and parameters cannot be assigned to other control numbers.
+
+
+.*Controllers available in the default state*
+[width="100%",cols="1,2,6",]
+|===
+|*Controller number (cc)* |*Value range* |* Name of function*
+|1        |00H-7FH (0-127)      |Modulation
+|6        |00H-7FH (0-127)      |Data Entry MSB +
+                                the value of the parameter specified by RPN/NRPN
+|38       |00H-7FH (0-127)      |Data Entry LSB +
+                                the value of the parameter specified by RPN/NRPN
+|11       |00H-7FH (0-127)      |Expression
+|64       |00H-3FH(0-63):OFF, + 
+           40H-7FH (64-127):ON  |Hold 1
+|66       |00H-3FH(0-63):OFF, + 
+           40H-7FH (64-127):ON  |Sostenuto
+|67       |00H-3FH(0-63):OFF, + 
+           40H-7FH (64-127):ON  |Soft +
+                                * This message is effective only when you use piano sounds.
+|98       |00H-7FH (0-127)      |NRPN LSB +
+                                lower byte of the parameter number specified by NRPN
+|99       |00H-7FH (0-127)      |NRPN MSB +
+                                upper byte of the parameter number specified by NRPN
+|100      |00H-7FH (0-127)      |RPN LSB +
+                                lower byte of the parameter number specified by RPN
+|101      |00H-7FH (0-127)      |RPN MSB +
+                                upper byte of the parameter number specified by RPN
+|===
+
+ 
+[[Assignable_parameters]]
+====== Assignable parameters
+
+The following parameters can be freely assigned to any control number. The assignment settings (control change map) can be saved in a file, or loaded from a previously saved file. For details on the control change map, refer to <<midi_e, Control change assignments>>.
+
+**[Note]** epending on the sound module, some parameters cannot be assigned.
+
+.*Assignable parameters*
+[cols=",,",]
+|===
+|*Parameter name* |*Controller values* |*Parameter range*
+|MASTER VOLUME                   |00H-7FH (0 - 127) |0 - 127
+|MASTER TUNING                   |00H-40H-7FH (0 - 64 - 127) |433.6 - 440.0 - 446.3 [Hz]
+|MASTER KEY SHIFT                |28H-64H-58H (40 - 64 - 88) |-24 - 0 - +24 [semi note]
+|SCALE TUNING SWITCH             |00H-3FH (0 - 63) / 40H-7FH(64 - 127) |OFF / ON
+|PART VOLUME                     |00H-7FH (0 - 127) |0 - 127
+|PART PAN                        |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|PART REVERB SEND                |00H-7FH (0 - 127) |0 - 127
+|PART CHORUS SEND                |00H-7FH (0 - 127) |0 - 127
+|MONO/POLY                       |00H-3FH (0 - 63) / 40H-7FH (64 - 127) |POLY(0 - 63) / MONO(64 - 127)
+|ENVELOPE ATTACK TIME            |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|ENVELOPE DECAY TIME             |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|ENVELOPE RELEASE TIME           |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|CHARACTER                       |1CH-40H-64H (28 - 64 - 100) |-36 - 0 - +36
+|FILTER CUTOFF                   |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|FILTER RESONANCE                |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|EQ SWITCH                       |00H-3FH (0 - 63) / 40H-7FH (64 - 127) |OFF / ON
+|EQ LOW GAIN                     |34H-40H-4CH (52 - 64 -76) |-12 - 0 - +12 [dB]
+|EQ MID GAIN                     |34H-40H-4CH (52 - 64 -76) |-12 - 0 - +12 [dB]
+|EQ MID FREQUENCY                |00H-10H (0 - 16) |200 - 8000 [Hz]
+|EQ MID Q                        |00H-04H (0 - 4) |0.5, 1.0, 2.0, 4.0, 8.0
+|EQ HIGH GAIN                    |34H-40H-4CH (52 - 64 -76) |-12 - 0 - +12 [dB]
+|PART FINE TUNING                |08H-40H-72H (14 - 64 - 114) |-50 - 0 - +50 [cent]
+|PART COARSE TUNING              |10H-40H-70H (16 - 64 -112) |-48 - 0 - +48 [semi note]
+|MODULATION SENS                 |01H-7FH (1 - 127) |0 - 127
+|MODULATION RATE                 |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|TREMOLO DEPTH                   |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|TREMOLO RATE                    |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|VELOCITY SENS                   |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|VELOCITY CURVE                  |00H-02H-04H (0 - 2 - 4) |-2 - 0 - +2
+|BEND RANGE                      |00H-18H (0 - 24) |0 - 24 [semi note]
+|SCALE TUNING C - B              |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|INSTRUMENT LEVEL                |00H-7FH (0 - 127) |0 - 127
+|INSTRUMENT PAN                  |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|INSTRUMENT COARSE TUNE          |10H-40H-70H (16 - 64 - 112) |-48 - 0 - +48 [semi note]
+|INSTRUMENT FINE TUNE            |08H-40H-72H (14 - 64 - 114) |-50 - 0 - +50 [cent]
+|INSTRUMENT REVERB LEVEL         |00H-7FH (0 - 127) |0 - 127
+|INSTRUMENT CHORUS LEVEL         |00H-7FH (0 - 127) |0 - 127
+|REVERB TYPE                     |00H - 03H (0 - 3) |Reverb, Bright Room, Bright Hall, Bright, Plate
+|REVERB / DELAY TYPE             |00H-07H (0 - 7) |ROOM 1, ROOM 2, STAGE 1, STAGE 2, HALL 1, HALL 2, DELAY, PAN-DLY
+|REVERB TIME                     |00H-7FH (0 - 127) |0 - 127
+|REVERB HF DAMP                  |00H-10H, 11H (0 - 16, 17) |200 - 8000 [Hz], Bypass
+|REVERB FEEDBACK                 |00H-7FH (0 - 127) |0 - 127
+|REVERB PRE DELAY                |00H-7DH (0 - 125) |0.0 - 100 [ms]
+|REVERB SIZE                     |01H-08H (1 - 8) |1 - 8
+|REVERB HIGH CUT                 |00H-13H, 14H (0 - 19, 20) |160 - 12500 [Hz], Bypass
+|REVERB DENSITY                  |00H-7FH (0 - 127) |0 - 127
+|REVERB DIFFUSION                |00H-7FH (0 - 127) |0 - 127
+|REVERB LF DAMP FREQUENCY        |00H-13H (0 -  19) |50 - 4000 [Hz]
+|REVERB LF DAMP GAIN             |00H-24H (0 -  36) |-36 - 0[dB]
+|REVERB HF DAMP FREQUENCY        |00H-05H (0 -   5) |4000 - 12500 [Hz]
+|REVERB HF DAMP GAIN             |00H-24H (0 -  36) |-36 - 0[dB]
+|REVERB LEVEL                    |00H-7FH (0 - 127) |0 - 127
+|REVERB SWITCH                   |00H-3FH (0 -  63) / 40H-7FH (64 - 127) |OFF / ON
+|CHORUS TYPE                     |00H-01H (0 -   1) |CHORUS, DELAY
+|CHORUS PRE DELAY                |00H-7DH (0 - 125) |0.0 - 100 [ms]
+|CHORUS RATE                     |00H-7FH (0 - 127) |0 - 127
+|CHORUS DEPTH                    |00H-7FH (0 - 127) |0 - 127
+|CHORUS PHASE                    |00H-5AH (0 -  90) |0 - 180 [deg.]
+|CHORUS FEEDBACK                 |00H-7FH (0 - 127) |0 - 127
+|CHORUS FILTER TYPE              |00H-02H (0 -   2) |OFF, LPF, HPF
+|CHORUS CUTOFF                   |00H-10H (0 -  16) |200 - 8000 [Hz]
+|DELAY LEVEL [LEFT/CENTER/RIGHT] |00H-7FH (0 - 127) |0 - 127
+|DELAY TIME [LEFT/CENTER/RIGHT]  |00H-7FH (0 - 127) |200 - 1000 [ms]
+|DELAY FEEDBACK                  |0FH-40H-71H (15 - 64 - 113) |-98 - 0 - +98 [%]
+|DELAY HF DAMP                   |00H-10H, 11H (0 - 16, 17) |200 - 8000 [Hz], Bypass
+|REVERB SEND LEVEL               |00H-7FH (0 - 127) |0 - 127
+|CHORUS LEVEL                    |00H-7FH (0 - 127) |0 - 127
+|CHORUS SWITCH                   | 00H-3FH (0 - 63) / 40H-7FH (64 - 127) |OFF / ON
+|===
+
+ 
+
+====== Control change preset maps
+
+Super Quartet provides the following three control change maps as presets.
+
+[[Minimum_Map]] Minimum Map
+* Only <<_impl_qt_e_, the controllers available in the default state>> can be used.
+
+[[Normal_Map]] Normal Map
+* The following parameters are assigned in addition to <<_impl_qt_e_, the controllers available in the default state>>.
+
+[width="100%",cols="34%,33%,33%",]
+|===
+|*Controller number (cc)* |*MIDI Channel* |*Parameter name*
+| 3 |1                   |MASTER VOLUME
+| 5 |same as part number |PORTAMENTO TIME *
+| 7 |same as part number |PART VOLUME
+|10 |same as part number |PART PAN
+|16 |same as part number |PART COARSE TUNING
+|17 |same as part number |PART FINE TUNING
+|18 |same as part number |CHARACTER
+|20 |same as part number |VELOCITY SENS
+|23 |same as part number |MODULATION DEPTH
+|26 |same as part number |BEND RANGE
+|27 |same as part number |EQ SWITCH
+|28 |same as part number |EQ LOW GAIN
+|29 |same as part number |EQ MID GAIN
+|30 |same as part number |EQ HIGH GAIN
+|31 |same as part number |VELOCITY CURVE
+|48 |same as part number |EQ MID FREQ
+|49 |same as part number |EQ MID Q
+|65 |same as part number |PORTAMENTO SWITCH *
+|68 |same as part number |PATCH DECREMENT *
+|69 |same as part number |PATCH INCREMENT *
+|71 |same as part number |FILTER RESONANCE
+|72 |same as part number |ENVELOPE RELEASE TIME
+|73 |same as part number |ENVELOPE ATTACK TIME
+|74 |same as part number |FILTER CUTOFF
+|75 |same as part number |ENVELOPE DECAY TIME
+|76 |same as part number |MODULATION RATE (VIBRATO RATE)
+|77 |same as part number |VIBRATO DEPTH *
+|78 |same as part number |VIBRATO DELAY *
+|80 |same as part number |MONO/POLY
+|81 |same as part number |TREMOLO DEPTH
+|82 |same as part number |TREMOLO RATE
+|91 |same as part number |PART REVERB SEND
+|93 |same as part number |PART CHORUS SEND
+|===
+
+* **[Note]** 
+The parameters marked with an asterisk (*) can be controlled only via MIDI. The control number assignments for these parameters are fixed, as shown in this table. You cannotassign them to other control numbers. If you assign a different parameter to one of these control numbers, the originally assigned parameter will be unavailable. 
+
+If you want to use these parameters, you will need to reload the Normal map.
+
+[[Logic]]
+* *Logic*
+
+These settings are ideal if you are using Emagic Corporation's "Logic" series as your host application. 
+
+The following parameters are assigned.
+
+[cols=",,",]
+|===
+|*Controller number (cc)* |*MIDI Channel* |*Parameter name*
+| 1 |same as part number |Modulation
+| 2 |same as part number |PART VOLUME
+| 4 |same as part number |PART PAN
+| 5 |same as part number |PART REVERB SEND
+| 6 |same as part number |PART CHORUS SEND
+|11 |same as part number |Expression
+|13 |1                   |REVERB LEVEL
+|15 |1                   |CHORUS LEVEL
+|16 |same as part number |SOLO SWITCH 
+|17 |same as part number |ENVELOPE ATTACK TIME
+|18 |same as part number |ENVELOPE RELEASE TIME
+|19 |same as part number |CHARACTER
+|20 |same as part number |BEND RANGE
+|21 |same as part number |EQ SWITCH
+|22 |same as part number |EQ LOW GAIN
+|23 |same as part number |EQ MID GAIN
+|24 |same as part number |EQ HIGH GAIN
+|64 |same as part number |Hold 1
+|===
+
+If you select this control change map, you will be able to select all sound banks by using control number 0 messages (Bank Select MSB).
+
+ 
+[cols=",,",]
+|===
+|*BANK MSB* |*PROGRAM NUMBER* |*DESCRIPTION*
+|000 |001 - 028 |Preset Piano
+|001 |001 - 028 |Preset Guitar
+|002 |001 - 011 |Preset Bass
+|003 |001 - 003 |Preset Drums
+|004 |001 - 128 |User Piano
+|005 |001 - 128 |User Guitar
+|006 |001 - 128 |User Bass
+|007 |001 - 128 |User Drums
+|===
+
+This function also applies to any control change map that you create/save based on this control change map. 
+
+Conversely, if you select the <<Minimum_Map, Minimum Map>>, <<Normal_Map, Normal Map>>], or any control change map that was created/saved based on these maps, the conventional bank selection method will be used.
+
+ 
+
+> Data Entry (Controller number 6, 38)
+
+[cols=",,",]
+|===
+|Status |2nd byte |3rd byte
+|BnH |06H |mmH
+|BnH |26H |llH
+|===
+
+* n = MIDI channel number : 0H-FH (ch.1-ch.16) 
+* mm, ll = the value of the parameter specified by RPN/NRPN
+
+> NRPN MSB/LSB (Controller number 98, 99)
+
+[cols=",,",]
+|===
+|Status |2nd byte |3rd byte
+|BnH |63H |mmH
+|BnH |62H |llH
+|===
+
+* n = MIDI channel number : 0H-FH (ch.1-ch.16) 
+* mm = upper byte of the parameter number specified by NRPN 
+* ll = lower byte of the parameter number specified by NRPN
+
+**NRPN** +
+The NRPN (Non Registered Parameter Number) message allows an extended range of control changes to be used. 
+
+To use these messages, you must first use NRPN MSB and NRPN LSB messages to specify the parameter to be controlled, and then use Data Entry messages to specify the value of the specified parameter. Once an NRPN parameter has been specified, all Data Entry messages received on that channel will modify the value of that parameter. To prevent accidents, it is recommended that you set RPN Null (RPN Number = 7FH/7FH) when you have finished setting the value of the desired parameter. Refer to Supplementary material "Examples of actual MIDI messages" <Example 4>. On the Super Quartet, Data entry LSB (llH) of NRPN is ignored, so it is no problem to send Data entry MSB (mmH) only (without Data entry LSB)
+
+On the Super Quartet, NRPN can be used to modify the following parameters.
+
+[width="100%",cols="1,1,5",]
+|===
+|NRPN MSB LSB|Data ent|Explanation
+|58H 01H     |mmH     |Charactor (absolute change) +
+                       mm: 1CH-40H-64H (-36 - 0 - +36)
+|58H 02H     |mmH     |Tremolo rate (relative change) +
+                       mm: 00H-40H-7FH (-64 - 0 - +63)
+|58H 03H     |mmH     |Velocity sens (relative change) +
+                       mm: 00H-40H-7FH (-64 - 0 - +63)
+|58H 04H     |mmH     |Velocity curve +
+                       mm: 00H-02H-04H (-2 - 0 - +2)
+|58H 20H     |mmH     |EQ switch (absolute change) +
+                       mm: 00H-7FH (0 - 127) 0 - 63 = OFF, 64 - 127 = ON
+|58H 22H     |mmH     |EQ low gain (absolute change) +
+                       mm: 34H-40H-4CH (-12 - 0 - +12)
+|58H 24H     |mmH     |EQ high gain (absolute change) +
+                       mm: 34H-40H-4CH (-12 - 0 - +12)
+|58H 25H     |mmH     |EQ mid frequency (absolute change) +
+                       mm: 00H-10H (0 - 16)
+|58H 26H     |mmH     |EQ mid q (absolute change) +
+                       mm: 00H-04H (0.5, 1.0, 2.0, 4.0, 8.0)
+|58H 27H     |mmH     |EQ mid gain (absolute change) +
+                       mm: 34H-40H-4CH (-12 - 0 - +12)
+|58H 30H-3BH |mmH     |Scale tune C-B +
+                       mm: 00H-40H-7FH (-64 - 0 - +63)
+|58H 40H     |mmH     |Reverb switch +
+                       mm: 00H-7FH (0 - 127) 0 - 63 = OFF, 64 - 127 = ON ➊
+|58H 41H     |mmH     |Reverb Type +
+                       mm: 00H-03H (Reverb, Bright Room, Bright Hall, Bright Plate) ➊
+|58H 42H     |mmH     |Reverb level +
+                       mm: 00H-7FH (0 - 127) ➊
+|58H 43H-4CH |mmH     |Reverb parameter 1-10 +
+                       mm: 00H-7FH (0 - 127) ➊ 
+                       * See List 1.
+|58H 50H     |mmH     |Chorus switch +
+                       mm: 00H-7FH (0 - 127) 0 - 63 = OFF, 64 - 127 = ON  ➋
+|58H 51H     |mmH     |Chorus Type +
+                       mm: 00H-01H (Chorus, Delay)  ➋
+|58H 52H     |mmH     |Chorus reverb send level +
+                       mm: 00H-7FH (0 - 127)  ➋
+|58H 53H     |mmH     |Chorus level +
+                       mm: 00H-7FH (0 - 127)  ➋
+|58H 54H-5BH |mmH llH |Chorus parameter 1-8  ➋ 
+                        * See List 2.
+|58H 70H     |mmH     |Master volume +
+                       mm: 00H-7FH (zero-maximum) +
+* Sets the master volume regardless of the channel on which it's received.
+|58H 71H     |mmH llH |Master tuning +
+                       mm, ll: 00 00H-40 00H-7F 7FH (-100 - 0 - +99.99 cent) +
+* Sets the master tuning regardless of the channel on which it's received.
+|58H 72H     |mmH     |Master key shift +
+                       mm: 28H-40H-58H (-24 - 0 - +24) +
+* Sets the master key shift regardless of the channel on which it's received.
+|58H 73H     |mmH     |Master scale tune switch +
+                       mm: 00H-7FH (0 - 127) 0 - 63 = OFF, 64 - 127 = ON +
+* Sets the master scale tune switch regardless of the channel on which it's received.
+|58H 7FH     |mmH     |System reset +
+                       mm: ignore +
+* Resets the synth to the initial state regardless of the channel on which it's received.
+|18H rrH     |mmH     |Pitch coarse of rhythm instrument (relative change) +
+                       rr: key number of rhythm instrument (21 - 108) +
+                       mm: 10H - 40H - 70H (-48 - 0 - +48)
+|19H rrH     |mmH     |Pitch fine of rhythm instrument (relative change) +
+                       rr: key number of rhythm instrument(21 - 108) +
+                       mm: 0EH-40H-72H (-50 - 0 - 50)
+|1AH rrH     |mmH     |Rhythm instrument level(relative change) +
+                       rr: key number of rhythm instrument +
+                       mm: 00H-7FH (0 - 200 percent)
+|1CH rrH     |mmH     |Panpot of rhythm instrument (absolute change) +
+                       rr: key number of rhythm instrument +
+                       mm: 00H-40H-7FH (left-center-right)
+|1DH rrH     |mmH     |Reverb send level of rhythm instrument (absolute change) +
+                       rr: key number of rhythm instrument +
+                       mm: 00H-7FH (zero-maximum)
+|1EH rrH     |mmH     |Chorus send level of drum instrument (absolute change) +
+                       rr: key number of drum instrument +
+                       mm: 00H-7FH (zero-maximum)
+|===
+
+* ➊ Sets the *reverb* settings regardless of the channel on which it's received.
+* ➋ Sets the *chorus* settings regardless of the channel on which it's received.
+
+* Parameters marked "relative change" will change relative to the preset value. Depending on the sound or the pitch range, this may have no effect. 
+* Parameters marked "absolute change" will be set to the absolute value of the parameter, regardless of the preset value.
+
+<List 1> Reverb parameter
+
+[width="100%",cols="^34%,^33%,^33%",]
+|===
+1.2+|NRPN +
+   MSB LSB  2.1+|Reverb type (58 41H)
+                |REVERB (00H)  |BRIGHT ROOM (01H) +
+                                BRIGHT HALL (02H) +
+                                BRIGHT PLATE(03H)
+|58 43H        |Type +
+                mm : 00H-07H (0-7) |Pre Delay +
+                                    mm : 00H-7DH (0-125)
+|58 44H        |Time +
+                mm : 00H-7FH (0-127) |Time +
+                                    mm : 00H-7FH (0-127)
+|58 45H        |HF Damp +
+                mm : 00H-11H (0-17) |Size +
+                                    mm : 00H-07H (0-7)
+|58 46H        |Feedback +
+                mm : 00H-7FH (0-127) |High Cut +
+                                    mm : 00H-14H (0-20)
+|58 47H        |---                |Denisty +
+                                    mm : 00H-7FH (0-127)
+|58 48H        |---                |Diffusion +
+                                    mm : 00H-7FH (0-127)
+|58 49H        |---                |LF Damp Frequency +
+                                    mm : 00H-13H (0-19)
+|58 4AH        |---                |LF Damp Gain +
+                                    mm : 00H-24H (0-36)
+|58 4BH        |---                |HF Damp Frequency +
+                                    mm : 00H-05H (0-5)
+|58 4CH        |---                |HF Damp Gain +
+                                    mm : 00H-24H (0-36)
+|===
+
+<List 2> Chorus parameter
+
+[width="100%",cols="^34%,^33%,^33%",]
+|===
+1.2+|NRPN +
+    MSB LSB     2.1+|Chorus type (58 51H)
+                    |CHORUS (00H)           |DELAY (01H)
+|58 54H             |Rate +
+                    mm : 00H-7FH (0-127)    |Delay Time Center +
+                                            mm,ll : 01 48H - 07 68H (200-1000 msec)
+|58 55H             |Depth +
+                    mm : 00H-7FH (0-127)    |Delay Time Left +
+                                            mm,ll : 01 48H - 07 68H (200-1000 msec)
+|58 56H             |Feedback +
+                    mm : 00H-7FH (0-127)    |Delay Time Right +
+                                            mm,ll : 01 48H - 07 68H (200-1000 msec)
+|58 57H             |Phase +
+                    mm : 00H-5AH(0,2,4....180) |HF Damp +
+                                            mm : 00H-11H (0-17)
+|58 58H             |Pre Delay +
+                    mm : 00H-7DH (0-125)    |Feedback +
+                                            mm : 0FH-40H-71H (-98% - 0 - +98%)
+|58 59H             |Filter Type +
+                    mm : 00H-02H (OFF, LPF, HPF) |Delay Level Center +
+                                            mm : 00H-7FH (0-127)
+|58 5AH             |Cutoff Frequency +
+                    mm : 00H-10H (0-16)     |Delay Level Left +
+                                            mm : 00H-7FH (0-127)
+|58 5BH             |--- |Delay Level Right +
+                    mm : 00H-7FH (0-127)
+|===
+
+> RPN MSB/LSB (Controller number 100, 101)
+
+[cols=",,",]
+|===
+|Status |2nd byte |3rd byte
+|BnH    |65H      |mmH
+|BnH    |64H      |llH
+|===
+
+*   n = MIDI channel number : 0H-FH (ch.1-ch.16) 
+*   mm = upper byte of parameter number specified by RPN 
+*   ll = lower byte of parameter number specified by RPN
+
+**RPN** +
+The RPN (Registered Parameter Number) messages are expanded control changes, and each function of an RPN is described by the MIDI Standard. 
+
+To use these messages, you must first use RPN MSB and RPN LSB messages to specify the parameter to be controlled, and then use Data Entry messages to specify the value of the specified parameter. Once an RPN parameter has been specified, all Data Entry messages received on that channel will modify the value of that parameter. To prevent accidents, it is recommended that you set RPN Null (RPN Number = 7FH/7FH) when you have finished setting the value of the desired parameter. Refer to Section "Examples of actual MIDI messages" <Example 4>
+
+On the Super Quartet, RPN can be used to modify the following parameters.
+
+[width="100%",cols="1,1,3",]
+|===
+|RPN MSB LSB    |Data entry MSB LSB |Explanation
+|00H 00H        |mmH ---            |Pitch Bend Sensitivity +
+mm: 00H-18H (0-24 semitones), Initial Value = 02H (2 semitones) +
+ll: ignored (processed as 00H) +
+specify up to 2 octaves in semitone steps
+
+|00H 01H        |mmH llH            |Master Fine Tuning +
+mm, ll: 00 00H - 40 00H - 7F 7FH (-100 - 0 - +99.99 cents), Initial Value = 40 00H (0 cent) +
+Refer to Supplementary material, "About tuning".
+
+|00H 02H        |mmH ---            |Master Coarse Tuning +
+mm: 10H-40H-70H (-48 - 0 - +48 semitones), Initial Value = 40H (0 semitone) +
+ll: ignored (processed as 00H)
+
+|00H 05H        |mmH llH            |Modulation Depth Range +
+mm, ll: 00 00H - 06 00H (0.0 - 600.0 cent) +
+00H-7FH (0 - 100 cents) +
+100/128 Cent/Value
+
+|7FH 7FH        |--- ---            |RPN null +
+Set condition where RPN and NRPN are unspecified. The data entry messages after set RPN null will be ignored. (No Data entry messages are required after RPN null). 
+Settings already made will not change. 
+mm, ll: ignored
+|===
+
+===== <Program Change>
+
+[cols="2,7",]
+|===
+|Status |2nd byte
+|CnH    |ppH
+|===
+
+*   n = MIDI channel number : 0H-FH (ch.1-ch.16) 
+*   pp = Program number : 00H-7FH (prog.1-prog.128)
+
+===== <Pitch Bend Change>
+
+[cols=",,",]
+|===
+|Status |2nd byte |3rd byte
+|EnH    |llH      |mmH
+|===
+
+*   n = MIDI channel number : 0H-FH (ch.1-ch.16) +
+*   mm, ll = Pitch Bend value : 00 00H - 40 00H - 7F 7FH (-8192 - 0 - +8191)
+
+The depth of pitch bend change is determined by the pitch bend sensitivity of the RPN.
+
+<<atop, 🔝>>
+
+==== Channel Mode Messages
+
+===== <All Sounds Off (Controller number 120)>
+
+[cols=",,",]
+|===
+|Status |2nd byte |3rd byte
+|BnH    |78H      |00H
+|===
+
+*   n = MIDI channel number : 0H-FH (ch.1-ch.16)
+
+* When this message is received, all currently-sounding notes on the corresponding channel will be turned off immediately.
+
+===== <Reset All Controllers (Controller number 121)>
+
+[cols=",,",]
+|===
+|Status |2nd byte |3rd byte
+|BnH |79H |00H
+|===
+
+*   n = MIDI channel number : 0H-FH (ch.1-ch.16)
+
+When this message is received, the following controllers will be set to their reset values.
+
+[cols="2,7",]
+|===
+|Controller |Reset value
+|Pitch Bend Change |0 (center)
+|Channel Pressure |0 (off)
+|Modulation |0 (off)
+|Expression |127 (max)
+|Hold 1 |0 (off)
+|Portamento |0 (off)
+|Sostenuto |0 (off)
+|Soft |0 (off)
+|RPN |unset; previously set data will not change
+|NRPN |unset; previously set data will not change
+|===
+
+===== <All Notes Off (Controller number 123)>
+
+[cols=",,",]
+|===
+|Status |2nd byte |3rd byte
+|BnH |7BH |00H
+|===
+
+*   n = MIDI channel number : 0H-FH (ch.1-ch.16)
+
+When All Notes Off is received, all notes on the corresponding channel will be turned off. However if Hold 1 or Sostenuto is ON, the sound will be continued until these are turned off.
+
+===== <OMNI OFF (Controller number 124)>
+
+[cols=",,",]
+|===
+|Status |2nd byte |3rd byte
+|BnH    |7CH      |00H
+|===
+
+*   n = MIDI channel number : 0H-FH (ch.1-ch.16)
+
+The same processing will be carried out as when All Notes Off is received.
+
+===== <OMNI ON (Controller number 125)>
+
+[cols=",,",]
+|===
+|Status |2nd byte |3rd byte
+|BnH    |7DH      |00H
+|===
+
+*   n = MIDI channel number : 0H-FH (ch.1-ch.16)
+
+OMNI ON is only recognized as "All notes off"; the Mode doesn't change (OMNI OFF remains).
+
+===== <MONO (Controller number 126)>
+
+[cols=",,",]
+|===
+|Status |2nd byte |3rd byte
+|BnH    |7EH      |mmH
+|===
+
+*   n = MIDI channel number : 0H-FH (ch.1-ch.16) +
+*   mm = mono number : 00H-10H (0-16)
+
+The same processing will be carried out as when All Sounds Off and All Notes Off is received, and the corresponding channel will be set to Mode 4 (M = 1) regardless of the value of "mono number."
+
+===== <POLY (Controller number 127)>
+
+[cols=",,",]
+|===
+|Status |2nd byte |3rd byte
+|BnH    |7FH      |00H
+|===
+
+*   n = MIDI channel number : 0H-FH (ch.1-ch.16)
+
+The same processing will be carried out as when All Sounds Off and All Notes Off is received, and the corresponding channel will be set to Mode 3.
+
+<<atop, 🔝>>
+
+==== System Exclusive Message
+
+[cols=",,",]
+|===
+|Status |Data byte             |Status
+|F0H    |iiH, ddH, ......, eeH |F7H
+|===
+
+*   F0H : System Exclusive Message status
+*   ii = ID number : an ID number (manufacturer ID) to indicate the manufacturer whose Exclusive message this is. Roland's manufacturer ID is 41H. 
+*   ID numbers 7EH and 7FH are extensions of the MIDI standard; Universal Non-realtime Messages (7EH) and Universal Realtime Messages (7FH).
+*   dd,...,ee = data : 00H-7FH (0-127)
+*   F7H : EOX (End Of Exclusive)
+
+The System Exclusive Messages received by the Super Quartet are; messages related to System Reset.
+
+**[Note]** Eeception of system exclusive messages is possible only for DXi.
+
+> System Reset
+
+Resets the synth to the initial state.
+
+[cols=",,",]
+|===
+|Status |Data byte |Status
+|F0H    |41H, 10H, 00H, 4CH, 12H, 00H, 00H, 00H, 7FH, 00H, 01H |F7H
+|===
+
+[cols="2,7",]
+|===
+|Byte |Explanation
+|F0H  |Exclusive status
+|41H  |ID number (Roland)
+|10H  |Device ID
+|00H  |Sub ID#1 (HQ Software Synthesizer)
+|4CH  |Sub ID#2 (HQ Software Synthesizer)
+|12H  |Command ID (DT1)
+|00H  |Address MSB
+|00H  |Address
+|00H  |Address
+|7FH  |Address LSB
+|00H  |Data : 00H
+|01H  |Checksum
+|F7H  |EOX (End Of Exclusive)
+|===
+
+* This software ignores the Device ID and Checksum.
+
+<<atop, 🔝>>
+
+==== Supplementary material
+
+===== <Decimal and Hexadecimal table>
+
+In MIDI documentation, data values and addresses/sizes of exclusive messages etc. are expressed as hexadecimal values for each 7 bits. 
+
+The following table shows how these correspond to decimal numbers.
+
+[cols=",,,,,,,",]
+----
+|Dec. |Hex. |Dec. |Hex. |Dec. |Hex. |Dec. |Hex.
+| 0   |00H  |32   |20H  |64   |40H  | 96  |60H
+| 1   |01H  |33   |21H  |65   |41H  | 97  |61H
+| 2   |02H  |34   |22H  |66   |42H  | 98  |62H
+| 3   |03H  |35   |23H  |67   |43H  | 99  |63H
+| 4   |04H  |36   |24H  |68   |44H  |100  |64H
+| 5   |05H  |37   |25H  |69   |45H  |101  |65H
+| 6   |06H  |38   |26H  |70   |46H  |102  |66H
+| 7   |07H  |39   |27H  |71   |47H  |103  |67H
+| 8   |08H  |40   |28H  |72   |48H  |104  |68H
+| 9   |09H  |41   |29H  |73   |49H  |105  |69H
+|10   |0AH  |42   |2AH  |74   |4AH  |106  |6AH
+|11   |0BH  |43   |2BH  |75   |4BH  |107  |6BH
+|12   |0CH  |44   |2CH  |76   |4CH  |108  |6CH
+|13   |0DH  |45   |2DH  |77   |4DH  |109  |6DH
+|14   |0EH  |46   |2EH  |78   |4EH  |110  |6EH
+|15   |0FH  |47   |2FH  |79   |4FH  |111  |6FH
+|16   |10H  |48   |30H  |80   |50H  |112  |70H
+|17   |11H  |49   |31H  |81   |51H  |113  |71H
+|18   |12H  |50   |32H  |82   |52H  |114  |72H
+|19   |13H  |51   |33H  |83   |53H  |115  |73H
+|20   |14H  |52   |34H  |84   |54H  |116  |74H
+|21   |15H  |53   |35H  |85   |55H  |117  |75H
+|22   |16H  |54   |36H  |86   |56H  |118  |76H
+|23   |17H  |55   |37H  |87   |57H  |119  |77H
+|24   |18H  |56   |38H  |88   |58H  |120  |78H
+|25   |19H  |57   |39H  |89   |59H  |121  |79H
+|26   |1AH  |58   |3AH  |90   |5AH  |122  |7AH
+|27   |1BH  |69   |3BH  |91   |5BH  |123  |7BH
+|28   |1CH  |60   |3CH  |92   |5CH  |124  |7CH
+|29   |1DH  |61   |3DH  |93   |5DH  |125  |7DH
+|30   |1EH  |62   |3EH  |94   |5EH  |126  |7EH
+|31   |1FH  |63   |3FH  |95   |5FH  |127  |7FH
+----
+
+* Decimal values such as MIDI channel, bank select, and program change are listed as one (1) greater than the values given in the above table. 
+* A 7-bit byte can express data in the range of 128 steps. For data where greater precision is required, we must use two or more bytes. For example, two hexadecimal numbers aa bbH expressing two 7-bit bytes would indicate a value of aa x 128 + bb. 
+* In the case of values which have a (+/-) sign, 00H = -64, 40H = +/-0, and 7FH = +63, so that the decimal expression would be 64 less than the value given in the above chart. In the case of two types, 00 00H = -8192, 40 00H = +/-0, and 7F 7FH = +8191. For example if aa bbH were expressed as decimal, this would be aa bbH - 40 00H = aa x 128 + bb - 64 x 128. 
+* Data marked "nibbled" is expressed in hexadecimal in 4-bit units. A value expressed as a 2-byte nibble 0a 0bH has the value of a x 16 + b.
+
+<Example 1> What is the decimal expression of 5AH ?
+
+From the preceding table, 5AH = 90
+
+<Example 2> What is the decimal expression of the value 12 34H given as hexadecimal for each 7 bits? 
+
+From the preceding table, since 12H = 18 and 34H = 52
+
+18 x 128 + 52 = 2356
+
+<Example 3> What is the decimal expression of the nibbled value 0A 03 09 0D ?
+
+From the preceding table, since 0AH = 10, 03H = 3, 09H = 9, 0DH = 13
+
+((10 x 16 + 3) x 16 + 9) x 16 + 13 = 41885
+
+<Example 4> What is the nibbled expression of the decimal value 1258?
+
+    16) 1258 
+    16) 78 ... 10
+    16) 4 ... 14 
+    0 ... 4 
+
+Since from the preceding table, 0 = 00H, 4 = 04H, 14 = 0EH, 10 = 0AH, the answer is 00 04 0E 0AH.
+
+===== <Examples of actual MIDI messages>
+
+<Example 1> 92 3E 5F +
+9n is the Note-on status, and n is the MIDI channel number. Since 2H = 2, 3EH = 62, and 5FH = 95, this is a Note-on message with MIDI CH = 3, note number 62 (note name is D4), and velocity 95.
+
+<Example 2> CE 49 +
+CnH is the Program Change status, and n is the MIDI channel number. Since EH = 14 and 49H = 73, this is a Program Change message with MIDI CH = 15, program number 74.
+
+<Example 3> EA 00 28 +
+EnH is the Pitch Bend Change status, and n is the MIDI channel number. The 2nd byte (00H = 0) is the LSB and the 3rd byte (28H = 40) is the MSB, but Pitch Bend Value is a signed number in which 40 00H (= 64 x 128 + 0 = 8192) is 0, so this Pitch Bend Value is
+
+    28 00H - 40 00H = 40 x 128 + 0 - (64 x 128 + 0) = 5120 - 8192 = -3072
+
+If the Pitch Bend Sensitivity is set to 2 semitones, -8192 (00 00H) will cause the pitch to change -200 cents, so in this case -200 x (-3072) / (-8192) = -75 cents of Pitch Bend is being applied to MIDI channel 11.
+
+<Example 4> B3 64 00 65 00 06 0C 26 00 64 7F 65 7F +
+BnH is the Control Change status, and n is the MIDI channel number. For Control Changes, the 2nd byte is the control number, and the 3rd byte is the value. In a case in which two or more messages consecutive messages have the same status, MIDI has a provision called "running status" which allows the status byte of the second and following messages to be omitted. Thus, the above messages have the following meaning.
+
+[cols="2,7",]
+|===
+|B3 64 00  |MIDI ch.4, lower byte of RPN parameter number: 00H
+|(B3)65 00 |(MIDI ch.4) upper byte of RPN parameter number: 00H
+|(B3)06 0C |(MIDI ch.4) upper byte of parameter value: 0CH
+|(B3)26 00 |(MIDI ch.4) lower byte of parameter value: 00H
+|(B3)64 7F |(MIDI ch.4) lower byte of RPN parameter number: 7FH
+|(B3)65 7F |(MIDI ch.4) upper byte of RPN parameter number: 7FH
+|===
+
+In other words, the above messages specify a value of 0C 00H for RPN parameter number 00 00H on MIDI channel 4, and then set the RPN parameter number to 7F 7FH.
+
+RPN parameter number 00 00H is Pitch Bend Sensitivity, and the MSB of the value indicates semitone units, so a value of 0CH = 12 sets the maximum pitch bend range to +/-12 semitones (1 octave). (The LSB of Pitch Bend Sensitivity is ignored, but the LSB should be transmitted anyway (with a value of 0) so that operation will be correct on any device.)
+
+Once the parameter number has been specified for RPN or NRPN, all Data Entry messages transmitted on that same channel will be valid, so after the desired value has been transmitted, it is a good idea to set the parameter number to 7F 7FH to prevent accidents. This is the reason for the (B3) 64 7F (B3) 65 7F at the end.
+
+It is not desirable for performance data (such as Standard MIDI File data) to contain many events with running status as given in <Example 4>. This is because if playback is halted during the song and then rewound or fast-forwarded, the sequencer may not be able to transmit the correct status, and the sound source will then misinterpret the data. Take care to give each event its own status.
+
+It is also necessary that the RPN or NRPN parameter number setting and the value setting be done in the proper order. On some sequencers, events occurring in the same (or consecutive) clock may be transmitted in an order different than the order in which they were received. For this reason it is a good idea to slightly skew the time of each event (about 1 tick for TPQN = 96, and about 5 ticks for TPQN = 480).
+
+* TPQN: Ticks Per Quarter Note
+
+===== <About tuning>
+
+In MIDI, individual Parts are tuned by sending RPN #1 (Master Fine Tuning) to the appropriate MIDI channel. 
+
+In MIDI, an entire device is tuned by either sending RPN #1 to all MIDI channels being used, or by sending a NRPN(58H 71H) MASTER TUNING. 
+
+RPN #1 allows tuning to be specified in steps of approximately 0.012 cents (to be precise, 100/8192 cent). 
+
+The values of RPN #1 and NRPN (58H 71H) MASTER TUNING are added together to determine the actual pitch sounded by each Part.
+
+Frequently used tuning values are given in the following table for your reference. Values are in hexadecimal (decimal in parentheses).
+
+[cols=",,",]
+|===
+|Hz in A4 |cent |RPN #1
+|445.0 |+19.56 |4C 43 (+1603)
+|444.0 |+15.67 |4A 03 (+1283)
+|443.0 |+11.76 |47 44 (+964)
+|442.0 |+ 7.85 |45 03 (+643)
+|441.0 |+ 3.93 |42 42 (+322)
+|440.0 |0.00   |40 00 (0)
+|439.0 |- 3.94 |3D 3D (-323)
+|438.0 |- 7.89 |3A 7A (-646)
+|===
+
+<Example> Set the tuning of MIDI channel 3 to A4 = 442.0 Hz +
+Send RPN#1 to MIDI channel 3. From the above table, the value is 45 03H.
+
+[cols="2,7",]
+|===
+|B2 64 00 |MIDI ch.3, lower byte of RPN parameter number: 00H
+|(B2)65 01 |(MIDI ch.3) upper byte of RPN parameter number: 01H
+|(B2)06 45 |(MIDI ch.3) upper byte of parameter value: 45H
+|(B2)26 03 |(MIDI ch.3) lower byte of parameter value: 03H
+|(B2)64 7F |(MIDI ch.3) lower byte of RPN parameter number: 7FH
+|(B2)65 7F |(MIDI ch.3) upper byte of RPN parameter number: 7FH
+|===

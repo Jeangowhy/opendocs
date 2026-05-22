@@ -1,0 +1,3724 @@
+:revnumber: 1.52
+:reproducible: HQSQ
+:table-frame: none
+:table-grid: rows
+:table-stripes: odd
+:stem: latexmath
+:icons: font
+:experimental:
+:TOP: <<atop, icon:navicon[2x]>>
+:base: ../ms/Orchestral VSTi v1.03/Help/img
+:TIP: Workspace: Manager Workspace Trust -> Add path to "/Help/img"
+[pass]
+++++
+<style>
+em { color: olive; font-size: 1.1em; }
+.listingblock.olive { color: olive; }
+pre {font-family: "FiraCode Nerd Font Mono", Consolas, monospace;}
+.hljs { background: #c5dbc2; }
+h1 {text-align:right; border-bottom: 7px solid #28885848;}
+h2 {text-align:right; border-bottom: 6px solid #28885848;}
+h3 {text-align:right; border-bottom: 5px solid #28885848;}
+h4 {text-align:right; border-bottom: 4px solid #28885848;}
+h5 {text-align:right; border-bottom: 3px solid #28885848;}
+h6 {text-align:right; border-bottom: 2px solid #28885848;}
+</style>
+++++
+
+[[atop]]
+== Edirol High Quality Orchestral
+
+[.text-center]
+(Software Synthesizer)
+
+•   <<_overview_e_, 01 - Overview>>
+•   <<_usage_e_, 02 - Operation>>
+**   <<selecting_sounds, Selecting sounds>>
+**   <<playing, Playing>>
+**   <<using_the_built_in_effects, Using the built-in effects>>
+**   <<editing_a_sound, Editing a sound>>
+**   <<editing_a_parameter, Editing a parameter>>
+**   <<initializing_synthesizer, Initializing the settings of the synthesizer>>
+**   <<stopping_stuck_notes, Stopping "stuck" notes>>
+**   <<using_MIDI_to_control_a_parameter, Using MIDI to control a parameter>>
+•   <<_pnl_about_e_, 03 - About each panel>>
+**   <<master_panel, Master Panel>>
+**   <<conductor_panel, Conductor Panel>>
+**   <<tone_finder, Tone Finder (TONE FINDER)>>
+**   <<orchestra_style, Orchestra Style (ORCHESTRA STYLE)>>
+**   <<part_editors, Part Editors>>
+**   <<normal_part_editor, Normal Part Editor>>
+**   <<rhythm_part_editor, Rhythm Part Editor>>
+**   <<scale_tune, Scale Tune (SCALE TUNE)>>
+**   <<effect_editor, Effect Editor>>
+**   <<about_the_presets, About the presets (PRESET)>>
+**   <<reverb, Reverb (REVERB)>>
+**   <<chorus_delay, Chorus / Delay (CHORUS/DELAY)>>
+**   <<output_selector, Output Selector (OUTPUT SELECTOR)>>
+**   <<system_setting, System Setting (SYSTEM SETTINGS)>>
+**   <<_master_, MASTER>>
+**   <<_file_, FILE>>
+**   <<options, OPTIONS>>
+•   <<saving_and_loading_user_data, 04 - Saving and loading user data>>
+**   <<saving_and_loading_user_sounds, Saving and loading user sounds>>
+**   <<saving_an_edited_sound_as_a_user_sound, Saving an edited sound as a user sound>>
+**   <<loading_a_user_sound, Loading a user sound>>
+**   <<saving_user_sound_data_in_a_file, Saving user sound data in a file>>
+**   <<loading_user_sound_data_from_a_file, Loading user sound data from a file>>
+**   <<sl_effect_presets, Saving and loading effect presets>>
+**   <<saving_an_effect_setting_as_a_user_preset, Saving an effect setting as a user preset>>
+**   <<loading_a_user_preset, Loading a user preset>>
+**   <<saving_effect_presets_in_a_file, Saving effect presets in a file>>
+**   <<loading_effect_presets_from_a_file, Loading effect presets from a file>>
+**   <<saving_and_loading_performance_data, Saving and loading performance data>>
+**   <<saving_performance_data_in_a_file, Saving performance data in a file>>
+**   <<loading_performance_data_from_a_file, Loading performance data from a file>>
+•   <<automation_and_learning, 05 - Automation and Learning>>
+**   <<control_change_assignments, Control change assignments>>
+**   <<learn_external_controller, Using an external controller to make assignments (Learning)>>
+**   <<canceling_control_change_assignments, Canceling control change assignments>>
+**   <<sl_control_change_assignments, Saving and loading control change assignments (Control Change Map)>>
+**   <<recording_your_operations, Recording your operations>>
+•   <<about_the_sounds, 06 - About the sounds>>
+**   <<how_sounds_are_categorized, How sounds are categorized>>
+**   <<about_the_preset_sounds, About the preset sounds>>
+**   <<preset_sound_list, Preset Sound List>>
+•   <<_trouble_e_, 07 - Troubleshooting>>
+•   <<_impl_or_e_, 08 - MIDI Implementation>>
+
+'''''
+
+*   All product names mentioned in this document are trademarks or registered trademarks of their respective owners. 
+*   Screen shots in this documents are reprinted with permission from Microsoft Corporation. 
+*   In the interest of product improvement, the specifications and/or appearance of this unit are subject to change without notice.
+
+Copyright (C)_02 ROLAND CORPORATION
+
+All rights reserved. No part of this publication may be reproduced in any form without the written permission of ROLAND CORPORATION.
+
+.配图 Base46 编码内嵌处理脚本
+[source,bash]
+----
+# GIFS=$(ls C:/ms/Super\ Quartet\ v1.52/Help/gif/*.gif)
+# Use in an AsciiDoc file:
+# include::/ms/Orchestral VSTi v1.03/Help/img/base64img.adoc[]
+# image::{HQ_LOGO}[LOGO]
+OUT="/c/ms/Orchestral VSTi v1.03/Help/img/base64img.adoc"
+for it in C:/ms/Orchestral\ VSTi\ v1.03/Help/img/*.gif
+do
+  fullname=${it##*/}
+  name=${fullname%.*}
+  echo "====> ${it##*/}"
+  printf ":$name: data:image/gif;base64,%s\n"  $(cat "$it" | base64 -w 0) >> "$OUT"
+done
+----
+
+include::/ms/Orchestral VSTi v1.03/Help/img/base64img.adoc[]
+
+[[_overview_e_]]
+== I -- Overview
+
+The High Quality Software Synthesizer "Orchestral" (for simplicity's sake, from here on we'll refer to it as "Orchestral") is a plug-in software synthesizer that provides string, wind, percussion, and keyboard instruments suitable for classical music and screen music.
+
+It features the same high quality synthesizer engine and effects found on all products of this series, and also supports DXi 2/VST2.0 multiple outputs, delivering flexibility and quality for your musical productions.
+
+
+<<atop, 🟩>>
+[[main_features]]
+=== Main features
+
+<<atop, 🟩>>
+
+==== High quality orchestral sounds in one package
+
+Orchestral gives you a string section that even reproduces pizzicato and tremolo playing techniques, a concert grand piano rich in ambience, oboe and other wind instruments, timpani, harp, and other indispensable, high quality orchestral sounds. It is the ideal choice for classical music or screen music production.
+
+Strings:::
+  Violin, viola, cello, and contrabass sections, with pizzicato and tremolo variations included. Solo sounds for each instrument are also included, as well as harp.
+
+Wind:::
+  Brass section, brass instruments such as trumpet and horn, and woodwinds such as flute, oboe, and clarinet are included. 
+
+Percussion:::
+  Timpani and other orchestral percussion instruments 
+
+Keyboard instruments:::
+  Piano, harpsichord
+
+<<atop, 🟩>>
+
+==== Hybrid package contains two types of plug-ins
+
+The package contains two types of plug-ins (supporting DirectX instruments (DXi) and VST instruments), for seamless operation with major high-performance sequencers, such as Cakewalk SONAR, Home Studio, Music Creator, Plasma, CUBASE, and Logic Audio.
+
+<<atop, 🟩>>
+
+==== The same high quality synthesizer engine as all products in the series
+
+The software synthesis engine uses 32-bit floating point processing and supports 96 kHz for top-notch output quality. Intel Corporation's SSE instructions, AMD Corporation's Enhanced 3DNow! technology, and Motorola Corporation's AltiVec are supported in order to take maximum advantage of your CPU's high-speed signal processing power.
+
+<<atop, 🟩>>
+
+==== Support for multiple outputs
+
+The multi-channel output capability of DXi 2 and VST 2.0 is supported. In your host application, you can apply effects independently to each part, or output audio to multiple devices.
+
+#⚠# In order to use multiple outputs, you must have a host application that supports DXi 2 or VST 2.0 multi-out capability.
+
+<<atop, 🟩>>
+
+==== Internal effects
+
+Orchestral provides high quality reverb (three types) that rivals dedicated units, as well as chorus/delay. Effect presets optimized for orchestral sounds are also provided, delivering the rich ambience of a concert hall.
+
+
+[[_usage_e_]]
+== II -- Operation
+
+
+<<atop, 🟩>>
+[[selecting_sounds]]
+=== Selecting sounds
+
+You can select sounds from a menu organized by instrument type, or by using the Tone Finder to choose from a list.
+
+Alternatively, the Style function lets you simply choose one of the Orchestral Style presets to automatically select sounds and make volume, pan, and effect settings for each part.
+
+For more about the Style function, refer to "About each panel" -> "<<orchestra_style, Orchestra Style (ORCHESTRA STYLE)>>."
+
+<<atop, 🟩>>
+
+==== Using the menu to select a sound
+
+To see a menu for selecting sounds, click an area where a sound name is displayed in the Conductor Panel or the Part Editor.
+
+
+image:{tone_menu}[tone_menu.gif,width=304,height=144]
+
+
+The top menu lists categories of instruments. Below each menu item there is a further menu hierarchy that lets you select the type of instrument, and so on. This is convenient when you know the instrument for the sound you want.
+
+<<atop, 🟩>>
+
+==== Using the Tone Finder to select a sound
+
+The Tone Finder lists the sounds in each instrument category, and lets you audition and select a sound. Simply click a sound name in the list to audition various sounds.
+
+
+image:{tf_pnl}[tf_pnl.gif,width=490,height=280]
+
+
+===== Opening the Tone Finder
+
+Click the magnifying glass button in the Conductor Panel or Part Editor.
+
+
+[cols="2,7",]
+|===
+|image:{tf_btn}[tf_btn.gif,width=183,height=57] 
+|image:{tf_btn2}[tf_btn2.gif,width=211,height=93]
+|===
+
+===== Selecting a sound
+
+Click the sound name in the list. If you like the sound, click the *[OK]* button and it will be selected as the sound for the part. If you click *[Cancel]* you will return to where you were before selecting the sound.
+
+===== Switching to a different instrument category
+
+Use the tabs located at the top of the sound list to see a different category of instruments.
+
+For more about the Tone Finder, refer to "About each panel" -> "<<tone_finder, Tone Finder (TONE FINDER)>>."
+
+<<atop, 🟩>>
+
+==== Selecting the previous or next sound
+
+By clicking the spin buttons located beside the sound name in the Conductor Panel or the Part Editor, you can select the previous or next sound.
+
+
+image:{tn_spin1}[tn_spin1.gif,width=171,height=65]
+
+
+
+<<atop, 🟩>>
+[[playing]]
+=== Playing
+
+Orchestral can be played simply by plugging it into your host application. 
+
+You can use it to play back sequencer data, and it offers the following features for expressive realtime performance from an external MIDI keyboard.
+
+NOTE: For details on how to use DXi or VST instruments in your host application, refer to the owner's manual of your host application.
+
+<<atop, 🟩>>
+
+==== Stereo ++<=>++ mono switching
+
+Orchestral contains numerous expressive stereo-sampled sounds. These sounds provide a richly spacious sensation, but have the potential disadvantage that the stereo image can become indistinct, so they may not be the best choice if you want each instrument to be panned to a distinct position. Furthermore, since each stereo note uses two notes of polyphony, these sounds are more liable to limitations of polyphony.
+
+In view of such considerations, Orchestral lets you freely switch a stereo sound between stereo and mono. In a rhythm set, you can switch individual rhythm instruments between stereo and mono.
+
+For more about switching between stereo <=> mono, refer to "About each panel" -> "<<normal_part_editor, Normal Part Editor>>" or "<<rhythm_part_editor, Rhythm Part Editor>>."
+
+* #⚠# Monaural sounds that are not originally stereo cannot be switched to stereo.
+
+
+<<atop, 🟩>>
+[[advanced_vibrato]]
+==== Advanced Vibrato
+
+Until now, synthesizers created vibrato by using an LFO to modulate the pitch. However, since vibrato on an actual instrument varies not only the pitch but also the volume and tone in subtle ways, this method was not able to simulate natural-sounding vibrato.
+
+Some sounds in Orchestral use samples that were recorded with actual vibrato, and by switching between these sounds and those without vibrato, you can more naturally express the performance techniques of the instrument.
+
+When playing a sound that supports Advanced Vibrato, you can use velocity or modulation (Control Change #1) to switch between vibrato and non-vibrato variations within a single sound while you play. This means that you can obtain more natural vibrato effects even when playing in real time from an external keyboard.
+
+Sounds that support Advanced Vibrato are described in "<<about_the_sounds, About the sounds>>."
+
+
+<<atop, 🟩>>
+[[advanced_mute]]
+==== Advanced Mute
+
+In the rhythm sets provided by Orchestral, some sounds have Advanced Mute function that lets you simulate more natural-sounding mutes for instruments such as cymbals.
+
+For sounds that support Advanced Mute function, you can mute the instrument by using an assigned mute key (Advanced Mute Key) to mute the currently sounding note. Since the velocity of the advanced mute key can vary the muting time, you can create very natural-sounding muting effects.
+
+Sounds that support Advanced Mute are described in "<<about_the_sounds, About the sounds>>."
+
+
+<<atop, 🟩>>
+[[using_the_built_in_effects]]
+=== Using the built-in effects
+
+The built-in reverb and chorus/delay provide several effect presets. Just select a preset and adjust the effect level to obtain high quality effects. You are also free to edit the effect parameters, and save your favorite settings to presets.
+
+You can select effect presets and adjust the levels in the Master panel.
+
+<<atop, 🟩>>
+
+==== Switching the reverb/chorus display
+
+Click the *REVERB* or *CHORUS* tabs in the upper part of the Master panel.
+
+
+image:{efx_tab}[efx_tab.gif,width=134,height=146]
+
+
+<<atop, 🟩>>
+
+==== Switching effects on/off
+
+Click the ON/OFF button in the REVERB or CHORUS tab page. The on/off state of the effects is shown by the LED in the tab.
+
+
+image:{efx_sw}[efx_sw.gif,width=134,height=146]
+
+
+<<atop, 🟩>>
+
+==== Selecting a preset
+
+Click the pull-down menu in the REVERB or CHORUS tab page, and choose from the list.
+
+
+image:{efx_preset}[efx_preset.gif,width=134,height=146]
+
+
+<<atop, 🟩>>
+
+==== Adjusting the effect level
+
+Use the knobs in the REVERB or CHORUS tab page to adjust the level.
+
+
+[cols="2,7",]
+|===
+|image:{efx_rev1}[efx_rev1.gif,width=134,height=146] 
+|image:{efx_cho1}[efx_cho1.gif,width=134,height=146]
+|===
+
+
+
+[cols="2,7",]
+|===
+|*REVERB* |
+|LEVEL    |Adjusts the output volume of the reverb.
+|*CHORUS* |
+|REV SEND |Adjusts the amount of output from the chorus that will be sent to the reverb.
+|LEVEL    |Adjusts the output volume of the chorus.
+|===
+
+To adjust other parameters or to save presets, you will use the Effect Editor. For more about the Edit Editor, refer to "About each panel" -> "<<effect_editor, Effect Editor>>."
+
+
+<<atop, 🟩>>
+[[editing_a_sound]]
+=== Editing a sound
+
+You can use an editing window to edit the sounds of "Orchestral." A sound you edit can be saved as a user sound.
+
+===== Normal Part Editor (sounds other than rhythm sets)
+
+Here you can adjust aspects of sound itself, such as changing the tonal character to create distinctive sounds, adjusting the attack, or using the equalizer to modify the tone. You can also adjust performance aspects of sound, such as solo and legato settings that affect the smoothness of transitions between notes on a solo instrument, and specify how changes in velocity will affect the sound.
+
+===== Rhythm Part Editor (rhythm sets)
+
+Here you can adjust settings such as volume, pan, and tuning for each instrument. You can also use the equalizer to adjust the overall tone of the entire rhythm set.
+
+===== Opening the Normal Part Editor or Rhythm Part Editor
+
+Click the *[EDIT]* button located in each part of the Conductor Panel, and the editor will open for the sound of the part you clicked.
+
+
+image:{edit_btn}[edit_btn.gif,width=180,height=63]
+
+
+For details of each editor screen and how to save an edited sound, refer to "About each panel" -> "<<normal_part_editor, Normal Part Editor>>" or "<<rhythm_part_editor, Rhythm Part Editor>>."
+
+
+<<atop, 🟩>>
+[[editing_a_parameter]]
+==== Editing a parameter
+
+Each panel contains numerous parameters that you can edit. Here's how to edit a parameter.
+
+Using a knob::
+  When you move the mouse cursor over a knob, the mouse cursor will change to a shape that indicates the direction you can drag it (upward and downward).  Click the (left) mouse button and drag upward or downward to edit the setting. 
+
+
+image:{knob}[knob.gif,width=70,height=55]
+
+For a parameter (such as volume and pan) that has a default value, you can double-click on the knob to restore the value to the default setting.
+
+Using a slider
+
+When you move the mouse cursor over the knob of a slider, the mouse cursor will change to a shape that indicates the direction you can drag it (upward/downward, or left/right).
+
+Click the (left) mouse button and drag in the indicated direction.
+
+[cols="2,7",]
+|===
+|image:{h_sld}[h_sld.gif,width=75,height=56] 
+|image:{v_sld}[v_sld.gif,width=79,height=71]
+|===
+
+For a parameter (such as volume and pan) that has a default value, you can double-click on the knob of the slider to restore the value to the default setting.
+
+Using the spin buttons
+
+There are "spin buttons"( image:{spin_btn}[img1.gif,width=7,height=12] ) beside each parameter values in each editor screen. These make it easy to adjust a parameter in the smallest possible units. Click the upward button to increase the parameter value by one step, or click the downward button to decrease it by one step.
+
+
+image:{spin}[spin.gif,width=72,height=63]
+
+
+The spin buttons beside a sound name in the Conductor panel or Part Editor let you select the previous or next sound.
+
+
+image:{pc_incdec}[pc_incdec.gif,width=109,height=47]
+
+Entering a numerical value
+
+Double-click the parameter value that is displayed below or beside a knob or slider, and you will be able to directly enter a value for that parameter.
+
+The entry dialog box will show the allowable range for that parameter, so enter a value in this range.
+
+Editing the name of a sound
+
+You can assign a name of up to twenty characters to a sound you've edited. To enter the name of a sound, double-click the sound name in the Part Editor. Then, after entering/editing the name in the dialog box that appears, click OK.
+
+
+<<atop, 🟩>>
+[[initializing_synthesizer]]
+=== Initializing the settings of the synthesizer
+
+To restore the software synthesizer to its initial state (the state it was in immediately after being plugged-in), click the *[RESET]* button located in the lower part of the Master Panel.
+
+
+image:{reset_btn}[reset_btn.gif,width=216,height=125]
+
+#⚠# When you initialize the synthesizer, all changes you have made to the sounds or effect settings will be discarded. If you want to keep any of your edited sounds or settings, save them as a user sound or user preset, or save the current state as a performance file. For details on saving/loading performance data, refer to "<<saving_and_loading_performance_data, Saving and loading performance data>>."
+
+
+<<atop, 🟩>>
+[[stopping_stuck_notes]]
+=== Stopping "stuck" notes
+
+By clicking the *[PANIC]* button located in the lower part of the Master Panel, you can stop all currently sounding notes.
+
+
+image:{panic_btn}[panic_btn.gif,width=216,height=125]
+
+
+
+<<atop, 🟩>>
+[[using_midi_to_control_a_parameter]]
+=== Using MIDI to control a parameter
+
+Most of the parameters that can be set from the panel of this software can be edited using MIDI control changes and RPN (Registered Parameter Number) or NRPN (Non-Registered Parameter Number) messages. 
+
+For details, refer to the <<midi_implementation, MIDI implementation>>. 
+
+You can freely assign a control change to each parameter and control it from an external MIDI controller. 
+
+For details on control change assignments, refer to "<<control_change_assignments, Control change assignments>>."
+
+
+[[_pnl_about_e_]]
+== III -- About each panel
+
+===== Introduction
+
+Orchestral has a Conductor Panel, in which you can select a sound for each part and adjust the balance; and a Master Panel, in which you can adjust the overall volume and the polyphony. Other displayed panels are overlaid on the Conductor and Master panels.
+
+Here's what you can do in each panel.
+
+
+[cols="2,7",]
+|===
+|*Panel Name* |*Description*
+|<<master_panel, Master Panel>> |Make settings that apply to the entire software synthesizer.
+|<<conductor_panel, Conductor Panel>> |View the sound name, volume setting, etc., for each part, and adjust the overall balance.
+|<<tone_finder, Tone Finder>> |Select a sound for a part from a list of sounds for each category of instrument.
+|<<orchestra_style, Orchestra Style>> |Select preset configurations of instruments suitable for different orchestral styles.
+|<<normal_part_editor, Normal Part Editor>> |Edit a normal sound (a sound that is not a rhythm set).
+|<<rhythm_part_editor, Rhythm Part Editor>> |Edit a rhythm sound (rhythm set).
+|<<scale_tune, Scale Tune>> |Specify the temperament of a normal part (a part that plays a normal sound).
+|<<effect_editor, Effect Editor>> |Edit the internal effects.
+|<<output_selector, Output Selector>> |Specify the output destination of each part.
+|<<system_setting, System Setting>> |Make overall settings and save or load user data files.
+|===
+
+<<atop, 🟩>>
+[[master_panel]]
+=== Master Panel
+
+In this panel you can make settings that affect the entire software synthesizer. +
+You can adjust the overall level, check and specify the polyphony, make simple effect settings, and press buttons to access various sub-panels.
+
+===== About the panel
+
+
+image:{master}[img/master]
+
+
+image:{box01}[] *HELP* : Displays the online help (this document).
+
+image:{box02}[] These buttons open sub-panels.
+
+
+[cols="2,7",]
+|===
+|*Button* |*Description*
+|STYLE    |Displays the <<orchestra_style, Orchestra Sytle (ORCHESTRA SYTLE)>> window.
+|OUTPUT   |Displays the <<output_selector, Output Selector (OUTPUT SELECTOR)>> window.
+|SYSTEM   |Displays the <<system_setting, System Setting (SYSTEM SETTING)>> window.
+|===
+
+image:{box03}[] You can make simple adjustments to the effects. Click the CHORUS or REVERB tab to switch between chorus or reverb settings.
+
+===== REVERB
+
+
+[width="100%",cols="20%,50%",]
+|===
+|image:{reb_page}[img5.gif,width=171,height=146] a|
+** *(1)* Indicates the reverb on/off status. (Lit when on.)
+** *(2)* Switches reverb on/off.
+** *(3)* Opens the reverb editor screen.
+** *(4)* Selects a reverb preset.
+** *(5)* Adjusts the reverb output level.
+|===
+
+
+===== CHORUS
+
+
+[width="100%",cols="20%,50%",]
+|===
+|image:{cho_page}[img4.gif,width=171,height=146] a|
+** *(1)* Indicates the chorus/delay on/off status. (Lit when on.)
+** *(2)* Switches chorus/delay on/off.
+** *(3)* Opens the chorus/delay editor screen.
+** *(4)* Selects a chorus/delay preset.
+** *(5)* Adjusts the chorus/delay output level.
+** *(6)* Sets the level at which the chorus/delay output is sent to reverb.
+|===
+
+
+image:{box04}[] Here you can view and set the polyphony.
+
+
+[width="100%",cols="20%,50%",]
+|===
+|*Parameter* |*Description*
+|CURRENT |This indicates the number of voices that are currently sounding. The number of voices used will depend on the number of voices used by a sound, and on the number of keys that are pressed. For example, if you press three keys to play a sound that consists of two voices, this will use 2 x 3 = 6 polyphonic voices.
+|PEAK    |This indicates the highest number of voices that have been used so far. When you double-click the displayed value, it will be reset to 0.
+|LIMIT  a|
+This specifies the maximum number of voices that can sound simultaneously, in a range of 10--128. Increasing this value will let you play more notes simultaneously.
+
+#⚠# If you increase the maximum polyphony, a greater processing load will be placed on your computer. If your computer is unable to perform the processing quickly enough, this may cause interrupted notes or other problems. Adjust this setting appropriately for the processing speed of your computer.
+
+|===
+
+image:{box05}[] *MIDI* : This is MIDI indicator that will light when MIDI messages are received.
+
+image:{box06}[] This is the master volume fader. It sets the output level (master volume) of the entire software synthesizer.
+
+image:{box07}[] This is the master level meter. It indicates the output level of the entire software synthesizer. If the output level is excessive, the peak indicator at the top will light. If the peak indicator lights frequently, the sound may distort or noise may occur, so you will need to adjust the output level.
+
+image:{box08}[] *PANIC* : Stops all sounding notes.
+
+image:{box09}[] *RESET* : Resets the settings of the sound module, and sets it to the Full Orchestra style. Any notes that are currently sounding will be turned off.
+
+* #⚠# When you initialize the synthesizer, all changes you have made to the sounds or effect settings will be discarded. If you want to keep any of your edited sounds or settings, save them as a user sound or user preset, or save the current state as a performance file. For details on how to save user data, refer to "<<saving_and_loading_user_data, Saving and loading user data>>."
+
+<<atop, 🟩>>
+[[conductor_panel]]
+=== Conductor Panel
+
+The Conductor Panel displays the sound name and parameters such as volume for each part, and lets you adjust the overall balance. Each line corresponds to one part, displaying parts 1 through 16.
+
+<<atop, 🟩>>
+
+==== About the panel
+
+
+image:{conductor}[img7.gif,width=538,height=98]
+
+
+image:{box01}[] This is the part number. The selected sound is indicated by one of the following four colors.
+
+
+[width="100%",cols="4",]
+|===
+|image:{part_color1}[]  :  Strings
+|image:{part_color2}[]  :  Brasswinds
+|image:{part_color3}[]  :  Woodwinds
+|image:{part_color4}[]  :  Keyboard & Percussion
+|===
+
+image:{box02}[] This indicates the bank number and program number of the selected sound. The upper line is the bank number, and the lower line is the program number (1--36).
+
+The bank number consists of a letter (P/U) signifying whether it is a Preset or a User sound, and the Bank Select LSB value (0-6).
+
+
+image:{bank_num}[img13.gif,width=253,height=142]
+
+
+image:{box03}[] This is the name of the sound. Click this to view a menu from which you can select a sound. 
+
+If the parameters of the sound have been edited but you have not yet saved the sound, a check mark(image:{check}[]) will appear at the beginning of the sound name.
+
+image:{box04}[] These buttons let you select the sound that is before or after the currently selected sound.
+
+
+[width="100%",cols="20%,50%",]
+|===
+|*Button* |*Description*
+|image:{patch_inc}[] |Selects the program number that follows the currently selected sound. +
+If the currently selected sound was the last sound in its bank, the first program number of the next bank will be selected.
+|image:{patch_dec}[] |Selects the program number that precedes the currently selected sound. +
+If the currently selected sound was the first sound in its bank, the last program number of the previous bank will be selected.
+|===
+
+image:{box05}[] Displays the Tone Finder (TONE FINDER) window.
+
+image:{box06}[] This is the part level meter. It indicates the output level of that part. If the output level exceeds, the peak indicator at the far right will light. If the peak indicator lights frequently, distortion or noise may occur, so you will need to adjust the output level.
+
+image:{box07}[] *VOL(Part Volume)* : Adjusts the output volume of the part. Double-click the slider to restore the default value (100).
+
+image:{box08}[] *PAN(Part Pan)* : Adjusts the pan (stereo position) of the part. Double-click the knob to restore the default value (0 : center).
+
+image:{box09}[] *EDIT* : Opens the Part Editor. If the selected sound is a normal sound, the Normal Part Editor will open. If it is a rhythm sound, the Rhythm Part Editor will open.
+
+<<atop, 🟩>>
+[[tone_finder]]
+=== Tone Finder (TONE FINDER)
+
+In the Tone Finder screen you can choose the sound for a part from a list that groups the sounds by instrumental category. Since you can select a sound simply by clicking a sound name in the list, this is a convenient way to try out the various sounds.
+
+You can also use the Phrase Preview function to hear the features of each sound. If you don't find a sound you like after trying out various sounds, you can simply cancel your selection and return to the previous sound.
+
+===== Opening the Tone Finder
+
+To open the Tone Finder, click the magnifying glass button in the Conductor Panel or Part Editor.
+
+
+[cols="2,7",]
+|===
+|image:{tf_btn}[tf_btn.gif,width=183,height=57] 
+|image:{tf_btn2}[tf_btn2.gif,width=211,height=93]
+|===
+
+===== About the panel
+
+
+[width="100%",cols="100%",]
+|===
+a|
+===== image:{tone_f}[img16.gif,width=554,height=311]
+
+|===
+
+image:{box01}[] Indicates the number of the part whose sound you are selecting. To change the part, you can click the part number and select from the menu that appears, or click the up/down buttons located at the right of the part number.
+
+When you change the part, the sound selection for the current part will be cancelled. If you want to finalize the sound selection for the current part, click the *APPLY* button before you move to a different part.
+
+image:{box02}[] These tabs select the category of sound.
+
+
+[cols="1,1,3",]
+|===
+|*Tab* |*Category* |*Description*
+|StrSect |String Sections |Displays a list of string section sounds.
+|SoloStr |Solo Strings |Displays a list of solo string sounds.
+|BrsSect |Brass Sections |Displays a list of brass section sounds.
+|SoloBrs |Solo Brasses |Displays a list of solo brass sounds.
+|Woods |Woodwinds |Displays a list of woodwind sounds.
+|Key&Perc. |Keyboard & Percussion |Displays a list of keyboard and percussion instrument sounds.
+|Rhythm |Rhythm Set |Displays a list of rhythm sets.
+|===
+
+image:{box03}[] Switches the display between preset sounds (PRESET) and user sounds (USER).
+
+image:{box04}[] This is the list of sounds. A red frame indicates the currently selected sound.
+
+image:{box05}[] *CLOSE* : Closes the Tone Finder. The sound selection for the part will be cancelled. (This is the same as clicking the *CANCEL* button.) If you want to finalize the selected sound and close the Tone Finder, click the *OK* button instead.
+
+image:{box06}[] *OK* : Applies the sound selected in the Tone Finder to the part, and closes the Tone Finder.
+
+image:{box07}[] *APPLY* : Applies the sound selected in the Tone Finder to the part. The Tone Finder will remain open, so you can try other sounds or switch to a different part.
+
+
+NOTE: If you click the APPLY button and then click the CANCEL button or CLOSE button to cancel your selection, the part will use the sound that you finalized by pressing the APPLY button.
+
+image:{box08}[] *CANCEL* : Cancels the sound you selected in the Tone Finder, and closes the Tone Finder.
+
+image:{box09}[] *PREVIEW* : Lets you audition the sound you selected in the Tone Finder. A sound can be auditioned using a phrase that is appropriate for the sound, making it easier to get a feel for the character of that sound.
+
+* #⚠# If the Phrase Preview function is turned off, a phrase will not play. (A single note will sound.) You can switch Phrase Preview on/off in the "<<OPTIONS, System Setting screen Option Page>>."
+
+<<atop, 🟩>>
+[[orchestra_style]]
+=== Orchestra Style (ORCHESTRA STYLE)
+
+The Orchestra Style screen lets you automatically make basic settings such as sound selection, volume, and pan for each part, simply by selecting from commonly used orchestral configurations (styles). A graphic will visually indicate the placement of the instruments for the selected style, and you can audition a sample song played in that style. This makes it easy to find a style that is appropriate for the song you are creating.
+
+===== About the styles (STYLE)
+
+Orchestral provides the following styles.
+
+
+[cols="2,7",]
+|===
+|*Style Name* |*Description*
+|Full Orchestra 1 |A full orchestral ensemble in which the instruments are placed in the order (from the facing left) of first violins, second violins, violas, cellos, and contrabasses behind the cellos. This is sometimes called the Stokowski configuration.
+|Full Orchestra 2 |A full orchestral ensemble in which the instruments are placed in the order (from the facing left) of first violins, second violins, cellos, violas, and contrabasses behind the violas.
+|Full Orchestra 3 |A full orchestral ensemble in which the instruments are placed in the order (from the facing left) of first violins, violas, cellos, contrabasses behind the cellos and second violins . This disposition is often used in the music of Romantic-era composers.
+|Full Orchestra 4 |A full orchestral ensemble in which the instruments are placed in the order (from the facing left) of first violins, cellos, violas, second violins, and the contrabasses placed in the rear center.
+|Baroque |A Baroque-era orchestra style.
+|Classic |A Classical-era orchestra style.
+|Concerto |A concerto-type disposition that combines solo violin, piano, and cello with a full orchestra.
+|Strings Trio |A string trio with violin, viola, and cello.
+|Strings Quartet |A string quartet with two violins, viola, and cello.
+|Piano Quintet |A piano quintet with piano, violin, viola, cello, and contrabass.
+|Wood Winds Quintet |A woodwind quintet with flute, oboe, clarinet, bassoon, and horn.
+|Flute Quartet |A flute quartet with flute, violin, viola, and cello.
+|Flute Ensemble |An ensemble consisting only of flutes; flute, alto flute, and bass flute.
+|Marching Band |A marching band consisting of brass instruments, woodwind instruments, and a rhythm set.
+|===
+
+===== Opening the Orchestra Style
+
+Click the *[STYLE]* button in the Master Panel to open the Orchestra Style.
+
+
+image:{styl_open}[styl_open.gif,width=180,height=122]
+
+
+===== About the panel
+
+
+image:{style}[img1.gif,width=452,height=326]
+
+
+image:{box01}[] *STYLE* : Displays the name of the style. You can click the pulldown button located beside this, and choose a style from a list.
+
+image:{box02}[]*PREVIEW* : Auditions a sample song played using the selected style.
+
+image:{box03}[] *APPLY* : When you click this button, part settings will be made according to the selected style. This will set the following parameters.
+
+
+** Part sound
+** Part Volume
+** Part Pan
+** Part Reverb send and Chorus send
+** Reverb parameters and Chorus parameters
+
+* #⚠# When you specify a style, any sounds and effect settings you were editing will be discarded. If you want to keep your changes, save them as user data before you specify a style. For details on how to save user data, refer to "<<saving_and_loading_user_data, Saving and loading user data>>."
+
+image:{box04}[] This shows a visual depiction of where the instruments of each part are located. The part number and an abbreviation of the instrument name are shown for each instrument icon.
+
+
+[cols="^,^,^,^",]
+|===
+|*Abbreviation* |*Instrument name* |*Abbreviation* |*Instrument name*
+|*Vns* |Violin Section |*Flh* |Flugelhorn
+|*Vas* |Viola Section |*Ep* |Euphonium
+|*Vcs* |Cello Section |*Picc* |Piccolo
+|*Cbs* |Contrabass Section |*Fl* |Flute
+|*Vn* |Violin |*A.Fl* |Alto Flute
+|*Va* |Viola |*B.Fl* |Bass Flute
+|*Vc* |Cello |*Cl* |Clarinet
+|*Cb* |ContraBass |*B.Cl* |Bass Clarinet
+|*Hp* |Harp |*Ob* |Oboe
+|*Tps* |Trumpet Section |*E.Hr* |English Horn
+|*Tbs* |Trombone Section |*Bsn* |Bassoon
+|*Hrs* |Horn Section |*Pf* |Piano
+|*Tp* |Trumpet |*Celst* |Celeste
+|*Cort* |Cornet |*Hc* |Harpsichord
+|*Tb* |Trombone |*Timp* |Timpani
+|*Tu* |Tuba |*Glo* |Glocken
+|*Hr* |Horn |*Perc* |Rhythm Set
+|===
+
+image:{box05}[] *CLOSE* : Closes the Orchestra Style window. The selected style will not be applied.
+
+<<atop, 🟩>>
+[[part_editors]]
+=== Part Editors
+
+===== Opening the Normal Part Editor or Rhythm Part Editor
+
+Click the *[EDIT]* button located in each part of the Conductor Panel, and the editor will open for the sound of the part you clicked.
+
+
+image:{edit_btn}[edit_btn.gif,width=180,height=63]
+
+
+
+<<atop, 🟩>>
+[[normal_part_editor]]
+==== Normal Part Editor
+
+In this window you can edit settings for a part that uses a normal sound (a sound other than a rhythm set). After editing a sound, you can assign a name to it and save it as a user sound.
+
+===== About the panel
+
+
+image:{normal}[img18.gif,width=492,height=454]
+
+
+
+NOTE: The effect of each parameter will differ depending on the sound. For some sounds, a certain parameter may have no effect.
+
+* #⚠# Changes you make using the Part Editor will be discarded when you select another sound. If you want to keep your edited sound, you must save it as a user sound before you select another sound.
+
+image:{box01}[] This indicates the number of the part you are editing. To select a different part for editing, you can either click the part number and choose from the menu that appears, or click the up/down buttons located at the right of the part number.
+
+image:{box02}[] This indicates the bank number and program number of the selected sound. The upper line is the bank number, and the lower line is the program number (1--36).
+
+The bank number consists of a letter (P/U) signifying whether it is a Preset or a User sound, and the Bank Select LSB value (0-6).
+
+
+image:{bank_num}[img13.gif,width=253,height=142]
+
+
+image:{box03}[] This is the name of the sound. If the parameters of the sound have been edited but the sound has not yet been saved, a check mark (image:{check}[]) will be displayed at the beginning of the sound name. +
+You can click on the sound name to open a menu and select a sound. If you want to edit the sound name, double-click it, and enter a name of up to twenty characters.
+
+image:{box04}[] If the selected sound is a stereo sound, this will be checked to indicate "STEREO"( image:{st_check}[] ). You can click this indication to remove the check mark ( image:{st_uncheck}[]), making the sound play in mono. This will conserve voices of polyphony, and lets you clarify the stereo placement of the sound.
+
+
+NOTE: If the selected sound is a monaural sound, nothing will be displayed here. In this case, you cannot switch between stereo and mono.
+
+image:{box05}[] These buttons let you select the sound that is before or after the currently selected sound.
+
+
+[width="100%",cols="20%,50%",]
+|===
+|*Button* |*Description*
+|image:{patch_inc}[] |Selects the program number that follows the currently selected sound. +
+If the currently selected sound was the last sound in its bank, the first program number of the next bank will be selected.
+|image:{patch_dec}[] |Selects the program number that precedes the currently selected sound. +
+If the currently selected sound was the first sound in its bank, the last program number of the previous bank will be selected.
+|===
+
+image:{box06}[] Displays the Tone Finder (TONE FINDER) window.
+
+image:{box07}[] *PREVIEW* : You can audition the sound that you are editing. Since you have the option of hearing a phrase that is appropriate for the sound, this provides an easy way to grasp the character of a sound.
+
+* #⚠# If the Phrase Preview function is off, phrase audition will not occur. (A single note will be played.) You can switch the Phrase Preview function on/off in the Option page of the System Setting screen.
+
+image:{box08}[] *WRITE* : Saves the edited sound as a user sound. When you click this, a list of the available user bank sounds will appear. Click the location where you want to save the sound. +
+For details on saving a user sound, refer to "<<saving_and_loading_user_data, Saving and loading user data>>."
+
+image:{box09}[] *CLOSE* : Close the Normal Part Editor (NORMAL PART EDITOR) window.
+
+image:{box10}[] This is the part level meter. It indicates the output level of that part. If the output level exceeds, the peak indicator at the far right will light. If the peak indicator lights frequently, distortion or noise may occur, so you will need to adjust the output level.
+
+image:{box11}[] *MIDI* : This is a MIDI indicator. It will light when the currently shown part receives a MIDI message. The receive channel of each part is the same as its part number.
+
+image:{box12}[] *VOL(Part Volume)* : Adjusts the output volume of the part. Double-click the slider to restore the default value(100).
+
+image:{box13}[] Adjusts the pan (stereo position) and the effect send level of the part.
+
+
+[width="100%",cols="1,^1,5",]
+|===
+|*Parameter* |*Value* |*Description*
+|PAN |L63 - R63 |Sets the stereo position of the output sound. L63 is far left, 0 is center, and R63 is far right. +
+Double-click the knob to restore the default value(0 : center).
+|REVERB |0 - 127 |Sets the output level of the signal that is sent to the reverb. +
+Double-click the knob to restore the default value(40).
+|CHORUS |0 - 127 |Sets the output level of the signal that is sent to the chorus. +
+Double-click the knob to restore the default value(0).
+|===
+
+image:{box14}[] These are the parameters of the sound. You can freely edit these parameters and save them as a user sound.
+
+SOLO
+
+[width="100%",cols="1,^1,5",]
+|===
+|*Parameter* |*Value* |*Description*
+|ON/OFF |ON, OFF |If this is on, the sound will be in Mono mode. Use this when playing solo string and wind sounds.
+|RETRIGGER |ON, OFF a|
+The setting determines whether sounds are replayed or not when performing legato. Normally you will leave this parameter "ON." Set this to "OFF" when performing wind and string phrases.
+
+#⚠# If the Solo Switch is "OFF," this setting is ignored.
+
+|===
+
+VELO SW SENS(Velocity Switch Sens)
+
+[cols="1,^1,5",]
+|===
+|*Parameter* |*Value* |*Description*
+|VELO SW SENS |-63 - +63 |Adjusts the sensitivity of the velocity switch that switches between tones according to velocity. If you increase the sensitivity, even softly played (low velocity) notes will be more likely to switch to the louder tone. By setting this value close to the maximum or minimum value, you can cause only the louder or softer tone to be sounded.
+|===
+
+ENVELOPE
+
+[cols="1,^1,5",]
+|===
+|*Parameter* |*Value* |*Description*
+|ATTACK |-63 - +63 |Adjusts the attack time of the envelope. Higher settings will produce a more gradual attack, and lower settings will produce a sharper attack.
+|DECAY |-63 - +63 |Adjusts the decay time of the envelope. Higher settings will produce a more gradual decay, and lower settings will produce a shorter decay time.
+|RELEASE |-63 - +63 |Adjusts the release time of the envelope. Higher settings will produce a longer release, and lower settings will produce a shorter release.
+|===
+
+
+VELOCITY SENS
+
+[cols="1,^1,5",]
+|===
+|*Parameter* |*Value* |*Description*
+|ATTACK |-63 - +63 |Adjusts how velocity will affect the attack time of the envelope. Increasing this value will cause velocity to have more control over the attack. Positive ({plus}) settings will cause stronger velocities to sharpen the attack. Negative (-) settings will cause stronger velocities to soften the attack.
+|DYNAMICS |-63 - +63 |Determines the extent to which changes in velocity (playing dynamics) will affect the volume or tone. As the value is decreased, changes in velocity will have less effect on the volume or tone. When the value of this parameter is increased, changes in velocity will produce greater effect on the volume or tone.
+|===
+
+
+CHARACTER
+
+[cols="1,^1,5",]
+|===
+|*Parameter* |*Value* |*Description*
+|CHARACTER |-36 - +36 |Modifies the character of the harmonics. By operating this knob you can make the sound more reedy or muffled.
+|===
+
+
+FILTER
+
+[cols="1,^1,5",]
+|===
+|*Parameter* |*Value*   |*Description*
+|CUTOFF      |-63 - +63 |Adjusts the frequency at which the filter begins to have an effect on the waveform's frequency components. parameter, Lower cutofffrequency settings reduce a Tone's upper harmonics for a more rounded, warmer sound.
+|RESONANCE   |-63 - +63 |Increases the level of the cutoff frequency itself to add a popular classic synth character to the sound. The sound will become sharper and more unique as the value is raised.
+|===
+
+
+EQ
+
+[cols="1,^1,5",]
+|===
+|*Parameter* |*Value* |*Description*
+|ON/OFF |ON, OFF |Switches the EQ on/off.
+|LOW (Low Gain) |-12 - +12 |Adjusts the gain of the lower range of frequencies, below 400 Hz
+|MID (Mid Gain) |-12 - +12 |Adjusts the gain of the midrange, in the 1 kHz region
+|HIGH (High Gain) |-12 - +12 |Adjusts the gain of the upper range of frequencies, above 4 kHz
+|===
+
+
+TUNING
+
+[cols="1,^1,5",]
+|===
+|*Parameter* |*Value* |*Description*
+|FINE   |-50 - +50 |Specifies the amount of pitch shift in one-cent units (one cent = 1/100th of a semitone).
+|COARSE |-48 - +48 |Specifies the amount of pitch shift in semitone units.
+|===
+
+
+VIBRATO
+
+[cols="1,^1,5",]
+|===
+|*Parameter* |*Value* |*Description*
+|RATE  |-63 - +63 |Adjusts the modulation speed of the vibrato.
+|DEPTH |-63 - +63 |Adjusts the depth of the vibrato.
+|DELAY |-63 - +63 |Adjusts the time that is to pass after a note begins sounding (or after a key's been pressed) before vibrato starts being applied.
+|===
+
+#⚠# These parameters have no effect on sounds that support Advanced Vibrato via modulation.
+
+RAND MOD (Random Modulation)
+
+[cols="1,^1,5",]
+|===
+|*Parameter* |*Value* |*Description*
+|RATE  |-63 - +63 |Adjusts the rate of the random modulation that is applied to the sound.
+|DEPTH |-63 - +63 |Adjusts the depth of the random modulation that is applied to the sound.
+|===
+
+
+PORTAMENTO
+
+[width="100%",cols="1,^1,5",]
+|===
+|*Parameter* |*Value* |*Description*
+|ON/OFF |ON, FF     |Switches the portamento function on/off.
+|TIME   |-63 - +63 a|
+Adjusts the amount of time it takes for the transition to the next pitch to take place.
+
+#⚠# If the Portamento Switch is "OFF," this setting is ignored.
+
+|===
+
+
+PAN KEYFOLLOW
+
+[cols="1,^1,5",]
+|===
+|*Parameter* |*Value* |*Description*
+|PAN KEYFOLLOW |-10 - +10 |Use this parameter when you want each note's keyboard position to affect its stereo location. Higher settings cause a greater shifting of the Tone's original pan position as you move further away from Middle C (C4), where the original stereo TVA Pan value remains in effect. Positive ({plus}) settings cause notes above Middle C to be panned rightward. Negative (-) settings cause them to be panned leftward.
+|===
+
+
+MOD DEPTH (Modulation Depth)
+
+[cols="1,^1,5",]
+|===
+|*Parameter* |*Value* |*Description*
+|MOD DEPTH |0 - 127 |Adjusts the depth of modulation that will occur when modulation messages are received.
+|===
+
+#⚠# These parameters have no effect on sounds that support Advanced Vibrato via modulation.
+
+BEND RANGE (Pitch Bend Range)
+
+[cols="1,^1,5",]
+|===
+|*Parameter* |*Value* |*Description*
+|BEND RANGE |0 - 24 |Specifies the amount (in semitone units) of pitch change that is possible when the pitch bend lever is operated. This determines the amount of change that can take place when the lever is moved.
+|===
+
+
+SCALE TUNE
+
+Displays <<scale_tune, the Scale Tune window (SCALE TUNE)>>, where you can specify the temperament.
+
+image:{box15}[] This keyboard indicates the recommended range for the selected sound. The range that can normally be played by the instrument for the selected sound is shown in the ordinary colors (black and white), while the other keys are shaded in gray. +
+While the part is being played, a red dot indicates each currently played note, letting you check whether your data stays within the normal range of that instrument. +
+You can click a note on this keyboard to hear the corresponding pitch.
+
+
+NOTE: The range indicated here is the conventional range of the instrument, but in actual practice, the instrument may be played outside this range. No recommended range is indicated for sounds that combine multiple instruments.
+
+<<atop, 🟩>>
+[[rhythm_part_editor]]
+==== Rhythm Part Editor
+
+In this window you can edit settings for a part that uses a rhythm sound (rhythm set). After editing a sound, you can assign a name to it and save it as a user sound.
+
+===== About the panel
+
+
+image:{rhythm}[rhythm.gif,width=493,height=278]
+
+
+
+NOTE: The effect of each parameter will differ depending on the sound. For some sounds, a certain parameter may have no effect.
+
+* #⚠# Changes you make using the Part Editor will be discarded when you select another sound. If you want to keep your edited sound, you must save it as a user sound before you select another sound.
+
+image:{box01}[] This indicates the number of the part you are editing. To select a different part for editing, you can either click the part number and choose from the menu that appears, or click the up/down buttons located at the right of the part number.
+
+image:{box02}[] This indicates the bank number and program number of the selected sound. The upper line is the bank number, and the lower line is the program number (1--36).
+
+The bank number consists of a letter (P/U) signifying whether it is a Preset or a User sound, and the Bank Select LSB value (0-6).
+
+
+image:{bank_num}[img13.gif,width=253,height=142]
+
+
+image:{box03}[] This is the name of the sound. If the parameters of the sound have been edited but the sound has not yet been saved, a check mark (image:{check}[]) will be displayed at the beginning of the sound name. +
+You can click on the sound name to open a menu and select a sound. If you want to edit the sound name, double-click it, and enter a name of up to twenty characters.
+
+image:{box04}[] These buttons let you select the sound that is before or after the currently selected sound.
+
+
+[width="100%",cols="10%,50%",]
+|===
+|*Button* |*Description*
+|image:{patch_inc}[] |Selects the program number that follows the currently selected sound. If the currently selected sound was the last sound in its bank, the first program number of the next bank will be selected.
+|image:{patch_dec}[] |Selects the program number that precedes the currently selected sound. If the currently selected sound was the first sound in its bank, the last program number of the previous bank will be selected.
+|===
+
+image:{box05}[] Displays the Tone Finder (TONE FINDER) window.
+
+image:{box06}[] *PREVIEW* : This lets you audition the rhythm sound that you are editing.
+
+
+NOTE: In the Rhythm Part Editor, you'll hear the rhythm sound currently being edited, regardless of whether the Phrase Preview function is switched on or off.
+
+image:{box07}[] *WRITE* : Saves the edited sound as a user sound. When you click this, a list of the available user bank sounds will appear. Click the location where you want to save the sound. 
+
+For details on saving a user sound, refer to "<<saving_and_loading_user_data, Saving and loading user data>>."
+
+image:{box08}[] *CLOSE* : Close the Rhythm Part Editor (RHYTHM PART EDITOR) window.
+
+image:{box09}[] This is the part level meter. It indicates the output level of that part. If the output level exceeds, the peak indicator at the far right will light. If the peak indicator lights frequently, distortion or noise may occur, so you will need to adjust the output level.
+
+image:{box10}[] *MIDI* : This is a MIDI indicator. It will light when the currently shown part receives a MIDI message. The receive channel of each part is the same as its part number.
+
+image:{box11}[] *VOL(Part Volume)* : Adjusts the output volume of the part. Double-click the slider to restore the default value(100).
+
+image:{box12}[] Adjusts the pan (stereo position) and the effect send level of the part.
+
+
+[width="100%",cols="4%,^3%,33%",]
+|===
+|*Parameter* |*Value* |*Description*
+|PAN  |L63 - R63 |Sets the stereo position of the output sound. L63 is far left, 0 is center, and R63 is far right. Double-click the knob to restore the default value(0 : center).
+|REVERB |0 - 127 |Sets the output level of the signal that is sent to the reverb. Double-click the knob to restore the default value(40).
+|CHORUS |0 - 127 |Sets the output level of the signal that is sent to the chorus. Double-click the knob to restore the default value(0).
+|===
+
+image:{box13}[] This is the name of the rhythm instrument you are editing. If the rhythm instrument currently being edited is a stereo sound, "STEREO" (image:{st_check}[]) will be displayed with a check mark following the name. If you click this to remove the check mark (image:{st_uncheck}[]), the sound will play in mono. This will conserve the available polyphony, and lets you clarify the stereo positioning.
+
+
+NOTE: If the rhythm instrument currently being edited is a monaural sound, nothing will be displayed here. In this case, it is not possible to switch between stereo and mono.
+
+image:{box14}[] This button is used to select the rhythm instrument to be edited. Click image:{inc_inst}[] to switch to the rhythm instrument that is assigned to the next higher key, or click image:{dec_inst}[] to switch to the rhythm instrument that is assigned to the next lower key.
+
+image:{box15}[] *MIDI EDIT* : This switches the MIDI Edit function on/off. If MIDI Edit is on, you can use MIDI input from an external MIDI keyboard to specify the rhythm instrument to be edited.
+
+* #⚠# If a song is being played, you should switch the MIDI Edit function off, since the rhythm instruments will be switched rapidly if this is left on.
+
+* #⚠# The rhythm instrument will not switch if the MIDI channel of the incoming note message does not match the MIDI receive channel (identical to the part number) of the part you are editing.
+
+image:{box16}[] [[sound_parameters]] These are the sound parameters for each rhythm instrument. You can edit these parameters independently for each rhythm instrument.
+
+[width="100%",cols="4%,^3%,33%",]
+|===
+|*Parameter*  |*Value*    |*Description*
+|LEVEL        |0 ~ 127    |Sets the output volume of the rhythm instrument.
+|PAN          |L63 - R63 a| Sets the stereo position of the rhythm instrument. L63 is far left, 0 is center, and R63 is far right.
+
+#⚠# The actual panning is also affected by the PAN setting of the part. For example, even if you set this to R63, the sound will not necessarily be heard from the far right if PAN for the Part has been set toward the left.
+
+|COARSE TUNE  |-48 - +48  |Sets the amount of pitch shift (in semitone steps) for the rhythm instrument.
+|FINE TUNE    |-50 - +50  |Sets the amount of pitch shift (in one-cent steps; one cent = 1/100th of a semitone) for the thythm instrument.
+|REVERB LEVEL |0 - 127    |Sets the output level that is sent from the thythm instrument to the reverb. There will be no effect if the send level of the part is turned down.
+|CHORUS LEVEL |0 - 127    |Sets the output level that is sent from the rhythm instrument to the chorus. There will be no effect if the send level of the part is turned down.
+|===
+
+image:{box17}[] These are the sound parameters for the part. These parameters will affect the entire rhythm set.
+
+VELOCITY SENS
+
+[cols="1,^1,5",]
+|===
+|*Parameter* |*Value*   |*Description*
+|DYNAMICS    |-63 - +63 |Determines the extent to which changes in velocity (playing dynamics) will affect the volume or tone. As the value is decreased, changes in velocity will have less effect on the volume or tone. When the value of this parameter is increased, changes in velocity will produce greater effect on the volume or tone.
+|===
+
+EQ
+
+[cols="1,^1,5",]
+|===
+|*Parameter*      |*Value*   |*Description*
+|ON/OFF           |ON, OFF   |Switches the EQ on/off.
+|LOW (Low Gain)   |-12 - +12 |Adjusts the gain of the lower range of frequencies, below 400 Hz
+|MID (Mid Gain)   |-12 - +12 |Adjusts the gain of the midrange, in the 1 kHz region
+|HIGH (High Gain) |-12 - +12 |Adjusts the gain of the upper range of frequencies, above 4 kHz
+|===
+
+<<atop, 🟩>>
+[[scale_tune]]
+=== Scale Tune (SCALE TUNE)
+
+In this screen you can specify the temperament used by the normal parts. 
+
+The Scale Tune window will appear when you click the *SCALE TUNE* button in the Normal Part Editor (NORMAL PART EDITOR) window.
+
+<<atop, 🟩>>
+
+==== About the panel
+
+
+image:{scale}[scale.gif,width=326,height=292]
+
+
+* #⚠# If the SCALE TUNE switch (located in <<_master_, the MASTER page of the System Setting window>>) is turned off, equal temperament will be used regardless of the settings you make in the Scale Tune window.
+
+image:{box01}[] You can choose from various preset temperaments. Click the pulldown button located at the right, and choose the desired preset from the list. If you select a preset other than equal temperament, you can also specify the tonic. Orchestral provides presets for the following temperaments.
+
+[width="100%",cols="10%,50%",]
+|===
+|*Preset* |*Description*
+|Equal    |Here, notes in all scales are spaced uniformly; this is the most widely used temperament.
+|Werckmeister |This is Werckmeister temperament, type 1-3. +
+This temperament offers greater freedom of modulation than does the Meantone, so it is popular for chordal compositions with key signatures having few accidentals, or for melodic playing in compositions featuring many accidentals. This temperament does not have pure third intervals, but this will improve chord transitions as you modulate between keys.
+|Kirnberger |This is Kirnberger temperament, type 3. +
+While providing freedom of modulation, the clear difference between the Werckmeister temperament's pure thirds and those which are not pure brings out the differences in resonance from the adjustments. In particular, the sensation of tension is strongest in the third between Ab and C.
+|Vallotti/Young |This tuning eliminates the dissonant (wolf) interval of the Pythagorean scale, and uses something approaching a pure third only for this interval. +
+Of all the temperaments here, this is closest to the Equal temperament in being without idiosyncrasies. +
+The Young temperament is obtained by changing the tonic to G. +
+Vallotti is suitable for keys with flats in the key signature, such as the key of F major or B flat major, and Young is suitable for key signatures with sharps, such as D major or E major.
+|Meantone |This is Aaron's meantone temperament. +
+This temperament is composed differently, with the pure fifth compromised to permit modulation that is impossible in Just tunings. The dissonant fifth between G# and Eb when C is the tonic is preserved, making it possible to modulate up to three sharps and two flats in Major keys, and up to two flats in minor
+|Pythagorean |While melodic lines played in this temperament, consisting of pure fourths and fifths, resonate beautifully, the overt acoustic discrepancy of the thirds makes it unsuitable for harmonic playing. +
+Furthermore, the dissonant (wolf) fifth is preserved (between G# and Eb when C is the tonic), thus disallowing modulation. +
+On the other hand, in chordal applications, shifting the tonic six semitones (for example, performing in C Major when the Tonic is Gb ) and using a wolf interval between the root and the third allows you to achieve something very close to a Just temperament.
+|Just Major |This is a temperament in which the primary triads are created with a pure third and fifth. +
+While this temperament provides beautiful chords with no acoustic discrepancy, the considerable irregularity of intervals in the scale makes it unsuitable for melodic playing. This acoustic discrepancy is especially pronounced between D and A, and between Ab and C, so no modulation is possible.
+|Just Minor |As in Just Major, intervals in the primary triads are preserved as pure. +
+The dissonance of the interval between C and Ab in Major mode is improved, allowing the primary triads to be played in minor mode.
+|===
+
+image:{box02}[] This keyboard can be used to audition the sound. Click a note to hear the corresponding pitch. This provides a convenient way to try out the different temperaments.
+
+image:{box03}[] The scale Tune feature allows you to finely adjust the individual pitch of the notes from C through B in one-cent units (one cent = 1/100th of a semitone). Though the settings are made while working with one octave, the fine adjustments will affect all octaves.
+
+image:{box04}[] *CLOSE* : Close the Scale Tune (SCALE TUNE) window.
+
+<<atop, 🟩>>
+[[effect_editor]]
+=== Effect Editor
+
+Orchestral provides reverb and chorus/delay as built-in effects. You can use separate windows to freely customize the settings of each effect.
+
+
+<<atop, 🟩>>
+[[about_the_presets]]
+==== About the presets (PRESET)
+
+Each effect provides several settings as system presets. You can store your customized settings as user presets.
+
+For details, refer to "<<sl_effect_presets, Saving and loading effect presets>>."
+
+
+<<atop, 🟩>>
+[[reverb]]
+==== Reverb (REVERB)
+
+===== Opening the Reverb editor
+
+Click the *[EDIT]* button in the *REVERB* tab page of the Master Panel.
+
+
+image:{rev_open}[rev_open.gif,width=134,height=146]
+
+
+===== About the panel
+
+
+image:{reverb}[reverb.gif,width=595,height=145]
+
+
+image:{box01}[] Selects the type of reverb.
+
+
+[cols="2,7",]
+|===
+|*Type* |*Description*
+|ROOM   |This simulates typical room acoustic reflections.
+|HALL   |This simulates typical concert hall acoustic reflections.
+|PLATE  |This simulates a reverb plate, a popular type of artificial reverb unit that derives its sound from the vibration of a metallic plate.
+|===
+
+image:{box02}[]*PRESET* : Displays the names of the reverb presets. You can click the pulldown button at the right, and choose a preset from the list that appears. If you edit the parameters after selecting a preset, a check mark will be displayed at the beginning of the preset name.
+
+image:{box03}[] *WRITE* : Saves the current settings as a user preset. Click this to display the user preset list, and then click the location in which you want to save your settings.
+
+image:{box04}[] These are the reverb parameters.
+
+[cols="1,1,3",]
+|===
+|*Parameter* |*Value* |*Description*
+|PRE DLY |0.0 - 100.0 [ms] |Adjusts the time until the reverb is heard.
+|TIME |0 - 127 |Duration of reverb source.
+|SIZE |1 - 8 |Size of the simulated room or hall
+|HIGH CUT |160 - 12500 [Hz], BYP.(Bypass) |Adjusts the frequency above which the high-frequency content of the reverb is filtered out. If you don't want to reduce the reverb's high frequencies, set this parameter to BYPASS.
+|DENSITY |0 - 127 |Density of reverb
+|DIFFUSION |0 - 127 |Adjusts the change in the density of the reverb over time. The higher the value, the more the density increases with time. (The effect of this setting is most pronounced with long reverb times.)
+|LF DAMP FREQ |50 - 4000 [Hz] |Adjusts the frequency below which the lowfrequency content of the reverb sound is reduced, or "damped."
+|LF DAMP GAIN |-36 - 0 [dB] |Adjusts the amount of damping applied to the frequency range selected with LF Damp. With a setting of "0," there's no reduction of the reverb's low-frequency content.
+|HF DAMP FREQ |4000 - 12500 [Hz] |Adjusts the frequency above which the high-frequency content of the reverb sound is reduced, or "damped."
+|HF DAMP GAIN |-36 - 0 [dB] |Adjusts the amount of damping applied to the frequency range selected with HF Damp. With a setting of "0," there's no reduction of the reverb's high-frequency content.
+|LEVEL |0 - 127 |Output level of reverbration
+|===
+
+image:{box05}[] *CLOSE* : Close the Reverb Editor window.
+
+
+<<atop, 🟩>>
+[[chorus_delay]]
+==== Chorus / Delay (CHORUS/DELAY)
+
+===== Opening the Chorus / Delay editor
+
+Click the *[EDIT]* button in the *CHORUS* tab page of the Master Panel.
+
+image:{cho_open}[cho_open.gif,width=134,height=146]
+
+
+===== About the panel
+
+====== CHORUS
+
+
+image:{chorus}[chorus.gif,width=595,height=145]
+
+
+====== DELAY
+
+
+image:{delay}[delay.gif,width=600,height=145]
+
+
+image:{box01}[] Switches the effect type between chorus and delay. When you switch the type, the editing window for that effect type will appear.
+
+image:{box02}[] *PRESET* : Displays the names of the chorus/delay presets. You can click the pulldown button at the right, and choose a preset from the list that appears. If you edit the parameters after selecting a preset, a check mark will be displayed at the beginning of the preset name.
+
+image:{box03}[] *WRITE* : Saves the current settings as a user preset. Click this to display the user preset list, and then click the location in which you want to save your settings.
+
+image:{box04}[] These are the chorus parameters.
+
+[width="100%",cols="4%,3%,13%",]
+|===
+|*Parameter*   |*Value* |*Description*
+|PRE DLY       |0.0 - 100.0 [ms] |Adjusts the time until the chorus is heard.
+|RATE          |0.05 - 11.00 [Hz] |Frequency of modulation
+|DEPTH         |0 - 127 |Depth of modulation
+|PHASE         |0 - 180 [deg] |Spatial spread of the sound
+|FEEDBACK      |0 - 127 |Adjusts the amount of the chorus sound that's fed back into the effect.
+|FILTER TYPE   |OFF, LPF, HPF |Type of filter +
+  *OFF*: no filter is used +
+  *LPF*: cuts the frequency range above the Cutoff Freq +
+  *HPF*: cuts the frequency range below the Cutoff Freq
+|FILTER CUTOFF |200 ~ 8000 [Hz] |Cutoff frequency of the filter
+|REV SEND      |0 - 127 |Adjusts the amount of chorus sound sent to the reverb.
+|LEVEL         |0 - 127 |Volume of the chorus sound
+|===
+
+image:{box05}[] These are the delay parameters.
+
+[cols="1,1,3",]
+|===
+|*Parameter*        |*Value*       |*Description*
+|DELAY TIME LEFT    |0 ~ 1000 [ms] |Adjusts the time until the delay is heard.
+|DELAY TIME CENTER  | |
+|DELAY TIME RIGHT   | |
+|DELAY LEVEL LEFT   |0 - 127 |Volume of each delay
+|DELAY LEVEL CENTER | |
+|DELAY LEVEL RIGHT  | |
+|FEEDBACK           |-98 - +98 [%] |Adjusts the amount of the delay sound that's fed back into the effect. Negative (-) settings invert the phase.
+|HF DAMP            |200 - 8000 [Hz], BYP.(Bypass) |Adjusts the frequency above which sound fed back to the effect is filtered out. If you don't want to filter out any high frequencies, set this parameter to BYPASS.
+|REV SEND           |0 - 127 |Adjusts the amount of delay sound sent to the reverb.
+|LEVEL              |0 - 127 |Volume of the delay sound
+|===
+
+image:{box06}[] *CLOSE* : Close the Chorus/Delay Editor window.
+
+<<atop, 🟩>>
+[[output_selector]]
+=== Output Selector (OUTPUT SELECTOR)
+
+For each part, you can select one of four stereo outputs as the output destination. This capability is referred to as *"multi-out.*" Multi-out lets you apply separate effects to each output in your host application, or send each output to a different audio device.
+
+In the Output Selector window you can select the output destination for each part, and switch the multi-out function on/off.
+
+* #⚠# In order to use Orchestral's multi-out feature, your host application must support DXi2 or VST2.0. For details on how to use multi-out, refer to the owner's manual for your host application.
+
+* #⚠# If your host application does not support multi-out and you set a part to an output destination other than Output 1, that part may not sound.
+
+<<atop, 🟩>>
+
+==== Opening the Output Selector
+
+Click the *[OUTPUT]* button in the Master Panel to open the Output Selector.
+
+
+image:{out_open}[out_open.gif,width=180,height=122]
+
+
+<<atop, 🟩>>
+
+==== About the panel
+
+
+image:{output}[output.gif,width=469,height=286]
+
+
+image:{box01}[] *Multiple Output Switch* : Switches the multi-out function on/off. If this is on, each part will be sent to the specified output destination. If this is off, all outputs will be sent to *OUTPUT 1*, regardless of the output destination specified for each part.
+
+image:{box02}[] This shows the part number, and the name of the sound selected for that part.
+
+image:{box03}[] *OUTPUT* : Selects one of four stereo outputs as the output destination for each part.
+
+* #⚠# Orchestral's built-in effects (reverb and delay/chorus) can be used only on *[.underline]#OUTPUT 1#*. The built-in effects cannot be applied to other output destinations.
+
+image:{box04}[] *RESET* : When you click this, the output destination of all parts will be changed to *OUTPUT 1*.
+
+image:{box05}[] *CLOSE* : Close the Output Selector(OUTPUT SELECTOR) window.
+
+<<atop, 🟩>>
+[[system_setting]]
+=== System Setting (SYSTEM SETTINGS)
+
+<<atop, 🟩>>
+
+==== Opening the System Setting window
+
+Click the *[SYSTEM]* button in the Master Panel to open the System Setting window.
+
+
+image:{sys_open}[sys_open.gif,width=180,height=122]
+
+
+<<atop, 🟩>>
+
+==== About the panel
+
+The System Setting window contains three pages: MASTER, FILE, and OPTIONS. In these pages you can make overall settings and save or load user data files.
+
+
+image:{system}[system.gif,width=353,height=180]
+
+
+image:{box01}[] Use these tabs to switch pages.
+
+image:{box02}[]*CLOSE* : Close the System Setting (SYSTEM SETTING) window.
+
+
+<<atop, 🟩>>
+[[_master_]]
+==== MASTER
+
+Here you can specify the overall tuning.
+
+image:{sys_master}[sys_master.gif,width=306,height=134]
+
+
+MASTER TUNE
+
+[cols="1,^1,5",]
+|===
+|*Parameter* |*Value* |*Description*
+|TUNE        |415.3 - 466.2 [Hz] |Adjusts the overall tuning of the Orchestral. The setting is expressed as the frequency played by the A4 key.
+|KEY SHIFT  |-24 ~ +24 |Shifts the overall pitch of the Orchestral in semitone steps.
+|===
+
+SCALE TUNE SWITCH
+
+[cols="1,^1,5",]
+|===
+|*Parameter*   |*Value* |*Description*
+|SCALE TUNE SW |OFF, ON |The Scale Tune function can be turned on/off for all parts together. This is convenient when you want to quickly switch between equal temperament and the scale you created in the Scale Tune window.
+|===
+
+
+<<atop, 🟩>>
+[[_file_]]
+==== FILE
+
+Here you can save and load user data files. For details on each file, refer to "<<saving_and_loading_user_data, Saving and loading user data.>>"
+
+
+image:{sys_file}[sys_file.gif,width=306,height=134]
+
+
+image:{box01}[] *USER TONE* : Save user sounds (the sounds of the user bank) in a file, or load user sounds from a file.
+
+image:{box02}[]*PERFORMANCE* : Save all of Orchestral's current settings as a file, or load previously saved PERFORMANCE data.
+
+image:{box03}[] *REVERB PRESET* : Save user preset reverb settings as a file, or load user preset reverb settings from a file.
+
+image:{box04}[] *CHORUS PRESET* : Save user preset chorus/delay settings as a file, or load user preset chorus/delay settings from a file.
+
+
+<<atop, 🟩>>
+[[options]]
+==== OPTIONS
+
+Here you can make various overall settings.
+
+
+image:{sys_option}[sys_option.gif,width=306,height=134]
+
+
+image:{box01}[] Loads or saves control change message assignments (control change map). For details, refer to "<<sl_control_change_assignments, Saving and loading control change assignments (Control change map)>>."
+
+image:{box02}[] This specifies whether you want the notes that are sounding to remain (ON) or turn off (OFF) when you select a new Tone or Rhythm Set. If this is ON, the following parameters will be carried over to the new sound or rhythm set. If this is OFF, the values of that sound or rhythm set will be used.
+
+
+** PORTAMENTO TIME
+** PORTAMENTO SWITCH
+** SOLO SWITCH
+** LEGATO RETRIGGER SWITCH
+** BEND RANGE
+** PART FINE TUNING
+** PART COARSE TUNING
+
+image:{box03}[] This switches the Phrase Preview function on/off. If this is on, clicking the PREVIEW button in the Tone Finder or Normal Part Editor will play a phrase suitable for the selected sound, letting you audition it. If you do not want a phrase to be played (for example if a song is playing), turn this off so that the PREVIEW button will sound only a single note.
+
+image:{box04}[] This specifies whether operations you perform in Orchestral's panel will be transmitted to your host application in the form of MIDI messages that are assigned to that parameter. For details, refer to "<<automation_and_learning, Automation and Learning>>."
+
+image:{box05}[] If this is checked, some of the internal processing of the software synthesizer will be abbreviated, reducing the processing load on your computer.
+
+* #⚠#  Using Light-Load mode will decrease the audio quality. For some sounds, the tonal character may change. We recommend that you leave this unchecked unless necessary.
+
+image:{box06}[] *ABOUT* : Displays the software version (ABOUT) window, which displays the version of the software and copyright information.
+
+
+[[saving_and_loading_user_data]]
+== IV -- Saving and loading user data
+
+Sounds and effect settings you edit can be saved as user sounds or effect user presets, and you can load this data back into Orchestral at a later time. 
+
+You can also save all current settings in a file as "performance data."
+
+
+* <<saving_and_loading_user_sounds, Saving and loading user sounds>>
+* <<sl_effect_presets, Saving and loading effect presets>>
+* <<saving_and_loading_performance_data, Saving and loading performance data>>
+
+<<atop, 🟩>>
+[[saving_and_loading_user_sounds]]
+=== Saving and loading user sounds
+
+You can use the editing windows of Orchestral to freely edit the sounds. An edited sound can be saved as one of *216* user sounds (36 sounds for each instrument category) or *36* rhythm sets, and can be recalled at any time.
+
+The user sounds you save can saved together in a file or loaded from a file, allowing you to make backups of important sounds or use the same sounds in a different system.
+
+
+<<atop, 🟩>>
+[[saving_an_edited_sound_as_a_user_sound]]
+==== Saving an edited sound as a user sound
+
+Here's how to save an edited user sound or user rhythm set.
+
+===== Edit the sound and assign a name
+
+
+. Open the Part Editor (Normal Part Editor or Rhythm Part Editor).
+. Edit the parameters to create the desired sound.
+. Double-click the sound name in the Part Editor.
+. A dialog box will appear. Input a sound name of up to twenty characters.
+
+===== Save the edited sound as a user sound
+
+
+Click the *WRITE* button in the Part Editor. 
+
+image:{edit_btn2}[edit_btn.gif,width=169,height=107]
+
+
+In the menu that appears, click the location in which you want to save the sound.
+
+NOTE: The user bank you can use for saving is determined by the instrument category of the original sound. For example, a sound you've created by editing a "String Section" sound will be saved in the String Section user bank.
+
+A message will ask you to confirm that you want to save the sound. Click *OK*.
+
+The edited sound has now been saved as a user sound.
+
+
+[cols="^",]
+|===
+|* *image:{x_red}[] *Limitation on the Macintosh version*image:{x_red}[]
+|If you plug-in multiple instances of Orchestral, user sounds saved from one plug-in will not be reflected in the user sounds of the other plug-ins. Also, the user sounds that are saved automatically when you exit the plug-in will be the sounds of the plug-in that was exited last. If you want to keep the user sounds that were saved from each plug-in, you must save the user sounds in a file.
+|===
+
+
+<<atop, 🟩>>
+[[loading_a_user_sound]]
+==== Loading a user sound
+
+A user sound can be loaded in the same way as a preset sound.
+
+When using the sound menu, the user sounds will be displayed following the preset sounds in the menu.
+
+
+image:{patch_mn}[patch_mn.gif,width=393,height=228]
+
+
+When using the Tone Finder, click the USER button to switch the display to user sounds.
+
+
+image:{tf_preusr}[tf_preusr.gif,width=295,height=103]
+
+
+
+<<atop, 🟩>>
+[[saving_user_sound_data_in_a_file]]
+==== Saving user sound data in a file
+
+Here's how all of the user sounds you saved (216 sounds and 36 rhythm sets) can be saved together in a file.
+
+
+. In the Master Panel, click the *SYSTEM* button to open the *System Setting (SYSTEM SETTINGS)* window. 
+
+image:{sys_btn}[sys_btn.gif,width=187,height=121]
+
+
+[arabic, start=2]
+. Open the *FILE* page of the System Setting window. Click the *User Tone SAVE* button. 
+
+image:{save_btn1}[save_btn1.gif,width=325,height=178]
+
+
+[arabic, start=3]
+. When the Save dialog box appears, enter a name for the file and click *Save.*
+
+Your user sounds have now been saved in a file.
+
+
+<<atop, 🟩>>
+[[loading_user_sound_data_from_a_file]]
+==== Loading user sound data from a file
+
+Here's how to load the user sounds that you saved in a file.
+
+* #⚠# When you load the user sounds from a file, the currently saved user sounds will all be overwritten. If you want to keep the current user sounds, you must first save the current user sounds in a file.
+
+
+. In the Master Panel, click the *SYSTEM* button to open the *System Setting (SYSTEM SETTINGS)* window. 
+
+
+image:{sys_btn}[sys_btn.gif,width=187,height=121]
+
+
+[arabic, start=2]
+. Open the *FILE* page of the System Setting window.
+. Click the *User Tone LOAD* button. 
+
+
+image:{load_btn1}[load_btn1.gif,width=325,height=178]
+
+
+[arabic, start=4]
+. A dialog box will appear, allowing you to select a file. Select the desired file of user sounds, and click *Open.*
+. A message will ask you to confirm the operation, so click *OK*.
+
+The user sounds that were saved in that file will be loaded into Orchestral. 
+
+<<atop, 🟩>>
+[[sl_effect_presets]]
+=== Saving and loading effect presets
+
+The reverb and chorus/delay settings of Orchestral can be recalled as effect presets. Orchestral provides sixteen presets each for reverb and chorus/delay. In some of these, you can save your own settings as user presets, and recall them at any time.
+
+User preset data can be saved in a file or loaded from a file, allowing you to make backups of important settings, or use the same user presets in a different system.
+
+
+<<atop, 🟩>>
+[[saving_an_effect_setting_as_a_user_preset]]
+==== Saving an effect setting as a user preset
+
+
+. In the effect tab page of the Master Panel, click the *EDIT* button to open the Effect Editor (reverb or chorus/delay). 
+
+
+image:{efx_edit}[efx_edit.gif,width=134,height=146]
+
+
+[arabic, start=2]
+. In the Effect Editor, edit the parameters as desired.
+. Click the *WRITE* button in the Effect Editor. 
+
+
+image:{write_btn}[write_btn.gif,width=249,height=126]
+
+
+[arabic, start=4]
+. In the menu that appears, click the location where you want to save the setting. +
+
+* #⚠# If you select a location in which settings have already been saved, the new settings will overwrite the old settings.
+
+. A dialog box will appear, allowing you to enter a name. Input a preset name of up to twelve characters.
+. Click *OK*.
+
+The current settngs have now been saved as a user preset.
+
+
+[cols="^",]
+|===
+|* *image:{x_red}[] *Limitation on the Macintosh version*image:{x_red}[]
+|If you plug-in multiple instances of Orchestral, effect user presets saved from one plug-in will not be reflected in the effect user presets of the other plug-ins. Also, the effect user presets that are saved automatically when you exit the plug-in will be the presets of the plug-in that was exited last. If you want to keep the effect user presets that were saved from each plug-in, you must save the effect presets in a file.
+|===
+
+
+<<atop, 🟩>>
+[[loading_a_user_preset]]
+==== Loading a user preset
+
+To load an effect user preset, simply select it from the pulldown preset menu in the same way as when selecting a system preset. The effect preset pulldown menu is located in the effect tab page of Master Panel, and in the Effect Editor.
+
+
+[cols="2,7",]
+|===
+|image:{efx_combo1}[efx_combo1.gif,width=134,height=146] 
+|image:{efx_combo2}[efx_combo2.gif,width=312,height=140]
+|===
+
+
+<<atop, 🟩>>
+[[saving_effect_presets_in_a_file]]
+==== Saving effect presets in a file
+
+Effect user presets you save can be saved together as a file.
+
+
+. In the Master Panel, click the *SYSTEM* button to open the *System Setting (SYSTEM SETTINGS)* window. 
+
+image:{sys_btn}[sys_btn.gif,width=187,height=121]
+
+
+[arabic, start=2]
+. Open the *FILE* page of the System Setting window.
+. If you want to save reverb presets, click the *Reverb Presets SAVE* button. If you want to save chorus/delay presets, click the *Chorus Presets SAVE* button. 
+
+
+image:{efx_save}[efx_save.gif,width=325,height=178]
+
+
+[arabic, start=3]
+. When the Save dialog box appears, enter a name for the file and click *Save.*
+
+Your user presets have now been saved in a file.
+
+
+<<atop, 🟩>>
+[[loading_effect_presets_from_a_file]]
+==== Loading effect presets from a file
+
+Here's how to load the effect user presets that you saved in a file.
+
+* #⚠# When you load the effect presets from a file, the currently saved user presets will all be overwritten. If you want to keep the current user presets, you must first save the current user presets in a file.
+
+
+. In the Master Panel, click the *SYSTEM* button to open the *System Setting (SYSTEM SETTINGS)* window. 
+
+
+image:{sys_btn}[sys_btn.gif,width=187,height=121]
+
+
+[arabic, start=2]
+. Open the *FILE* page of the System Setting window.
+. If you want to load reverb presets, click the *Reverb Presets LOAD* button. If you want to load chorus/delay presets, click the *Chorus Presets LOAD* button. 
+
+
+image:{efx_load}[efx_load.gif,width=325,height=178]
+
+
+[arabic, start=4]
+. A dialog box will appear, allowing you to select a file. Select the desired file of effect presets, and click *Open.*
+. A message will ask you to confirm the operation, so click *OK*.
+
+The effect presets that were saved in that file will be loaded into Orchestral.
+
+<<atop, 🟩>>
+[[saving_and_loading_performance_data]]
+=== Saving and loading performance data
+
+The settings you make from the panels of Orchestral will be lost when you close the song file or remove (unplug) the Orchestral plugin. 
+
+If you are using the DXi version, you can use the Preset function of your host application to save the current settings in the song file, but this will be a special file that cannot be used by another host application.
+
+
+NOTE: For details on DXi's Preset function, refer to the owner's manual of your host application.
+
+Orchestral lets you save the current settings in a file as Performance data, allowing you to reproduce the current settings later, or on a different system.
+
+The following parameters are saved as Orchestral performance data.
+
+
+**  The master parameters you set in the Master Panel and in the MASTER page of the System Setting (SYSTEM SETTING) window
+** The effect parameters and effect on/off setting you set in the Effect Editor
+** The parameters of each part that can be set in the Part Editor
+** The Output Selector and multi-out on/off setting of each part
+** The control change assignments (Control Change Map)
+
+* #⚠# User sounds and effect user preset data is not saved as part of the performance data.
+
+
+<<atop, 🟩>>
+[[saving_performance_data_in_a_file]]
+==== Saving performance data in a file
+
+Here's how to save performance data in a file.
+
+
+. In the Master Panel, click the *SYSTEM* button to open the *System Setting (SYSTEM SETTINGS)* window. 
+
+
+image:{sys_btn}[sys_btn.gif,width=187,height=121]
+
+
+[arabic, start=2]
+. Open the *FILE* page of the System Setting window.
+. Click the *Performance SAVE* button. 
+
+
+image:{pfm_save}[pfm_save.gif,width=325,height=178]
+
+
+[arabic, start=3]
+. When the Save dialog box appears, enter a name for the file and click *Save.*
+
+Your performance data have now been saved in a file.
+
+
+<<atop, 🟩>>
+[[loading_performance_data_from_a_file]]
+==== Loading performance data from a file
+
+Here's how to load the performance data that you saved in a file.
+
+* #⚠# When you load the performance data from a file, the currently settings of Orchestral will all be overwritten. If you want to keep the current settings of Orchestral, you must first save the performance data in a file.
+
+
+. In the Master Panel, click the *SYSTEM* button to open the *System Setting (SYSTEM SETTINGS)* window. 
+
+
+image:{sys_btn}[sys_btn.gif,width=187,height=121]
+
+
+[arabic, start=2]
+. Open the *FILE* page of the System Setting window.
+. Click the *Performance LOAD* button. 
+
+
+image:{pfm_load}[pfm_load.gif,width=325,height=178]
+
+
+[arabic, start=4]
+. A dialog box will appear, allowing you to select a file. Select the desired file of performance data, and click *Open.*
+. A message will ask you to confirm the operation, so click *OK*.
+
+The performance data that were saved in that file will be loaded into Orchestral.
+
+
+[[automation_and_learning]]
+== V -- Automation and Learning
+
+Operations you perform in the various panels of Orchestral can be recorded by your host application, and reproduced during playback. This is referred to as "*Automation*." Automation makes it easy to change a parameter setting during a song, or to vary a parameter continuously.
+
+Control change messages are used to record automation. When you operate a panel knob or slider, the control change message assigned to that parameter is sent to your host application and recorded. Control change numbers 1--31 and 33--119 (CC#1--CC#31, CC#33--CC#119) can be assigned to any parameter you wish, letting you record automation for the desired parameters.
+
+You can also transmit a specific control change message from an external MIDI controller, and assign a parameter to that message. This is called the "*Learning*" function. The Learning function makes it easy to assign control changes to the desired parameters, since you don't need to be aware of the control change number or MIDI channel.
+
+* image:{inform_white}[] Since Orchestral provides three preset maps that have the most frequently used parameters assigned to them, you can record automation without having to make your own assignments. For details on the preset maps, refer to "<<assignable_controllers, Assignable controllers>>" in MIDI Implementation.
+
+
+[cols="^",]
+|===
+|* *image:{x_red}[] *About Orchestral's automation capability* image:{x_red}[]
+|In order to use Orchestral's automation capability, you must have a host application that supports *DXi2* or *VST 2.0*. However, some host applications that support DXi2 or VST 2.0 are unable to record MIDI messages transmitted from a plug-in. In this case you will not be able to use Orchestral's automation. For details on now to make your host application record MIDI messages transmitted from a plug-in, refer to the owner's manual of your host application.
+|===
+
+
+* <<control_change_assignments, Control change assignments>>
+* <<recording_your_operations, Recording your operations>>
+
+<<atop, 🟩>>
+[[control_change_assignments]]
+=== Control change assignments
+
+Orchestral allows you to freely assign any parameter to control change numbers 1--31 and 33--119 (CC#1--CC#31, CC#33--CC#119).
+
+To assign a control change message to a parameter, right-click the controller (e.g., knob or slider) for the parameter for which an assignment is to be made (on the Macintosh, hold down the [Option] key and click), to open the Control Change Assign dialog box.
+
+NOTE: If a dialog box does not appear, it is not possible to assign a control change to that parameter.
+
+
+image:{ccmap_dlg}[ccmap_dlg.gif,width=357,height=204]
+
+
+
+NOTE: The screen shown here is from the Windows version.
+
+image:{box01}[] The name of the parameter to which you are assigning a control change message.
+
+image:{box02}[] If you check this, the same control change can be assigned to the same parameter for every part number, using the MIDI channel corresponding to the part number, regardless of any MIDI channel settings that have been made. +
+For example, if you are assigning PART CHARACTER to control change number 3, and this box is checked, control change number 3 will control PART CHARACTER for all parts.
+
+
+NOTE: You can use this option only for a Part parameter (including Scale Tune). This cannot be used for <<sound_parameters, the sound parameters of individual rhythm instruments>> that you adjust in the Rhythm Part Editor.
+
+image:{box03}[] *Controller* : The control change number that will be assigned to this parameter. You can directly enter a number in the range of CC#1--CC#31 or CC#33--CC#119, or use the up/down spin buttons.
+
+image:{box04}[] *MIDI Channel* : The MIDI channel of the control change that will be assigned to this parameter. Click the pulldown menu and choose from the list.
+
+image:{box05}[] If the currently specified control change number/MIDI channel has already been assigned to a parameter, the name of the parameter will be displayed here. 
+
+If you assign a new parameter, the previously specified parameter assignment will be cancelled.
+
+* #⚠# If you have already recorded automation for a previously assigned parameter, the recorded automation data (control change messages) will cause the newly assigned parameter to change. If you change the control change assignment, you will also need to delete any unwanted automation data (control change messages) from your host application.
+
+If a parameter has previously been assigned, any automation formerly recorded for that parameter will now automate the newly assigned parameter.
+
+image:{box06}[] *OK* : Finalizes the assignment and closes the dialog box.
+
+image:{box07}[] *Cancel* : Cancels the assignment and closes the dialog box.
+
+image:{box08}[] *Clear* : Clears the control change number and MIDI channel settings. By clicking *OK* in this state, you can cancel the control change assignment for the parameter.
+
+image:{box09}[] *Learn* : If this is checked, the Learning function will be enabled. For details on using the Learning function to make an assignment, refer to the next section.
+
+
+<<atop, 🟩>>
+[[learn_external_controller]]
+==== Using an external controller to make assignments (Learning)
+
+Here's how control changes sent from an external MIDI controller can be assigned to a parameter.
+
+NOTE: If you want to use the Learning function, you must first make settings in your host application so that MIDI messages from an external MIDI controller will be input to Orchestral.
+
+
+. Right-click the controller (e.g., knob or slider) of the parameter for which you want to assign a control change message. (On the Macintosh, hold down the [Option] key and click.) The Control Change Assign dialog box will appear.
+. Check the "*Learn*" box.
+. Operate your external MIDI controller to transmit the control change message you want to assign.
+. The control number (*Controller*) and MIDI channel (*MIDI Channel*) fields will be updated to reflect the control change message that you transmitted. Verify that they are correct, and click *OK*.
+
+The control change message transmitted from the external MIDI controller has been assigned to the parameter.
+
+
+<<atop, 🟩>>
+[[canceling_control_change_assignments]]
+==== Canceling control change assignments
+
+Here's how to cancel the control change assignment for a parameter.
+
+
+. Right-click the controller (e.g., knob or slider) of the parameter for which you want to cancel the control change assignment. (On the Macintosh, hold down the [Option] key and click.) The Control Change Assign dialog box will appear.
+. Click *Clear*.
+. Verify that the control number (*Controller*) and MIDI channel (*MIDI Channel*) fields have been cleared, and click *OK*.
+
+The control change assignment for this parameter has been cleared.
+
+* #⚠# Canceling a control change assignment will not delete any automation data (control change messages) that may have been recorded in your host application. If you cancel a control change assignment and then reassign that control change to a different parameter, any previously recorded automation data will affect the newly assigned parameter.  If you cancel a control change assignment, you will also need to delete any unwanted automation data (control change messages) from your host application.
+
+
+<<atop, 🟩>>
+[[checking_the_control_change_assignments]]
+==== Checking the control change assignments
+
+When you save the current control change assignments as a file, another file will also be saved, allowing you to check these assignments. 
+
+Since this file is in text format, you can use any text editor to view it. 
+
+For details on how to save control change assignments in a file, refer to the section that follows, "<<sl_control_change_assignments, Saving and loading control change assignments (Control Change Map)>>."
+
+===== File contents
+
+The saved file has the following contents.
+
+
+.*Example of file contents*
+....
+    # Control Change Map
+    #
+
+    Ch    CC#    Parameter
+
+    1       1    Modulation
+    1       2    ----------
+    1       3    Master Volume
+    1       4    ----------
+    1       5    Portamento Time [PART 01]
+    1       6    Master Volume
+    1       7    Volume [PART 01]
+    :       :        :
+ 
+....
+
+
+The file lists all parameters to which a control change is assigned, with each line showing the MIDI channel, control change number, and parameter name.
+
+
+<<atop, 🟩>>
+[[sl_control_change_assignments]]
+==== Saving and loading control change assignments (Control Change Map)
+
+The control change assignments you make can be saved in a file, and can be loaded and used whenever you wish. Several different predefined assignments are also provided, and you can load and use these settings if desired.
+
+===== Saving a control change map
+
+
+. In the Master Panel, click the *SYSTEM* button to open the *System Setting (SYSTEM SETTINGS)* window. 
+
+
+image:{sys_btn}[sys_btn.gif,width=187,height=121]
+
+
+[arabic, start=2]
+. Open the *OPTIONS* page of the System Setting window.
+. Click the *Control Change Map SAVE* button. 
+
+
+image:{ccmap_save}[ccmap_save.gif,width=325,height=178]
+
+
+[arabic, start=3]
+. When the Save dialog box appears, enter a name for the file and click *Save.*
+
+Your control change map have now been saved in a file. +
+At the same time, a file that lets you view the assignments will also be saved, with the name you specified and a filename extension of .txt. 
+
+===== Loading a control change map
+
+* #⚠# When you load a control change map, the current assignments will all be overwritten. If you want to keep the current assignments, you must first save the current assignments in a file.
+
+
+. In the Master Panel, click the *SYSTEM* button to open the *System Setting (SYSTEM SETTINGS)* window. 
+
+
+image:{sys_btn}[sys_btn.gif,width=187,height=121]
+
+
+[arabic, start=2]
+. Open the *OPTIONS* page of the System Setting window.
+. Click the *Control Change Map LOAD* button. 
+
+
+image:{ccmap_load}[ccmap_load.gif,width=325,height=178]
+
+
+[arabic, start=4]
+. From the menu that appears, select the control change map that you want to load. 
+
+
+[cols="2,7",]
+|===
+|*Type* |*Description*
+|<<minimum_map, Minimum Map>> |Only the controllers available in the default state can be used.
+|<<normal_map, Normal Map>> |The parameters which will be used frequently are assigned in addition to the controllers that are available in the default state.
+|<<Logic, Logic>> |These settings are ideal if you are using Emagic's "Logic" series as your host application.
+|File |Loading the control change map from a file
+|===
+
+For the actual parameter assignments, refer to "MIDI implementation" -> "<<assignable_controllers, Assignable controllers>>."
+
+
+. If you select *File*, a dialog box will appear, allowing you to select a file. Select the desired control change map file, and click *Open*.
+. A message will ask you to confirm the operation, so click *OK*.
+
+The control change map that were saved in that file will be loaded into Orchestral.
+
+<<atop, 🟩>>
+[[recording_your_operations]]
+=== Recording your operations
+
+When you operate Orchestral's controllers (e.g., knobs or sliders), the control change message assigned to the corresponding controller will be sent to the host application, allowing you to record the operations you perform.
+
+
+[cols="^",]
+|===
+|* *image:{x_red}[] *About Orchestral's automation capability* image:{x_red}[]
+|In order to use Orchestral's automation capability, you must have a host application that supports *DXi2* or *VST 2.0*. However, some host applications that support DXi2 or VST 2.0 are unable to record MIDI messages transmitted from a plug-in. In this case you will not be able to use Orchestral's automation. For details on now to make your host application record MIDI messages transmitted from a plug-in, refer to the owner's manual of your host application.
+|===
+
+===== Enabling recording of panel operations
+
+Here's how to enable recording of panel operations.
+
+
+. In the Master Panel, click the *SYSTEM* button to open the *System Setting (SYSTEM SETTINGS)* window. 
+
+
+image:{sys_btn}[sys_btn.gif,width=187,height=121]
+
+
+[arabic, start=2]
+. Open the *OPTIONS* page of the System Setting window.
+. Check "*Record Panel Operations*." 
+
+
+image:{sys_opt1}[sys_opt1.gif,width=325,height=178]
+
+
+Now when you operate a controller in the panel, the control change message assigned to that parameter will be sent to the host application.
+
+NOTE: For details on how to make your host application record MIDI messages that are sent from a plug-in, refer to the owner's manual of your host application.
+
+===== Recording your operations
+
+Here's how to record your panel operations.
+
+
+. Assign the desired control change to the parameter whose operations you want to record.
+. In your host application, begin recording the MIDI messages that are sent from a plug-in.
+. Perform the panel operations that you want to record.
+
+Your panel operations will be recorded by the host application.
+
+
+[[about_the_sounds]]
+== VI -- About the sounds
+
+
+<<atop, 🟩>>
+[[how_sounds_are_categorized]]
+=== How sounds are categorized
+
+In order to help you find the sound you want, Orchestral groups its sounds into seven categories. The sounds in the sound selection menus and the Tone Finder are organized into these seven categories.
+
+The categories are distinguished by bank number (Bank Select LSB), and when you save a user sound, it will be saved in the same bank as the category of the original sound.
+
+
+[width="100%",cols="34%,33%,33%",]
+|===
+|*Category*        |*Bank Number +
+(Bank Select LSB)* |*Description*
+|<<string_sections, String Sections>> |0 |Lists the string section sounds.
+|<<solo_strings, Solo Strings>> |1 |Lists the solo string sounds.
+|<<brass_sections, Brass Sections>> |2 |Lists the brass section sounds.
+|<<solo_brasses, Solo Brasses>> |3 |Lists the solo brass sounds.
+|<<woodwinds, Woodwinds>> |4 |Lists the woodwind sounds.
+|<<keyboard_percussion, Keyboard & Percussion>> |5 |Lists the keyboard and percussion instrument sounds.
+|<<rhythm_set, Rhythm Set>> |6 |Lists the rhythm sets.
+|===
+
+
+<<atop, 🟩>>
+[[about_the_preset_sounds]]
+=== About the preset sounds
+
+<<atop, 🟩>>
+
+==== Orchestral's sounds
+
+Orchestral contains a wide variety of sounds that were created by sampling various playing techniques on each instrument, in order to allow more realistic performance expression. Many of these sounds are velocity-switched, so that soft-played notes are sounded by low velocities, and strongly played notes are sounded by high velocities. Since this will vary not just the volume but also other aspects of the sound, it allows you to perform more realistic changes in dynamics.
+
+The capability of switching the sounds that are played by differing velocities is called "*Velocity Switching*."
+
+Orchestral is capable of four levels of velocity switching. In some of its sounds, not just the dynamics but also the performance method is switched by velocity; for example, allowing you to switch between sounds played with and without vibrato.
+
+Although you can use velocity switching to control performance expressions, Orchestral also provides a *Velocity Switch Sensitivity (VELO SW SENS)* parameter that lets you shift the velocity levels at which this switching will occur. By adjusting this parameter, you can modify the expression of a performance without affecting the actual performance data, and adjust the response of the sound to suit the velocity curve of your MIDI keyboard.
+
+For details on the Velocity Switch Sens parameter, refer to the explanations of the "<<normal_part_editor, Normal Part Editor>>" parameters.
+
+<<atop, 🟩>>
+
+==== Sounds that support Advanced Vibrato
+
+Preset sounds whose names are followed by "/Vsw" or "/Msw" support <<advanced_vibrato, Advanced Vibrato>>. These sounds have the following features.
+
+
+Sounds whose names are followed by "/Vsw"::
+  Strong velocities will play sounds with vibrato, and weak velocities will play sounds without vibrato.
+
+Sounds whose names are followed by "/Msw"::
+  When modulation messages (Control Change #1) are received, the sound with vibrato will be heard. This allows you to obtain a more natural vibrato effect even when playing in real time from an external keyboard.
+
+
+.*Sounds that support Advanced Vibrato*
+[width="100%",cols="^25%,^25%,^25%,^25%",]
+|===
+|*Bank Select +
+MSB* |*Bank Select +
+LSB* |*PC* |*Instrument Name*
+|0   |0    |4   |Violin Section  /Vsw
+|0   |0    |11  |Viola Section  /Vsw
+|0   |0    |17  |Cello Section  /Vsw
+|0   |1    |3   |Violin  /Msw
+|0   |1    |4   |Violin  /Vsw
+|0   |1    |10  |Viola  /Msw
+|0   |1    |11  |Viola  /Vsw
+|0   |1    |17  |Cello  /Msw
+|0   |1    |18  |Cello  /Vsw
+|0   |1    |24  |ContraBass  /Msw
+|0   |1    |25  |ContraBass  /Vsw
+|0   |4    |7   |Flute  /Msw
+|0   |4    |12  |Alto Flute  /Msw
+|0   |4    |15  |Bass Flute  /Msw
+|0   |4    |22  |Oboe  /Msw
+|===
+
+
+
+[[rhythm_set_that_support_advanced_mute]]
+===== Rhythm set that support Advanced Mute
+
+Some sounds in the rhythm sets provide a <<advanced_mute, Advanced Mute>> function. If a sound supports Advanced Mute function, you can use the assigned mute key (*Advanced Mute Key*) to freely mute the currently sounding note. Since the velocity of the advanced mute key you press will control the muting time, you can produce more natural muting effects.
+
+The following sounds support Advanced Mute function.
+
+====== <<rhythm_set, Orchestra Kit>>
+
+
+[width="100%",cols="^34%,^33%,^33%",]
+|===
+|*Rhythm Instrument* | |*Advanced +
+Mute Key*
+|G#1 |Orch BD1 |F 1 (29)
+|B 1 |Orch BD2 |
+|C 3 |Orch_Crash |F#1 (30)
+|C#3 |MltCym.Swell |
+|Eb3 |PiattiCymbal |
+|E 3 |Dragon_Mlt |G 1 (31)
+|F 3 |Grongkas1 |
+|F#3 |Grongkas2 |
+|G 3 |Lrg_Gong |
+|G#3 |Tam-tam |
+|===
+
+====== <<rhythm_set, Marching Kit>>
+
+
+[width="100%",cols="^34%,^33%,^33%",]
+|===
+|*Rhythm Instrument* | |*Advanced +
+Mute Key*
+|C 3 |Orch_Crash |F#1 (30)
+|C#3 |MltCym.Swell |
+|Eb3 |PiattiCymbal |
+|E 3 |Orch_Crash |
+|F 3 |PiattiCymbal |
+|===
+
+===== Timpani sounds
+
+Orchestral provides timpani sounds both as normal sounds (Keyboard & Percussion) and as rhythm sounds (Rhythm Set). These two have the following features.
+
+Normal timpani sounds::
+  You can use the rich variety of parameters in the Normal Part Editor to edit the sound. In particular, you can use *VELO SW SENS (Velocity Switch Sensitivity)* to adjust the way in which the tone will change in response to velocity dynamics. 
+
+Rhythm timpani sounds::
+  You can use timpani roll sounds in a single part without having to switch sounds. You can also adjust the pitch and panning of individual percussion instruments.
+
+
+
+<<atop, 🟩>>
+[[preset_sound_list]]
+=== Preset Sound List
+
+* <<string_sections, String Sections>>
+* <<solo_strings, Solo Strings>>
+* <<brass_sections, Brass Sections>>
+* <<solo_brasses, Solo Brasses>>
+* <<woodwinds, Woodwinds>>
+* <<keyboard_percussion, Keyboard & Percussion>>
+* <<rhythm_set, Rhythm Set>>
+
+
+<<atop, 🟩>>
+[[string_sections]]
+==== String Sections (Bank MSB:0/LSB:0)
+
+
+[width="100%",cols="^4%,^5%,^13%",]
+|===
+|*PC* |*Instrument Name* |*Description*
+|1  |Violin Warm Section | Warm violin section with strong vibrato. 
+|2  |Slow Violin Section | Violin section with slow attack.
+|3  |Violin Section | Violin section with fast attack.
+|4  |Violin Section  /Vsw | Violin section that switches to vibrato sound when played with strong velocity.
+|5  |Violins Spiccato | Violin section played spiccato.
+|6  |Violins Pizzcato | Violin section played pizzicato.
+|7  |Tremolo Violins | Violin section played with tremolo.
+|8  |Viola Warm Section | Warm viola section with strong vibrato.
+|9  |Slow Viola Section | Viola section with slow attack.
+|10 |Viola Section | Viola section with fast attack.
+|11 |Viola Section   /Vsw | Viola section that switches to vibrato sound when played with strong velocity.
+|12 |Violas Spiccato | Viola section played spiccato.
+|13 |Violas Pizzcato | Viola section played pizzicato.
+|14 |Tremolo Violas | Viola section played with tremolo.
+|15 |Cello Warm Section | Warm cello section with strong vibrato.
+|16 |Cello Section | Cello section with fast attack.
+|17 |Cello Section   /Vsw | Cello section that switches to vibrato sound when played with strong velocity.
+|18 |Cellos Spiccato | Cello section played spiccato.
+|19 |Cellos Pizzcato | Cello section played pizzicato.
+|20 |Tremolo Cellos | Cello section played with tremolo.
+|21 |ContraBass Section | Contrabass section.
+|22 |ContraBassesSpiccato | Contrabass section played spiccato.
+|23 |ContraBassesPizzcato | Contrabass section played pizzicato.
+|24 |Tremolo ContraBasses | Contrabass section played with tremolo.
+|25 |ContraBass&C.Basson | Layered sounds of a contrabass section and contra-bassoon (contra-fagott).
+|26 |ContraBasses/Cellos   | Split sounds of a contrabass section and cello section. +
+ Contrabass section up to B3, and cello section from C4 upward. 
+|27 |Cbs/Vcs Spiccato | Split sounds of a spiccato contrabass section and cello section. +
+ Contrabass section up to B3, and cello section from C4 upward. 
+|28 |Cbs/Vcs Pizzcato | Split sounds of a tremolo contrabass section and cello section. +
+ Contrabass section up to B3, and cello section from C4 upward. 
+|29 |Cbs/Vcs Tremolo | Split sounds of a pizzicato contrabass section and cello section. +
+ Contrabass section up to B3, and cello section from C4. 
+|30 |Slow Strings | String section with slow attack. Usable in a broad range from low to high registers.
+|31 |Full Strings | String section. Usable in a broad range from low to high registers.
+|32 |FullStrings Tremolo | String section played with tremolo. Usable in a broad range from low to high registers.
+|33 |FullStrings Spiccato | String section played spiccato. Usable in a broad range from low to high registers.
+|34 |FullStrings Pizzcato | String section played pizzicato. Usable in a broad range from low to high registers.
+|===
+
+
+<<atop, 🟩>>
+[[solo_strings]]
+==== Solo Strings (Bank MSB:0/LSB:1)
+
+
+[cols="^1,^2,^3",]
+|===
+|*PC* |*Instrument Name* |*Description*
+|1  |Violin Vibrato | Violin played with vibrato.
+|2  |Violin         | Violin played without vibrato.
+|3  |Violin /Msw    | Violin that uses modulation (Control Change #1) to switch between sounds with and without vibrato.
+|4  |Violin /Vsw    | Violin that switches to vibrato sound when played with strong velocity.
+|5  |Violin Spiccato | Violin played spiccato.
+|6  |Violin Pizzcato | Violin played pizzicato. Strong velocities play Bartok pizzicato (string plucked strongly, so it snaps against the fingerboard).
+|7  |Violin Harmonics | Violin played using harmonics.
+|8  |Viola Vibrato  | Viola played with vibrato.
+|9  |Viola          | Viola played without vibrato.
+|10 |Viola /Msw | Viola that uses modulation (Control Change #1) to switch between sounds with and without vibrato.
+|11 |Viola /Vsw | Viola that switches to vibrato sound when played with strong velocity.
+|12 |Viola Spiccato | Viola played spiccato.
+|13 |Viola Pizzcato | Viola played pizzicato. Strong velocities play Bartok pizzicato (string plucked strongly, so it snaps against the fingerboard).
+|14 |Viola Harmonics | Viola played using harmonics.
+|15 |Cello Vibrato | Cello played with vibrato.
+|16 |Cello   | Cello played without vibrato.
+|17 |Cello /Msw | Cello that uses modulation (Control Change #1) to switch between sounds with and without vibrato.
+|18 |Cello /Vsw | Cello that switches to vibrato sound when played with strong velocity.
+|19 |Cello Spiccato | Cello played spiccato.
+|20 |Cello Pizzcato | Cello played pizzicato.
+|21 |Cello Harmonics | Cello played using harmonics.
+|22 |ContraBass Vibrato | Contrabass with vibrato.
+|23 |ContraBass   | Contrabass without vibrato.
+|24 |ContraBass /Msw | Contrabass that uses modulation (Control Change #1) to switch between sounds with and without vibrato.
+|25 |ContraBass /Vsw | Contrabass that switches to vibrato sound when played with strong velocity.
+|26 |ContraBass Spiccato | Contrabass played spiccato.
+|27 |ContraBass Pizzcato | Contrabass played pizzicato. Strong velocities play Bartok pizzicato (string plucked strongly, so it snaps against the fingerboard).
+|28 |ContraBass Harmonics | Contrabass played using harmonics.
+|29 |Harp 1   | Harp with clearly-defined sound.
+|30 |Harp 2   | Harp with mellow sound.
+|===
+
+
+<<atop, 🟩>>
+[[brass_sections]]
+==== Brass Sections (Bank MSB:0/LSB:2)
+
+
+[width="100%",cols="^3%,^4%,^6%",]
+|===
+|*PC* |*Instrument Name* |*Description*
+|1 |Trumpet Section1 | Trumpet section.
+|2 |Trumpet Section2 | Trumpet section with distinctive attack.
+|3 |Trumpet Section3 | Trumpet section with mellow sound.
+|4 |Trumpets Staccato | Trumpet section playing staccato.
+|5 |Trombone Section1 | Trombone section.
+|6 |Trombone Section2 | Trombone section with mellow sound.
+|7 |Trombone Section3 | Trombone section with slow attack.
+|8 |Trombones Staccato | Trombone section playing staccato.
+|9 |Trombones Slide | Trombone section playing slides.
+|10 |Bass Trombone&Tuba  | Layered sounds of a bass trombone and tuba.
+|11 |Bs.Trombone/TB Sect. | Split sounds of a bass trombone and trombone section +
+ Bass trombone up to Eb4, and trombone section from E4 upward. 
+|12 |Tuba/Tbs Staccato | Split sounds of a staccato tuba and trombone. +
+ Tuba up to Eb4, and trombone section from E4 upward.
+|13 |French Horn Section | Horn section.
+|14 |French Horns Accent | Horn section with accent on the attack.
+|15 |French Horns Atack | Staccato horn section.
+|16 |French Horns Fat  | Horn section blowing fortissimo for "ragged" sound.
+|17 |French Horns Mute | Muted horn section.
+|18 |French Horns Swell  | Horn section playing slurs.
+|19 |French Horns Rip  | Horn section playing lip slurs.
+|20 |Orchestral Ensemble | Brass section combining multiple brass instruments. Usable in a broad range from low to high registers.
+|===
+
+
+<<atop, 🟩>>
+[[solo_brasses]]
+==== Solo Brasses (Bank MSB:0/LSB:3)
+
+
+[cols="^1,^2,^5",]
+|===
+|*PC* |*Instrument Name* |*Description*
+|1 |Classical Trumpet | Mellow trumpet.
+|2 |Trumpet 1  | Trumpet with distinctive attack when played strongly.
+|3 |Trumpet 2  | Warm-sounding trumpet with straightforward attack.
+|4 |Trumpet Mute | Muted trumpet.
+|5 |Piccolo Trumpet | Piccolo trumpet. Plays at a higher pitch than a conventional trumpet.
+|6 |Cornet   | Cornet.
+|7 |Trombone   | Trombone.
+|8 |Trombone Mute  | Muted trombone.
+|9 |Alto Trombone   | Alto trombone. Plays at a higher pitch than a conventional trombone.
+|10 |Bass Trombone  | Bass trombone. Plays approximately one octave lower than a conventional trombone.
+|11 |Tuba     | Tuba.
+|12 |Tuba Staccato | Tuba played staccato.
+|13 |French Horn  | Horn.
+|14 |French Horn Stop  | Stopped horn (hand-muted).
+|15 |French Horn Mute  | Muted horn.
+|16 |Flugelhorn   | Flugelhorn.
+|17 |Euphonium  | Euphonium.
+|===
+
+
+<<atop, 🟩>>
+[[woodwinds]]
+==== Woodwinds (Bank MSB:0/LSB:4)
+
+
+[cols="^1,^2,^5",]
+|===
+|*PC* |*Instrument Name* |*Description*
+|1 |Piccolo Vibrato  | Piccolo played with vibrato.
+|2 |Piccolo Flute 1 | Piccolo played without vibrato.
+|3 |Piccolo Flute 2 | Piccolo with distinctive attack, played without vibrato.
+|4 |Flute Vibrato  | Flute played with vibrato.
+|5 |Flute Vibrato2   | Flute with strong breath noise, played with vibrato.
+|6 |Flute    | Flute played without vibrato.
+|7 |Flute     /Msw | Flute that uses modulation (Control Change #1) to switch between sounds with and without vibrato.
+|8 |Flute&Piccolo  | Layered sounds of a flute and piccolo.
+|9 |Flute&PiccoloVibrato | Layered sounds of a flute and piccolo, played with vibrato.
+|10 |Alto Flute Vibrato | Alto flute played with vibrato. Plays at a lower pitch than a conventional flute.
+|11 |Alto Flute   | Alto flute played without vibrato. Plays at a lower pitch than a conventional flute.
+|12 |Alto Flute    /Msw | Alto flute that uses modulation (Control Change #1) to switch between sounds with and without vibrato.
+|13 |Bass Flute Vibrato | Bass flute played with vibrato. Plays one octave lower than a conventional flute.
+|14 |Bass Flute   | Bass flute played without vibrato. Plays one octave lower than a conventional flute.
+|15 |Bass Flute    /Msw | Bass flute that uses modulation (Control Change #1) to switch between sounds with and without vibrato.
+|16 |Clarinet 1   | Clarinet.
+|17 |Clarinet 2   | Clarinet with distinctive attack.
+|18 |Bass Clarinet  | Bass clarinet. Plays one octave lower than a conventional clarinet.
+|19 |Oboe Vibrato   | Oboe played with vibrato.
+|20 |Oboe 1   | Oboe played without vibrato.
+|21 |Oboe 2   | Warm-sounding oboe played without vibrato.
+|22 |Oboe      /Msw | Oboe that uses modulation (Control Change #1) to switch between sounds with and without vibrato.
+|23 |English Horn Vibrato | English horn (cor anglais) played with vibrato.
+|24 |English Horn 1 | English horn (cor anglais) with a rounded tone.
+|25 |English Horn 2 | English horn (cor anglais) with a clearly-defined tone.
+|26 |ContraBasson | Contra-bassoon (contra-fagott). Plays one octave lower than a conventional bassoon.
+|27 |Bassoon    | Bassoon (fagott).
+|28 |Alto Sax | Alto sax.
+|===
+
+
+<<atop, 🟩>>
+[[keyboard_percussion]]
+==== Keyboard & Percussion (Bank MSB:0/LSB:5)
+
+
+[width="100%",cols="^34%,^33%,^33%",]
+|===
+|*PC* |*Instrument Name* |*Description*
+|1 |Concert Piano | Concert grand piano.
+|2 |Harpsichord  | Harpsichord.
+|3 |Celesta    | Celesta.
+|4 |Marimba    | Marimba.
+|5 |Bass Marimba | Bass marimba. Plays approximately two octaves below a conventional marimba.
+|6 |Xylophone  | Xylophone.
+|7 |Glocken 1  | Bright-sounding glockenspiel.
+|8 |Glocken 2  | Mellow-sounding glockenspiel with short reverberation.
+|9 |Tubular-bell | Bright-sounding bells with hard attack.
+|10 |Tubular-bell2 | Bells with a rounded tone.
+|11 |Timpani | Timpani.
+|12 |Timpani Roll | Timpani rolls.
+|13 |Timpani/Timpani Roll | Split sounds of a timpani and timpani rolls. +
+ Timpani up to B3, and timpani rolls from C4 upward.
+|===
+
+
+<<atop, 🟩>>
+[[rhythm_set]]
+==== Rhythm Set (Bank MSB:0/LSB:6)
+
+
+[cols="^1,^2,^5",]
+|===
+|*PC* |*Instrument Name* |*Description*
+|1 |Orchestra Kit | Rhythm set suitable for orchestral music.
+|2 |Marching Kit | Rhythm set suitable for a marching band.
+|3 |Timpani Kit   | Rhythm set that includes timpani and timpani rolls.
+|===
+
+===== Percussion instrument list for each rhythm set
+
+*1: These sounds support advanced muting. For details on advanced muting, refer to "<<rhythm_set_that_support_advanced_mute, Advanced muting in a rhythm set.>>"
+
+
+[cols="^,^,^,^",]
+|===
+|*Note#* |*1 : Orchestra Kit* |*2 : Marching Kit* |*3 : Timpani Kit*
+|G#1[32] |Orch BD 1^*1^ |  | 
+|A 1[33] |Orch MuteBD1 |  | 
+|Bb1[34] |BsDrum Roll |Cons.BD Roll | 
+|B 1[35] |Orch BD 2^*1^ |Marching BD1 | 
+|C 2[36] |Orch MuteBD2 |Marching BD2 | 
+|C#2[37] |Snareless |March SnrRim | 
+|D 2[38] |Ambient Snr1 |March Snare |Timpani D
+|Eb2[39] |SnareRoll1 |Snare Less |Timpani D#
+|E 2[40] |Ambient Snr2 |March Snare |Timpani E
+|F 2[41] |SnareRoll2 |March Tom 4 |Timpani F
+|F#2[42] |SnareRoll3 |SnareRoll1 |Timpani F#
+|G 2[43] |SnrRolloff |March Tom 3 |Timpani G
+|G#2[44] |Orch Snare1 |March Tenor |Timpani G#
+|A 2[45] |Orch Snare2 |March Tom 2 |Timpani A
+|Bb2[46] |Orch Snare1 |March Tenor |Timpani A#
+|B 2[47] |Orch Snare2 |March Tom 1 |Timpani B
+|C 3[48] |Orch_Crush^*1^ |Orch_Crush^*1^ |Timpani C
+|C#3[49] |MltCym.Swell^*1^ |MltCym.Swell^*1^ |Timpani C#
+|D 3[50] |Cymbal Swell |Cymbal Swell |Timpani D
+|Eb3[51] |PiattiCymbal^*1^ |PiattiCymbal^*1^ |Timpani D#
+|E 3[52] |Dragon Mlt^*1^ |Orch_Crush^*1^ |Timpani E
+|F 3[53] |Grongkas1^*1^ |PiattiCymbal^*1^ |Timpani F
+|F#3[54] |Grongkas2^*1^ |Triangle 1 |Timpani F#
+|G 3[55] |Lrg_Gong^*1^ |Castanet |Timpani G
+|G#3[56] |Tam-tam^*1^ |OrchToys1 |Timpani G#
+|A 3[57] |Triangle 1 |BellLylas A |Timpani A
+|Bb3[58] |Mt.Triangle1 |BellLylas A# | 
+|B 3[59] |Tri_trem 1 |BellLylas B | 
+|C 4[60] |Tri_Roll 1 |BellLylas C | 
+|C#4[61] |Triangle 2 |BellLylas C# | 
+|D 4[62] |Mt.Triangle2 |BellLylas D |TimpaniRl D
+|Eb4[63] |Tri_trem 2 |BellLylas D# |TimpaniRl D#
+|E 4[64] |Tri_Roll 2 |BellLylas E |TimpaniRl E
+|F 4[65] |BellTree1 |BellLylas F |TimpaniRl F
+|F#4[66] |BellTree2 |BellLylas F# |TimpaniRl F#
+|G 4[67] |MarkTree1 |BellLylas G |TimpaniRl G
+|G#4[68] |MarkTree2 |BellLylas G# |TimpaniRl G#
+|A 4[69] |W.ChimeDown1 |BellLylas A |TimpaniRl A
+|Bb4[70] |W.ChimeDown2 |BellLylas A# |TimpaniRl A#
+|B 4[71] |W.Chime Up 1 |BellLylas B |TimpaniRl B
+|C 5[72] |W.Chime Up 2 |BellLylas C |TimpaniRl C
+|C#5[73] |Sleighbell |BellLylas C# |TimpaniRl C#
+|D 5[74] |XmasBell1 |BellLylas D |TimpaniRl D
+|Eb5[75] |XmasBell2 |BellLylas D# |TimpaniRl D#
+|E 5[76] |Castanet |BellLylas E |TimpaniRl E
+|F 5[77] |Claves |BellLylas F |TimpaniRl F
+|F#5[78] |Wood BlockHi |BellLylas F# |TimpaniRl F#
+|G 5[79] |Wood BlockLo |BellLylas G |TimpaniRl G
+|G#5[80] |OrchToys1 |BellLylas G# |TimpaniRl G#
+|A 5[81] |OrchToys2 |BellLylas A |TimpaniRl A
+|Bb5[82] |HiCluster |HiCluster | 
+|B 5[83] |LowCluster |LowCluster | 
+|C 6[84] |ShrtCluster |ShrtCluster | 
+|C#6[85] |RipDown |RipDown | 
+|D 6[86] |RipUp |RipUp | 
+|Eb6[87] |Harp Maj Up |  | 
+|E 6[88] |Harp Maj Dn |  | 
+|===
+
+
+[[_trouble_e_]]
+== VII -- Troubleshooting
+
+
+. <<trouble_01, Sound is too loud/too soft/cannot be heard.>>
+. <<trouble_02, Sound is interrupted/playback tempo is irregular/playback stops midway through.>>
+. <<trouble_03, Notes are delayed>>
+. <<trouble_04, Insufficient polyphony/Notes are omitted.>>
+. <<trouble_05, Sound is distorted.>>
+. <<trouble_06, Effects (reverb/chorus/delay) are not applied>>
+. <<trouble_07, Effects (reverb/chorus/delay) are not applied to the rhythm part.>>
+. <<trouble_08, Failure to plug-in.>>
+. <<trouble_09, System exclusive messages cannot be received.>>
+. <<trouble_10, An error of "Can't allocate Memory" is displayed when you plug-in. (Macintosh)>>
+. <<trouble_11, VST instruments do not receive control change messages.>>
+. <<trouble_12, Can't use Save Bank/Load Bank of VST instruments to save/load settings.>>
+. <<trouble_13,_a_diff, When the Orchestral's panel is operated&#44; a different slider or the sound of another sound module also changes.>>
+. <<trouble_14, Can't use the Learning function>>
+
+'''''
+
+<<atop, 🟩>>
+[[trouble_01]]
+=== [01] Sound is too loud/too soft/cannot be heard
+
+Check the following points.
+
+* Check the Master Panel master volume setting.
+
+* If the MIDI indicator for Master Panel are not blinking, it is possible that MIDI messages are not being input correctly to Orchestral. Check the following settings on your host application.
+
+*** Make sure that Orchestral is selected as the output destination for the MIDI tracks that are playing.
+*** Check the MIDI channel, volume, and mute settings for the MIDI tracks that are playing.
+
+* If the MIDI indicator in the Master panel lights, but the level meter of the part does not move, check the following.
+
+*** It is possible that Expression (control change 11) is lowered. Try re-selecting the sound to initialize the part.
+*** #⚠# When you re-select the sound, the sound currently being edited will also be initialized. If you want to keep the sound you are editing, save it as a user sound before you re-select the sound. For details on how to save a user sound, refer to "<<saving_and_loading_user_sounds, Saving and loading user sounds.>>"
+
+* If the Master Panel level meters are moving, it is possible that there is a problem with the audio output settings. Check the following points.
+
+*** Check the audio volume of the host application. Also make sure that the audio device you are using has been correctly selected.
+*** Check the volume and other necessary settings for your audio device.
+*** Check the connections and volume of your audio system (amp, speakers, etc.)
+
+* If a heavy processing load is placed on your computer, your host application may stop processing audio, causing the sound to stop. Refer to the troubleshooting items for "<<2_sound_is_interrupted, [2] Sound is interrupted/playback tempo is irregular/playback stops midway through>>."
+
+* If you use the Orchestral's multi-out feature, Check the following points.
+
+*** Open the <<output_selector, Output Selector window>>, and check that the output destination of each part is set correctly.
+*** Make sure that the host application you specified as the output destination is set to receive these outputs.
+***  If you are not sure whether your host application supports multi-out, try turn off the Multiple Output switch in the <<output_selector, Output Selector window>>.
+
+* If neither the Master panel level meter nor part level meter are moving, check the following.
+
+*** It is possible that your host application has stopped processing audio. Refer to the owner's manual for your host application, and check whether audio processing is enabled.
+*** If you are using the Windows version, it is possible that the software CD-ROM verification was cancelled. +
+If a dialog box asking for the software CD-ROM appears when you plug-in Orchestral, insert the software CD-ROM into your CD-ROM drive, and click [OK]. If you click Cancel, no sound will be produced. If you clicked Cancel, exit the plug-in (i.e., unplug Orchestral). Then, plug-in Orchestral again, so it can properly vefify the CD-ROM.
+
+<<atop, 🟩>>
+[[trouble_02]]
+=== [02] Sound is interrupted/playback tempo is irregular/playback stops midway through
+
+Check the following items.
+
+* If your host application allows you to adjust the size of the audio buffer, try increasing the buffer size.
+
+* Increasing the buffer size will increase the delay (latency) of the sound.
+
+* If you are using Orchestral on the Macintosh with the Cubase series, check the "*Favor MIDI Timing*" setting found in the *General* section of *Audio System Setup*.
+
+* It is possible that playback cannot be performed correctly because other software is placing a processing load on the computer. Please exit any software you are not using.
+
+* Refer to the troubleshooting section in the documentation for your host application or audio device. Suggestions on how to solve problems with audio playback may be effective for this situation as well.
+
+* Try decreasing the POLYPHONY LIMIT in the <<master_panel, Master Panel>>.
+
+* In the <<master_panel, Master Panel>>, try turning [CHORUS] and/or [REVERB] off.
+
+* In the <<OPTIONS, Option>> page of the System Setting screen, try selecting "*Light Load Mode*."
+
+Note, however, that if the MIDI data you are attempting to play is of such complexity that it requires sound processing capabilities that are well beyond those of your computer, these measures may not help.
+
+Such problems can also occur depending on the operating environment of your computer (other drivers and software).
+
+* image:{inform_white}[] If you are using Windows, the performance via MME may be inadequate. We recommend using an ASIO-compatible or WDM-compatible audio device.
+
+* image:{inform_white}[] If you are using Macintosh, the performance via Sound Manager may be inadequate. We recommend using an ASIO-compatible audio device.
+
+<<atop, 🟩>>
+[[trouble_03]]
+=== [03] Notes are delayed
+
+Check the following points.
+
+* If your host application allows you to adjust the size of the audio buffer, try decreasing the buffer size.
+
+* Decreasing the buffer size too much may cause notes to be interrupted or fail to sound. Make this setting as appropriate for the performance of your computer and audio device.
+
+* If the documentation for your host application or audio device contains suggestions on how to fix problems with delayed notes, follow those suggestions.
+
+Depending on the performance of your computer, and on the specifications of your host application and audio device, it may not be possible to resolve this problem.
+
+<<atop, 🟩>>
+[[trouble_04]]
+=== [04] Insufficient polyphony/Notes are omitted
+
+It is possible that this is being limited by the maximum polyphony setting. Check the LIMIT setting for POLYPHONY in the <<master_panel, Master Panel>>.
+
+* You can check the actual polyphony in the *[POLYPHONY]* area of the Master Panel.
+
+<<atop, 🟩>>
+[[trouble_05]]
+=== [05] Sound is distorted
+
+Try lowering the master volume in the <<master_panel, Master Panel>>.
+
+<<atop, 🟩>>
+[[trouble_06]]
+=== [06] Effects (reverb/chorus/delay) are not applied
+
+Check the following.
+
+* In the Effects tab of the Master panel, make sure that effects are turned ON.
+
+* Are you using multi-out?
+
+If you are using multi-out, parts assigned to an output destination other than *OUTPUT 1* cannot use Orchestral's built-in effects (reverb/chorus/delay).
+
+If you want to use the built-in effects on a part, set the output destination of that part to *OUTPUT 1*.
+
+<<atop, 🟩>>
+[[trouble_07]]
+=== [07] Effects (reverb/chorus/delay) are not applied to the rhythm part
+
+For the rhythm part, the effect send amount (send level) is set individually for each rhythm instrument.
+
+Even if the send level of the rhythm part is specified from the Part Editor window, or from within the music data, there will be no effect if the send level of each instrument is turned down.
+
+Make sure that the music data also specifies the send level of each instrument to which you want to apply the effect.
+
+* For details on effect send level settings for rhythm instruments, refer to "<<rhythm_part_editor, Rhythm Part Editor.>>"
+
+<<atop, 🟩>>
+[[trouble_08]]
+=== [08] Failure to plug-in
+
+Check the following points.
+
+* Orchestral can be used only with the following audio formats. Check the audio format of your host application. 
+
+
+[cols="2,7",]
+|===
+|Sampling frequency [kHz] |44.1, 48, 96
+|===
+
+* It is possible that your computer does not have enough memory. Try exiting any other applications that you are not using. If failure to plug-in occurs frequently due to insufficient memory, we recommend that you install additional memory in your computer.
+
+<<atop, 🟩>>
+[[trouble_09]]
+=== [09] System exclusive messages cannot be received
+
+If you are using the VST instrument version, system exclusive messages cannot be received due to the VST instrument specification.
+
+<<atop, 🟩>>
+[[trouble_10]]
+=== [10] An error of "Can't allocate Memory" is displayed when you plug-in (Macintosh)
+
+This error occurs if there is not enough memory to start up the plug-in. Please increase the memory that is allocated to the application.
+
+<<atop, 🟩>>
+[[trouble_11]]
+=== [11] VST instruments do not receive control change messages
+
+If you are using Emagic's "Logic" series as the host application, some control change messages cannot be received by VST instruments, due to the specifications of the Logic series. (For the current specifications of Logic, refer to the documentation of the Logic series.)
+
+In this case, you can either directly operate the knobs and sliders in Orchestral's windows, or assign the desired parameter to a different control change.
+
+For details on control change assignments, refer to "<<control_change_assignments, Control change assignments>>."
+
+<<atop, 🟩>>
+[[trouble_12]]
+=== [12] Can't use Save Bank/Load Bank of VST instruments to save/load settings
+
+It is not possible to use the "Save Bank" and "Load Bank" commands for VST instruments of your host application to save Orchestral settings.
+
+Orchestral settings must be saved/loaded as performance data. For details on saving/loading performance data, refer to "<<saving_and_loading_performance_data, Saving and loading performance data>>."
+
+<<atop, 🟩>>
+[[trouble_13]]
+=== [13] When the Orchestral's panel is operated, a different slider or the sound of another sound module also changes.
+
+Is automation enabled?
+
+If automation is enabled, operating the Orchestral's panel will send MIDI messages that assigned to parameter to the host application.
+
+These MIDI messages may cause unintended parameters to change at the same time.
+
+If this occurs, try unchecking "*Record Panel operations*" in the "<<OPTIONS, OPTIONS" page of the System Setting (SYSTEM SETTING) window>>. 
+
+<<atop, 🟩>>
+[[trouble_14]]
+=== [14] Can't use the Learning function
+
+* Has your host application stopped processing audio?
+
+If audio processing has been halted, it may not be possible to use the Learning function to specify a control change, since MIDI messages are not being sent to Orchestral. Refer to the owner's manual for your host application, and make sure that audio processing is enabled.
+
+
+[[_impl_or_e_]]
+== MIDI Implementation Chart
+
+[cols="2,7",]
+|===
+|[Software Synthesizer] |Date : May. 13, 2002
+|*MIDI Implementation* |
+|MODEL:HQ-OR |Ver. 1.00
+|===
+
+[width="100%",cols="^20%,^20%,^20%,^20%,^20%",]
+|===
+|*Function ...* | |*Transmitted* |*Recognized* |*Remarks*
+|Basic Channel |Default |x |1-16 | 
+| |Changed |x |1-16 |
+|Mode |Default |x |Mode 3 |*1
+| |Messages |x |Mode 3, 4 (M = 1) |
+| |Altered |++*******++ |  |
+|Note Number |  |x |0-127 | 
+| |True voice |++*******++ |0-127 |
+|Velocity |Note ON |x |o | 
+| |Note OFF |x |x |
+|After Touch |Key's |x |x | 
+| |Ch's |x |x |
+|Pitch Bend | |x |o | 
+|Control Change |0, 32 |x |o |Bank select
+| |1--31, 33--119 |x |o |*2
+|Prog Change |  |x |o | 
+| |True # |++*******++ |0-35 |Prog.1-36
+|System Exclusive | |x |o | 
+|System Common |Song Pos |x |x | 
+| |Song Sel |x |x |
+| |Tune |x |x |
+|System Real Times |Clock |x |x | 
+| |Commands |x |x |
+|Aux Messages |All Sounds OFF |x |o (120, 126, 127) | 
+| |Reset All Controllers |x |o |
+| |Local ON/OFF |x |x |
+| |All Notes OFF |x |o (123-125) |
+| |Active Sensing |x |x |
+| |System Reset |x |x |
+|Notes |*1 Recognize as M = 1 even if M not EQ 1 +
+*2 It can be assigned to any parameter of the operating panels. | | |
+|===
+
+[cols=",>",]
+|===
+|Mode 1 : OMNI ON, POLY Mode 2 : OMNI ON, MONO |o : Yes
+|Mode 3 : OMNI OFF, POLY Mode 4 : OMNI OFF, MONO |x : No
+|===
+
+'''''
+
+[[_receive_data_]]
+== Receive data
+
+
+<<atop, 🟩>>
+[[channel_voice_messages]]
+=== Channel Voice Messages
+
+<<atop, 🟩>>
+
+==== <Note off>
+
+
+[cols="^1,^2,^5",]
+|===
+|*Status* |*2nd byte* |*3rd byte*
+|8nH |kkH |vvH
+|9nH |kkH |00H
+|===
+
+n = MIDI channel number : 0H-FH (ch.1-ch.16) +
+kk = note number : 00H-7FH (0-127) +
+vv = note off velocity : 00H-7FH (0-127)
+
+* The velocity values of Note Off messages are ignored.
+
+<<atop, 🟩>>
+
+==== <Note on>
+
+
+[cols="^1,^2,^5",]
+|===
+|*Status* |*2nd byte* |*3rd byte*
+|9nH |kkH |vvH
+|===
+
+n = MIDI channel number : 0H-FH (ch.1-ch.16) +
+kk = note number : 00H-7FH (0-127) +
+vv = note on velocity : 01H-7FH (1-127)
+
+<<atop, 🟩>>
+
+==== <Control Change>
+
+Orchestral allows you to assign control changes to any parameter of the operating panels. Controller numbers in the range of 1--31 and 33--119 can be assigned to the operating panels. In the default state, Orchestral will recognize the following controller numbers. If you reassign these numbers to panel parameters, the default assignment will be overridden (except in the case of Bank Select).
+
+
+[width="100%",cols="^100%",]
+|===
+|* *image:{x_red}[] *Limitations with Emagic's Logic series* image:{x_red}[]
+|If you are using Emagic's Logic series as your host application, some control change messages may not be received by VST instruments due to Logic's plug-in specifications. +
+For details on current specifications for the Logic series, refer to the Logic owner's manual.
+|===
+
+===== Bank Select (Controller number 0, 32)
+
+
+[cols="^1,^2,^5",]
+|===
+|*Status* |*2nd byte* |*3rd byte*
+|BnH |00H |mmH
+|BnH |20H |llH
+|===
+
+n = MIDI channel number : 0H-FH (ch.1-ch.16) +
+mm, ll = Bank number : 00H, 00H-7FH, 7FH (bank.1-bank.16384), Initial Value = 00 00H (bank.1)
+
+* When sending Bank Select messages, you have to send both the MSB (mmH) and LSB (llH, the value should be 00H) together. +
+* Bank Select processing will be suspended until a Program Change message is received. +
+* Any parameter cannot be assigned to these controller number (0, 32).
+
+
+[cols="^,^,^,^",]
+|===
+|*BANK MSB* |*BANK LSB* |*PROGRAM NUMBER* |*DESCRIPTION*
+|000 |000 |001 - 034 |Preset Strings Section
+|000 |001 |001 - 030 |Preset Solo Strings
+|000 |002 |001 - 020 |Preset Brass Section
+|000 |003 |001 - 017 |Preset Solo Brass Winds
+|000 |004 |001 - 028 |Preset Solo Wood Winds
+|000 |005 |001 - 013 |Preset Keyboard & Percussion
+|000 |006 |001 - 003 |Preset Rhythm Sets
+|001 |000 |001 - 036 |User Strings Section
+|001 |001 |001 - 036 |User Solo Strings
+|001 |002 |001 - 036 |User Brass Section
+|001 |003 |001 - 036 |User Solo Brass Winds
+|001 |004 |001 - 036 |User Solo Wood Winds
+|001 |005 |001 - 036 |User Keyboard & Percussion
+|001 |006 |001 - 036 |User Rhythm Sets
+|===
+
+
+[width="100%",cols="^100%",]
+|===
+|* *image:{x_red}[] *Regarding Bank Select in Emagic's Logic series* image:{x_red}[]
+|If you are using Emagic's Logic series, VST instruments may not be able to receive controller number 32 messages (Bank Select LSB). In this case, you will not be able to switch banks in Orchestral. +
+As a work-around for this, Orchestral lets you select all banks using just the Bank Select MSB if you have specified "<<Logic, Logic>>" as the control change map. +
+For details, refer to the explanation for the "<<Logic, Logic>>" control change map.
+|===
+
+
+[[assignable_controllers]]
+===== Assignable controllers (controller numbers 1--31, 33--119)
+
+
+[cols="^1,^2,^5",]
+|===
+|*Status* |*2nd byte* |*3rd byte*
+|BnH |ccH |vvH
+|===
+
+n = MIDI channel number : 0H-FH (ch.1-ch.16) +
+cc = Controller number : 01H-1FH, 21H-77H (1-31, 33-119) +
+vv = Value range : 00H-7FH (0-127)
+
+====== Controllers available in the default state
+
+With the default settings, the following parameters and functions are available, but if you assign these control numbers to other parameters, the original parameter or function will be disabled. +
+However, if you cancel the parameter assignment, the original function will once again be valid. For details on how to cancel an assignment, refer to "<<canceling_control_change_assignments, Canceling control change assignment>>."
+
+
+NOTE: These functions and parameters cannot be assigned to other control numbers.
+
+
+.*[#Controllers available in the default state]#Controllers available in the default state#*
+[width="100%",cols="^14%,^33%,^33%",]
+|===
+|*Controller number (cc)* |*Value range* |* Name of function*
+|1  |00H-7FH (0-127) |Modulation
+|6  |00H-7FH (0-127) |Data Entry MSB +
+the value of the parameter specified by RPN/NRPN
+|38 |00H-7FH (0-127) |Data Entry LSB +
+the value of the parameter specified by RPN/NRPN
+|11 |00H-7FH (0-127) |Expression
+|64 |00H-3FH(0-63):OFF, +
+40H-7FH (64-127):ON |Hold 1
+|66 |00H-3FH(0-63):OFF, +
+40H-7FH (64-127):ON  |Sostenuto
+|67 |00H-3FH(0-63):OFF, +
+40H-7FH (64-127):ON  |Soft +
+* This message is effective only when you use piano sounds.
+|98 |00H-7FH (0-127) |NRPN LSB +
+lower byte of the parameter number specified by NRPN
+|99 |00H-7FH (0-127) |NRPN MSB +
+upper byte of the parameter number specified by NRPN
+|100 |00H-7FH (0-127) |RPN LSB +
+lower byte of the parameter number specified by RPN
+|101 |00H-7FH (0-127) |RPN MSB +
+upper byte of the parameter number specified by RPN
+|===
+
+====== Assignable parameters
+
+The following parameters can be freely assigned to any control number. The assignment settings (control change map) can be saved in a file, or loaded from a previously saved file. For details on the control change map, refer to "<<control_change_assignments, Control change assignments>>."
+
+[[Assignable_parameters]]
+.*Assignable parameters*
+[cols="^3,^3,^3",]
+|===
+|*Parameter name* |*Controller values* |*Parameter range*
+|MASTER VOLUME |00H-7FH (0 - 127) |0 - 127
+|MASTER TUNING |00H-40H-7FH (0 - 64 - 127) |433.6 - 440.0 - 446.3 [Hz]
+|MASTER KEY SHIFT |28H-64H-58H (40 - 64 - 88) |-24 - 0 - +24 [semi note]
+|SCALE TUNING SWITCH | 00H-3FH (0 - 63) / 40H-7FH (64 - 127) |OFF / ON
+|PART VOLUME |00H-7FH (0 - 127) |0 - 127
+|PART PAN |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|PART REVERB SEND |00H-7FH (0 - 127) |0 - 127
+|PART CHORUS SEND |00H-7FH (0 - 127) |0 - 127
+|PATCH INCREMENT |01H-7FH (1 - 127) |Increment
+|PATCH DECREMENT |01H-7FH (1 - 127) |Decrement
+|PATCH STEREO MODE | 00H-3FH (0 - 63) / 40H-7FH (64 - 127) |MONO / STEREO
+|SOLO SWITCH | 00H-3FH (0 - 63) / 40H-7FH (64 - 127) |OFF / ON
+|LEGATO RETRIGGER SWITCH | 00H-3FH (0 - 63) / 40H-7FH (64 - 127) |OFF / ON
+|VELOCITY SWITCH SENS |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|ENVELOPE ATTACK TIME |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|ENVELOPE DECAY TIME |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|ENVELOPE RELEASE TIME |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|VELOCITY SENS ATTACK |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|VELOCITY SENS DYNAMICS |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|CHARACTER |1CH-40H-64H (28 - 64 - 100) |-36 - 0 - +36
+|FILTER CUTOFF |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|FILTER RESONANCE |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|EQ SWITCH | 00H-3FH (0 - 63) / 40H-7FH (64 - 127) |OFF / ON
+|EQ LOW GAIN |34H-40H-4CH (52 - 64 -76) |-12 - 0 - +12 [dB]
+|EQ MID GAIN |34H-40H-4CH (52 - 64 -76) |-12 - 0 - +12 [dB]
+|EQ HIGH GAIN |34H-40H-4CH (52 - 64 -76) |-12 - 0 - +12 [dB]
+|PART FINE TUNING |08H-40H-72H (14 - 64 - 114) |-50 - 0 - +50 [cent]
+|PART COARSE TUNING |10H-40H-70H (16 - 64 -112) |-48 - 0 - +48 [semi note]
+|VIBRATO RATE |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|VIBRATO DEPTH |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|VIBRATO DELAY |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|RANDOM MODULATION RATE |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|RANDOM MODULATION DEPTH |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|PORTAMENTO SWITCH | 00H-3FH (0 - 63) / 40H-7FH (64 - 127) |OFF / ON
+|PORTAMENTO TIME |00H-7FH (0 - 127) |0 - 127
+|PAN KEYFOLLOW |36H-40H-4AH (54 - 64 - 74) |-10 - 0 - +10
+|MODURATION DEPTH |00H-7FH (0 - 127) |0 - 127
+|BEND RANGE |00H-18H (0 - 24) |0 - 24 [semi note]
+|SCALE TUNING C - B |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|INSTRUMENT LEVEL |00H-7FH (0 - 127) |0 - 127
+|INSTRUMENT PAN |01H-40H-7FH (1 - 64 - 127) |-63 - 0 - +63
+|INSTRUMENT COARSE TUNE |10H-40H-70H (16 - 64 - 112) |-48 - 0 - +48 [semi note]
+|INSTRUMENT FINE TUNE |08H-40H-72H (14 - 64 - 114) |-50 - 0 - +50 [cent]
+|INSTRUMENT REVERB SEND |00H-7FH (0 - 127) |0 - 127
+|INSTRUMENT CHORUS SEND |00H-7FH (0 - 127) |0 - 127
+|INSTRUMENT STEREO MODE | 00H-3FH (0 - 63) / 40H-7FH (64 - 127) |MONO / STEREO
+|REVERB TYPE |01H - 03H (1 - 3) |ROOM, HALL, PLATE
+|REVERB PRE DELAY |00H-7DH (0 - 125) |0.0 - 100 [ms]
+|REVERB TIME |00H-7FH (0 - 127) |0 - 127
+|REVERB SIZE |01H-08H (1 - 8) |1 - 8
+|REVERB HIGH CUT |00H-13H, 14H (0 - 19, 20) |160 - 12500 [Hz], Bypass
+|REVERB DENSITY |00H-7FH (0 - 127) |0 - 127
+|REVERB DIFFUSION |00H-7FH (0 - 127) |0 - 127
+|REVERB LF DAMP FREQUENCY |00H-13H (0 - 19) |50 - 4000 [Hz]
+|REVERB LF DAMP GAIN |00H-24H (0 - 36) |-36 - 0[dB]
+|REVERB HF DAMP FREQUENCY |00H-05H (0 - 5) |4000 - 12500 [Hz]
+|REVERB HF DAMP GAIN |00H-24H (0 - 36) |-36 - 0[dB]
+|REVERB LEVEL |00H-7FH (0 - 127) |0 - 127
+|REVERB SWITCH | 00H-3FH (0 - 63) / 40H-7FH (64 - 127) |OFF / ON
+|REVERB PRESET |00H-0FH (0 - 15) |Preset 1 - 16
+|CHORUS TYPE |00H-01H (0 - 1) |Chorus, Delay
+|CHORUS PRE DELAY |00H-7DH (0 - 125) |0.0 - 100 [ms]
+|CHORUS RATE |00H-7FH (0 - 127) |0 - 127
+|CHORUS DEPTH |00H-7FH (0 - 127) |0 - 127
+|CHORUS PHASE |00H-5AH (0 - 90) |0 - 180 [deg.]
+|CHORUS FEEDBACK |00H-7FH (0 - 127) |0 - 127
+|CHORUS FILTER TYPE | 00H-02H (0 - 2) |OFF, LPF, HPF
+|CHORUS CUTOFF |00H-10H (0 - 16) |200 - 8000 [Hz]
+|DELAY LEVEL [LEFT/CENTER/RIGHT] |00H-7FH (0 - 127) |0 - 127
+|DELAY TIME [LEFT/CENTER/RIGHT] |00H-7FH (0 - 127) |200 - 1000 [ms]
+|DELAY FEEDBACK |0FH-40H-71H (15 - 64 - 113) |-98 - 0 - +98 [%]
+|DELAY DAMP |00H-10H, 11H (0 - 16, 17) |200 - 8000 [Hz], Bypass
+|REVERB SEND LEVEL |00H-7FH (0 - 127) |0 - 127
+|CHORUS LEVEL |00H-7FH (0 - 127) |0 - 127
+|CHORUS SWITCH | 00H-3FH (0 - 63) / 40H-7FH (64 - 127) |OFF / ON
+|CHORUS PRESET |00H-0FH (0 - 15) |Preset 1 - 16
+|===
+
+===== Control change preset maps
+
+Orchestral provides the following three control change maps as presets.
+
+
+** [[minimum_map]] *Minimum Map*
+
+* Only <<controllers_available_in_the_default_state, the controllers available in the default state>> can be used.
+** [[normal_map]] *Normal Map*
+
+
+The following parameters are assigned in addition to <<controllers_available_in_the_default_state, the controllers that are available in the default state>>.
+
+[cols="^1,^2,^5",]
+|===
+|*Controller number (cc)* |*MIDI Channel* |*Parameter name*
+|3  |1                   |MASTER VOLUME
+|5  |same as part number |PORTAMENTO TIME
+|7  |same as part number |PART VOLUME
+|10 |same as part number |PART PAN
+|16 |same as part number |PART COARSE TUNING
+|17 |same as part number |PART FINE TUNING
+|18 |same as part number |CHARACTER
+|19 |same as part number |PAN KEYFOLLOW
+|20 |same as part number |VELOCITY SENS DYNAMICS
+|21 |same as part number |VELOCITY SWITCH SENS
+|22 |same as part number |VELOCITY SENS ATTACK
+|23 |same as part number |MODULATION DEPTH
+|24 |same as part number |RANDOM MODULATION RATE
+|25 |same as part number |RANDOM MODULATION DEPTH
+|26 |same as part number |BEND RANGE
+|27 |same as part number |EQ SWITCH
+|28 |same as part number |EQ LOW GAIN
+|29 |same as part number |EQ MID GAIN
+|30 |same as part number |EQ HIGH GAIN
+|31 |same as part number |LEGATO RETRIGGER SWITCH
+|33 |same as part number |PATCH STEREO MODE
+|65 |same as part number |PORTAMENTO SWITCH
+|68 |same as part number |PATCH DECREMENT
+|69 |same as part number |PATCH INCREMENT
+|71 |same as part number |FILTER RESONANCE
+|72 |same as part number |ENVELOPE RELEASE TIME
+|73 |same as part number |ENVELOPE ATTACK TIME
+|74 |same as part number |FILTER CUTOFF
+|75 |same as part number |ENVELOPE DECAY TIME
+|76 |same as part number |VIBRATO RATE
+|77 |same as part number |VIBRATO DEPTH
+|78 |same as part number |VIBRATO DELAY
+|91 |same as part number |PART REVERB SEND
+|93 |same as part number |PART CHORUS SEND
+|===
++
+ 
+** *[#Logic]#Logic#*
++
+These settings are ideal if you are using Emagic Corporation's "Logic" series as your host application. +
+The following parameters are assigned.
+*
++
+[cols="^1,^2,^5",]
+|===
+|*Controller number (cc)* |*MIDI Channel* |*Parameter name*
+| 1 |same as part number |Modulation
+| 2 |same as part number |PART VOLUME
+| 4 |same as part number |PART PAN
+| 5 |same as part number |PART REVERB SEND
+| 6 |same as part number |PART CHORUS SEND
+|11 |same as part number |Expression
+|12 |same as part number |REVERB PRESET
+|13 |same as part number |REVERB LEVEL
+|14 |same as part number |CHORUS PRESET
+|15 |same as part number |CHORUS LEVEL
+|16 |same as part number |SOLO SWITCH 
+|17 |same as part number |ENVELOPE ATTACK TIME
+|18 |same as part number |ENVELOPE RELEASE TIME
+|19 |same as part number |CHARACTER
+|20 |same as part number |BEND RANGE
+|21 |same as part number |EQ SWITCH
+|22 |same as part number |EQ LOW GAIN
+|23 |same as part number |EQ MID GAIN
+|24 |same as part number |EQ HIGH GAIN
+|64 |same as part number |Hold 1
+|===
++
+ If you select this control change map, you will be able to select all sound banks by using control number 0 messages (Bank Select MSB).
+*
++
+[cols="^1,^2,^5",]
+|===
+|*BANK MSB* |*PROGRAM NUMBER* |*DESCRIPTION*
+|000        |001 - 034        |Preset Strings Section
+|001        |001 - 030        |Preset Solo Strings
+|002        |001 - 020        |Preset Brass Section
+|003        |001 - 017        |Preset Solo Brass Winds
+|004        |001 - 028        |Preset Solo Wood Winds
+|005        |001 - 013        |Preset Key&Perc
+|006        |001 - 003        |Preset Rhythm Sets
+|007        |001 - 036        |User Strings Section
+|008        |001 - 036        |User Solo Strings
+|009        |001 - 036        |User Brass Section
+|010        |001 - 036        |User Solo Brass Winds
+|011        |001 - 036        |User Solo Wood Winds
+|012        |001 - 036        |User Key&Perc
+|013        |001 - 036        |User Rhythm Sets
+|===
++
+This function also applies to any control change map that you create/save based on this control change map. +
+Conversely, if you select the <<minimum_map, Minimum Map>>, <<normal_map, Normal Map>>, or any control change map that was created/saved based on these maps, the conventional bank selection method will be used.
++
+**NRPN**::
+  The NRPN (Non Registered Parameter Number) message allows an extended range of control changes to be used. +
+  To use these messages, you must first use NRPN MSB and NRPN LSB messages to specify the parameter to be controlled, and then use Data Entry messages to specify the value of the specified parameter. Once an NRPN parameter has been specified, all Data Entry messages received on that channel will modify the value of that parameter. To prevent accidents, it is recommended that you set RPN Null (RPN Number = 7FH/7FH) when you have finished setting the value of the desired parameter. Refer to Supplementary material "<<cexamples_of_actual_midi_messages, Examples of actual MIDI messages>>" <Example 4>. On the Super Quartet, Data entry LSB (llH) of NRPN is ignored, so it is no problem to send Data entry MSB (mmH) only (without Data entry LSB)
+
+* On the Orchestral, NRPN can be used to modify the following parameters.
+
+
+[width="100%",cols="^34%,^33%,^33%",]
+|===
+|*NRPN MSB/LSB* |*Data Entry MSB LSB* |*Explanation*
+|58H / 30H-3BH +
+(88 / 48-59) |mmH --- |Scale tune C-B +
+mm:01H-40H-7FH(-63 - 0 - +63)
+|58H / 40H +
+(88 / 64) |mmH --- |Reverb switch^*1^ +
+mm:00H-7FH(0 - 127) 0 - 63 = OFF, 64 - 127 = ON +
+|58H / 41H +
+(88 / 65) |mmH --- |Reverb Type^*1^ +
+mm:01H-03H(Room, Hall, Plate) +
+|58H / 42H +
+(88 / 66) |mmH --- |Reverb level^*1^ +
+mm:00H-7FH(0 - 127) +
+|58H / 43H +
+(88 / 67) |mmH --- |Pre Delay^*1^ +
+mm:00H-7DH (0-125) +
+|58H / 44H +
+(88 / 68) |mmH --- |Time^*1^ +
+mm:00H-7FH (0-127) +
+|58H / 45H +
+(88 / 69) |mmH --- |Size^*1^ +
+mm:00H-07H (0-7) +
+|58H / 46H +
+ (88 / 70) |mmH --- |High Cut^*1^ +
+mm:00H-14H (0-20) +
+|58H / 47H +
+(88 / 71) |mmH --- |Denisty^*1^ +
+mm:00H-7FH (0-127 +
+|58H / 48H +
+(88 / 72) |mmH --- |Diffusion^*1^ +
+mm:00H-7FH (0-127) +
+|58H / 49H +
+(88 / 73) |mmH --- |LF Damp Frequency^*1^ +
+mm:00H-13H (0-19) +
+|58H / 4AH +
+(88 / 74) |mmH --- |LF Damp Gain^*1^ +
+mm:00H-24H (0-36) +
+|58H / 4BH +
+(88 / 75) |mmH --- |HF Damp Frequency^*1^ +
+mm:00H-05H (0-5) +
+|58H / 4CH +
+(88 / 76) |mmH --- |HF Damp Gain^*1^ +
+mm:00H-24H (0-36) +
+|58H / 4DH +
+(88 / 77) |mmH --- |Reverb Preset^*1^ +
+mm:00H-0FH (0-15) +
+|58H / 50H +
+(88 / 80) |mmH --- |Chorus switch^*1^ +
+mm:00H-7FH(0 - 127) 0 - 63 = OFF, 64 - 127 = ON +
+|58H / 51H +
+(88 / 81) |mmH --- |Chorus Type^*1^ +
+mm:00H-01H(Chorus, Delay) +
+|58H / 52H +
+(88 / 82) |mmH --- |Chorus reverb send level^*1^ +
+mm:00H-7FH(0 - 127) +
+|58H / 53H +
+(88 / 83) |mmH --- |Chorus level^*1^ +
+mm:00H-7FH(0 - 127) +
+|58H / 54H-5BH +
+(88 / 84-91) |mmH --- |Chorus parameter 1 - 8^*1^ +
+mm:00H-7FH(0 - 127) +
+* See List 1.
+|58H / 5CH +
+(88 / 92) |mmH --- |Chorus/Delay Preset^*1^ +
+mm:00H-0FH (0 - 15) +
+|58H / 70H +
+(88 / 112) |mmH --- |Master volume^*1^ +
+mm:00H-7FH(zero-maximum) +
+|58H / 71H +
+(88 / 113) |mmH llH |Master tuning^*1^ +
+mm, ll:00 00H - 40 00H - 7F 7FH (-100 - 0 - +99.99cent)
+|58H / 72H +
+(88 / 114) |mmH --- |Master key shift^*1^ +
+mm: 28H-40H-58H (-24 - 0 - +24 [semi note])
+|58H / 73H +
+(88 / 115) |mmH --- |Master scale tune switch^*1^ +
+mm:00H-7FH (0 - 127) 0 - 63 = OFF, 64 - 127 = ON
+|58H / 7FH +
+(88 / 127) |mmH --- |System reset^*1^ +
+mm: ignore
+|18H / rrH +
+(24 / rr) |mmH --- |Pitch coarse of rhythm instrument (relative change) +
+rr: key number of rhythm instrument (21 - 108) +
+mm: 10H - 40H - 70H (-48 - 0 - +48 [semi note])
+|19H / rrH +
+(25 / rr) |mmH --- |Pitch fine of rhythm instrument (relative change) +
+rr: key number of rhythm instrument(21 - 108) +
+mm: 0EH-40H-72H (-50 - 0 - 50 [cent])
+|1AH / rrH +
+(26 / rr) |mmH --- |Rhythm instrument level(relative change) +
+rr: key number of rhythm instrument (21 - 108) +
+mm: 00H-7FH (0 - 200 percent)
+|1CH / rrH +
+(28 / rr) |mmH --- |Panpot of rhythm instrument (absolute change) +
+rr: key number of rhythm instrument (21 - 108) +
+mm: 00H-40H-7FH (left-center-right)
+|1DH / rrH +
+(29 / rr) |mmH --- |Reverb send level of rhythm instrument (absolute change) +
+rr: key number of rhythm instrument (21 - 108) +
+mm: 00H-7FH (zero-maximum)
+|1EH / rrH +
+(30 / rr) |mmH --- |Chorus send level of rhythm instrument (absolute change) +
+rr: key number of rhythm instrument (21 - 108) +
+mm: 00H-7FH (zero-maximum)
+|20H / rrH +
+(32 / rr) |mmH --- |Rhythm instrument stereo mode +
+rr: key number of rhythm instrument (21 - 108) +
+mm:00H-3FH:MONO, 40H-7FH:STEREO (0-63:MONO, 64-127:STEREO)
+|===
+
+*1 : Change the settings regardless of the channel on which it's received.
+
+* Parameters marked "relative change" will change relative to the preset value. Depending on the sound or the pitch range, this may have no effect. +
+* Parameters marked "absolute change" will be set to the absolute value of the parameter, regardless of the preset value.
+
+====== <List 1> Chorus parameter
+
+
+[width="100%",cols="^34%,^33%,^33%",]
+|===
+|*NRPN MSB/LSB* |*Chorus Type(58H / 51H)* |
+| |*CHORUS (00H)* |*DELAY (01H)*
+|58H / 54H +
+(88 / 84) |Rate +
+mm:00H-7FH (0-127) |Delay Time Center +
+mm,ll:01 48H - 07 68H (200-1000 msec)
+
+|58H / 55H +
+(88 / 85) |Depth +
+mm:00H-7FH (0-127) |Delay Time Left +
+mm,ll:01 48H - 07 68H (200-1000 msec)
+
+|58 / 56H +
+(88 / 86) |Feedback +
+mm:00H-7FH (0-127) |Delay Time Right +
+mm,ll:01 48H - 07 68H (200-1000 msec)
+
+|58H / 57H +
+(88 / 87) |Phase +
+mm:00H-5AH(0,2,4....180) |HF Damp +
+mm:00H-11H (0-17)
+
+|58H / 58H +
+(88 / 88) |Pre Delay +
+mm:00H-7DH (0-125) |Feedback +
+mm:0FH-40H-71H (-98% - 0 - +98%)
+
+|58H / 59H +
+(88 / 89) |Filter Type +
+mm:00H-02H (OFF, LPF, HPF) |Delay Level Center +
+mm:00H-7FH (0-127)
+
+|58H / 5AH +
+(88 / 90) |Cutoff Frequency +
+mm:00H-10H (0-16) |Delay Level Left +
+mm:00H-7FH (0-127)
+
+|58H / 5BH +
+ (88 / 91) |--- |Delay Level Right +
+mm:00H-7FH (0-127)
+|===
+
+
+**RPN**::
+  The RPN (Registered Parameter Number) messages are expanded control changes, and each function of an RPN is described by the MIDI Standard. +
+  To use these messages, you must first use RPN MSB and RPN LSB messages to specify the parameter to be controlled, and then use Data Entry messages to specify the value of the specified parameter. Once an RPN parameter has been specified, all Data Entry messages received on that channel will modify the value of that parameter. To prevent accidents, it is recommended that you set RPN Null (RPN Number = 7FH/7FH) when you have finished setting the value of the desired parameter. Refer to Section "<<cexamples_of_actual_midi_messages, Examples of actual MIDI messages>>" <Example 4>
+
+* On the Orchestral, RPN can be used to modify the following parameters.
+
+
+[width="100%",cols="^1,^1,^3",]
+|===
+|*RPN MSB/LSB* |*Data entry MSB LSB* |*Explanation*
+|00H / 00H +
+(0 / 0) |mmH --- |Pitch Bend Sensitivity +
+mm: 00H-18H (0-24 semitones), Initial Value = 02H (2 semitones) +
+ll: ignored (processed as 00H) +
+specify up to 2 octaves in semitone steps
+
+|00H / 01H +
+(0 / 1) |mmH llH |Master Fine Tuning +
+mm, ll: 00 00H - 40 00H - 7F 7FH (-100 - 0 - +99.99 cents), Initial Value = 40 00H (0 cent) +
+Refer to Supplementary material, "<<cabout_tuning, About tuning>>".
+
+|00H / 02H +
+(0 / 2) |mmH --- |Master Coarse Tuning +
+mm: 10H-40H-70H (-48 - 0 - +48 semitones), Initial Value = 40H (0 semitone) +
+ll: ignored (processed as 00H)
+
+|00H / 05H +
+(0 / 5) |mmH llH |Modulation Depth Range +
+mm, ll: 00 00H - 06 00H (0.0 - 600.0 cent) +
+00H-7FH (0 - 100 cents) +
+100/128 Cent/Value
+
+|7FH / 7FH +
+(127 / 127) |--- --- |RPN null +
+Set condition where RPN and NRPN are unspecified. The data entry messages after set RPN null will be ignored. (No Data entry messages are required after RPN null). +
+Settings already made will not change. +
+mm, ll: ignored
+|===
+
+<<atop, 🟩>>
+
+==== <Program Change>
+
+
+[cols="^,^",]
+|===
+|*Status* |*2nd byte*
+|CnH |ppH
+|===
+
+n = MIDI channel number : 0H-FH (ch.1-ch.16) +
+pp = Program number : 00H-23H (prog.1-prog.36)
+
+<<atop, 🟩>>
+
+==== <Pitch Bend Change>
+
+
+[cols="^1,^2,^5",]
+|===
+|*Status* |*2nd byte* |*3rd byte*
+|EnH |llH |mmH
+|===
+
+n = MIDI channel number : 0H-FH (ch.1-ch.16) +
+mm, ll = Pitch Bend value : 00 00H - 40 00H - 7F 7FH (-8192 - 0 - +8191)
+
+* The depth of pitch bend change is determined by the pitch bend sensitivity of the RPN or the "BEND RANGE" parameter of the operating panels.
+
+
+<<atop, 🟩>>
+[[channel_mode_messages]]
+=== Channel Mode Messages
+
+<<atop, 🟩>>
+
+==== <All Sounds Off (Controller number 120)>
+
+
+[cols="^1,^2,^5",]
+|===
+|*Status* |*2nd byte* |*3rd byte*
+|BnH |78H |00H
+|===
+
+n = MIDI channel number : 0H-FH (ch.1-ch.16)
+
+* When this message is received, all currently-sounding notes on the corresponding channel will be turned off immediately.
+
+<<atop, 🟩>>
+
+==== <Reset All Controllers (Controller number 121)>
+
+
+[cols="^1,^2,^5",]
+|===
+|*Status* |*2nd byte* |*3rd byte*
+|BnH |79H |00H
+|===
+
+n = MIDI channel number : 0H-FH (ch.1-ch.16)
+
+* When this message is received, the following controllers will be set to their reset values.
+
+
+[cols="^,^",]
+|===
+|*Controller* |*Reset value*
+|Pitch Bend Change |0 (center)
+|Modulation |0 (off)
+|Expression |127 (max)
+|Hold 1 |0 (off)
+|Portamento |0 (off)
+|Sostenuto |0 (off)
+|Soft |0 (off)
+|RPN |unset; previously set data will not change
+|NRPN |unset; previously set data will not change
+|===
+
+<<atop, 🟩>>
+
+==== <All Notes Off (Controller number 123)>
+
+
+[cols="^1,^2,^5",]
+|===
+|*Status* |*2nd byte* |*3rd byte*
+|BnH |7BH |00H
+|===
+
+n = MIDI channel number : 0H-FH (ch.1-ch.16)
+
+* When All Notes Off is received, all notes on the corresponding channel will be turned off. However if Hold 1 or Sostenuto is ON, the sound will be continued until these are turned off.
+
+<<atop, 🟩>>
+
+==== <OMNI OFF (Controller number 124)>
+
+
+[cols="^1,^2,^5",]
+|===
+|*Status* |*2nd byte* |*3rd byte*
+|BnH |7CH |00H
+|===
+
+n = MIDI channel number : 0H-FH (ch.1-ch.16)
+
+* The same processing will be carried out as when All Notes Off is received.
+
+<<atop, 🟩>>
+
+==== <OMNI ON (Controller number 125)>
+
+
+[cols="^1,^2,^5",]
+|===
+|*Status* |*2nd byte* |*3rd byte*
+|BnH |7DH |00H
+|===
+
+n = MIDI channel number : 0H-FH (ch.1-ch.16)
+
+* OMNI ON is only recognized as "All notes off"; the Mode doesn't change (OMNI OFF remains).
+
+<<atop, 🟩>>
+
+==== <MONO (Controller number 126)>
+
+
+[cols="^1,^2,^5",]
+|===
+|*Status* |*2nd byte* |*3rd byte*
+|BnH |7EH |mmH
+|===
+
+n = MIDI channel number : 0H-FH (ch.1-ch.16) +
+mm = mono number : 00H-10H (0-16)
+
+* The same processing will be carried out as when All Sounds Off and All Notes Off is received, and the corresponding channel will be set to Mode 4 (M = 1) regardless of the value of "mono number."
+
+<<atop, 🟩>>
+
+==== <POLY (Controller number 127)>
+
+
+[cols="^1,^2,^5",]
+|===
+|*Status* |*2nd byte* |*3rd byte*
+|BnH |7FH |00H
+|===
+
+n = MIDI channel number : 0H-FH (ch.1-ch.16)
+
+* The same processing will be carried out as when All Sounds Off and All Notes Off is received, and the corresponding channel will be set to Mode 3.
+
+
+<<atop, 🟩>>
+[[system_exclusive_message]]
+=== System Exclusive Message
+
+
+[cols="^1,^2,^5",]
+|===
+|*Status* |*Data byte* |*Status*
+|F0H |iiH, ddH, ......, eeH |F7H
+|===
+
+F0H : System Exclusive Message status
+
+ii = ID number : an ID number (manufacturer ID) to indicate the manufacturer whose Exclusive message this is. Roland's manufacturer ID is 41H.
+
+ID numbers 7EH and 7FH are extensions of the MIDI standard; Universal Non-realtime Messages (7EH) and Universal Realtime Messages (7FH).
+
+dd,...,ee = data : 00H-7FH (0-127)
+
+F7H : EOX (End Of Exclusive)
+
+The System Exclusive Messages received by the Super Quartet are; messages related to System Reset.
+
+* image:{sign_attention}[img/sign_attention,width=16,height=16] Reception of system exclusive messages is possible only for DXi.
+
+===== System Reset
+
+Resets the synth to the initial state.
+
+
+[cols="^1,^2,^5",]
+|===
+|*Status* |*Data byte* |*Status*
+|F0H |41H, 10H, 00H, 4CH, 12H, 00H, 00H, 00H, 7FH, 00H, 01H |F7H
+|===
+
+
+[cols="^,^",]
+|===
+|*Byte* |*Explanation*
+|F0H |Exclusive status
+|41H |ID number (Roland)
+|10H |Device ID
+|00H |Sub ID#1 (HQ Software Synthesizer)
+|4CH |Sub ID#2 (HQ Software Synthesizer)
+|12H |Command ID (DT1)
+|00H |Address MSB
+|00H |Address
+|00H |Address
+|7FH |Address LSB
+|00H |Data : 00H
+|01H |Checksum
+|F7H |EOX (End Of Exclusive)
+|===
+
+* This software ignores the Device ID and Checksum.
+
+'''''
+
+
+<<atop, 🟩>>
+[[supplementary_material]]
+=== Supplementary material
+
+<<atop, 🟩>>
+
+==== <Decimal and Hexadecimal table>
+
+In MIDI documentation, data values and addresses/sizes of exclusive messages etc. are expressed as hexadecimal values for each 7 bits. +
+The following table shows how these correspond to decimal numbers.
+
+
+[cols="^,^,^,^,^,^,^,^",subs=normal]
+----
+|*Dec.*   |*Hex.*   |*Dec.*   |*Hex.*   |*Dec.*   |*Hex.*   |*Dec.*   |*Hex.*
+| 0     |00H    |32     |20H    |64     |40H    | 96    |60H
+| 1     |01H    |33     |21H    |65     |41H    | 97    |61H
+| 2     |02H    |34     |22H    |66     |42H    | 98    |62H
+| 3     |03H    |35     |23H    |67     |43H    | 99    |63H
+| 4     |04H    |36     |24H    |68     |44H    |100    |64H
+| 5     |05H    |37     |25H    |69     |45H    |101    |65H
+| 6     |06H    |38     |26H    |70     |46H    |102    |66H
+| 7     |07H    |39     |27H    |71     |47H    |103    |67H
+| 8     |08H    |40     |28H    |72     |48H    |104    |68H
+| 9     |09H    |41     |29H    |73     |49H    |105    |69H
+|10     |0AH    |42     |2AH    |74     |4AH    |106    |6AH
+|11     |0BH    |43     |2BH    |75     |4BH    |107    |6BH
+|12     |0CH    |44     |2CH    |76     |4CH    |108    |6CH
+|13     |0DH    |45     |2DH    |77     |4DH    |109    |6DH
+|14     |0EH    |46     |2EH    |78     |4EH    |110    |6EH
+|15     |0FH    |47     |2FH    |79     |4FH    |111    |6FH
+|16     |10H    |48     |30H    |80     |50H    |112    |70H
+|17     |11H    |49     |31H    |81     |51H    |113    |71H
+|18     |12H    |50     |32H    |82     |52H    |114    |72H
+|19     |13H    |51     |33H    |83     |53H    |115    |73H
+|20     |14H    |52     |34H    |84     |54H    |116    |74H
+|21     |15H    |53     |35H    |85     |55H    |117    |75H
+|22     |16H    |54     |36H    |86     |56H    |118    |76H
+|23     |17H    |55     |37H    |87     |57H    |119    |77H
+|24     |18H    |56     |38H    |88     |58H    |120    |78H
+|25     |19H    |57     |39H    |89     |59H    |121    |79H
+|26     |1AH    |58     |3AH    |90     |5AH    |122    |7AH
+|27     |1BH    |69     |3BH    |91     |5BH    |123    |7BH
+|28     |1CH    |60     |3CH    |92     |5CH    |124    |7CH
+|29     |1DH    |61     |3DH    |93     |5DH    |125    |7DH
+|30     |1EH    |62     |3EH    |94     |5EH    |126    |7EH
+|31     |1FH    |63     |3FH    |95     |5FH    |127    |7FH
+----
+
+* Decimal values such as MIDI channel, bank select, and program change are listed as one (1) greater than the values given in the above table. +
+* A 7-bit byte can express data in the range of 128 steps. For data where greater precision is required, we must use two or more bytes. For example, two hexadecimal numbers aa bbH expressing two 7-bit bytes would indicate a value of aa x 128 + bb. +
+* In the case of values which have a ({plus}/-) sign, 00H = -64, 40H = +/-0, and 7FH = +63, so that the decimal expression would be 64 less than the value given in the above chart. In the case of two types, 00 00H = -8192, 40 00H = +/-0, and 7F 7FH = +8191. For example if aa bbH were expressed as decimal, this would be aa bbH - 40 00H = aa x 128 + bb - 64 x 128. +
+* Data marked "nibbled" is expressed in hexadecimal in 4-bit units. A value expressed as a 2-byte nibble 0a 0bH has the value of a x 16 + b.
+
+<Example 1> What is the decimal expression of 5AH ? +
+From the preceding table, 5AH = 90
+
+<Example 2> What is the decimal expression of the value 12 34H given as hexadecimal for each 7 bits? +
+From the preceding table, since 12H = 18 and 34H = 52 +
+18 x 128 + 52 = 2356
+
+<Example 3> What is the decimal expression of the nibbled value 0A 03 09 0D ? +
+From the preceding table, since 0AH = 10, 03H = 3, 09H = 9, 0DH = 13 +
+((10 x 16 + 3) x 16 + 9) x 16 + 13 = 41885
+
+<Example 4> What is the nibbled expression of the decimal value 1258? +
+16) 1258 +
+16) 78# ... 10 +
+16) 4# ... 14 +
+0 ... 4 +
+Since from the preceding table, 0 = 00H, 4 = 04H, 14 = 0EH, 10 = 0AH, the answer is 00 04 0E 0AH.
+
+
+<<atop, 🟩>>
+[[examples_of_actual_midi_messages]]
+==== <Examples of actual MIDI messages>
+
+<Example 1> 92 3E 5F +
+9n is the Note-on status, and n is the MIDI channel number. Since 2H = 2, 3EH = 62, and 5FH = 95, this is a Note-on message with MIDI CH = 3, note number 62 (note name is D4), and velocity 95.
+
+<Example 2> CE 49 +
+CnH is the Program Change status, and n is the MIDI channel number. Since EH = 14 and 49H = 73, this is a Program Change message with MIDI CH = 15, program number 74.
+
+<Example 3> EA 00 28 +
+EnH is the Pitch Bend Change status, and n is the MIDI channel number. The 2nd byte (00H = 0) is the LSB and the 3rd byte (28H = 40) is the MSB, but Pitch Bend Value is a signed number in which 40 00H (= 64 x 128 + 0 = 8192) is 0, so this Pitch Bend Value is +
+28 00H - 40 00H = 40 x 128 + 0 - (64 x 128 + 0) = 5120 - 8192 = -3072
+
+If the Pitch Bend Sensitivity is set to 2 semitones, -8192 (00 00H) will cause the pitch to change -200 cents, so in this case -200 x (-3072) / (-8192) = -75 cents of Pitch Bend is being applied to MIDI channel 11.
+
+<Example 4> B3 64 00 65 00 06 0C 26 00 64 7F 65 7F +
+BnH is the Control Change status, and n is the MIDI channel number. For Control Changes, the 2nd byte is the control number, and the 3rd byte is the value. In a case in which two or more messages consecutive messages have the same status, MIDI has a provision called "running status" which allows the status byte of the second and following messages to be omitted. Thus, the above messages have the following meaning.
+
+
+[cols="^,^",]
+|===
+|B3 64 00 |MIDI ch.4, lower byte of RPN parameter number: 00H
+|(B3)65 00 |(MIDI ch.4) upper byte of RPN parameter number: 00H
+|(B3)06 0C |(MIDI ch.4) upper byte of parameter value: 0CH
+|(B3)26 00 |(MIDI ch.4) lower byte of parameter value: 00H
+|(B3)64 7F |(MIDI ch.4) lower byte of RPN parameter number: 7FH
+|(B3)65 7F |(MIDI ch.4) upper byte of RPN parameter number: 7FH
+|===
+
+In other words, the above messages specify a value of 0C 00H for RPN parameter number 00 00H on MIDI channel 4, and then set the RPN parameter number to 7F 7FH.
+
+RPN parameter number 00 00H is Pitch Bend Sensitivity, and the MSB of the value indicates semitone units, so a value of 0CH = 12 sets the maximum pitch bend range to +/-12 semitones (1 octave). (The LSB of Pitch Bend Sensitivity is ignored, but the LSB should be transmitted anyway (with a value of 0) so that operation will be correct on any device.)
+
+Once the parameter number has been specified for RPN or NRPN, all Data Entry messages transmitted on that same channel will be valid, so after the desired value has been transmitted, it is a good idea to set the parameter number to 7F 7FH to prevent accidents. This is the reason for the (B3) 64 7F (B3) 65 7F at the end.
+
+It is not desirable for performance data (such as Standard MIDI File data) to contain many events with running status as given in <Example 4>. This is because if playback is halted during the song and then rewound or fast-forwarded, the sequencer may not be able to transmit the correct status, and the sound source will then misinterpret the data. Take care to give each event its own status.
+
+It is also necessary that the RPN or NRPN parameter number setting and the value setting be done in the proper order. On some sequencers, events occurring in the same (or consecutive) clock may be transmitted in an order different than the order in which they were received. For this reason it is a good idea to slightly skew the time of each event (about 1 tick for TPQN = 96, and about 5 ticks for TPQN = 480).
+
+* TPQN: Ticks Per Quarter Note
+
+
+<<atop, 🟩>>
+[[about_tuning]]
+==== <About tuning>
+
+In MIDI, individual Parts are tuned by sending RPN #1 (Master Fine Tuning) to the appropriate MIDI channel.
+
+In MIDI, an entire device is tuned by either sending RPN #1 to all MIDI channels being used, or by sending a NRPN(58H 71H) MASTER TUNING.
+
+RPN #1 allows tuning to be specified in steps of approximately 0.012 cents (to be precise, 100/8192 cent).
+
+The values of RPN #1 and NRPN (58H 71H) MASTER TUNING are added together to determine the actual pitch sounded by each Part.
+
+Frequently used tuning values are given in the following table for your reference. Values are in hexadecimal (decimal in parentheses).
+
+
+[cols="^1,^2,^5",]
+|===
+|*Hz in A4* |*cent* |*RPN #1*
+|445.0 |{plus}19.56 |4C 43 ({plus}1603)
+|444.0 |{plus}15.67 |4A 03 ({plus}1283)
+|443.0 |{plus}11.76 |47 44 ({plus}964)
+|442.0 |{plus} 7.85 |45 03 ({plus}643)
+|441.0 |{plus} 3.93 |42 42 ({plus}322)
+|440.0 |0.00 |40 00 (0)
+|439.0 |- 3.94 |3D 3D (-323)
+|438.0 |- 7.89 |3A 7A (-646)
+|===
+
+<Example> Set the tuning of MIDI channel 3 to A4 = 442.0 Hz +
+Send RPN#1 to MIDI channel 3. From the above table, the value is 45 03H.
+
+
+[cols="^1,^2",]
+|===
+|B2 64 00  |MIDI ch.3, lower byte of RPN parameter number: 00H
+|(B2)65 01 |(MIDI ch.3) upper byte of RPN parameter number: 01H
+|(B2)06 45 |(MIDI ch.3) upper byte of parameter value: 45H
+|(B2)26 03 |(MIDI ch.3) lower byte of parameter value: 03H
+|(B2)64 7F |(MIDI ch.3) lower byte of RPN parameter number: 7FH
+|(B2)65 7F |(MIDI ch.3) upper byte of RPN parameter number: 7FH
+|===
+
+ 

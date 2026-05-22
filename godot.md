@@ -10545,7 +10545,7 @@ Godot 可以使用 GIProbe, ReflectionProbe, Sky 或恒定的环境色来模拟�
 - [Distance functions - by Inigo Quilez](https://iquilezles.org/articles/distfunctions/)
 - [A GPU Approach to Voronoi Diagrams](https://nullprogram.com/blog/2014/06/01/)
 - https://developer.nvidia.com/gpugems/gpugems2/part-i-geometric-complexity/chapter-8-pixel-displacement-mapping-distance-functions
-- [Voronoi and Worley (cellular) noise - Godot Shaders](https://godotshaders.com/snippet/voronoi/)
+- [Godot Shaders](https://godotshaders.com/)
 - [Voronoi Texture 体积着色器造云](https://www.bilibili.com/video/BV167411s7tt)
 - An Image Synthesizer. Ken Perlin (1985)
 - Texturing and Modeling, Third Edition: A Procedural Approach. David S. Ebert, F. Kenton Musgrave, Darwyn Peachey, Ken Perlin, Steve Worley (2002)
@@ -11443,6 +11443,27 @@ void fragment() {
 // var blue_value = 1.0
 // material.set_shader_param("blue", blue_value)
 ```
+
+```c
+shader_type spatial;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+	COLOR = vec4(UV.x, UV.y, 0, 1.0);
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+	// ALBEDO = vec3(UV.x, UV.y, 0.0);
+	ALBEDO = COLOR.rgb;
+}
+```
+
+NOTE: 注意，2D 节点默认使用一个简单的、无光照的“画布”渲染器，其 COLOR 直接就是最终输出颜色。但是使用 3D 节点时，就不能直接在片段着色器中修改 COLOR 属性，此时的属性值由 mesh 中的顶点数据提供，可以在顶点着实器中修改 COLOR 属性。Godot 着色器中 COLOR 和 ALBEDO 扮演着完全不同的角色，理解它们对于编写正确的着色器至关重要。输入: COLOR 属性来自顶点或网格，而 ALBEDO 属性来自 3D 模型材质的基础颜色/纹理。
+
+NOTE: 2D 起步项目设置，创建项目，添加一个 Sprite2D 节点，设置 Texture 属性，添加一个噪声纹理：当使用 4x4 的 NoiseTexture2D 时，每个纹素（纹理像素）会精确地、一对一地对应到屏幕上一个 4x4 区域的标准化 UV 坐标，从 (0，0) 到 (1.0, 1.0)。也就是说，每个噪声纹理像素对已 UV 的偏移量为 0.25。CanvasTexture 是用于 2D 渲染的 ImageTexture 的替代品，它允许在任何继承自 CanvasItem 的节点中使用法线贴图和镜面贴图，没有提供尺寸属性设置，默认对齐 UV 座标。
+
+NOTE: 3D 起步项目设置，创建项目，添加一个 Camera3D 以获取 3D 画面（光照可选，有默认的环境光）。再添加一个 MeshInstance3D 节点，设置 Mesh 属性，为其添加一个内置的 BoxMesh 模型。然后在 Geometry 属性组下，设置 Material Override 属性，添加一个 ShaderMateral 着色器，并且在 Shader 属性中创建一个着色器程序。通过以上着色器，可以观察 Box 模型的各个面的 UV 座标关系，red 以及 green 两个颜色分量的对应 UV.xy 的变化。
 
 Godot 着色器编程也提供了 GDScript 中使用属性提示辅助功能，在着色器定义变量时，可以设置属性提示，
 以方便使用者或开发者在面板中随时了解属性的取值。例如，hint_range 提示取值范围，hint_albedo 提示

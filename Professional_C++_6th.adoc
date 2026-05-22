@@ -44,7 +44,31 @@ link:https://www.uspto.gov/[United States Patent and Trademark Office] 美国专
 
 中国著作权法的哲学根基是“社会本位”，强调集体利益与社会和谐。官方的版权登记制度由中国版权保护中心负责。虽然版权自创作完成即自动产生，但登记证书是初步的权利证明，在维权诉讼中是非常有力的证据。这反映了成文法系对形式要件和官方认证的依赖。中国实行 “司法保护与行政执法并行”的双轨制。这意味着，当发生版权侵权时，权利人不仅可以向法院提起诉讼，还可以向版权行政管理部门（如文化和旅游市场管理部门、国家版权局）投诉。行政机关有权主动调查、责令停止侵权、没收违法所得、罚款等。这是一种高效、低成本的维权途径。
 
-NOTE: link:https://boxy-svg.com/app[Boxy SVG] 是一个基于 Web 实现的 SVG 编辑器，功能非常丰富，可胜任矢量插图制作。该工具由波兰开发者 link:https://github.com/jarek-foksa[Jarosław Foksa] 开发，最初于 2013 年 3 月 15 日发布。Jarosław 运营着 Boxy SVG 博客，在其中宣布他向应用添加的新功能。这位开发者是 Chromium 的 Project Fugu 的坚定支持者，甚至在该应用的想法跟踪器上设置了 Fugu 标记。Project Fugu 旨在弥补 Web 功能的不足，让新类的应用可以在 Web 上运行。Boxy SVG 特色功能：Bolb 支持路径合并，可以将多个笔触绘制的路径合并到一个 path 对象中，自带橡皮擦模式 (Erase Tool)，可以精确计算笔记几何与笔迹相交的矢量座标并擦除重叠区域。基于现代浏览器，还提供了基本的压感笔支持。文本不能直接与质量图形进行集合运算，不过支持 Text 到路径的转换，需要在 Shape Panel -> Shape to Path 菜单操作。还支持 SVG 动画（基于属性值的动画）：选择一个 SVG 节点，并通过 Animation 面板添加需要动画效果的属性。比如 Move along path 可以让 SVG 节点沿者动画路径运动 (<animateMotion path="..." />)，可以直接拖动路径、或者双击路径添加控制点来改变动画路径。或者设置颜色插值模型 (<animate attributeName="color-interpolation" />)，可以观察 linearRGB 与 sRGB 两种色彩模型的差别。
+NOTE: link:https://boxy-svg.com/app[Boxy SVG] 是一个基于 Web 实现的 SVG 编辑器，功能非常丰富，可胜任矢量插图制作。该工具由波兰开发者 link:https://github.com/jarek-foksa[Jarosław Foksa] 开发，最初于 2013 年 3 月 15 日发布。Jarosław 运营着 Boxy SVG 博客，在其中宣布他向应用添加的新功能。这位开发者是 Chromium 的 Project Fugu 的坚定支持者，甚至在该应用的想法跟踪器上设置了 Fugu 标记。Project Fugu 旨在弥补 Web 功能的不足，让新类的应用可以在 Web 上运行。Boxy SVG 特色功能：Bolb 支持路径合并，可以将多个笔触绘制的路径合并到一个 path 对象中，自带橡皮擦模式 (Erase Tool)，可以精确计算笔记几何与笔迹相交的矢量座标并擦除重叠区域。基于现代浏览器，还提供了基本的压感笔支持。文本不能直接与质量图形进行集合运算，不过支持 Text 到路径的转换，需要在 Shape Panel -> Shape to Path 菜单操作。还支持 SVG 动画（基于属性值的动画）：选择一个 SVG 节点，并通过 Animation 面板添加需要动画效果的属性。比如 Move along path 可以让 SVG 节点沿者动画路径运动 (<animateMotion path="..." />)，可以直接拖动路径、或者双击路径添加控制点来改变动画路径。或者设置颜色插值模型 (<animate attributeName="color-interpolation" />)，可以观察 linearRGB 与 sRGB 两种色彩模型的差别。SVG 中有多种座标系统，其中最常用的有图形边界盒 (objectBoundingBox) 和画布空间 (userSpaceOnUse)，可以通过修改以下 SVG 图形中的 <rect> 的 xy 座标来观察这两种的座标系统的最大差别：使用 userSpaceOnUse 座标系统的图案就会想钉在画布上一样。边界盒使用规范化 0.0 ~ 1.0 的值，适用于需要随元素大小完美等比缩放的场合。Boxy SVG 软件中则是默认使用用户空间模式 (gradientUnits="userSpaceOnUse") 计算渐变的坐标，这是使用绝对坐标（与图形所在的画布坐标系相同），只能通过 Elements 面板手动切换。在使用填充色时，比如径向渐变 <radialGradient />，SVG 本身默认的模式 (gradientUnits="objectBoundingBox") 按照各个图形自身边界框的规范化尺寸 (0.0 ~ 1.0) 计算渐变的坐标，这种模式下 Pettern 本身 width 和 height 属性也应该使用 0.0 ~ 1.0 规范化尺寸，大于 1.0 将等效于 clamp(1.0, N)。假设 Pattern 设置为 100% 长宽度 (width, height)，如果容纳 Pattern 的容器（图形）如果有足够空间容纳 100% 尺寸则会完整显示一个 Pattern 图案，如果空间不足，则会按差值进行裁剪。Pattern 中的座标系统默认使用 patternUnits="objectBoundingBox" 和 patternContentUnits="userSpaceOnUse" 分别控制 Pattern 自身以及其内部内容的几何属性。参考 https://www.w3.org/TR/SVG/coords.html[Chapter 8: Coordinate Systems, Transformations and Units], https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute/patternContentUnits[patternContentUnits] 以及 https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute/patternUnits[patternUnits]。
+
+[pass]
+++++++
+<svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- All geometry properties are relative to the current user space -->
+  <pattern id="p1"
+    patternUnits="userSpaceOnUse"
+    patternContentUnits="userSpaceOnUse"
+    x="10" y="10" width="20" height="20">
+    <circle style="fill:bisque;" cx="10" cy="10" r="10" />
+  </pattern>
+
+  <!-- All geometry properties are relative to the target bounding box -->
+  <pattern id="p2"
+    patternUnits="objectBoundingBox"
+    patternContentUnits="objectBoundingBox"
+    x=".0" y=".0" width="0.25" height="0.25">
+    <circle style="fill:bisque;" cx="0.125" cy="0.125" r="0.125" />
+  </pattern>
+
+  <rect style="stroke: gray;" x=" 20" y="20" width="80" height="80" fill="url(#p1)" />
+  <rect style="stroke: gray;" x="120" y="20" width="80" height="80" fill="url(#p2)" />
+</svg>
+++++++
 
 NOTE: link:https://boxy-svg.com/ideas/300/switch-to-freemium-pricing-model[Boxy SVG] 本身没有开源，作者提供两种选择："Free" plan 是免费使用的基础功能；"Plus" plan 提供更多高级特性。二次开发通过嵌入脚本实现，参考 link:https://github.com/boxy-svg/boxy-svg-demos[Boxy SVG Demos]。开源替代方案参考：Inkscape 这是一个非常强大且功能丰富的开源矢量图形编辑器，被广泛视为 Adobe Illustrator 的替代品；link:https://sk1project.net/sk1/download/[SK1] 开源的矢量图形编辑器，支持 CMYK 颜色和 ICC 颜色管理，适合专业印刷需求；link:https://editor.method.ac/[Method Draw] 一个简单易用的基于 Web 的开源 SVG 编辑器，专注于基本功能；link:https://svgedit.netlify.app/editor/index.html[SVG Edit] 另一个基于 Web 的开源 SVG 编辑器，提供了一系列创建和修改 SVG 图形的工具。
 
@@ -139,9 +163,97 @@ NOTE: 模块化是 C++20 规范带来的新特性，成功编译需要确保：�
 
 NOTE: 模块是一项新技术，GCC 的实现仍在发展中。比如 export 关键字已经被弃用，但是仍然保留，import 和 module 是新的关键词。GCC 编译器相关选项参考手册 Chapter 3 GCC Command Options - 3.23 C++ Modules。
 
-NOTE: 使用 import std; 导入整个标准库是 C++23 标准中引入的 Standard Library Modules，（包括 <print> 提供的格式化打印 println 也是新特性）。目前支持环境要求：MSVC 17 或者 GCC 15 中使用 bits/std.cc 这个「万金油」。建议使用 import <iostream>; 这样的的具体标准库导入。使用 gcc -v --help | grep 'std=' 命令查询当前编译器支持的语言规范。参考 cppreference.com 提供的编译器特性兼容性列表：link:https://en.cppreference.com/w/cpp/compiler_support.html[compiler support]。
+NOTE: 引入模块化可以解决从 C 语言中继承下来的 include 机制存在的问题：模糊的模块边界；循环处理头文件导致编译效率低下；宏展开会导致符号污染，也就是命令空间污染问题。目前 GCC 15 的标准库尚未原生提供预编译的标准库模块（std module），也就不能直接使用 import 导入标准库，否则将导致编译器无法找到 C++20 标准库模块 std 的编译模块接口 (CMI) 文件，需要对标准库模块进行预先「编译接口单元」，然后才能导入使用。编译模块后，应该可以在当前目录下看到自动生成的 gcm.cache 缓冲目录，不同的编译器编译模块使用不同的缓存文件名：Clang 称之为 BMI (.pcm)、在 GCC 称之为 CMI (.gcm)、在 MSVC 称之为 IFC (.ifc)。
+
+NOTE: 使用 import std; 导入整个标准库是 C++23 标准中引入的 Standard Library Modules，（包括 <print> 提供的格式化打印 println 也是新特性）。目前支持环境要求：MSVC 17 或者 GCC 15/Clang 17。一个不建议使用的公共头文件是 bits/std.cc 这个「万金油」。建议使用 import <iostream>; 这样的的具体标准库导入。使用 gcc -v --help | grep 'std=' 命令查询当前编译器支持的语言规范。参考 cppreference.com 提供的编译器特性兼容性列表：link:https://en.cppreference.com/w/cpp/compiler_support.html[compiler support]。
+
+NOTE: VSCode 默认配置不支持 {CPP}23，提示以下语法错误信息。这需要先安装支持最新规范的 GCC/Clang 编译器。错误消息的产生过程是：VScode LSP 服务 -> Clangd 服务 -> {CPP} 编译器 -> 返回错误信息。根据代码提示信息，此语法错误问题由 clangd LSP 服务提供，可以在 Output -> clangd 面板查看 LSP 工作过程中使用的编译命令，比如 `clang" -std=c++17` 这样的编译命令。注意，VSCode 代码智能提示信息有多方来源，其中 C/C++: Intelli Sense Engine 是一出，可以考虑关闭。另外 Clangd LSP 服务通过编译器返回的信息是主要来源。
+
+ From "Clangd":
+ Unknown type name 'import'                             clang(unknown_typename)
+ Could not build module 'std'                           clang(module_not_built)
+ Module 'std' not found                                 clang(module_not_found)
+
+ From "C/C++: Intelli Sense Engine":
+ could not find module file for module "std"            C/C++(3275)
+ identifier "println" is undefined                      C/C++(20)
+
+错误涉及两个层面，一是没有正确配置 Clangd 服务，导致不支持 C++23 最新规范，二是没有正确配置标准模块库 (Standard Library Modules) 导致编译器找不到标准模块库文件，比如 GCC 环境下生成的 gcm.cache\std.gcm。这就需要预编译 bits/std.cc 生成标准库模块文件，参考以上 Makefile 文件。要想给 Clang 启用标准模块，可以参考以下命令自行给 Clang 构建一个预编译的标准库文件。BMI (Built Module Interface) 文件是 LLVM 支持的可导入模块单元的预编译文件，它的常见后缀名通常是 .pcm。LLVM 19 虽然完整实现了 STL modules，但是并没有提供预编译的 BMI 文件。因此在使用 import std; 之前，必须先编译标准模块文件。使用编译器参数 -fmodule-file=<module-name>=<BMI-file> 指定导入的模块名与之对应的 BMI 文件名，-fprebuilt-module-path 指定的路径用于搜索 BMI 文件。注意，目前 LLVM 19 需要给 clangd 传递 --experimental-modules-support 参数以启用模块特性，否则可能无法识别 import 关键字；此外--header-insertion 的值最好设置为 never，避免头文件自动插入导致 clangd 解析失败。
+
+```bash
+ # C:\msys64\ucrt64\share\libc++\v1\std.cppm
+ # C:\msys64\ucrt64\include\c++\15.2.0\bits\std.cc
+ # C:\msys64\ucrt64\include\c++\15.2.0\x86_64-w64-mingw32\bits\stdc++.h
+ clang++ -std=c++23 C:/msys64/ucrt64/share/libc++/v1/std.cppm -stdlib=libc++ -Xclang -emit-module-interface -Wno-reserved-module-identifier --precompile -o std.pcm
+ clang++ -std=c++23 C:/msys64/ucrt64/share/libc++/v1/std.compat.cppm -fmodule-file=std="std.pcm" -stdlib=libc++ -Xclang -emit-module-interface -Wno-reserved-module-identifier --precompile -o std.compat.pcm
+
+ clang++ -std=c++23 employee.cppm -stdlib=libc++ -Wno-reserved-module-identifier --precompile -o employee.pcm
+ clang++ -std=c++23 structtest.cpp -stdlib=libc++ -fmodule-file=std="std.pcm" -fmodule-file=employee="employee.pcm" -o main.exe
+```
+
+WARNING: 如果出现 PCH 版本不匹配问题，那么多半是 Clang 和 Clangd 版本不一致导致的，通常是因为分开安装导致的。Windows 下可以通过 MSYS2 平台提供的 pacman 安装统一版本来解决。注意，如果安装过旧版 GCC，在单独更新安装 GCC 后，可能出现无法编译的情况，哪怕是编译 HelloWorld，编译命令会终止在生成汇编代码阶段 (/tmp/*.s)，没有报错也没有可执行文件生成。猜测可能是 CRT 运行时没有同步更新引起的问题，可以通过安装 toolchain 进行完整的开发工具链安装。
+
+[source,bash]
+----
+ # PCH file uses a newer PCH format that cannot be read     clang(pch_version_too_new)
+ pacman -S mingw-w64-ucrt-x86_64-clang-tools-extra
+
+ # For GCC 15
+ pacman -S mingw-w64-ucrt-x86_64-gcc
+ pacman -S mingw-w64-ucrt-x86_64-toolchain
+ g++ -std=c++23 -fmodules -Os -c -fmodule-only -fsearch-include-path bits/std.cc
+
+ g++ -std=c++20 -fmodules-ts -c -x c++-system-header iostream
+ g++ -std=c++20 -fmodules-ts -c -x c++-system-header vector
+ g++ -std=c++20 -fmodules-ts -c -x c++-system-header string
+----
+
+VScode 构建 {CPP} 程序时的编译配置可以通过命令面板修改相应的配置： C/C++: Edit Configurations (UI) -> 设置 C standard 和 {CPP} standard，从列表中选择需要使用的规范版本。配置文件会自动保持为 .vscode\c_cpp_properties.json。也可以作为 VSCode 默认配置，只需要修改 C/{CPP} 扩展配置。或者作为工作区配置，通过 Open Workspace Settings (JSON) 命令打开并编辑 JSON 配置文件。
+
+注意，Microsoft C/{CPP} 扩展配置 Default: Compiler Args 中的编译器参数 (-std=c++23) 对 clangd 服务无效，也就是说 clangd 会自行调用编译器并设置参数。VScode 代码提示的于语言规范相关的错误需要正确配置 clangd 来解决，需要手动调整 .clangd 配置文件，修改配置后执行 Clangd: Restart language server 命令重启 Clangd 服务。以下配置的 Remove 区可能失效，配置失效的表现就是出现两个参数指定了不同的规范。Remove 失效的其中一个原因涉及编译命令数据库 (JSON Compilation Database) 的优先级问题，compile_commands.json 中的标志具有最高优先级，clangd 在处理时优先加载，然后应用 .clangd 的 Remove 规则。另一个原因就是用户自定义配置 (clangd: Open user configuration file)，这部分配置的参数会直接合并到编译器命令行中，无法通过 Remove 配置来移除。
+
+.通过 .clangd 配置文件指定编译器路径以及修改命令行参数
+```yaml
+CompileFlags:
+  Compiler: C:\\msys64\\ucrt64\\bin\\clang++.exe
+
+  # 完全忽略 compile_commands.json
+  CompilationDatabase: none
+
+  Add: 
+    - "-std=c++23"
+    - -stdlib=libc++
+    - -fmodule-file=std=C:\msys64\ucrt64\share\libc++\v1\std.pcm
+    - -fprebuilt-module-path=.
+    - -IC:/msys64/ucrt64/include/c++/v1
+    - -IC:/msys64/ucrt64/include
+
+    - "-fmodules"
+    # 启用 Clang 模块系统 (C++20 Modules 和 Clang Modules)
+
+    - "-fbuiltin-module-map"
+    # 启用内置模块映射，包含标准库的隐式模块映射，为 std、std.compat 等提供模块支持
+
+    - "-fimplicit-modules"
+    # 启用隐式模块构建，自动为 #include 的头文件生成模块接口，减少手动模块声明的需要
+
+    - "-fimplicit-module-maps"
+    # 启用隐式模块映射发现，自动在文件系统中查找 module.modulemap 文件
+
+  Remove:
+    - "-std=c++17"
+```
+
+*   link:https://code.visualstudio.com/docs/cpp/config-mingw[VScode C++ 配置文档]
+*   link:https://clangd.llvm.org/config.html#compileflags[Clangd 编译器配置文档]
+*   link:https://clang.llvm.org/docs/JSONCompilationDatabase.html[JSON Compilation Database]
+*   link:https://clang.llvm.org/docs/StandardCPlusPlusModules.html[Clang - Standard C++ Modules]
+*   link:https://clang.llvm.org/docs/Modules.html[Clang - Using Modules]
 
 NOTE: MSYS2 环境下使用 GCC 15.2.0 编译模块时可能遇到链接错误。比如 UCRT64 (Universal C Runtime) 子系统中链接器无法找到某些标准库函数的实现或者存在实现差异。使用 println 时出现终端 I/O 相关的函数符号未定义 (`std::__open_terminal`, `std::__write_to_terminal`)。GCC 15.2.0 的标准库可能尚未完全实现新标准中的所有功能，特别是 std::vprint_unicode 相关的底层终端操作函数。参考 link:https://gcc.gnu.org/gcc-14/changes.html[GCC 14] 发布的更新报告文档，其中阐述了 Runtime Library (libstd{CPP}) 的变更，Windows 系统中使用 std::print 或者 std::println 需要链接 `-lstdc++exp`，这是一个实验性 (experimental) 扩展库。此扩展库包含 Filesystem TS 技术规范，它是 C++17 标准库文件系统（std::filesystem）的前身，提供了一套用于处理文件和目录的跨平台接口。注意，更加链接程序的依赖关系处理，依赖库需要放在依赖它的代码文件后面。
+
+ undefined reference to `std::__write_to_terminal(void*, std::span<char, 18446744073709551615ull>)
+ undefined reference to `std::__open_terminal(_iobuf*)'
 
 [source,bash]
 ----
@@ -152,21 +264,6 @@ std: note: compiled module file is 'gcm.cache/std.gcm'
 std: note: imports must be built before being imported
 std: fatal error: returning to the gate for a mechanical issue
 compilation terminated.
-----
-
-NOTE: 引入模块化可以解决从 C 语言中继承下来的 include 机制存在的问题：模糊的模块边界；循环处理头文件导致编译效率低下；宏展开会导致符号污染，也就是命令空间污染问题。目前 GCC 15 的标准库尚未原生提供预编译的标准库模块（std module），也就不能直接使用 import 导入标准库，否则将导致编译器无法找到 C++20 标准库模块 std 的编译模块接口（CMI）文件，需要对标准库模块进行预先「编译接口单元」，然后才能导入使用。编译模块后，应该可以在当前目录下看到自动生成的 gcm.cache 缓冲目录，不同的编译器编译模块使用不同的缓存文件名：Clang 称之为 BMI (.pcm)、在 GCC 称之为 CMI (.gcm)、在 MSVC 称之为 IFC (.ifc)。
-
-WARNING: 注意，如果安装过旧版 GCC，在单独更新安装 GCC 后，可能出现无法编译的情况，哪怕是编译 HelloWorld，编译命令会终止在生成汇编代码阶段 (/tmp/*.s)，没有报错也没有可执行文件生成。猜测可能是 CRT 运行时没有同步更新引起的问题，可以通过安装 toolchain 进行完整的开发工具链安装。
-
-[source,bash]
-----
-$ g++ -std=c++20 -fmodules-ts -c -x c++-system-header iostream
-$ g++ -std=c++20 -fmodules-ts -c -x c++-system-header vector
-$ g++ -std=c++20 -fmodules-ts -c -x c++-system-header string
-# For GCC 15
-$ pacman -S mingw-w64-ucrt-x86_64-gcc
-$ pacman -S mingw-w64-ucrt-x86_64-toolchain
-$ g++ -std=c++23 -fmodules -Os -c -fmodule-only -fsearch-include-path bits/std.cc
 ----
 
 
@@ -34110,7 +34207,7 @@ NOTE: Flat Set 和 Flat Map 是 C++23 引入的又一重要特性，它们是基
 内存局部性 (Memory Locality) 是计算机系统中一个至关重要的 CPU 性能优化概念，它描述了程序访问内存数据的模式对性能的影响。内存局部性基于一个观察：程序倾向于在短时间内重复访问相同或相邻的内存地址。硬件速度差异：L1 缓存比主内存快 50-100 倍。CPU 寄存器 → L1 Cache → L2 Cache → L3 Cache → 主内存 → 硬盘。数组这种使用连续内存的结构，虽然不便于增删元素，但是其本身使用的连续内存空间具有非常高效的内存局部性。
 
 .各种 map 容器的性能对比
-[cols="1,1,1,7"]
+[cols="2,2,2,7"]
 |===
 | 操作	| std::map	| std::flat_map	| std::unordered_map
 
@@ -34127,6 +34224,9 @@ NOTE: Flat Set 和 Flat Map 是 C++23 引入的又一重要特性，它们是基
 •   C++98 引入了 std::map、std::set、std::multimap 和 std::multiset，这些容器基于红黑树实现，元素按键有序存储，插入、删除和查找操作的时间复杂度为 O(logn)。
 •   C++11 引入了 std::unordered_map、std::unordered_set、std::unordered_multimap 和 std::unordered_multiset，这些容器基于哈希表实现，元素无序存储，平均情况下插入、删除和查找操作的时间复杂度为 O(1)。
 
+NOTE: ECS (Entity-Component-System) 是一种面向数据 (Data-Oriented Programming) 的编程架构模式。源自 GDC 的一篇演讲 Overwatch Gameplay Architecture and Netcode，守望先锋的游戏架构和网络代码。它旨在解决传统面向对象继承方式带来的复杂性和性能瓶颈（利用内存局部性优化）。它的核心思想是 “组合优于继承”。ECS 的核心概念是「实体」和「组件」构成的系统。实体是一个唯一的标识符 (ID)，它本身不包含任何数据或行为。就像一张空白的身份证，身份证号码代表了一个独一无二的人，但证件本身不记录这个人的具体信息，所有具体信息（身高、职业）都记录在另外的档案（组件）里。「实体」是组件的容器或纽带，其内部维护一个 List<Component> 或类似的列表，将多个组件组合在一起，定义一个“事物”是什么。例如，一个实体通过组合“位置”、“速度”、“精灵”等等组件，就成了一个可以在屏幕上移动的物体。「组件」是纯数据的集合，它没有行为（即没有方法）。它用于描述实体的某一方面属性。这种纯数据集合可以像数组一样在内存中以线性布局排列，可以合理地利用内存局部性优化程序的执行效率。「系统」是纯函数不包含数据，只关心具有某些特定属性（组件）的实体，对这些属性进行处理。ECS 通过一种近乎于“数据库查询”的方式来组织游戏世界：系统 (System) 查询实体 (Entity) 中维护的组件列表，筛选出拥有特定属性的组件 (Component) 的记录，然后对这些记录的数据进行批处理。这种范式转换，带来了无与伦比的性能和灵活性，是现代高性能游戏引擎架构的基石。
+
+ECS 架构高性能是其最大的亮点之一，这意味着系统在遍历处理时，内存中连续排列的数据可以极大地提高 CPU 缓存命中率，从而显著提升性能。通过“系统查询”，引擎可以快速找到所有需要处理的实体，避免了遍历所有游戏对象的开销。ECS 的组合机制有极强的灵活性，“拥有什么数据，就是什么对象”。通过动态地添加或移除组件，你可以轻易地改变实体的行为和属性。例如，要给玩家一个“冰冻”效果，只需移除或暂停 MovementSystem 对它的处理，或者添加一个 FrozenComponent 并由另一个系统来处理，而无需修改复杂的继承树。从继承机制解耦出来的 ECS 架构的代码结构更加清晰，数据和逻辑分离，使得代码更易于理解、测试和维护。组件只有数据，系统只有逻辑，职责非常单一。因为所有状态都在组件里，可以很容易地“快照”下整个游戏世界的状态，或者检查某个实体在任何时刻的所有属性。流行的游戏引擎都有 ECS 实现，包括 Unity 2019 推出的 DOTS 技术栈，其核心就是 ECS，配合 Burst Compiler 和 C# Job System，旨在释放多核 CPU 性能。Unreal Engine 虽然其核心是传统的面向对象架构，但其 “Gameplay Abilities System” 和编程范式也在向组合式的思想靠拢。Rust 语言生态本身就是基于组合 (Traits) 的语言，非常适合实现 ECS 开发，社区中的 Bevy、hecs、specs 等都是非常成熟和高性能的 ECS 库。Bevy 引擎更是将 ECS 作为其第一架构。总结来说，ECS 通过将数据（组件）、标识（实体）和行为（系统）彻底分离，创造出一种高度灵活、性能优异且易于维护的架构，特别适用于需要处理大量动态对象、对性能要求高的游戏和模拟应用。
 
 These are adapters providing an associative container interface on top of sequential containers. flat_set and flat_map require unique keys, just as set and map, while flat_multiset and flat_ multimap support duplicate keys, just as multiset and multimap. They all store their data sorted on the keys using std::less as the default comparator. flat_set and flat_multiset provide for fast retrieval of a key, while flat_map and flat_multimap provide for fast retrieval of a value based on a key. A flat_set and a flat_multiset require one underlying sequential container to store their keys. A flat_map and a flat_multimap require two underlying containers, one to store the keys and another one to store the values. The underlying container must support random-access iterators, such as vector and deque. By default, vector is used.
 
@@ -39833,7 +39933,7 @@ The following random number engines are available:
 • ➤ mersenne_twister_engine
 • ➤ subtract_with_carry_engine
 
-NOTE: 现代 CPU 里通常会有真随机数生成器 (TRNG, True Random Number Generator) 和伪随机数生成器 (PRNG, Pseudo Random Number Generator)。TRNG 通常是通过放大电路的热噪声来产生随机数，而伪随机数生成器则是利用线性反馈移位寄存器 (LFSR，Linear feedback shift register)。真随机数来源于熵 (entropy)——温度高于绝对零度的原子都存在热运动，在集成电路里这些原子的热运动会在电路里产生噪声，噪声会使得电路中的电压存在微小的起伏，TRNG 通过放大这些微小的起伏来产生随机数。但是因为噪声放大电路有低通特性，使得高频的噪声被滤除了，而放大低频噪声就需要较长的时间，使得 TRNG 的工作频率受限。其次是电路系统里有很多不同的噪声，但并不是所有噪声都是随机的，比如电源噪声中很大一部分就是和系统时钟强相关的。而 TRNG 是一个放大极小信号的电路，它对外界干扰是极其敏感的，为了避免外界非随机信号的干扰 TRNG 必须要耗费不少功率和面积在屏蔽上。由于面积和功耗限制，CPU 中不能内置很多个 TRNG；由于频率限制，单个 TRNG 输出的随机数数量有限，这使得单靠 TRNG产生的随机数数量不足以满足系统需要。所以大多数时候会将 TRNG 结合 PRNG 一起产生随机数。
+NOTE: 现代 CPU 里通常会有真随机数生成器 (TRNG, True Random Number Generator) 和伪随机数生成器 (PRNG, Pseudo Random Number Generator)。TRNG 通常是通过放大电路的热噪声来产生随机数，而伪随机数生成器则是利用线性反馈移位寄存器 (LFSR，Linear feedback shift register)。真随机数来源于熵 (entropy)——温度高于绝对零度的原子都存在热运动，在集成电路里这些原子的热运动会在电路里产生噪声，噪声会使得电路中的电压存在微小的起伏，TRNG 通过放大这些微小的起伏来产生随机数。但是因为噪声放大电路有低通特性，使得高频的噪声被滤除了，而放大低频噪声就需要较长的时间，使得 TRNG 的工作频率受限。其次是电路系统里有很多不同的噪声，但并不是所有噪声都是随机的，比如电源噪声中很大一部分就是和系统时钟强相关的。而 TRNG 是一个放大极小信号的电路，它对外界干扰是极其敏感的，为了避免外界非随机信号的干扰 TRNG 必须要耗费不少功率和面积在屏蔽上。由于面积和功耗限制，CPU 中不能内置很多个 TRNG；由于频率限制，单个 TRNG 输出的随机数数量有限，这使得单靠 TRNG 产生的随机数数量不足以满足系统需要。所以大多数时候会将 TRNG 结合 PRNG 一起产生随机数。
 
 The random_device engine is not a software-based generator; it is a special engine that requires a piece of hardware attached to your computer that generates truly non-deterministic random numbers, for example, by using the laws of physics. A classic mechanism measures the decay of a radioactive isotope by counting alpha-particles-per-time-interval, but there are many other kinds of physics-based random-number generators, including measuring the “noise” of reverse-biased diodes (thus eliminat ing the concerns about radioactive sources in your computer). The details of these mechanisms fall outside the scope of this book. If no such device is attached to the computer, random_device is free to use one of the software algorithms. The choice of algorithm is up to the library designer. Luckily, most modern computers have proper support for a true random_device.
 

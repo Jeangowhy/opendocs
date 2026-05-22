@@ -2651,9 +2651,19 @@ A World of Resources to Enrich Your Writing. Designed for Windows NT, 95.
 |• https://winworldpc.com/product/bookshelf/98[1998 (ISO)] |339.56MB
 |• https://winworldpc.com/product/bookshelf/2000[2000 (OEM)] |368.54MB
 |===
-
 ****
+Microsoft Bookshelf（微软书架）是微软公司在 20 世纪 90 年代至 21 世纪初 推出的一款数字参考工具合集软件。它本质上是将多部经典纸质参考书数字化并集成在一个 CD-ROM 光盘中，为用户提供便捷的电子化查阅体验。Microsoft Bookshelf 是数字信息革命早期的一个标志性产品。它代表了在互联网时代全面来临之前，软件公司试图将传统权威知识数字化、集成化、便捷化的努力。后期版本与 Microsoft Office（如Word）深度集成，用户可在编写文档时直接右键调用Bookshelf查询选中的单词或短语，实现“边写边查”。一些版本加入了图片、音频发音等多媒体内容，体验优于纯纸质书。它是一代人的集体记忆，为许多学生、写作者和办公室职员提供了巨大便利，但最终因其固有的局限性（内容有限、更新成本高）而被更开放、更动态的互联网模式所淘汰。此系列软件不定期隔几年发行一袭，例如 1991 这集包含了六本不同类型的书籍：
 
+* 《美国传统英语词典》The American Heritage Dictionary (c) 1986, 1987，Houghton Mifflin Company
+* 《巴特利特常见引语》Bartlett's Familiar Quotations (c) 1937, 1948, 1955, 1965, 1968, 1980，Little, Brown and Co.
+* 《简明哥伦比亚百科全书》Concise Columbia Encyclopedia (c) 1983, 1989，Columbia University Press
+* 《简明哥伦比亚引语词典》Concise Columbia Dictionary of Quotations (c) 1987, 1989, 1990，Columbia University Press
+* 《罗热II电子同义词词典》Roget's II Electronic Thesaurus (c) 1986, 1987，Houghton Mifflin Company
+* 《世界年鉴与事实手册®》The World Almanac and Book of Facts(R) (c) 1990，Newspaper Enterprise Assoc., Inc. and General Information, Inc.
+
+Microsoft Bookshelf 1992 edition 是首个集成多媒体内容的版本，这是其最大卖点。作为早期多媒体CD-ROM，它包含了图片、在 AHD 字典中使用音频发音等，在当时非常先进。Office 集成以提供 Word 等办公软件中的查询支持，可通过右键菜单直接查询选中单词，是其标志性功能。软件需要运行与 Windows 3.1，配备 CD-ROM 驱动器和声卡的系统上。多媒体内容通过 .MVB (Microsoft Multimedia Viewer Book) 文件管理。书籍内容中包含了 Hammond Atlas 1992 哈蒙德新世界地图集，哈蒙德公司是 20 世纪美国著名的地图和地图集出版商。其出版的《哈蒙德新世界地图集》以清晰、详细和相对平价而闻名，是美国家庭和学校常用的参考工具。在地图中的中国部分，还可以看到 Hong Kong 与 Opium Wars 的历史资料。
+
+Hong Kong (hóng'kóng'), Mandarin Hsiang Kang, British crown colony (1988 est. pop. 5,651,193), land area 399 sq mi (1,034 sq km), adjacent to Guangdong prov., SE China, on the estuary of the Pearl R., 40 mi (64 km) E of MACAO and 90 mi (145 km) SE of CANTON. The colony comprises Hong Kong island, ceded by China in 1842; Kowloon peninsula, ceded in 1860; and the New Territories, a mainland area adjoining Kowloon that was leased in 1898 for 99 years along with Deep Bay, Mirs Bay, and some 235 offshore islands. Hong Kong is a free port, a bustling trade center, a shopping and banking hub, and one of the greatest trading and transshipment centers in the Far East. It has also become a leading light industrial manufacturing center, utilizing the abundant cheap labor available. The textile industry is the colony's largest; clothing, plastics, and electronic goods are also produced. Only about one seventh of the land is arable, and food and water must be imported, much of it from China. Hong Kong was a sparsely populated area when it was occupied by the British during the OPIUM WAR (1839-42). As a colony, it prospered as an east-west trading center and as the commercial gateway to and distribution center for S China. Conquered (1941) by the Japanese during WORLD WAR II, it was reoccupied by the British in 1945. Hong Kong is one of the most severely crowded urban areas in the world. Hundreds of thousands of refugees streamed into the city after 1949 and thousands more from Vietnam and S China flooded Hong Kong in the late 1970s, sparking stringent new controls on the Chinese border (1980). For China, Hong Kong remains a major source of foreign exchange and an important commercial link with the West. In 1997 Hong Kong will become a Special Administrative Region of China.
 
 ****
 **_Microsoft Programmers Library 1.3_**
@@ -3110,6 +3120,16 @@ IMPORTANT: This is a very early CD-ROM disk, and as such is not in a
 standard format and will not open in many ISO utilities. Burn it to a 
 CD and DOS or Windows 9x should recognize it.
 
+****
+NOTE: 随着大量时间投入到个人数字图书馆 (https://github.com/Jeangowhy/opendocs[OpenDocs]) 的建设，发现我越来越享受这种“知识编织”的感觉，希望能有自己的小成果，甚至突发奇想要制作一款与图书馆内容相关的游戏。也特地了解一下图书馆学 (library science) 方面的教材。
+
+1. Rubin, R. E. Foundations of Library and Information Science
+2. Chowdhury, G. G. Introduction to Modern Information Retrieval
+3. Cassell, K. A. Reference and Information Services
+4. Evans, G. E. Management Basics for Information Professionals
+5. Taylor, A. G. The Organization of Information
+****
+
 可以从 PCjs 上下载硬盘镜像，并且使用 DOSBox 加载 Windows 3.1/95，因为这些系统都基于 DOS 子系统，可以从 C：\Windows\win.com 程序引导图形界面。注意，部分光盘生产日期较早，还没有完善的格式规范较，比如 MSP10.iso 就无法在 DOSBox 正常加载。使用专用工具打开并释放 ISO 镜像中的文件，再加载到 DOSBox。可以试试 https://github.com/TotalImage/TotalImage/releases[TotalImage] 这个开源工具。注意，PCjs 上所有镜像文件都是以 JSON 数据组织，加载到模拟器后才转换成二进制格式，此时可以下载到本地供 DOSBox 使用。
 
 DOSBox 配置文件参考，可以在 DOSBox 中使用 config -writeconf 命令将当前的配置写入文件。使用 OpenGL 作为图形渲染引擎，配合强制的窗口缩放（scaler=hq3x forced）可以在当前的主流电脑中显示一个正常的 DOS 系统窗口尺寸。
@@ -3297,7 +3317,7 @@ This is a text file.
 
 安装包还提供 msd.exe 这个诊断程序（diagnostics）用于查看当前系统或模拟器所提供的运行环境，包括处理器、内存、外设等等，可以查看当前内存中的驻留程序。注意不能直接在光盘镜像上运行 msl.exe，因为它需要使用磁盘空间做虚拟内存。否则提示：Not enough disk space for virtual memory file。
 
-Setup 安装程序会将 setup.inf 中的书库信息写到安装目录下的 MSL.INI，并且会修改其中的路径指向保存了电子书的目录，默认目录名为 BOOKS。每本书籍包含两个文件：`*.db` 文件保存主要内容，`*.ttr` 文件保存目录和关键词索引信息。安装程序会将 MSL 主程序和文档分类文件一并拷贝到安装目录，默认目录为 MSLIB。每个分类对一个 HLP 格式文件，另外包括 MSL 主程序的帮助文档 MSLIB/MSL.HLP。WSL.INI 记录的每个分类条目信息包括：分类文件名（不含 .HLP 扩展名）、分类标题、文档源文件路径、分类编号（包含版本信息和序号）。
+Setup 安装程序会将 setup.inf 中的书库信息写到安装目录下的 MSL.INI，并且会修改其中的路径指向保存了电子书的目录，默认目录名为 BOOKS。每本书籍包含三个文件：`*.db` 文件保存主要内容，`*.ttr` 文件保存目录和关键词索引信息 (TTR = Title/Table of Contents Resource)，部分书籍还有 `*.qtr` 文件，推测是 Quick Table。安装程序会将 MSL 主程序和文档分类文件一并拷贝到安装目录，默认目录为 MSLIB。每个分类对一个 HLP 格式文件，另外包括 MSL 主程序的帮助文档 MSLIB/MSL.HLP。WSL.INI 记录的每个分类条目信息包括：分类文件名（不含 .HLP 扩展名）、分类标题、文档源文件路径、分类编号（包含版本信息和序号）。
 
 .Microsoft Programmers Library 1.0 (August 1988)] WSL.INI (9 categories)
 [source]
@@ -3335,6 +3355,17 @@ Setup 安装程序会将 setup.inf 中的书库信息写到安装目录下的 MS
 	basic,		BASIC References,	mslib; books, 2019
 	pascal, 	Pascal References,	mslib; books, 2020
 	fortran,	FORTRAN References,	mslib; books, 2021
+----
+
+Winworldpc 网站上下载到的 Microsoft Programmer's Library 1.3 包含了图书库书籍的文本格式，使用 DOS CP437 代码页编码，为了便于在当前流行的 UTF-8 编码环境中使用，可以使用 iconv 工具批量转码：
+
+[source,bash]
+----
+while read -r it
+do
+  iconv -f cp437 -t utf-8 "$it" > tmp.txt
+  mv tmp.txt "$it"
+done <<<$(find MSPL13_Books | grep -E '*.txt$')
 ----
 
 随着版本的递增，内容会叠加更新，网上目前可以找到的最后版本是 Microsoft Programmer's Library 1.3，包含 11 个分类，MSL.EXE 运行是只显示其中一个分类下的参考书，默认就是 MSL.INI 配置中的第一条，也就是 Windows 系统的资料。通过 Options -> Library 菜单来切换分类。浏览内容时，可以通过 F7/F8 在目录标题和内容段落之间跳转。MSL.EXE 本身支持内容交叉引用，可以使用 Alt 配合 P/N 或者左右反向键跳转。
